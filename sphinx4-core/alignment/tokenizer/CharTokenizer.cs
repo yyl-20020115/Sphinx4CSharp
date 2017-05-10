@@ -1,33 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
+using java.util.function;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	[Implements(new string[]
-	{
-		"java.util.Iterator"
-	})]
-	
 	public class CharTokenizer : java.lang.Object, Iterator
 	{
-		[LineNumberTable(new byte[]
-		{
-			25,
-			232,
-			49,
-			107,
-			107,
-			107,
-			235,
-			76
-		})]
-		
 		public CharTokenizer()
 		{
 			this.whitespaceSymbols = " \t\n\r";
@@ -56,15 +37,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.postpunctuationSymbols = symbols;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			88,
-			103,
-			135,
-			104,
-			135
-		})]
-		
 		public virtual void setInputText(string inputString)
 		{
 			this.inputText = inputString;
@@ -74,46 +46,12 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				this.getNextChar();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			102,
-			103,
-			103
-		})]
-		
 		public virtual void setInputReader(Reader reader)
 		{
 			this.reader = reader;
 			this.getNextChar();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			100,
-			136,
-			108,
-			100,
-			137,
-			250,
-			69,
-			226,
-			61,
-			97,
-			103,
-			108,
-			98,
-			104,
-			115,
-			153,
-			167,
-			105,
-			142,
-			106,
-			142
-		})]
-		
+	
 		private int getNextChar()
 		{
 			if (this.reader != null)
@@ -133,14 +71,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_38;
+					this.currentChar = -1;
+					this.errorDescription = Throwable.instancehelper_getMessage(ex);
 				}
-				goto IL_8E;
-				IL_38:
-				IOException ex3 = ex2;
-				this.currentChar = -1;
-				this.errorDescription = Throwable.instancehelper_getMessage(ex3);
 			}
 			else if (this.inputText != null)
 			{
@@ -179,25 +112,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return this.getTokenByCharClass(text, false);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			203,
-			104,
-			129,
-			140,
-			103,
-			132,
-			140,
-			37,
-			136,
-			166,
-			134,
-			180,
-			151,
-			144
-		})]
-		
+	
 		private void removeTokenPostpunctuation()
 		{
 			if (this.token == null)
@@ -222,20 +137,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			69,
-			130,
-			230,
-			72,
-			127,
-			2,
-			145,
-			110,
-			137
-		})]
-		
 		private string getTokenByCharClass(string text, bool flag)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -246,23 +147,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			112,
-			108,
-			171,
-			247,
-			69,
-			183,
-			116,
-			119,
-			137,
-			183,
-			113,
-			209,
-			134
-		})]
 		
 		public virtual Token next()
 		{
@@ -284,19 +168,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.removeTokenPostpunctuation();
 			return this.token;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			32,
-			232,
-			42,
-			107,
-			107,
-			107,
-			235,
-			84,
-			103
-		})]
 		
 		public CharTokenizer(string @string)
 		{
@@ -306,20 +177,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.postpunctuationSymbols = "\"'`.,:;!?(){}[]";
 			this.setInputText(@string);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			41,
-			232,
-			33,
-			107,
-			107,
-			107,
-			235,
-			93,
-			103
-		})]
-		
+	
 		public CharTokenizer(Reader file)
 		{
 			this.whitespaceSymbols = " \t\n\r";
@@ -352,37 +210,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			return this.errorDescription;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			254,
-			108,
-			98,
-			104,
-			172,
-			112,
-			98,
-			107,
-			103,
-			98,
-			110,
-			107,
-			104,
-			98,
-			108,
-			110,
-			114,
-			130,
-			108,
-			135,
-			177,
-			214,
-			37,
-			141,
-			108,
-			162
-		})]
 		
 		public virtual bool isSentenceSeparator()
 		{
@@ -416,16 +243,24 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		
-		
-		public virtual object <bridge>next()
+		object Iterator.next()
 		{
 			return this.next();
 		}
 
-		
-		object Iterator.Object;next()
+		public void remove(Iterator value)
 		{
-			return this.<bridge>next();
+			throw new NotImplementedException();
+		}
+
+		public void forEachRemaining(Consumer action)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void forEachRemaining(Iterator value1, Consumer value2)
+		{
+			throw new NotImplementedException();
 		}
 
 		public const int EOF = -1;

@@ -37,7 +37,7 @@ namespace edu.cmu.sphinx.alignment
 		
 		public int getDatabaseIndex()
 		{
-			return ((Integer)LongTextAligner.Alignment.access$000(this.this$1).get(this.databaseIndex - 1)).intValue();
+			return ((Integer)LongTextAligner.Alignment.access_000(this.this$1).get(this.databaseIndex - 1)).intValue();
 		}
 
 		public bool isBoundary()
@@ -111,7 +111,7 @@ namespace edu.cmu.sphinx.alignment
 		
 		public bool isTarget()
 		{
-			return this.queryIndex == LongTextAligner.Alignment.access$100(this.this$1).size() && this.databaseIndex == LongTextAligner.Alignment.access$000(this.this$1).size();
+			return this.queryIndex == LongTextAligner.Alignment.access$100(this.this$1).size() && this.databaseIndex == LongTextAligner.Alignment.access_000(this.this$1).size();
 		}
 
 		
@@ -135,11 +135,11 @@ namespace edu.cmu.sphinx.alignment
 		public List adjacent()
 		{
 			ArrayList arrayList = new ArrayList(3);
-			if (this.queryIndex < LongTextAligner.Alignment.access$100(this.this$1).size() && this.databaseIndex < LongTextAligner.Alignment.access$000(this.this$1).size())
+			if (this.queryIndex < LongTextAligner.Alignment.access$100(this.this$1).size() && this.databaseIndex < LongTextAligner.Alignment.access_000(this.this$1).size())
 			{
 				arrayList.add(new LongTextAligner$Alignment$Node(this.this$1, this.queryIndex + 1, this.databaseIndex + 1));
 			}
-			if (this.databaseIndex < LongTextAligner.Alignment.access$000(this.this$1).size())
+			if (this.databaseIndex < LongTextAligner.Alignment.access_000(this.this$1).size())
 			{
 				arrayList.add(new LongTextAligner$Alignment$Node(this.this$1, this.queryIndex, this.databaseIndex + 1));
 			}

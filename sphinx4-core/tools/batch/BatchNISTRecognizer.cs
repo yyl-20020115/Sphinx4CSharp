@@ -325,7 +325,7 @@ namespace edu.cmu.sphinx.tools.batch
 		
 		public BatchNISTRecognizer(Recognizer recognizer, List inputDataProcessors, string ctlFile, string dataDir, string refFile, string ctmFile, int bitsPerSample, int samplesPerSecond, int framesPerSecond, int channelCount)
 		{
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.recognizer = recognizer;
 			this.inputDataProcessors = inputDataProcessors;
 			this.dataDir = dataDir;

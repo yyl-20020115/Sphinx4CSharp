@@ -27,7 +27,7 @@ namespace edu.cmu.sphinx.tools.audio
 
 		
 		
-		internal static AudioData access$000(AudioPanel audioPanel)
+		internal static AudioData access_000(AudioPanel audioPanel)
 		{
 			return audioPanel.audio;
 		}

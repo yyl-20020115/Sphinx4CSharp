@@ -646,12 +646,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				string text2 = wordSequence.toString();
 				object obj = "][";
 				object obj2 = " ";
-				object _<ref> = obj;
+				object _ref = obj;
 				CharSequence charSequence;
-				charSequence.__<ref> = _<ref>;
+				charSequence.__ref = _ref;
 				CharSequence charSequence2 = charSequence;
-				_<ref> = obj2;
-				charSequence.__<ref> = _<ref>;
+				_ref = obj2;
+				charSequence.__ref = _ref;
 				printWriter.println(stringBuilder.append(java.lang.String.instancehelper_replace(text2, charSequence2, charSequence)).append(" : ").append(Float.toString(@float.floatValue())).toString());
 			}
 			return @float.floatValue();
@@ -995,7 +995,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		
 		public LargeNGramModel(string format, URL location, string ngramLogFile, int maxNGramCacheSize, bool clearCacheAfterUtterance, int maxDepth, Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight, bool fullSmear)
 		{
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.format = format;
 			this.location = location;
 			this.ngramLogFile = ngramLogFile;

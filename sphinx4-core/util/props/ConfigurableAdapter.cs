@@ -22,7 +22,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		public virtual string getName()
 		{
-			return (this.name == null) ? Object.instancehelper_getClass(this).getSimpleName() : this.name;
+			return (this.name == null) ? java.lang.Object.instancehelper_getClass(this).getSimpleName() : this.name;
 		}
 
 		[LineNumberTable(new byte[]
@@ -46,7 +46,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		protected internal virtual void initLogger()
 		{
-			this.name = Object.instancehelper_getClass(this).getSimpleName();
+			this.name = java.lang.Object.instancehelper_getClass(this).getSimpleName();
 			this.init(this.name, Logger.getLogger(this.name));
 		}
 

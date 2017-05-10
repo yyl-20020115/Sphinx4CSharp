@@ -18,7 +18,7 @@ namespace edu.cmu.sphinx.frontend.util
 	{
 		
 		
-		internal static string access$000(ConcatFileDataSource concatFileDataSource)
+		internal static string access_000(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.silenceFileName;
 		}
@@ -429,7 +429,7 @@ namespace edu.cmu.sphinx.frontend.util
 				string result = null;
 				if (ConcatFileDataSource.access$100(this.this$0) > 0)
 				{
-					result = ConcatFileDataSource.access$000(this.this$0);
+					result = ConcatFileDataSource.access_000(this.this$0);
 					if (ConcatFileDataSource.access$300(this.this$0) != null)
 					{
 						this.writeSilenceToTranscript();
@@ -486,7 +486,7 @@ namespace edu.cmu.sphinx.frontend.util
 							{
 								this.reader.readLine();
 							}
-							if (ConcatFileDataSource.access$000(this.this$0) != null && ConcatFileDataSource.access$600(this.this$0) > 0)
+							if (ConcatFileDataSource.access_000(this.this$0) != null && ConcatFileDataSource.access$600(this.this$0) > 0)
 							{
 								ConcatFileDataSource.access$102(this.this$0, this.getSilenceCount());
 								this.inSilence = true;
@@ -694,7 +694,7 @@ namespace edu.cmu.sphinx.frontend.util
 			{
 				this.totalFiles = num2;
 				this.reader = new BufferedReader(new FileReader(text));
-				if (ConcatFileDataSource.access$000(concatFileDataSource) != null)
+				if (ConcatFileDataSource.access_000(concatFileDataSource) != null)
 				{
 					this.inSilence = true;
 					Random.__<clinit>();

@@ -249,7 +249,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		protected internal virtual void addStartingPath(GrammarNode initialNode)
 		{
 			FlatLinguist.GState gstate = this.getGState(initialNode);
-			FlatLinguist.GState.access$000(gstate, UnitContext.SILENCE);
+			FlatLinguist.GState.access_000(gstate, UnitContext.SILENCE);
 		}
 
 		public virtual SearchGraph getSearchGraph()
@@ -982,7 +982,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			
 			
 			
-			internal static void access$000(FlatLinguist.GState gstate, UnitContext unitContext)
+			internal static void access_000(FlatLinguist.GState gstate, UnitContext unitContext)
 			{
 				gstate.addLeftContext(unitContext);
 			}

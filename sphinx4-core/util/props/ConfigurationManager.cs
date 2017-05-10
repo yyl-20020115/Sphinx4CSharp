@@ -710,7 +710,7 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new IllegalArgumentException(text);
 			}
-			RawPropertyData rawPropertyData = new RawPropertyData(name, Object.instancehelper_getClass(configurable).getName());
+			RawPropertyData rawPropertyData = new RawPropertyData(name, java.lang.Object.instancehelper_getClass(configurable).getName());
 			PropertySheet propertySheet = new PropertySheet(configurable, name, rawPropertyData, this);
 			this.symbolTable.put(name, propertySheet);
 			this.rawPropertyMap.put(name, rawPropertyData);
@@ -987,10 +987,10 @@ namespace edu.cmu.sphinx.util.props
 		}
 
 		
-		public static implicit operator Cloneable(ConfigurationManager _<ref>)
+		public static implicit operator Cloneable(ConfigurationManager _ref)
 		{
 			Cloneable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

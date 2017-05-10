@@ -11,7 +11,7 @@ namespace edu.cmu.sphinx.linguist.flat
 	{
 		
 		
-		internal static float access$000(CIPhoneLoop ciphoneLoop)
+		internal static float access_000(CIPhoneLoop ciphoneLoop)
 		{
 			return ciphoneLoop.logPhoneInsertionProbability;
 		}
@@ -219,7 +219,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				{
 					UnitState.__<clinit>();
 					UnitState unitState = new UnitState((Unit)contextIndependentUnitIterator.next(), HMMPosition.__UNDEFINED);
-					this.attachState(branchOutState, unitState, 0f, CIPhoneLoop.access$000(this$0));
+					this.attachState(branchOutState, unitState, 0f, CIPhoneLoop.access_000(this$0));
 					HMM hmm = this$0.__model.lookupNearestHMM(unitState.getUnit(), unitState.getPosition(), false);
 					HMMState initialState = hmm.getInitialState();
 					HMMStateState hmmstateState = new HMMStateState(unitState, initialState);

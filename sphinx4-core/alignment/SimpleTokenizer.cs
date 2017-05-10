@@ -55,12 +55,12 @@ namespace edu.cmu.sphinx.alignment
 			string text2 = text;
 			object obj = " - ";
 			object obj2 = " ";
-			object _<ref> = obj;
+			object _ref = obj;
 			CharSequence charSequence;
-			charSequence.__<ref> = _<ref>;
+			charSequence.__ref = _ref;
 			CharSequence charSequence2 = charSequence;
-			_<ref> = obj2;
-			charSequence.__<ref> = _<ref>;
+			_ref = obj2;
+			charSequence.__ref = _ref;
 			text = java.lang.String.instancehelper_replace(text2, charSequence2, charSequence);
 			text = java.lang.String.instancehelper_replaceAll(text, "[/_*%]", " ");
 			text = java.lang.String.instancehelper_toLowerCase(text);

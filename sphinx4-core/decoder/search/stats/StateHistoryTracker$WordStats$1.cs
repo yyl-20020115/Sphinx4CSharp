@@ -27,11 +27,11 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		
 		public int compare(StateHistoryTracker.WordStats wordStats, StateHistoryTracker.WordStats wordStats2)
 		{
-			if (StateHistoryTracker.WordStats.access$000(wordStats) > StateHistoryTracker.WordStats.access$000(wordStats2))
+			if (StateHistoryTracker.WordStats.access_000(wordStats) > StateHistoryTracker.WordStats.access_000(wordStats2))
 			{
 				return -1;
 			}
-			if (StateHistoryTracker.WordStats.access$000(wordStats) == StateHistoryTracker.WordStats.access$000(wordStats2))
+			if (StateHistoryTracker.WordStats.access_000(wordStats) == StateHistoryTracker.WordStats.access_000(wordStats2))
 			{
 				return 0;
 			}
@@ -55,7 +55,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		
 		bool Comparator.Object;)Zequals(object obj)
 		{
-			return Object.instancehelper_equals(this, obj);
+			return java.lang.Object.instancehelper_equals(this, obj);
 		}
 	}
 }

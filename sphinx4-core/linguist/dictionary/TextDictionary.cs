@@ -38,7 +38,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		public TextDictionary(URL wordDictionaryFile, URL fillerDictionaryFile, List addendaUrlList, string wordReplacement, UnitManager unitManager)
 		{
 			this.g2pMaxPron = 0;
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.wordDictionaryFile = wordDictionaryFile;
 			this.fillerDictionaryFile = fillerDictionaryFile;
 			this.addendaUrlList = addendaUrlList;

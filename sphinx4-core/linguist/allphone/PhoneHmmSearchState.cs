@@ -124,7 +124,7 @@ namespace edu.cmu.sphinx.linguist.allphone
 		
 		public virtual string toPrettyString()
 		{
-			return new StringBuilder().append("HMM ").append(Object.instancehelper_toString(this.state)).toString();
+			return new StringBuilder().append("HMM ").append(java.lang.Object.instancehelper_toString(this.state)).toString();
 		}
 
 		public virtual string getSignature()

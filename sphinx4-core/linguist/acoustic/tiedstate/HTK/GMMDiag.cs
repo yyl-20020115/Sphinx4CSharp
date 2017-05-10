@@ -705,8 +705,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						break;
 					}
 					string text2 = text;
-					object _<ref> = "<MEAN>";
-					charSequence.__<ref> = _<ref>;
+					object _ref = "<MEAN>";
+					charSequence.__ref = _ref;
 					if (java.lang.String.instancehelper_contains(text2, charSequence))
 					{
 						this.ngauss++;
@@ -730,8 +730,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						break;
 					}
 					string text3 = text;
-					object _<ref> = "<MEAN>";
-					charSequence.__<ref> = _<ref>;
+					object _ref = "<MEAN>";
+					charSequence.__ref = _ref;
 					if (java.lang.String.instancehelper_contains(text3, charSequence))
 					{
 						text = bufferedReader.readLine();
@@ -745,8 +745,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						}
 						text = bufferedReader.readLine();
 						string text5 = text;
-						_<ref> = "<VARIANCE>";
-						charSequence.__<ref> = _<ref>;
+						_ref = "<VARIANCE>";
+						charSequence.__ref = _ref;
 						if (!java.lang.String.instancehelper_contains(text5, charSequence))
 						{
 							goto Block_8;

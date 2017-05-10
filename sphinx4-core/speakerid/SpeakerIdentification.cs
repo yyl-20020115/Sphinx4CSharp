@@ -502,7 +502,7 @@ namespace edu.cmu.sphinx.speakerid
 		public SpeakerIdentification()
 		{
 			this.__FRONTEND_NAME = "plpFrontEnd";
-			URL resource = Object.instancehelper_getClass(this).getResource("frontend.config.xml");
+			URL resource = java.lang.Object.instancehelper_getClass(this).getResource("frontend.config.xml");
 			this.cm = new ConfigurationManager(resource);
 			this.audioSource = (StreamDataSource)this.cm.lookup("streamDataSource");
 			this.frontEnd = (FrontEnd)this.cm.lookup("plpFrontEnd");

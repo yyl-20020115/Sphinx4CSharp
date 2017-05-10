@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 using java.util;
 using java.util.logging;
@@ -10,34 +7,11 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 {
 	public class PathExtractor : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
 		public override string toString()
 		{
 			return this.pathAndFeature;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			108,
-			103,
-			173,
-			104,
-			98,
-			99,
-			113,
-			191,
-			36,
-			178,
-			108,
-			113,
-			159,
-			15
-		})]
-		
+	
 		public virtual object findFeature(Item item)
 		{
 			if (PathExtractor.INTERPRET_PATHS)
@@ -61,30 +35,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return obj;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			125,
-			130,
-			104,
-			103,
-			103,
-			103,
-			161,
-			99,
-			172,
-			100,
-			103,
-			137,
-			111,
-			142,
-			98,
-			167,
-			103,
-			146
-		})]
-		
+	
 		public PathExtractor(string pathAndFeature, bool wantFeature)
 		{
 			this.pathAndFeature = pathAndFeature;
@@ -116,27 +67,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				this.compiledPath = this.compile(this.path);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			73,
-			99,
-			167,
-			102,
-			140,
-			104,
-			103,
-			103,
-			99,
-			191,
-			6,
-			136,
-			104,
-			141,
-			101
-		})]
-		
+	
 		private object[] compile(string text)
 		{
 			if (text == null)
@@ -163,45 +94,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return arrayList.toArray();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			55,
-			103,
-			173,
-			104,
-			178,
-			130,
-			117,
-			114,
-			104,
-			108,
-			104,
-			108,
-			104,
-			103,
-			102,
-			140,
-			104,
-			103,
-			102,
-			140,
-			104,
-			108,
-			104,
-			108,
-			104,
-			108,
-			104,
-			114,
-			97,
-			102,
-			102,
-			98,
-			191,
-			26,
-			101
-		})]
 		
 		public virtual Item findItem(Item item)
 		{
@@ -273,23 +165,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return item2;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			101,
-			239,
-			79,
-			116,
-			106,
-			116,
-			42
-		})]
-		static PathExtractor()
-		{
-		}
-
-		
 		private static Logger LOGGER = Logger.getLogger(ClassLiteral<PathExtractor>.Value.getName());
 
 		public const string INTERPRET_PATHS_PROPERTY = "com.sun.speech.freetts.interpretCartPaths";
@@ -297,10 +172,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		public const string LAZY_COMPILE_PROPERTY = "com.sun.speech.freetts.lazyCartCompile";
 
 		
-		private static bool INTERPRET_PATHS = java.lang.String.instancehelper_equals(System.getProperty("com.sun.speech.freetts.interpretCartPaths", "false"), "true");
+		private static bool INTERPRET_PATHS = java.lang.String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.interpretCartPaths", "false"), "true");
 
 		
-		private static bool LAZY_COMPILE = java.lang.String.instancehelper_equals(System.getProperty("com.sun.speech.freetts.lazyCartCompile", "true"), "true");
+		private static bool LAZY_COMPILE = java.lang.String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.lazyCartCompile", "true"), "true");
 
 		private string pathAndFeature;
 

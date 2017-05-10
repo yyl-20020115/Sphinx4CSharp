@@ -33,7 +33,7 @@ namespace edu.cmu.sphinx.frontend.util
 		
 		public void update(LineEvent lineEvent)
 		{
-			Microphone.access$000(this.this$0).info(new StringBuilder().append("line listener ").append(lineEvent).toString());
+			Microphone.access_000(this.this$0).info(new StringBuilder().append("line listener ").append(lineEvent).toString());
 		}
 
 		

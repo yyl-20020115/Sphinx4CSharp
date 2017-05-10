@@ -42,7 +42,7 @@ namespace edu.cmu.sphinx.trainer
 		
 		public virtual void setUtterance(Utterance utterance)
 		{
-			string text = Object.instancehelper_toString(utterance);
+			string text = java.lang.Object.instancehelper_toString(utterance);
 			FileInputStream @is = new FileInputStream(text);
 			this.dataSource.setInputStream(@is, false);
 		}

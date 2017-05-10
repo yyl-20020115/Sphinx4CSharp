@@ -22,7 +22,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 		
 		
-		internal static Set access$000(HMMTree hmmtree)
+		internal static Set access_000(HMMTree hmmtree)
 		{
 			return hmmtree.exitPoints;
 		}
@@ -846,7 +846,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				HashMap hashMap = new HashMap();
 				HashMap hashMap2 = new HashMap();
-				Iterator iterator = HMMTree.access$000(this.this$0).iterator();
+				Iterator iterator = HMMTree.access_000(this.this$0).iterator();
 				while (iterator.hasNext())
 				{
 					Unit unit = (Unit)iterator.next();

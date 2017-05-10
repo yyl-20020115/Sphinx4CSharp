@@ -57,7 +57,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 
 		
 		
-		internal static OutOfGrammarGraph.FirstBranchState access$000(OutOfGrammarGraph outOfGrammarGraph)
+		internal static OutOfGrammarGraph.FirstBranchState access_000(OutOfGrammarGraph outOfGrammarGraph)
 		{
 			return outOfGrammarGraph.fbs;
 		}
@@ -227,7 +227,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			internal LastBranchState(OutOfGrammarGraph outOfGrammarGraph) : base(outOfGrammarGraph)
 			{
 				this.successors = new SearchStateArc[2];
-				this.successors[0] = OutOfGrammarGraph.access$000(outOfGrammarGraph);
+				this.successors[0] = OutOfGrammarGraph.access_000(outOfGrammarGraph);
 				this.successors[1] = new OutOfGrammarGraph.FinalState(outOfGrammarGraph);
 			}
 
@@ -368,7 +368,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override int hashCode()
 			{
-				return 191 + Object.instancehelper_hashCode(this.hmmState);
+				return 191 + java.lang.Object.instancehelper_hashCode(this.hmmState);
 			}
 
 			[LineNumberTable(new byte[]
@@ -558,7 +558,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			internal UnknownWordState(OutOfGrammarGraph outOfGrammarGraph) : base(outOfGrammarGraph)
 			{
 				this.successors = new SearchStateArc[1];
-				this.successors[0] = OutOfGrammarGraph.access$000(outOfGrammarGraph);
+				this.successors[0] = OutOfGrammarGraph.access_000(outOfGrammarGraph);
 			}
 
 			

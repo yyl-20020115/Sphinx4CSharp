@@ -1,6 +1,4 @@
 ﻿using System;
-
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -13,33 +11,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 {
 	public class DecisionTree : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			76,
-			232,
-			50,
-			231,
-			69,
-			231,
-			77,
-			113,
-			103,
-			99,
-			109,
-			135,
-			137,
-			102
-		})]
-		
 		public DecisionTree(URL url)
 		{
 			this.cart = null;
@@ -54,18 +25,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			bufferedReader.close();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			195,
-			162,
-			111,
-			110,
-			138,
-			127,
-			17
-		})]
 		
 		public virtual object interpret(Item item)
 		{
@@ -80,27 +39,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		}
 
 		
-		internal static Logger access$000()
+		internal static Logger access_000()
 		{
 			return DecisionTree.logger;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			111,
-			108,
-			103,
-			122,
-			123,
-			115,
-			112,
-			109,
-			118,
-			137,
-			159,
-			6
-		})]
 		
 		protected internal virtual void parseAndAdd(string line)
 		{
@@ -124,19 +66,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				this.curNode = 0;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			115,
-			232,
-			11,
-			231,
-			69,
-			231,
-			113,
-			108
-		})]
-		
+	
 		private DecisionTree(int num)
 		{
 			this.cart = null;
@@ -144,14 +74,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.cart = new DecisionTree.Node[num];
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			94,
-			104,
-			134
-		})]
-		protected internal virtual string dumpDotNodeColor(DecisionTree.Node n)
+		private  string dumpDotNodeColor(DecisionTree.Node n)
 		{
 			if (n is DecisionTree.LeafNode)
 			{
@@ -160,26 +83,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return "red";
 		}
 
-		protected internal virtual string dumpDotNodeShape(DecisionTree.Node n)
+		private string dumpDotNodeShape(DecisionTree.Node n)
 		{
 			return "box";
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			136,
-			109,
-			103,
-			103,
-			109,
-			108,
-			109,
-			177,
-			173,
-			109,
-			178
-		})]
 		
 		protected internal virtual DecisionTree.Node getNode(string type, StringTokenizer tokenizer, int currentNode)
 		{
@@ -191,7 +98,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				int num = Integer.parseInt(tokenizer.nextToken());
 				if (java.lang.String.instancehelper_equals(text2, "MATCHES"))
 				{
-					return new DecisionTree.MatchingNode(text, Object.instancehelper_toString(obj), currentNode + 1, num);
+					return new DecisionTree.MatchingNode(text, java.lang.Object.instancehelper_toString(obj), currentNode + 1, num);
 				}
 				return new DecisionTree.ComparisonNode(text, obj, text2, currentNode + 1, num);
 			}
@@ -204,30 +111,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				return null;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			163,
-			108,
-			105,
-			114,
-			109,
-			98,
-			109,
-			113,
-			109,
-			113,
-			109,
-			108,
-			136,
-			105,
-			105,
-			109,
-			12,
-			200,
-			131
-		})]
 		
 		protected internal virtual object parseValue(string @string)
 		{
@@ -240,12 +123,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			if (java.lang.String.instancehelper_equals(text, "Float"))
 			{
-				Float.__<clinit>();
 				return new Float(Float.parseFloat(text2));
 			}
 			if (java.lang.String.instancehelper_equals(text, "Integer"))
 			{
-				Integer.__<clinit>();
 				return new Integer(Integer.parseInt(text2));
 			}
 			if (java.lang.String.instancehelper_equals(text, "List"))
@@ -264,23 +145,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			
 			throw new Error(text3);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			100,
-			137,
-			102,
-			103,
-			109,
-			231,
-			61,
-			230,
-			70
-		})]
 		
 		public DecisionTree(BufferedReader reader, int nodes) : this(nodes)
 		{
@@ -292,42 +156,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					this.parseAndAdd(text);
 				}
 			}
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			67,
-			107,
-			139,
-			119,
-			127,
-			7,
-			127,
-			13,
-			25,
-			165,
-			107,
-			104,
-			127,
-			1,
-			127,
-			20,
-			57,
-			197,
-			127,
-			1,
-			127,
-			20,
-			57,
-			229,
-			52,
-			233,
-			83,
-			107,
-			102
-		})]
-		
+		}		
 		public virtual void dumpDot(PrintWriter @out)
 		{
 			@out.write("digraph \"CART Tree\" {\n");
@@ -337,17 +166,17 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			for (int i = 0; i < num; i++)
 			{
 				DecisionTree.Node node = array[i];
-				@out.println(new StringBuilder().append("\t\"node").append(Object.instancehelper_hashCode(node)).append("\" [ label=\"").append(Object.instancehelper_toString(node)).append("\", color=").append(this.dumpDotNodeColor(node)).append(", shape=").append(this.dumpDotNodeShape(node)).append(" ]\n").toString());
+				@out.println(new StringBuilder().append("\t\"node").append(java.lang.Object.instancehelper_hashCode(node)).append("\" [ label=\"").append(java.lang.Object.instancehelper_toString(node)).append("\", color=").append(this.dumpDotNodeColor(node)).append(", shape=").append(this.dumpDotNodeShape(node)).append(" ]\n").toString());
 				if (node is DecisionTree.DecisionNode)
 				{
 					DecisionTree.DecisionNode decisionNode = (DecisionTree.DecisionNode)node;
 					if (decisionNode.qtrue < this.cart.Length && this.cart[decisionNode.qtrue] != null)
 					{
-						@out.write(new StringBuilder().append("\t\"node").append(Object.instancehelper_hashCode(node)).append("\" -> \"node").append(Object.instancehelper_hashCode(this.cart[decisionNode.qtrue])).append("\" [ label=TRUE ]\n").toString());
+						@out.write(new StringBuilder().append("\t\"node").append(java.lang.Object.instancehelper_hashCode(node)).append("\" -> \"node").append(java.lang.Object.instancehelper_hashCode(this.cart[decisionNode.qtrue])).append("\" [ label=TRUE ]\n").toString());
 					}
 					if (decisionNode.qfalse < this.cart.Length && this.cart[decisionNode.qfalse] != null)
 					{
-						@out.write(new StringBuilder().append("\t\"node").append(Object.instancehelper_hashCode(node)).append("\" -> \"node").append(Object.instancehelper_hashCode(this.cart[decisionNode.qfalse])).append("\" [ label=FALSE ]\n").toString());
+						@out.write(new StringBuilder().append("\t\"node").append(java.lang.Object.instancehelper_hashCode(node)).append("\" -> \"node").append(java.lang.Object.instancehelper_hashCode(this.cart[decisionNode.qfalse])).append("\" [ label=FALSE ]\n").toString());
 					}
 				}
 			}
@@ -361,43 +190,36 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		}
 
 		
-		[NameSig("dumpDotNodeColor", "(Ledu.cmu.sphinx.alignment.tokenizer.DecisionTree$Node;)Ljava.lang.java.lang.String;")]
 		protected internal string dumpDotNodeColor(object obj)
 		{
 			return this.dumpDotNodeColor((DecisionTree.Node)obj);
 		}
 
-		
-		[NameSig("dumpDotNodeColor", "(Ledu.cmu.sphinx.alignment.tokenizer.DecisionTree$Node;)Ljava.lang.java.lang.String;")]
-		protected internal string <nonvirtual>0(object obj)
+		protected internal string _0(object obj)
 		{
 			return this.dumpDotNodeColor((DecisionTree.Node)obj);
 		}
 
 		
-		[NameSig("dumpDotNodeShape", "(Ledu.cmu.sphinx.alignment.tokenizer.DecisionTree$Node;)Ljava.lang.java.lang.String;")]
 		protected internal string dumpDotNodeShape(object obj)
 		{
 			return this.dumpDotNodeShape((DecisionTree.Node)obj);
 		}
 
 		
-		[NameSig("dumpDotNodeShape", "(Ledu.cmu.sphinx.alignment.tokenizer.DecisionTree$Node;)Ljava.lang.java.lang.String;")]
-		protected internal string <nonvirtual>1(object obj)
+		protected internal string _1(object obj)
 		{
 			return this.dumpDotNodeShape((DecisionTree.Node)obj);
 		}
 
 		
-		[NameSig("getNode", "(Ljava.lang.java.lang.String;Ljava.util.StringTokenizer;I)Ledu.cmu.sphinx.alignment.tokenizer.DecisionTree$Node;")]
 		protected internal object getNode(string type, StringTokenizer tokenizer, int currentNode)
 		{
 			return this.getNode(type, tokenizer, currentNode);
 		}
 
 		
-		[NameSig("getNode", "(Ljava.lang.java.lang.String;Ljava.util.StringTokenizer;I)Ledu.cmu.sphinx.alignment.tokenizer.DecisionTree$Node;")]
-		protected internal object <nonvirtual>2(string type, StringTokenizer tokenizer, int currentNode)
+		protected internal object _2(string type, StringTokenizer tokenizer, int currentNode)
 		{
 			return this.getNode(type, tokenizer, currentNode);
 		}
@@ -418,40 +240,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		[NonSerialized]
 		internal int curNode;
 
-		
-		[SourceFile("DecisionTree.java")]
-		
+				
 		internal sealed class ComparisonNode : DecisionTree.DecisionNode
-		{
-			[LineNumberTable(new byte[]
-			{
-				159,
-				10,
-				162,
-				127,
-				43,
-				63,
-				30
-			})]
-			
+		{			
 			private string trace(object obj, bool flag, int num)
 			{
 				return new StringBuilder().append("NODE ").append(this.getFeature()).append(" [").append(obj).append("] ").append(this.comparisonType).append(" [").append(this.getValue()).append("] ").append((!flag) ? "No" : "Yes").append(" next ").append(num).toString();
-			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				104,
-				110,
-				115,
-				109,
-				103,
-				159,
-				6,
-				135
-			})]
-			
+			}			
 			public ComparisonNode(string text, object obj, string text2, int num, int num2) : base(text, obj, num, num2)
 			{
 				if (!java.lang.String.instancehelper_equals(text2, "<") && !java.lang.String.instancehelper_equals(text2, "=") && !java.lang.String.instancehelper_equals(text2, ">"))
@@ -462,32 +257,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				this.comparisonType = text2;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				124,
-				162,
-				125,
-				170,
-				109,
-				147,
-				145,
-				104,
-				142,
-				140,
-				114,
-				135,
-				133,
-				98,
-				103,
-				109,
-				137,
-				99,
-				138,
-				136,
-				116
-			})]
 			
 			public override int getNextNode(object obj)
 			{
@@ -501,7 +270,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					}
 					else
 					{
-						num = Float.parseFloat(Object.instancehelper_toString(this.value));
+						num = Float.parseFloat(java.lang.Object.instancehelper_toString(this.value));
 					}
 					float num2;
 					if (obj is Float)
@@ -510,7 +279,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					}
 					else
 					{
-						num2 = Float.parseFloat(Object.instancehelper_toString(obj));
+						num2 = Float.parseFloat(java.lang.Object.instancehelper_toString(obj));
 					}
 					if (java.lang.String.instancehelper_equals(this.comparisonType, "<"))
 					{
@@ -523,8 +292,8 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				else
 				{
-					string text = Object.instancehelper_toString(obj);
-					string text2 = Object.instancehelper_toString(this.value);
+					string text = java.lang.Object.instancehelper_toString(obj);
+					string text2 = java.lang.Object.instancehelper_toString(this.value);
 					num3 = (java.lang.String.instancehelper_equals(text, text2) ? 1 : 0);
 				}
 				int num4;
@@ -536,20 +305,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				{
 					num4 = this.qfalse;
 				}
-				DecisionTree.access$000().fine(this.trace(obj, num3 != 0, num4));
+				DecisionTree.access_000().fine(this.trace(obj, num3 != 0, num4));
 				return num4;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				170,
-				127,
-				27,
-				127,
-				21,
-				15
-			})]
 			
 			public override string toString()
 			{
@@ -565,18 +323,14 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			internal string comparisonType;
 		}
 
-		
-		[SourceFile("DecisionTree.java")]
 		internal abstract class DecisionNode : DecisionTree.Node
 		{
-			
-			
 			public virtual object findFeature(Item item)
 			{
 				return this.path.findFeature(item);
 			}
 
-			public abstract int getNextNode(object);
+			public abstract int getNextNode(object o);
 
 			
 			
@@ -591,16 +345,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			{
 				return this.getNextNode(this.findFeature(item));
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				56,
-				105,
-				109,
-				103,
-				104
-			})]
 			
 			public DecisionNode(string pathAndFeature, object obj, int num, int num2) : base(obj)
 			{
@@ -616,43 +360,21 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			protected internal int qtrue;
 		}
 
-		
-		[SourceFile("DecisionTree.java")]
-		
+	
 		internal sealed class LeafNode : DecisionTree.Node
-		{
-			[LineNumberTable(new byte[]
-			{
-				161,
-				228,
-				103
-			})]
-			
+		{			
 			public LeafNode(object obj) : base(obj)
 			{
 			}
-
-			
 			
 			public override string toString()
 			{
 				return new StringBuilder().append("LEAF ").append(this.getValueString()).toString();
 			}
 		}
-
-		
-		[SourceFile("DecisionTree.java")]
-		
+	
 		internal sealed class MatchingNode : DecisionTree.DecisionNode
-		{
-			[LineNumberTable(new byte[]
-			{
-				161,
-				191,
-				109,
-				108
-			})]
-			
+		{			
 			public MatchingNode(string text, string text2, int num, int num2) : base(text, text2, num, num2)
 			{
 				this.pattern = Pattern.compile(text2);
@@ -663,29 +385,15 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			public override int getNextNode(object obj)
 			{
 				Pattern pattern = this.pattern;
-				object _<ref> = (string)obj;
-				CharSequence charSequence;
-				charSequence.__<ref> = _<ref>;
+				object _ref = (string)obj;
+				CharSequence charSequence = new CharSequence();
+				charSequence.__ref = _ref;
 				return (!pattern.matcher(charSequence).matches()) ? this.qfalse : this.qtrue;
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				161,
-				208,
-				117,
-				159,
-				10,
-				127,
-				7,
-				127,
-				12,
-				114
-			})]
-			
+		
 			public override string toString()
 			{
-				StringBuffer.__<clinit>();
 				StringBuffer stringBuffer = new StringBuffer(new StringBuilder().append("NODE ").append(this.getFeature()).append(" ").append("MATCHES").toString());
 				stringBuffer.append(new StringBuilder().append(this.getValueString()).append(" ").toString());
 				stringBuffer.append(new StringBuilder().append(Integer.toString(this.qtrue)).append(" ").toString());
@@ -696,18 +404,8 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			internal Pattern pattern;
 		}
 
-		
-		[SourceFile("DecisionTree.java")]
 		internal abstract class Node : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				160,
-				218,
-				104,
-				103
-			})]
-			
+		{			
 			public Node(object obj)
 			{
 				this.value = obj;
@@ -717,23 +415,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			{
 				return this.value;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				160,
-				233,
-				104,
-				102,
-				109,
-				127,
-				16,
-				109,
-				127,
-				16,
-				109,
-				159,
-				16
-			})]
 			
 			public virtual string getValueString()
 			{
@@ -743,17 +424,17 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				if (this.value is string)
 				{
-					return new StringBuilder().append("java.lang.String(").append(Object.instancehelper_toString(this.value)).append(")").toString();
+					return new StringBuilder().append("java.lang.String(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
 				}
 				if (this.value is Float)
 				{
-					return new StringBuilder().append("Float(").append(Object.instancehelper_toString(this.value)).append(")").toString();
+					return new StringBuilder().append("Float(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
 				}
 				if (this.value is Integer)
 				{
-					return new StringBuilder().append("Integer(").append(Object.instancehelper_toString(this.value)).append(")").toString();
+					return new StringBuilder().append("Integer(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
 				}
-				return new StringBuilder().append(Object.instancehelper_getClass(this.value).toString()).append("(").append(Object.instancehelper_toString(this.value)).append(")").toString();
+				return new StringBuilder().append(java.lang.Object.instancehelper_getClass(this.value).toString()).append("(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
 			}
 
 			public virtual void setCreationLine(string text)

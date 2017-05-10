@@ -337,8 +337,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			if (!java.lang.String.instancehelper_equals(text2, "Darpa Trigram LM") && !java.lang.String.instancehelper_equals(text2, "Darpa Quadrigram LM"))
 			{
 				string text3 = "Darpa \\d-gram LM";
-				object _<ref> = text2;
-				charSequence.__<ref> = _<ref>;
+				object _ref = text2;
+				charSequence.__ref = _ref;
 				if (!Pattern.matches(text3, charSequence))
 				{
 					string text4 = new StringBuilder().append("Bad binary LM file header: ").append(text2).toString();
@@ -358,8 +358,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			{
 				Pattern pattern = Pattern.compile("\\d");
 				Pattern pattern2 = pattern;
-				object _<ref> = text2;
-				charSequence.__<ref> = _<ref>;
+				object _ref = text2;
+				charSequence.__ref = _ref;
 				Matcher matcher = pattern2.matcher(charSequence);
 				this.maxNGram = Integer.parseInt(matcher.group());
 			}
@@ -1026,7 +1026,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 
 		
 		[NameSig("getUnigrams", "()[Ledu.cmu.sphinx.linguist.language.ngram.large.UnigramProbability;")]
-		protected internal object <nonvirtual>0()
+		protected internal object _0()
 		{
 			return this.getUnigrams();
 		}

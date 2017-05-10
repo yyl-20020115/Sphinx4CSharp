@@ -26,7 +26,7 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static URL access$000(ConcatAudioFileDataSource concatAudioFileDataSource)
+		internal static URL access_000(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.nextFile;
 		}
@@ -381,7 +381,7 @@ namespace edu.cmu.sphinx.frontend.util
 				{
 					ConcatAudioFileDataSource.access$002(this.this$0, this.readNext());
 				}
-				if (ConcatAudioFileDataSource.access$000(this.this$0) != null)
+				if (ConcatAudioFileDataSource.access_000(this.this$0) != null)
 				{
 					IOException ex2;
 					UnsupportedAudioFileException ex4;
@@ -389,7 +389,7 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						try
 						{
-							AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(ConcatAudioFileDataSource.access$000(this.this$0));
+							AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(ConcatAudioFileDataSource.access_000(this.this$0));
 							AudioFormat format = audioInputStream.getFormat();
 							if (!ConcatAudioFileDataSource.access$100(this.this$0))
 							{
@@ -413,9 +413,9 @@ namespace edu.cmu.sphinx.frontend.util
 								AudioFileProcessListener audioFileProcessListener = (AudioFileProcessListener)iterator.next();
 								AudioFileProcessListener audioFileProcessListener2 = audioFileProcessListener;
 								File.__<clinit>();
-								audioFileProcessListener2.audioFileProcStarted(new File(ConcatAudioFileDataSource.access$000(this.this$0).getFile()));
+								audioFileProcessListener2.audioFileProcStarted(new File(ConcatAudioFileDataSource.access_000(this.this$0).getFile()));
 							}
-							this.lastFile = ConcatAudioFileDataSource.access$000(this.this$0);
+							this.lastFile = ConcatAudioFileDataSource.access_000(this.this$0);
 							ConcatAudioFileDataSource.access$002(this.this$0, null);
 						}
 						catch (IOException ex)
@@ -433,7 +433,7 @@ namespace edu.cmu.sphinx.frontend.util
 					IL_1B1:
 					IOException ex5 = ex2;
 					Throwable.instancehelper_printStackTrace(ex5);
-					string text2 = new StringBuilder().append("Cannot convert ").append(ConcatAudioFileDataSource.access$000(this.this$0)).append(" to a FileInputStream").toString();
+					string text2 = new StringBuilder().append("Cannot convert ").append(ConcatAudioFileDataSource.access_000(this.this$0)).append(" to a FileInputStream").toString();
 					
 					throw new Error(text2);
 					IL_1B5:
@@ -469,11 +469,11 @@ namespace edu.cmu.sphinx.frontend.util
 			
 			public bool hasMoreElements()
 			{
-				if (ConcatAudioFileDataSource.access$000(this.this$0) == null)
+				if (ConcatAudioFileDataSource.access_000(this.this$0) == null)
 				{
 					ConcatAudioFileDataSource.access$002(this.this$0, this.readNext());
 				}
-				return ConcatAudioFileDataSource.access$000(this.this$0) != null;
+				return ConcatAudioFileDataSource.access_000(this.this$0) != null;
 			}
 
 			

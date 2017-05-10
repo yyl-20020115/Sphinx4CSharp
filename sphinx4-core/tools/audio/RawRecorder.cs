@@ -232,7 +232,7 @@ namespace edu.cmu.sphinx.tools.audio
 					try
 					{
 						this.done = true;
-						Object.instancehelper_wait(this.@lock);
+						java.lang.Object.instancehelper_wait(this.@lock);
 						Monitor.Exit(obj);
 					}
 					catch (Exception ex)
@@ -317,7 +317,7 @@ namespace edu.cmu.sphinx.tools.audio
 				IL_A8:
 				lock (this.@lock)
 				{
-					Object.instancehelper_notify(this.@lock);
+					java.lang.Object.instancehelper_notify(this.@lock);
 				}
 			}
 

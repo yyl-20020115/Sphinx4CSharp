@@ -70,15 +70,15 @@ namespace edu.cmu.sphinx.util.machlearn
 			Cloneable result = 
 
 
-			result.__<ref> = _ref;
+			result.__ref = _ref;
 			return result;
 		}
 
 		
-		public static implicit operator Serializable(OVector _<ref>)
+		public static implicit operator Serializable(OVector _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

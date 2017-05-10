@@ -120,7 +120,7 @@ namespace edu.cmu.sphinx.tools.audio
 		}
 
 		
-		internal static JMenuItem access$000()
+		internal static JMenuItem access_000()
 		{
 			return AudioTool.saveMenuItem;
 		}

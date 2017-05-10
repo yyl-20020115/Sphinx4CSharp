@@ -53,7 +53,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			for (int i = 0; i < num2; i++)
 			{
 				Senone senone = array[i];
-				num = num * 91 + Object.instancehelper_hashCode(senone);
+				num = num * 91 + java.lang.Object.instancehelper_hashCode(senone);
 			}
 			return num;
 		}
@@ -92,7 +92,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			for (int i = 0; i < this.senones.Length; i++)
 			{
-				if (!Object.instancehelper_equals(this.senones[i], senoneSequence.senones[i]))
+				if (!java.lang.Object.instancehelper_equals(this.senones[i], senoneSequence.senones[i]))
 				{
 					return false;
 				}
@@ -131,10 +131,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		}
 
 		
-		public static implicit operator Serializable(SenoneSequence _<ref>)
+		public static implicit operator Serializable(SenoneSequence _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

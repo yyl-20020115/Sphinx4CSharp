@@ -234,7 +234,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.classVocabulary = new HashMap();
 			this.wordToClassProbabilities = new HashMap();
 			this.classToWord = new HashMap();
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.classDefsLocation = classDefsLocation;
 			this.logMath = LogMath.getLogMath();
 		}
@@ -293,7 +293,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 
 		
 		[NameSig("getClassProbability", "(Ljava.lang.java.lang.String;)Ledu.cmu.sphinx.linguist.language.classes.ClassProbability;")]
-		protected internal object <nonvirtual>0(string word)
+		protected internal object _0(string word)
 		{
 			return this.getClassProbability(word);
 		}

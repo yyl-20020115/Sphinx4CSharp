@@ -47,7 +47,7 @@ namespace edu.cmu.sphinx.tools.audio
 				AudioTool.recording = true;
 				AudioTool.recorder.startRecording();
 				AudioTool.access$400().setText("Stop");
-				AudioTool.access$000().setEnabled(true);
+				AudioTool.access_000().setEnabled(true);
 			}
 			else
 			{

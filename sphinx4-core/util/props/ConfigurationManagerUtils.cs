@@ -39,9 +39,9 @@ namespace edu.cmu.sphinx.util.props
 		public static URL resourceToURL(string location)
 		{
 			Pattern pattern = ConfigurationManagerUtils.jarPattern;
-			object _<ref> = location;
+			object _ref = location;
 			CharSequence charSequence;
-			charSequence.__<ref> = _<ref>;
+			charSequence.__ref = _ref;
 			Matcher matcher = pattern.matcher(charSequence);
 			if (matcher.matches())
 			{
@@ -99,13 +99,13 @@ namespace edu.cmu.sphinx.util.props
 			}
 			Map map = ConfigurationManagerUtils.listAllsPropNames(cm);
 			Set componentNames = cm.getComponentNames();
-			object _<ref>;
+			object _ref;
 			CharSequence charSequence;
 			if (!map.containsKey(propName))
 			{
 				string text = propName;
-				_<ref> = "->";
-				charSequence.__<ref> = _<ref>;
+				_ref = "->";
+				charSequence.__ref = _ref;
 				if (!java.lang.String.instancehelper_contains(text, charSequence) && !componentNames.contains(propName))
 				{
 					string text2 = new StringBuilder().append("No property or configurable '").append(propName).append("' in configuration '").append(cm.getConfigURL()).append("'!").toString();
@@ -134,8 +134,8 @@ namespace edu.cmu.sphinx.util.props
 				throw new RuntimeException(ex4);
 			}
 			string text3 = propName;
-			_<ref> = "->";
-			charSequence.__<ref> = _<ref>;
+			_ref = "->";
+			charSequence.__ref = _ref;
 			if (!java.lang.String.instancehelper_contains(text3, charSequence) && ((List)map.get(propName)).size() > 1)
 			{
 				string text4 = new StringBuilder().append("Property-name '").append(propName).append("' is ambiguous with respect to configuration '").append(cm.getConfigURL()).append("'. Use 'componentName->propName' to disambiguate your request.").toString();
@@ -143,8 +143,8 @@ namespace edu.cmu.sphinx.util.props
 				throw new RuntimeException(text4);
 			}
 			string text5 = propName;
-			_<ref> = "->";
-			charSequence.__<ref> = _<ref>;
+			_ref = "->";
+			charSequence.__ref = _ref;
 			string componentName;
 			if (java.lang.String.instancehelper_contains(text5, charSequence))
 			{
@@ -849,7 +849,7 @@ namespace edu.cmu.sphinx.util.props
 						}
 						else if (num == 2)
 						{
-							if (Object.instancehelper_equals(propertySheet.getRawNoReplacement(text4), text))
+							if (java.lang.Object.instancehelper_equals(propertySheet.getRawNoReplacement(text4), text))
 							{
 								propertySheet.setRaw(text4, text2);
 							}
@@ -882,7 +882,7 @@ namespace edu.cmu.sphinx.util.props
 		{
 			Pattern pattern = ConfigurationManagerUtils.globalSymbolPattern;
 			CharSequence charSequence;
-			charSequence.__<ref> = symbol;
+			charSequence.__ref = symbol;
 			Matcher matcher = pattern.matcher(charSequence);
 			if (matcher.matches())
 			{
@@ -910,18 +910,18 @@ namespace edu.cmu.sphinx.util.props
 				object obj2 = "";
 				object obj3 = obj;
 				CharSequence charSequence;
-				charSequence.__<ref> = obj3;
+				charSequence.__ref = obj3;
 				CharSequence charSequence2 = charSequence;
 				obj3 = obj2;
-				charSequence.__<ref> = obj3;
+				charSequence.__ref = obj3;
 				string text = java.lang.String.instancehelper_replace(name, charSequence2, charSequence);
 				object obj4 = ".xml";
 				obj3 = "";
 				obj2 = obj4;
-				charSequence.__<ref> = obj2;
+				charSequence.__ref = obj2;
 				CharSequence charSequence3 = charSequence;
 				obj2 = obj3;
-				charSequence.__<ref> = obj2;
+				charSequence.__ref = obj2;
 				return stringBuilder.append(java.lang.String.instancehelper_replace(text, charSequence3, charSequence)).append('.').toString();
 			}
 			return "S4CM.";
@@ -1102,9 +1102,9 @@ namespace edu.cmu.sphinx.util.props
 				Map.Entry entry = (Map.Entry)iterator.next();
 				string text = (string)entry.getKey();
 				Pattern pattern2 = pattern;
-				object _<ref> = text;
+				object _ref = text;
 				CharSequence charSequence;
-				charSequence.__<ref> = _<ref>;
+				charSequence.__ref = _ref;
 				Matcher matcher = pattern2.matcher(charSequence);
 				text = ((!matcher.matches()) ? text : matcher.group(1));
 				stringBuilder.append("\n\t<property name=\"").append(text).append("\" value=\"").append((string)entry.getValue()).append("\"/>");
@@ -1152,7 +1152,7 @@ namespace edu.cmu.sphinx.util.props
 			for (int i = 0; i < num; i++)
 			{
 				Class @class = interfaces[i];
-				if (Object.instancehelper_equals(@class, interfaceClass) || ConfigurationManagerUtils.isImplementingInterface(@class, interfaceClass))
+				if (java.lang.Object.instancehelper_equals(@class, interfaceClass) || ConfigurationManagerUtils.isImplementingInterface(@class, interfaceClass))
 				{
 					return true;
 				}
@@ -1310,10 +1310,10 @@ namespace edu.cmu.sphinx.util.props
 		
 		public static bool isSubClass(Class aClass, Class possibleSuperclass)
 		{
-			while (aClass != null && !Object.instancehelper_equals(aClass, ClassLiteral<Object>.Value))
+			while (aClass != null && !java.lang.Object.instancehelper_equals(aClass, ClassLiteral<Object>.Value))
 			{
 				aClass = aClass.getSuperclass();
-				if (aClass != null && Object.instancehelper_equals(aClass, possibleSuperclass))
+				if (aClass != null && java.lang.Object.instancehelper_equals(aClass, possibleSuperclass))
 				{
 					return true;
 				}

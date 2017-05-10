@@ -478,7 +478,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 		{
 			this.optimizeGrammar = true;
 			this.randomizer = new Random((long)((ulong)56));
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.optimizeGrammar = optimizeGrammar;
 			this.addSilenceWords = addSilenceWords;
 			this.addFillerWords = addFillerWords;

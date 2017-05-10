@@ -340,7 +340,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		{
 			int num = array.Length;
 			int num2 = array2.Length;
-			object[] array3 = (object[])((object[])Array.newInstance(Object.instancehelper_getClass(array).getComponentType(), num + num2));
+			object[] array3 = (object[])((object[])Array.newInstance(java.lang.Object.instancehelper_getClass(array).getComponentType(), num + num2));
 			ByteCodeHelper.arraycopy(array, 0, array3, 0, num);
 			ByteCodeHelper.arraycopy(array2, 0, array3, num, num2);
 			return array3;

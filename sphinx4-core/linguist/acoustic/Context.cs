@@ -80,10 +80,10 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		}
 
 		
-		public static implicit operator Serializable(Context _<ref>)
+		public static implicit operator Serializable(Context _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

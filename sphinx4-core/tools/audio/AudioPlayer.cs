@@ -50,7 +50,7 @@ namespace edu.cmu.sphinx.tools.audio
 			{
 				this.selectionStart = selectionStart;
 				this.selectionEnd = selectionEnd;
-				Object.instancehelper_notify(this.audio);
+				java.lang.Object.instancehelper_notify(this.audio);
 			}
 		}
 
@@ -100,7 +100,7 @@ namespace edu.cmu.sphinx.tools.audio
 					Monitor.Enter(obj = this.audio);
 					try
 					{
-						Object.instancehelper_wait(this.audio);
+						java.lang.Object.instancehelper_wait(this.audio);
 						AudioFormat audioFormat = this.audio.getAudioFormat();
 						short[] audioData = this.audio.getAudioData();
 						int num = java.lang.Math.max(0, this.selectionStart);

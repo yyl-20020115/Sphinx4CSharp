@@ -28,7 +28,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		
 		
-		internal static float access$000(HTKLoader htkloader)
+		internal static float access_000(HTKLoader htkloader)
 		{
 			return htkloader.varianceFloor;
 		}
@@ -70,7 +70,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				IOException ex2;
 				try
 				{
-					URL resource = Object.instancehelper_getClass(this).getResource(this.propsFile);
+					URL resource = java.lang.Object.instancehelper_getClass(this).getResource(this.propsFile);
 					if (resource != null)
 					{
 						this.properties.load(resource.openStream());
@@ -671,7 +671,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		
 		public HTKLoader(string propsFile, UnitManager unitManager, bool isBinary, int vectorLength, string model, bool tie1ph, float distFloor, float mixtureWeightFloor, float varianceFloor)
 		{
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.propsFile = propsFile;
 			this.loadProperties();
 			this.logMath = LogMath.getLogMath();
@@ -1020,7 +1020,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		
 		[NameSig("loadHMMPool", "(ZLedu.cmu.sphinx.linguist.acoustic.tiedstate.HTKLoader$HTKStruct;Ljava.lang.java.lang.String;)V")]
-		protected internal void <nonvirtual>0(bool flag, object obj, string path)
+		protected internal void _0(bool flag, object obj, string path)
 		{
 			this.loadHMMPool(flag, (HTKLoader.HTKStruct)obj, path);
 		}
@@ -1369,7 +1369,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 						{
 							array[k] = gmmdiag.getVar(j, k);
 						}
-						Utilities.floorData(array, HTKLoader.access$000(this.this$0));
+						Utilities.floorData(array, HTKLoader.access_000(this.this$0));
 						k = i * gmmsize + j;
 						pool.put(k, array);
 					}

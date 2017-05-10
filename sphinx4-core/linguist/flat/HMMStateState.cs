@@ -80,10 +80,10 @@ namespace edu.cmu.sphinx.linguist.flat
 		}
 
 		
-		public static implicit operator Serializable(HMMStateState _<ref>)
+		public static implicit operator Serializable(HMMStateState _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

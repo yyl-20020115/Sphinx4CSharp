@@ -76,10 +76,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 		}
 
 		
-		public static implicit operator Serializable(Token _<ref>)
+		public static implicit operator Serializable(Token _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

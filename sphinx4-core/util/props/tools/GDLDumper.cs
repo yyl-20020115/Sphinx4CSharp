@@ -74,7 +74,7 @@ namespace edu.cmu.sphinx.util.props.tools
 			try
 			{
 				Configurable configurable = ConfigurationManager.lookup(componentName);
-				Class @class = Object.instancehelper_getClass(configurable);
+				Class @class = java.lang.Object.instancehelper_getClass(configurable);
 				if (java.lang.String.instancehelper_indexOf(@class.getName(), ".recognizer") > 1)
 				{
 					result = "cyan";

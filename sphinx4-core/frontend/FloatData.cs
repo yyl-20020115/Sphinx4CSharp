@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.frontend
 			{
 				if (!(data is DoubleData))
 				{
-					string text = new StringBuilder().append("data type '").append(Object.instancehelper_getClass(data)).append("' is not supported").toString();
+					string text = new StringBuilder().append("data type '").append(java.lang.Object.instancehelper_getClass(data)).append("' is not supported").toString();
 					
 					throw new IllegalArgumentException(text);
 				}
@@ -151,10 +151,10 @@ namespace edu.cmu.sphinx.frontend
 		}
 
 		
-		public static implicit operator Cloneable(FloatData _<ref>)
+		public static implicit operator Cloneable(FloatData _ref)
 		{
 			Cloneable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

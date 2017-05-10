@@ -30,7 +30,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		
 		public bool visit(SentenceHMMState sentenceHMMState)
 		{
-			SentenceHMMState.access$000(sentenceHMMState);
+			SentenceHMMState.access_000(sentenceHMMState);
 			return false;
 		}
 

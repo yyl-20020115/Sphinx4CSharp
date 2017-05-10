@@ -480,7 +480,7 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			Pattern pattern = Pattern.compile("[\\n\\r\\f]+");
 			CharSequence charSequence;
-			charSequence.__<ref> = text;
+			charSequence.__ref = text;
 			if (pattern.matcher(charSequence).find())
 			{
 				string[] array = java.lang.String.instancehelper_split(text, new StringBuilder().append('[').append(JSGFRuleGrammar.LINE_SEPARATOR).append("]+").toString());

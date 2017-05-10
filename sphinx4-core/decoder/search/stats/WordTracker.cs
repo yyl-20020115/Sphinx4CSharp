@@ -142,7 +142,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 			
 			
-			internal static float access$000(WordTracker.WordStats wordStats)
+			internal static float access_000(WordTracker.WordStats wordStats)
 			{
 				return wordStats.maxScore;
 			}

@@ -541,7 +541,7 @@ namespace edu.cmu.sphinx.fst
 		
 		public override int hashCode()
 		{
-			return 31 * (Arrays.hashCode(this.isyms) + 31 * (Arrays.hashCode(this.osyms) + 31 * (((this.start != null) ? this.start.hashCode() : 0) + 31 * (((this.states != null) ? this.states.hashCode() : 0) + 31 * ((this.semiring != null) ? Object.instancehelper_hashCode(this.semiring) : 0)))));
+			return 31 * (Arrays.hashCode(this.isyms) + 31 * (Arrays.hashCode(this.osyms) + 31 * (((this.start != null) ? this.start.hashCode() : 0) + 31 * (((this.states != null) ? this.states.hashCode() : 0) + 31 * ((this.semiring != null) ? java.lang.Object.instancehelper_hashCode(this.semiring) : 0)))));
 		}
 
 		[LineNumberTable(new byte[]

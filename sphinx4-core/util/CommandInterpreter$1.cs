@@ -29,7 +29,7 @@ namespace edu.cmu.sphinx.util
 		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
-			CommandInterpreter.access$000(this.this$0);
+			CommandInterpreter.access_000(this.this$0);
 			return "";
 		}
 

@@ -1,9 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.alignment.tokenizer
+﻿namespace edu.cmu.sphinx.alignment.tokenizer
 {
 	public class Relation : java.lang.Object
 	{
@@ -37,20 +32,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.head = item;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			70,
-			99,
-			132,
-			135,
-			104,
-			104,
-			167,
-			104,
-			140,
-			103
-		})]
-		
 		public virtual Item appendItem(Item originalItem)
 		{
 			ItemContents sharedContents;
@@ -74,17 +55,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.tail = item;
 			return item;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			104,
-			103,
-			103,
-			103,
-			103
-		})]
 		
 		internal Relation(string text, Utterance utterance)
 		{
@@ -92,10 +62,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.owner = utterance;
 			this.head = null;
 			this.tail = null;
-		}
-
-		
-		
+		}	
 		public virtual Item appendItem()
 		{
 			return this.appendItem(null);

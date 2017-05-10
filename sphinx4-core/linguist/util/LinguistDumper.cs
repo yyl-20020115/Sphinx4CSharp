@@ -288,7 +288,7 @@ namespace edu.cmu.sphinx.linguist.util
 				java.lang.System.@out.println(new StringBuilder().append("  state val: ").append(searchState).toString());
 				java.lang.System.@out.println(new StringBuilder().append("  eqSig val: ").append(searchState3).toString());
 			}
-			if (!Object.instancehelper_equals(searchState2, searchState))
+			if (!java.lang.Object.instancehelper_equals(searchState2, searchState))
 			{
 				java.lang.System.@out.println("obj mismatch for: ");
 				java.lang.System.@out.println(new StringBuilder().append("  state sig: ").append(searchState.getSignature()).toString());

@@ -166,7 +166,7 @@ namespace edu.cmu.sphinx.util
 		
 		
 		
-		internal static void access$000(CommandInterpreter commandInterpreter)
+		internal static void access_000(CommandInterpreter commandInterpreter)
 		{
 			commandInterpreter.dumpCommands();
 		}
@@ -376,9 +376,9 @@ namespace edu.cmu.sphinx.util
 			int num2 = 0;
 			int num3 = 0;
 			Pattern pattern = CommandInterpreter.historyPush;
-			object _<ref> = text;
+			object _ref = text;
 			CharSequence charSequence;
-			charSequence.__<ref> = _<ref>;
+			charSequence.__ref = _ref;
 			Matcher matcher = pattern.matcher(charSequence);
 			if (matcher.matches())
 			{
@@ -389,8 +389,8 @@ namespace edu.cmu.sphinx.util
 			if (java.lang.String.instancehelper_startsWith(text, "^"))
 			{
 				Pattern pattern2 = CommandInterpreter.editPattern;
-				_<ref> = text;
-				charSequence.__<ref> = _<ref>;
+				_ref = text;
+				charSequence.__ref = _ref;
 				matcher = pattern2.matcher(charSequence);
 				if (matcher.matches())
 				{
@@ -401,8 +401,8 @@ namespace edu.cmu.sphinx.util
 					{
 						Pattern pattern3 = Pattern.compile(text2);
 						Pattern pattern4 = pattern3;
-						_<ref> = this.history.getLast(0);
-						charSequence.__<ref> = _<ref>;
+						_ref = this.history.getLast(0);
+						charSequence.__ref = _ref;
 						Matcher matcher2 = pattern4.matcher(charSequence);
 						if (matcher2.find())
 						{
@@ -436,8 +436,8 @@ namespace edu.cmu.sphinx.util
 			else
 			{
 				Pattern pattern5 = CommandInterpreter.bbPattern;
-				_<ref> = text;
-				charSequence.__<ref> = _<ref>;
+				_ref = text;
+				charSequence.__ref = _ref;
 				if ((matcher = pattern5.matcher(charSequence)).find())
 				{
 					text = matcher.replaceAll(this.history.getLast(0));

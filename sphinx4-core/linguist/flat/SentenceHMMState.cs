@@ -676,7 +676,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		
 		
 		
-		internal static void access$000(SentenceHMMState sentenceHMMState)
+		internal static void access_000(SentenceHMMState sentenceHMMState)
 		{
 			sentenceHMMState.dump();
 		}
@@ -701,10 +701,10 @@ namespace edu.cmu.sphinx.linguist.flat
 		}
 
 		
-		public static implicit operator Serializable(SentenceHMMState _<ref>)
+		public static implicit operator Serializable(SentenceHMMState _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

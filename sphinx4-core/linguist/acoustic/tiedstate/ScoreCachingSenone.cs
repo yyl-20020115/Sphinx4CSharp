@@ -48,7 +48,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public virtual float getScore(Data feature)
 		{
 			ScoreCachingSenone.ScoreCache scoreCache = this.scoreCache;
-			if (feature != ScoreCachingSenone.ScoreCache.access$000(scoreCache))
+			if (feature != ScoreCachingSenone.ScoreCache.access_000(scoreCache))
 			{
 				scoreCache = new ScoreCachingSenone.ScoreCache(this, feature, this.calculateScore(feature));
 				this.scoreCache = scoreCache;
@@ -73,10 +73,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public abstract float[] getLogMixtureWeights();
 
 		
-		public static implicit operator Serializable(ScoreCachingSenone _<ref>)
+		public static implicit operator Serializable(ScoreCachingSenone _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 
@@ -119,7 +119,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 			
 			
-			internal static Data access$000(ScoreCachingSenone.ScoreCache scoreCache)
+			internal static Data access_000(ScoreCachingSenone.ScoreCache scoreCache)
 			{
 				return scoreCache.feature;
 			}

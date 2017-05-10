@@ -60,8 +60,8 @@ namespace edu.cmu.sphinx.fst.utils
 		public override int hashCode()
 		{
 			int num = 1;
-			num = 31 * num + Object.instancehelper_hashCode(this.left);
-			return 31 * num + Object.instancehelper_hashCode(this.right);
+			num = 31 * num + java.lang.Object.instancehelper_hashCode(this.left);
+			return 31 * num + java.lang.Object.instancehelper_hashCode(this.right);
 		}
 
 		[LineNumberTable(new byte[]
@@ -89,7 +89,7 @@ namespace edu.cmu.sphinx.fst.utils
 				return false;
 			}
 			Pair pair = (Pair)obj;
-			return Object.instancehelper_equals(this.left, pair.left) && Object.instancehelper_equals(this.right, pair.right);
+			return java.lang.Object.instancehelper_equals(this.left, pair.left) && java.lang.Object.instancehelper_equals(this.right, pair.right);
 		}
 
 		

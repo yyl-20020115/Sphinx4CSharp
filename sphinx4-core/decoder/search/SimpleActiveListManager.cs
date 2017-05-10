@@ -17,7 +17,7 @@ namespace edu.cmu.sphinx.decoder.search
 	{
 		
 		
-		internal static ActiveList[] access$000(SimpleActiveListManager simpleActiveListManager)
+		internal static ActiveList[] access_000(SimpleActiveListManager simpleActiveListManager)
 		{
 			return simpleActiveListManager.currentActiveLists;
 		}
@@ -93,7 +93,7 @@ namespace edu.cmu.sphinx.decoder.search
 		
 		public SimpleActiveListManager(List activeListFactories, bool checkPriorLists)
 		{
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.activeListFactories = activeListFactories;
 			this.checkPriorLists = checkPriorLists;
 		}
@@ -175,7 +175,7 @@ namespace edu.cmu.sphinx.decoder.search
 			ActiveList activeList = this.findListFor(token);
 			if (activeList == null)
 			{
-				string text = new StringBuilder().append("Cannot find ActiveList for ").append(Object.instancehelper_getClass(token.getSearchState())).toString();
+				string text = new StringBuilder().append("Cannot find ActiveList for ").append(java.lang.Object.instancehelper_getClass(token.getSearchState())).toString();
 				
 				throw new Error(text);
 			}
@@ -294,7 +294,7 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				for (int i = 0; i < this.listPtr; i++)
 				{
-					ActiveList activeList = SimpleActiveListManager.access$000(this.this$0)[i];
+					ActiveList activeList = SimpleActiveListManager.access_000(this.this$0)[i];
 					if (activeList.size() > 0)
 					{
 						string text = new StringBuilder().append("At while processing state order").append(this.listPtr).append(", state order ").append(i).append(" not empty").toString();
@@ -322,7 +322,7 @@ namespace edu.cmu.sphinx.decoder.search
 			public ActiveList next()
 			{
 				this.listPtr++;
-				if (this.listPtr >= SimpleActiveListManager.access$000(this.this$0).Length)
+				if (this.listPtr >= SimpleActiveListManager.access_000(this.this$0).Length)
 				{
 					
 					throw new NoSuchElementException();
@@ -331,7 +331,7 @@ namespace edu.cmu.sphinx.decoder.search
 				{
 					this.checkPriorLists();
 				}
-				return SimpleActiveListManager.access$000(this.this$0)[this.listPtr];
+				return SimpleActiveListManager.access_000(this.this$0)[this.listPtr];
 			}
 
 			[LineNumberTable(new byte[]
@@ -351,7 +351,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public bool hasNext()
 			{
-				return this.listPtr + 1 < SimpleActiveListManager.access$000(this.this$0).Length - 1;
+				return this.listPtr + 1 < SimpleActiveListManager.access_000(this.this$0).Length - 1;
 			}
 
 			[LineNumberTable(new byte[]
@@ -364,7 +364,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public void remove()
 			{
-				SimpleActiveListManager.access$000(this.this$0)[this.listPtr] = SimpleActiveListManager.access$000(this.this$0)[this.listPtr].newInstance();
+				SimpleActiveListManager.access_000(this.this$0)[this.listPtr] = SimpleActiveListManager.access_000(this.this$0)[this.listPtr].newInstance();
 			}
 
 			

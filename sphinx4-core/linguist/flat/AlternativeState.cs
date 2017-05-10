@@ -61,10 +61,10 @@ namespace edu.cmu.sphinx.linguist.flat
 		}
 
 		
-		public static implicit operator Serializable(AlternativeState _<ref>)
+		public static implicit operator Serializable(AlternativeState _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

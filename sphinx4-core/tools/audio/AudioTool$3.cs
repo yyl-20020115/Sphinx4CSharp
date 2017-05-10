@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.tools.audio
 			try
 			{
 				Utils.writeRawFile(AudioTool.audio, AudioTool.filename);
-				AudioTool.access$000().setEnabled(false);
+				AudioTool.access_000().setEnabled(false);
 			}
 			catch (IOException ex)
 			{

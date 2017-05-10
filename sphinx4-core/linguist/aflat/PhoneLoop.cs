@@ -58,7 +58,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 		
 		
-		internal static PhoneLoop.FirstBranchState access$000(PhoneLoop phoneLoop)
+		internal static PhoneLoop.FirstBranchState access_000(PhoneLoop phoneLoop)
 		{
 			return phoneLoop.fbs;
 		}
@@ -242,7 +242,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			internal LastBranchState(PhoneLoop phoneLoop) : base(phoneLoop)
 			{
 				this.successors = new SearchStateArc[2];
-				this.successors[0] = PhoneLoop.access$000(phoneLoop);
+				this.successors[0] = PhoneLoop.access_000(phoneLoop);
 				this.successors[1] = PhoneLoop.access$500(phoneLoop)[0];
 			}
 
@@ -383,7 +383,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public override int hashCode()
 			{
-				return 191 + Object.instancehelper_hashCode(this.hmmState);
+				return 191 + java.lang.Object.instancehelper_hashCode(this.hmmState);
 			}
 
 			[LineNumberTable(new byte[]
@@ -573,7 +573,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			internal UnknownWordState(PhoneLoop phoneLoop) : base(phoneLoop)
 			{
 				this.successors = new SearchStateArc[1];
-				this.successors[0] = PhoneLoop.access$000(phoneLoop);
+				this.successors[0] = PhoneLoop.access_000(phoneLoop);
 			}
 
 			

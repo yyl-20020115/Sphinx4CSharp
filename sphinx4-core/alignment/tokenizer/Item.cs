@@ -1,15 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
 	public class Item : java.lang.Object
 	{
-		
-		
 		public virtual FeatureSet getFeatures()
 		{
 			return this.getSharedContents().getFeatures();
@@ -20,15 +15,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return this.next;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			56,
-			113,
-			99,
-			134
-		})]
-		
 		public override string toString()
 		{
 			string text = this.getFeatures().getString("name");
@@ -39,23 +25,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return text;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			122,
-			130,
-			172,
-			100,
-			98,
-			132,
-			106,
-			169,
-			105,
-			100,
-			142,
-			204
-		})]
-		
 		public virtual object findFeature(string pathAndFeature)
 		{
 			object obj = null;
@@ -90,15 +59,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return this.contents;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			74,
-			103,
-			99,
-			130,
-			104,
-			137
-		})]
 		public virtual Item getLastDaughter()
 		{
 			Item item = this.daughter;
@@ -113,22 +73,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return item;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			242,
-			99,
-			132,
-			167,
-			109,
-			108,
-			104,
-			172,
-			135,
-			110,
-			140
-		})]
-		
 		public virtual Item appendItem(Item originalItem)
 		{
 			ItemContents sharedContents;
@@ -158,23 +102,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			return this.ownerRelation;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			182,
-			104,
-			103,
-			99,
-			137,
-			139,
-			103,
-			103,
-			103,
-			135,
-			114
-		})]
-		
+	
 		public Item(Relation relation, ItemContents sharedContents)
 		{
 			this.ownerRelation = relation;
@@ -192,21 +120,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.prev = null;
 			this.getSharedContents().addItemRelation(relation.getName(), this);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			94,
-			135,
-			99,
-			138,
-			99,
-			136,
-			135,
-			109,
-			103,
-			135
-		})]
-		
+	
 		public virtual Item addDaughter(Item item)
 		{
 			Item lastDaughter = this.getLastDaughter();
@@ -232,45 +146,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return item2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			168,
-			162,
-			99,
-			162,
-			140,
-			113,
-			103,
-			109,
-			108,
-			109,
-			108,
-			109,
-			103,
-			102,
-			140,
-			109,
-			103,
-			102,
-			140,
-			109,
-			108,
-			122,
-			108,
-			109,
-			105,
-			109,
-			103,
-			97,
-			102,
-			102,
-			98,
-			191,
-			21,
-			101
-		})]
 		
 		public virtual Item findItem(string path)
 		{
@@ -331,13 +206,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return item;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			64,
-			147
-		})]
 		public virtual Item getParent()
 		{
 			Item item = this;
@@ -353,21 +221,12 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return this.daughter;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			12,
-			103,
-			103
-		})]
 		internal virtual void attach(Item item)
 		{
 			this.next = item;
 			item.prev = this;
 		}
-
-		
-		
+	
 		public virtual Item getItemAs(string relationName)
 		{
 			return this.getSharedContents().getItemRelation(relationName);
@@ -378,14 +237,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return this.daughter != null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			60,
-			103,
-			98,
-			107,
-			137
-		})]
 		public virtual Item getNthDaughter(int which)
 		{
 			Item item = this.daughter;
@@ -401,43 +252,16 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				item = item.next;
 			}
 			return item;
-		}
-
-		
-		
+		}	
 		public virtual Item createDaughter()
 		{
 			return this.addDaughter(null);
 		}
-
-		
 		
 		public virtual Utterance getUtterance()
 		{
 			return this.getOwnerRelation().getUtterance();
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			28,
-			99,
-			132,
-			167,
-			109,
-			108,
-			104,
-			140,
-			103,
-			103,
-			104,
-			108,
-			108,
-			135,
-			110,
-			140
-		})]
-		
+		}		
 		public virtual Item prependItem(Item originalItem)
 		{
 			ItemContents sharedContents;
@@ -469,18 +293,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return item;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			71,
-			99,
-			130
-		})]
 		
 		public virtual bool equalsShared(Item otherItem)
 		{
-			return otherItem != null && Object.instancehelper_equals(this.getSharedContents(), otherItem.getSharedContents());
+			return otherItem != null && java.lang.Object.instancehelper_equals(this.getSharedContents(), otherItem.getSharedContents());
 		}
 
 		private Relation ownerRelation;

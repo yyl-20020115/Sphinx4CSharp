@@ -145,7 +145,7 @@ namespace edu.cmu.sphinx.decoder.search
 				int i = 0;
 				while (i < this.curSize)
 				{
-					if (Object.instancehelper_equals(token.getSearchState(), this.tokens[i].getSearchState()))
+					if (java.lang.Object.instancehelper_equals(token.getSearchState(), this.tokens[i].getSearchState()))
 					{
 						if (!TokenHeapSearchManager.TokenHeap.assertionsDisabled && token.getScore() <= this.tokens[i].getScore())
 						{
@@ -252,7 +252,7 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				for (int i = 0; i < this.curSize; i++)
 				{
-					if (Object.instancehelper_equals(this.tokens[i].getSearchState(), searchState))
+					if (java.lang.Object.instancehelper_equals(this.tokens[i].getSearchState(), searchState))
 					{
 						return this.tokens[i];
 					}

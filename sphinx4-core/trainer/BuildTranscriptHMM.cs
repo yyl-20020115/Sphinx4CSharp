@@ -79,7 +79,7 @@ namespace edu.cmu.sphinx.trainer
 		private Graph buildWordGraph(Transcript transcript)
 		{
 			Dictionary dictionary = transcript.getDictionary();
-			if (!BuildTranscriptHMM.assertionsDisabled && !java.lang.String.instancehelper_endsWith(Object.instancehelper_getClass(dictionary).getName(), "TrainerDictionary"))
+			if (!BuildTranscriptHMM.assertionsDisabled && !java.lang.String.instancehelper_endsWith(java.lang.Object.instancehelper_getClass(dictionary).getName(), "TrainerDictionary"))
 			{
 				
 				throw new AssertionError();

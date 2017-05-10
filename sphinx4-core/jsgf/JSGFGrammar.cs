@@ -42,7 +42,7 @@ namespace edu.cmu.sphinx.jsgf
 		public JSGFGrammar(URL baseURL, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.loadGrammar = true;
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.logMath = LogMath.getLogMath();
 			this.baseURL = baseURL;
 			this.grammarName = grammarName;
@@ -982,7 +982,7 @@ namespace edu.cmu.sphinx.jsgf
 		
 		
 		
-		internal static GrammarNode access$000(JSGFGrammar jsgfgrammar, bool isFinal)
+		internal static GrammarNode access_000(JSGFGrammar jsgfgrammar, bool isFinal)
 		{
 			return jsgfgrammar.createGrammarNode(isFinal);
 		}
@@ -1025,7 +1025,7 @@ namespace edu.cmu.sphinx.jsgf
 
 		
 		[NameSig("processRule", "(Ledu.cmu.sphinx.jsgf.rule.JSGFRule;)Ledu.cmu.sphinx.jsgf.JSGFGrammar$GrammarGraph;")]
-		protected internal object <nonvirtual>0(JSGFRule rule)
+		protected internal object _0(JSGFRule rule)
 		{
 			return this.processRule(rule);
 		}
@@ -1080,7 +1080,7 @@ namespace edu.cmu.sphinx.jsgf
 			
 			internal GrammarGraph(JSGFGrammar jsgfgrammar)
 			{
-				this.startNode = JSGFGrammar.access$000(jsgfgrammar, false);
+				this.startNode = JSGFGrammar.access_000(jsgfgrammar, false);
 				this.endNode = JSGFGrammar.access$100(jsgfgrammar, false);
 			}
 

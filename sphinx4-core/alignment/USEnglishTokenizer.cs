@@ -234,10 +234,10 @@ namespace edu.cmu.sphinx.alignment
 				object obj2 = "";
 				object obj3 = obj;
 				CharSequence charSequence;
-				charSequence.__<ref> = obj3;
+				charSequence.__ref = obj3;
 				CharSequence charSequence2 = charSequence;
 				obj3 = obj2;
-				charSequence.__<ref> = obj3;
+				charSequence.__ref = obj3;
 				NumberExpander.expandLetters(java.lang.String.instancehelper_replace(text, charSequence2, charSequence), this.wordRelation);
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.commaIntPattern, text))
@@ -246,18 +246,18 @@ namespace edu.cmu.sphinx.alignment
 				object obj3 = "";
 				object obj2 = obj4;
 				CharSequence charSequence;
-				charSequence.__<ref> = obj2;
+				charSequence.__ref = obj2;
 				CharSequence charSequence3 = charSequence;
 				obj2 = obj3;
-				charSequence.__<ref> = obj2;
+				charSequence.__ref = obj2;
 				string text3 = java.lang.String.instancehelper_replace(text, charSequence3, charSequence);
 				object obj5 = "'";
 				obj2 = "";
 				obj3 = obj5;
-				charSequence.__<ref> = obj3;
+				charSequence.__ref = obj3;
 				CharSequence charSequence4 = charSequence;
 				obj3 = obj2;
-				charSequence.__<ref> = obj3;
+				charSequence.__ref = obj3;
 				NumberExpander.expandReal(java.lang.String.instancehelper_replace(text3, charSequence4, charSequence), this.wordRelation);
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.sevenPhoneNumberPattern, text))
@@ -362,10 +362,10 @@ namespace edu.cmu.sphinx.alignment
 			120
 		})]
 		
-		private static bool matches(Pattern pattern, string _<ref>)
+		private static bool matches(Pattern pattern, string _ref)
 		{
 			CharSequence charSequence;
-			charSequence.__<ref> = _<ref>;
+			charSequence.__ref = _ref;
 			Matcher matcher = pattern.matcher(charSequence);
 			return matcher.matches();
 		}
@@ -565,7 +565,7 @@ namespace edu.cmu.sphinx.alignment
 					string text3 = (string)this.tokenItem.findFeature("n.name");
 					int num = java.lang.String.instancehelper_length(text3);
 					FeatureSet features = this.tokenItem.getFeatures();
-					int num2 = (!Character.isUpperCase(java.lang.String.instancehelper_charAt(text2, 0)) || java.lang.String.instancehelper_length(text2) <= 2 || !USEnglishTokenizer.matches(USEnglishTokenizer.alphabetPattern, text2) || !Object.instancehelper_equals(this.tokenItem.findFeature("p.punc"), ",")) ? 0 : 1;
+					int num2 = (!Character.isUpperCase(java.lang.String.instancehelper_charAt(text2, 0)) || java.lang.String.instancehelper_length(text2) <= 2 || !USEnglishTokenizer.matches(USEnglishTokenizer.alphabetPattern, text2) || !java.lang.Object.instancehelper_equals(this.tokenItem.findFeature("p.punc"), ",")) ? 0 : 1;
 					int num3 = (!Character.isLowerCase(java.lang.String.instancehelper_charAt(text3, 0)) && this.tokenItem.getNext() != null && !java.lang.String.instancehelper_equals(features.getString("punc"), ".") && ((num != 5 && num != 10) || !USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text3))) ? 0 : 1;
 					if (num2 != 0 && num3 != 0)
 					{
@@ -804,12 +804,12 @@ namespace edu.cmu.sphinx.alignment
 				string text3 = java.lang.String.instancehelper_substring(text, 1, num);
 				object obj = ",";
 				object obj2 = "";
-				object _<ref> = obj;
+				object _ref = obj;
 				CharSequence charSequence;
-				charSequence.__<ref> = _<ref>;
+				charSequence.__ref = _ref;
 				CharSequence charSequence2 = charSequence;
-				_<ref> = obj2;
-				charSequence.__<ref> = _<ref>;
+				_ref = obj2;
+				charSequence.__ref = _ref;
 				string text2 = java.lang.String.instancehelper_replace(text3, charSequence2, charSequence);
 				string text4 = java.lang.String.instancehelper_substring(text, num + 1);
 				NumberExpander.expandNumber(text2, this.wordRelation);
@@ -1085,9 +1085,9 @@ namespace edu.cmu.sphinx.alignment
 			try
 			{
 				DecisionTree.__<clinit>();
-				this.cart = new DecisionTree(Object.instancehelper_getClass(this).getResource("nums_cart.txt"));
-				this.prefixFSM = new PrefixFSM(Object.instancehelper_getClass(this).getResource("prefix_fsm.txt"));
-				this.suffixFSM = new SuffixFSM(Object.instancehelper_getClass(this).getResource("suffix_fsm.txt"));
+				this.cart = new DecisionTree(java.lang.Object.instancehelper_getClass(this).getResource("nums_cart.txt"));
+				this.prefixFSM = new PrefixFSM(java.lang.Object.instancehelper_getClass(this).getResource("prefix_fsm.txt"));
+				this.suffixFSM = new SuffixFSM(java.lang.Object.instancehelper_getClass(this).getResource("suffix_fsm.txt"));
 			}
 			catch (IOException ex)
 			{
@@ -1175,9 +1175,9 @@ namespace edu.cmu.sphinx.alignment
 				if (!java.lang.String.instancehelper_isEmpty(item.toString()))
 				{
 					string text3 = item.toString();
-					object _<ref> = "#";
+					object _ref = "#";
 					CharSequence charSequence;
-					charSequence.__<ref> = _<ref>;
+					charSequence.__ref = _ref;
 					if (!java.lang.String.instancehelper_contains(text3, charSequence))
 					{
 						arrayList.add(item.toString());

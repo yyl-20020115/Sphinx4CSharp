@@ -210,7 +210,7 @@ namespace edu.cmu.sphinx.result
 		
 		private string getNodeID(Token token)
 		{
-			return Integer.toString(Object.instancehelper_hashCode(token));
+			return Integer.toString(java.lang.Object.instancehelper_hashCode(token));
 		}
 
 		[LineNumberTable(new byte[]
@@ -578,7 +578,7 @@ namespace edu.cmu.sphinx.result
 				string text2 = text;
 				object obj = "Node definitions";
 				CharSequence charSequence;
-				charSequence.__<ref> = obj;
+				charSequence.__ref = obj;
 				if (java.lang.String.instancehelper_contains(text2, charSequence))
 				{
 					num2 = 0;
@@ -588,7 +588,7 @@ namespace edu.cmu.sphinx.result
 				{
 					string text3 = text;
 					obj = "Link definitions";
-					charSequence.__<ref> = obj;
+					charSequence.__ref = obj;
 					if (java.lang.String.instancehelper_contains(text3, charSequence))
 					{
 						num2 = 1;
@@ -665,10 +665,10 @@ namespace edu.cmu.sphinx.result
 								object obj2 = "start=";
 								obj = "";
 								object obj3 = obj2;
-								charSequence.__<ref> = obj3;
+								charSequence.__ref = obj3;
 								CharSequence charSequence2 = charSequence;
 								obj3 = obj;
-								charSequence.__<ref> = obj3;
+								charSequence.__ref = obj3;
 								num3 = Integer.parseInt(java.lang.String.instancehelper_replace(text9, charSequence2, charSequence));
 							}
 							if (java.lang.String.instancehelper_startsWith(text, "end="))
@@ -677,10 +677,10 @@ namespace edu.cmu.sphinx.result
 								object obj4 = "end=";
 								object obj3 = "";
 								obj = obj4;
-								charSequence.__<ref> = obj;
+								charSequence.__ref = obj;
 								CharSequence charSequence3 = charSequence;
 								obj = obj3;
-								charSequence.__<ref> = obj;
+								charSequence.__ref = obj;
 								num4 = Integer.parseInt(java.lang.String.instancehelper_replace(text10, charSequence3, charSequence));
 							}
 							if (java.lang.String.instancehelper_startsWith(text, "lmscale="))
@@ -689,10 +689,10 @@ namespace edu.cmu.sphinx.result
 								object obj5 = "lmscale=";
 								obj = "";
 								object obj3 = obj5;
-								charSequence.__<ref> = obj3;
+								charSequence.__ref = obj3;
 								CharSequence charSequence4 = charSequence;
 								obj3 = obj;
-								charSequence.__<ref> = obj3;
+								charSequence.__ref = obj3;
 								num5 = Double.parseDouble(java.lang.String.instancehelper_replace(text11, charSequence4, charSequence));
 							}
 						}

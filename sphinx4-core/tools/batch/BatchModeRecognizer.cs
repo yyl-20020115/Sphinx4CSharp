@@ -335,7 +335,7 @@ namespace edu.cmu.sphinx.tools.batch
 		
 		public BatchModeRecognizer(Recognizer recognizer, List inputDataProcessors, int skip, int utteranceId, int whichBatch, int totalBatches, bool usePooledBatchManager)
 		{
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.cm = null;
 			this.skip = skip;
 			this.utteranceId = utteranceId;

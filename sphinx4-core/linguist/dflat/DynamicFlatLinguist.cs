@@ -275,7 +275,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 		{
 			this.EMPTY_ARCS = new SearchStateArc[0];
 			this.successorCache = new HashMap();
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.acousticModel = acousticModel;
 			this.logMath = LogMath.getLogMath();
 			this.grammar = grammar;
@@ -446,7 +446,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 
 		
 		
-		internal static float access$000(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static float access_000(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.languageWeight;
 		}
@@ -934,7 +934,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override int hashCode()
 			{
-				return Object.instancehelper_hashCode(this.pState.getGrammarState().getGrammarNode()) * 29 + Object.instancehelper_hashCode(this.pState.getPronunciation()) * 19 + this.index * 7 + 43 * this.lc + this.rc;
+				return java.lang.Object.instancehelper_hashCode(this.pState.getGrammarState().getGrammarNode()) * 29 + java.lang.Object.instancehelper_hashCode(this.pState.getPronunciation()) * 19 + this.index * 7 + 43 * this.lc + this.rc;
 			}
 
 			[LineNumberTable(new byte[]
@@ -1210,14 +1210,14 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override float getLanguageProbability()
 			{
-				return this.languageProbability * DynamicFlatLinguist.access$000(this.this$0);
+				return this.languageProbability * DynamicFlatLinguist.access_000(this.this$0);
 			}
 
 			
 			
 			public override int hashCode()
 			{
-				return Object.instancehelper_hashCode(this.node) * 17 + this.lc * 7 + this.nextBaseID;
+				return java.lang.Object.instancehelper_hashCode(this.node) * 17 + this.lc * 7 + this.nextBaseID;
 			}
 
 			[LineNumberTable(new byte[]
@@ -1445,7 +1445,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override int hashCode()
 			{
-				return 7 * this.fullHMMSearchState.hashCode() + Object.instancehelper_hashCode(this.hmmState);
+				return 7 * this.fullHMMSearchState.hashCode() + java.lang.Object.instancehelper_hashCode(this.hmmState);
 			}
 
 			[LineNumberTable(new byte[]
@@ -1471,7 +1471,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 				if (obj is DynamicFlatLinguist.HMMStateSearchState)
 				{
 					DynamicFlatLinguist.HMMStateSearchState hmmstateSearchState = (DynamicFlatLinguist.HMMStateSearchState)obj;
-					return hmmstateSearchState.fullHMMSearchState.equals(this.fullHMMSearchState) && Object.instancehelper_equals(hmmstateSearchState.hmmState, this.hmmState);
+					return hmmstateSearchState.fullHMMSearchState.equals(this.fullHMMSearchState) && java.lang.Object.instancehelper_equals(hmmstateSearchState.hmmState, this.hmmState);
 				}
 				return false;
 			}
@@ -1746,7 +1746,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override int hashCode()
 			{
-				return 13 * this.gs.hashCode() + Object.instancehelper_hashCode(this.pronunciation);
+				return 13 * this.gs.hashCode() + java.lang.Object.instancehelper_hashCode(this.pronunciation);
 			}
 
 			[LineNumberTable(new byte[]
@@ -1772,7 +1772,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 				if (obj is DynamicFlatLinguist.PronunciationState)
 				{
 					DynamicFlatLinguist.PronunciationState pronunciationState = (DynamicFlatLinguist.PronunciationState)obj;
-					return pronunciationState.gs.equals(this.gs) && Object.instancehelper_equals(pronunciationState.pronunciation, this.pronunciation);
+					return pronunciationState.gs.equals(this.gs) && java.lang.Object.instancehelper_equals(pronunciationState.pronunciation, this.pronunciation);
 				}
 				return false;
 			}

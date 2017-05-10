@@ -20,13 +20,13 @@ namespace edu.cmu.sphinx.linguist.util
 		
 		private void incrementStateTypeCount(SearchState searchState)
 		{
-			Integer integer = (Integer)this.stateCountByType.get(Object.instancehelper_getClass(searchState));
+			Integer integer = (Integer)this.stateCountByType.get(java.lang.Object.instancehelper_getClass(searchState));
 			if (integer == null)
 			{
 				integer = Integer.valueOf(0);
 			}
 			integer = Integer.valueOf(integer.intValue() + 1);
-			this.stateCountByType.put(Object.instancehelper_getClass(searchState), integer);
+			this.stateCountByType.put(java.lang.Object.instancehelper_getClass(searchState), integer);
 		}
 
 		[LineNumberTable(new byte[]

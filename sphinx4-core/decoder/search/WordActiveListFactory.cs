@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.decoder.search
 	{
 		
 		
-		internal static int access$000(WordActiveListFactory wordActiveListFactory)
+		internal static int access_000(WordActiveListFactory wordActiveListFactory)
 		{
 			return wordActiveListFactory.maxFiller;
 		}
@@ -213,9 +213,9 @@ namespace edu.cmu.sphinx.decoder.search
 					Token token = (Token)iterator.next();
 					WordSearchState wordSearchState = (WordSearchState)token.getSearchState();
 					Word word = wordSearchState.getPronunciation().getWord();
-					if (WordActiveListFactory.access$000(this.this$0) > 0 && word.isFiller())
+					if (WordActiveListFactory.access_000(this.this$0) > 0 && word.isFiller())
 					{
-						if (num >= WordActiveListFactory.access$000(this.this$0))
+						if (num >= WordActiveListFactory.access_000(this.this$0))
 						{
 							iterator.remove();
 							continue;

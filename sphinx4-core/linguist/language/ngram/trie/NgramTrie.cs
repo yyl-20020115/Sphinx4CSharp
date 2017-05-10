@@ -10,7 +10,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		
 		
-		internal static int access$000(NgramTrie ngramTrie, int num)
+		internal static int access_000(NgramTrie ngramTrie, int num)
 		{
 			return ngramTrie.requiredBits(num);
 		}
@@ -323,9 +323,9 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				112
 			})]
 			
-			internal MiddleNgramSet(NgramTrie ngramTrie, int num, int num2, int num3, int num4, int num5) : base(ngramTrie, num, num4, num2 + NgramTrie.access$000(ngramTrie, num5))
+			internal MiddleNgramSet(NgramTrie ngramTrie, int num, int num2, int num3, int num4, int num5) : base(ngramTrie, num, num4, num2 + NgramTrie.access_000(ngramTrie, num5))
 			{
-				this.nextMask = (1 << NgramTrie.access$000(ngramTrie, num5)) - 1;
+				this.nextMask = (1 << NgramTrie.access_000(ngramTrie, num5)) - 1;
 				if (num3 + 1 >= 33554432 || num5 >= 33554432)
 				{
 					string text = "Sorry, current implementation doesn't support more than 33554432 n-grams of particular order";
@@ -396,7 +396,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			{
 				this.maxVocab = num2;
 				this.memPtr = num;
-				this.wordBits = NgramTrie.access$000(ngramTrie, num2);
+				this.wordBits = NgramTrie.access_000(ngramTrie, num2);
 				if (this.wordBits > 25)
 				{
 					string text = "Sorry, word indices more than33554432 are not implemented";

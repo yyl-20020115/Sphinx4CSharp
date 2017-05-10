@@ -23,7 +23,7 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static Logger access$000(Microphone microphone)
+		internal static Logger access_000(Microphone microphone)
 		{
 			return microphone.logger;
 		}
@@ -939,7 +939,7 @@ namespace edu.cmu.sphinx.frontend.util
 				{
 					while (!this.started)
 					{
-						Object.instancehelper_wait(this);
+						java.lang.Object.instancehelper_wait(this);
 					}
 				}
 				catch (InterruptedException ex)
@@ -1008,7 +1008,7 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						this.started = true;
 						Thread.MemoryBarrier();
-						Object.instancehelper_notifyAll(this);
+						java.lang.Object.instancehelper_notifyAll(this);
 					}
 				}
 				if (Microphone.access$1500(this.this$0).isLoggable(Level.FINE))
@@ -1118,7 +1118,7 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						while (!this.done)
 						{
-							Object.instancehelper_wait(this.@lock);
+							java.lang.Object.instancehelper_wait(this.@lock);
 						}
 						Monitor.Exit(obj);
 					}
@@ -1255,7 +1255,7 @@ namespace edu.cmu.sphinx.frontend.util
 				Microphone.access$1200(this.this$0).info("stopped recording");
 				lock (this.@lock)
 				{
-					Object.instancehelper_notify(this.@lock);
+					java.lang.Object.instancehelper_notify(this.@lock);
 				}
 			}
 

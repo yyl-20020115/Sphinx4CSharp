@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 using java.util;
@@ -9,31 +6,7 @@ using java.util;
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
 	public class PronounceableFSM : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			95,
-			106,
-			105,
-			141,
-			112,
-			105,
-			108,
-			102,
-			111,
-			134,
-			132,
-			106,
-			100,
-			98,
-			102,
-			130,
-			104,
-			134,
-			132,
-			101
-		})]
-		
+	{	
 		public virtual bool accept(string inputString)
 		{
 			int num = this.transition(0, 35);
@@ -76,34 +49,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return false;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			34,
-			108,
-			98,
-			109,
-			109,
-			109,
-			111,
-			109,
-			104,
-			108,
-			114,
-			103,
-			103,
-			99,
-			115,
-			109,
-			152,
-			165,
-			102
-		})]
-		
+	
 		private void loadText(InputStream inputStream)
 		{
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -139,28 +85,12 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			bufferedReader.close();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			65,
-			119
-		})]
-		
+	
 		private int parseLastInt(string text)
 		{
 			string text2 = java.lang.String.instancehelper_substring(java.lang.String.instancehelper_trim(text), java.lang.String.instancehelper_lastIndexOf(text, " "));
 			return Integer.parseInt(java.lang.String.instancehelper_trim(text2));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			77,
-			108,
-			123,
-			24,
-			230,
-			69
-		})]
 		private int transition(int num, int num2)
 		{
 			for (int i = num; i < this.transitions.Length; i++)
@@ -176,22 +106,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return -1;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			129,
-			130,
-			104,
-			103,
-			103,
-			103,
-			102
-		})]
 		
 		public PronounceableFSM(URL url, bool scanFromFront)
 		{
@@ -200,17 +114,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.loadText(inputStream);
 			inputStream.close();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			125,
-			130,
-			104,
-			103,
-			103,
-			103
-		})]
 		
 		public PronounceableFSM(int vocabularySize, int[] transitions, bool scanFromFront)
 		{

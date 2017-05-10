@@ -339,7 +339,7 @@ namespace edu.cmu.sphinx.api
 			double num5 = (double)(num4 - num3) / (double)(num2 - num);
 			if (num5 < 10.0 && num2 - num > 3)
 			{
-				this.logger.info(new StringBuilder().append("Skipping text range due to a high density ").append(Object.instancehelper_toString(list.subList(num, num2))).toString());
+				this.logger.info(new StringBuilder().append("Skipping text range due to a high density ").append(java.lang.Object.instancehelper_toString(list.subList(num, num2))).toString());
 				return;
 			}
 			queue.offer(list.subList(num, num2));
@@ -376,7 +376,7 @@ namespace edu.cmu.sphinx.api
 		
 		public SpeechAligner(string amPath, string dictPath, string g2pPath)
 		{
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getSimpleName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getSimpleName());
 			Configuration configuration = new Configuration();
 			configuration.setAcousticModelPath(amPath);
 			configuration.setDictionaryPath(dictPath);

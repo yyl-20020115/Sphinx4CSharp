@@ -548,7 +548,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.loader = loader;
 			this.unitManager = unitManager;
 			this.useComposites = useComposites;
-			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 		}
 
 		[LineNumberTable(new byte[]

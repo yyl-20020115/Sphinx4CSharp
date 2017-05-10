@@ -163,9 +163,9 @@ namespace edu.cmu.sphinx.linguist.g2p
 			{
 				string text = array[i];
 				string text2 = text;
-				object _<ref> = this.tie;
+				object _ref = this.tie;
 				CharSequence charSequence;
-				charSequence.__<ref> = _<ref>;
+				charSequence.__ref = _ref;
 				if (java.lang.String.instancehelper_contains(text2, charSequence))
 				{
 					string[] array2 = java.lang.String.instancehelper_split(text, Pattern.quote(this.tie));

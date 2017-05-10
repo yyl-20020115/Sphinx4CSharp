@@ -324,7 +324,7 @@ namespace edu.cmu.sphinx.alignment
 		{
 			
 			
-			internal static List access$000(LongTextAligner.Alignment alignment)
+			internal static List access_000(LongTextAligner.Alignment alignment)
 			{
 				return alignment.shifts;
 			}

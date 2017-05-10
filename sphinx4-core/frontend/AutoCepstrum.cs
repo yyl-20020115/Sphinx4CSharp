@@ -110,17 +110,17 @@ namespace edu.cmu.sphinx.frontend
 					this.filterBank = new MelFrequencyFilterBank(minFreq, maxFreq, num);
 				}
 				this.selectedDataProcessors.add(this.filterBank);
-				if (properties.get("-remove_noise") == null || Object.instancehelper_equals(properties.get("-remove_noise"), "yes"))
+				if (properties.get("-remove_noise") == null || java.lang.Object.instancehelper_equals(properties.get("-remove_noise"), "yes"))
 				{
 					this.denoise = new Denoise(((S4Double)ClassLiteral<Denoise>.Value.getField("LAMBDA_POWER", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Double>.Value)).defaultValue(), ((S4Double)ClassLiteral<Denoise>.Value.getField("LAMBDA_A", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Double>.Value)).defaultValue(), ((S4Double)ClassLiteral<Denoise>.Value.getField("LAMBDA_B", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Double>.Value)).defaultValue(), ((S4Double)ClassLiteral<Denoise>.Value.getField("LAMBDA_T", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Double>.Value)).defaultValue(), ((S4Double)ClassLiteral<Denoise>.Value.getField("MU_T", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Double>.Value)).defaultValue(), ((S4Double)ClassLiteral<Denoise>.Value.getField("MAX_GAIN", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Double>.Value)).defaultValue(), ((S4Integer)ClassLiteral<Denoise>.Value.getField("SMOOTH_WINDOW", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Integer>.Value)).defaultValue());
 					this.denoise.setPredecessor((DataProcessor)this.selectedDataProcessors.get(this.selectedDataProcessors.size() - 1));
 					this.selectedDataProcessors.add(this.denoise);
 				}
-				if (properties.get("-transform") != null && Object.instancehelper_equals(properties.get("-transform"), "dct"))
+				if (properties.get("-transform") != null && java.lang.Object.instancehelper_equals(properties.get("-transform"), "dct"))
 				{
 					this.dct = new DiscreteCosineTransform2(num, ((S4Integer)ClassLiteral<DiscreteCosineTransform>.Value.getField("PROP_CEPSTRUM_LENGTH", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Integer>.Value)).defaultValue());
 				}
-				else if (properties.get("-transform") != null && Object.instancehelper_equals(properties.get("-transform"), "kaldi"))
+				else if (properties.get("-transform") != null && java.lang.Object.instancehelper_equals(properties.get("-transform"), "kaldi"))
 				{
 					this.dct = new KaldiDiscreteCosineTransform(num, ((S4Integer)ClassLiteral<DiscreteCosineTransform>.Value.getField("PROP_CEPSTRUM_LENGTH", AutoCepstrum.__<GetCallerID>()).getAnnotation(ClassLiteral<S4Integer>.Value)).defaultValue());
 				}

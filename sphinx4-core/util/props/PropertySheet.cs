@@ -275,7 +275,7 @@ namespace edu.cmu.sphinx.util.props
 				if (!tclass.isInstance(obj2))
 				{
 					string text3 = this.getInstanceName();
-					string text4 = new StringBuilder().append("Not all elements have required type ").append(tclass).append(" Found one of type ").append(Object.instancehelper_getClass(obj2)).toString();
+					string text4 = new StringBuilder().append("Not all elements have required type ").append(tclass).append(" Found one of type ").append(java.lang.Object.instancehelper_getClass(obj2)).toString();
 					
 					throw new InternalConfigurationException(text3, name, text4);
 				}
@@ -674,7 +674,7 @@ namespace edu.cmu.sphinx.util.props
 						if (!undefinedMandatoryProps.isEmpty())
 						{
 							string text = this.getInstanceName();
-							string text2 = Object.instancehelper_toString(undefinedMandatoryProps);
+							string text2 = java.lang.Object.instancehelper_toString(undefinedMandatoryProps);
 							string text3 = "not all mandatory properties are defined";
 							
 							throw new InternalConfigurationException(text, text2, text3);
@@ -721,7 +721,7 @@ namespace edu.cmu.sphinx.util.props
 			103
 		})]
 		
-		public PropertySheet(Configurable configurable, string name, RawPropertyData rpd, ConfigurationManager ConfigurationManager) : this(Object.instancehelper_getClass(configurable), name, ConfigurationManager, rpd)
+		public PropertySheet(Configurable configurable, string name, RawPropertyData rpd, ConfigurationManager ConfigurationManager) : this(java.lang.Object.instancehelper_getClass(configurable), name, ConfigurationManager, rpd)
 		{
 			this.owner = configurable;
 		}
@@ -1307,7 +1307,7 @@ namespace edu.cmu.sphinx.util.props
 								
 								throw new AssertionError(obj3);
 							}
-							if (!PropertySheet.assertionsDisabled && !Object.instancehelper_equals(field.getType(), ClassLiteral<java.lang.String>.Value))
+							if (!PropertySheet.assertionsDisabled && !java.lang.Object.instancehelper_equals(field.getType(), ClassLiteral<java.lang.String>.Value))
 							{
 								object obj4 = "properties fields are assumed to be instances of java.lang.String";
 								
@@ -1421,7 +1421,7 @@ namespace edu.cmu.sphinx.util.props
 		private Configurable getComponentFromAnnotation(string text, S4Component s4Component)
 		{
 			Class @class = s4Component.defaultClass();
-			if (Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value) && s4Component.mandatory())
+			if (java.lang.Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value) && s4Component.mandatory())
 			{
 				string text2 = this.getInstanceName();
 				string text3 = "mandatory property is not set!";
@@ -1435,7 +1435,7 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new InternalConfigurationException(text4, text, text5);
 			}
-			if (Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value))
+			if (java.lang.Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value))
 			{
 				if (s4Component.mandatory())
 				{
@@ -1688,10 +1688,10 @@ namespace edu.cmu.sphinx.util.props
 		}
 
 		
-		public static implicit operator Cloneable(PropertySheet _<ref>)
+		public static implicit operator Cloneable(PropertySheet _ref)
 		{
 			Cloneable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

@@ -64,14 +64,14 @@ namespace edu.cmu.sphinx.fst.semiring
 		
 		public override string toString()
 		{
-			return Object.instancehelper_getClass(this).toString();
+			return java.lang.Object.instancehelper_getClass(this).toString();
 		}
 
 		
-		public static implicit operator Serializable(Semiring _<ref>)
+		public static implicit operator Serializable(Semiring _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

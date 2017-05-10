@@ -43,7 +43,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public void stateChanged(ChangeEvent changeEvent)
 		{
-			int num = ByteCodeHelper.f2i((float)AudioPanel.access$000(this.this$0).getAudioData().Length * AudioPanel.access$100(this.this$0));
+			int num = ByteCodeHelper.f2i((float)AudioPanel.access_000(this.this$0).getAudioData().Length * AudioPanel.access$100(this.this$0));
 			int num2 = ByteCodeHelper.f2i(65536f * AudioPanel.access$200(this.this$0));
 			AudioPanel.access$302(this.this$0, new float[0]);
 			AudioPanel.access$402(this.this$0, new string[0]);

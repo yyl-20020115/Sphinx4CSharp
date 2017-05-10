@@ -1611,7 +1611,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public Sphinx3Loader(URL location, UnitManager unitManager, float distFloor, float mixtureWeightFloor, float varianceFloor, int topGauNum, bool useCDUnits)
 		{
 			this.calculatedCheckSum = 0L;
-			this.init(location, unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(Object.instancehelper_getClass(this).getName()));
+			this.init(location, unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName()));
 		}
 
 		[Throws(new string[]
@@ -1639,7 +1639,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public Sphinx3Loader(string location, UnitManager unitManager, float distFloor, float mixtureWeightFloor, float varianceFloor, int topGauNum, bool useCDUnits)
 		{
 			this.calculatedCheckSum = 0L;
-			this.init(ConfigurationManagerUtils.resourceToURL(location), unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(Object.instancehelper_getClass(this).getName()));
+			this.init(ConfigurationManagerUtils.resourceToURL(location), unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName()));
 		}
 
 		[LineNumberTable(new byte[]

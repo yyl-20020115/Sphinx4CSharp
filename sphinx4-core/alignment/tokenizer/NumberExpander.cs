@@ -1,34 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
 	public class NumberExpander : java.lang.Object
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			27,
-			168,
-			139,
-			104,
-			104,
-			114,
-			109,
-			141,
-			236,
-			56,
-			230,
-			75
-		})]
-		
+	{		
 		public static void expandLetters(string letters, WordRelation wordRelation)
 		{
 			letters = java.lang.String.instancehelper_toLowerCase(letters);
@@ -49,34 +24,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			242,
-			167,
-			139,
-			107,
-			115,
-			139,
-			107,
-			115,
-			112,
-			138,
-			110,
-			107,
-			113,
-			141,
-			105,
-			105,
-			135,
-			107,
-			106,
-			105,
-			135,
-			130,
-			135
-		})]
 		
 		public static void expandReal(string numberString, WordRelation wordRelation)
 		{
@@ -117,21 +64,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				NumberExpander.expandNumber(numberString, wordRelation);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			110,
-			103,
-			102,
-			104,
-			104,
-			152,
-			235,
-			59,
-			230,
-			72
-		})]
 		
 		public static void expandDigits(string numberString, WordRelation wordRelation)
 		{
@@ -149,27 +81,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			14,
-			135,
-			136,
-			100,
-			105,
-			100,
-			105,
-			100,
-			105,
-			100,
-			105,
-			101,
-			105,
-			101,
-			137,
-			135
-		})]
-		
+	
 		public static void expandNumber(string numberString, WordRelation wordRelation)
 		{
 			int num = java.lang.String.instancehelper_length(numberString);
@@ -205,32 +117,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			207,
-			135,
-			113,
-			105,
-			107,
-			140,
-			110,
-			144,
-			111,
-			107,
-			115,
-			147,
-			105,
-			111,
-			113,
-			103,
-			110,
-			98,
-			110,
-			142
-		})]
-		
+	
 		public static void expandID(string numberString, WordRelation wordRelation)
 		{
 			int num = java.lang.String.instancehelper_length(numberString);
@@ -272,43 +159,17 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			130,
-			191,
-			25,
-			135,
-			134,
-			104,
-			110,
-			147,
-			100,
-			147,
-			100,
-			179,
-			110,
-			105,
-			110,
-			105,
-			110,
-			231,
-			69,
-			100,
-			168
-		})]
-		
+	
 		public static void expandOrdinal(string rawNumberString, WordRelation wordRelation)
 		{
 			object obj = ",";
 			object obj2 = "";
-			object _<ref> = obj;
-			CharSequence charSequence;
-			charSequence.__<ref> = _<ref>;
+			object _ref = obj;
+			CharSequence charSequence = new CharSequence();
+			charSequence.__ref = _ref;
 			CharSequence charSequence2 = charSequence;
-			_<ref> = obj2;
-			charSequence.__<ref> = _<ref>;
+			_ref = obj2;
+			charSequence.__ref = _ref;
 			NumberExpander.expandNumber(java.lang.String.instancehelper_replace(rawNumberString, charSequence2, charSequence), wordRelation);
 			Item tail = wordRelation.getTail();
 			if (tail != null)
@@ -342,17 +203,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			166,
-			105,
-			110,
-			143,
-			150
-		})]
-		
+	
 		public static void expandNumess(string rawString, WordRelation wordRelation)
 		{
 			if (java.lang.String.instancehelper_length(rawString) == 4)
@@ -365,34 +216,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				wordRelation.addWord(NumberExpander.digit2Numness[(int)(java.lang.String.instancehelper_charAt(rawString, 0) - '0')]);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			51,
-			130,
-			110,
-			104,
-			101,
-			106,
-			101,
-			105,
-			104,
-			107,
-			106,
-			101,
-			100,
-			102,
-			101,
-			101,
-			134,
-			132,
-			98,
-			228,
-			45,
-			233,
-			87
-		})]
 		
 		public static int expandRoman(string roman)
 		{
@@ -436,26 +259,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			43,
-			139,
-			208,
-			113,
-			103,
-			101,
-			139,
-			113,
-			103,
-			141,
-			113,
-			103,
-			130,
-			113,
-			103,
-			179
-		})]
 		
 		private static void expand2DigitNumber(string text, WordRelation wordRelation)
 		{
@@ -484,17 +287,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				NumberExpander.expandDigits(java.lang.String.instancehelper_substring(text, 1, java.lang.String.instancehelper_length(text)), wordRelation);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			77,
-			107,
-			138,
-			113,
-			103,
-			107,
-			136
-		})]
 		
 		private static void expand3DigitNumber(string text, WordRelation wordRelation)
 		{
@@ -510,68 +302,25 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				NumberExpander.expandNumberAt(text, 1, wordRelation);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			97,
-			109
-		})]
 		
 		private static void expandBelow7DigitNumber(string text, WordRelation wordRelation)
 		{
 			NumberExpander.expandLargeNumber(text, "thousand", 3, wordRelation);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			109,
-			109
-		})]
 		
 		private static void expandBelow10DigitNumber(string text, WordRelation wordRelation)
 		{
 			NumberExpander.expandLargeNumber(text, "million", 6, wordRelation);
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			121,
-			110
-		})]
-		
+		}		
 		private static void expandBelow13DigitNumber(string text, WordRelation wordRelation)
 		{
 			NumberExpander.expandLargeNumber(text, "billion", 9, wordRelation);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			97,
-			99,
-			43,
-			165
-		})]
-		
+	
 		private static void expandNumberAt(string text, int num, WordRelation wordRelation)
 		{
 			NumberExpander.expandNumber(java.lang.String.instancehelper_substring(text, num, java.lang.String.instancehelper_length(text)), wordRelation);
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			72,
-			167,
-			100,
-			169,
-			103,
-			103,
-			105,
-			135,
-			104
-		})]
-		
+		}		
 		private static void expandLargeNumber(string text, string word, int num, WordRelation wordRelation)
 		{
 			int num2 = java.lang.String.instancehelper_length(text);
@@ -585,21 +334,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			NumberExpander.expandNumberAt(text, num3, wordRelation);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			187,
-			103,
-			107,
-			101,
-			132,
-			226,
-			59,
-			230,
-			73
-		})]
-		
+	
 		private static string findMatchInArray(string text, string[] array, string[] array2)
 		{
 			int i = 0;
@@ -626,28 +361,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		private NumberExpander()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			165,
-			191,
-			62,
-			223,
-			62,
-			223,
-			62,
-			191,
-			62,
-			223,
-			62,
-			223,
-			62
-		})]
-		static NumberExpander()
-		{
-		}
-
 		
 		private static string[] digit2num = new string[]
 		{

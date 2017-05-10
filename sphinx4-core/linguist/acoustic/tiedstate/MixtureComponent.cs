@@ -375,18 +375,18 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		}
 
 		
-		public static implicit operator Cloneable(MixtureComponent _<ref>)
+		public static implicit operator Cloneable(MixtureComponent _ref)
 		{
 			Cloneable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 
 		
-		public static implicit operator Serializable(MixtureComponent _<ref>)
+		public static implicit operator Serializable(MixtureComponent _ref)
 		{
 			Serializable result;
-			result.__<ref> = _<ref>;
+			result.__ref = _ref;
 			return result;
 		}
 

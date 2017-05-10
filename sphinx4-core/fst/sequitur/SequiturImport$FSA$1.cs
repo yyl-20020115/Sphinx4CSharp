@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 		
 		bool Comparator.Object;)Zequals(object obj)
 		{
-			return Object.instancehelper_equals(this, obj);
+			return java.lang.Object.instancehelper_equals(this, obj);
 		}
 
 		
