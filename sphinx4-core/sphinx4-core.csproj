@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B726D13-4B2A-4FEC-9BA0-F763CF8726E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>edu.cmu.sphinx</RootNamespace>
+    <AssemblyName>sphinx4-core-5prealpha-SNAPSHOT</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="commons-math3-3.6.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\commons-math3-3.6.1.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.AWT.WinForms, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.AWT.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Beans, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Beans.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Charsets, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Charsets.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Cldrdata, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Cldrdata.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Corba, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Corba.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Jdbc, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Jdbc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Localedata, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Localedata.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Management, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Media, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Misc, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Naming, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Naming.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Nashorn, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Nashorn.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Tools, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.API.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Bind, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Bind.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Crypto, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Parse, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Transform, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.Transform.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.WebServices, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.XPath, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.OpenJDK.XML.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI, Version=8.1.5717.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <HintPath>..\packages\IKVM.8.1.5717.0\lib\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="alignment\LongTextAligner$1.cs" />
+    <Compile Include="alignment\LongTextAligner$Alignment$1.cs" />
+    <Compile Include="alignment\LongTextAligner$Alignment$Node.cs" />
+    <Compile Include="alignment\LongTextAligner.cs" />
+    <Compile Include="alignment\SimpleTokenizer.cs" />
+    <Compile Include="alignment\TextTokenizer.cs" />
+    <Compile Include="alignment\Token.cs" />
+    <Compile Include="alignment\tokenizer\CharTokenizer.cs" />
+    <Compile Include="alignment\tokenizer\DecisionTree.cs" />
+    <Compile Include="alignment\tokenizer\FeatureSet.cs" />
+    <Compile Include="alignment\tokenizer\Item.cs" />
+    <Compile Include="alignment\tokenizer\ItemContents.cs" />
+    <Compile Include="alignment\tokenizer\NumberExpander.cs" />
+    <Compile Include="alignment\tokenizer\OpEnum.cs" />
+    <Compile Include="alignment\tokenizer\PathExtractor.cs" />
+    <Compile Include="alignment\tokenizer\PrefixFSM.cs" />
+    <Compile Include="alignment\tokenizer\PronounceableFSM.cs" />
+    <Compile Include="alignment\tokenizer\Relation.cs" />
+    <Compile Include="alignment\tokenizer\SuffixFSM.cs" />
+    <Compile Include="alignment\tokenizer\Utterance.cs" />
+    <Compile Include="alignment\tokenizer\WordRelation.cs" />
+    <Compile Include="alignment\UsEnglish.cs" />
+    <Compile Include="alignment\USEnglishTokenizer.cs" />
+    <Compile Include="api\AbstractSpeechRecognizer.cs" />
+    <Compile Include="api\Configuration.cs" />
+    <Compile Include="api\Context.cs" />
+    <Compile Include="api\LiveSpeechRecognizer.cs" />
+    <Compile Include="api\Microphone.cs" />
+    <Compile Include="api\SpeechAligner.cs" />
+    <Compile Include="api\SpeechResult.cs" />
+    <Compile Include="api\SpeechSourceProvider.cs" />
+    <Compile Include="api\StreamSpeechRecognizer.cs" />
+    <Compile Include="decoder\AbstractDecoder.cs" />
+    <Compile Include="decoder\adaptation\ClusteredDensityFileData.cs" />
+    <Compile Include="decoder\adaptation\Stats.cs" />
+    <Compile Include="decoder\adaptation\Transform.cs" />
+    <Compile Include="decoder\Decoder.cs" />
+    <Compile Include="decoder\FrameDecoder.cs" />
+    <Compile Include="decoder\pruner\NullPruner.cs" />
+    <Compile Include="decoder\pruner\Pruner.cs" />
+    <Compile Include="decoder\pruner\SimplePruner.cs" />
+    <Compile Include="decoder\ResultListener.cs" />
+    <Compile Include="decoder\ResultProducer.cs" />
+    <Compile Include="decoder\scorer\AcousticScorer.cs" />
+    <Compile Include="decoder\scorer\BackgroundModelNormalizer.cs" />
+    <Compile Include="decoder\scorer\MaxScoreNormalizer.cs" />
+    <Compile Include="decoder\scorer\Scoreable$1.cs" />
+    <Compile Include="decoder\scorer\Scoreable.cs" />
+    <Compile Include="decoder\scorer\ScoreNormalizer.cs" />
+    <Compile Include="decoder\scorer\ScoreProvider.cs" />
+    <Compile Include="decoder\scorer\SimpleAcousticScorer.cs" />
+    <Compile Include="decoder\scorer\ThreadedAcousticScorer$1.cs" />
+    <Compile Include="decoder\scorer\ThreadedAcousticScorer.cs" />
+    <Compile Include="decoder\search\ActiveList.cs" />
+    <Compile Include="decoder\search\ActiveListFactory.cs" />
+    <Compile Include="decoder\search\ActiveListManager.cs" />
+    <Compile Include="decoder\search\AlternateHypothesisManager.cs" />
+    <Compile Include="decoder\search\PartitionActiveListFactory.cs" />
+    <Compile Include="decoder\search\Partitioner.cs" />
+    <Compile Include="decoder\search\SearchManager.cs" />
+    <Compile Include="decoder\search\SimpleActiveListFactory.cs" />
+    <Compile Include="decoder\search\SimpleActiveListManager.cs" />
+    <Compile Include="decoder\search\SimpleBreadthFirstSearchManager.cs" />
+    <Compile Include="decoder\search\SortingActiveListFactory.cs" />
+    <Compile Include="decoder\search\stats\StateHistoryTracker$WordStats$1.cs" />
+    <Compile Include="decoder\search\stats\StateHistoryTracker.cs" />
+    <Compile Include="decoder\search\stats\TokenTracker.cs" />
+    <Compile Include="decoder\search\stats\TokenTypeTracker$1.cs" />
+    <Compile Include="decoder\search\stats\TokenTypeTracker.cs" />
+    <Compile Include="decoder\search\stats\WordTracker$WordStats$1.cs" />
+    <Compile Include="decoder\search\stats\WordTracker.cs" />
+    <Compile Include="decoder\search\Token.cs" />
+    <Compile Include="decoder\search\TokenArrayIterator.cs" />
+    <Compile Include="decoder\search\TokenHeapSearchManager.cs" />
+    <Compile Include="decoder\search\TokenSearchManager.cs" />
+    <Compile Include="decoder\search\WordActiveListFactory.cs" />
+    <Compile Include="decoder\search\WordPruningBreadthFirstLookaheadSearchManager.cs" />
+    <Compile Include="decoder\search\WordPruningBreadthFirstSearchManager.cs" />
+    <Compile Include="frontend\AutoCepstrum.cs" />
+    <Compile Include="frontend\BaseDataProcessor.cs" />
+    <Compile Include="frontend\Data.cs" />
+    <Compile Include="frontend\DataBlocker.cs" />
+    <Compile Include="frontend\databranch\DataBufferProcessor.cs" />
+    <Compile Include="frontend\databranch\DataListener.cs" />
+    <Compile Include="frontend\databranch\DataProducer.cs" />
+    <Compile Include="frontend\databranch\FrontEndSplitter.cs" />
+    <Compile Include="frontend\DataEndSignal.cs" />
+    <Compile Include="frontend\DataProcessingException.cs" />
+    <Compile Include="frontend\DataProcessor.cs" />
+    <Compile Include="frontend\DataStartSignal.cs" />
+    <Compile Include="frontend\denoise\Denoise.cs" />
+    <Compile Include="frontend\DoubleData.cs" />
+    <Compile Include="frontend\endpoint\AbstractVoiceActivityDetector.cs" />
+    <Compile Include="frontend\endpoint\SpeechClassifiedData.cs" />
+    <Compile Include="frontend\endpoint\SpeechClassifier.cs" />
+    <Compile Include="frontend\endpoint\SpeechEndSignal.cs" />
+    <Compile Include="frontend\endpoint\SpeechMarker.cs" />
+    <Compile Include="frontend\endpoint\SpeechStartSignal.cs" />
+    <Compile Include="frontend\feature\AbstractFeatureExtractor.cs" />
+    <Compile Include="frontend\feature\BatchAGC.cs" />
+    <Compile Include="frontend\feature\BatchCMN.cs" />
+    <Compile Include="frontend\feature\BatchVarNorm.cs" />
+    <Compile Include="frontend\feature\ConcatFeatureExtractor.cs" />
+    <Compile Include="frontend\feature\DeltasFeatureExtractor.cs" />
+    <Compile Include="frontend\feature\FeatureTransform.cs" />
+    <Compile Include="frontend\feature\FrameDropper.cs" />
+    <Compile Include="frontend\feature\KaldiDeltasFeatureExtractor.cs" />
+    <Compile Include="frontend\feature\LiveCMN.cs" />
+    <Compile Include="frontend\feature\S3FeatureExtractor.cs" />
+    <Compile Include="frontend\filter\Dither.cs" />
+    <Compile Include="frontend\filter\EnergyFilter.cs" />
+    <Compile Include="frontend\filter\Preemphasizer.cs" />
+    <Compile Include="frontend\FloatData.cs" />
+    <Compile Include="frontend\frequencywarp\FrequencyWarper.cs" />
+    <Compile Include="frontend\frequencywarp\LinearPredictor.cs" />
+    <Compile Include="frontend\frequencywarp\MelFilter.cs" />
+    <Compile Include="frontend\frequencywarp\MelFilter2.cs" />
+    <Compile Include="frontend\frequencywarp\MelFrequencyFilterBank.cs" />
+    <Compile Include="frontend\frequencywarp\MelFrequencyFilterBank2.cs" />
+    <Compile Include="frontend\frequencywarp\PLPCepstrumProducer.cs" />
+    <Compile Include="frontend\frequencywarp\PLPFilter.cs" />
+    <Compile Include="frontend\frequencywarp\PLPFrequencyFilterBank.cs" />
+    <Compile Include="frontend\FrontEnd.cs" />
+    <Compile Include="frontend\GainControlProcessor.cs" />
+    <Compile Include="frontend\Signal.cs" />
+    <Compile Include="frontend\SignalListener.cs" />
+    <Compile Include="frontend\transform\DiscreteCosineTransform.cs" />
+    <Compile Include="frontend\transform\DiscreteCosineTransform2.cs" />
+    <Compile Include="frontend\transform\DiscreteFourierTransform.cs" />
+    <Compile Include="frontend\transform\KaldiDiscreteCosineTransform.cs" />
+    <Compile Include="frontend\transform\Lifter.cs" />
+    <Compile Include="frontend\util\AudioContinuityTester.cs" />
+    <Compile Include="frontend\util\AudioFileDataSource.cs" />
+    <Compile Include="frontend\util\AudioFileProcessListener.cs" />
+    <Compile Include="frontend\util\ConcatAudioFileDataSource.cs" />
+    <Compile Include="frontend\util\ConcatFileDataSource.cs" />
+    <Compile Include="frontend\util\DataConverter.cs" />
+    <Compile Include="frontend\util\DataDumper.cs" />
+    <Compile Include="frontend\util\DataUtil.cs" />
+    <Compile Include="frontend\util\EnergyPlotter.cs" />
+    <Compile Include="frontend\util\FrontEndUtils.cs" />
+    <Compile Include="frontend\util\Microphone$1.cs" />
+    <Compile Include="frontend\util\Microphone.cs" />
+    <Compile Include="frontend\util\StreamCepstrumSource.cs" />
+    <Compile Include="frontend\util\StreamDataSource.cs" />
+    <Compile Include="frontend\util\StreamHTKCepstrum.cs" />
+    <Compile Include="frontend\util\Utterance.cs" />
+    <Compile Include="frontend\util\VUMeter.cs" />
+    <Compile Include="frontend\util\VUMeterMonitor.cs" />
+    <Compile Include="frontend\util\VUMeterPanel.cs" />
+    <Compile Include="frontend\util\WavWriter.cs" />
+    <Compile Include="frontend\window\DoubleBuffer.cs" />
+    <Compile Include="frontend\window\RaisedCosineWindower.cs" />
+    <Compile Include="fst\Arc.cs" />
+    <Compile Include="fst\Convert.cs" />
+    <Compile Include="fst\Export.cs" />
+    <Compile Include="fst\Fst.cs" />
+    <Compile Include="fst\ImmutableFst.cs" />
+    <Compile Include="fst\ImmutableState.cs" />
+    <Compile Include="fst\Import.cs" />
+    <Compile Include="fst\operations\ArcSort.cs" />
+    <Compile Include="fst\operations\Compose.cs" />
+    <Compile Include="fst\operations\Connect.cs" />
+    <Compile Include="fst\operations\Determinize.cs" />
+    <Compile Include="fst\operations\ExtendFinal.cs" />
+    <Compile Include="fst\operations\ILabelCompare.cs" />
+    <Compile Include="fst\operations\NShortestPaths$1.cs" />
+    <Compile Include="fst\operations\NShortestPaths.cs" />
+    <Compile Include="fst\operations\OLabelCompare.cs" />
+    <Compile Include="fst\operations\Project.cs" />
+    <Compile Include="fst\operations\ProjectType.cs" />
+    <Compile Include="fst\operations\Reverse.cs" />
+    <Compile Include="fst\operations\RmEpsilon.cs" />
+    <Compile Include="fst\semiring\LogSemiring.cs" />
+    <Compile Include="fst\semiring\ProbabilitySemiring.cs" />
+    <Compile Include="fst\semiring\Semiring.cs" />
+    <Compile Include="fst\semiring\TropicalSemiring.cs" />
+    <Compile Include="fst\sequitur\SequiturImport$FSA$1.cs" />
+    <Compile Include="fst\sequitur\SequiturImport.cs" />
+    <Compile Include="fst\State.cs" />
+    <Compile Include="fst\utils\Pair.cs" />
+    <Compile Include="fst\utils\Utils.cs" />
+    <Compile Include="instrumentation\AccuracyTracker.cs" />
+    <Compile Include="instrumentation\BestPathAccuracyTracker.cs" />
+    <Compile Include="instrumentation\ConfigMonitor.cs" />
+    <Compile Include="instrumentation\MemoryTracker.cs" />
+    <Compile Include="instrumentation\Monitor.cs" />
+    <Compile Include="instrumentation\RecognizerMonitor.cs" />
+    <Compile Include="instrumentation\RejectionTracker.cs" />
+    <Compile Include="instrumentation\Resetable.cs" />
+    <Compile Include="instrumentation\SpeedTracker.cs" />
+    <Compile Include="jsgf\GrXMLGrammar.cs" />
+    <Compile Include="jsgf\GrXMLHandler.cs" />
+    <Compile Include="jsgf\JSGFGrammar.cs" />
+    <Compile Include="jsgf\JSGFGrammarException.cs" />
+    <Compile Include="jsgf\JSGFGrammarParseException.cs" />
+    <Compile Include="jsgf\JSGFRuleGrammar.cs" />
+    <Compile Include="jsgf\JSGFRuleGrammarFactory.cs" />
+    <Compile Include="jsgf\JSGFRuleGrammarManager.cs" />
+    <Compile Include="jsgf\parser\JavaCharStream.cs" />
+    <Compile Include="jsgf\parser\JSGFEncoding.cs" />
+    <Compile Include="jsgf\parser\JSGFParser$1.cs" />
+    <Compile Include="jsgf\parser\JSGFParser.cs" />
+    <Compile Include="jsgf\parser\JSGFParserConstants.cs" />
+    <Compile Include="jsgf\parser\JSGFParserTokenManager.cs" />
+    <Compile Include="jsgf\parser\ParseException.cs" />
+    <Compile Include="jsgf\parser\Token.cs" />
+    <Compile Include="jsgf\parser\TokenMgrError.cs" />
+    <Compile Include="jsgf\rule\JSGFRule.cs" />
+    <Compile Include="jsgf\rule\JSGFRuleAlternatives.cs" />
+    <Compile Include="jsgf\rule\JSGFRuleCount.cs" />
+    <Compile Include="jsgf\rule\JSGFRuleName.cs" />
+    <Compile Include="jsgf\rule\JSGFRuleSequence.cs" />
+    <Compile Include="jsgf\rule\JSGFRuleTag.cs" />
+    <Compile Include="jsgf\rule\JSGFRuleToken.cs" />
+    <Compile Include="linguist\acoustic\AcousticModel.cs" />
+    <Compile Include="linguist\acoustic\Context.cs" />
+    <Compile Include="linguist\acoustic\HMM.cs" />
+    <Compile Include="linguist\acoustic\HMMPool.cs" />
+    <Compile Include="linguist\acoustic\HMMPosition.cs" />
+    <Compile Include="linguist\acoustic\HMMState.cs" />
+    <Compile Include="linguist\acoustic\HMMStateArc.cs" />
+    <Compile Include="linguist\acoustic\LeftRightContext.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\CompositeSenone.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\GaussianMixture.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\GaussianWeights.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HMMManager.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTKLoader.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\GMMDiag.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\HMMSet$1.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\HMMSet$2.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\HMMSet.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\HMMState.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\Lab.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\NamesConversion.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\HTK\SingleHMM.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\KaldiLoader.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\ConstantEventMap.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\DiagGmm.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\EventMap.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\EventMapWithKey.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\HmmState.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\KaldiGmmPool.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\KaldiTextParser.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\SplitEventMap.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\TableEventMap.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\TransitionModel.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\kaldi\Triple.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\LazyHmmManager.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\Loader.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\MixtureComponent.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\Pool.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\Saver.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\ScoreCachingSenone.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\Senone.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\SenoneHMM.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\SenoneHMMState.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\SenoneSequence.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\Sphinx3Loader.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\tiedmixture\MixtureComponentSet$1.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\tiedmixture\MixtureComponentSet.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\tiedmixture\MixtureComponentSetScores.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\tiedmixture\PrunableMixtureComponent.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\tiedmixture\SetBasedGaussianMixture.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\TiedStateAcousticModel.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\trainer\Buffer.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\trainer\HMMPoolManager.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\trainer\ModelInitializerLoader.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\trainer\Sphinx3Saver.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\trainer\TrainerAcousticModel.cs" />
+    <Compile Include="linguist\acoustic\tiedstate\trainer\TrainerScore.cs" />
+    <Compile Include="linguist\acoustic\trivial\TrivialAcousticModel.cs" />
+    <Compile Include="linguist\acoustic\trivial\TrivialHMM.cs" />
+    <Compile Include="linguist\acoustic\trivial\TrivialHMMState.cs" />
+    <Compile Include="linguist\acoustic\Unit.cs" />
+    <Compile Include="linguist\acoustic\UnitManager.cs" />
+    <Compile Include="linguist\aflat\AFlatLinguist.cs" />
+    <Compile Include="linguist\aflat\PhoneLoop.cs" />
+    <Compile Include="linguist\allphone\AllphoneLinguist.cs" />
+    <Compile Include="linguist\allphone\AllphoneSearchGraph.cs" />
+    <Compile Include="linguist\allphone\PhoneHmmSearchState.cs" />
+    <Compile Include="linguist\allphone\PhoneNonEmittingSearchState.cs" />
+    <Compile Include="linguist\allphone\PhoneWordSearchState.cs" />
+    <Compile Include="linguist\dflat\DynamicFlatLinguist.cs" />
+    <Compile Include="linguist\dflat\OutOfGrammarGraph.cs" />
+    <Compile Include="linguist\dictionary\Dictionary.cs" />
+    <Compile Include="linguist\dictionary\MappingDictionary.cs" />
+    <Compile Include="linguist\dictionary\Pronunciation.cs" />
+    <Compile Include="linguist\dictionary\TextDictionary.cs" />
+    <Compile Include="linguist\dictionary\Word.cs" />
+    <Compile Include="linguist\flat\AlternativeState.cs" />
+    <Compile Include="linguist\flat\BranchOutState.cs" />
+    <Compile Include="linguist\flat\BranchState.cs" />
+    <Compile Include="linguist\flat\CIPhoneLoop.cs" />
+    <Compile Include="linguist\flat\ContextPair.cs" />
+    <Compile Include="linguist\flat\ExtendedUnitState.cs" />
+    <Compile Include="linguist\flat\FlatLinguist.cs" />
+    <Compile Include="linguist\flat\GrammarPoint.cs" />
+    <Compile Include="linguist\flat\GrammarState.cs" />
+    <Compile Include="linguist\flat\HMMStateState.cs" />
+    <Compile Include="linguist\flat\LoopBackState.cs" />
+    <Compile Include="linguist\flat\NonEmittingHMMState.cs" />
+    <Compile Include="linguist\flat\PronunciationState.cs" />
+    <Compile Include="linguist\flat\SentenceHMMState$1.cs" />
+    <Compile Include="linguist\flat\SentenceHMMState$2.cs" />
+    <Compile Include="linguist\flat\SentenceHMMState$3.cs" />
+    <Compile Include="linguist\flat\SentenceHMMState.cs" />
+    <Compile Include="linguist\flat\SentenceHMMStateArc.cs" />
+    <Compile Include="linguist\flat\SentenceHMMStateVisitor.cs" />
+    <Compile Include="linguist\flat\UnitContext.cs" />
+    <Compile Include="linguist\flat\UnitState.cs" />
+    <Compile Include="linguist\flat\UnknownWordState.cs" />
+    <Compile Include="linguist\flat\WordState.cs" />
+    <Compile Include="linguist\g2p\G2PConverter.cs" />
+    <Compile Include="linguist\g2p\Path.cs" />
+    <Compile Include="linguist\g2p\PathComparator.cs" />
+    <Compile Include="linguist\HMMSearchState.cs" />
+    <Compile Include="linguist\language\classes\ClassBasedLanguageModel.cs" />
+    <Compile Include="linguist\language\classes\ClassMap.cs" />
+    <Compile Include="linguist\language\classes\ClassPresentingDictionary.cs" />
+    <Compile Include="linguist\language\classes\ClassProbability.cs" />
+    <Compile Include="linguist\language\grammar\AlignerGrammar.cs" />
+    <Compile Include="linguist\language\grammar\BatchForcedAlignerGrammar.cs" />
+    <Compile Include="linguist\language\grammar\ForcedAlignerGrammar.cs" />
+    <Compile Include="linguist\language\grammar\FSTGrammar.cs" />
+    <Compile Include="linguist\language\grammar\Grammar.cs" />
+    <Compile Include="linguist\language\grammar\GrammarArc.cs" />
+    <Compile Include="linguist\language\grammar\GrammarInterface.cs" />
+    <Compile Include="linguist\language\grammar\GrammarNode.cs" />
+    <Compile Include="linguist\language\grammar\LatticeGrammar.cs" />
+    <Compile Include="linguist\language\grammar\LMGrammar.cs" />
+    <Compile Include="linguist\language\grammar\SimpleWordListGrammar.cs" />
+    <Compile Include="linguist\language\ngram\DynamicTrigramModel.cs" />
+    <Compile Include="linguist\language\ngram\InterpolatedLanguageModel.cs" />
+    <Compile Include="linguist\language\ngram\KeywordOptimizerModel.cs" />
+    <Compile Include="linguist\language\ngram\LanguageModel.cs" />
+    <Compile Include="linguist\language\ngram\large\BinaryLoader.cs" />
+    <Compile Include="linguist\language\ngram\large\BinaryStreamLoader.cs" />
+    <Compile Include="linguist\language\ngram\large\KeywordOptimizerLargeNGramModel.cs" />
+    <Compile Include="linguist\language\ngram\large\LargeNGramModel.cs" />
+    <Compile Include="linguist\language\ngram\large\LargeTrigramModel.cs" />
+    <Compile Include="linguist\language\ngram\large\NGramBuffer.cs" />
+    <Compile Include="linguist\language\ngram\large\NGramProbability.cs" />
+    <Compile Include="linguist\language\ngram\large\NMaxGramBuffer.cs" />
+    <Compile Include="linguist\language\ngram\large\UnigramProbability.cs" />
+    <Compile Include="linguist\language\ngram\NetworkLanguageModel.cs" />
+    <Compile Include="linguist\language\ngram\Probability.cs" />
+    <Compile Include="linguist\language\ngram\SimpleNGramModel.cs" />
+    <Compile Include="linguist\language\ngram\trie\BinaryLoader.cs" />
+    <Compile Include="linguist\language\ngram\trie\NgramTrie.cs" />
+    <Compile Include="linguist\language\ngram\trie\NgramTrieBitarr.cs" />
+    <Compile Include="linguist\language\ngram\trie\NgramTrieModel.cs" />
+    <Compile Include="linguist\language\ngram\trie\NgramTrieQuant$1.cs" />
+    <Compile Include="linguist\language\ngram\trie\NgramTrieQuant.cs" />
+    <Compile Include="linguist\lextree\EndNode.cs" />
+    <Compile Include="linguist\lextree\HMMNode.cs" />
+    <Compile Include="linguist\lextree\HMMTree.cs" />
+    <Compile Include="linguist\lextree\InitialWordNode.cs" />
+    <Compile Include="linguist\lextree\LexTreeLinguist.cs" />
+    <Compile Include="linguist\lextree\Node.cs" />
+    <Compile Include="linguist\lextree\UnitNode.cs" />
+    <Compile Include="linguist\lextree\WordNode.cs" />
+    <Compile Include="linguist\Linguist.cs" />
+    <Compile Include="linguist\LinguistProcessor.cs" />
+    <Compile Include="linguist\SearchGraph.cs" />
+    <Compile Include="linguist\SearchState.cs" />
+    <Compile Include="linguist\SearchStateArc.cs" />
+    <Compile Include="linguist\UnitSearchState.cs" />
+    <Compile Include="linguist\util\GDLDumper.cs" />
+    <Compile Include="linguist\util\LinguistDumper.cs" />
+    <Compile Include="linguist\util\LinguistStats.cs" />
+    <Compile Include="linguist\util\LinguistTimer.cs" />
+    <Compile Include="linguist\util\LRUCache.cs" />
+    <Compile Include="linguist\util\StateLevel.cs" />
+    <Compile Include="linguist\WordSearchState.cs" />
+    <Compile Include="linguist\WordSequence$1.cs" />
+    <Compile Include="linguist\WordSequence.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="recognizer\Recognizer.cs" />
+    <Compile Include="recognizer\StateListener.cs" />
+    <Compile Include="result\BoundedPriorityQueue.cs" />
+    <Compile Include="result\Edge.cs" />
+    <Compile Include="result\FrameStatistics.cs" />
+    <Compile Include="result\GDLLatticeFactory.cs" />
+    <Compile Include="result\Lattice.cs" />
+    <Compile Include="result\LatticeOptimizer.cs" />
+    <Compile Include="result\LatticeRescorer.cs" />
+    <Compile Include="result\Nbest.cs" />
+    <Compile Include="result\Node.cs" />
+    <Compile Include="result\Path.cs" />
+    <Compile Include="result\Result.cs" />
+    <Compile Include="result\TokenGraphDumper.cs" />
+    <Compile Include="result\WordResult.cs" />
+    <Compile Include="speakerid\Segment.cs" />
+    <Compile Include="speakerid\SpeakerCluster.cs" />
+    <Compile Include="speakerid\SpeakerIdentification.cs" />
+    <Compile Include="speakerid\Tester.cs" />
+    <Compile Include="tools\aligner\Aligner.cs" />
+    <Compile Include="tools\audio\AudioData.cs" />
+    <Compile Include="tools\audio\AudioDataInputStream.cs" />
+    <Compile Include="tools\audio\AudioPanel$1.cs" />
+    <Compile Include="tools\audio\AudioPanel.cs" />
+    <Compile Include="tools\audio\AudioPlayer.cs" />
+    <Compile Include="tools\audio\AudioTool$1.cs" />
+    <Compile Include="tools\audio\AudioTool$10.cs" />
+    <Compile Include="tools\audio\AudioTool$11.cs" />
+    <Compile Include="tools\audio\AudioTool$12.cs" />
+    <Compile Include="tools\audio\AudioTool$13.cs" />
+    <Compile Include="tools\audio\AudioTool$14.cs" />
+    <Compile Include="tools\audio\AudioTool$15.cs" />
+    <Compile Include="tools\audio\AudioTool$16.cs" />
+    <Compile Include="tools\audio\AudioTool$2.cs" />
+    <Compile Include="tools\audio\AudioTool$3.cs" />
+    <Compile Include="tools\audio\AudioTool$4.cs" />
+    <Compile Include="tools\audio\AudioTool$5.cs" />
+    <Compile Include="tools\audio\AudioTool$6.cs" />
+    <Compile Include="tools\audio\AudioTool$7.cs" />
+    <Compile Include="tools\audio\AudioTool$8.cs" />
+    <Compile Include="tools\audio\AudioTool$9.cs" />
+    <Compile Include="tools\audio\AudioTool.cs" />
+    <Compile Include="tools\audio\CepstrumPanel$1.cs" />
+    <Compile Include="tools\audio\CepstrumPanel.cs" />
+    <Compile Include="tools\audio\Downsampler.cs" />
+    <Compile Include="tools\audio\FilenameDialog$1.cs" />
+    <Compile Include="tools\audio\FilenameDialog$2.cs" />
+    <Compile Include="tools\audio\FilenameDialog.cs" />
+    <Compile Include="tools\audio\RawReader.cs" />
+    <Compile Include="tools\audio\RawRecorder.cs" />
+    <Compile Include="tools\audio\RawWriter.cs" />
+    <Compile Include="tools\audio\Sinusoid.cs" />
+    <Compile Include="tools\audio\SpectrogramPanel$1.cs" />
+    <Compile Include="tools\audio\SpectrogramPanel.cs" />
+    <Compile Include="tools\audio\Utils.cs" />
+    <Compile Include="tools\bandwidth\BandDetector.cs" />
+    <Compile Include="tools\batch\BatchDecoderRecognizer.cs" />
+    <Compile Include="tools\batch\BatchForcedAlignerRecognizer.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$1.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$10.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$11.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$12.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$2.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$3.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$4.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$5.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$6.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$7.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$8.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer$9.cs" />
+    <Compile Include="tools\batch\BatchModeRecognizer.cs" />
+    <Compile Include="tools\batch\BatchNISTRecognizer.cs" />
+    <Compile Include="tools\batch\SphinxShell.cs" />
+    <Compile Include="tools\endpoint\Segmenter.cs" />
+    <Compile Include="tools\feature\FeatureFileDumper.cs" />
+    <Compile Include="tools\live\LiveModeRecognizer.cs" />
+    <Compile Include="tools\transcriber\Transcriber.cs" />
+    <Compile Include="trainer\BaumWelchLearner.cs" />
+    <Compile Include="trainer\BuildTranscriptHMM.cs" />
+    <Compile Include="trainer\ControlFile.cs" />
+    <Compile Include="trainer\Edge.cs" />
+    <Compile Include="trainer\FlatInitializerLearner.cs" />
+    <Compile Include="trainer\Graph.cs" />
+    <Compile Include="trainer\Learner.cs" />
+    <Compile Include="trainer\Node.cs" />
+    <Compile Include="trainer\NodeType.cs" />
+    <Compile Include="trainer\SimpleControlFile.cs" />
+    <Compile Include="trainer\SimpleTrainManager.cs" />
+    <Compile Include="trainer\SimpleTranscript.cs" />
+    <Compile Include="trainer\SimpleUtterance.cs" />
+    <Compile Include="trainer\Stage.cs" />
+    <Compile Include="trainer\Trainer.cs" />
+    <Compile Include="trainer\TrainerDictionary.cs" />
+    <Compile Include="trainer\TrainerLink.cs" />
+    <Compile Include="trainer\TrainerToken.cs" />
+    <Compile Include="trainer\TrainManager.cs" />
+    <Compile Include="trainer\Transcript.cs" />
+    <Compile Include="trainer\TranscriptGraph.cs" />
+    <Compile Include="trainer\TranscriptHMMGraph.cs" />
+    <Compile Include="trainer\Utterance.cs" />
+    <Compile Include="trainer\UtteranceGraph.cs" />
+    <Compile Include="trainer\UtteranceHMMGraph.cs" />
+    <Compile Include="util\BatchFile.cs" />
+    <Compile Include="util\BatchItem.cs" />
+    <Compile Include="util\BatchManager.cs" />
+    <Compile Include="util\Cache.cs" />
+    <Compile Include="util\CommandInterface.cs" />
+    <Compile Include="util\CommandInterpreter$1.cs" />
+    <Compile Include="util\CommandInterpreter$10.cs" />
+    <Compile Include="util\CommandInterpreter$11.cs" />
+    <Compile Include="util\CommandInterpreter$12.cs" />
+    <Compile Include="util\CommandInterpreter$13.cs" />
+    <Compile Include="util\CommandInterpreter$14.cs" />
+    <Compile Include="util\CommandInterpreter$2.cs" />
+    <Compile Include="util\CommandInterpreter$3.cs" />
+    <Compile Include="util\CommandInterpreter$4.cs" />
+    <Compile Include="util\CommandInterpreter$5.cs" />
+    <Compile Include="util\CommandInterpreter$6.cs" />
+    <Compile Include="util\CommandInterpreter$7.cs" />
+    <Compile Include="util\CommandInterpreter$8.cs" />
+    <Compile Include="util\CommandInterpreter$9.cs" />
+    <Compile Include="util\CommandInterpreter.cs" />
+    <Compile Include="util\Complex.cs" />
+    <Compile Include="util\CustomThreadFactory.cs" />
+    <Compile Include="util\ExtendedStreamTokenizer.cs" />
+    <Compile Include="util\FileReferenceSource.cs" />
+    <Compile Include="util\GapInsertionDetector.cs" />
+    <Compile Include="util\HypothesisFile.cs" />
+    <Compile Include="util\HypothesisUtterance.cs" />
+    <Compile Include="util\HypothesisWord.cs" />
+    <Compile Include="util\LogMath.cs" />
+    <Compile Include="util\machlearn\OVector.cs" />
+    <Compile Include="util\MatrixUtils.cs" />
+    <Compile Include="util\NISTAlign$1.cs" />
+    <Compile Include="util\NISTAlign$2.cs" />
+    <Compile Include="util\NISTAlign.cs" />
+    <Compile Include="util\PooledBatchManager.cs" />
+    <Compile Include="util\props\ConfCategory.cs" />
+    <Compile Include="util\props\ConfCategoryAttribute.cs" />
+    <Compile Include="util\props\ConfigHandler.cs" />
+    <Compile Include="util\props\Configurable.cs" />
+    <Compile Include="util\props\ConfigurableAdapter.cs" />
+    <Compile Include="util\props\ConfigurationChangeListener.cs" />
+    <Compile Include="util\props\ConfigurationManager.cs" />
+    <Compile Include="util\props\ConfigurationManagerUtils$1.cs" />
+    <Compile Include="util\props\ConfigurationManagerUtils.cs" />
+    <Compile Include="util\props\InternalConfigurationException.cs" />
+    <Compile Include="util\props\PropertyException.cs" />
+    <Compile Include="util\props\PropertySheet.cs" />
+    <Compile Include="util\props\PropertyType$1.cs" />
+    <Compile Include="util\props\PropertyType$2.cs" />
+    <Compile Include="util\props\PropertyType$3.cs" />
+    <Compile Include="util\props\PropertyType$4.cs" />
+    <Compile Include="util\props\PropertyType$5.cs" />
+    <Compile Include="util\props\PropertyType.cs" />
+    <Compile Include="util\props\RawPropertyData.cs" />
+    <Compile Include="util\props\S4Boolean.cs" />
+    <Compile Include="util\props\S4BooleanAttribute.cs" />
+    <Compile Include="util\props\S4Component.cs" />
+    <Compile Include="util\props\S4ComponentAttribute.cs" />
+    <Compile Include="util\props\S4ComponentList.cs" />
+    <Compile Include="util\props\S4ComponentListAttribute.cs" />
+    <Compile Include="util\props\S4Double.cs" />
+    <Compile Include="util\props\S4DoubleAttribute.cs" />
+    <Compile Include="util\props\S4Integer.cs" />
+    <Compile Include="util\props\S4IntegerAttribute.cs" />
+    <Compile Include="util\props\S4Property.cs" />
+    <Compile Include="util\props\S4PropertyAttribute.cs" />
+    <Compile Include="util\props\S4PropWrapper.cs" />
+    <Compile Include="util\props\S4String.cs" />
+    <Compile Include="util\props\S4StringAttribute.cs" />
+    <Compile Include="util\props\S4StringList.cs" />
+    <Compile Include="util\props\S4StringListAttribute.cs" />
+    <Compile Include="util\props\SaxLoader.cs" />
+    <Compile Include="util\props\tools\GDLDumper.cs" />
+    <Compile Include="util\props\tools\HTMLDumper.cs" />
+    <Compile Include="util\Range.cs" />
+    <Compile Include="util\ReferenceFile.cs" />
+    <Compile Include="util\ReferenceSource.cs" />
+    <Compile Include="util\ReferenceUtterance.cs" />
+    <Compile Include="util\SimpleBatchManager.cs" />
+    <Compile Include="util\SocketCommandClient$1.cs" />
+    <Compile Include="util\SocketCommandClient$2.cs" />
+    <Compile Include="util\SocketCommandClient$3.cs" />
+    <Compile Include="util\SocketCommandClient.cs" />
+    <Compile Include="util\SocketCommandInterpreter$1.cs" />
+    <Compile Include="util\SocketCommandInterpreter$2.cs" />
+    <Compile Include="util\SocketCommandInterpreter.cs" />
+    <Compile Include="util\SphinxHelp.cs" />
+    <Compile Include="util\SphinxLogFormatter.cs" />
+    <Compile Include="util\StatisticsVariable.cs" />
+    <Compile Include="util\StreamFactory.cs" />
+    <Compile Include="util\TestFileFilter.cs" />
+    <Compile Include="util\TimeFrame.cs" />
+    <Compile Include="util\Timer.cs" />
+    <Compile Include="util\TimerPool.cs" />
+    <Compile Include="util\Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

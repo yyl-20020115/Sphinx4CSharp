@@ -1,0 +1,187 @@
+﻿using System;
+
+using IKVM.Attributes;
+using java.io;
+using java.lang;
+using java.net;
+using java.util;
+
+namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
+{
+	public class KaldiTextParser : java.lang.Object
+	{
+		[Throws(new string[]
+		{
+			"java.io.IOException",
+			"java.net.MalformedURLException"
+		})]
+		[LineNumberTable(new byte[]
+		{
+			159,
+			163,
+			136,
+			108,
+			118,
+			108,
+			151,
+			106,
+			109
+		})]
+		
+		public KaldiTextParser(string path)
+		{
+			File file = new File(path, "final.mdl");
+			URL.__<clinit>();
+			InputStream inputStream = new URL(file.getPath()).openStream();
+			File file2 = new File(path, "tree");
+			URL.__<clinit>();
+			InputStream inputStream2 = new URL(file2.getPath()).openStream();
+			SequenceInputStream sequenceInputStream = new SequenceInputStream(inputStream, inputStream2);
+			this.scanner = new Scanner(sequenceInputStream);
+		}
+
+		[LineNumberTable(new byte[]
+		{
+			30,
+			108,
+			104
+		})]
+		
+		public virtual void expectToken(string expected)
+		{
+			string actual = this.scanner.next();
+			this.assertToken(expected, actual);
+		}
+
+		
+		
+		public virtual int getInt()
+		{
+			return this.scanner.nextInt();
+		}
+
+		
+		
+		public virtual string getToken()
+		{
+			return this.scanner.next();
+		}
+
+		[LineNumberTable(new byte[]
+		{
+			159,
+			187,
+			102,
+			127,
+			11,
+			148,
+			108,
+			105,
+			54,
+			168
+		})]
+		
+		public virtual int[] getIntArray()
+		{
+			ArrayList arrayList = new ArrayList();
+			Iterator iterator = this.getTokenList("[", "]").iterator();
+			while (iterator.hasNext())
+			{
+				string text = (string)iterator.next();
+				arrayList.add(Integer.valueOf(Integer.parseInt(text)));
+			}
+			int[] array = new int[arrayList.size()];
+			for (int i = 0; i < array.Length; i++)
+			{
+				array[i] = ((Integer)arrayList.get(i)).intValue();
+			}
+			return array;
+		}
+
+		[LineNumberTable(new byte[]
+		{
+			7,
+			102,
+			127,
+			11,
+			148,
+			108,
+			105,
+			54,
+			168
+		})]
+		
+		public virtual float[] getFloatArray()
+		{
+			ArrayList arrayList = new ArrayList();
+			Iterator iterator = this.getTokenList("[", "]").iterator();
+			while (iterator.hasNext())
+			{
+				string text = (string)iterator.next();
+				arrayList.add(Float.valueOf(Float.parseFloat(text)));
+			}
+			float[] array = new float[arrayList.size()];
+			for (int i = 0; i < array.Length; i++)
+			{
+				array[i] = ((Float)arrayList.get(i)).floatValue();
+			}
+			return array;
+		}
+
+		
+		[LineNumberTable(new byte[]
+		{
+			19,
+			103,
+			166,
+			117,
+			138
+		})]
+		
+		public virtual List getTokenList(string openToken, string closeToken)
+		{
+			this.expectToken(openToken);
+			ArrayList arrayList = new ArrayList();
+			string text;
+			while (!java.lang.String.instancehelper_equals(closeToken, text = this.scanner.next()))
+			{
+				arrayList.add(text);
+			}
+			return arrayList;
+		}
+
+		[LineNumberTable(new byte[]
+		{
+			35,
+			105,
+			161,
+			121
+		})]
+		
+		public virtual void assertToken(string expected, string actual)
+		{
+			if (java.lang.String.instancehelper_equals(actual, expected))
+			{
+				return;
+			}
+			string text = java.lang.String.format("'%s' expected, '%s' got", new object[]
+			{
+				expected,
+				actual
+			});
+			string text2 = text;
+			
+			throw new InputMismatchException(text2);
+		}
+
+		
+		
+		public virtual float parseFloat()
+		{
+			return this.scanner.nextFloat();
+		}
+
+		
+		private Scanner scanner;
+	}
+}
