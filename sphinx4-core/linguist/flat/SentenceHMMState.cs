@@ -154,7 +154,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			if (sorted)
 			{
 				TreeSet.__<clinit>();
-				TreeSet treeSet = new TreeSet(new SentenceHMMState$3());
+				TreeSet treeSet = new TreeSet(new SentenceHMMState_3());
 				treeSet.addAll((Set)obj);
 				obj = treeSet;
 			}
@@ -517,7 +517,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		
 		public virtual void resetAllProcessed()
 		{
-			SentenceHMMState.visitStates(new SentenceHMMState$1(this), this, false);
+			SentenceHMMState.visitStates(new SentenceHMMState_1(this), this, false);
 		}
 
 		
@@ -600,7 +600,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		
 		public virtual void dumpAll()
 		{
-			SentenceHMMState.visitStates(new SentenceHMMState$2(this), this, true);
+			SentenceHMMState.visitStates(new SentenceHMMState_2(this), this, true);
 		}
 
 		protected internal virtual string getAnnotation()
@@ -683,7 +683,7 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		
 		
-		internal static int access$100(SentenceHMMState sentenceHMMState)
+		internal static int access_100(SentenceHMMState sentenceHMMState)
 		{
 			return sentenceHMMState.stateNumber;
 		}

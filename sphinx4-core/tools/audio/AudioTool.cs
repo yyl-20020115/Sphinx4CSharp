@@ -114,7 +114,7 @@ namespace edu.cmu.sphinx.tools.audio
 		}
 
 		
-		internal static JButton access$400()
+		internal static JButton access_400()
 		{
 			return AudioTool.recordButton;
 		}
@@ -128,7 +128,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		
 		
-		internal static short[] access$500(Microphone microphone)
+		internal static short[] access_500(Microphone microphone)
 		{
 			return AudioTool.getRecordedAudio(microphone);
 		}
@@ -136,7 +136,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		
 		
-		internal static void access$100()
+		internal static void access_100()
 		{
 			AudioTool.zoomIn();
 		}
@@ -144,7 +144,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		
 		
-		internal static void access$200()
+		internal static void access_200()
 		{
 			AudioTool.zoomOut();
 		}
@@ -152,7 +152,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		
 		
-		internal static void access$300()
+		internal static void access_300()
 		{
 			AudioTool.zoomReset();
 		}
@@ -510,52 +510,52 @@ namespace edu.cmu.sphinx.tools.audio
 			jmenuBar.add(jmenu);
 			JMenuItem jmenuItem = new JMenuItem("Open...");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke("control O"));
-			jmenuItem.addActionListener(new AudioTool$1());
+			jmenuItem.addActionListener(new AudioTool_1());
 			jmenu.add(jmenuItem);
 			AudioTool.saveMenuItem = new JMenuItem("Save");
 			AudioTool.saveMenuItem.setAccelerator(KeyStroke.getKeyStroke("control S"));
 			AudioTool.saveMenuItem.setEnabled(false);
-			AudioTool.saveMenuItem.addActionListener(new AudioTool$2());
+			AudioTool.saveMenuItem.addActionListener(new AudioTool_2());
 			jmenu.add(AudioTool.saveMenuItem);
 			jmenuItem = new JMenuItem("Save As...");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke("control V"));
-			jmenuItem.addActionListener(new AudioTool$3());
+			jmenuItem.addActionListener(new AudioTool_3());
 			jmenu.add(jmenuItem);
 			jmenuItem = new JMenuItem("Quit");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke("control Q"));
-			jmenuItem.addActionListener(new AudioTool$4());
+			jmenuItem.addActionListener(new AudioTool_4());
 			jmenu.add(jmenuItem);
 			jmenu = new JMenu("Edit");
 			jmenuBar.add(jmenu);
 			jmenuItem = new JMenuItem("Select All");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke("control A"));
-			jmenuItem.addActionListener(new AudioTool$5());
+			jmenuItem.addActionListener(new AudioTool_5());
 			jmenu.add(jmenuItem);
 			jmenuItem = new JMenuItem("Crop");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke("control X"));
-			jmenuItem.addActionListener(new AudioTool$6());
+			jmenuItem.addActionListener(new AudioTool_6());
 			jmenu.add(jmenuItem);
 			jmenu = new JMenu("View");
 			jmenuBar.add(jmenu);
 			jmenuItem = new JMenuItem("Zoom In");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke('>'));
-			jmenuItem.addActionListener(new AudioTool$7());
+			jmenuItem.addActionListener(new AudioTool_7());
 			jmenu.add(jmenuItem);
 			jmenuItem = new JMenuItem("Zoom Out");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke('<'));
-			jmenuItem.addActionListener(new AudioTool$8());
+			jmenuItem.addActionListener(new AudioTool_8());
 			jmenu.add(jmenuItem);
 			jmenuItem = new JMenuItem("Original Size");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke('!'));
-			jmenuItem.addActionListener(new AudioTool$9());
+			jmenuItem.addActionListener(new AudioTool_9());
 			jmenu.add(jmenuItem);
 			jmenu = new JMenu("Audio");
 			jmenuBar.add(jmenu);
 			jmenuItem = new JMenuItem("Play");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke("control P"));
-			jmenuItem.addActionListener(new AudioTool$10());
+			jmenuItem.addActionListener(new AudioTool_10());
 			jmenu.add(jmenuItem);
-			AudioTool.recordListener = new AudioTool$11();
+			AudioTool.recordListener = new AudioTool_11();
 			jmenuItem = new JMenuItem("Record Start/Stop");
 			jmenuItem.setAccelerator(KeyStroke.getKeyStroke("control R"));
 			jmenuItem.addActionListener(AudioTool.recordListener);
@@ -608,21 +608,21 @@ namespace edu.cmu.sphinx.tools.audio
 			jpanel.setLayout(flowLayout);
 			AudioTool.playButton = new JButton("Play");
 			AudioTool.playButton.setEnabled(true);
-			AudioTool.playButton.addActionListener(new AudioTool$12());
+			AudioTool.playButton.addActionListener(new AudioTool_12());
 			AudioTool.recordButton = new JButton("Record");
 			AudioTool.recordButton.setEnabled(true);
 			AudioTool.recordButton.addActionListener(AudioTool.recordListener);
 			AudioTool.zoomInButton = new JButton("Zoom In");
 			AudioTool.zoomInButton.setEnabled(true);
-			AudioTool.zoomInButton.addActionListener(new AudioTool$13());
+			AudioTool.zoomInButton.addActionListener(new AudioTool_13());
 			AudioTool.zoomOutButton = new JButton("Zoom Out");
 			AudioTool.zoomOutButton.setEnabled(true);
-			AudioTool.zoomOutButton.addActionListener(new AudioTool$14());
+			AudioTool.zoomOutButton.addActionListener(new AudioTool_14());
 			AudioTool.zoomResetButton = new JButton("Reset Size");
 			AudioTool.zoomResetButton.setEnabled(true);
-			AudioTool.zoomResetButton.addActionListener(new AudioTool$15());
+			AudioTool.zoomResetButton.addActionListener(new AudioTool_15());
 			JButton jbutton = new JButton("Exit");
-			jbutton.addActionListener(new AudioTool$16());
+			jbutton.addActionListener(new AudioTool_16());
 			jpanel.add(AudioTool.recordButton);
 			jpanel.add(AudioTool.playButton);
 			jpanel.add(AudioTool.zoomInButton);

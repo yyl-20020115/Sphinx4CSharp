@@ -10,33 +10,8 @@ using java.util.regex;
 
 namespace edu.cmu.sphinx.alignment
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.alignment.TextTokenizer"
-	})]
 	public class USEnglishTokenizer : java.lang.Object, TextTokenizer
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			55,
-			111,
-			111,
-			111,
-			111,
-			111,
-			111,
-			111,
-			111,
-			111,
-			108
-		})]
-		
 		private string simplifyChars(string text)
 		{
 			text = java.lang.String.instancehelper_replace(text, '’', '\'');
@@ -51,120 +26,7 @@ namespace edu.cmu.sphinx.alignment
 			text = java.lang.String.instancehelper_replace(text, '\f', ' ');
 			return text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			105,
-			108,
-			108,
-			135,
-			109,
-			145,
-			127,
-			1,
-			105,
-			114,
-			150,
-			149,
-			144,
-			173,
-			140,
-			157,
-			42,
-			167,
-			108,
-			149,
-			141,
-			108,
-			109,
-			122,
-			117,
-			109,
-			122,
-			117,
-			105,
-			122,
-			111,
-			149,
-			48,
-			167,
-			112,
-			103,
-			109,
-			146,
-			140,
-			243,
-			69,
-			173,
-			209,
-			182,
-			205,
-			191,
-			41,
-			176,
-			159,
-			96,
-			173,
-			106,
-			107,
-			140,
-			109,
-			107,
-			141,
-			174,
-			118,
-			109,
-			154,
-			108,
-			139,
-			146,
-			106,
-			107,
-			140,
-			109,
-			110,
-			141,
-			146,
-			108,
-			109,
-			108,
-			105,
-			122,
-			111,
-			149,
-			48,
-			167,
-			112,
-			103,
-			109,
-			146,
-			140,
-			114,
-			113,
-			141,
-			107,
-			108,
-			146,
-			108,
-			145,
-			112,
-			117,
-			109,
-			122,
-			111,
-			103,
-			108,
-			107,
-			105,
-			113,
-			105,
-			141,
-			114,
-			207,
-			145
-		})]
-		
+	
 		private void tokenToWords(string text)
 		{
 			FeatureSet features = this.tokenItem.getFeatures();
@@ -232,12 +94,11 @@ namespace edu.cmu.sphinx.alignment
 			{
 				object obj = ".";
 				object obj2 = "";
-				object obj3 = obj;
-				CharSequence charSequence;
-				charSequence.__ref = obj3;
-				CharSequence charSequence2 = charSequence;
-				obj3 = obj2;
-				charSequence.__ref = obj3;
+				
+				CharSequence charSequence = CharSequence.Cast(obj);
+
+				CharSequence charSequence2 = CharSequence.Cast(obj2);
+
 				NumberExpander.expandLetters(java.lang.String.instancehelper_replace(text, charSequence2, charSequence), this.wordRelation);
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.commaIntPattern, text))
@@ -245,19 +106,14 @@ namespace edu.cmu.sphinx.alignment
 				object obj4 = ",";
 				object obj3 = "";
 				object obj2 = obj4;
-				CharSequence charSequence;
-				charSequence.__ref = obj2;
-				CharSequence charSequence3 = charSequence;
-				obj2 = obj3;
-				charSequence.__ref = obj2;
+				CharSequence charSequence = CharSequence.Cast(obj4);
+				CharSequence charSequence3 = CharSequence.Cast(obj3);
 				string text3 = java.lang.String.instancehelper_replace(text, charSequence3, charSequence);
 				object obj5 = "'";
 				obj2 = "";
-				obj3 = obj5;
-				charSequence.__ref = obj3;
+				charSequence = CharSequence.Cast(obj5);
 				CharSequence charSequence4 = charSequence;
-				obj3 = obj2;
-				charSequence.__ref = obj3;
+				charSequence = CharSequence.Cast(obj2);
 				NumberExpander.expandReal(java.lang.String.instancehelper_replace(text3, charSequence4, charSequence), this.wordRelation);
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.sevenPhoneNumberPattern, text))
@@ -354,39 +210,14 @@ namespace edu.cmu.sphinx.alignment
 				this.wordRelation.addWord(java.lang.String.instancehelper_toLowerCase(text));
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			164,
-			120
-		})]
 		
 		private static bool matches(Pattern pattern, string _ref)
 		{
-			CharSequence charSequence;
-			charSequence.__ref = _ref;
+			CharSequence charSequence = CharSequence.Cast(_ref);
 			Matcher matcher = pattern.matcher(charSequence);
 			return matcher.matches();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			162,
-			74,
-			150,
-			141,
-			140,
-			109,
-			112,
-			110,
-			109,
-			142,
-			140,
-			98,
-			140
-		})]
-		
 		private void romanToWords(string text)
 		{
 			string text2 = (string)this.tokenItem.findFeature("p.punc");
@@ -412,46 +243,7 @@ namespace edu.cmu.sphinx.alignment
 				NumberExpander.expandLetters(text, this.wordRelation);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			151,
-			98,
-			98,
-			136,
-			106,
-			102,
-			136,
-			102,
-			166,
-			108,
-			141,
-			151,
-			121,
-			113,
-			110,
-			145,
-			119,
-			151,
-			106,
-			138,
-			114,
-			113,
-			114,
-			113,
-			114,
-			142,
-			107,
-			108,
-			110,
-			142,
-			236,
-			69,
-			114,
-			144
-		})]
-		
+	
 		private void drStToWords(string text)
 		{
 			int num = (int)java.lang.String.instancehelper_charAt(text, 0);
@@ -514,44 +306,6 @@ namespace edu.cmu.sphinx.alignment
 				features.setString("punc", "");
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			103,
-			118,
-			102,
-			194,
-			114,
-			118,
-			150,
-			103,
-			237,
-			69,
-			98,
-			109,
-			110,
-			114,
-			247,
-			69,
-			98,
-			114,
-			110,
-			191,
-			14,
-			104,
-			133,
-			131,
-			98,
-			131,
-			100,
-			105,
-			102,
-			15,
-			232,
-			69,
-			162
-		})]
 		
 		private bool isStateName(string text)
 		{
@@ -594,40 +348,12 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			92,
-			103
-		})]
 		
 		public virtual bool isPronounceable(string word)
 		{
 			string inputString = java.lang.String.instancehelper_toLowerCase(word);
 			return this.prefixFSM.accept(inputString) && this.suffixFSM.accept(inputString);
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			78,
-			118,
-			118,
-			118,
-			150,
-			141,
-			127,
-			1,
-			157,
-			126,
-			109,
-			109,
-			113,
-			235,
-			57
-		})]
-		
+		}		
 		private bool matchesPartPhoneNumber(string text)
 		{
 			string text2 = (string)this.tokenItem.findFeature("n.name");
@@ -637,24 +363,7 @@ namespace edu.cmu.sphinx.alignment
 			int num = USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text4) ? 1 : 0;
 			return (USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text) && ((!USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text4) && USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text2) && USEnglishTokenizer.matches(USEnglishTokenizer.fourDigitsPattern, text3)) || USEnglishTokenizer.matches(USEnglishTokenizer.sevenPhoneNumberPattern, text2) || (!USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text5) && num != 0 && USEnglishTokenizer.matches(USEnglishTokenizer.fourDigitsPattern, text2)))) || (USEnglishTokenizer.matches(USEnglishTokenizer.fourDigitsPattern, text) && !USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text2) && num != 0 && USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text5));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			17,
-			103,
-			98,
-			102,
-			111,
-			105,
-			108,
-			107,
-			228,
-			59,
-			230,
-			72
-		})]
-		
+	
 		private void digitsDashToWords(string text)
 		{
 			int num = java.lang.String.instancehelper_length(text);
@@ -670,33 +379,7 @@ namespace edu.cmu.sphinx.alignment
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			35,
-			108,
-			102,
-			109,
-			172,
-			109,
-			145,
-			108,
-			130,
-			105,
-			153,
-			108,
-			119,
-			172,
-			109,
-			110,
-			109,
-			110,
-			109,
-			142,
-			172
-		})]
-		
+	
 		private void digitsToWords(string text)
 		{
 			FeatureSet features = this.tokenItem.getFeatures();
@@ -741,38 +424,6 @@ namespace edu.cmu.sphinx.alignment
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			207,
-			105,
-			127,
-			2,
-			119,
-			100,
-			104,
-			103,
-			109,
-			146,
-			144,
-			113,
-			138,
-			114,
-			149,
-			127,
-			27,
-			139,
-			140,
-			109,
-			146,
-			176,
-			176,
-			109,
-			110,
-			146,
-			208
-		})]
 		
 		private void usMoneyToWords(string text)
 		{
@@ -804,12 +455,8 @@ namespace edu.cmu.sphinx.alignment
 				string text3 = java.lang.String.instancehelper_substring(text, 1, num);
 				object obj = ",";
 				object obj2 = "";
-				object _ref = obj;
-				CharSequence charSequence;
-				charSequence.__ref = _ref;
-				CharSequence charSequence2 = charSequence;
-				_ref = obj2;
-				charSequence.__ref = _ref;
+				CharSequence charSequence = CharSequence.Cast(obj);
+				CharSequence charSequence2 = CharSequence.Cast(obj2);
 				string text2 = java.lang.String.instancehelper_replace(text3, charSequence2, charSequence);
 				string text4 = java.lang.String.instancehelper_substring(text, num + 1);
 				NumberExpander.expandNumber(text2, this.wordRelation);
@@ -835,31 +482,7 @@ namespace edu.cmu.sphinx.alignment
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			1,
-			105,
-			105,
-			202,
-			127,
-			8,
-			103,
-			176,
-			122,
-			112,
-			117,
-			112,
-			108,
-			108,
-			100,
-			178,
-			108,
-			112,
-			140
-		})]
-		
+	
 		private void digitsSlashDigitsToWords(string text)
 		{
 			int num = java.lang.String.instancehelper_indexOf(text, 47);
@@ -891,26 +514,6 @@ namespace edu.cmu.sphinx.alignment
 				NumberExpander.expandNumber(text3, this.wordRelation);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			35,
-			105,
-			105,
-			144,
-			125,
-			108,
-			108,
-			103,
-			112,
-			108,
-			103,
-			112,
-			98,
-			103,
-			135
-		})]
 		
 		private void dashToWords(string text)
 		{
@@ -933,29 +536,7 @@ namespace edu.cmu.sphinx.alignment
 				this.tokenToWords(text3);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			61,
-			98,
-			135,
-			102,
-			105,
-			2,
-			230,
-			69,
-			102,
-			113,
-			161,
-			107,
-			139,
-			109,
-			113,
-			103,
-			103
-		})]
-		
+	
 		private void notJustAlphasToWords(string text)
 		{
 			int i = 0;
@@ -980,18 +561,6 @@ namespace edu.cmu.sphinx.alignment
 			this.tokenToWords(text2);
 			this.tokenToWords(text3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			119,
-			102,
-			112,
-			109,
-			130,
-			102,
-			112
-		})]
 		
 		public static bool kingLike(Item tokenItem)
 		{
@@ -1003,79 +572,23 @@ namespace edu.cmu.sphinx.alignment
 			string text2 = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.p.name"));
 			return USEnglishTokenizer.inKingSectionLikeMap(text2, "kingTitles");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			139,
-			102,
-			112
-		})]
 		
 		public static bool sectionLike(Item tokenItem)
 		{
 			string text = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.name"));
 			return USEnglishTokenizer.inKingSectionLikeMap(text, "sectionTypes");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			104,
-			109,
-			151
-		})]
-		
+	
 		private static bool inKingSectionLikeMap(string text, string text2)
 		{
 			return USEnglishTokenizer.kingSectionLikeMap.containsKey(text) && java.lang.String.instancehelper_equals((string)USEnglishTokenizer.kingSectionLikeMap.get(text), text2);
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			187,
-			104,
-			138,
-			112,
-			98,
-			112,
-			98,
-			109,
-			98,
-			109,
-			130
-		})]
-		
+		}		
 		private static bool isTextSplitable(string text, int num)
 		{
 			int num2 = (int)java.lang.String.instancehelper_charAt(text, num);
 			int num3 = (int)java.lang.String.instancehelper_charAt(text, num + 1);
 			return (!Character.isLetter((char)num2) || !Character.isLetter((char)num3)) && (!Character.isDigit((char)num2) || !Character.isDigit((char)num3)) && num2 != 39 && !Character.isLetter((char)num3) && num3 != 39 && !Character.isLetter((char)num2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			244,
-			232,
-			159,
-			164,
-			103,
-			231,
-			160,
-			93,
-			127,
-			1,
-			98,
-			121,
-			98,
-			191,
-			12,
-			2,
-			97,
-			145
-		})]
 		
 		public USEnglishTokenizer()
 		{
@@ -1084,23 +597,14 @@ namespace edu.cmu.sphinx.alignment
 			IOException ex2;
 			try
 			{
-				DecisionTree.__<clinit>();
 				this.cart = new DecisionTree(java.lang.Object.instancehelper_getClass(this).getResource("nums_cart.txt"));
 				this.prefixFSM = new PrefixFSM(java.lang.Object.instancehelper_getClass(this).getResource("prefix_fsm.txt"));
 				this.suffixFSM = new SuffixFSM(java.lang.Object.instancehelper_getClass(this).getResource("suffix_fsm.txt"));
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_7B;
+				throw new IllegalStateException("resources not found", ex);
 			}
-			return;
-			IL_7B:
-			IOException ex3 = ex2;
-			string text = "resources not found";
-			Exception ex4 = ex3;
-			
-			throw new IllegalStateException(text, ex4);
 		}
 
 		public virtual Item getTokenItem()
@@ -1108,41 +612,6 @@ namespace edu.cmu.sphinx.alignment
 			return this.tokenItem;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			17,
-			136,
-			102,
-			107,
-			107,
-			107,
-			107,
-			103,
-			167,
-			111,
-			176,
-			141,
-			180,
-			109,
-			174,
-			232,
-			57,
-			103,
-			236,
-			73,
-			103,
-			150,
-			127,
-			20,
-			239,
-			61,
-			98,
-			233,
-			69
-		})]
-		
 		public virtual List expand(string text)
 		{
 			string inputText = this.simplifyChars(text);
@@ -1176,8 +645,7 @@ namespace edu.cmu.sphinx.alignment
 				{
 					string text3 = item.toString();
 					object _ref = "#";
-					CharSequence charSequence;
-					charSequence.__ref = _ref;
+					CharSequence charSequence = CharSequence.Cast(_ref);
 					if (!java.lang.String.instancehelper_contains(text3, charSequence))
 					{
 						arrayList.add(item.toString());
@@ -1186,63 +654,6 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			89,
-			111,
-			111,
-			111,
-			111,
-			101,
-			106,
-			111,
-			111,
-			111,
-			111,
-			107,
-			111,
-			111,
-			111,
-			111,
-			111,
-			101,
-			106,
-			111,
-			207,
-			255,
-			160,
-			160,
-			71,
-			255,
-			116,
-			69,
-			255,
-			98,
-			72,
-			234,
-			71,
-			107,
-			55,
-			166,
-			107,
-			55,
-			166,
-			107,
-			55,
-			230,
-			75,
-			255,
-			173,
-			60,
-			160,
-			66,
-			138,
-			107,
-			59,
-			166
-		})]
 		static USEnglishTokenizer()
 		{
 			Pattern.compile(".*[aeiouAEIOU].*");
@@ -1253,7 +664,7 @@ namespace edu.cmu.sphinx.alignment
 			USEnglishTokenizer.romanNumbersPattern = Pattern.compile("(II?I?|IV|VI?I?I?|IX|X[VIX]*)");
 			USEnglishTokenizer.sevenPhoneNumberPattern = Pattern.compile("[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]");
 			USEnglishTokenizer.threeDigitsPattern = Pattern.compile("[0-9][0-9][0-9]");
-			USEnglishTokenizer.usMoneyPattern = Pattern.compile("\\$[0-9,]+(\\.[0-9]+)?");
+			USEnglishTokenizer.usMoneyPattern = Pattern.compile("\\_[0-9,]+(\\.[0-9]+)?");
 			USEnglishTokenizer.kingNames = new string[]
 			{
 				"louis",

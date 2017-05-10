@@ -13,11 +13,11 @@ namespace edu.cmu.sphinx.util
 	[EnclosingMethod("edu.cmu.sphinx.util.CommandInterpreter", "addStandardCommands", "()V")]
 	[SourceFile("CommandInterpreter.java")]
 	
-	internal sealed class CommandInterpreter$7 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_7 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal CommandInterpreter$7(CommandInterpreter commandInterpreter)
+		internal CommandInterpreter_7(CommandInterpreter commandInterpreter)
 		{
 		}
 
@@ -30,7 +30,7 @@ namespace edu.cmu.sphinx.util
 		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
-			this.this$0.putResponse("Command Interpreter - Version 1.1 ");
+			this.this_0.putResponse("Command Interpreter - Version 1.1 ");
 			return "";
 		}
 
@@ -40,6 +40,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal CommandInterpreter this$0 = commandInterpreter;
+		internal CommandInterpreter this_0 = commandInterpreter;
 	}
 }

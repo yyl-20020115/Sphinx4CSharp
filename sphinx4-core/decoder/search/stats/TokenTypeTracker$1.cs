@@ -11,7 +11,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 	[EnclosingMethod("edu.cmu.sphinx.decoder.search.stats.TokenTypeTracker", null, null)]
 	[SourceFile("TokenTypeTracker.java")]
 	
-	internal sealed class TokenTypeTracker$1 : java.lang.Object
+	internal sealed class TokenTypeTracker_1 : java.lang.Object
 	{
 		
 		public static void __<clinit>()
@@ -19,11 +19,11 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		}
 
 		
-		static TokenTypeTracker$1()
+		static TokenTypeTracker_1()
 		{
 			try
 			{
-				TokenTypeTracker$1.$SwitchMap$edu$cmu$sphinx$linguist$acoustic$HMMPosition[HMMPosition.__BEGIN.ordinal()] = 1;
+				TokenTypeTracker_1._SwitchMap_edu_cmu_sphinx_linguist_acoustic_HMMPosition[HMMPosition.__BEGIN.ordinal()] = 1;
 			}
 			catch (Exception ex)
 			{
@@ -34,7 +34,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			}
 			try
 			{
-				TokenTypeTracker$1.$SwitchMap$edu$cmu$sphinx$linguist$acoustic$HMMPosition[HMMPosition.__END.ordinal()] = 2;
+				TokenTypeTracker_1._SwitchMap_edu_cmu_sphinx_linguist_acoustic_HMMPosition[HMMPosition.__END.ordinal()] = 2;
 			}
 			catch (Exception ex2)
 			{
@@ -45,7 +45,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			}
 			try
 			{
-				TokenTypeTracker$1.$SwitchMap$edu$cmu$sphinx$linguist$acoustic$HMMPosition[HMMPosition.__SINGLE.ordinal()] = 3;
+				TokenTypeTracker_1._SwitchMap_edu_cmu_sphinx_linguist_acoustic_HMMPosition[HMMPosition.__SINGLE.ordinal()] = 3;
 			}
 			catch (Exception ex3)
 			{
@@ -56,7 +56,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			}
 			try
 			{
-				TokenTypeTracker$1.$SwitchMap$edu$cmu$sphinx$linguist$acoustic$HMMPosition[HMMPosition.__INTERNAL.ordinal()] = 4;
+				TokenTypeTracker_1._SwitchMap_edu_cmu_sphinx_linguist_acoustic_HMMPosition[HMMPosition.__INTERNAL.ordinal()] = 4;
 			}
 			catch (Exception ex4)
 			{
@@ -67,12 +67,12 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			}
 		}
 
-		TokenTypeTracker$1()
+		TokenTypeTracker_1()
 		{
 			throw null;
 		}
 
 		
-		internal static int[] $SwitchMap$edu$cmu$sphinx$linguist$acoustic$HMMPosition = new int[HMMPosition.values().Length];
+		internal static int[] _SwitchMap_edu_cmu_sphinx_linguist_acoustic_HMMPosition = new int[HMMPosition.values().Length];
 	}
 }

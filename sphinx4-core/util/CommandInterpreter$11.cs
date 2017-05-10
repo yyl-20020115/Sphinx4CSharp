@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.util
 	[EnclosingMethod("edu.cmu.sphinx.util.CommandInterpreter", "addStandardCommands", "()V")]
 	[SourceFile("CommandInterpreter.java")]
 	
-	internal sealed class CommandInterpreter$11 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_11 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal CommandInterpreter$11(CommandInterpreter commandInterpreter)
+		internal CommandInterpreter_11(CommandInterpreter commandInterpreter)
 		{
 		}
 
@@ -50,7 +50,7 @@ namespace edu.cmu.sphinx.util
 					string[] args = (string[])Arrays.copyOfRange(array, 2, array.Length);
 					for (int i = 0; i < num; i++)
 					{
-						this.this$0.putResponse(this.this$0.execute(args));
+						this.this_0.putResponse(this.this_0.execute(args));
 					}
 				}
 				catch (NumberFormatException ex)
@@ -59,11 +59,11 @@ namespace edu.cmu.sphinx.util
 				}
 				goto IL_71;
 				IL_49:
-				this.this$0.putResponse("Usage: repeat count command args");
+				this.this_0.putResponse("Usage: repeat count command args");
 			}
 			else
 			{
-				this.this$0.putResponse("Usage: repeat count command args");
+				this.this_0.putResponse("Usage: repeat count command args");
 			}
 			IL_71:
 			return "";
@@ -75,6 +75,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal CommandInterpreter this$0 = commandInterpreter;
+		internal CommandInterpreter this_0 = commandInterpreter;
 	}
 }

@@ -320,7 +320,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			internal bool isHMM;
 
 			
-			internal TokenTracker this$0 = tokenTracker;
+			internal TokenTracker this_0 = tokenTracker;
 		}
 	}
 }

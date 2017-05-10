@@ -525,7 +525,7 @@ namespace edu.cmu.sphinx.util.props
 			{
 				propValue = null;
 			}
-			switch (ConfigurationManagerUtils$1.$SwitchMap$edu$cmu$sphinx$util$props$PropertyType[propertySheet.getType(propName).ordinal()])
+			switch (ConfigurationManagerUtils_1._SwitchMap_edu_cmu_sphinx_util_props_PropertyType[propertySheet.getType(propName).ordinal()])
 			{
 			case 1:
 			{
@@ -834,7 +834,7 @@ namespace edu.cmu.sphinx.util.props
 					string text4 = (string)iterator2.next();
 					if (propertySheet.getRawNoReplacement(text4) != null)
 					{
-						int num = ConfigurationManagerUtils$1.$SwitchMap$edu$cmu$sphinx$util$props$PropertyType[propertySheet.getType(text4).ordinal()];
+						int num = ConfigurationManagerUtils_1._SwitchMap_edu_cmu_sphinx_util_props_PropertyType[propertySheet.getType(text4).ordinal()];
 						if (num == 1)
 						{
 							List list = ConfigurationManagerUtils.toStringList(propertySheet.getRawNoReplacement(text4));
@@ -1008,7 +1008,7 @@ namespace edu.cmu.sphinx.util.props
 				string text3 = new StringBuilder().append("\n\t\t<property name=\"").append(text2).append("\" ").toString();
 				if (propertySheet.getRawNoReplacement(text2) != null)
 				{
-					if (ConfigurationManagerUtils$1.$SwitchMap$edu$cmu$sphinx$util$props$PropertyType[propertySheet.getType(text2).ordinal()] == 1)
+					if (ConfigurationManagerUtils_1._SwitchMap_edu_cmu_sphinx_util_props_PropertyType[propertySheet.getType(text2).ordinal()] == 1)
 					{
 						stringBuilder.append("\n\t\t<propertylist name=\"").append(text2).append("\">");
 						List list = ConfigurationManagerUtils.toStringList(propertySheet.getRawNoReplacement(text2));
@@ -1094,7 +1094,7 @@ namespace edu.cmu.sphinx.util.props
 			stringBuilder.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
 			stringBuilder.append("\n<!--    Sphinx-4 Configuration file--> \n\n");
 			stringBuilder.append("<config>");
-			Pattern pattern = Pattern.compile("\\$\\{(\\w+)\\}");
+			Pattern pattern = Pattern.compile("\\_\\{(\\w+)\\}");
 			Map globalProperties = cm.getGlobalProperties();
 			Iterator iterator = globalProperties.entrySet().iterator();
 			while (iterator.hasNext())
@@ -1360,7 +1360,7 @@ namespace edu.cmu.sphinx.util.props
 		})]
 		static ConfigurationManagerUtils()
 		{
-			ConfigurationManagerUtils.globalSymbolPattern = Pattern.compile("\\$\\{(\\w+)\\}");
+			ConfigurationManagerUtils.globalSymbolPattern = Pattern.compile("\\_\\{(\\w+)\\}");
 			ConfigurationManagerUtils.jarPattern = Pattern.compile("resource:(.*)", 2);
 		}
 

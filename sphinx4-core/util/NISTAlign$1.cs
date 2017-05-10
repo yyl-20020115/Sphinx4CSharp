@@ -8,16 +8,16 @@ namespace edu.cmu.sphinx.util
 	
 	[Implements(new string[]
 	{
-		"edu.cmu.sphinx.util.NISTAlign$Comparator"
+		"edu.cmu.sphinx.util.NISTAlign_Comparator"
 	})]
 	[EnclosingMethod("edu.cmu.sphinx.util.NISTAlign", "align", "(Ljava.lang.java.lang.String;Ljava.lang.java.lang.String;)Z")]
 	[SourceFile("NISTAlign.java")]
 	
-	internal sealed class NISTAlign$1 : java.lang.Object, NISTAlign.Comparator
+	internal sealed class NISTAlign_1 : java.lang.Object, NISTAlign.Comparator
 	{
 		
 		
-		internal NISTAlign$1(NISTAlign nistalign)
+		internal NISTAlign_1(NISTAlign nistalign)
 		{
 		}
 
@@ -35,6 +35,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal NISTAlign this$0 = nistalign;
+		internal NISTAlign this_0 = nistalign;
 	}
 }

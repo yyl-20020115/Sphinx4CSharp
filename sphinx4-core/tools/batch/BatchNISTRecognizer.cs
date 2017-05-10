@@ -578,7 +578,7 @@ namespace edu.cmu.sphinx.tools.batch
 			
 			internal CTLException(BatchNISTRecognizer batchNISTRecognizer, string text)
 			{
-				this.this$0 = batchNISTRecognizer;
+				this.this_0 = batchNISTRecognizer;
 				base..ctor(text);
 			}
 
@@ -589,7 +589,7 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 
 			
-			internal BatchNISTRecognizer this$0;
+			internal BatchNISTRecognizer this_0;
 		}
 
 		
@@ -615,10 +615,10 @@ namespace edu.cmu.sphinx.tools.batch
 				108
 			})]
 			
-			public CTLIterator(BatchNISTRecognizer this$0)
+			public CTLIterator(BatchNISTRecognizer this_0)
 			{
-				this.ctlReader = new LineNumberReader(new FileReader(this$0.ctlFile));
-				this.refReader = new LineNumberReader(new FileReader(this$0.refFile));
+				this.ctlReader = new LineNumberReader(new FileReader(this_0.ctlFile));
+				this.refReader = new LineNumberReader(new FileReader(this_0.refFile));
 				this.utterance = this.nextUtterance();
 			}
 
@@ -645,7 +645,7 @@ namespace edu.cmu.sphinx.tools.batch
 					string text2 = this.refReader.readLine();
 					if (text != null && text2 != null)
 					{
-						return new BatchNISTRecognizer.CTLUtterance(this.this$0, text, text2);
+						return new BatchNISTRecognizer.CTLUtterance(this.this_0, text, text2);
 					}
 					result = null;
 				}
@@ -718,7 +718,7 @@ namespace edu.cmu.sphinx.tools.batch
 			internal LineNumberReader refReader;
 
 			
-			internal BatchNISTRecognizer this$0 = this$0;
+			internal BatchNISTRecognizer this_0 = this_0;
 		}
 
 		
@@ -744,7 +744,7 @@ namespace edu.cmu.sphinx.tools.batch
 
 			[Throws(new string[]
 			{
-				"edu.cmu.sphinx.tools.batch.BatchNISTRecognizer$CTLException"
+				"edu.cmu.sphinx.tools.batch.BatchNISTRecognizer_CTLException"
 			})]
 			[LineNumberTable(new byte[]
 			{
@@ -858,7 +858,7 @@ namespace edu.cmu.sphinx.tools.batch
 			internal string file;
 
 			
-			internal BatchNISTRecognizer this$0 = batchNISTRecognizer;
+			internal BatchNISTRecognizer this_0 = batchNISTRecognizer;
 		}
 	}
 }

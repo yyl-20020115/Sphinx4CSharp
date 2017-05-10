@@ -13,11 +13,11 @@ namespace edu.cmu.sphinx.util
 	[EnclosingMethod("edu.cmu.sphinx.util.CommandInterpreter", "addStandardCommands", "()V")]
 	[SourceFile("CommandInterpreter.java")]
 	
-	internal sealed class CommandInterpreter$12 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_12 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal CommandInterpreter$12(CommandInterpreter commandInterpreter)
+		internal CommandInterpreter_12(CommandInterpreter commandInterpreter)
 		{
 		}
 
@@ -36,14 +36,14 @@ namespace edu.cmu.sphinx.util
 		{
 			if (array.Length == 2)
 			{
-				if (!this.this$0.load(array[1]))
+				if (!this.this_0.load(array[1]))
 				{
-					this.this$0.putResponse(new StringBuilder().append("load: trouble loading ").append(array[1]).toString());
+					this.this_0.putResponse(new StringBuilder().append("load: trouble loading ").append(array[1]).toString());
 				}
 			}
 			else
 			{
-				this.this$0.putResponse("Usage: load filename");
+				this.this_0.putResponse("Usage: load filename");
 			}
 			return "";
 		}
@@ -54,6 +54,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal CommandInterpreter this$0 = commandInterpreter;
+		internal CommandInterpreter this_0 = commandInterpreter;
 	}
 }

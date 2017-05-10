@@ -171,21 +171,21 @@ namespace edu.cmu.sphinx.tools.batch
 		
 		internal virtual void addCommands(CommandInterpreter commandInterpreter)
 		{
-			commandInterpreter.add("ls", new BatchModeRecognizer$1(this));
-			commandInterpreter.add("show", new BatchModeRecognizer$2(this));
-			commandInterpreter.add("edit", new BatchModeRecognizer$3(this));
-			commandInterpreter.add("save", new BatchModeRecognizer$4(this));
-			commandInterpreter.add("set", new BatchModeRecognizer$5(this));
-			commandInterpreter.add("recognize", new BatchModeRecognizer$6(this));
+			commandInterpreter.add("ls", new BatchModeRecognizer_1(this));
+			commandInterpreter.add("show", new BatchModeRecognizer_2(this));
+			commandInterpreter.add("edit", new BatchModeRecognizer_3(this));
+			commandInterpreter.add("save", new BatchModeRecognizer_4(this));
+			commandInterpreter.add("set", new BatchModeRecognizer_5(this));
+			commandInterpreter.add("recognize", new BatchModeRecognizer_6(this));
 			commandInterpreter.addAlias("recognize", "rec");
-			commandInterpreter.add("statsReset", new BatchModeRecognizer$7(this));
-			commandInterpreter.add("batchRecognize", new BatchModeRecognizer$8(this));
+			commandInterpreter.add("statsReset", new BatchModeRecognizer_7(this));
+			commandInterpreter.add("batchRecognize", new BatchModeRecognizer_8(this));
 			commandInterpreter.addAlias("batchRecognize", "br");
-			commandInterpreter.add("batchNext", new BatchModeRecognizer$9(this));
+			commandInterpreter.add("batchNext", new BatchModeRecognizer_9(this));
 			commandInterpreter.addAlias("batchNext", "bn");
-			commandInterpreter.add("batchAll", new BatchModeRecognizer$10(this));
-			commandInterpreter.add("batchReset", new BatchModeRecognizer$11(this));
-			commandInterpreter.add("batchLoad", new BatchModeRecognizer$12(this));
+			commandInterpreter.add("batchAll", new BatchModeRecognizer_10(this));
+			commandInterpreter.add("batchReset", new BatchModeRecognizer_11(this));
+			commandInterpreter.add("batchLoad", new BatchModeRecognizer_12(this));
 		}
 
 		[Throws(new string[]

@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.util
 	[EnclosingMethod("edu.cmu.sphinx.util.CommandInterpreter", "addStandardCommands", "()V")]
 	[SourceFile("CommandInterpreter.java")]
 	
-	internal sealed class CommandInterpreter$14 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_14 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal CommandInterpreter$14(CommandInterpreter commandInterpreter)
+		internal CommandInterpreter_14(CommandInterpreter commandInterpreter)
 		{
 		}
 
@@ -43,13 +43,13 @@ namespace edu.cmu.sphinx.util
 			{
 				string[] args = (string[])Arrays.copyOfRange(array, 1, array.Length);
 				long num = java.lang.System.currentTimeMillis();
-				this.this$0.putResponse(this.this$0.execute(args));
+				this.this_0.putResponse(this.this_0.execute(args));
 				long num2 = java.lang.System.currentTimeMillis();
-				this.this$0.putResponse(new StringBuilder().append("Time: ").append((double)(num2 - num) / 1000.0).append(" seconds").toString());
+				this.this_0.putResponse(new StringBuilder().append("Time: ").append((double)(num2 - num) / 1000.0).append(" seconds").toString());
 			}
 			else
 			{
-				this.this$0.putResponse("Usage: time cmd [args]");
+				this.this_0.putResponse("Usage: time cmd [args]");
 			}
 			return "";
 		}
@@ -60,6 +60,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal CommandInterpreter this$0 = commandInterpreter;
+		internal CommandInterpreter this_0 = commandInterpreter;
 	}
 }

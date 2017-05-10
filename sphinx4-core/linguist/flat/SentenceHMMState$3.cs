@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.linguist.flat
 	
 	[EnclosingMethod("edu.cmu.sphinx.linguist.flat.SentenceHMMState", "visitStates", "(Ledu.cmu.sphinx.linguist.flat.SentenceHMMStateVisitor;Ledu.cmu.sphinx.linguist.flat.SentenceHMMState;Z)Z")]
 	[SourceFile("SentenceHMMState.java")]
-	internal sealed class SentenceHMMState$3 : java.lang.Object, Comparator
+	internal sealed class SentenceHMMState_3 : java.lang.Object, Comparator
 	{
 		
 		
-		internal SentenceHMMState$3()
+		internal SentenceHMMState_3()
 		{
 		}
 
@@ -32,7 +32,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		
 		public int compare(SentenceHMMState sentenceHMMState, SentenceHMMState sentenceHMMState2)
 		{
-			return SentenceHMMState.access$100(sentenceHMMState) - SentenceHMMState.access$100(sentenceHMMState2);
+			return SentenceHMMState.access_100(sentenceHMMState) - SentenceHMMState.access_100(sentenceHMMState2);
 		}
 
 		
@@ -44,7 +44,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}

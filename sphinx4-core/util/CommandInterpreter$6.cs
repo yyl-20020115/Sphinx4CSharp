@@ -13,11 +13,11 @@ namespace edu.cmu.sphinx.util
 	[EnclosingMethod("edu.cmu.sphinx.util.CommandInterpreter", "addStandardCommands", "()V")]
 	[SourceFile("CommandInterpreter.java")]
 	
-	internal sealed class CommandInterpreter$6 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_6 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal CommandInterpreter$6(CommandInterpreter commandInterpreter)
+		internal CommandInterpreter_6(CommandInterpreter commandInterpreter)
 		{
 		}
 
@@ -32,6 +32,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal CommandInterpreter this$0 = commandInterpreter;
+		internal CommandInterpreter this_0 = commandInterpreter;
 	}
 }

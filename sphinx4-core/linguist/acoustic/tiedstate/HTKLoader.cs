@@ -35,14 +35,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		
 		
-		internal static float access$100(HTKLoader htkloader)
+		internal static float access_100(HTKLoader htkloader)
 		{
 			return htkloader.mixtureWeightFloor;
 		}
 
 		
 		
-		internal static LogMath access$200(HTKLoader htkloader)
+		internal static LogMath access_200(HTKLoader htkloader)
 		{
 			return htkloader.logMath;
 		}
@@ -1012,14 +1012,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		}
 
 		
-		[NameSig("loadHMMPool", "(ZLedu.cmu.sphinx.linguist.acoustic.tiedstate.HTKLoader$HTKStruct;Ljava.lang.java.lang.String;)V")]
+		[NameSig("loadHMMPool", "(ZLedu.cmu.sphinx.linguist.acoustic.tiedstate.HTKLoader_HTKStruct;Ljava.lang.java.lang.String;)V")]
 		protected internal void loadHMMPool(bool flag, object obj, string path)
 		{
 			this.loadHMMPool(flag, (HTKLoader.HTKStruct)obj, path);
 		}
 
 		
-		[NameSig("loadHMMPool", "(ZLedu.cmu.sphinx.linguist.acoustic.tiedstate.HTKLoader$HTKStruct;Ljava.lang.java.lang.String;)V")]
+		[NameSig("loadHMMPool", "(ZLedu.cmu.sphinx.linguist.acoustic.tiedstate.HTKLoader_HTKStruct;Ljava.lang.java.lang.String;)V")]
 		protected internal void _0(bool flag, object obj, string path)
 		{
 			this.loadHMMPool(flag, (HTKLoader.HTKStruct)obj, path);
@@ -1369,7 +1369,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 						{
 							array[k] = gmmdiag.getVar(j, k);
 						}
-						Utilities.floorData(array, HTKLoader.access_000(this.this$0));
+						Utilities.floorData(array, HTKLoader.access_000(this.this_0));
 						k = i * gmmsize + j;
 						pool.put(k, array);
 					}
@@ -1413,8 +1413,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					{
 						array[j] = gmmdiag.getWeight(j);
 					}
-					Utilities.floorData(array, HTKLoader.access$100(this.this$0));
-					HTKLoader.access$200(this.this$0).linearToLog(array);
+					Utilities.floorData(array, HTKLoader.access_100(this.this_0));
+					HTKLoader.access_200(this.this_0).linearToLog(array);
 					gaussianWeights.put(i, 0, array);
 				}
 				return gaussianWeights;
@@ -1487,7 +1487,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 						{
 							for (int k = 0; k < array3[j].Length; k++)
 							{
-								array3[j][k] = HTKLoader.access$200(this.this$0).linearToLog((double)array[j][k]);
+								array3[j][k] = HTKLoader.access_200(this.this_0).linearToLog((double)array[j][k]);
 							}
 						}
 						pool.put(i, array3);
@@ -1512,7 +1512,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 						{
 							for (int n = 0; n < array4[m].Length; n++)
 							{
-								array4[m][n] = HTKLoader.access$200(this.this$0).linearToLog((double)trans[m][n]);
+								array4[m][n] = HTKLoader.access_200(this.this_0).linearToLog((double)trans[m][n]);
 							}
 						}
 						hmm.trIdx = i;
@@ -1532,7 +1532,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			internal HMMSet hmmsHTK;
 
 			
-			internal HTKLoader this$0 = htkloader;
+			internal HTKLoader this_0 = htkloader;
 		}
 	}
 }

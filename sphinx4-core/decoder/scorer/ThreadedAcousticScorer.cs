@@ -95,7 +95,7 @@ namespace edu.cmu.sphinx.decoder.scorer
 					while (i < num)
 					{
 						List list = scoreableList.subList(i, java.lang.Math.min(num5, num));
-						arrayList.add(new ThreadedAcousticScorer$1(this, list, data));
+						arrayList.add(new ThreadedAcousticScorer_1(this, list, data));
 						i = num5;
 						num5 += num4;
 					}

@@ -15,11 +15,11 @@ namespace edu.cmu.sphinx.tools.audio
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.SpectrogramPanel", "<init>", "(Ledu.cmu.sphinx.frontend.FrontEnd;Ledu.cmu.sphinx.frontend.util.StreamDataSource;Ledu.cmu.sphinx.tools.audio.AudioData;)V")]
 	[SourceFile("SpectrogramPanel.java")]
 	
-	internal sealed class SpectrogramPanel$1 : java.lang.Object, ChangeListener, EventListener
+	internal sealed class SpectrogramPanel_1 : java.lang.Object, ChangeListener, EventListener
 	{
 		
 		
-		internal SpectrogramPanel$1(SpectrogramPanel spectrogramPanel)
+		internal SpectrogramPanel_1(SpectrogramPanel spectrogramPanel)
 		{
 		}
 
@@ -31,10 +31,10 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public void stateChanged(ChangeEvent changeEvent)
 		{
-			this.this$0.computeSpectrogram();
+			this.this_0.computeSpectrogram();
 		}
 
 		
-		internal SpectrogramPanel this$0 = spectrogramPanel;
+		internal SpectrogramPanel this_0 = spectrogramPanel;
 	}
 }

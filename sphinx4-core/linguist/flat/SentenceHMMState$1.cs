@@ -13,11 +13,11 @@ namespace edu.cmu.sphinx.linguist.flat
 	[EnclosingMethod("edu.cmu.sphinx.linguist.flat.SentenceHMMState", "resetAllProcessed", "()V")]
 	[SourceFile("SentenceHMMState.java")]
 	
-	internal sealed class SentenceHMMState$1 : java.lang.Object, SentenceHMMStateVisitor
+	internal sealed class SentenceHMMState_1 : java.lang.Object, SentenceHMMStateVisitor
 	{
 		
 		
-		internal SentenceHMMState$1(SentenceHMMState sentenceHMMState)
+		internal SentenceHMMState_1(SentenceHMMState sentenceHMMState)
 		{
 		}
 
@@ -35,6 +35,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		}
 
 		
-		internal SentenceHMMState this$0 = sentenceHMMState;
+		internal SentenceHMMState this_0 = sentenceHMMState;
 	}
 }

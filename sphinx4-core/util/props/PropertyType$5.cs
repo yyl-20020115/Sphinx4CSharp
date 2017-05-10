@@ -11,7 +11,7 @@ namespace edu.cmu.sphinx.util.props
 	[SourceFile("PropertyType.java")]
 	
 	[Serializable]
-	internal sealed class PropertyType$5 : PropertyType
+	internal sealed class PropertyType_5 : PropertyType
 	{
 		
 		public new static void __<clinit>()
@@ -20,7 +20,7 @@ namespace edu.cmu.sphinx.util.props
 
 		
 		
-		internal PropertyType$5(string text, int num, string text2) : base(text, num, text2, null)
+		internal PropertyType_5(string text, int num, string text2) : base(text, num, text2, null)
 		{
 			GC.KeepAlive(this);
 		}
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.util.props
 		}
 
 		
-		static PropertyType$5()
+		static PropertyType_5()
 		{
 			PropertyType.__<clinit>();
 		}

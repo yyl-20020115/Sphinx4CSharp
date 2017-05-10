@@ -17,11 +17,11 @@ namespace edu.cmu.sphinx.tools.batch
 	[EnclosingMethod("edu.cmu.sphinx.tools.batch.BatchModeRecognizer", "addCommands", "(Ledu.cmu.sphinx.util.CommandInterpreter;)V")]
 	[SourceFile("BatchModeRecognizer.java")]
 	
-	internal sealed class BatchModeRecognizer$8 : java.lang.Object, CommandInterface
+	internal sealed class BatchModeRecognizer_8 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal BatchModeRecognizer$8(BatchModeRecognizer batchModeRecognizer)
+		internal BatchModeRecognizer_8(BatchModeRecognizer batchModeRecognizer)
 		{
 		}
 
@@ -60,15 +60,15 @@ namespace edu.cmu.sphinx.tools.batch
 				IOException ex2;
 				try
 				{
-					if (this.this$0.curBatchItem == null)
+					if (this.this_0.curBatchItem == null)
 					{
-						this.this$0.batchManager.start();
-						this.this$0.curBatchItem = this.this$0.batchManager.getNextItem();
+						this.this_0.batchManager.start();
+						this.this_0.curBatchItem = this.this_0.batchManager.getNextItem();
 					}
-					string filename = this.this$0.curBatchItem.getFilename();
-					string transcript = this.this$0.curBatchItem.getTranscript();
-					this.this$0.setInputStream(filename);
-					result = this.this$0.recognizer.recognize(transcript);
+					string filename = this.this_0.curBatchItem.getFilename();
+					string transcript = this.this_0.curBatchItem.getTranscript();
+					this.this_0.setInputStream(filename);
+					result = this.this_0.recognizer.recognize(transcript);
 				}
 				catch (IOException ex)
 				{
@@ -90,6 +90,6 @@ namespace edu.cmu.sphinx.tools.batch
 		}
 
 		
-		internal BatchModeRecognizer this$0 = batchModeRecognizer;
+		internal BatchModeRecognizer this_0 = batchModeRecognizer;
 	}
 }

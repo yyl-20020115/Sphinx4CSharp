@@ -15,7 +15,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 	[EnclosingMethod("edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK.HMMSet", "get1phIt", "()Ljava.util.Iterator;")]
 	[SourceFile("HMMSet.java")]
 	
-	internal sealed class HMMSet$1 : java.lang.Object, Iterator
+	internal sealed class HMMSet_1 : java.lang.Object, Iterator
 	{
 		[LineNumberTable(new byte[]
 		{
@@ -32,9 +32,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		
 		public SingleHMM next()
 		{
-			while (this.cur < this.this$0.__hmms.size())
+			while (this.cur < this.this_0.__hmms.size())
 			{
-				List _hmms = this.this$0.__hmms;
+				List _hmms = this.this_0.__hmms;
 				int num = this.cur;
 				int num2 = num;
 				this.cur = num + 1;
@@ -52,7 +52,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 
 		
 		
-		internal HMMSet$1(HMMSet hmmset)
+		internal HMMSet_1(HMMSet hmmset)
 		{
 		}
 
@@ -76,6 +76,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		internal int cur;
 
 		
-		internal HMMSet this$0 = hmmset;
+		internal HMMSet this_0 = hmmset;
 	}
 }

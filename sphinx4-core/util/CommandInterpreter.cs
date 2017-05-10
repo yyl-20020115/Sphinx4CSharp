@@ -288,20 +288,20 @@ namespace edu.cmu.sphinx.util
 
 		private void addStandardCommands()
 		{
-			this.add("help", new CommandInterpreter$1(this));
-			this.add("history", new CommandInterpreter$2(this));
-			this.add("status", new CommandInterpreter$3(this));
-			this.add("echo", new CommandInterpreter$4(this));
-			this.add("quit", new CommandInterpreter$5(this));
-			this.add("on_exit", new CommandInterpreter$6(this));
-			this.add("version", new CommandInterpreter$7(this));
-			this.add("gc", new CommandInterpreter$8(this));
-			this.add("memory", new CommandInterpreter$9(this));
-			this.add("delay", new CommandInterpreter$10(this));
-			this.add("repeat", new CommandInterpreter$11(this));
-			this.add("load", new CommandInterpreter$12(this));
-			this.add("chain", new CommandInterpreter$13(this));
-			this.add("time", new CommandInterpreter$14(this));
+			this.add("help", new CommandInterpreter_1(this));
+			this.add("history", new CommandInterpreter_2(this));
+			this.add("status", new CommandInterpreter_3(this));
+			this.add("echo", new CommandInterpreter_4(this));
+			this.add("quit", new CommandInterpreter_5(this));
+			this.add("on_exit", new CommandInterpreter_6(this));
+			this.add("version", new CommandInterpreter_7(this));
+			this.add("gc", new CommandInterpreter_8(this));
+			this.add("memory", new CommandInterpreter_9(this));
+			this.add("delay", new CommandInterpreter_10(this));
+			this.add("repeat", new CommandInterpreter_11(this));
+			this.add("load", new CommandInterpreter_12(this));
+			this.add("chain", new CommandInterpreter_13(this));
+			this.add("time", new CommandInterpreter_14(this));
 		}
 
 		public virtual void setStreams(BufferedReader @in, PrintWriter @out)
@@ -635,7 +635,7 @@ namespace edu.cmu.sphinx.util
 				for (int i = 0; i < this.history.size(); i++)
 				{
 					string text = this.get(i);
-					this.this$0.putResponse(new StringBuilder().append(i).append(" ").append(text).toString());
+					this.this_0.putResponse(new StringBuilder().append(i).append(" ").append(text).toString());
 				}
 			}
 
@@ -654,7 +654,7 @@ namespace edu.cmu.sphinx.util
 				{
 					return (string)this.history.get(num);
 				}
-				this.this$0.putResponse("command not found");
+				this.this_0.putResponse("command not found");
 				return "";
 			}
 
@@ -698,7 +698,7 @@ namespace edu.cmu.sphinx.util
 				{
 					return (string)this.history.get(this.history.size() - 1 - num);
 				}
-				this.this$0.putResponse("command not found");
+				this.this_0.putResponse("command not found");
 				return "";
 			}
 
@@ -726,7 +726,7 @@ namespace edu.cmu.sphinx.util
 						return text2;
 					}
 				}
-				this.this$0.putResponse("command not found");
+				this.this_0.putResponse("command not found");
 				return "";
 			}
 
@@ -735,7 +735,7 @@ namespace edu.cmu.sphinx.util
 			private List history;
 
 			
-			internal CommandInterpreter this$0 = commandInterpreter;
+			internal CommandInterpreter this_0 = commandInterpreter;
 		}
 	}
 }

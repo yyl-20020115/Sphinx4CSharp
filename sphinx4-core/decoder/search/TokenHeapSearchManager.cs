@@ -274,7 +274,7 @@ namespace edu.cmu.sphinx.decoder.search
 			internal static bool assertionsDisabled = !ClassLiteral<TokenHeapSearchManager>.Value.desiredAssertionStatus();
 
 			
-			internal TokenHeapSearchManager this$0 = tokenHeapSearchManager;
+			internal TokenHeapSearchManager this_0 = tokenHeapSearchManager;
 		}
 	}
 }

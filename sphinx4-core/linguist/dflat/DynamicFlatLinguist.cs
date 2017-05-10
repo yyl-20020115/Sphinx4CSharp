@@ -23,35 +23,35 @@ namespace edu.cmu.sphinx.linguist.dflat
 	{
 		
 		
-		internal static Grammar access$900(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static Grammar access_900(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.grammar;
 		}
 
 		
 		
-		internal static bool access$1000(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static bool access_1000(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.addOutOfGrammarBranch;
 		}
 
 		
 		
-		internal static AcousticModel access$1100(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static AcousticModel access_1100(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.phoneLoopAcousticModel;
 		}
 
 		
 		
-		internal static float access$1200(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static float access_1200(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.logOutOfGrammarBranchProbability;
 		}
 
 		
 		
-		internal static float access$1300(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static float access_1300(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.logPhoneInsertionProbability;
 		}
@@ -453,56 +453,56 @@ namespace edu.cmu.sphinx.linguist.dflat
 
 		
 		
-		internal static SearchStateArc[] access$100(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static SearchStateArc[] access_100(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.EMPTY_ARCS;
 		}
 
 		
 		
-		internal static HMMPool access$200(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static HMMPool access_200(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.hmmPool;
 		}
 
 		
 		
-		internal static Map access$300(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static Map access_300(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.nodeToUnitSetMap;
 		}
 
 		
 		
-		internal static Map access$400(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static Map access_400(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.nodeToNextUnitArrayMap;
 		}
 
 		
 		
-		internal static float access$500(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static float access_500(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.logWordInsertionProbability;
 		}
 
 		
 		
-		internal static float access$600(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static float access_600(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.logSilenceInsertionProbability;
 		}
 
 		
 		
-		internal static float access$700(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static float access_700(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.logFillerInsertionProbability;
 		}
 
 		
 		
-		internal static float access$800(DynamicFlatLinguist dynamicFlatLinguist)
+		internal static float access_800(DynamicFlatLinguist dynamicFlatLinguist)
 		{
 			return dynamicFlatLinguist.logUnitInsertionProbability;
 		}
@@ -667,12 +667,12 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public SearchState getInitialState()
 			{
-				DynamicFlatLinguist.InitialState initialState = new DynamicFlatLinguist.InitialState(this.this$0);
-				initialState.addArc(new DynamicFlatLinguist.GrammarState(this.this$0, DynamicFlatLinguist.access$900(this.this$0).getInitialNode()));
-				if (DynamicFlatLinguist.access$1000(this.this$0))
+				DynamicFlatLinguist.InitialState initialState = new DynamicFlatLinguist.InitialState(this.this_0);
+				initialState.addArc(new DynamicFlatLinguist.GrammarState(this.this_0, DynamicFlatLinguist.access_900(this.this_0).getInitialNode()));
+				if (DynamicFlatLinguist.access_1000(this.this_0))
 				{
 					OutOfGrammarGraph.__<clinit>();
-					OutOfGrammarGraph outOfGrammarGraph = new OutOfGrammarGraph(DynamicFlatLinguist.access$1100(this.this$0), DynamicFlatLinguist.access$1200(this.this$0), DynamicFlatLinguist.access$1300(this.this$0));
+					OutOfGrammarGraph outOfGrammarGraph = new OutOfGrammarGraph(DynamicFlatLinguist.access_1100(this.this_0), DynamicFlatLinguist.access_1200(this.this_0), DynamicFlatLinguist.access_1300(this.this_0));
 					initialState.addArc(outOfGrammarGraph.getOutOfGrammarGraph());
 				}
 				return initialState;
@@ -689,7 +689,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			}
 
 			
-			internal DynamicFlatLinguist this$0 = dynamicFlatLinguist;
+			internal DynamicFlatLinguist this_0 = dynamicFlatLinguist;
 		}
 
 		
@@ -773,7 +773,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			internal virtual SearchStateArc[] getCachedSuccessors()
 			{
-				return (SearchStateArc[])this.this$0.successorCache.get(this);
+				return (SearchStateArc[])this.this_0.successorCache.get(this);
 			}
 
 			[LineNumberTable(new byte[]
@@ -785,13 +785,13 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			internal virtual void cacheSuccessors(SearchStateArc[] array)
 			{
-				this.this$0.successorCache.put(this, array);
+				this.this_0.successorCache.put(this, array);
 			}
 
 			internal const int ANY = 0;
 
 			
-			internal DynamicFlatLinguist this$0 = dynamicFlatLinguist;
+			internal DynamicFlatLinguist this_0 = dynamicFlatLinguist;
 		}
 
 		
@@ -827,8 +827,8 @@ namespace edu.cmu.sphinx.linguist.dflat
 				this.lc = leftID;
 				this.rc = rightID;
 				int baseID = pronunciationState.getPronunciation().getUnits()[num].getBaseID();
-				int unitID = DynamicFlatLinguist.access$200(dynamicFlatLinguist).buildID(baseID, leftID, rightID);
-				this.hmm = DynamicFlatLinguist.access$200(dynamicFlatLinguist).getHMM(unitID, this.getPosition());
+				int unitID = DynamicFlatLinguist.access_200(dynamicFlatLinguist).buildID(baseID, leftID, rightID);
+				this.hmm = DynamicFlatLinguist.access_200(dynamicFlatLinguist).getHMM(unitID, this.getPosition());
 				this.isLastUnitOfWord = (num == pronunciationState.getPronunciation().getUnits().Length - 1);
 			}
 
@@ -907,13 +907,13 @@ namespace edu.cmu.sphinx.linguist.dflat
 				Unit baseUnit = this.hmm.getBaseUnit();
 				if (baseUnit.isSilence())
 				{
-					return DynamicFlatLinguist.access$600(this.this$0);
+					return DynamicFlatLinguist.access_600(this.this_0);
 				}
 				if (baseUnit.isFiller())
 				{
-					return DynamicFlatLinguist.access$700(this.this$0);
+					return DynamicFlatLinguist.access_700(this.this_0);
 				}
-				return DynamicFlatLinguist.access$800(this.this$0);
+				return DynamicFlatLinguist.access_800(this.this_0);
 			}
 
 			
@@ -993,7 +993,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 				{
 					array = new SearchStateArc[]
 					{
-						new DynamicFlatLinguist.HMMStateSearchState(this.this$0, this, this.hmm.getInitialState())
+						new DynamicFlatLinguist.HMMStateSearchState(this.this_0, this, this.hmm.getInitialState())
 					};
 					this.cacheSuccessors(array);
 				}
@@ -1066,7 +1066,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private bool isLastUnitOfWord;
 
 			
-			internal new DynamicFlatLinguist this$0 = dynamicFlatLinguist;
+			internal new DynamicFlatLinguist this_0 = dynamicFlatLinguist;
 		}
 
 		
@@ -1114,7 +1114,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 				for (int i = 0; i < array.Length; i++)
 				{
 					GrammarArc grammarArc = array[i];
-					array2[i] = new DynamicFlatLinguist.GrammarState(this.this$0, grammarArc.getGrammarNode(), grammarArc.getProbability(), num, num2);
+					array2[i] = new DynamicFlatLinguist.GrammarState(this.this_0, grammarArc.getGrammarNode(), grammarArc.getProbability(), num, num2);
 				}
 				return array2;
 			}
@@ -1202,15 +1202,15 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			private bool hasEntryContext(GrammarNode grammarNode, int unitID)
 			{
-				Set set = (Set)DynamicFlatLinguist.access$300(this.this$0).get(grammarNode);
-				return set.contains(DynamicFlatLinguist.access$200(this.this$0).getUnit(unitID));
+				Set set = (Set)DynamicFlatLinguist.access_300(this.this_0).get(grammarNode);
+				return set.contains(DynamicFlatLinguist.access_200(this.this_0).getUnit(unitID));
 			}
 
 			
 			
 			public override float getLanguageProbability()
 			{
-				return this.languageProbability * DynamicFlatLinguist.access_000(this.this$0);
+				return this.languageProbability * DynamicFlatLinguist.access_000(this.this_0);
 			}
 
 			
@@ -1276,7 +1276,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 				}
 				if (this.isFinal())
 				{
-					array = DynamicFlatLinguist.access$100(this.this$0);
+					array = DynamicFlatLinguist.access_100(this.this_0);
 				}
 				else if (this.node.isEmpty())
 				{
@@ -1289,7 +1289,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 					SearchStateArc[] array2 = new SearchStateArc[pronunciations.Length];
 					for (int i = 0; i < pronunciations.Length; i++)
 					{
-						array2[i] = new DynamicFlatLinguist.PronunciationState(this.this$0, this, pronunciations[i]);
+						array2[i] = new DynamicFlatLinguist.PronunciationState(this.this_0, this, pronunciations[i]);
 					}
 					array = array2;
 				}
@@ -1308,7 +1308,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override string getSignature()
 			{
-				return new StringBuilder().append("GS ").append(this.node).append("-lc-").append(DynamicFlatLinguist.access$200(this.this$0).getUnit(this.lc)).append("-rc-").append(DynamicFlatLinguist.access$200(this.this$0).getUnit(this.nextBaseID)).toString();
+				return new StringBuilder().append("GS ").append(this.node).append("-lc-").append(DynamicFlatLinguist.access_200(this.this_0).getUnit(this.lc)).append("-rc-").append(DynamicFlatLinguist.access_200(this.this_0).getUnit(this.nextBaseID)).toString();
 			}
 
 			public override int getOrder()
@@ -1365,14 +1365,14 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			internal int[] getNextUnits()
 			{
-				return (int[])DynamicFlatLinguist.access$400(this.this$0).get(this.node);
+				return (int[])DynamicFlatLinguist.access_400(this.this_0).get(this.node);
 			}
 
 			
 			
 			public override string toString()
 			{
-				return new StringBuilder().append(this.node).append("[").append(DynamicFlatLinguist.access$200(this.this$0).getUnit(this.lc)).append(',').append(DynamicFlatLinguist.access$200(this.this$0).getUnit(this.nextBaseID)).append(']').toString();
+				return new StringBuilder().append(this.node).append("[").append(DynamicFlatLinguist.access_200(this.this_0).getUnit(this.lc)).append(',').append(DynamicFlatLinguist.access_200(this.this_0).getUnit(this.nextBaseID)).append(']').toString();
 			}
 
 			
@@ -1388,7 +1388,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private float languageProbability;
 
 			
-			internal new DynamicFlatLinguist this$0 = dynamicFlatLinguist;
+			internal new DynamicFlatLinguist this_0 = dynamicFlatLinguist;
 		}
 
 		
@@ -1511,7 +1511,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 						array = new SearchStateArc[successors.Length];
 						for (int i = 0; i < array.Length; i++)
 						{
-							array[i] = new DynamicFlatLinguist.HMMStateSearchState(this.this$0, this.fullHMMSearchState, successors[i].getHMMState(), successors[i].getLogProbability());
+							array[i] = new DynamicFlatLinguist.HMMStateSearchState(this.this_0, this.fullHMMSearchState, successors[i].getHMMState(), successors[i].getLogProbability());
 						}
 					}
 					this.cacheSuccessors(array);
@@ -1562,7 +1562,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private float probability;
 
 			
-			internal new DynamicFlatLinguist this$0 = dynamicFlatLinguist;
+			internal new DynamicFlatLinguist this_0 = dynamicFlatLinguist;
 		}
 
 		
@@ -1629,7 +1629,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private List nextArcs;
 
 			
-			internal new DynamicFlatLinguist this$0 = dynamicFlatLinguist;
+			internal new DynamicFlatLinguist this_0 = dynamicFlatLinguist;
 		}
 
 		
@@ -1680,7 +1680,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 					{
 						array = new SearchStateArc[]
 						{
-							new DynamicFlatLinguist.FullHMMSearchState(this.this$0, this, num2, num, 0)
+							new DynamicFlatLinguist.FullHMMSearchState(this.this_0, this, num2, num, 0)
 						};
 					}
 					else
@@ -1689,7 +1689,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 						array = new SearchStateArc[nextUnits.Length];
 						for (int i = 0; i < array.Length; i++)
 						{
-							array[i] = new DynamicFlatLinguist.FullHMMSearchState(this.this$0, this, num2, num, nextUnits[i]);
+							array[i] = new DynamicFlatLinguist.FullHMMSearchState(this.this_0, this, num2, num, nextUnits[i]);
 						}
 					}
 				}
@@ -1697,7 +1697,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 				{
 					array = new SearchStateArc[]
 					{
-						new DynamicFlatLinguist.FullHMMSearchState(this.this$0, this, num2, num)
+						new DynamicFlatLinguist.FullHMMSearchState(this.this_0, this, num2, num)
 					};
 				}
 				return array;
@@ -1739,7 +1739,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 				{
 					return 0f;
 				}
-				return DynamicFlatLinguist.access$500(this.this$0);
+				return DynamicFlatLinguist.access_500(this.this_0);
 			}
 
 			
@@ -1829,7 +1829,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private Pronunciation pronunciation;
 
 			
-			internal new DynamicFlatLinguist this$0 = dynamicFlatLinguist;
+			internal new DynamicFlatLinguist this_0 = dynamicFlatLinguist;
 		}
 	}
 }

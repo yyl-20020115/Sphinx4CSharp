@@ -258,9 +258,9 @@ namespace edu.cmu.sphinx.frontend.util
 			
 			public override void run()
 			{
-				while (!this.this$0.quit)
+				while (!this.this_0.quit)
 				{
-					this.this$0.repaint();
+					this.this_0.repaint();
 					try
 					{
 						Thread.sleep((long)((ulong)10));
@@ -278,7 +278,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 
 			
-			internal VUMeterPanel this$0 = vumeterPanel;
+			internal VUMeterPanel this_0 = vumeterPanel;
 		}
 	}
 }

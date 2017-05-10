@@ -10,7 +10,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 	[EnclosingMethod("edu.cmu.sphinx.linguist.language.ngram.trie.NgramTrieQuant", null, null)]
 	[SourceFile("NgramTrieQuant.java")]
 	
-	internal sealed class NgramTrieQuant$1 : java.lang.Object
+	internal sealed class NgramTrieQuant_1 : java.lang.Object
 	{
 		
 		public static void __<clinit>()
@@ -18,11 +18,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		}
 
 		
-		static NgramTrieQuant$1()
+		static NgramTrieQuant_1()
 		{
 			try
 			{
-				NgramTrieQuant$1.$SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType[NgramTrieQuant.QuantType.__NO_QUANT.ordinal()] = 1;
+				NgramTrieQuant_1._SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType[NgramTrieQuant.QuantType.__NO_QUANT.ordinal()] = 1;
 			}
 			catch (Exception ex)
 			{
@@ -33,7 +33,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			try
 			{
-				NgramTrieQuant$1.$SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType[NgramTrieQuant.QuantType.__QUANT_16.ordinal()] = 2;
+				NgramTrieQuant_1._SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType[NgramTrieQuant.QuantType.__QUANT_16.ordinal()] = 2;
 			}
 			catch (Exception ex2)
 			{
@@ -44,12 +44,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 		}
 
-		NgramTrieQuant$1()
+		NgramTrieQuant_1()
 		{
 			throw null;
 		}
 
 		
-		internal static int[] $SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType = new int[NgramTrieQuant.QuantType.values().Length];
+		internal static int[] _SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType = new int[NgramTrieQuant.QuantType.values().Length];
 	}
 }

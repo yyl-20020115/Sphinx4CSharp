@@ -12,9 +12,9 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.decoder.search.stats.StateHistoryTracker$WordStats", null, null)]
+	[EnclosingMethod("edu.cmu.sphinx.decoder.search.stats.StateHistoryTracker_WordStats", null, null)]
 	[SourceFile("StateHistoryTracker.java")]
-	internal sealed class StateHistoryTracker$WordStats$1 : java.lang.Object, Comparator
+	internal sealed class StateHistoryTracker_WordStats_1 : java.lang.Object, Comparator
 	{
 		[LineNumberTable(new byte[]
 		{
@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 		
 		
-		internal StateHistoryTracker$WordStats$1()
+		internal StateHistoryTracker_WordStats_1()
 		{
 		}
 
@@ -53,7 +53,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}

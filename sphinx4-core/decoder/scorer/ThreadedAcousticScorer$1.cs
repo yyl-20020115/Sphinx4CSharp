@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.decoder.scorer
 					
 		public Scoreable call()
 		{
-			return ThreadedAcousticScorer.access_001(this.this_0, this.val$scoringJob, this.val$data);
+			return ThreadedAcousticScorer.access_001(this.this_0, this.val_scoringJob, this.val_data);
 		}
 
 		

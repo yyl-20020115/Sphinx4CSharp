@@ -29,28 +29,28 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 		
 		
-		internal static HMMPool access$100(HMMTree hmmtree)
+		internal static HMMPool access_100(HMMTree hmmtree)
 		{
 			return hmmtree.hmmPool;
 		}
 
 		
 		
-		internal static Set access$200(HMMTree hmmtree)
+		internal static Set access_200(HMMTree hmmtree)
 		{
 			return hmmtree.entryPoints;
 		}
 
 		
 		
-		internal static Dictionary access$300(HMMTree hmmtree)
+		internal static Dictionary access_300(HMMTree hmmtree)
 		{
 			return hmmtree.dictionary;
 		}
 
 		
 		
-		internal static InitialWordNode access$402(HMMTree hmmtree, InitialWordNode result)
+		internal static InitialWordNode access_402(HMMTree hmmtree, InitialWordNode result)
 		{
 			hmmtree.initialNode = result;
 			return result;
@@ -59,21 +59,21 @@ namespace edu.cmu.sphinx.linguist.lextree
 		
 		
 		
-		internal static float access$500(HMMTree hmmtree, Word word)
+		internal static float access_500(HMMTree hmmtree, Word word)
 		{
 			return hmmtree.getWordUnigramProbability(word);
 		}
 
 		
 		
-		internal static Map access$600(HMMTree hmmtree)
+		internal static Map access_600(HMMTree hmmtree)
 		{
 			return hmmtree.wordNodeMap;
 		}
 
 		
 		
-		internal static WordNode access$702(HMMTree hmmtree, WordNode result)
+		internal static WordNode access_702(HMMTree hmmtree, WordNode result)
 		{
 			hmmtree.sentenceEndWordNode = result;
 			return result;
@@ -700,11 +700,11 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				if (!this.singleUnitWords.isEmpty())
 				{
-					Iterator iterator = HMMTree.access$200(this.this$0).iterator();
+					Iterator iterator = HMMTree.access_200(this.this_0).iterator();
 					while (iterator.hasNext())
 					{
 						Unit unit = (Unit)iterator.next();
-						HMM hmm = HMMTree.access$100(this.this$0).getHMM(this.baseUnit, lc, unit, HMMPosition.__SINGLE);
+						HMM hmm = HMMTree.access_100(this.this_0).getHMM(this.baseUnit, lc, unit, HMMPosition.__SINGLE);
 						HMMNode hmmnode;
 						if ((hmmnode = (HMMNode)hashMap.get(hmm)) == null)
 						{
@@ -721,17 +721,17 @@ namespace edu.cmu.sphinx.linguist.lextree
 						while (iterator2.hasNext())
 						{
 							Pronunciation pronunciation = (Pronunciation)iterator2.next();
-							if (pronunciation.getWord() == HMMTree.access$300(this.this$0).getSentenceStartWord())
+							if (pronunciation.getWord() == HMMTree.access_300(this.this_0).getSentenceStartWord())
 							{
-								HMMTree.access$402(this.this$0, new InitialWordNode(pronunciation, hmmnode));
+								HMMTree.access_402(this.this_0, new InitialWordNode(pronunciation, hmmnode));
 							}
 							else
 							{
-								float num = HMMTree.access$500(this.this$0, pronunciation.getWord());
-								WordNode wordNode = hmmnode.addSuccessor(pronunciation, num, HMMTree.access$600(this.this$0));
-								if (pronunciation.getWord() == HMMTree.access$300(this.this$0).getSentenceEndWord())
+								float num = HMMTree.access_500(this.this_0, pronunciation.getWord());
+								WordNode wordNode = hmmnode.addSuccessor(pronunciation, num, HMMTree.access_600(this.this_0));
+								if (pronunciation.getWord() == HMMTree.access_300(this.this_0).getSentenceEndWord())
 								{
-									HMMTree.access$702(this.this$0, wordNode);
+									HMMTree.access_702(this.this_0, wordNode);
 								}
 							}
 							this.nodeCount++;
@@ -846,7 +846,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				HashMap hashMap = new HashMap();
 				HashMap hashMap2 = new HashMap();
-				Iterator iterator = HMMTree.access_000(this.this$0).iterator();
+				Iterator iterator = HMMTree.access_000(this.this_0).iterator();
 				while (iterator.hasNext())
 				{
 					Unit unit = (Unit)iterator.next();
@@ -855,7 +855,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 					while (iterator2.hasNext())
 					{
 						Unit unit2 = (Unit)iterator2.next();
-						HMM hmm = HMMTree.access$100(this.this$0).getHMM(this.baseUnit, unit, unit2, HMMPosition.__BEGIN);
+						HMM hmm = HMMTree.access_100(this.this_0).getHMM(this.baseUnit, unit, unit2, HMMPosition.__BEGIN);
 						Node node2;
 						if ((node2 = (Node)hashMap.get(hmm)) == null)
 						{
@@ -939,7 +939,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal float totalProbability;
 
 			
-			internal HMMTree this$0 = hmmtree;
+			internal HMMTree this_0 = hmmtree;
 		}
 
 		
@@ -1042,7 +1042,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			private Map entryPoints;
 
 			
-			internal HMMTree this$0 = hmmtree;
+			internal HMMTree this_0 = hmmtree;
 		}
 	}
 }

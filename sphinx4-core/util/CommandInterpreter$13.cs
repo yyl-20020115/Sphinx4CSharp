@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.util
 	[EnclosingMethod("edu.cmu.sphinx.util.CommandInterpreter", "addStandardCommands", "()V")]
 	[SourceFile("CommandInterpreter.java")]
 	
-	internal sealed class CommandInterpreter$13 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_13 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal CommandInterpreter$13(CommandInterpreter commandInterpreter)
+		internal CommandInterpreter_13(CommandInterpreter commandInterpreter)
 		{
 		}
 
@@ -82,12 +82,12 @@ namespace edu.cmu.sphinx.util
 				while (iterator.hasNext())
 				{
 					string[] args = (string[])iterator.next();
-					this.this$0.putResponse(this.this$0.execute(args));
+					this.this_0.putResponse(this.this_0.execute(args));
 				}
 			}
 			else
 			{
-				this.this$0.putResponse("Usage: chain cmd1 ; cmd2 ; cmd3 ");
+				this.this_0.putResponse("Usage: chain cmd1 ; cmd2 ; cmd3 ");
 			}
 			return "";
 		}
@@ -98,6 +98,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal CommandInterpreter this$0 = commandInterpreter;
+		internal CommandInterpreter this_0 = commandInterpreter;
 	}
 }

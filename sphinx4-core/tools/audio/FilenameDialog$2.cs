@@ -15,11 +15,11 @@ namespace edu.cmu.sphinx.tools.audio
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.FilenameDialog", "createFilenamePanel", "()V")]
 	[SourceFile("FilenameDialog.java")]
 	
-	internal sealed class FilenameDialog$2 : java.lang.Object, ActionListener, EventListener
+	internal sealed class FilenameDialog_2 : java.lang.Object, ActionListener, EventListener
 	{
 		
 		
-		internal FilenameDialog$2(FilenameDialog filenameDialog)
+		internal FilenameDialog_2(FilenameDialog filenameDialog)
 		{
 		}
 
@@ -31,10 +31,10 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			this.this$0.setVisible(false);
+			this.this_0.setVisible(false);
 		}
 
 		
-		internal FilenameDialog this$0 = filenameDialog;
+		internal FilenameDialog this_0 = filenameDialog;
 	}
 }

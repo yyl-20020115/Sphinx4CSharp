@@ -1021,7 +1021,7 @@ namespace edu.cmu.sphinx.jsgf
 			public bool isChanged;
 
 			
-			internal JSGFRuleGrammar this$0 = jsgfruleGrammar;
+			internal JSGFRuleGrammar this_0 = jsgfruleGrammar;
 		}
 	}
 }

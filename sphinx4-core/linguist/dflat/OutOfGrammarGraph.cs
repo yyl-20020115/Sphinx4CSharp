@@ -50,7 +50,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 		}
 
 		
-		internal static SearchStateArc[] access$500()
+		internal static SearchStateArc[] access_500()
 		{
 			return OutOfGrammarGraph.EMPTY_ARCS;
 		}
@@ -64,28 +64,28 @@ namespace edu.cmu.sphinx.linguist.dflat
 
 		
 		
-		internal static float access$100(OutOfGrammarGraph outOfGrammarGraph)
+		internal static float access_100(OutOfGrammarGraph outOfGrammarGraph)
 		{
 			return outOfGrammarGraph.logOutOfGrammarBranchProbability;
 		}
 
 		
 		
-		internal static AcousticModel access$200(OutOfGrammarGraph outOfGrammarGraph)
+		internal static AcousticModel access_200(OutOfGrammarGraph outOfGrammarGraph)
 		{
 			return outOfGrammarGraph.acousticModel;
 		}
 
 		
 		
-		internal static float access$300(OutOfGrammarGraph outOfGrammarGraph)
+		internal static float access_300(OutOfGrammarGraph outOfGrammarGraph)
 		{
 			return outOfGrammarGraph.logPhoneInsertionProbability;
 		}
 
 		
 		
-		internal static SearchStateArc[] access$400(OutOfGrammarGraph outOfGrammarGraph)
+		internal static SearchStateArc[] access_400(OutOfGrammarGraph outOfGrammarGraph)
 		{
 			return outOfGrammarGraph.lbsArcSet;
 		}
@@ -149,11 +149,11 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override SearchStateArc[] getSuccessors()
 			{
-				return OutOfGrammarGraph.access$500();
+				return OutOfGrammarGraph.access_500();
 			}
 
 			
-			internal new OutOfGrammarGraph this$0 = outOfGrammarGraph;
+			internal new OutOfGrammarGraph this_0 = outOfGrammarGraph;
 		}
 
 		
@@ -177,7 +177,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			internal FirstBranchState(OutOfGrammarGraph outOfGrammarGraph) : base(outOfGrammarGraph)
 			{
 				ArrayList arrayList = new ArrayList();
-				Iterator contextIndependentUnitIterator = OutOfGrammarGraph.access$200(outOfGrammarGraph).getContextIndependentUnitIterator();
+				Iterator contextIndependentUnitIterator = OutOfGrammarGraph.access_200(outOfGrammarGraph).getContextIndependentUnitIterator();
 				while (contextIndependentUnitIterator.hasNext())
 				{
 					Unit unit = (Unit)contextIndependentUnitIterator.next();
@@ -206,7 +206,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private SearchStateArc[] successors;
 
 			
-			internal new OutOfGrammarGraph this$0 = outOfGrammarGraph;
+			internal new OutOfGrammarGraph this_0 = outOfGrammarGraph;
 		}
 
 		
@@ -250,7 +250,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private SearchStateArc[] successors;
 
 			
-			internal new OutOfGrammarGraph this$0 = outOfGrammarGraph;
+			internal new OutOfGrammarGraph this_0 = outOfGrammarGraph;
 		}
 
 		
@@ -274,7 +274,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			internal OogHMM(OutOfGrammarGraph outOfGrammarGraph, Unit u) : base(outOfGrammarGraph)
 			{
-				this.hmm = OutOfGrammarGraph.access$200(outOfGrammarGraph).lookupNearestHMM(u, HMMPosition.__UNDEFINED, false);
+				this.hmm = OutOfGrammarGraph.access_200(outOfGrammarGraph).lookupNearestHMM(u, HMMPosition.__UNDEFINED, false);
 				this.successors = new SearchStateArc[1];
 				this.successors[0] = new OutOfGrammarGraph.OogHMMState(outOfGrammarGraph, this.hmm.getInitialState(), 0f);
 			}
@@ -307,7 +307,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override float getInsertionProbability()
 			{
-				return OutOfGrammarGraph.access$300(this.this$0);
+				return OutOfGrammarGraph.access_300(this.this_0);
 			}
 
 			
@@ -317,7 +317,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private SearchStateArc[] successors;
 
 			
-			internal new OutOfGrammarGraph this$0 = outOfGrammarGraph;
+			internal new OutOfGrammarGraph this_0 = outOfGrammarGraph;
 		}
 
 		
@@ -420,13 +420,13 @@ namespace edu.cmu.sphinx.linguist.dflat
 			{
 				if (this.hmmState.isExitState())
 				{
-					return OutOfGrammarGraph.access$400(this.this$0);
+					return OutOfGrammarGraph.access_400(this.this_0);
 				}
 				HMMStateArc[] successors = this.hmmState.getSuccessors();
 				SearchStateArc[] array = new SearchStateArc[successors.Length];
 				for (int i = 0; i < successors.Length; i++)
 				{
-					array[i] = new OutOfGrammarGraph.OogHMMState(this.this$0, successors[i].getHMMState(), successors[i].getLogProbability());
+					array[i] = new OutOfGrammarGraph.OogHMMState(this.this_0, successors[i].getHMMState(), successors[i].getLogProbability());
 				}
 				return array;
 			}
@@ -452,7 +452,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			internal float logProbability;
 
 			
-			internal new OutOfGrammarGraph this$0 = outOfGrammarGraph;
+			internal new OutOfGrammarGraph this_0 = outOfGrammarGraph;
 		}
 
 		
@@ -535,7 +535,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			internal const int ANY = 0;
 
 			
-			internal OutOfGrammarGraph this$0 = outOfGrammarGraph;
+			internal OutOfGrammarGraph this_0 = outOfGrammarGraph;
 		}
 
 		
@@ -587,7 +587,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			
 			public override float getLanguageProbability()
 			{
-				return OutOfGrammarGraph.access$100(this.this$0);
+				return OutOfGrammarGraph.access_100(this.this_0);
 			}
 
 			public bool isWordStart()
@@ -599,7 +599,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			private SearchStateArc[] successors;
 
 			
-			internal new OutOfGrammarGraph this$0 = outOfGrammarGraph;
+			internal new OutOfGrammarGraph this_0 = outOfGrammarGraph;
 		}
 	}
 }

@@ -117,7 +117,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		
 		
-		internal PropertyType(string text, int num, string text2, PropertyType$1 propertyType$) : this(text, num, text2)
+		internal PropertyType(string text, int num, string text2, PropertyType_1 propertyType_) : this(text, num, text2)
 		{
 			GC.KeepAlive(this);
 		}
@@ -238,16 +238,16 @@ namespace edu.cmu.sphinx.util.props
 		}
 
 		
-		internal static PropertyType __INT = new PropertyType$1("INT", 0, "int");
+		internal static PropertyType __INT = new PropertyType_1("INT", 0, "int");
 
 		
-		internal static PropertyType __BOOLEAN = new PropertyType$2("BOOLEAN", 1, "boolean");
+		internal static PropertyType __BOOLEAN = new PropertyType_2("BOOLEAN", 1, "boolean");
 
 		
-		internal static PropertyType __FLOAT = new PropertyType$3("FLOAT", 2, "float");
+		internal static PropertyType __FLOAT = new PropertyType_3("FLOAT", 2, "float");
 
 		
-		internal static PropertyType __DOUBLE = new PropertyType$4("DOUBLE", 3, "double");
+		internal static PropertyType __DOUBLE = new PropertyType_4("DOUBLE", 3, "double");
 
 		
 		internal static PropertyType __COMPONENT = new PropertyType("COMPONENT", 4, "Component", ClassLiteral<java.lang.String>.Value);
@@ -259,7 +259,7 @@ namespace edu.cmu.sphinx.util.props
 		internal static PropertyType __STRING = new PropertyType("STRING", 6, "java.lang.String", ClassLiteral<java.lang.String>.Value);
 
 		
-		internal static PropertyType __RESOURCE = new PropertyType$5("RESOURCE", 7, "Resource");
+		internal static PropertyType __RESOURCE = new PropertyType_5("RESOURCE", 7, "Resource");
 
 		
 		internal static PropertyType __STRING_LIST = new PropertyType("STRING_LIST", 8, "StringList", ClassLiteral<List>.Value);

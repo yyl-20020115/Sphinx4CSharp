@@ -8,16 +8,16 @@ namespace edu.cmu.sphinx.util
 	
 	[Implements(new string[]
 	{
-		"edu.cmu.sphinx.util.NISTAlign$StringRenderer"
+		"edu.cmu.sphinx.util.NISTAlign_StringRenderer"
 	})]
 	[EnclosingMethod("edu.cmu.sphinx.util.NISTAlign", "align", "(Ljava.lang.java.lang.String;Ljava.lang.java.lang.String;)Z")]
 	[SourceFile("NISTAlign.java")]
 	
-	internal sealed class NISTAlign$2 : java.lang.Object, NISTAlign.StringRenderer
+	internal sealed class NISTAlign_2 : java.lang.Object, NISTAlign.StringRenderer
 	{
 		
 		
-		internal NISTAlign$2(NISTAlign nistalign)
+		internal NISTAlign_2(NISTAlign nistalign)
 		{
 		}
 
@@ -34,6 +34,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal NISTAlign this$0 = nistalign;
+		internal NISTAlign this_0 = nistalign;
 	}
 }

@@ -14,7 +14,7 @@ namespace edu.cmu.sphinx.linguist
 	
 	[EnclosingMethod("edu.cmu.sphinx.linguist.WordSequence", null, null)]
 	[SourceFile("WordSequence.java")]
-	internal sealed class WordSequence$1 : java.lang.Object, Comparator
+	internal sealed class WordSequence_1 : java.lang.Object, Comparator
 	{
 		
 		
@@ -25,7 +25,7 @@ namespace edu.cmu.sphinx.linguist
 
 		
 		
-		internal WordSequence$1()
+		internal WordSequence_1()
 		{
 		}
 
@@ -38,7 +38,7 @@ namespace edu.cmu.sphinx.linguist
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}

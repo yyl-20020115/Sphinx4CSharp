@@ -34,21 +34,21 @@ namespace edu.cmu.sphinx.tools.audio
 
 		
 		
-		internal static float access$100(AudioPanel audioPanel)
+		internal static float access_100(AudioPanel audioPanel)
 		{
 			return audioPanel.xScale;
 		}
 
 		
 		
-		internal static float access$200(AudioPanel audioPanel)
+		internal static float access_200(AudioPanel audioPanel)
 		{
 			return audioPanel.yScale;
 		}
 
 		
 		
-		internal static float[] access$302(AudioPanel audioPanel, float[] result)
+		internal static float[] access_302(AudioPanel audioPanel, float[] result)
 		{
 			audioPanel.labelTimes = result;
 			return result;
@@ -56,7 +56,7 @@ namespace edu.cmu.sphinx.tools.audio
 
 		
 		
-		internal static string[] access$402(AudioPanel audioPanel, string[] result)
+		internal static string[] access_402(AudioPanel audioPanel, string[] result)
 		{
 			audioPanel.labels = result;
 			return result;
@@ -165,7 +165,7 @@ namespace edu.cmu.sphinx.tools.audio
 			int num2 = ByteCodeHelper.f2i(65536f * this.yScale);
 			this.setPreferredSize(new Dimension(num, num2));
 			this.setBackground(Color.white);
-			this.audio.addChangeListener(new AudioPanel$1(this));
+			this.audio.addChangeListener(new AudioPanel_1(this));
 			this.addMouseMotionListener(this);
 			this.addMouseListener(this);
 			this.setFocusable(true);

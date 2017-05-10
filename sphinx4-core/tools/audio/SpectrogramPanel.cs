@@ -77,7 +77,7 @@ namespace edu.cmu.sphinx.tools.audio
 			this.audio = audioData;
 			this.frontEnd = frontEnd;
 			this.dataSource = dataSource;
-			this.audio.addChangeListener(new SpectrogramPanel$1(this));
+			this.audio.addChangeListener(new SpectrogramPanel_1(this));
 		}
 
 		[LineNumberTable(new byte[]

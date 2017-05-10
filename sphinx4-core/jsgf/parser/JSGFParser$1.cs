@@ -8,9 +8,9 @@ namespace edu.cmu.sphinx.jsgf.parser
 	[EnclosingMethod("edu.cmu.sphinx.jsgf.parser.JSGFParser", null, null)]
 	[SourceFile("JSGFParser.java")]
 	
-	internal sealed class JSGFParser$1 : java.lang.Object
+	internal sealed class JSGFParser_1 : java.lang.Object
 	{
-		JSGFParser$1()
+		JSGFParser_1()
 		{
 			throw null;
 		}

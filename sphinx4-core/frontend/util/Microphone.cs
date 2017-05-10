@@ -30,35 +30,35 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static TargetDataLine access$100(Microphone microphone)
+		internal static TargetDataLine access_100(Microphone microphone)
 		{
 			return microphone.audioLine;
 		}
 
 		
 		
-		internal static Logger access$200(Microphone microphone)
+		internal static Logger access_200(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static bool access$300(Microphone microphone)
+		internal static bool access_300(Microphone microphone)
 		{
 			return microphone.keepDataReference;
 		}
 
 		
 		
-		internal static AudioInputStream access$500(Microphone microphone)
+		internal static AudioInputStream access_500(Microphone microphone)
 		{
 			return microphone.audioStream;
 		}
 
 		
 		
-		internal static Utterance access$402(Microphone microphone, Utterance result)
+		internal static Utterance access_402(Microphone microphone, Utterance result)
 		{
 			microphone.currentUtterance = result;
 			return result;
@@ -66,42 +66,42 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static BlockingQueue access$700(Microphone microphone)
+		internal static BlockingQueue access_700(Microphone microphone)
 		{
 			return microphone.audioList;
 		}
 
 		
 		
-		internal static int access$600(Microphone microphone)
+		internal static int access_600(Microphone microphone)
 		{
 			return microphone.sampleRate;
 		}
 
 		
 		
-		internal static Logger access$800(Microphone microphone)
+		internal static Logger access_800(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static Utterance access$400(Microphone microphone)
+		internal static Utterance access_400(Microphone microphone)
 		{
 			return microphone.currentUtterance;
 		}
 
 		
 		
-		internal static bool access$900(Microphone microphone)
+		internal static bool access_900(Microphone microphone)
 		{
 			return microphone.closeBetweenUtterances;
 		}
 
 		
 		
-		internal static TargetDataLine access$102(Microphone microphone, TargetDataLine result)
+		internal static TargetDataLine access_102(Microphone microphone, TargetDataLine result)
 		{
 			microphone.audioLine = result;
 			return result;
@@ -109,63 +109,63 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static Logger access$1000(Microphone microphone)
+		internal static Logger access_1000(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static Logger access$1100(Microphone microphone)
+		internal static Logger access_1100(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static Logger access$1200(Microphone microphone)
+		internal static Logger access_1200(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static Logger access$1300(Microphone microphone)
+		internal static Logger access_1300(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static int access$1400(Microphone microphone)
+		internal static int access_1400(Microphone microphone)
 		{
 			return microphone.frameSizeInBytes;
 		}
 
 		
 		
-		internal static Logger access$1500(Microphone microphone)
+		internal static Logger access_1500(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static Logger access$1600(Microphone microphone)
+		internal static Logger access_1600(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
 		
 		
-		internal static bool access$1700(Microphone microphone)
+		internal static bool access_1700(Microphone microphone)
 		{
 			return microphone.bigEndian;
 		}
 
 		
 		
-		internal static bool access$1800(Microphone microphone)
+		internal static bool access_1800(Microphone microphone)
 		{
 			return microphone.signed;
 		}
@@ -173,7 +173,7 @@ namespace edu.cmu.sphinx.frontend.util
 		
 		
 		
-		internal static double[] access$1900(Microphone microphone, double[] array, int num)
+		internal static double[] access_1900(Microphone microphone, double[] array, int num)
 		{
 			return microphone.convertStereoToMono(array, num);
 		}
@@ -328,7 +328,7 @@ namespace edu.cmu.sphinx.frontend.util
 				{
 					this.audioLine = (TargetDataLine)selectedMixer.getLine(info);
 				}
-				this.audioLine.addLineListener(new Microphone$1(this));
+				this.audioLine.addLineListener(new Microphone_1(this));
 			}
 			catch (LineUnavailableException ex)
 			{
@@ -948,7 +948,7 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				return;
 				IL_18:
-				Microphone.access$1300(this.this$0).warning("wait was interrupted");
+				Microphone.access_1300(this.this_0).warning("wait was interrupted");
 			}
 
 			[Throws(new string[]
@@ -996,12 +996,12 @@ namespace edu.cmu.sphinx.frontend.util
 			
 			private Data readData(Utterance utterance)
 			{
-				byte[] array = new byte[Microphone.access$1400(this.this$0)];
-				int channels = Microphone.access$500(this.this$0).getFormat().getChannels();
+				byte[] array = new byte[Microphone.access_1400(this.this_0)];
+				int channels = Microphone.access_500(this.this_0).getFormat().getChannels();
 				long num = this.totalSamplesRead;
 				long num2 = (long)channels;
 				long firstSampleNumber = (num2 != -1L) ? (num / num2) : (-num);
-				int num3 = Microphone.access$500(this.this$0).read(array, 0, array.Length);
+				int num3 = Microphone.access_500(this.this_0).read(array, 0, array.Length);
 				if (!this.started)
 				{
 					lock (this)
@@ -1011,20 +1011,20 @@ namespace edu.cmu.sphinx.frontend.util
 						java.lang.Object.instancehelper_notifyAll(this);
 					}
 				}
-				if (Microphone.access$1500(this.this$0).isLoggable(Level.FINE))
+				if (Microphone.access_1500(this.this_0).isLoggable(Level.FINE))
 				{
-					Microphone.access$1600(this.this$0).info(new StringBuilder().append("Read ").append(num3).append(" bytes from audio stream.").toString());
+					Microphone.access_1600(this.this_0).info(new StringBuilder().append("Read ").append(num3).append(" bytes from audio stream.").toString());
 				}
 				if (num3 <= 0)
 				{
 					return null;
 				}
-				int num4 = Microphone.access$500(this.this$0).getFormat().getSampleSizeInBits() / 8;
+				int num4 = Microphone.access_500(this.this_0).getFormat().getSampleSizeInBits() / 8;
 				long num5 = this.totalSamplesRead;
 				int num6 = num3;
 				int num7 = num4;
 				this.totalSamplesRead = num5 + (long)((num7 != -1) ? (num6 / num7) : (-(long)num6));
-				if (num3 != Microphone.access$1400(this.this$0))
+				if (num3 != Microphone.access_1400(this.this_0))
 				{
 					bool flag = num3 != 0;
 					int num8 = num4;
@@ -1036,24 +1036,24 @@ namespace edu.cmu.sphinx.frontend.util
 					}
 					array = Arrays.copyOf(array, num3);
 				}
-				if (Microphone.access$300(this.this$0))
+				if (Microphone.access_300(this.this_0))
 				{
 					utterance.add(array);
 				}
 				double[] array2;
-				if (Microphone.access$1700(this.this$0))
+				if (Microphone.access_1700(this.this_0))
 				{
-					array2 = DataUtil.bytesToValues(array, 0, array.Length, num4, Microphone.access$1800(this.this$0));
+					array2 = DataUtil.bytesToValues(array, 0, array.Length, num4, Microphone.access_1800(this.this_0));
 				}
 				else
 				{
-					array2 = DataUtil.littleEndianBytesToValues(array, 0, array.Length, num4, Microphone.access$1800(this.this$0));
+					array2 = DataUtil.littleEndianBytesToValues(array, 0, array.Length, num4, Microphone.access_1800(this.this_0));
 				}
 				if (channels > 1)
 				{
-					array2 = Microphone.access$1900(this.this$0, array2, channels);
+					array2 = Microphone.access_1900(this.this_0, array2, channels);
 				}
-				return new DoubleData(array2, ByteCodeHelper.f2i(Microphone.access$500(this.this$0).getFormat().getSampleRate()), firstSampleNumber);
+				return new DoubleData(array2, ByteCodeHelper.f2i(Microphone.access_500(this.this_0).getFormat().getSampleRate()), firstSampleNumber);
 			}
 
 			[LineNumberTable(new byte[]
@@ -1107,7 +1107,7 @@ namespace edu.cmu.sphinx.frontend.util
 			
 			public void stopRecording()
 			{
-				Microphone.access$100(this.this$0).stop();
+				Microphone.access_100(this.this_0).stop();
 				object obj;
 				Exception ex2;
 				InterruptedException ex4;
@@ -1208,34 +1208,34 @@ namespace edu.cmu.sphinx.frontend.util
 			public override void run()
 			{
 				this.totalSamplesRead = 0L;
-				Microphone.access$200(this.this$0).info("started recording");
-				if (Microphone.access$300(this.this$0))
+				Microphone.access_200(this.this_0).info("started recording");
+				if (Microphone.access_300(this.this_0))
 				{
-					Microphone.access$402(this.this$0, new Utterance("Microphone", Microphone.access$500(this.this$0).getFormat()));
+					Microphone.access_402(this.this_0, new Utterance("Microphone", Microphone.access_500(this.this_0).getFormat()));
 				}
-				Microphone.access$700(this.this$0).add(new DataStartSignal(Microphone.access$600(this.this$0)));
-				Microphone.access$800(this.this$0).info("DataStartSignal added");
+				Microphone.access_700(this.this_0).add(new DataStartSignal(Microphone.access_600(this.this_0)));
+				Microphone.access_800(this.this_0).info("DataStartSignal added");
 				IOException ex2;
 				try
 				{
-					Microphone.access$100(this.this$0).start();
+					Microphone.access_100(this.this_0).start();
 					while (!this.done)
 					{
-						Data data = this.readData(Microphone.access$400(this.this$0));
+						Data data = this.readData(Microphone.access_400(this.this_0));
 						if (data == null)
 						{
 							this.done = true;
 							break;
 						}
-						Microphone.access$700(this.this$0).add(data);
+						Microphone.access_700(this.this_0).add(data);
 					}
-					Microphone.access$100(this.this$0).flush();
-					if (Microphone.access$900(this.this$0))
+					Microphone.access_100(this.this_0).flush();
+					if (Microphone.access_900(this.this_0))
 					{
-						Microphone.access$500(this.this$0).close();
-						Microphone.access$100(this.this$0).close();
+						Microphone.access_500(this.this_0).close();
+						Microphone.access_100(this.this_0).close();
 						java.lang.System.err.println("set to null");
-						Microphone.access$102(this.this$0, null);
+						Microphone.access_102(this.this_0, null);
 					}
 				}
 				catch (IOException ex)
@@ -1246,13 +1246,13 @@ namespace edu.cmu.sphinx.frontend.util
 				goto IL_173;
 				IL_138:
 				IOException ex3 = ex2;
-				Microphone.access$1000(this.this$0).warning(new StringBuilder().append("IO Exception ").append(Throwable.instancehelper_getMessage(ex3)).toString());
+				Microphone.access_1000(this.this_0).warning(new StringBuilder().append("IO Exception ").append(Throwable.instancehelper_getMessage(ex3)).toString());
 				Throwable.instancehelper_printStackTrace(ex3);
 				IL_173:
-				long duration = ByteCodeHelper.d2l((double)this.totalSamplesRead / (double)Microphone.access$500(this.this$0).getFormat().getSampleRate() * 1000.0);
-				Microphone.access$700(this.this$0).add(new DataEndSignal(duration));
-				Microphone.access$1100(this.this$0).info("DataEndSignal ended");
-				Microphone.access$1200(this.this$0).info("stopped recording");
+				long duration = ByteCodeHelper.d2l((double)this.totalSamplesRead / (double)Microphone.access_500(this.this_0).getFormat().getSampleRate() * 1000.0);
+				Microphone.access_700(this.this_0).add(new DataEndSignal(duration));
+				Microphone.access_1100(this.this_0).info("DataEndSignal ended");
+				Microphone.access_1200(this.this_0).info("stopped recording");
 				lock (this.@lock)
 				{
 					java.lang.Object.instancehelper_notify(this.@lock);
@@ -1275,7 +1275,7 @@ namespace edu.cmu.sphinx.frontend.util
 			private object @lock;
 
 			
-			internal Microphone this$0 = microphone;
+			internal Microphone this_0 = microphone;
 		}
 	}
 }

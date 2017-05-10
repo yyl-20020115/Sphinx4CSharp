@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.tools.audio
 	})]
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.AudioTool", "createMenuBar", "(Ljavax.swing.JFrame;)V")]
 	[SourceFile("AudioTool.java")]
-	internal sealed class AudioTool$11 : java.lang.Object, ActionListener, EventListener
+	internal sealed class AudioTool_11 : java.lang.Object, ActionListener, EventListener
 	{
 		
 		
-		internal AudioTool$11()
+		internal AudioTool_11()
 		{
 		}
 
@@ -46,15 +46,15 @@ namespace edu.cmu.sphinx.tools.audio
 			{
 				AudioTool.recording = true;
 				AudioTool.recorder.startRecording();
-				AudioTool.access$400().setText("Stop");
+				AudioTool.access_400().setText("Stop");
 				AudioTool.access_000().setEnabled(true);
 			}
 			else
 			{
 				AudioTool.recording = false;
 				AudioTool.recorder.stopRecording();
-				AudioTool.audio.setAudioData(AudioTool.access$500(AudioTool.recorder));
-				AudioTool.access$400().setText("Record");
+				AudioTool.audio.setAudioData(AudioTool.access_500(AudioTool.recorder));
+				AudioTool.access_400().setText("Record");
 				AudioTool.player.play(AudioTool.audioPanel.getSelectionStart(), AudioTool.audioPanel.getSelectionEnd());
 			}
 		}

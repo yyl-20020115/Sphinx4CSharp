@@ -202,7 +202,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 			
 			
-			public static Comparator COMPARATOR = new WordTracker$WordStats$1();
+			public static Comparator COMPARATOR = new WordTracker_WordStats_1();
 
 			private int size;
 

@@ -355,9 +355,9 @@ namespace edu.cmu.sphinx.util
 			{
 				CommandInterpreter commandInterpreter = new CommandInterpreter();
 				SocketCommandClient socketCommandClient = new SocketCommandClient("localhost", 7890);
-				commandInterpreter.add("s", new SocketCommandClient$1(socketCommandClient));
-				commandInterpreter.add("r", new SocketCommandClient$2(socketCommandClient));
-				commandInterpreter.add("sr", new SocketCommandClient$3(socketCommandClient));
+				commandInterpreter.add("s", new SocketCommandClient_1(socketCommandClient));
+				commandInterpreter.add("r", new SocketCommandClient_2(socketCommandClient));
+				commandInterpreter.add("sr", new SocketCommandClient_3(socketCommandClient));
 				commandInterpreter.setPrompt("scc-test> ");
 				commandInterpreter.run();
 			}

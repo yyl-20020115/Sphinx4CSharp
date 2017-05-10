@@ -6,38 +6,22 @@ using java.util;
 
 namespace edu.cmu.sphinx.alignment
 {
-	[NonNestedOuterClass("edu.cmu.sphinx.alignment.LongTextAligner$Alignment")]
-	
-	[SourceFile("LongTextAligner.java")]
-	public sealed class LongTextAligner$Alignment$Node : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			111,
-			103,
-			103
-		})]
-		
-		private LongTextAligner$Alignment$Node(LongTextAligner.Alignment alignment, int num, int num2)
+	public sealed class LongTextAligner_Alignment_Node : java.lang.Object
+	{	
+		private LongTextAligner_Alignment_Node(LongTextAligner.Alignment alignment, int num, int num2)
 		{
 			this.databaseIndex = num2;
 			this.queryIndex = num;
 		}
 
-		
-		
 		public int getQueryIndex()
 		{
-			return ((Integer)LongTextAligner.Alignment.access$100(this.this$1).get(this.queryIndex - 1)).intValue();
+			return ((Integer)LongTextAligner.Alignment.access_100(this.this_1).get(this.queryIndex - 1)).intValue();
 		}
-
-		
 		
 		public int getDatabaseIndex()
 		{
-			return ((Integer)LongTextAligner.Alignment.access_000(this.this$1).get(this.databaseIndex - 1)).intValue();
+			return ((Integer)LongTextAligner.Alignment.access_000(this.this_1).get(this.databaseIndex - 1)).intValue();
 		}
 
 		public bool isBoundary()
@@ -45,53 +29,28 @@ namespace edu.cmu.sphinx.alignment
 			return this.queryIndex == 0 || this.databaseIndex == 0;
 		}
 
-		
-		
 		public bool hasMatch()
 		{
 			return java.lang.String.instancehelper_equals(this.getQueryWord(), this.getDatabaseWord());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			1,
-			105,
-			124
-		})]
-		
 		public string getQueryWord()
 		{
 			if (this.queryIndex > 0)
 			{
-				return (string)LongTextAligner.Alignment.access$200(this.this$1).get(this.getQueryIndex());
+				return (string)LongTextAligner.Alignment.access_200(this.this_1).get(this.getQueryIndex());
 			}
 			return null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			7,
-			105,
-			127,
-			2
-		})]
-		
+	
 		public string getDatabaseWord()
 		{
 			if (this.databaseIndex > 0)
 			{
-				return (string)LongTextAligner.access$300(this.this$1.this$0).get(this.getDatabaseIndex());
+				return (string)LongTextAligner.access_300(this.this_1.this_0).get(this.getDatabaseIndex());
 			}
 			return null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			13,
-			104,
-			114
-		})]
-		
+	
 		public int getValue()
 		{
 			if (this.isBoundary())
@@ -100,79 +59,44 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return (!this.hasMatch()) ? 1 : 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			27,
-			127,
-			5,
-			48
-		})]
-		
+	
 		public bool isTarget()
 		{
-			return this.queryIndex == LongTextAligner.Alignment.access$100(this.this$1).size() && this.databaseIndex == LongTextAligner.Alignment.access_000(this.this$1).size();
+			return this.queryIndex == LongTextAligner.Alignment.access_100(this.this_1).size() && this.databaseIndex == LongTextAligner.Alignment.access_000(this.this_1).size();
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			32,
-			103,
-			127,
-			5,
-			108,
-			159,
-			3,
-			120,
-			159,
-			1,
-			120,
-			191,
-			1
-		})]
-		
+	
 		public List adjacent()
 		{
 			ArrayList arrayList = new ArrayList(3);
-			if (this.queryIndex < LongTextAligner.Alignment.access$100(this.this$1).size() && this.databaseIndex < LongTextAligner.Alignment.access_000(this.this$1).size())
+			if (this.queryIndex < LongTextAligner.Alignment.access_100(this.this_1).size() && this.databaseIndex < LongTextAligner.Alignment.access_000(this.this_1).size())
 			{
-				arrayList.add(new LongTextAligner$Alignment$Node(this.this$1, this.queryIndex + 1, this.databaseIndex + 1));
+				arrayList.add(new LongTextAligner_Alignment_Node(this.this_1, this.queryIndex + 1, this.databaseIndex + 1));
 			}
-			if (this.databaseIndex < LongTextAligner.Alignment.access_000(this.this$1).size())
+			if (this.databaseIndex < LongTextAligner.Alignment.access_000(this.this_1).size())
 			{
-				arrayList.add(new LongTextAligner$Alignment$Node(this.this$1, this.queryIndex, this.databaseIndex + 1));
+				arrayList.add(new LongTextAligner_Alignment_Node(this.this_1, this.queryIndex, this.databaseIndex + 1));
 			}
-			if (this.queryIndex < LongTextAligner.Alignment.access$100(this.this$1).size())
+			if (this.queryIndex < LongTextAligner.Alignment.access_100(this.this_1).size())
 			{
-				arrayList.add(new LongTextAligner$Alignment$Node(this.this$1, this.queryIndex + 1, this.databaseIndex));
+				arrayList.add(new LongTextAligner_Alignment_Node(this.this_1, this.queryIndex + 1, this.databaseIndex));
 			}
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			49,
-			104,
-			130,
-			103
-		})]
 		public override bool equals(object @object)
 		{
-			if (!(@object is LongTextAligner$Alignment$Node))
+			if (!(@object is LongTextAligner_Alignment_Node))
 			{
 				return false;
 			}
-			LongTextAligner$Alignment$Node longTextAligner$Alignment$Node = (LongTextAligner$Alignment$Node)@object;
-			return this.queryIndex == longTextAligner$Alignment$Node.queryIndex && this.databaseIndex == longTextAligner$Alignment$Node.databaseIndex;
+			LongTextAligner_Alignment_Node longTextAligner_Alignment_Node = (LongTextAligner_Alignment_Node)@object;
+			return this.queryIndex == longTextAligner_Alignment_Node.queryIndex && this.databaseIndex == longTextAligner_Alignment_Node.databaseIndex;
 		}
 
 		public override int hashCode()
 		{
 			return 31 * (31 * this.queryIndex + this.databaseIndex);
-		}
-
-		
+		}	
 		
 		public override string toString()
 		{
@@ -182,35 +106,25 @@ namespace edu.cmu.sphinx.alignment
 				Integer.valueOf(this.databaseIndex)
 			});
 		}
-
 		
-		
-		
-		internal LongTextAligner$Alignment$Node(LongTextAligner.Alignment alignment, int num, int num2, LongTextAligner$1 longTextAligner$) : this(alignment, num, num2)
+		internal LongTextAligner_Alignment_Node(LongTextAligner.Alignment alignment, int num, int num2, LongTextAligner_1 longTextAligner_) : this(alignment, num, num2)
 		{
 		}
-
 		
-		
-		internal static int access$600(LongTextAligner$Alignment$Node longTextAligner$Alignment$Node)
+		internal static int access_600(LongTextAligner_Alignment_Node longTextAligner_Alignment_Node)
 		{
-			return longTextAligner$Alignment$Node.queryIndex;
+			return longTextAligner_Alignment_Node.queryIndex;
 		}
-
 		
-		
-		internal static int access$700(LongTextAligner$Alignment$Node longTextAligner$Alignment$Node)
+		internal static int access_700(LongTextAligner_Alignment_Node longTextAligner_Alignment_Node)
 		{
-			return longTextAligner$Alignment$Node.databaseIndex;
+			return longTextAligner_Alignment_Node.databaseIndex;
 		}
-
 		
 		private int databaseIndex;
 
-		
 		private int queryIndex;
-
 		
-		internal LongTextAligner.Alignment this$1 = alignment;
+		internal LongTextAligner.Alignment this_1 = alignment;
 	}
 }

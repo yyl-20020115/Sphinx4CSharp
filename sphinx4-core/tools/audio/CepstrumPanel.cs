@@ -77,7 +77,7 @@ namespace edu.cmu.sphinx.tools.audio
 			this.audio = audioData;
 			this.frontEnd = frontEnd;
 			this.dataSource = dataSource;
-			this.audio.addChangeListener(new CepstrumPanel$1(this));
+			this.audio.addChangeListener(new CepstrumPanel_1(this));
 		}
 
 		[LineNumberTable(new byte[]

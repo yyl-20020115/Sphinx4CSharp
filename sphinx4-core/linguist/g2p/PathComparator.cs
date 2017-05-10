@@ -53,7 +53,7 @@ namespace edu.cmu.sphinx.linguist.g2p
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}

@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 	[EnclosingMethod("edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture.MixtureComponentSet", null, null)]
 	[SourceFile("MixtureComponentSet.java")]
 	
-	internal sealed class MixtureComponentSet$1 : java.lang.Object, Comparator
+	internal sealed class MixtureComponentSet_1 : java.lang.Object, Comparator
 	{
 		
 		
@@ -27,7 +27,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 
 		
 		
-		internal MixtureComponentSet$1(MixtureComponentSet mixtureComponentSet)
+		internal MixtureComponentSet_1(MixtureComponentSet mixtureComponentSet)
 		{
 		}
 
@@ -40,12 +40,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}
 
 		
-		internal MixtureComponentSet this$0 = mixtureComponentSet;
+		internal MixtureComponentSet this_0 = mixtureComponentSet;
 	}
 }

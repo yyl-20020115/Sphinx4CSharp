@@ -28,7 +28,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		public NgramTrieQuant(int order, NgramTrieQuant.QuantType quantType)
 		{
-			int num = NgramTrieQuant$1.$SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType[quantType.ordinal()];
+			int num = NgramTrieQuant_1._SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType[quantType.ordinal()];
 			if (num == 1)
 			{
 				return;
@@ -90,7 +90,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		public virtual float readBackoff(NgramTrieBitarr bitArr, int memPtr, int bitOffset, int orderMinusTwo)
 		{
-			int num = NgramTrieQuant$1.$SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType[this.quantType.ordinal()];
+			int num = NgramTrieQuant_1._SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType[this.quantType.ordinal()];
 			if (num == 1)
 			{
 				bitOffset += 31;
@@ -120,7 +120,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		public virtual float readProb(NgramTrieBitarr bitArr, int memPtr, int bitOffset, int orderMinusTwo)
 		{
-			int num = NgramTrieQuant$1.$SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType[this.quantType.ordinal()];
+			int num = NgramTrieQuant_1._SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType[this.quantType.ordinal()];
 			if (num == 1)
 			{
 				return bitArr.readNegativeFloat(memPtr, bitOffset);
@@ -150,7 +150,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		public virtual int getProbBoSize()
 		{
-			int num = NgramTrieQuant$1.$SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType[this.quantType.ordinal()];
+			int num = NgramTrieQuant_1._SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType[this.quantType.ordinal()];
 			if (num == 1)
 			{
 				return 63;
@@ -175,7 +175,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		public virtual int getProbSize()
 		{
-			int num = NgramTrieQuant$1.$SwitchMap$edu$cmu$sphinx$linguist$language$ngram$trie$NgramTrieQuant$QuantType[this.quantType.ordinal()];
+			int num = NgramTrieQuant_1._SwitchMap_edu_cmu_sphinx_linguist_language_ngram_trie_NgramTrieQuant_QuantType[this.quantType.ordinal()];
 			if (num == 1)
 			{
 				return 31;

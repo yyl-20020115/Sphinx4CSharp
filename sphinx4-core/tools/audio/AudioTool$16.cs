@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.tools.audio
 	})]
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.AudioTool", "createButtonPanel", "()Ljavax.swing.JPanel;")]
 	[SourceFile("AudioTool.java")]
-	internal sealed class AudioTool$16 : java.lang.Object, ActionListener, EventListener
+	internal sealed class AudioTool_16 : java.lang.Object, ActionListener, EventListener
 	{
 		
 		
-		internal AudioTool$16()
+		internal AudioTool_16()
 		{
 		}
 

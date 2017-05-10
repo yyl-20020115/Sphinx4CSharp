@@ -66,7 +66,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			else if (searchState is HMMSearchState)
 			{
 				HMM hmm = ((HMMSearchState)searchState).getHMMState().getHMM();
-				switch (TokenTypeTracker$1.$SwitchMap$edu$cmu$sphinx$linguist$acoustic$HMMPosition[hmm.getPosition().ordinal()])
+				switch (TokenTypeTracker_1._SwitchMap_edu_cmu_sphinx_linguist_acoustic_HMMPosition[hmm.getPosition().ordinal()])
 				{
 				case 1:
 					this.numHMMBegin++;

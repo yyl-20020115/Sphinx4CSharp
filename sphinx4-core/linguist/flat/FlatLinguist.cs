@@ -456,70 +456,70 @@ namespace edu.cmu.sphinx.linguist.flat
 		
 		
 		
-		internal static void access$100(FlatLinguist flatLinguist, string text)
+		internal static void access_100(FlatLinguist flatLinguist, string text)
 		{
 			flatLinguist.T(text);
 		}
 
 		
 		
-		internal static UnitManager access$200(FlatLinguist flatLinguist)
+		internal static UnitManager access_200(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.unitManager;
 		}
 
 		
 		
-		internal static float access$300(FlatLinguist flatLinguist)
+		internal static float access_300(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logSilenceInsertionProbability;
 		}
 
 		
 		
-		internal static float access$400(FlatLinguist flatLinguist)
+		internal static float access_400(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logFillerInsertionProbability;
 		}
 
 		
 		
-		internal static float access$500(FlatLinguist flatLinguist)
+		internal static float access_500(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logWordInsertionProbability;
 		}
 
 		
 		
-		internal static float access$600(FlatLinguist flatLinguist)
+		internal static float access_600(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logUnitInsertionProbability;
 		}
 
 		
 		
-		internal static AcousticModel access$700(FlatLinguist flatLinguist)
+		internal static AcousticModel access_700(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.acousticModel;
 		}
 
 		
 		
-		internal static bool access$800(FlatLinguist flatLinguist)
+		internal static bool access_800(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.spreadWordProbabilitiesAcrossPronunciations;
 		}
 
 		
 		
-		internal static bool access$900(FlatLinguist flatLinguist)
+		internal static bool access_900(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.showCompilationProgress;
 		}
 
 		
 		
-		internal static int access$1008(FlatLinguist flatLinguist)
+		internal static int access_1008(FlatLinguist flatLinguist)
 		{
 			int num = flatLinguist.totalStateCounter;
 			int result = num;
@@ -710,7 +710,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				103
 			})]
 			
-			public FlatSearchGraph(FlatLinguist this$0, SearchState initialState)
+			public FlatSearchGraph(FlatLinguist this_0, SearchState initialState)
 			{
 				this.initialState = initialState;
 			}
@@ -734,7 +734,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			private SearchState initialState;
 
 			
-			internal FlatLinguist this$0 = this$0;
+			internal FlatLinguist this_0 = this_0;
 		}
 
 		
@@ -876,14 +876,14 @@ namespace edu.cmu.sphinx.linguist.flat
 				for (int i = 0; i < num; i++)
 				{
 					GrammarArc grammarArc = successors[i];
-					FlatLinguist.GState gstate = this.this$0.getGState(grammarArc.getGrammarNode());
+					FlatLinguist.GState gstate = this.this_0.getGState(grammarArc.getGrammarNode());
 					if (gstate.getNode().isEmpty() || !java.lang.String.instancehelper_equals(gstate.getNode().getWord().getSpelling(), "<s>"))
 					{
 						float num2 = grammarArc.getProbability();
-						if (FlatLinguist.access$800(this.this$0) && !gstate.getNode().isEmpty())
+						if (FlatLinguist.access_800(this.this_0) && !gstate.getNode().isEmpty())
 						{
 							int num3 = gstate.getNode().getWord().getPronunciations().Length;
-							num2 -= this.this$0.logMath.linearToLog((double)num3);
+							num2 -= this.this_0.logMath.linearToLog((double)num3);
 						}
 						float num4 = num2;
 						Iterator iterator = this.exitPoints.entrySet().iterator();
@@ -968,7 +968,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				110
 			})]
 			
-			protected internal GState(FlatLinguist this$0, GrammarNode node)
+			protected internal GState(FlatLinguist this_0, GrammarNode node)
 			{
 				this.entryPoints = new HashMap();
 				this.exitPoints = new HashMap();
@@ -976,7 +976,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				this.rightContexts = new HashSet();
 				this.leftContexts = new HashSet();
 				this.node = node;
-				this$0.nodeStateMap.put(node, this);
+				this_0.nodeStateMap.put(node, this);
 			}
 
 			
@@ -1058,7 +1058,7 @@ namespace edu.cmu.sphinx.linguist.flat
 						for (int i = 0; i < num; i++)
 						{
 							GrammarArc grammarArc = array[i];
-							FlatLinguist.GState gstate = this.this$0.getGState(grammarArc.getGrammarNode());
+							FlatLinguist.GState gstate = this.this_0.getGState(grammarArc.getGrammarNode());
 							this.startingContexts.addAll(gstate.getStartingContexts());
 						}
 					}
@@ -1100,14 +1100,14 @@ namespace edu.cmu.sphinx.linguist.flat
 			
 			protected internal virtual int getRightContextSize()
 			{
-				return FlatLinguist.access$700(this.this$0).getRightContextSize();
+				return FlatLinguist.access_700(this.this_0).getRightContextSize();
 			}
 
 			
 			
 			protected internal virtual int getLeftContextSize()
 			{
-				return FlatLinguist.access$700(this.this$0).getLeftContextSize();
+				return FlatLinguist.access_700(this.this_0).getLeftContextSize();
 			}
 
 			
@@ -1182,7 +1182,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				for (int i = 0; i < num; i++)
 				{
 					GrammarArc grammarArc = successors[i];
-					FlatLinguist.GState gstate = this.this$0.getGState(grammarArc.getGrammarNode());
+					FlatLinguist.GState gstate = this.this_0.getGState(grammarArc.getGrammarNode());
 					gstate.addLeftContext(collection);
 					if (gstate.getNode().isEmpty())
 					{
@@ -1236,7 +1236,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				for (int i = 0; i < num; i++)
 				{
 					GrammarArc grammarArc = array[i];
-					FlatLinguist.GState gstate = this.this$0.getGState(grammarArc.getGrammarNode());
+					FlatLinguist.GState gstate = this.this_0.getGState(grammarArc.getGrammarNode());
 					this.rightContexts.addAll(gstate.getStartingContexts());
 				}
 			}
@@ -1273,7 +1273,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			private void expandWord(UnitContext unitContext)
 			{
 				Word word = this.node.getWord();
-				FlatLinguist.access$100(this.this$0, new StringBuilder().append("  Expanding word ").append(word).append(" for lc ").append(unitContext).toString());
+				FlatLinguist.access_100(this.this_0, new StringBuilder().append("  Expanding word ").append(word).append(" for lc ").append(unitContext).toString());
 				Pronunciation[] pronunciations = word.getPronunciations();
 				for (int i = 0; i < pronunciations.Length; i++)
 				{
@@ -1435,7 +1435,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				UnitContext startingContext = this.getStartingContext(pronunciation);
 				string name = new StringBuilder().append("P(").append(pronunciation.getWord()).append('[').append(unitContext).append(',').append(startingContext).append("])-G").append(this.getNode().getID()).toString();
 				PronunciationState pronunciationState = new PronunciationState(name, pronunciation, which);
-				FlatLinguist.access$100(this.this$0, new StringBuilder().append("     Expanding ").append(pronunciationState.getPronunciation()).append(" for lc ").append(unitContext).toString());
+				FlatLinguist.access_100(this.this_0, new StringBuilder().append("     Expanding ").append(pronunciationState.getPronunciation()).append(" for lc ").append(unitContext).toString());
 				ContextPair contextPair = ContextPair.get(unitContext, startingContext);
 				List list = (List)this.entryPoints.get(contextPair);
 				if (list == null)
@@ -1512,24 +1512,24 @@ namespace edu.cmu.sphinx.linguist.flat
 				Unit[] rc = this.getRC(array, num, unitContext2);
 				UnitContext unitContext3 = UnitContext.get(rc);
 				LeftRightContext context = LeftRightContext.get(lc, rc);
-				Unit unit = FlatLinguist.access$200(this.this$0).getUnit(array[num].getName(), array[num].isFiller(), context);
+				Unit unit = FlatLinguist.access_200(this.this_0).getUnit(array[num].getName(), array[num].isFiller(), context);
 				ExtendedUnitState extendedUnitState = new ExtendedUnitState(parent, num, unit);
 				float logInsertionProbablity;
 				if (extendedUnitState.getUnit().isSilence())
 				{
-					logInsertionProbablity = FlatLinguist.access$300(this.this$0);
+					logInsertionProbablity = FlatLinguist.access_300(this.this_0);
 				}
 				else if (extendedUnitState.getUnit().isFiller())
 				{
-					logInsertionProbablity = FlatLinguist.access$400(this.this$0);
+					logInsertionProbablity = FlatLinguist.access_400(this.this_0);
 				}
 				else if (extendedUnitState.getWhich() == 0)
 				{
-					logInsertionProbablity = FlatLinguist.access$500(this.this$0);
+					logInsertionProbablity = FlatLinguist.access_500(this.this_0);
 				}
 				else
 				{
-					logInsertionProbablity = FlatLinguist.access$600(this.this$0);
+					logInsertionProbablity = FlatLinguist.access_600(this.this_0);
 				}
 				SentenceHMMState existingState = this.getExistingState(extendedUnitState);
 				if (existingState != null)
@@ -1650,10 +1650,10 @@ namespace edu.cmu.sphinx.linguist.flat
 			
 			protected internal virtual void attachState(SentenceHMMState prevState, SentenceHMMState nextState, float logLanguageProbablity, float logInsertionProbablity)
 			{
-				prevState.connect(this.this$0.getArc(nextState, logLanguageProbablity, logInsertionProbablity));
-				if (FlatLinguist.access$900(this.this$0))
+				prevState.connect(this.this_0.getArc(nextState, logLanguageProbablity, logInsertionProbablity));
+				if (FlatLinguist.access_900(this.this_0))
 				{
-					bool flag = FlatLinguist.access$1008(this.this$0) != 0;
+					bool flag = FlatLinguist.access_1008(this.this_0) != 0;
 					int num = 1000;
 					if (num == -1 || (flag ? 1 : 0) % num == 0)
 					{
@@ -1688,7 +1688,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				HMMStateState hmmstates = this.getHMMStates(unit);
 				if (unit.getUnit().isSilence())
 				{
-					this.attachState(hmmstates, unit, 0f, FlatLinguist.access$300(this.this$0));
+					this.attachState(hmmstates, unit, 0f, FlatLinguist.access_300(this.this_0));
 				}
 				return hmmstates;
 			}
@@ -1743,7 +1743,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			{
 				Unit unit = unitState.getUnit();
 				HMMPosition position = unitState.getPosition();
-				HMM hmm = FlatLinguist.access$700(this.this$0).lookupNearestHMM(unit, position, false);
+				HMM hmm = FlatLinguist.access_700(this.this_0).lookupNearestHMM(unit, position, false);
 				HMMState initialState = hmm.getInitialState();
 				HMMStateState hmmstateState = new HMMStateState(unitState, initialState);
 				this.attachState(unitState, hmmstateState, 0f, 0f);
@@ -1834,7 +1834,7 @@ namespace edu.cmu.sphinx.linguist.flat
 					{
 						SearchState searchState2 = (SearchState)iterator2.next();
 						SentenceHMMState nextState = (SentenceHMMState)searchState2;
-						sentenceHMMState.connect(this.this$0.getArc(nextState, num, 0f));
+						sentenceHMMState.connect(this.this_0.getArc(nextState, num, 0f));
 						this.exitConnections++;
 					}
 				}
@@ -2027,7 +2027,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			private int exitConnections;
 
 			
-			internal FlatLinguist this$0 = this$0;
+			internal FlatLinguist this_0 = this_0;
 		}
 	}
 }

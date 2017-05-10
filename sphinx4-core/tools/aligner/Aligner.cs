@@ -66,7 +66,7 @@ namespace edu.cmu.sphinx.tools.aligner
 					java.lang.System.@out.print(wordResult2.getPronunciation().getWord());
 					java.lang.System.@out.print(' ');
 				}
-				string[] array = java.lang.String.instancehelper_split(file.getName(), "\\.wav$");
+				string[] array = java.lang.String.instancehelper_split(file.getName(), "\\.wav_");
 				string text = java.lang.String.format("%03d0", new object[]
 				{
 					Integer.valueOf(num2)

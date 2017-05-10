@@ -17,14 +17,14 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 
 		
 		
-		internal static NgramTrieBitarr access$100(NgramTrie ngramTrie)
+		internal static NgramTrieBitarr access_100(NgramTrie ngramTrie)
 		{
 			return ngramTrie.bitArr;
 		}
 
 		
 		
-		internal static int access$300(NgramTrie ngramTrie)
+		internal static int access_300(NgramTrie ngramTrie)
 		{
 			return ngramTrie.quantProbLen;
 		}
@@ -262,7 +262,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 
 		
 		
-		internal static int access$200(NgramTrie ngramTrie)
+		internal static int access_200(NgramTrie ngramTrie)
 		{
 			return ngramTrie.quantProbBoLen;
 		}
@@ -300,11 +300,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			
 			internal override int getQuantBits()
 			{
-				return NgramTrie.access$300(this.this$0);
+				return NgramTrie.access_300(this.this_0);
 			}
 
 			
-			internal new NgramTrie this$0 = ngramTrie;
+			internal new NgramTrie this_0 = ngramTrie;
 		}
 
 		
@@ -353,16 +353,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				int num2 = num * this.totalBits;
 				num2 += this.wordBits;
 				num2 += this.getQuantBits();
-				trieRange.begin = NgramTrie.access$100(this.this$0).readInt(this.memPtr, num2, this.nextMask);
+				trieRange.begin = NgramTrie.access_100(this.this_0).readInt(this.memPtr, num2, this.nextMask);
 				num2 += this.totalBits;
-				trieRange.end = NgramTrie.access$100(this.this$0).readInt(this.memPtr, num2, this.nextMask);
+				trieRange.end = NgramTrie.access_100(this.this_0).readInt(this.memPtr, num2, this.nextMask);
 			}
 
 			
 			
 			internal override int getQuantBits()
 			{
-				return NgramTrie.access$200(this.this$0);
+				return NgramTrie.access_200(this.this_0);
 			}
 
 			internal int nextMask;
@@ -370,7 +370,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal int nextOrderMemPtr;
 
 			
-			internal new NgramTrie this$0 = ngramTrie;
+			internal new NgramTrie this_0 = ngramTrie;
 		}
 
 		
@@ -418,7 +418,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal virtual int readNgramWord(int num)
 			{
 				int bitOffset = num * this.totalBits;
-				return NgramTrie.access$100(this.this$0).readInt(this.memPtr, bitOffset, this.wordMask);
+				return NgramTrie.access_100(this.this_0).readInt(this.memPtr, bitOffset, this.wordMask);
 			}
 
 			internal virtual int getNgramWeightsOffset(int num)
@@ -441,7 +441,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal int maxVocab;
 
 			
-			internal NgramTrie this$0 = ngramTrie;
+			internal NgramTrie this_0 = ngramTrie;
 		}
 	}
 }

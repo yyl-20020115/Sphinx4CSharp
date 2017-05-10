@@ -12,10 +12,10 @@ namespace edu.cmu.sphinx.fst.sequitur
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.fst.sequitur.SequiturImport$FSA", "afterUnmarshal", "(Ljavax.xml.bind.Unmarshaller;Ljava.lang.Object;)V")]
+	[EnclosingMethod("edu.cmu.sphinx.fst.sequitur.SequiturImport_FSA", "afterUnmarshal", "(Ljavax.xml.bind.Unmarshaller;Ljava.lang.Object;)V")]
 	[SourceFile("SequiturImport.java")]
 	
-	internal sealed class SequiturImport$FSA$1 : java.lang.Object, Comparator
+	internal sealed class SequiturImport_FSA_1 : java.lang.Object, Comparator
 	{
 		
 		public int compare(SequiturImport.State state, SequiturImport.State state2)
@@ -25,7 +25,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 
 		
 		
-		internal SequiturImport$FSA$1(SequiturImport.FSA fsa)
+		internal SequiturImport_FSA_1(SequiturImport.FSA fsa)
 		{
 		}
 
@@ -38,12 +38,12 @@ namespace edu.cmu.sphinx.fst.sequitur
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}
 
 		
-		internal SequiturImport.FSA this$0 = fsa;
+		internal SequiturImport.FSA this_0 = fsa;
 	}
 }

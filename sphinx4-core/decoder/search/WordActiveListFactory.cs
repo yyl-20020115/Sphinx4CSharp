@@ -23,7 +23,7 @@ namespace edu.cmu.sphinx.decoder.search
 
 		
 		
-		internal static int access$100(WordActiveListFactory wordActiveListFactory)
+		internal static int access_100(WordActiveListFactory wordActiveListFactory)
 		{
 			return wordActiveListFactory.maxPathsPerWord;
 		}
@@ -213,20 +213,20 @@ namespace edu.cmu.sphinx.decoder.search
 					Token token = (Token)iterator.next();
 					WordSearchState wordSearchState = (WordSearchState)token.getSearchState();
 					Word word = wordSearchState.getPronunciation().getWord();
-					if (WordActiveListFactory.access_000(this.this$0) > 0 && word.isFiller())
+					if (WordActiveListFactory.access_000(this.this_0) > 0 && word.isFiller())
 					{
-						if (num >= WordActiveListFactory.access_000(this.this$0))
+						if (num >= WordActiveListFactory.access_000(this.this_0))
 						{
 							iterator.remove();
 							continue;
 						}
 						num++;
 					}
-					if (WordActiveListFactory.access$100(this.this$0) > 0)
+					if (WordActiveListFactory.access_100(this.this_0) > 0)
 					{
 						Integer integer = (Integer)hashMap.get(word);
 						int num2 = (integer != null) ? integer.intValue() : 0;
-						if (num2 < WordActiveListFactory.access$100(this.this$0) - 1)
+						if (num2 < WordActiveListFactory.access_100(this.this_0) - 1)
 						{
 							hashMap.put(word, Integer.valueOf(num2 + 1));
 						}
@@ -236,9 +236,9 @@ namespace edu.cmu.sphinx.decoder.search
 						}
 					}
 				}
-				if (this.tokenList.size() > this.this$0.absoluteBeamWidth)
+				if (this.tokenList.size() > this.this_0.absoluteBeamWidth)
 				{
-					this.tokenList = this.tokenList.subList(0, this.this$0.absoluteBeamWidth);
+					this.tokenList = this.tokenList.subList(0, this.this_0.absoluteBeamWidth);
 				}
 				return this;
 			}
@@ -268,7 +268,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public float getBeamThreshold()
 			{
-				return this.getBestScore() + this.this$0.logRelativeBeamWidth;
+				return this.getBestScore() + this.this_0.logRelativeBeamWidth;
 			}
 
 			public void setBestToken(Token token)
@@ -285,7 +285,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public ActiveList newInstance()
 			{
-				return this.this$0.newInstance();
+				return this.this_0.newInstance();
 			}
 
 			
@@ -300,7 +300,7 @@ namespace edu.cmu.sphinx.decoder.search
 			private List tokenList;
 
 			
-			internal WordActiveListFactory this$0 = wordActiveListFactory;
+			internal WordActiveListFactory this_0 = wordActiveListFactory;
 		}
 	}
 }

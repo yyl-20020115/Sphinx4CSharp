@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.decoder.search
 
 		
 		
-		internal static bool access$100(SimpleActiveListManager simpleActiveListManager)
+		internal static bool access_100(SimpleActiveListManager simpleActiveListManager)
 		{
 			return simpleActiveListManager.checkPriorLists;
 		}
@@ -294,7 +294,7 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				for (int i = 0; i < this.listPtr; i++)
 				{
-					ActiveList activeList = SimpleActiveListManager.access_000(this.this$0)[i];
+					ActiveList activeList = SimpleActiveListManager.access_000(this.this_0)[i];
 					if (activeList.size() > 0)
 					{
 						string text = new StringBuilder().append("At while processing state order").append(this.listPtr).append(", state order ").append(i).append(" not empty").toString();
@@ -322,16 +322,16 @@ namespace edu.cmu.sphinx.decoder.search
 			public ActiveList next()
 			{
 				this.listPtr++;
-				if (this.listPtr >= SimpleActiveListManager.access_000(this.this$0).Length)
+				if (this.listPtr >= SimpleActiveListManager.access_000(this.this_0).Length)
 				{
 					
 					throw new NoSuchElementException();
 				}
-				if (SimpleActiveListManager.access$100(this.this$0))
+				if (SimpleActiveListManager.access_100(this.this_0))
 				{
 					this.checkPriorLists();
 				}
-				return SimpleActiveListManager.access_000(this.this$0)[this.listPtr];
+				return SimpleActiveListManager.access_000(this.this_0)[this.listPtr];
 			}
 
 			[LineNumberTable(new byte[]
@@ -351,7 +351,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public bool hasNext()
 			{
-				return this.listPtr + 1 < SimpleActiveListManager.access_000(this.this$0).Length - 1;
+				return this.listPtr + 1 < SimpleActiveListManager.access_000(this.this_0).Length - 1;
 			}
 
 			[LineNumberTable(new byte[]
@@ -364,7 +364,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public void remove()
 			{
-				SimpleActiveListManager.access_000(this.this$0)[this.listPtr] = SimpleActiveListManager.access_000(this.this$0)[this.listPtr].newInstance();
+				SimpleActiveListManager.access_000(this.this_0)[this.listPtr] = SimpleActiveListManager.access_000(this.this_0)[this.listPtr].newInstance();
 			}
 
 			
@@ -378,7 +378,7 @@ namespace edu.cmu.sphinx.decoder.search
 			private int listPtr;
 
 			
-			internal SimpleActiveListManager this$0 = simpleActiveListManager;
+			internal SimpleActiveListManager this_0 = simpleActiveListManager;
 		}
 	}
 }

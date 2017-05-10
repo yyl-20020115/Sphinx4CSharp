@@ -12,9 +12,9 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.decoder.search.stats.WordTracker$WordStats", null, null)]
+	[EnclosingMethod("edu.cmu.sphinx.decoder.search.stats.WordTracker_WordStats", null, null)]
 	[SourceFile("WordTracker.java")]
-	internal sealed class WordTracker$WordStats$1 : java.lang.Object, Comparator
+	internal sealed class WordTracker_WordStats_1 : java.lang.Object, Comparator
 	{
 		[LineNumberTable(new byte[]
 		{
@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 		
 		
-		internal WordTracker$WordStats$1()
+		internal WordTracker_WordStats_1()
 		{
 		}
 
@@ -53,7 +53,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}

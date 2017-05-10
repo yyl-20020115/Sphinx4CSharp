@@ -35,21 +35,21 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 		
 		
-		internal static Word access$100(LexTreeLinguist lexTreeLinguist)
+		internal static Word access_100(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.sentenceEndWord;
 		}
 
 		
 		
-		internal static int access$200(LexTreeLinguist lexTreeLinguist)
+		internal static int access_200(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.maxDepth;
 		}
 
 		
 		
-		internal static LanguageModel access$300(LexTreeLinguist lexTreeLinguist)
+		internal static LanguageModel access_300(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.languageModel;
 		}
@@ -57,7 +57,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		
 		
 		
-		internal static float access$400(LexTreeLinguist lexTreeLinguist, WordSequence wordSequence)
+		internal static float access_400(LexTreeLinguist lexTreeLinguist, WordSequence wordSequence)
 		{
 			return lexTreeLinguist.getSmearTermFromLanguageModel(wordSequence);
 		}
@@ -65,7 +65,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		
 		
 		
-		internal static float access$500(LexTreeLinguist lexTreeLinguist, UnitNode unitNode)
+		internal static float access_500(LexTreeLinguist lexTreeLinguist, UnitNode unitNode)
 		{
 			return lexTreeLinguist.calculateInsertionProbability(unitNode);
 		}
@@ -73,35 +73,35 @@ namespace edu.cmu.sphinx.linguist.lextree
 		
 		
 		
-		internal static float access$600(LexTreeLinguist lexTreeLinguist, Node node)
+		internal static float access_600(LexTreeLinguist lexTreeLinguist, Node node)
 		{
 			return lexTreeLinguist.getUnigramSmear(node);
 		}
 
 		
 		
-		internal static bool access$700(LexTreeLinguist lexTreeLinguist)
+		internal static bool access_700(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.generateUnitStates;
 		}
 
 		
 		
-		internal static bool access$800(LexTreeLinguist lexTreeLinguist)
+		internal static bool access_800(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.cacheEnabled;
 		}
 
 		
 		
-		internal static LRUCache access$900(LexTreeLinguist lexTreeLinguist)
+		internal static LRUCache access_900(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.arcCache;
 		}
 
 		
 		
-		internal static int access$1008(LexTreeLinguist lexTreeLinguist)
+		internal static int access_1008(LexTreeLinguist lexTreeLinguist)
 		{
 			int num = lexTreeLinguist.cacheHits;
 			int result = num;
@@ -111,7 +111,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 		
 		
-		internal static int access$1104(LexTreeLinguist lexTreeLinguist)
+		internal static int access_1104(LexTreeLinguist lexTreeLinguist)
 		{
 			int num = lexTreeLinguist.cacheTrys + 1;
 			int result = num;
@@ -121,14 +121,14 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 		
 		
-		internal static int access$1000(LexTreeLinguist lexTreeLinguist)
+		internal static int access_1000(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.cacheHits;
 		}
 
 		
 		
-		internal static int access$1100(LexTreeLinguist lexTreeLinguist)
+		internal static int access_1100(LexTreeLinguist lexTreeLinguist)
 		{
 			return lexTreeLinguist.cacheTrys;
 		}
@@ -136,7 +136,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		
 		
 		
-		internal static HMMNode[] access$1200(LexTreeLinguist lexTreeLinguist, EndNode endNode)
+		internal static HMMNode[] access_1200(LexTreeLinguist lexTreeLinguist, EndNode endNode)
 		{
 			return lexTreeLinguist.getHMMNodes(endNode);
 		}
@@ -496,7 +496,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		}
 
 		
-		internal static SearchStateArc[] access$1300()
+		internal static SearchStateArc[] access_1300()
 		{
 			return LexTreeLinguist.EMPTY_ARC;
 		}
@@ -824,13 +824,13 @@ namespace edu.cmu.sphinx.linguist.lextree
 				SearchStateArc[] array = this.getCachedArcs();
 				if (array == null)
 				{
-					HMMNode[] array2 = LexTreeLinguist.access$1200(this.this$0, this.getEndNode());
+					HMMNode[] array2 = LexTreeLinguist.access_1200(this.this_0, this.getEndNode());
 					array = new SearchStateArc[array2.Length];
-					if (LexTreeLinguist.access$700(this.this$0))
+					if (LexTreeLinguist.access_700(this.this_0))
 					{
 						for (int i = 0; i < array2.Length; i++)
 						{
-							array[i] = new LexTreeLinguist.LexTreeUnitState(this.this$0, array2[i], this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), LexTreeLinguist.access_000(this.this$0), LexTreeLinguist.access_000(this.this$0), this.getNode());
+							array[i] = new LexTreeLinguist.LexTreeUnitState(this.this_0, array2[i], this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), LexTreeLinguist.access_000(this.this_0), LexTreeLinguist.access_000(this.this_0), this.getNode());
 						}
 					}
 					else
@@ -838,7 +838,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 						for (int i = 0; i < array2.Length; i++)
 						{
 							HMM hmm = array2[i].getHMM();
-							array[i] = new LexTreeLinguist.LexTreeHMMState(this.this$0, array2[i], this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmm.getInitialState(), LexTreeLinguist.access_000(this.this$0), LexTreeLinguist.access_000(this.this$0), this.getNode());
+							array[i] = new LexTreeLinguist.LexTreeHMMState(this.this_0, array2[i], this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmm.getInitialState(), LexTreeLinguist.access_000(this.this_0), LexTreeLinguist.access_000(this.this_0), this.getNode());
 						}
 					}
 					this.putCachedArcs(array);
@@ -955,7 +955,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 
 			[HideFromReflection]
-			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist$LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
+			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist_LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
 			protected internal SearchStateArc createWordStateArc(object obj, object obj2, object obj3)
 			{
 				return this.createWordStateArc((WordNode)obj, (HMMNode)obj2, (LexTreeLinguist.LexTreeState)obj3);
@@ -985,7 +985,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal float logInsertionProbability;
 
 			
-			internal new LexTreeLinguist this$0 = lexTreeLinguist;
+			internal new LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 
 		
@@ -1014,7 +1014,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 
 			
-			internal new LexTreeLinguist this$0 = lexTreeLinguist;
+			internal new LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 
 		
@@ -1215,12 +1215,12 @@ namespace edu.cmu.sphinx.linguist.lextree
 								}
 								else
 								{
-									array[i] = new LexTreeLinguist.LexTreeHMMState(this.this$0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), LexTreeLinguist.access_000(this.this$0), hmmstateArc.getLogProbability(), this.parentNode);
+									array[i] = new LexTreeLinguist.LexTreeHMMState(this.this_0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), LexTreeLinguist.access_000(this.this_0), hmmstateArc.getLogProbability(), this.parentNode);
 								}
 							}
 							else
 							{
-								array[i] = new LexTreeLinguist.LexTreeNonEmittingHMMState(this.this$0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), hmmstateArc.getLogProbability(), this.parentNode);
+								array[i] = new LexTreeLinguist.LexTreeNonEmittingHMMState(this.this_0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), hmmstateArc.getLogProbability(), this.parentNode);
 							}
 						}
 					}
@@ -1343,7 +1343,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 
 			[HideFromReflection]
-			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist$LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
+			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist_LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
 			protected internal SearchStateArc createWordStateArc(object obj, object obj2, object obj3)
 			{
 				return this.createWordStateArc((WordNode)obj, (HMMNode)obj2, (LexTreeLinguist.LexTreeState)obj3);
@@ -1381,7 +1381,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal new int hashCode;
 
 			
-			internal new LexTreeLinguist this$0 = lexTreeLinguist;
+			internal new LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 
 		
@@ -1408,7 +1408,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 
 			
-			internal new LexTreeLinguist this$0 = lexTreeLinguist;
+			internal new LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 
 		
@@ -1451,7 +1451,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			private SearchState initialState;
 
 			
-			internal LexTreeLinguist this$0 = lexTreeLinguist;
+			internal LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 
 		
@@ -1467,14 +1467,14 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			public virtual float getLanguageProbability()
 			{
-				return LexTreeLinguist.access_000(this.this$0);
+				return LexTreeLinguist.access_000(this.this_0);
 			}
 
 			
 			
 			public virtual float getInsertionProbability()
 			{
-				return LexTreeLinguist.access_000(this.this$0);
+				return LexTreeLinguist.access_000(this.this_0);
 			}
 
 			[LineNumberTable(new byte[]
@@ -1497,18 +1497,18 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			internal virtual SearchStateArc[] getCachedArcs()
 			{
-				if (LexTreeLinguist.access$800(this.this$0))
+				if (LexTreeLinguist.access_800(this.this_0))
 				{
-					SearchStateArc[] array = (SearchStateArc[])LexTreeLinguist.access$900(this.this$0).get(this);
+					SearchStateArc[] array = (SearchStateArc[])LexTreeLinguist.access_900(this.this_0).get(this);
 					if (array != null)
 					{
-						LexTreeLinguist.access$1008(this.this$0);
+						LexTreeLinguist.access_1008(this.this_0);
 					}
-					bool flag = LexTreeLinguist.access$1104(this.this$0) != 0;
+					bool flag = LexTreeLinguist.access_1104(this.this_0) != 0;
 					int num = 1000000;
 					if (num == -1 || (flag ? 1 : 0) % num == 0)
 					{
-						java.lang.System.@out.println(new StringBuilder().append("Hits: ").append(LexTreeLinguist.access$1000(this.this$0)).append(" of ").append(LexTreeLinguist.access$1100(this.this$0)).append(' ').append((float)LexTreeLinguist.access$1000(this.this$0) / (float)LexTreeLinguist.access$1100(this.this$0) * 100f).toString());
+						java.lang.System.@out.println(new StringBuilder().append("Hits: ").append(LexTreeLinguist.access_1000(this.this_0)).append(" of ").append(LexTreeLinguist.access_1100(this.this_0)).append(' ').append((float)LexTreeLinguist.access_1000(this.this_0) / (float)LexTreeLinguist.access_1100(this.this_0) * 100f).toString());
 					}
 					return array;
 				}
@@ -1573,9 +1573,9 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			internal virtual void putCachedArcs(SearchStateArc[] array)
 			{
-				if (LexTreeLinguist.access$800(this.this$0))
+				if (LexTreeLinguist.access_800(this.this_0))
 				{
-					LexTreeLinguist.access$900(this.this$0).put(this, array);
+					LexTreeLinguist.access_900(this.this_0).put(this, array);
 				}
 			}
 
@@ -1614,22 +1614,22 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			protected internal virtual SearchStateArc createWordStateArc(WordNode wordNode, HMMNode hmmnode, LexTreeLinguist.LexTreeState lexTreeState)
 			{
-				float num = LexTreeLinguist.access_000(this.this$0);
+				float num = LexTreeLinguist.access_000(this.this_0);
 				Word word = wordNode.getWord();
 				float num2 = lexTreeState.getSmearTerm();
-				if (word.isFiller() && word != LexTreeLinguist.access$100(this.this$0))
+				if (word.isFiller() && word != LexTreeLinguist.access_100(this.this_0))
 				{
-					return new LexTreeLinguist.LexTreeWordState(this.this$0, wordNode, hmmnode, this.wordSequence, num2, LexTreeLinguist.access_000(this.this$0), num);
+					return new LexTreeLinguist.LexTreeWordState(this.this_0, wordNode, hmmnode, this.wordSequence, num2, LexTreeLinguist.access_000(this.this_0), num);
 				}
-				WordSequence wordSequence = this.wordSequence.addWord(word, LexTreeLinguist.access$200(this.this$0));
-				float num3 = LexTreeLinguist.access$300(this.this$0).getProbability(wordSequence) * this.this$0.languageWeight;
-				num2 = LexTreeLinguist.access$400(this.this$0, wordSequence);
+				WordSequence wordSequence = this.wordSequence.addWord(word, LexTreeLinguist.access_200(this.this_0));
+				float num3 = LexTreeLinguist.access_300(this.this_0).getProbability(wordSequence) * this.this_0.languageWeight;
+				num2 = LexTreeLinguist.access_400(this.this_0, wordSequence);
 				num = num3 - lexTreeState.getSmearProb();
-				if (word == LexTreeLinguist.access$100(this.this$0))
+				if (word == LexTreeLinguist.access_100(this.this_0))
 				{
-					return new LexTreeLinguist.LexTreeEndWordState(this.this$0, wordNode, hmmnode, wordSequence.trim(LexTreeLinguist.access$200(this.this$0) - 1), num2, LexTreeLinguist.access_000(this.this$0), num);
+					return new LexTreeLinguist.LexTreeEndWordState(this.this_0, wordNode, hmmnode, wordSequence.trim(LexTreeLinguist.access_200(this.this_0) - 1), num2, LexTreeLinguist.access_000(this.this_0), num);
 				}
-				return new LexTreeLinguist.LexTreeWordState(this.this$0, wordNode, hmmnode, wordSequence.trim(LexTreeLinguist.access$200(this.this$0) - 1), num2, LexTreeLinguist.access_000(this.this$0), num);
+				return new LexTreeLinguist.LexTreeWordState(this.this_0, wordNode, hmmnode, wordSequence.trim(LexTreeLinguist.access_200(this.this_0) - 1), num2, LexTreeLinguist.access_000(this.this_0), num);
 			}
 
 			[LineNumberTable(new byte[]
@@ -1646,10 +1646,10 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			internal virtual SearchStateArc createEndUnitArc(EndNode endNode, LexTreeLinguist.LexTreeState lexTreeState)
 			{
-				float num = LexTreeLinguist.access$600(this.this$0, endNode) + lexTreeState.getSmearTerm();
+				float num = LexTreeLinguist.access_600(this.this_0, endNode) + lexTreeState.getSmearTerm();
 				float num2 = num - lexTreeState.getSmearProb();
-				float num3 = LexTreeLinguist.access$500(this.this$0, endNode);
-				return new LexTreeLinguist.LexTreeEndUnitState(this.this$0, endNode, this.getWordHistory(), lexTreeState.getSmearTerm(), num, num2, num3);
+				float num3 = LexTreeLinguist.access_500(this.this_0, endNode);
+				return new LexTreeLinguist.LexTreeEndUnitState(this.this_0, endNode, this.getWordHistory(), lexTreeState.getSmearTerm(), num, num2, num3);
 			}
 
 			[LineNumberTable(new byte[]
@@ -1671,18 +1671,18 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			internal virtual SearchStateArc createUnitStateArc(HMMNode hmmnode, LexTreeLinguist.LexTreeState lexTreeState)
 			{
-				float num = LexTreeLinguist.access$500(this.this$0, hmmnode);
-				float num2 = LexTreeLinguist.access$600(this.this$0, hmmnode) + lexTreeState.getSmearTerm();
+				float num = LexTreeLinguist.access_500(this.this_0, hmmnode);
+				float num2 = LexTreeLinguist.access_600(this.this_0, hmmnode) + lexTreeState.getSmearTerm();
 				float num3 = num2 - lexTreeState.getSmearProb();
 				LexTreeLinguist.LexTreeState result;
-				if (LexTreeLinguist.access$700(this.this$0))
+				if (LexTreeLinguist.access_700(this.this_0))
 				{
-					result = new LexTreeLinguist.LexTreeUnitState(this.this$0, hmmnode, this.getWordHistory(), lexTreeState.getSmearTerm(), num2, num3, num);
+					result = new LexTreeLinguist.LexTreeUnitState(this.this_0, hmmnode, this.getWordHistory(), lexTreeState.getSmearTerm(), num2, num3, num);
 				}
 				else
 				{
 					HMM hmm = hmmnode.getHMM();
-					result = new LexTreeLinguist.LexTreeHMMState(this.this$0, hmmnode, this.getWordHistory(), lexTreeState.getSmearTerm(), num2, hmm.getInitialState(), num3, num, null);
+					result = new LexTreeLinguist.LexTreeHMMState(this.this_0, hmmnode, this.getWordHistory(), lexTreeState.getSmearTerm(), num2, hmm.getInitialState(), num3, num, null);
 				}
 				return result;
 			}
@@ -1854,7 +1854,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal float currentSmearProb;
 
 			
-			internal LexTreeLinguist this$0 = lexTreeLinguist;
+			internal LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 
 		
@@ -2001,7 +2001,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				SearchStateArc[] array = new SearchStateArc[1];
 				HMM hmm = this.getHMMNode().getHMM();
-				array[0] = new LexTreeLinguist.LexTreeHMMState(this.this$0, this.getHMMNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmm.getInitialState(), LexTreeLinguist.access_000(this.this$0), LexTreeLinguist.access_000(this.this$0), this.parentNode);
+				array[0] = new LexTreeLinguist.LexTreeHMMState(this.this_0, this.getHMMNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmm.getInitialState(), LexTreeLinguist.access_000(this.this_0), LexTreeLinguist.access_000(this.this_0), this.parentNode);
 				return array;
 			}
 
@@ -2124,7 +2124,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 
 			[HideFromReflection]
-			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist$LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
+			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist_LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
 			protected internal SearchStateArc createWordStateArc(object obj, object obj2, object obj3)
 			{
 				return this.createWordStateArc((WordNode)obj, (HMMNode)obj2, (LexTreeLinguist.LexTreeState)obj3);
@@ -2158,7 +2158,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			private new int hashCode;
 
 			
-			internal new LexTreeLinguist this$0 = lexTreeLinguist;
+			internal new LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 
 		
@@ -2278,9 +2278,9 @@ namespace edu.cmu.sphinx.linguist.lextree
 				SearchStateArc[] array = this.getCachedArcs();
 				if (array == null)
 				{
-					array = LexTreeLinguist.access$1300();
+					array = LexTreeLinguist.access_1300();
 					WordNode wordNode = (WordNode)this.getNode();
-					if (wordNode.getWord() != LexTreeLinguist.access$100(this.this$0))
+					if (wordNode.getWord() != LexTreeLinguist.access_100(this.this_0))
 					{
 						int num = 0;
 						ArrayList arrayList = new ArrayList();
@@ -2291,7 +2291,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 						for (int i = 0; i < num2; i++)
 						{
 							Unit unit = array2[i];
-							Node[] entryPoint = this.this$0.__hmmTree.getEntryPoint(lastUnit, unit);
+							Node[] entryPoint = this.this_0.__hmmTree.getEntryPoint(lastUnit, unit);
 							Node[] array3 = entryPoint;
 							int num3 = array3.Length;
 							for (int j = 0; j < num3; j++)
@@ -2313,7 +2313,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 						SearchStateArc[] array5 = array;
 						int num5 = num;
 						num++;
-						array5[num5] = this.createWordStateArc(this.this$0.__hmmTree.getSentenceEndWordNode(), this.lastNode, this);
+						array5[num5] = this.createWordStateArc(this.this_0.__hmmTree.getSentenceEndWordNode(), this.lastNode, this);
 					}
 					this.putCachedArcs(array);
 				}
@@ -2451,7 +2451,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 
 			[HideFromReflection]
-			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist$LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
+			[NameSig("<accessstub>3|createWordStateArc", "(Ledu.cmu.sphinx.linguist.lextree.WordNode;Ledu.cmu.sphinx.linguist.lextree.HMMNode;Ledu.cmu.sphinx.linguist.lextree.LexTreeLinguist_LexTreeState;)Ledu.cmu.sphinx.linguist.SearchStateArc;")]
 			protected internal SearchStateArc createWordStateArc(object obj, object obj2, object obj3)
 			{
 				return this.createWordStateArc((WordNode)obj, (HMMNode)obj2, (LexTreeLinguist.LexTreeState)obj3);
@@ -2481,7 +2481,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			private float logLanguageProbability;
 
 			
-			internal new LexTreeLinguist this$0 = lexTreeLinguist;
+			internal new LexTreeLinguist this_0 = lexTreeLinguist;
 		}
 	}
 }

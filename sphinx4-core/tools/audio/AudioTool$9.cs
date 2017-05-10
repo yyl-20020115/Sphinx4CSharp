@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.tools.audio
 	})]
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.AudioTool", "createMenuBar", "(Ljavax.swing.JFrame;)V")]
 	[SourceFile("AudioTool.java")]
-	internal sealed class AudioTool$9 : java.lang.Object, ActionListener, EventListener
+	internal sealed class AudioTool_9 : java.lang.Object, ActionListener, EventListener
 	{
 		
 		
-		internal AudioTool$9()
+		internal AudioTool_9()
 		{
 		}
 
@@ -31,7 +31,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			AudioTool.access$300();
+			AudioTool.access_300();
 		}
 	}
 }

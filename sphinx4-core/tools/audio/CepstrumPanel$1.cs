@@ -15,11 +15,11 @@ namespace edu.cmu.sphinx.tools.audio
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.CepstrumPanel", "<init>", "(Ledu.cmu.sphinx.frontend.FrontEnd;Ledu.cmu.sphinx.frontend.util.StreamDataSource;Ledu.cmu.sphinx.tools.audio.AudioData;)V")]
 	[SourceFile("CepstrumPanel.java")]
 	
-	internal sealed class CepstrumPanel$1 : java.lang.Object, ChangeListener, EventListener
+	internal sealed class CepstrumPanel_1 : java.lang.Object, ChangeListener, EventListener
 	{
 		
 		
-		internal CepstrumPanel$1(CepstrumPanel cepstrumPanel)
+		internal CepstrumPanel_1(CepstrumPanel cepstrumPanel)
 		{
 		}
 
@@ -31,10 +31,10 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public void stateChanged(ChangeEvent changeEvent)
 		{
-			this.this$0.computeCepstrum();
+			this.this_0.computeCepstrum();
 		}
 
 		
-		internal CepstrumPanel this$0 = cepstrumPanel;
+		internal CepstrumPanel this_0 = cepstrumPanel;
 	}
 }

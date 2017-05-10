@@ -44,7 +44,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		
 		public MixtureComponentSet(ArrayList components, int topGauNum)
 		{
-			this.componentComparator = new MixtureComponentSet$1(this);
+			this.componentComparator = new MixtureComponentSet_1(this);
 			this.components = components;
 			this.numStreams = components.size();
 			this.topGauNum = topGauNum;

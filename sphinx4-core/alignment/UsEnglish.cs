@@ -1,21 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.alignment
+﻿namespace edu.cmu.sphinx.alignment
 {
-	[SourceFile("USEnglishTokenizer.java")]
-	
 	internal sealed class UsEnglish : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		
 		private UsEnglish()
 		{
 		}
@@ -50,7 +36,7 @@ namespace edu.cmu.sphinx.alignment
 
 		public const string RX_DEFAULT_HAS_VOWEL = ".*[aeiouAEIOU].*";
 
-		public const string RX_DEFAULT_US_MONEY = "\\$[0-9,]+(\\.[0-9]+)?";
+		public const string RX_DEFAULT_US_MONEY = "\\_[0-9,]+(\\.[0-9]+)?";
 
 		public const string RX_DEFAULT_ILLION = ".*illion";
 
@@ -98,7 +84,7 @@ namespace edu.cmu.sphinx.alignment
 
 		public const string RX_HAS_VOWEL = ".*[aeiouAEIOU].*";
 
-		public const string RX_US_MONEY = "\\$[0-9,]+(\\.[0-9]+)?";
+		public const string RX_US_MONEY = "\\_[0-9,]+(\\.[0-9]+)?";
 
 		public const string RX_ILLION = ".*illion";
 

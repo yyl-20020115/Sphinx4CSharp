@@ -1,59 +1,39 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.alignment
 {
-	
-	[Implements(new string[]
-	{
-		"java.util.Comparator"
-	})]
-	
-	[EnclosingMethod("edu.cmu.sphinx.alignment.LongTextAligner$Alignment", "<init>", "(Ledu.cmu.sphinx.alignment.LongTextAligner;Ljava.util.List;Ledu.cmu.sphinx.util.Range;)V")]
-	[SourceFile("LongTextAligner.java")]
-	
-	internal sealed class LongTextAligner$Alignment$1 : java.lang.Object, Comparator
+	internal sealed class LongTextAligner_Alignment_1 : java.lang.Object, Comparator
 	{
 		
-		
-		public int compare(LongTextAligner$Alignment$Node longTextAligner$Alignment$Node, LongTextAligner$Alignment$Node longTextAligner$Alignment$Node2)
+		public int compare(LongTextAligner_Alignment_Node longTextAligner_Alignment_Node, LongTextAligner_Alignment_Node longTextAligner_Alignment_Node2)
 		{
-			return ((Integer)this.val$cost.get(longTextAligner$Alignment$Node)).compareTo((Integer)this.val$cost.get(longTextAligner$Alignment$Node2));
+			return ((Integer)this.val_cost.get(longTextAligner_Alignment_Node)).compareTo((Integer)this.val_cost.get(longTextAligner_Alignment_Node2));
 		}
-
 		
-		
-		internal LongTextAligner$Alignment$1(LongTextAligner.Alignment alignment, LongTextAligner longTextAligner, Map map)
+		internal LongTextAligner_Alignment_1(LongTextAligner.Alignment alignment, LongTextAligner longTextAligner, Map map)
 		{
-			this.val$this$0 = longTextAligner;
-			this.val$cost = map;
-			base..ctor();
+			this.val_this_0 = longTextAligner;
+			this.val_cost = map;
 		}
-
-		
-		
-		
+						
 		public int compare(object obj, object obj2)
 		{
-			return this.compare((LongTextAligner$Alignment$Node)obj, (LongTextAligner$Alignment$Node)obj2);
+			return this.compare((LongTextAligner_Alignment_Node)obj, (LongTextAligner_Alignment_Node)obj2);
 		}
 
-		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}
 
 		
-		internal LongTextAligner val$this$0;
+		internal LongTextAligner val_this_0;
 
 		
-		internal Map val$cost;
+		internal Map val_cost;
 
 		
-		internal LongTextAligner.Alignment this$1 = alignment;
+		internal LongTextAligner.Alignment this_1 = alignment;
 	}
 }

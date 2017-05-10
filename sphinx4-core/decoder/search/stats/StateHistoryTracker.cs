@@ -179,7 +179,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 			
 			
-			public static Comparator COMPARATOR = new StateHistoryTracker$WordStats$1();
+			public static Comparator COMPARATOR = new StateHistoryTracker_WordStats_1();
 
 			private int size;
 

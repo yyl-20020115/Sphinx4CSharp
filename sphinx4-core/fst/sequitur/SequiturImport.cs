@@ -337,7 +337,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 					weight = this.ring.one()
 				});
 				this.states.add(state);
-				Collections.sort(this.states, new SequiturImport$FSA$1(this));
+				Collections.sort(this.states, new SequiturImport_FSA_1(this));
 			}
 
 			

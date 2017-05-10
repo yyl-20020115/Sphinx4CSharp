@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				this.scoreCache = scoreCache;
 				Thread.MemoryBarrier();
 			}
-			return ScoreCachingSenone.ScoreCache.access$100(scoreCache);
+			return ScoreCachingSenone.ScoreCache.access_100(scoreCache);
 		}
 
 		[HideFromReflection]
@@ -126,7 +126,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 			
 			
-			internal static float access$100(ScoreCachingSenone.ScoreCache scoreCache)
+			internal static float access_100(ScoreCachingSenone.ScoreCache scoreCache)
 			{
 				return scoreCache.score;
 			}
@@ -138,7 +138,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			private float score;
 
 			
-			internal ScoreCachingSenone this$0 = scoreCachingSenone;
+			internal ScoreCachingSenone this_0 = scoreCachingSenone;
 		}
 	}
 }

@@ -197,7 +197,7 @@ namespace edu.cmu.sphinx.result
 			internal double forwardScore;
 
 			
-			internal Nbest this$0 = nbest;
+			internal Nbest this_0 = nbest;
 		}
 	}
 }

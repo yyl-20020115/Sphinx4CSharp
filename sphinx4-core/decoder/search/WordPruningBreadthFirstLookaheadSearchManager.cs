@@ -749,7 +749,7 @@ namespace edu.cmu.sphinx.decoder.search
 			public float maxScore;
 
 			
-			internal WordPruningBreadthFirstLookaheadSearchManager this$0 = wordPruningBreadthFirstLookaheadSearchManager;
+			internal WordPruningBreadthFirstLookaheadSearchManager this_0 = wordPruningBreadthFirstLookaheadSearchManager;
 		}
 	}
 }

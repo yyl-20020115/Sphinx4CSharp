@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.fst.operations
 	
 	[EnclosingMethod("edu.cmu.sphinx.fst.operations.NShortestPaths", "get", "(Ledu.cmu.sphinx.fst.Fst;IZ)Ledu.cmu.sphinx.fst.Fst;")]
 	[SourceFile("NShortestPaths.java")]
-	internal sealed class NShortestPaths$1 : java.lang.Object, Comparator
+	internal sealed class NShortestPaths_1 : java.lang.Object, Comparator
 	{
 		
 		[LineNumberTable(new byte[]
@@ -37,12 +37,12 @@ namespace edu.cmu.sphinx.fst.operations
 		public int compare(Pair pair, Pair pair2)
 		{
 			float f = ((Float)pair.getRight()).floatValue();
-			float f2 = this.val$d[((State)pair.getLeft()).getId()];
+			float f2 = this.val_d[((State)pair.getLeft()).getId()];
 			float f3 = ((Float)pair2.getRight()).floatValue();
-			float f4 = this.val$d[((State)pair2.getLeft()).getId()];
-			float num = this.val$semiring.times(f3, f4);
-			float num2 = this.val$semiring.times(f, f2);
-			if (this.val$semiring.naturalLess(num, num2))
+			float f4 = this.val_d[((State)pair2.getLeft()).getId()];
+			float num = this.val_semiring.times(f3, f4);
+			float num2 = this.val_semiring.times(f, f2);
+			if (this.val_semiring.naturalLess(num, num2))
 			{
 				return 1;
 			}
@@ -55,7 +55,7 @@ namespace edu.cmu.sphinx.fst.operations
 
 		
 		
-		internal NShortestPaths$1(float[] array, Semiring semiring)
+		internal NShortestPaths_1(float[] array, Semiring semiring)
 		{
 		}
 
@@ -68,15 +68,15 @@ namespace edu.cmu.sphinx.fst.operations
 		}
 
 		
-		bool Comparator.Object;)Zequals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}
 
 		
-		internal float[] val$d = array;
+		internal float[] val_d = array;
 
 		
-		internal Semiring val$semiring = semiring;
+		internal Semiring val_semiring = semiring;
 	}
 }

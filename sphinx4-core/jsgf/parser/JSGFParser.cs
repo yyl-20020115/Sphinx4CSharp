@@ -2746,7 +2746,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			
 			
 			
-			internal LookaheadSuccess(JSGFParser$1 jsgfparser$) : this()
+			internal LookaheadSuccess(JSGFParser_1 jsgfparser_) : this()
 			{
 			}
 

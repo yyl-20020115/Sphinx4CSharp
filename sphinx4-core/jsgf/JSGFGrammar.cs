@@ -990,7 +990,7 @@ namespace edu.cmu.sphinx.jsgf
 		
 		
 		
-		internal static GrammarNode access$100(JSGFGrammar jsgfgrammar, bool isFinal)
+		internal static GrammarNode access_100(JSGFGrammar jsgfgrammar, bool isFinal)
 		{
 			return jsgfgrammar.createGrammarNode(isFinal);
 		}
@@ -1017,14 +1017,14 @@ namespace edu.cmu.sphinx.jsgf
 		}
 
 		
-		[NameSig("processRule", "(Ledu.cmu.sphinx.jsgf.rule.JSGFRule;)Ledu.cmu.sphinx.jsgf.JSGFGrammar$GrammarGraph;")]
+		[NameSig("processRule", "(Ledu.cmu.sphinx.jsgf.rule.JSGFRule;)Ledu.cmu.sphinx.jsgf.JSGFGrammar_GrammarGraph;")]
 		protected internal object processRule(JSGFRule rule)
 		{
 			return this.processRule(rule);
 		}
 
 		
-		[NameSig("processRule", "(Ledu.cmu.sphinx.jsgf.rule.JSGFRule;)Ledu.cmu.sphinx.jsgf.JSGFGrammar$GrammarGraph;")]
+		[NameSig("processRule", "(Ledu.cmu.sphinx.jsgf.rule.JSGFRule;)Ledu.cmu.sphinx.jsgf.JSGFGrammar_GrammarGraph;")]
 		protected internal object _0(JSGFRule rule)
 		{
 			return this.processRule(rule);
@@ -1081,7 +1081,7 @@ namespace edu.cmu.sphinx.jsgf
 			internal GrammarGraph(JSGFGrammar jsgfgrammar)
 			{
 				this.startNode = JSGFGrammar.access_000(jsgfgrammar, false);
-				this.endNode = JSGFGrammar.access$100(jsgfgrammar, false);
+				this.endNode = JSGFGrammar.access_100(jsgfgrammar, false);
 			}
 
 			internal GrammarNode getStartNode()
@@ -1114,7 +1114,7 @@ namespace edu.cmu.sphinx.jsgf
 			private GrammarNode endNode;
 
 			
-			internal JSGFGrammar this$0 = jsgfgrammar;
+			internal JSGFGrammar this_0 = jsgfgrammar;
 		}
 
 		
@@ -1199,7 +1199,7 @@ namespace edu.cmu.sphinx.jsgf
 			private HashMap map;
 
 			
-			internal JSGFGrammar this$0 = jsgfgrammar;
+			internal JSGFGrammar this_0 = jsgfgrammar;
 		}
 	}
 }

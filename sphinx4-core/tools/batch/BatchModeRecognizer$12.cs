@@ -16,11 +16,11 @@ namespace edu.cmu.sphinx.tools.batch
 	[EnclosingMethod("edu.cmu.sphinx.tools.batch.BatchModeRecognizer", "addCommands", "(Ledu.cmu.sphinx.util.CommandInterpreter;)V")]
 	[SourceFile("BatchModeRecognizer.java")]
 	
-	internal sealed class BatchModeRecognizer$12 : java.lang.Object, CommandInterface
+	internal sealed class BatchModeRecognizer_12 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal BatchModeRecognizer$12(BatchModeRecognizer batchModeRecognizer)
+		internal BatchModeRecognizer_12(BatchModeRecognizer batchModeRecognizer)
 		{
 		}
 
@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.tools.batch
 				IOException ex2;
 				try
 				{
-					this.this$0.setBatchFile(array[1]);
+					this.this_0.setBatchFile(array[1]);
 				}
 				catch (IOException ex)
 				{
@@ -71,6 +71,6 @@ namespace edu.cmu.sphinx.tools.batch
 		}
 
 		
-		internal BatchModeRecognizer this$0 = batchModeRecognizer;
+		internal BatchModeRecognizer this_0 = batchModeRecognizer;
 	}
 }

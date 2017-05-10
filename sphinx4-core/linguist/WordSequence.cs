@@ -400,7 +400,7 @@ namespace edu.cmu.sphinx.linguist
 		})]
 		static WordSequence()
 		{
-			WordSequence.__OLDEST_COMPARATOR = new WordSequence$1();
+			WordSequence.__OLDEST_COMPARATOR = new WordSequence_1();
 			WordSequence.__EMPTY = new WordSequence(0);
 		}
 

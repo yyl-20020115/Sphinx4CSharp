@@ -214,7 +214,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public ActiveList newInstance()
 			{
-				return this.this$0.newInstance();
+				return this.this_0.newInstance();
 			}
 
 			
@@ -239,7 +239,7 @@ namespace edu.cmu.sphinx.decoder.search
 			private Partitioner partitioner;
 
 			
-			internal PartitionActiveListFactory this$0 = partitionActiveListFactory;
+			internal PartitionActiveListFactory this_0 = partitionActiveListFactory;
 		}
 	}
 }

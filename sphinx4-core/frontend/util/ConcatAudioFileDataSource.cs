@@ -33,7 +33,7 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static URL access$002(ConcatAudioFileDataSource concatAudioFileDataSource, URL result)
+		internal static URL access_002(ConcatAudioFileDataSource concatAudioFileDataSource, URL result)
 		{
 			concatAudioFileDataSource.nextFile = result;
 			return result;
@@ -41,14 +41,14 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static bool access$100(ConcatAudioFileDataSource concatAudioFileDataSource)
+		internal static bool access_100(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.isInitialized;
 		}
 
 		
 		
-		internal static bool access$102(ConcatAudioFileDataSource concatAudioFileDataSource, bool result)
+		internal static bool access_102(ConcatAudioFileDataSource concatAudioFileDataSource, bool result)
 		{
 			concatAudioFileDataSource.isInitialized = result;
 			return result;
@@ -56,14 +56,14 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		
-		internal static Logger access$200(ConcatAudioFileDataSource concatAudioFileDataSource)
+		internal static Logger access_200(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.logger;
 		}
 
 		
 		
-		internal static Logger access$300(ConcatAudioFileDataSource concatAudioFileDataSource)
+		internal static Logger access_300(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.logger;
 		}
@@ -312,8 +312,8 @@ namespace edu.cmu.sphinx.frontend.util
 			{
 				if (this.lastFile != null)
 				{
-					ConcatAudioFileDataSource.access$300(this.this$0).finest(new StringBuilder().append("Finished processing of '").append(this.lastFile.getFile()).append('\'').toString());
-					Iterator iterator = this.this$0.__fileListeners.iterator();
+					ConcatAudioFileDataSource.access_300(this.this_0).finest(new StringBuilder().append("Finished processing of '").append(this.lastFile.getFile()).append('\'').toString());
+					Iterator iterator = this.this_0.__fileListeners.iterator();
 					while (iterator.hasNext())
 					{
 						AudioFileProcessListener audioFileProcessListener = (AudioFileProcessListener)iterator.next();
@@ -379,9 +379,9 @@ namespace edu.cmu.sphinx.frontend.util
 				AudioInputStream result = null;
 				if (this.lastFile == null)
 				{
-					ConcatAudioFileDataSource.access$002(this.this$0, this.readNext());
+					ConcatAudioFileDataSource.access_002(this.this_0, this.readNext());
 				}
-				if (ConcatAudioFileDataSource.access_000(this.this$0) != null)
+				if (ConcatAudioFileDataSource.access_000(this.this_0) != null)
 				{
 					IOException ex2;
 					UnsupportedAudioFileException ex4;
@@ -389,34 +389,34 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						try
 						{
-							AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(ConcatAudioFileDataSource.access_000(this.this$0));
+							AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(ConcatAudioFileDataSource.access_000(this.this_0));
 							AudioFormat format = audioInputStream.getFormat();
-							if (!ConcatAudioFileDataSource.access$100(this.this$0))
+							if (!ConcatAudioFileDataSource.access_100(this.this_0))
 							{
-								ConcatAudioFileDataSource.access$102(this.this$0, true);
-								this.this$0.bigEndian = format.isBigEndian();
-								this.this$0.sampleRate = ByteCodeHelper.f2i(format.getSampleRate());
-								this.this$0.signedData = format.getEncoding().equals(AudioFormat.Encoding.PCM_SIGNED);
-								this.this$0.bytesPerValue = format.getSampleSizeInBits() / 8;
+								ConcatAudioFileDataSource.access_102(this.this_0, true);
+								this.this_0.bigEndian = format.isBigEndian();
+								this.this_0.sampleRate = ByteCodeHelper.f2i(format.getSampleRate());
+								this.this_0.signedData = format.getEncoding().equals(AudioFormat.Encoding.PCM_SIGNED);
+								this.this_0.bytesPerValue = format.getSampleSizeInBits() / 8;
 							}
-							if (format.getSampleRate() != (float)this.this$0.sampleRate || format.getChannels() != 1 || format.isBigEndian() != this.this$0.bigEndian)
+							if (format.getSampleRate() != (float)this.this_0.sampleRate || format.getChannels() != 1 || format.isBigEndian() != this.this_0.bigEndian)
 							{
 								string text = "format mismatch for subsequent files";
 								
 								throw new RuntimeException(text);
 							}
 							result = audioInputStream;
-							ConcatAudioFileDataSource.access$200(this.this$0).finer(new StringBuilder().append("Strating processing of '").append(this.lastFile.getFile()).append('\'').toString());
-							Iterator iterator = this.this$0.__fileListeners.iterator();
+							ConcatAudioFileDataSource.access_200(this.this_0).finer(new StringBuilder().append("Strating processing of '").append(this.lastFile.getFile()).append('\'').toString());
+							Iterator iterator = this.this_0.__fileListeners.iterator();
 							while (iterator.hasNext())
 							{
 								AudioFileProcessListener audioFileProcessListener = (AudioFileProcessListener)iterator.next();
 								AudioFileProcessListener audioFileProcessListener2 = audioFileProcessListener;
 								File.__<clinit>();
-								audioFileProcessListener2.audioFileProcStarted(new File(ConcatAudioFileDataSource.access_000(this.this$0).getFile()));
+								audioFileProcessListener2.audioFileProcStarted(new File(ConcatAudioFileDataSource.access_000(this.this_0).getFile()));
 							}
-							this.lastFile = ConcatAudioFileDataSource.access_000(this.this$0);
-							ConcatAudioFileDataSource.access$002(this.this$0, null);
+							this.lastFile = ConcatAudioFileDataSource.access_000(this.this_0);
+							ConcatAudioFileDataSource.access_002(this.this_0, null);
 						}
 						catch (IOException ex)
 						{
@@ -433,7 +433,7 @@ namespace edu.cmu.sphinx.frontend.util
 					IL_1B1:
 					IOException ex5 = ex2;
 					Throwable.instancehelper_printStackTrace(ex5);
-					string text2 = new StringBuilder().append("Cannot convert ").append(ConcatAudioFileDataSource.access_000(this.this$0)).append(" to a FileInputStream").toString();
+					string text2 = new StringBuilder().append("Cannot convert ").append(ConcatAudioFileDataSource.access_000(this.this_0)).append(" to a FileInputStream").toString();
 					
 					throw new Error(text2);
 					IL_1B5:
@@ -469,11 +469,11 @@ namespace edu.cmu.sphinx.frontend.util
 			
 			public bool hasMoreElements()
 			{
-				if (ConcatAudioFileDataSource.access_000(this.this$0) == null)
+				if (ConcatAudioFileDataSource.access_000(this.this_0) == null)
 				{
-					ConcatAudioFileDataSource.access$002(this.this$0, this.readNext());
+					ConcatAudioFileDataSource.access_002(this.this_0, this.readNext());
 				}
-				return ConcatAudioFileDataSource.access_000(this.this$0) != null;
+				return ConcatAudioFileDataSource.access_000(this.this_0) != null;
 			}
 
 			
@@ -491,7 +491,7 @@ namespace edu.cmu.sphinx.frontend.util
 			internal Iterator fileIt;
 
 			
-			internal ConcatAudioFileDataSource this$0 = concatAudioFileDataSource;
+			internal ConcatAudioFileDataSource this_0 = concatAudioFileDataSource;
 		}
 	}
 }

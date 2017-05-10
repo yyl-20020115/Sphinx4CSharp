@@ -286,23 +286,23 @@ namespace edu.cmu.sphinx.tools.audio
 			
 			public override void run()
 			{
-				byte[] array = new byte[this.this$0.microphone.getBufferSize()];
+				byte[] array = new byte[this.this_0.microphone.getBufferSize()];
 				this.@out = new ByteArrayOutputStream();
 				IOException ex2;
 				try
 				{
-					this.this$0.microphone.flush();
-					this.this$0.microphone.start();
+					this.this_0.microphone.flush();
+					this.this_0.microphone.start();
 					while (!this.done)
 					{
-						int num = this.this$0.microphone.read(array, 0, array.Length);
+						int num = this.this_0.microphone.read(array, 0, array.Length);
 						if (num == -1)
 						{
 							break;
 						}
 						this.@out.write(array, 0, num);
 					}
-					this.this$0.microphone.stop();
+					this.this_0.microphone.stop();
 					this.@out.flush();
 				}
 				catch (IOException ex)
@@ -335,7 +335,7 @@ namespace edu.cmu.sphinx.tools.audio
 			internal ByteArrayOutputStream @out;
 
 			
-			internal RawRecorder this$0 = rawRecorder;
+			internal RawRecorder this_0 = rawRecorder;
 		}
 	}
 }

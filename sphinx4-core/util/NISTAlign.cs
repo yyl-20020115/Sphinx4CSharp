@@ -191,7 +191,7 @@ namespace edu.cmu.sphinx.util
 			this.substitutions = 0;
 			this.insertions = 0;
 			this.deletions = 0;
-			this.alignWords(this.backtrace(this.createBacktraceTable(this.referenceItems, this.hypothesisItems, new NISTAlign$1(this))), new NISTAlign$2(this));
+			this.alignWords(this.backtrace(this.createBacktraceTable(this.referenceItems, this.hypothesisItems, new NISTAlign_1(this))), new NISTAlign_2(this));
 			this.correct = this.alignedReferenceWords.size() - (this.insertions + this.deletions + this.substitutions);
 			this.updateTotals();
 			return this.insertions + this.deletions + this.substitutions == 0;

@@ -203,7 +203,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				101
 			})]
 			
-			public PhoneLoopSearchGraph(CIPhoneLoop this$0)
+			public PhoneLoopSearchGraph(CIPhoneLoop this_0)
 			{
 				this.__existingStates = new HashMap();
 				this.__firstState = new UnknownWordState();
@@ -214,13 +214,13 @@ namespace edu.cmu.sphinx.linguist.flat
 				LoopBackState loopBackState = new LoopBackState(this.__firstState);
 				loopBackState.setFinalState(true);
 				this.attachState(loopBackState, branchOutState, 0f, 0f);
-				Iterator contextIndependentUnitIterator = this$0.__model.getContextIndependentUnitIterator();
+				Iterator contextIndependentUnitIterator = this_0.__model.getContextIndependentUnitIterator();
 				while (contextIndependentUnitIterator.hasNext())
 				{
 					UnitState.__<clinit>();
 					UnitState unitState = new UnitState((Unit)contextIndependentUnitIterator.next(), HMMPosition.__UNDEFINED);
-					this.attachState(branchOutState, unitState, 0f, CIPhoneLoop.access_000(this$0));
-					HMM hmm = this$0.__model.lookupNearestHMM(unitState.getUnit(), unitState.getPosition(), false);
+					this.attachState(branchOutState, unitState, 0f, CIPhoneLoop.access_000(this_0));
+					HMM hmm = this_0.__model.lookupNearestHMM(unitState.getUnit(), unitState.getPosition(), false);
 					HMMState initialState = hmm.getInitialState();
 					HMMStateState hmmstateState = new HMMStateState(unitState, initialState);
 					this.addStateToCache(hmmstateState);
@@ -281,7 +281,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			internal SentenceHMMState __firstState;
 
 			
-			internal CIPhoneLoop this$0 = this$0;
+			internal CIPhoneLoop this_0 = this_0;
 		}
 	}
 }

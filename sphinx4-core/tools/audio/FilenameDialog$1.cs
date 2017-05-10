@@ -9,11 +9,11 @@ namespace edu.cmu.sphinx.tools.audio
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.FilenameDialog", "<init>", "(Ljava.awt.Frame;ZLjava.lang.java.lang.String;)V")]
 	[SourceFile("FilenameDialog.java")]
 	
-	internal sealed class FilenameDialog$1 : WindowAdapter
+	internal sealed class FilenameDialog_1 : WindowAdapter
 	{
 		
 		
-		internal FilenameDialog$1(FilenameDialog filenameDialog)
+		internal FilenameDialog_1(FilenameDialog filenameDialog)
 		{
 		}
 
@@ -26,10 +26,10 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public override void windowClosing(WindowEvent windowEvent)
 		{
-			this.this$0.setVisible(false);
+			this.this_0.setVisible(false);
 		}
 
 		
-		internal FilenameDialog this$0 = filenameDialog;
+		internal FilenameDialog this_0 = filenameDialog;
 	}
 }

@@ -1,24 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.alignment
 {
 	public class Token : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			158,
-			136,
-			103,
-			103,
-			103,
-			103,
-			103
-		})]
-		
+	{	
 		public Token()
 		{
 			this.token = null;
@@ -88,21 +73,7 @@ namespace edu.cmu.sphinx.alignment
 		{
 			this.token = word;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			92,
-			134,
-			104,
-			141,
-			104,
-			141,
-			104,
-			141,
-			104,
-			141
-		})]
-		
+	
 		public override string toString()
 		{
 			StringBuffer stringBuffer = new StringBuffer();

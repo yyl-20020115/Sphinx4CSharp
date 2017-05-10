@@ -64,7 +64,7 @@ namespace edu.cmu.sphinx.tools.audio
 			gridBagLayout.setConstraints(this.filename, gridBagConstraints);
 			contentPane.add(this.filename);
 			JButton jbutton = new JButton("Save");
-			jbutton.addActionListener(new FilenameDialog$2(this));
+			jbutton.addActionListener(new FilenameDialog_2(this));
 			insets = new Insets(0, 12, 12, 12);
 			gridBagConstraints = new GridBagConstraints(0, 2, 2, 1, (double)1f, (double)1f, 13, 0, insets, 0, 0);
 			gridBagLayout.setConstraints(jbutton, gridBagConstraints);
@@ -88,7 +88,7 @@ namespace edu.cmu.sphinx.tools.audio
 		public FilenameDialog(Frame parent, bool modal, string title) : base(parent, modal)
 		{
 			this.setTitle(title);
-			this.addWindowListener(new FilenameDialog$1(this));
+			this.addWindowListener(new FilenameDialog_1(this));
 			this.createFilenamePanel();
 			this.pack();
 		}

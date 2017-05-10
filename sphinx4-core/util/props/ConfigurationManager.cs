@@ -351,7 +351,7 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new AssertionError();
 			}
-			while (java.lang.String.instancehelper_startsWith(propertyName, "$"))
+			while (java.lang.String.instancehelper_startsWith(propertyName, "_"))
 			{
 				propertyName = java.lang.String.instancehelper_toString((string)this.globalProperties.get(ConfigurationManagerUtils.stripGlobalSymbol(propertyName)));
 			}

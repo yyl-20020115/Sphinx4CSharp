@@ -14,11 +14,11 @@ namespace edu.cmu.sphinx.util
 	[EnclosingMethod("edu.cmu.sphinx.util.CommandInterpreter", "addStandardCommands", "()V")]
 	[SourceFile("CommandInterpreter.java")]
 	
-	internal sealed class CommandInterpreter$10 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_10 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal CommandInterpreter$10(CommandInterpreter commandInterpreter)
+		internal CommandInterpreter_10(CommandInterpreter commandInterpreter)
 		{
 		}
 
@@ -61,11 +61,11 @@ namespace edu.cmu.sphinx.util
 				}
 				goto IL_58;
 				IL_2A:
-				this.this$0.putResponse("Usage: delay time-in-seconds");
+				this.this_0.putResponse("Usage: delay time-in-seconds");
 			}
 			else
 			{
-				this.this$0.putResponse("Usage: delay time-in-seconds");
+				this.this_0.putResponse("Usage: delay time-in-seconds");
 			}
 			IL_58:
 			return "";
@@ -77,6 +77,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal CommandInterpreter this$0 = commandInterpreter;
+		internal CommandInterpreter this_0 = commandInterpreter;
 	}
 }

@@ -23,7 +23,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 	{
 		
 		
-		internal static Grammar access$1500(AFlatLinguist aflatLinguist)
+		internal static Grammar access_1500(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.grammar;
 		}
@@ -467,7 +467,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 		
 		
-		internal static long access$108(AFlatLinguist aflatLinguist)
+		internal static long access_108(AFlatLinguist aflatLinguist)
 		{
 			long num = aflatLinguist.counterForMemoryLogging;
 			long result = num;
@@ -477,98 +477,98 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 		
 		
-		internal static long access$100(AFlatLinguist aflatLinguist)
+		internal static long access_100(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.counterForMemoryLogging;
 		}
 
 		
 		
-		internal static Logger access$200(AFlatLinguist aflatLinguist)
+		internal static Logger access_200(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.logger;
 		}
 
 		
 		
-		internal static SearchStateArc[] access$300(AFlatLinguist aflatLinguist)
+		internal static SearchStateArc[] access_300(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.EMPTY_ARCS;
 		}
 
 		
 		
-		internal static bool access$400(AFlatLinguist aflatLinguist)
+		internal static bool access_400(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.addOutOfGrammarBranch;
 		}
 
 		
 		
-		internal static AcousticModel access$500(AFlatLinguist aflatLinguist)
+		internal static AcousticModel access_500(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.acousticModel;
 		}
 
 		
 		
-		internal static float access$600(AFlatLinguist aflatLinguist)
+		internal static float access_600(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.logOutOfGrammarBranchProbability;
 		}
 
 		
 		
-		internal static float access$700(AFlatLinguist aflatLinguist)
+		internal static float access_700(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.logPhoneInsertionProbability;
 		}
 
 		
 		
-		internal static HMMPool access$800(AFlatLinguist aflatLinguist)
+		internal static HMMPool access_800(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.hmmPool;
 		}
 
 		
 		
-		internal static Map access$900(AFlatLinguist aflatLinguist)
+		internal static Map access_900(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.nodeToUnitSetMap;
 		}
 
 		
 		
-		internal static Map access$1000(AFlatLinguist aflatLinguist)
+		internal static Map access_1000(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.nodeToNextUnitArrayMap;
 		}
 
 		
 		
-		internal static float access$1100(AFlatLinguist aflatLinguist)
+		internal static float access_1100(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.logWordInsertionProbability;
 		}
 
 		
 		
-		internal static float access$1200(AFlatLinguist aflatLinguist)
+		internal static float access_1200(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.logSilenceInsertionProbability;
 		}
 
 		
 		
-		internal static float access$1300(AFlatLinguist aflatLinguist)
+		internal static float access_1300(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.logFillerInsertionProbability;
 		}
 
 		
 		
-		internal static float access$1400(AFlatLinguist aflatLinguist)
+		internal static float access_1400(AFlatLinguist aflatLinguist)
 		{
 			return aflatLinguist.logUnitInsertionProbability;
 		}
@@ -727,8 +727,8 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public SearchState getInitialState()
 			{
-				AFlatLinguist.InitialState initialState = new AFlatLinguist.InitialState(this.this$0);
-				initialState.addArc(new AFlatLinguist.GrammarState(this.this$0, AFlatLinguist.access$1500(this.this$0).getInitialNode()));
+				AFlatLinguist.InitialState initialState = new AFlatLinguist.InitialState(this.this_0);
+				initialState.addArc(new AFlatLinguist.GrammarState(this.this_0, AFlatLinguist.access_1500(this.this_0).getInitialNode()));
 				return initialState;
 			}
 
@@ -743,7 +743,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			}
 
 			
-			internal AFlatLinguist this$0 = aflatLinguist;
+			internal AFlatLinguist this_0 = aflatLinguist;
 		}
 
 		
@@ -827,7 +827,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			internal virtual SearchStateArc[] getCachedSuccessors()
 			{
-				return (SearchStateArc[])this.this$0.successorCache.get(this);
+				return (SearchStateArc[])this.this_0.successorCache.get(this);
 			}
 
 			[LineNumberTable(new byte[]
@@ -839,13 +839,13 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			internal virtual void cacheSuccessors(SearchStateArc[] array)
 			{
-				this.this$0.successorCache.put(this, array);
+				this.this_0.successorCache.put(this, array);
 			}
 
 			internal const int ANY = 0;
 
 			
-			internal AFlatLinguist this$0 = aflatLinguist;
+			internal AFlatLinguist this_0 = aflatLinguist;
 		}
 
 		
@@ -879,8 +879,8 @@ namespace edu.cmu.sphinx.linguist.aflat
 				this.lc = leftID;
 				this.rc = rightID;
 				int baseID = pronunciationState.getPronunciation().getUnits()[num].getBaseID();
-				int unitID = AFlatLinguist.access$800(aflatLinguist).buildID(baseID, leftID, rightID);
-				this.hmm = AFlatLinguist.access$800(aflatLinguist).getHMM(unitID, this.getPosition());
+				int unitID = AFlatLinguist.access_800(aflatLinguist).buildID(baseID, leftID, rightID);
+				this.hmm = AFlatLinguist.access_800(aflatLinguist).getHMM(unitID, this.getPosition());
 				this.isLastUnitOfWord = (num == pronunciationState.getPronunciation().getUnits().Length - 1);
 			}
 
@@ -959,13 +959,13 @@ namespace edu.cmu.sphinx.linguist.aflat
 				Unit baseUnit = this.hmm.getBaseUnit();
 				if (baseUnit.isSilence())
 				{
-					return AFlatLinguist.access$1200(this.this$0);
+					return AFlatLinguist.access_1200(this.this_0);
 				}
 				if (baseUnit.isFiller())
 				{
-					return AFlatLinguist.access$1300(this.this$0);
+					return AFlatLinguist.access_1300(this.this_0);
 				}
-				return AFlatLinguist.access$1400(this.this$0);
+				return AFlatLinguist.access_1400(this.this_0);
 			}
 
 			
@@ -1047,7 +1047,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				{
 					array = new SearchStateArc[]
 					{
-						new AFlatLinguist.HMMStateSearchState(this.this$0, this, this.hmm.getInitialState())
+						new AFlatLinguist.HMMStateSearchState(this.this_0, this, this.hmm.getInitialState())
 					};
 					this.cacheSuccessors(array);
 				}
@@ -1120,7 +1120,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private bool isLastUnitOfWord;
 
 			
-			internal new AFlatLinguist this$0 = aflatLinguist;
+			internal new AFlatLinguist this_0 = aflatLinguist;
 		}
 
 		
@@ -1167,7 +1167,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				for (int i = 0; i < array.Length; i++)
 				{
 					GrammarArc grammarArc = array[i];
-					array2[i] = new AFlatLinguist.GrammarState(this.this$0, grammarArc.getGrammarNode(), grammarArc.getProbability(), num, num2);
+					array2[i] = new AFlatLinguist.GrammarState(this.this_0, grammarArc.getGrammarNode(), grammarArc.getProbability(), num, num2);
 				}
 				return array2;
 			}
@@ -1260,15 +1260,15 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			private bool hasEntryContext(GrammarNode grammarNode, int unitID)
 			{
-				Set set = (Set)AFlatLinguist.access$900(this.this$0).get(grammarNode);
-				return set.contains(AFlatLinguist.access$800(this.this$0).getUnit(unitID));
+				Set set = (Set)AFlatLinguist.access_900(this.this_0).get(grammarNode);
+				return set.contains(AFlatLinguist.access_800(this.this_0).getUnit(unitID));
 			}
 
 			
 			
 			public override float getLanguageProbability()
 			{
-				return this.languageProbability * AFlatLinguist.access_000(this.this$0);
+				return this.languageProbability * AFlatLinguist.access_000(this.this_0);
 			}
 
 			
@@ -1343,19 +1343,19 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public override SearchStateArc[] getSuccessors()
 			{
-				AFlatLinguist.access$108(this.this$0);
-				ulong num = (ulong)AFlatLinguist.access$100(this.this$0);
+				AFlatLinguist.access_108(this.this_0);
+				ulong num = (ulong)AFlatLinguist.access_100(this.this_0);
 				ulong num2 = (ulong)500000;
 				if (((num2 != 18446744073709551615UL) ? (num % num2) : 0UL) == 0UL)
 				{
-					AFlatLinguist.access$200(this.this$0).info(new StringBuilder().append("Free Memory= ").append(this.this$0.runtime.freeMemory() / (long)((ulong)1048576)).append(" MB\tMax Memory= ").append(this.this$0.runtime.maxMemory() / (long)((ulong)1048576)).append("MB").toString());
+					AFlatLinguist.access_200(this.this_0).info(new StringBuilder().append("Free Memory= ").append(this.this_0.runtime.freeMemory() / (long)((ulong)1048576)).append(" MB\tMax Memory= ").append(this.this_0.runtime.maxMemory() / (long)((ulong)1048576)).append("MB").toString());
 				}
 				SearchStateArc[] array = this.getCachedSuccessors();
 				if (array == null)
 				{
 					if (this.isFinal())
 					{
-						array = AFlatLinguist.access$300(this.this$0);
+						array = AFlatLinguist.access_300(this.this_0);
 					}
 					else if (this.node.isEmpty())
 					{
@@ -1367,7 +1367,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 						Pronunciation[] array2 = word.getPronunciations();
 						array2 = this.filter(array2, this.nextBaseID);
 						SearchStateArc[] array3;
-						if (AFlatLinguist.access$400(this.this$0))
+						if (AFlatLinguist.access_400(this.this_0))
 						{
 							array3 = new SearchStateArc[array2.Length + 1];
 						}
@@ -1377,16 +1377,16 @@ namespace edu.cmu.sphinx.linguist.aflat
 						}
 						for (int i = 0; i < array2.Length; i++)
 						{
-							array3[i] = new AFlatLinguist.PronunciationState(this.this$0, this, array2[i]);
+							array3[i] = new AFlatLinguist.PronunciationState(this.this_0, this, array2[i]);
 						}
 						SearchStateArc[] toGrammarSearchState = new SearchStateArc[]
 						{
 							this
 						};
-						if (AFlatLinguist.access$400(this.this$0))
+						if (AFlatLinguist.access_400(this.this_0))
 						{
 							PhoneLoop.__<clinit>();
-							PhoneLoop phoneLoop = new PhoneLoop(AFlatLinguist.access$500(this.this$0), AFlatLinguist.access$600(this.this$0), AFlatLinguist.access$700(this.this$0), toGrammarSearchState);
+							PhoneLoop phoneLoop = new PhoneLoop(AFlatLinguist.access_500(this.this_0), AFlatLinguist.access_600(this.this_0), AFlatLinguist.access_700(this.this_0), toGrammarSearchState);
 							array3[array2.Length] = phoneLoop.getPhoneLoop();
 						}
 						array = array3;
@@ -1407,7 +1407,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public override string getSignature()
 			{
-				return new StringBuilder().append("GS ").append(this.node).append("-lc-").append(AFlatLinguist.access$800(this.this$0).getUnit(this.lc)).append("-rc-").append(AFlatLinguist.access$800(this.this$0).getUnit(this.nextBaseID)).toString();
+				return new StringBuilder().append("GS ").append(this.node).append("-lc-").append(AFlatLinguist.access_800(this.this_0).getUnit(this.lc)).append("-rc-").append(AFlatLinguist.access_800(this.this_0).getUnit(this.nextBaseID)).toString();
 			}
 
 			public override int getOrder()
@@ -1429,7 +1429,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			internal virtual int[] getNextUnits()
 			{
-				return (int[])AFlatLinguist.access$1000(this.this$0).get(this.node);
+				return (int[])AFlatLinguist.access_1000(this.this_0).get(this.node);
 			}
 
 			[LineNumberTable(new byte[]
@@ -1444,7 +1444,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public override string toString()
 			{
-				return new StringBuilder().append(this.node).append("[").append(AFlatLinguist.access$800(this.this$0).getUnit(this.lc)).append(',').append(AFlatLinguist.access$800(this.this$0).getUnit(this.nextBaseID)).append(']').toString();
+				return new StringBuilder().append(this.node).append("[").append(AFlatLinguist.access_800(this.this_0).getUnit(this.lc)).append(',').append(AFlatLinguist.access_800(this.this_0).getUnit(this.nextBaseID)).append(']').toString();
 			}
 
 			
@@ -1516,7 +1516,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private float languageProbability;
 
 			
-			internal new AFlatLinguist this$0 = aflatLinguist;
+			internal new AFlatLinguist this_0 = aflatLinguist;
 		}
 
 		
@@ -1639,7 +1639,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 						array = new SearchStateArc[successors.Length];
 						for (int i = 0; i < array.Length; i++)
 						{
-							array[i] = new AFlatLinguist.HMMStateSearchState(this.this$0, this.fullHMMSearchState, successors[i].getHMMState(), successors[i].getLogProbability());
+							array[i] = new AFlatLinguist.HMMStateSearchState(this.this_0, this.fullHMMSearchState, successors[i].getHMMState(), successors[i].getLogProbability());
 						}
 					}
 					this.cacheSuccessors(array);
@@ -1690,7 +1690,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private float probability;
 
 			
-			internal new AFlatLinguist this$0 = aflatLinguist;
+			internal new AFlatLinguist this_0 = aflatLinguist;
 		}
 
 		
@@ -1751,7 +1751,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private List nextArcs;
 
 			
-			internal new AFlatLinguist this$0 = aflatLinguist;
+			internal new AFlatLinguist this_0 = aflatLinguist;
 		}
 
 		
@@ -1800,7 +1800,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 					{
 						array = new SearchStateArc[]
 						{
-							new AFlatLinguist.FullHMMSearchState(this.this$0, this, num2, num, 0)
+							new AFlatLinguist.FullHMMSearchState(this.this_0, this, num2, num, 0)
 						};
 					}
 					else
@@ -1809,7 +1809,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 						array = new SearchStateArc[nextUnits.Length];
 						for (int i = 0; i < array.Length; i++)
 						{
-							array[i] = new AFlatLinguist.FullHMMSearchState(this.this$0, this, num2, num, nextUnits[i]);
+							array[i] = new AFlatLinguist.FullHMMSearchState(this.this_0, this, num2, num, nextUnits[i]);
 						}
 					}
 				}
@@ -1817,7 +1817,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				{
 					array = new SearchStateArc[]
 					{
-						new AFlatLinguist.FullHMMSearchState(this.this$0, this, num2, num)
+						new AFlatLinguist.FullHMMSearchState(this.this_0, this, num2, num)
 					};
 				}
 				return array;
@@ -1859,7 +1859,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				{
 					return 0f;
 				}
-				return AFlatLinguist.access$1100(this.this$0);
+				return AFlatLinguist.access_1100(this.this_0);
 			}
 
 			
@@ -1949,7 +1949,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private Pronunciation pronunciation;
 
 			
-			internal new AFlatLinguist this$0 = aflatLinguist;
+			internal new AFlatLinguist this_0 = aflatLinguist;
 		}
 	}
 }

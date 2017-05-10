@@ -12,11 +12,11 @@ namespace edu.cmu.sphinx.util
 	})]
 	[EnclosingMethod("edu.cmu.sphinx.util.SocketCommandClient", "main", "([Ljava.lang.java.lang.String;)V")]
 	[SourceFile("SocketCommandClient.java")]
-	internal sealed class SocketCommandClient$3 : java.lang.Object, CommandInterface
+	internal sealed class SocketCommandClient_3 : java.lang.Object, CommandInterface
 	{
 		
 		
-		internal SocketCommandClient$3(SocketCommandClient socketCommandClient)
+		internal SocketCommandClient_3(SocketCommandClient socketCommandClient)
 		{
 		}
 
@@ -40,10 +40,10 @@ namespace edu.cmu.sphinx.util
 			{
 				stringBuilder.append(array[i]).append(' ');
 			}
-			commandInterpreter.putResponse(this.val$sci.sendCommandGetResponse(stringBuilder.toString()));
-			while (this.val$sci.isResponse())
+			commandInterpreter.putResponse(this.val_sci.sendCommandGetResponse(stringBuilder.toString()));
+			while (this.val_sci.isResponse())
 			{
-				commandInterpreter.putResponse(this.val$sci.getResponse());
+				commandInterpreter.putResponse(this.val_sci.getResponse());
 			}
 			return "";
 		}
@@ -54,6 +54,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		
-		internal SocketCommandClient val$sci = socketCommandClient;
+		internal SocketCommandClient val_sci = socketCommandClient;
 	}
 }

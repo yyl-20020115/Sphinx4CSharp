@@ -199,7 +199,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public ActiveList newInstance()
 			{
-				return this.this$0.newInstance();
+				return this.this_0.newInstance();
 			}
 
 			
@@ -219,7 +219,7 @@ namespace edu.cmu.sphinx.decoder.search
 			private List tokenList;
 
 			
-			internal SimpleActiveListFactory this$0 = simpleActiveListFactory;
+			internal SimpleActiveListFactory this_0 = simpleActiveListFactory;
 		}
 	}
 }

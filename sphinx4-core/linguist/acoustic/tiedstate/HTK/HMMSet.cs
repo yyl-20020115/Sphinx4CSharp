@@ -151,7 +151,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		
 		public virtual Iterator get1phIt()
 		{
-			return new HMMSet$1(this);
+			return new HMMSet_1(this);
 		}
 
 		
@@ -170,7 +170,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		
 		public virtual Iterator get3phIt()
 		{
-			return new HMMSet$2(this);
+			return new HMMSet_2(this);
 		}
 
 		[Throws(new string[]

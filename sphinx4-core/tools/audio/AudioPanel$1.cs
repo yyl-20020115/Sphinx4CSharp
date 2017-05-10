@@ -17,11 +17,11 @@ namespace edu.cmu.sphinx.tools.audio
 	[EnclosingMethod("edu.cmu.sphinx.tools.audio.AudioPanel", "<init>", "(Ledu.cmu.sphinx.tools.audio.AudioData;FF)V")]
 	[SourceFile("AudioPanel.java")]
 	
-	internal sealed class AudioPanel$1 : java.lang.Object, ChangeListener, EventListener
+	internal sealed class AudioPanel_1 : java.lang.Object, ChangeListener, EventListener
 	{
 		
 		
-		internal AudioPanel$1(AudioPanel audioPanel)
+		internal AudioPanel_1(AudioPanel audioPanel)
 		{
 		}
 
@@ -43,19 +43,19 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public void stateChanged(ChangeEvent changeEvent)
 		{
-			int num = ByteCodeHelper.f2i((float)AudioPanel.access_000(this.this$0).getAudioData().Length * AudioPanel.access$100(this.this$0));
-			int num2 = ByteCodeHelper.f2i(65536f * AudioPanel.access$200(this.this$0));
-			AudioPanel.access$302(this.this$0, new float[0]);
-			AudioPanel.access$402(this.this$0, new string[0]);
-			this.this$0.setSelectionStart(-1);
-			this.this$0.setSelectionEnd(-1);
-			this.this$0.setPreferredSize(new Dimension(num, num2));
-			Dimension size = this.this$0.getSize();
-			this.this$0.revalidate();
-			this.this$0.repaint(0L, 0, 0, size.width, size.height);
+			int num = ByteCodeHelper.f2i((float)AudioPanel.access_000(this.this_0).getAudioData().Length * AudioPanel.access_100(this.this_0));
+			int num2 = ByteCodeHelper.f2i(65536f * AudioPanel.access_200(this.this_0));
+			AudioPanel.access_302(this.this_0, new float[0]);
+			AudioPanel.access_402(this.this_0, new string[0]);
+			this.this_0.setSelectionStart(-1);
+			this.this_0.setSelectionEnd(-1);
+			this.this_0.setPreferredSize(new Dimension(num, num2));
+			Dimension size = this.this_0.getSize();
+			this.this_0.revalidate();
+			this.this_0.repaint(0L, 0, 0, size.width, size.height);
 		}
 
 		
-		internal AudioPanel this$0 = audioPanel;
+		internal AudioPanel this_0 = audioPanel;
 	}
 }

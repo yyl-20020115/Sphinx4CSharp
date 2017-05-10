@@ -51,7 +51,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		}
 
 		
-		internal static SearchStateArc[] access$600()
+		internal static SearchStateArc[] access_600()
 		{
 			return PhoneLoop.EMPTY_ARCS;
 		}
@@ -65,35 +65,35 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 		
 		
-		internal static float access$100(PhoneLoop phoneLoop)
+		internal static float access_100(PhoneLoop phoneLoop)
 		{
 			return phoneLoop.logOutOfGrammarBranchProbability;
 		}
 
 		
 		
-		internal static AcousticModel access$200(PhoneLoop phoneLoop)
+		internal static AcousticModel access_200(PhoneLoop phoneLoop)
 		{
 			return phoneLoop.acousticModel;
 		}
 
 		
 		
-		internal static float access$300(PhoneLoop phoneLoop)
+		internal static float access_300(PhoneLoop phoneLoop)
 		{
 			return phoneLoop.logPhoneInsertionProbability;
 		}
 
 		
 		
-		internal static SearchStateArc[] access$400(PhoneLoop phoneLoop)
+		internal static SearchStateArc[] access_400(PhoneLoop phoneLoop)
 		{
 			return phoneLoop.lbsArcSet;
 		}
 
 		
 		
-		internal static SearchStateArc[] access$500(PhoneLoop phoneLoop)
+		internal static SearchStateArc[] access_500(PhoneLoop phoneLoop)
 		{
 			return phoneLoop.toGrammarSearchState;
 		}
@@ -160,11 +160,11 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public override SearchStateArc[] getSuccessors()
 			{
-				return PhoneLoop.access$600();
+				return PhoneLoop.access_600();
 			}
 
 			
-			internal new PhoneLoop this$0 = phoneLoop;
+			internal new PhoneLoop this_0 = phoneLoop;
 		}
 
 		
@@ -189,7 +189,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			internal FirstBranchState(PhoneLoop phoneLoop) : base(phoneLoop)
 			{
 				ArrayList arrayList = new ArrayList();
-				Iterator contextIndependentUnitIterator = PhoneLoop.access$200(phoneLoop).getContextIndependentUnitIterator();
+				Iterator contextIndependentUnitIterator = PhoneLoop.access_200(phoneLoop).getContextIndependentUnitIterator();
 				while (contextIndependentUnitIterator.hasNext())
 				{
 					Unit unit = (Unit)contextIndependentUnitIterator.next();
@@ -221,7 +221,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private SearchStateArc[] successors;
 
 			
-			internal new PhoneLoop this$0 = phoneLoop;
+			internal new PhoneLoop this_0 = phoneLoop;
 		}
 
 		
@@ -243,7 +243,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			{
 				this.successors = new SearchStateArc[2];
 				this.successors[0] = PhoneLoop.access_000(phoneLoop);
-				this.successors[1] = PhoneLoop.access$500(phoneLoop)[0];
+				this.successors[1] = PhoneLoop.access_500(phoneLoop)[0];
 			}
 
 			public override int getOrder()
@@ -265,7 +265,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private SearchStateArc[] successors;
 
 			
-			internal new PhoneLoop this$0 = phoneLoop;
+			internal new PhoneLoop this_0 = phoneLoop;
 		}
 
 		
@@ -289,7 +289,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			internal OogHMM(PhoneLoop phoneLoop, Unit u) : base(phoneLoop)
 			{
-				this.hmm = PhoneLoop.access$200(phoneLoop).lookupNearestHMM(u, HMMPosition.__UNDEFINED, false);
+				this.hmm = PhoneLoop.access_200(phoneLoop).lookupNearestHMM(u, HMMPosition.__UNDEFINED, false);
 				this.successors = new SearchStateArc[1];
 				this.successors[0] = new PhoneLoop.OogHMMState(phoneLoop, this.hmm.getInitialState(), 0f);
 			}
@@ -322,7 +322,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public override float getInsertionProbability()
 			{
-				return PhoneLoop.access$300(this.this$0);
+				return PhoneLoop.access_300(this.this_0);
 			}
 
 			
@@ -332,7 +332,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private SearchStateArc[] successors;
 
 			
-			internal new PhoneLoop this$0 = phoneLoop;
+			internal new PhoneLoop this_0 = phoneLoop;
 		}
 
 		
@@ -435,13 +435,13 @@ namespace edu.cmu.sphinx.linguist.aflat
 			{
 				if (this.hmmState.isExitState())
 				{
-					return PhoneLoop.access$400(this.this$0);
+					return PhoneLoop.access_400(this.this_0);
 				}
 				HMMStateArc[] successors = this.hmmState.getSuccessors();
 				SearchStateArc[] array = new SearchStateArc[successors.Length];
 				for (int i = 0; i < successors.Length; i++)
 				{
-					array[i] = new PhoneLoop.OogHMMState(this.this$0, successors[i].getHMMState(), successors[i].getLogProbability());
+					array[i] = new PhoneLoop.OogHMMState(this.this_0, successors[i].getHMMState(), successors[i].getLogProbability());
 				}
 				return array;
 			}
@@ -467,7 +467,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			internal float logProbability;
 
 			
-			internal new PhoneLoop this$0 = phoneLoop;
+			internal new PhoneLoop this_0 = phoneLoop;
 		}
 
 		
@@ -550,7 +550,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			internal const int ANY = 0;
 
 			
-			internal PhoneLoop this$0 = phoneLoop;
+			internal PhoneLoop this_0 = phoneLoop;
 		}
 
 		
@@ -602,7 +602,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 			public override float getLanguageProbability()
 			{
-				return PhoneLoop.access$100(this.this$0);
+				return PhoneLoop.access_100(this.this_0);
 			}
 
 			public bool isWordStart()
@@ -614,7 +614,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			private SearchStateArc[] successors;
 
 			
-			internal new PhoneLoop this$0 = phoneLoop;
+			internal new PhoneLoop this_0 = phoneLoop;
 		}
 	}
 }
