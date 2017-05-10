@@ -1,12 +1,9 @@
-﻿using System;
-
-using edu.cmu.sphinx.alignment;
+﻿using edu.cmu.sphinx.alignment;
 using edu.cmu.sphinx.linguist.language.grammar;
 using edu.cmu.sphinx.linguist.language.ngram;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -18,7 +15,6 @@ namespace edu.cmu.sphinx.api
 {
 	public class SpeechAligner : java.lang.Object
 	{
-
 		public virtual void setTokenizer(TextTokenizer wordExpander)
 		{
 			this.tokenizer = wordExpander;
@@ -28,79 +24,7 @@ namespace edu.cmu.sphinx.api
 		{
 			return this.tokenizer;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			29,
-			136,
-			104,
-			102,
-			102,
-			103,
-			135,
-			115,
-			105,
-			103,
-			106,
-			140,
-			140,
-			107,
-			101,
-			181,
-			108,
-			127,
-			2,
-			159,
-			3,
-			110,
-			110,
-			173,
-			159,
-			41,
-			139,
-			101,
-			173,
-			104,
-			143,
-			135,
-			113,
-			127,
-			13,
-			178,
-			100,
-			106,
-			223,
-			2,
-			103,
-			127,
-			1,
-			116,
-			98,
-			140,
-			132,
-			191,
-			7,
-			139,
-			106,
-			104,
-			26,
-			232,
-			70,
-			103,
-			107,
-			133,
-			239,
-			3,
-			235,
-			160,
-			64
-		})]
-		
+	
 		public virtual List align(URL audioUrl, List sentenceTranscript)
 		{
 			List list = this.sentenceToWords(sentenceTranscript);
@@ -180,20 +104,6 @@ namespace edu.cmu.sphinx.api
 			}
 			return new ArrayList(treeMap.values());
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			113,
-			102,
-			126,
-			108,
-			120,
-			106,
-			9,
-			200,
-			101
-		})]
 		
 		public virtual List sentenceToWords(List sentenceTranscript)
 		{
@@ -216,33 +126,7 @@ namespace edu.cmu.sphinx.api
 			}
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			125,
-			98,
-			98,
-			135,
-			98,
-			99,
-			105,
-			103,
-			134,
-			106,
-			138,
-			230,
-			57,
-			232,
-			75,
-			113,
-			140,
-			127,
-			30,
-			38,
-			138
-		})]
-		
+	
 		private void dumpAlignmentStats(List list, int[] array, List list2)
 		{
 			int num = 0;
@@ -276,27 +160,6 @@ namespace edu.cmu.sphinx.api
 				Float.valueOf((float)(num + num2) / (float)num3 * 100f)
 			}));
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			87,
-			98,
-			99,
-			127,
-			4,
-			117,
-			127,
-			7,
-			42,
-			165,
-			113,
-			118,
-			101,
-			107,
-			150
-		})]
 		
 		private void scheduleNextAlignment(List list, Map map, Queue queue, Queue queue2, Queue queue3, long num)
 		{
@@ -318,22 +181,7 @@ namespace edu.cmu.sphinx.api
 				this.checkedOffer(list, queue2, queue3, queue, num2, list.size(), num3, num);
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			131,
-			207,
-			116,
-			127,
-			20,
-			161,
-			113,
-			112,
-			115
-		})]
-		
+	
 		private void checkedOffer(List list, Queue queue, Queue queue2, Queue queue3, int num, int num2, long num3, long num4)
 		{
 			double num5 = (double)(num4 - num3) / (double)(num2 - num);
@@ -346,34 +194,7 @@ namespace edu.cmu.sphinx.api
 			queue2.offer(new TimeFrame(num3, num4));
 			queue3.offer(new Range(num, num2 - 1));
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			232,
-			53,
-			246,
-			76,
-			102,
-			103,
-			135,
-			108,
-			99,
-			113,
-			149,
-			117,
-			123,
-			123,
-			123,
-			107
-		})]
-		
+	
 		public SpeechAligner(string amPath, string dictPath, string g2pPath)
 		{
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getSimpleName());
@@ -391,51 +212,12 @@ namespace edu.cmu.sphinx.api
 			this.grammar = (AlignerGrammar)this.context.getInstance(ClassLiteral<AlignerGrammar>.Value);
 			this.languageModel = (DynamicTrigramModel)this.context.getInstance(ClassLiteral<DynamicTrigramModel>.Value);
 			this.setTokenizer(new SimpleTokenizer());
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		
+		}		
 		
 		public virtual List align(URL audioUrl, string transcript)
 		{
 			return this.align(audioUrl, this.getTokenizer().expand(transcript));
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			103,
-			112,
-			98,
-			98,
-			106,
-			102,
-			159,
-			11,
-			104,
-			127,
-			8,
-			127,
-			1,
-			132,
-			159,
-			8,
-			228,
-			53,
-			233,
-			79,
-			111,
-			127,
-			14,
-			127,
-			1,
-			130
-		})]
 		
 		public virtual void dumpAlignment(List transcript, int[] alignment, List results)
 		{
@@ -486,32 +268,21 @@ namespace edu.cmu.sphinx.api
 					}));
 				}
 			}
-		}
-
-		
-		static SpeechAligner()
-		{
-		}
-
+		}		
 		
 		private Logger logger;
 
 		private const int TUPLE_SIZE = 3;
 
-		
 		private Context context;
 
-		
 		private Recognizer recognizer;
-
 		
 		private AlignerGrammar grammar;
 
-		
 		private DynamicTrigramModel languageModel;
 
 		private TextTokenizer tokenizer;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<SpeechAligner>.Value.desiredAssertionStatus();
 	}

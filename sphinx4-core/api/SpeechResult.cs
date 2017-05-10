@@ -1,27 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.result;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.result;
 using java.util;
 
 namespace edu.cmu.sphinx.api
 {
 	public sealed class SpeechResult : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			177,
-			104,
-			103,
-			104,
-			108,
-			117,
-			146,
-			103
-		})]
-		
+	{		
 		public SpeechResult(Result result)
 		{
 			this.result = result;
@@ -36,29 +19,16 @@ namespace edu.cmu.sphinx.api
 				this.lattice = null;
 			}
 		}
-
-		
-		
 		
 		public List getWords()
 		{
 			return (this.lattice == null) ? this.result.getTimedBestResult(false) : this.lattice.getWordResultPath();
 		}
-
-		
 		
 		public string getHypothesis()
 		{
 			return this.result.getBestResultNoFiller();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			19,
-			104,
-			102
-		})]
 		
 		public Collection getNbest(int n)
 		{
@@ -68,7 +38,6 @@ namespace edu.cmu.sphinx.api
 			}
 			return new Nbest(this.lattice).getNbest(n);
 		}
-
 		public Lattice getLattice()
 		{
 			return this.lattice;
@@ -78,10 +47,8 @@ namespace edu.cmu.sphinx.api
 		{
 			return this.result;
 		}
-
 		
 		private Result result;
-
 		
 		private Lattice lattice;
 	}

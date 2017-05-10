@@ -1,21 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.api
+﻿namespace edu.cmu.sphinx.api
 {
 	public class Configuration : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			166,
-			232,
-			72,
-			107
-		})]
-		
+	{		
 		public Configuration()
 		{
 			this.sampleRate = 16000;
