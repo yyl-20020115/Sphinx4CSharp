@@ -11,7 +11,7 @@ namespace edu.cmu.sphinx.linguist.flat
 	{
 		"edu.cmu.sphinx.linguist.WordSearchState"
 	})]
-	[SourceFile("CIPhoneLoop.java")]
+	.
 	
 	[Serializable]
 	internal sealed class UnknownWordState : SentenceHMMState, WordSearchState, SearchState

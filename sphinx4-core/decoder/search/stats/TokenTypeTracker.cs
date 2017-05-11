@@ -1,20 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist;
+﻿using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
 	public class TokenTypeTracker : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			27,
-			116
-		})]
-		
 		private string pc(int num)
 		{
 			int num2 = 100 * num;
@@ -22,35 +13,10 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			int num4 = (num3 != -1) ? (num2 / num3) : (-num2);
 			return new StringBuilder().append(" (").append(num4).append("%)").toString();
 		}
-
-		
 		
 		public TokenTypeTracker()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			110,
-			135,
-			104,
-			115,
-			104,
-			115,
-			107,
-			113,
-			127,
-			11,
-			112,
-			112,
-			112,
-			176,
-			98,
-			142
-		})]
-		
 		public virtual void add(Token t)
 		{
 			this.numTokens++;
@@ -87,29 +53,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				this.numOthers++;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			8,
-			127,
-			10,
-			127,
-			27,
-			127,
-			27,
-			127,
-			27,
-			127,
-			27,
-			127,
-			27,
-			127,
-			7,
-			47,
-			133,
-			127,
-			27
-		})]
 		
 		public virtual void dump()
 		{

@@ -131,7 +131,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		private SearchStateArc[] toGrammarSearchState;
 
 		
-		[SourceFile("PhoneLoop.java")]
+		.
 		
 		internal sealed class FinalState : PhoneLoop.OogSearchState
 		{
@@ -168,7 +168,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		}
 
 		
-		[SourceFile("PhoneLoop.java")]
+		.
 		
 		internal sealed class FirstBranchState : PhoneLoop.OogSearchState
 		{
@@ -225,7 +225,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		}
 
 		
-		[SourceFile("PhoneLoop.java")]
+		.
 		
 		internal sealed class LastBranchState : PhoneLoop.OogSearchState
 		{
@@ -273,7 +273,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		{
 			"edu.cmu.sphinx.linguist.UnitSearchState"
 		})]
-		[SourceFile("PhoneLoop.java")]
+		.
 		
 		internal sealed class OogHMM : PhoneLoop.OogSearchState, UnitSearchState, SearchState
 		{
@@ -341,7 +341,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			"edu.cmu.sphinx.linguist.HMMSearchState",
 			"edu.cmu.sphinx.decoder.scorer.ScoreProvider"
 		})]
-		[SourceFile("PhoneLoop.java")]
+		.
 		
 		internal sealed class OogHMMState : PhoneLoop.OogSearchState, HMMSearchState, SearchState, ScoreProvider
 		{
@@ -476,7 +476,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			"edu.cmu.sphinx.linguist.SearchState",
 			"edu.cmu.sphinx.linguist.SearchStateArc"
 		})]
-		[SourceFile("PhoneLoop.java")]
+		.
 		internal abstract class OogSearchState : java.lang.Object, SearchState, SearchStateArc
 		{
 			
@@ -558,7 +558,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		{
 			"edu.cmu.sphinx.linguist.WordSearchState"
 		})]
-		[SourceFile("PhoneLoop.java")]
+		.
 		
 		internal sealed class UnknownWordState : PhoneLoop.OogSearchState, WordSearchState, SearchState
 		{

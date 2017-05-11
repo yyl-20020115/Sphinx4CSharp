@@ -723,7 +723,7 @@ namespace edu.cmu.sphinx.decoder.search
 		private bool fastmatchStreamEnd;
 
 		
-		[SourceFile("WordPruningBreadthFirstLookaheadSearchManager.java")]
+		.
 		
 		internal sealed class FrameCiScores : java.lang.Object
 		{

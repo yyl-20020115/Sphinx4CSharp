@@ -706,7 +706,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		{
 			"edu.cmu.sphinx.linguist.SearchGraph"
 		})]
-		[SourceFile("AFlatLinguist.java")]
+		.
 		
 		internal sealed class DynamicFlatSearchGraph : java.lang.Object, SearchGraph
 		{
@@ -752,7 +752,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			"edu.cmu.sphinx.linguist.SearchState",
 			"edu.cmu.sphinx.linguist.SearchStateArc"
 		})]
-		[SourceFile("AFlatLinguist.java")]
+		.
 		internal abstract class FlatSearchState : java.lang.Object, SearchState, SearchStateArc
 		{
 			
@@ -853,7 +853,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		{
 			"edu.cmu.sphinx.linguist.UnitSearchState"
 		})]
-		[SourceFile("AFlatLinguist.java")]
+		.
 		
 		internal sealed class FullHMMSearchState : AFlatLinguist.FlatSearchState, UnitSearchState, SearchState
 		{
@@ -1124,7 +1124,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		}
 
 		
-		[SourceFile("AFlatLinguist.java")]
+		.
 		public class GrammarState : AFlatLinguist.FlatSearchState
 		{
 			[LineNumberTable(new byte[]
@@ -1525,7 +1525,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			"edu.cmu.sphinx.linguist.HMMSearchState",
 			"edu.cmu.sphinx.decoder.scorer.ScoreProvider"
 		})]
-		[SourceFile("AFlatLinguist.java")]
+		.
 		
 		internal sealed class HMMStateSearchState : AFlatLinguist.FlatSearchState, HMMSearchState, SearchState, ScoreProvider
 		{
@@ -1694,7 +1694,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		}
 
 		
-		[SourceFile("AFlatLinguist.java")]
+		.
 		
 		internal sealed class InitialState : AFlatLinguist.FlatSearchState
 		{
@@ -1759,7 +1759,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		{
 			"edu.cmu.sphinx.linguist.WordSearchState"
 		})]
-		[SourceFile("AFlatLinguist.java")]
+		.
 		
 		internal sealed class PronunciationState : AFlatLinguist.FlatSearchState, WordSearchState, SearchState
 		{

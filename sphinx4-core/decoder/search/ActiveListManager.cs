@@ -1,14 +1,8 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public interface ActiveListManager : Configurable
 	{
 		void add(Token t);

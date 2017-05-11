@@ -10,8 +10,8 @@ namespace edu.cmu.sphinx.util
 	{
 		"edu.cmu.sphinx.util.CommandInterface"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.util.SocketCommandClient", "main", "([Ljava.lang.java.lang.String;)V")]
-	[SourceFile("SocketCommandClient.java")]
+	
+	.
 	internal sealed class SocketCommandClient_2 : java.lang.Object, CommandInterface
 	{
 		

@@ -1,24 +1,12 @@
 ﻿using System;
-
 using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
-	
-	[EnclosingMethod("edu.cmu.sphinx.decoder.search.stats.TokenTypeTracker", null, null)]
-	[SourceFile("TokenTypeTracker.java")]
-	
 	internal sealed class TokenTypeTracker_1 : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
 		static TokenTypeTracker_1()
 		{
 			try

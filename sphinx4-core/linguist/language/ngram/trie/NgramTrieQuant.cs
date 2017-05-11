@@ -209,7 +209,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 
 		
 		
-		[SourceFile("NgramTrieQuant.java")]
+		.
 		
 		[Serializable]
 		public sealed class QuantType : Enum

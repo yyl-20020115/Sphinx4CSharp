@@ -985,7 +985,7 @@ namespace edu.cmu.sphinx.jsgf
 		internal string grammarDocComment;
 
 		
-		[SourceFile("JSGFRuleGrammar.java")]
+		.
 		
 		internal sealed class JSGFRuleState : java.lang.Object
 		{

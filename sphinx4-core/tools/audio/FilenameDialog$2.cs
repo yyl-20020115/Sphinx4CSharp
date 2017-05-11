@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.tools.audio
 	{
 		"java.awt.event.ActionListener"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.tools.audio.FilenameDialog", "createFilenamePanel", "()V")]
-	[SourceFile("FilenameDialog.java")]
+	
+	.
 	
 	internal sealed class FilenameDialog_2 : java.lang.Object, ActionListener, EventListener
 	{

@@ -10,7 +10,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	[SourceFile("HMMTree.java")]
+	.
 	internal class Node : java.lang.Object
 	{
 		

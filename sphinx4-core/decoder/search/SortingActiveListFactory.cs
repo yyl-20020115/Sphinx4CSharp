@@ -62,7 +62,7 @@ namespace edu.cmu.sphinx.decoder.search
 		{
 			"edu.cmu.sphinx.decoder.search.ActiveList"
 		})]
-		[SourceFile("SortingActiveListFactory.java")]
+		.
 		
 		internal sealed class SortingActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
 		{

@@ -1,27 +1,17 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	[Implements(new string[]
-	{
-		"java.lang.Iterable"
-	})]
-	
 	public interface ActiveList : Iterable
 	{
 		ActiveList purge();
-
 		Token getBestToken();
-
 		void add(Token t);
 
 		int size();
 
-		
 		List getTokens();
 
 		float getBeamThreshold();

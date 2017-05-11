@@ -913,7 +913,7 @@ namespace edu.cmu.sphinx.frontend.util
 		internal static bool assertionsDisabled = !ClassLiteral<Microphone>.Value.desiredAssertionStatus();
 
 		
-		[SourceFile("Microphone.java")]
+		.
 		
 		internal sealed class RecordingThread : Thread
 		{

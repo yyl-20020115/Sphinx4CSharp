@@ -383,7 +383,7 @@ namespace edu.cmu.sphinx.frontend.util
 			"java.util.Enumeration"
 		})]
 		
-		[SourceFile("ConcatFileDataSource.java")]
+		.
 		
 		internal sealed class InputStreamEnumeration : java.lang.Object, Enumeration
 		{

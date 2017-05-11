@@ -280,7 +280,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		private int quantProbLen;
 
 		
-		[SourceFile("NgramTrie.java")]
+		.
 		
 		internal sealed class LongestNgramSet : NgramTrie.NgramSet
 		{
@@ -308,7 +308,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		}
 
 		
-		[SourceFile("NgramTrie.java")]
+		.
 		
 		internal sealed class MiddleNgramSet : NgramTrie.NgramSet
 		{
@@ -374,7 +374,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		}
 
 		
-		[SourceFile("NgramTrie.java")]
+		.
 		internal abstract class NgramSet : java.lang.Object
 		{
 			[LineNumberTable(new byte[]

@@ -9,48 +9,20 @@ namespace edu.cmu.sphinx.frontend
 {
 	[Serializable]
 	public class DataProcessingException : RuntimeException
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			104
-		})]
-		
-		public DataProcessingException(string message, Exception cause) : base(message, cause)
+	{		
+		public DataProcessingException(string message, System.Exception cause) : base(message, cause)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			162,
-			102
-		})]
 		
 		public DataProcessingException()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			103
-		})]
 		
 		public DataProcessingException(string message) : base(message)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			103
-		})]
 		
-		public DataProcessingException(Exception cause) : base(cause)
+		public DataProcessingException(System.Exception cause) : base(cause)
 		{
 		}
 

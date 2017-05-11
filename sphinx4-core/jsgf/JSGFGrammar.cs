@@ -1065,7 +1065,7 @@ namespace edu.cmu.sphinx.jsgf
 		protected internal new Logger logger;
 
 		
-		[SourceFile("JSGFGrammar.java")]
+		.
 		
 		internal sealed class GrammarGraph : java.lang.Object
 		{
@@ -1118,7 +1118,7 @@ namespace edu.cmu.sphinx.jsgf
 		}
 
 		
-		[SourceFile("JSGFGrammar.java")]
+		.
 		
 		internal sealed class RuleStack : java.lang.Object
 		{

@@ -11,7 +11,7 @@ namespace edu.cmu.sphinx.decoder.search
 		"java.util.Iterator"
 	})]
 	
-	[SourceFile("PartitionActiveListFactory.java")]
+	.
 	
 	internal sealed class TokenArrayIterator : java.lang.Object, Iterator
 	{

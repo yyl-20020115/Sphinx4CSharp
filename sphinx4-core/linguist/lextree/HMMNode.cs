@@ -8,7 +8,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	[SourceFile("HMMTree.java")]
+	.
 	
 	internal sealed class HMMNode : UnitNode
 	{

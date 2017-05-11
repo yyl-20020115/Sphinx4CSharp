@@ -9,7 +9,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 	{
 		"edu.cmu.sphinx.linguist.acoustic.HMM"
 	})]
-	[SourceFile("TrivialAcousticModel.java")]
+	.
 	
 	internal sealed class TrivialHMM : java.lang.Object, HMM
 	{

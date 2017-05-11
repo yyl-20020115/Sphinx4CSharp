@@ -117,7 +117,7 @@ namespace edu.cmu.sphinx.decoder.search
 		internal new Map bestTokenMap;
 
 		
-		[SourceFile("TokenHeapSearchManager.java")]
+		.
 		
 		internal sealed class TokenHeap : java.lang.Object
 		{

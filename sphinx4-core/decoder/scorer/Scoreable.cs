@@ -1,14 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.frontend;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
 	public abstract class Scoreable : Data
 	{
-
 		public abstract float normalizeScore(float f);
 
 		public abstract float getScore();

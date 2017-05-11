@@ -709,7 +709,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		{
 			"edu.cmu.sphinx.linguist.UnitSearchState"
 		})]
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		public class LexTreeEndUnitState : LexTreeLinguist.LexTreeState, UnitSearchState, SearchState
 		{
 			[LineNumberTable(new byte[]
@@ -993,7 +993,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		{
 			"edu.cmu.sphinx.linguist.WordSearchState"
 		})]
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		public class LexTreeEndWordState : LexTreeLinguist.LexTreeWordState, WordSearchState, SearchState
 		{
 			[LineNumberTable(new byte[]
@@ -1023,7 +1023,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			"edu.cmu.sphinx.linguist.HMMSearchState",
 			"edu.cmu.sphinx.decoder.scorer.ScoreProvider"
 		})]
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		public class LexTreeHMMState : LexTreeLinguist.LexTreeState, HMMSearchState, SearchState, ScoreProvider
 		{
 			public virtual HMMState getHMMState()
@@ -1385,7 +1385,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		}
 
 		
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		public class LexTreeNonEmittingHMMState : LexTreeLinguist.LexTreeHMMState
 		{
 			[LineNumberTable(new byte[]
@@ -1416,7 +1416,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		{
 			"edu.cmu.sphinx.linguist.SearchGraph"
 		})]
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		
 		internal sealed class LexTreeSearchGraph : java.lang.Object, SearchGraph
 		{
@@ -1460,7 +1460,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			"edu.cmu.sphinx.linguist.SearchState",
 			"edu.cmu.sphinx.linguist.SearchStateArc"
 		})]
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		internal abstract class LexTreeState : java.lang.Object, SearchState, SearchStateArc
 		{
 			
@@ -1862,7 +1862,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		{
 			"edu.cmu.sphinx.linguist.UnitSearchState"
 		})]
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		public class LexTreeUnitState : LexTreeLinguist.LexTreeState, UnitSearchState, SearchState
 		{
 			[LineNumberTable(new byte[]
@@ -2166,7 +2166,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		{
 			"edu.cmu.sphinx.linguist.WordSearchState"
 		})]
-		[SourceFile("LexTreeLinguist.java")]
+		.
 		public class LexTreeWordState : LexTreeLinguist.LexTreeState, WordSearchState, SearchState
 		{
 			[LineNumberTable(new byte[]

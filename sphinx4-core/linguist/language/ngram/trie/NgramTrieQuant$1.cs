@@ -7,8 +7,8 @@ using java.lang;
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
 	
-	[EnclosingMethod("edu.cmu.sphinx.linguist.language.ngram.trie.NgramTrieQuant", null, null)]
-	[SourceFile("NgramTrieQuant.java")]
+	
+	.
 	
 	internal sealed class NgramTrieQuant_1 : java.lang.Object
 	{

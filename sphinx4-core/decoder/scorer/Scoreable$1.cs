@@ -1,12 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
-	
 	internal sealed class Scoreable_1 : java.lang.Object, Comparator
 	{	
 		public int compare(Scoreable scoreable, Scoreable scoreable2)
@@ -21,23 +16,17 @@ namespace edu.cmu.sphinx.decoder.scorer
 			}
 			return 1;
 		}
-
-		
-		
+				
 		internal Scoreable_1()
 		{
 		}
 
-		
-		
-		
 		public int compare(object obj, object obj2)
 		{
 			return this.compare((Scoreable)obj, (Scoreable)obj2);
 		}
 
-		
-		bool Comparator.Object equals(object obj)
+		bool Comparator.equals(object obj)
 		{
 			return java.lang.Object.instancehelper_equals(this, obj);
 		}

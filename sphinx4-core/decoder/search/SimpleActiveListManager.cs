@@ -272,7 +272,7 @@ namespace edu.cmu.sphinx.decoder.search
 			"java.util.Iterator"
 		})]
 		
-		[SourceFile("SimpleActiveListManager.java")]
+		.
 		
 		internal sealed class NonEmittingListIterator : java.lang.Object, Iterator
 		{

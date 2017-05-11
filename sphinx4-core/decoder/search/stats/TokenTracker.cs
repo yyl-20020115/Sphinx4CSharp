@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist;
 using java.io;
 using java.lang;
 using java.util;
@@ -9,27 +6,7 @@ using java.util;
 namespace edu.cmu.sphinx.decoder.search.stats
 {
 	public class TokenTracker : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			33,
-			107,
-			102,
-			105,
-			145,
-			111,
-			159,
-			25,
-			108,
-			127,
-			25,
-			127,
-			10,
-			191,
-			5,
-			138
-		})]
-		
+	{	
 		public virtual void dumpSummary()
 		{
 			if (this.enabled)
@@ -58,17 +35,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				java.lang.System.@out.println();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			102,
-			108,
-			37,
-			139,
-			99,
-			103,
-			152
-		})]
 		
 		private TokenTracker.TokenStats getStats(Token token)
 		{
@@ -80,44 +46,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			}
 			return tokenStats;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			54,
-			107,
-			102,
-			98,
-			130,
-			127,
-			10,
-			105,
-			132,
-			106,
-			116,
-			106,
-			168,
-			111,
-			141,
-			133,
-			152,
-			103,
-			109,
-			146,
-			127,
-			10,
-			159,
-			15,
-			112,
-			127,
-			5,
-			127,
-			5,
-			127,
-			6,
-			191,
-			5,
-			138
-		})]
 		
 		public virtual void dumpDetails()
 		{
@@ -163,8 +91,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				java.lang.System.@out.println();
 			}
 		}
-
-		
 		
 		public TokenTracker()
 		{
@@ -185,14 +111,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				this.utteranceSumStates = 0;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			104,
-			134
-		})]
 		
 		internal virtual void stopUtterance()
 		{
@@ -201,13 +119,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				this.dumpSummary();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			3,
-			104,
-			139
-		})]
 		
 		internal virtual void startFrame()
 		{
@@ -216,14 +127,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				this.stateMap = new HashMap();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			15,
-			104,
-			104,
-			135
-		})]
 		
 		public virtual void add(Token t)
 		{
@@ -233,14 +136,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				stats.update(t);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			24,
-			104,
-			110,
-			134
-		})]
 		
 		internal virtual void stopFrame()
 		{
@@ -250,7 +145,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				this.dumpDetails();
 			}
 		}
-
 		
 		private Map stateMap;
 
@@ -264,39 +158,14 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 		private int utteranceSumStates;
 
-		
-		[SourceFile("TokenTracker.java")]
-		
 		internal sealed class TokenStats : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				123,
-				111,
-				103,
-				107,
-				107
-			})]
-			
+		{			
 			internal TokenStats(TokenTracker tokenTracker)
 			{
 				this.count = 0;
 				this.maxScore = float.MinValue;
 				this.minScore = float.Epsilon;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				160,
-				69,
-				110,
-				110,
-				172,
-				110,
-				172,
-				116
-			})]
-			
 			public void update(Token token)
 			{
 				this.count++;

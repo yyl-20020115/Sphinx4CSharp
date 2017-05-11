@@ -1,8 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.util.props;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.scorer
@@ -16,7 +12,6 @@ namespace edu.cmu.sphinx.decoder.scorer
 		public MaxScoreNormalizer()
 		{
 		}
-
 	
 		public virtual Scoreable normalize(List scoreableList, Scoreable bestToken)
 		{

@@ -677,7 +677,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		private LRUCache ngramProbCache;
 
 		
-		[SourceFile("NgramTrieModel.java")]
+		.
 		public class TrieRange : java.lang.Object
 		{
 			internal virtual void setFound(bool flag)
@@ -727,7 +727,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		}
 
 		
-		[SourceFile("NgramTrieModel.java")]
+		.
 		public class TrieUnigram : java.lang.Object
 		{
 			

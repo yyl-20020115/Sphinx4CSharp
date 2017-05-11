@@ -128,7 +128,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		
 		
-		[SourceFile("Pool.java")]
+		.
 		
 		[Serializable]
 		public sealed class Feature : Enum

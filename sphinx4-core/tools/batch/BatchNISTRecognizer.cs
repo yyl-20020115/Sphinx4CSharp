@@ -564,7 +564,7 @@ namespace edu.cmu.sphinx.tools.batch
 		public const string PROP_FRAMES_PER_SECOND = "framesPerSecond";
 
 		
-		[SourceFile("BatchNISTRecognizer.java")]
+		.
 		[Serializable]
 		public class CTLException : Exception
 		{
@@ -598,7 +598,7 @@ namespace edu.cmu.sphinx.tools.batch
 			"java.util.Iterator"
 		})]
 		
-		[SourceFile("BatchNISTRecognizer.java")]
+		.
 		public class CTLIterator : java.lang.Object, Iterator
 		{
 			[Throws(new string[]
@@ -722,7 +722,7 @@ namespace edu.cmu.sphinx.tools.batch
 		}
 
 		
-		[SourceFile("BatchNISTRecognizer.java")]
+		.
 		public class CTLUtterance : java.lang.Object
 		{
 			

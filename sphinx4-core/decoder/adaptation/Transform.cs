@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic.tiedstate;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -164,10 +161,6 @@ namespace edu.cmu.sphinx.decoder.adaptation
 			printWriter.close();
 		}
 
-		static Transform()
-		{
-		}
-
 		private float[][][][] As;
 
 		private float[][][] Bs;
@@ -176,7 +169,6 @@ namespace edu.cmu.sphinx.decoder.adaptation
 
 		private int nrOfClusters;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<Transform>.Value.desiredAssertionStatus();
 	}
 }

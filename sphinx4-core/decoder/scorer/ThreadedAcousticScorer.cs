@@ -1,11 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.lang;
 using java.util;
 using java.util.concurrent;
@@ -13,11 +9,7 @@ using java.util.concurrent;
 namespace edu.cmu.sphinx.decoder.scorer
 {
 	public class ThreadedAcousticScorer : SimpleAcousticScorer
-	{
-	
-		
-		
-		
+	{	
 		internal static Scoreable access_001(ThreadedAcousticScorer threadedAcousticScorer, List list, Data data)
 		{
 			return threadedAcousticScorer.__(list, data);
@@ -38,7 +30,6 @@ namespace edu.cmu.sphinx.decoder.scorer
 		{
 			this.init(minScoreablesPerThread, cpuRelative, numThreads, threadPriority);
 		}
-
 
 		public ThreadedAcousticScorer()
 		{
@@ -77,7 +68,6 @@ namespace edu.cmu.sphinx.decoder.scorer
 				this.executorService = null;
 			}
 		}
-
 				
 		protected internal override Scoreable doScoring(List scoreableList, Data data)
 		{
@@ -119,11 +109,6 @@ namespace edu.cmu.sphinx.decoder.scorer
 				}
 			}
 			return base.doScoring(scoreableList, data);
-		}
-
-		
-		static ThreadedAcousticScorer()
-		{
 		}
 
 		Scoreable __(List scoreableList, Data data)

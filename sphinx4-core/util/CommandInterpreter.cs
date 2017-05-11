@@ -615,7 +615,7 @@ namespace edu.cmu.sphinx.util
 		private static Pattern bbPattern;
 
 		
-		[SourceFile("CommandInterpreter.java")]
+		.
 		
 		internal sealed class CommandHistory : java.lang.Object
 		{

@@ -105,7 +105,7 @@ namespace edu.cmu.sphinx.decoder.search
 		{
 			"edu.cmu.sphinx.decoder.search.ActiveList"
 		})]
-		[SourceFile("WordActiveListFactory.java")]
+		.
 		
 		internal sealed class WordActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
 		{

@@ -7,7 +7,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	[SourceFile("FlatLinguist.java")]
+	.
 	
 	internal sealed class UnitContext : java.lang.Object
 	{

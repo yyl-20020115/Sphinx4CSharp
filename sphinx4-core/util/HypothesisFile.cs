@@ -7,7 +7,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	[SourceFile("GapInsertionDetector.java")]
+	.
 	
 	internal sealed class HypothesisFile : java.lang.Object
 	{

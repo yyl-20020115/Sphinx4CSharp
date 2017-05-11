@@ -777,7 +777,7 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		
 		
-		[SourceFile("SentenceHMMState.java")]
+		.
 		
 		[Serializable]
 		public sealed class Color : Enum

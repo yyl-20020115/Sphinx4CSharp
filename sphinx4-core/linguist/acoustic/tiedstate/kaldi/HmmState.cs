@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	[SourceFile("TransitionModel.java")]
+	.
 	internal sealed class HmmState : java.lang.Object
 	{
 		

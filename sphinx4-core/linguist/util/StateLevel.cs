@@ -5,7 +5,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.util
 {
-	[SourceFile("LinguistDumper.java")]
+	.
 	
 	internal sealed class StateLevel : java.lang.Object
 	{

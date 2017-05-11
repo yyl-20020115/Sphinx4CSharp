@@ -1162,14 +1162,14 @@ namespace edu.cmu.sphinx.util
 		private bool showAlignedResults;
 
 		
-		[SourceFile("NISTAlign.java")]
+		.
 		internal interface Comparator
 		{
 			bool isSimilar(object, object);
 		}
 
 		
-		[SourceFile("NISTAlign.java")]
+		.
 		public interface StringRenderer
 		{
 			string getRef(object obj1, object obj2);

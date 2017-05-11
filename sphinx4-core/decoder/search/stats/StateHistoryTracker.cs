@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist;
 using java.lang;
 using java.util;
 
@@ -9,54 +6,21 @@ namespace edu.cmu.sphinx.decoder.search.stats
 {
 	public class StateHistoryTracker : java.lang.Object
 	{
-		
-		
 		private WordSequence getWordSequence(Token token)
 		{
 			return token.getSearchState().getWordHistory();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			13,
-			127,
-			37,
-			47,
-			133
-		})]
-		
+	
 		internal virtual void dumpSummary()
 		{
 			java.lang.System.@out.println(new StringBuilder().append("Frame: ").append(this.frameNumber).append(" states: ").append(this.stateCount).append(" histories ").append(this.statMap.size()).toString());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			169,
-			104,
-			107,
-			103
-		})]
-		
+	
 		public StateHistoryTracker(int frameNumber)
 		{
 			this.statMap = new HashMap();
 			this.frameNumber = frameNumber;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			110,
-			104,
-			114,
-			99,
-			103,
-			142,
-			103
-		})]
 		
 		public virtual void add(Token t)
 		{
@@ -70,18 +34,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 			}
 			wordStats.update(t);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			2,
-			102,
-			113,
-			107,
-			123,
-			127,
-			5,
-			98
-		})]
 		
 		public virtual void dump()
 		{
@@ -94,45 +46,22 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				StateHistoryTracker.WordStats wordStats = (StateHistoryTracker.WordStats)iterator.next();
 				java.lang.System.@out.println(new StringBuilder().append("   ").append(wordStats).toString());
 			}
-		}
-
-		
+		}	
 		
 		internal Map statMap;
 
-		
 		internal int frameNumber;
 
 		internal int stateCount;
 
 		internal int maxWordHistories;
-
-		
-		[SourceFile("StateHistoryTracker.java")]
 		
 		internal sealed class WordStats : java.lang.Object
-		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			
-			
+		{		
 			internal static float access_000(StateHistoryTracker.WordStats wordStats)
 			{
 				return wordStats.maxScore;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				54,
-				104,
-				103,
-				107,
-				107,
-				103
-			})]
 			
 			internal WordStats(WordSequence wordSequence)
 			{
@@ -141,16 +70,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				this.minScore = float.MaxValue;
 				this.ws = wordSequence;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				68,
-				110,
-				110,
-				140,
-				110,
-				140
-			})]
 			
 			internal void update(Token token)
 			{
@@ -165,19 +84,10 @@ namespace edu.cmu.sphinx.decoder.search.stats
 				}
 			}
 
-			
-			
 			public override string toString()
 			{
 				return new StringBuilder().append("states:").append(this.size).append(" max:").append(this.maxScore).append(" min:").append(this.minScore).append(' ').append(this.ws).toString();
 			}
-
-			
-			static WordStats()
-			{
-			}
-
-			
 			
 			public static Comparator COMPARATOR = new StateHistoryTracker_WordStats_1();
 
@@ -187,7 +97,6 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 			private float minScore;
 
-			
 			private WordSequence ws;
 		}
 	}

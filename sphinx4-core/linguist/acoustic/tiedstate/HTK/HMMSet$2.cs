@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		"java.util.Iterator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK.HMMSet", "get3phIt", "()Ljava.util.Iterator;")]
-	[SourceFile("HMMSet.java")]
+	
+	.
 	
 	internal sealed class HMMSet_2 : java.lang.Object, Iterator
 	{

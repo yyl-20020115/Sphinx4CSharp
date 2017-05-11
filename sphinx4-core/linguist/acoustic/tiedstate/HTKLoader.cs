@@ -1195,7 +1195,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		internal static bool assertionsDisabled = !ClassLiteral<HTKLoader>.Value.desiredAssertionStatus();
 
 		
-		[SourceFile("HTKLoader.java")]
+		.
 		
 		internal sealed class HTKStruct : java.lang.Object
 		{

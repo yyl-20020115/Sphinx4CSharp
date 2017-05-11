@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.fst.sequitur
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.fst.sequitur.SequiturImport_FSA", "afterUnmarshal", "(Ljavax.xml.bind.Unmarshaller;Ljava.lang.Object;)V")]
-	[SourceFile("SequiturImport.java")]
+	
+	.
 	
 	internal sealed class SequiturImport_FSA_1 : java.lang.Object, Comparator
 	{

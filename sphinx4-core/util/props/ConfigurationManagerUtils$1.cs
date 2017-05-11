@@ -7,8 +7,8 @@ using java.lang;
 namespace edu.cmu.sphinx.util.props
 {
 	
-	[EnclosingMethod("edu.cmu.sphinx.util.props.ConfigurationManagerUtils", null, null)]
-	[SourceFile("ConfigurationManagerUtils.java")]
+	
+	.
 	
 	internal sealed class ConfigurationManagerUtils_1 : java.lang.Object
 	{

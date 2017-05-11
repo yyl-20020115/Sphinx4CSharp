@@ -230,7 +230,7 @@ namespace edu.cmu.sphinx.frontend.util
 		internal static bool assertionsDisabled;
 
 		
-		[SourceFile("VUMeterPanel.java")]
+		.
 		
 		internal sealed class VUMeterPanelThread : Thread
 		{

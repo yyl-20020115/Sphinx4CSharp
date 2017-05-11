@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using java.lang;
 
 namespace edu.cmu.sphinx.decoder.pruner
 {
@@ -24,8 +20,6 @@ namespace edu.cmu.sphinx.decoder.pruner
 		public virtual void startRecognition()
 		{
 		}
-
-		
 		
 		public virtual ActiveList prune(ActiveList activeList)
 		{

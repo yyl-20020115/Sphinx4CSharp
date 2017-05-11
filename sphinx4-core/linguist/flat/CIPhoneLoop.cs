@@ -84,7 +84,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			"edu.cmu.sphinx.linguist.SearchGraph"
 		})]
-		[SourceFile("CIPhoneLoop.java")]
+		.
 		public class PhoneLoopSearchGraph : java.lang.Object, SearchGraph
 		{
 			[LineNumberTable(new byte[]

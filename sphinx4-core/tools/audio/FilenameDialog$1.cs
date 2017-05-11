@@ -6,8 +6,8 @@ using java.awt.@event;
 namespace edu.cmu.sphinx.tools.audio
 {
 	
-	[EnclosingMethod("edu.cmu.sphinx.tools.audio.FilenameDialog", "<init>", "(Ljava.awt.Frame;ZLjava.lang.java.lang.String;)V")]
-	[SourceFile("FilenameDialog.java")]
+	
+	.
 	
 	internal sealed class FilenameDialog_1 : WindowAdapter
 	{

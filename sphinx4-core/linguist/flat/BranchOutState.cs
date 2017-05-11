@@ -6,7 +6,7 @@ using IKVM.Attributes;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	[SourceFile("CIPhoneLoop.java")]
+	.
 	
 	[Serializable]
 	internal sealed class BranchOutState : SentenceHMMState

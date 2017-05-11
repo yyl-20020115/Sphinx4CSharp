@@ -1,7 +1,5 @@
-﻿using System;
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.scorer
@@ -16,9 +14,7 @@ namespace edu.cmu.sphinx.decoder.scorer
 
 		void stopRecognition();
 
-		
 		Data calculateScores(List l);
-
 		
 		Data calculateScoresAndStoreData(List l);
 	}

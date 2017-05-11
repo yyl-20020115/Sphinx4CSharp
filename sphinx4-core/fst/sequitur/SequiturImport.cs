@@ -55,7 +55,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 		}
 
 		
-		[SourceFile("SequiturImport.java")]
+		.
 		public class Alphabet : java.lang.Object
 		{
 			
@@ -158,7 +158,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 		}
 
 		
-		[SourceFile("SequiturImport.java")]
+		.
 		public class Arc : java.lang.Object
 		{
 			
@@ -222,7 +222,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 		}
 
 		
-		[SourceFile("SequiturImport.java")]
+		.
 		[XmlRootElement(new object[]
 		{
 			64,
@@ -399,7 +399,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 		}
 
 		
-		[SourceFile("SequiturImport.java")]
+		.
 		public class State : java.lang.Object
 		{
 			
@@ -489,7 +489,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 		}
 
 		
-		[SourceFile("SequiturImport.java")]
+		.
 		public class Symbol : java.lang.Object
 		{
 			

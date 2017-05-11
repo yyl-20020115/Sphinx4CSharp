@@ -6,7 +6,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	[SourceFile("HMMTree.java")]
+	.
 	
 	internal sealed class EndNode : UnitNode
 	{

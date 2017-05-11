@@ -98,7 +98,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		private volatile ScoreCachingSenone.ScoreCache scoreCache;
 
 		
-		[SourceFile("ScoreCachingSenone.java")]
+		.
 		
 		internal sealed class ScoreCache : java.lang.Object
 		{

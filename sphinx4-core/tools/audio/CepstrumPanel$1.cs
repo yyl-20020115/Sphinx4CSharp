@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.tools.audio
 	{
 		"javax.swing.event.ChangeListener"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.tools.audio.CepstrumPanel", "<init>", "(Ledu.cmu.sphinx.frontend.FrontEnd;Ledu.cmu.sphinx.frontend.util.StreamDataSource;Ledu.cmu.sphinx.tools.audio.AudioData;)V")]
-	[SourceFile("CepstrumPanel.java")]
+	
+	.
 	
 	internal sealed class CepstrumPanel_1 : java.lang.Object, ChangeListener, EventListener
 	{

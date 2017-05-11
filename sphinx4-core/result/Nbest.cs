@@ -136,7 +136,7 @@ namespace edu.cmu.sphinx.result
 			"java.lang.Comparable"
 		})]
 		
-		[SourceFile("Nbest.java")]
+		.
 		
 		internal sealed class NBestPath : java.lang.Object, Comparable
 		{

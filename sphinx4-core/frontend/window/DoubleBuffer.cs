@@ -7,7 +7,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.frontend.window
 {
-	[SourceFile("RaisedCosineWindower.java")]
+	.
 	
 	internal sealed class DoubleBuffer : java.lang.Object
 	{

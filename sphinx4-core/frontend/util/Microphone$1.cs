@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.frontend.util
 	{
 		"javax.sound.sampled.LineListener"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.frontend.util.Microphone", "getAudioLine", "()Ljavax.sound.sampled.TargetDataLine;")]
-	[SourceFile("Microphone.java")]
+	
+	.
 	
 	internal sealed class Microphone_1 : java.lang.Object, LineListener, EventListener
 	{

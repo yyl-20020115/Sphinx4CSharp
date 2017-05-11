@@ -10,8 +10,8 @@ namespace edu.cmu.sphinx.util
 	{
 		"edu.cmu.sphinx.util.NISTAlign_StringRenderer"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.util.NISTAlign", "align", "(Ljava.lang.java.lang.String;Ljava.lang.java.lang.String;)Z")]
-	[SourceFile("NISTAlign.java")]
+	
+	.
 	
 	internal sealed class NISTAlign_2 : java.lang.Object, NISTAlign.StringRenderer
 	{

@@ -1,11 +1,8 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
@@ -94,7 +91,6 @@ namespace edu.cmu.sphinx.decoder.scorer
 			this.seenEnd = false;
 		}
 
-			
 		public virtual Data calculateScores(List scoreableList)
 		{
 			Data data;
@@ -203,7 +199,6 @@ namespace edu.cmu.sphinx.decoder.scorer
 		public const string SCORE_NORMALIZER = "scoreNormalizer";
 
 		protected internal ScoreNormalizer scoreNormalizer;
-
 		
 		private LinkedList storedData;
 

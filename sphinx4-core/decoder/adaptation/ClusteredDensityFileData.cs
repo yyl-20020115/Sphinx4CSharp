@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic.tiedstate;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using IKVM.Runtime;
-using java.lang;
 using java.util;
 using org.apache.commons.math3.util;
 
@@ -144,7 +140,6 @@ namespace edu.cmu.sphinx.decoder.adaptation
 		{
 			return this.numberOfClusters;
 		}
-
 		
 		public virtual int getClassIndex(int gaussian)
 		{

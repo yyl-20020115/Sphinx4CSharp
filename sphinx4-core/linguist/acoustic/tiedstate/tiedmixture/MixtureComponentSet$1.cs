@@ -13,8 +13,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture.MixtureComponentSet", null, null)]
-	[SourceFile("MixtureComponentSet.java")]
+	
+	.
 	
 	internal sealed class MixtureComponentSet_1 : java.lang.Object, Comparator
 	{

@@ -2720,7 +2720,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 		private int jj_endpos;
 
 		
-		[SourceFile("JSGFParser.java")]
+		.
 		internal sealed class JJCalls : java.lang.Object
 		{
 			
@@ -2739,7 +2739,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 		}
 
 		
-		[SourceFile("JSGFParser.java")]
+		.
 		[Serializable]
 		internal sealed class LookaheadSuccess : Error
 		{

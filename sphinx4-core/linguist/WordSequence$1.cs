@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.linguist
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.linguist.WordSequence", null, null)]
-	[SourceFile("WordSequence.java")]
+	
+	.
 	internal sealed class WordSequence_1 : java.lang.Object, Comparator
 	{
 		

@@ -61,7 +61,7 @@ namespace edu.cmu.sphinx.decoder.search
 		{
 			"edu.cmu.sphinx.decoder.search.ActiveList"
 		})]
-		[SourceFile("PartitionActiveListFactory.java")]
+		.
 		
 		internal sealed class PartitionActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
 		{

@@ -14,8 +14,8 @@ namespace edu.cmu.sphinx.fst.operations
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.fst.operations.NShortestPaths", "get", "(Ledu.cmu.sphinx.fst.Fst;IZ)Ledu.cmu.sphinx.fst.Fst;")]
-	[SourceFile("NShortestPaths.java")]
+	
+	.
 	internal sealed class NShortestPaths_1 : java.lang.Object, Comparator
 	{
 		

@@ -120,7 +120,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 		private SearchStateArc[] lbsArcSet;
 
 		
-		[SourceFile("OutOfGrammarGraph.java")]
+		.
 		
 		internal sealed class FinalState : OutOfGrammarGraph.OogSearchState
 		{
@@ -157,7 +157,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 		}
 
 		
-		[SourceFile("OutOfGrammarGraph.java")]
+		.
 		
 		internal sealed class FirstBranchState : OutOfGrammarGraph.OogSearchState
 		{
@@ -210,7 +210,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 		}
 
 		
-		[SourceFile("OutOfGrammarGraph.java")]
+		.
 		
 		internal sealed class LastBranchState : OutOfGrammarGraph.OogSearchState
 		{
@@ -258,7 +258,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 		{
 			"edu.cmu.sphinx.linguist.UnitSearchState"
 		})]
-		[SourceFile("OutOfGrammarGraph.java")]
+		.
 		
 		internal sealed class OogHMM : OutOfGrammarGraph.OogSearchState, UnitSearchState, SearchState
 		{
@@ -326,7 +326,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			"edu.cmu.sphinx.linguist.HMMSearchState",
 			"edu.cmu.sphinx.decoder.scorer.ScoreProvider"
 		})]
-		[SourceFile("OutOfGrammarGraph.java")]
+		.
 		
 		internal sealed class OogHMMState : OutOfGrammarGraph.OogSearchState, HMMSearchState, SearchState, ScoreProvider
 		{
@@ -461,7 +461,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			"edu.cmu.sphinx.linguist.SearchState",
 			"edu.cmu.sphinx.linguist.SearchStateArc"
 		})]
-		[SourceFile("OutOfGrammarGraph.java")]
+		.
 		internal abstract class OogSearchState : java.lang.Object, SearchState, SearchStateArc
 		{
 			
@@ -543,7 +543,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 		{
 			"edu.cmu.sphinx.linguist.WordSearchState"
 		})]
-		[SourceFile("OutOfGrammarGraph.java")]
+		.
 		
 		internal sealed class UnknownWordState : OutOfGrammarGraph.OogSearchState, WordSearchState, SearchState
 		{

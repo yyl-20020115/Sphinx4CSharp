@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.tools.batch
 	{
 		"edu.cmu.sphinx.util.CommandInterface"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.tools.batch.BatchModeRecognizer", "addCommands", "(Ledu.cmu.sphinx.util.CommandInterpreter;)V")]
-	[SourceFile("BatchModeRecognizer.java")]
+	
+	.
 	
 	internal sealed class BatchModeRecognizer_11 : java.lang.Object, CommandInterface
 	{

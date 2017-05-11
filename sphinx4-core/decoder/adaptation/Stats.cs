@@ -1,14 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.api;
+﻿using edu.cmu.sphinx.api;
 using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
 using IKVM.Runtime;
-using java.lang;
 
 namespace edu.cmu.sphinx.decoder.adaptation
 {

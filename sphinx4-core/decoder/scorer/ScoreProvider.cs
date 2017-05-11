@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {

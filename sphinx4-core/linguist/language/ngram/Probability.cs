@@ -5,7 +5,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	[SourceFile("SimpleNGramModel.java")]
+	.
 	
 	internal sealed class Probability : java.lang.Object
 	{

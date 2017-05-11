@@ -699,7 +699,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			"edu.cmu.sphinx.linguist.SearchGraph"
 		})]
-		[SourceFile("FlatLinguist.java")]
+		.
 		public class FlatSearchGraph : java.lang.Object, SearchGraph
 		{
 			[LineNumberTable(new byte[]
@@ -738,7 +738,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		}
 
 		
-		[SourceFile("FlatLinguist.java")]
+		.
 		public class GState : java.lang.Object
 		{
 			[LineNumberTable(new byte[]

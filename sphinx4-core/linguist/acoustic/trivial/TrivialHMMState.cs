@@ -11,7 +11,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 	{
 		"edu.cmu.sphinx.linguist.acoustic.HMMState"
 	})]
-	[SourceFile("TrivialAcousticModel.java")]
+	.
 	
 	internal sealed class TrivialHMMState : java.lang.Object, HMMState
 	{

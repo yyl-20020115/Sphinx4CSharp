@@ -14,8 +14,8 @@ namespace edu.cmu.sphinx.tools.audio
 	{
 		"javax.swing.event.ChangeListener"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.tools.audio.AudioPanel", "<init>", "(Ledu.cmu.sphinx.tools.audio.AudioData;FF)V")]
-	[SourceFile("AudioPanel.java")]
+	
+	.
 	
 	internal sealed class AudioPanel_1 : java.lang.Object, ChangeListener, EventListener
 	{

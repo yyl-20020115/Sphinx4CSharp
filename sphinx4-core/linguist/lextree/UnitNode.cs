@@ -5,7 +5,7 @@ using IKVM.Attributes;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	[SourceFile("HMMTree.java")]
+	.
 	internal abstract class UnitNode : Node
 	{
 		

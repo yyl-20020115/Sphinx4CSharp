@@ -12,8 +12,8 @@ namespace edu.cmu.sphinx.linguist.flat
 		"java.util.Comparator"
 	})]
 	
-	[EnclosingMethod("edu.cmu.sphinx.linguist.flat.SentenceHMMState", "visitStates", "(Ledu.cmu.sphinx.linguist.flat.SentenceHMMStateVisitor;Ledu.cmu.sphinx.linguist.flat.SentenceHMMState;Z)Z")]
-	[SourceFile("SentenceHMMState.java")]
+	
+	.
 	internal sealed class SentenceHMMState_3 : java.lang.Object, Comparator
 	{
 		

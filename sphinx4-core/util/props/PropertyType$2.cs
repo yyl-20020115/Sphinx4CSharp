@@ -6,8 +6,8 @@ using java.lang;
 namespace edu.cmu.sphinx.util.props
 {
 	
-	[EnclosingMethod("edu.cmu.sphinx.util.props.PropertyType", null, null)]
-	[SourceFile("PropertyType.java")]
+	
+	.
 	
 	[Serializable]
 	internal sealed class PropertyType_2 : PropertyType

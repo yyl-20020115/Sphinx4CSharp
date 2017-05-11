@@ -190,7 +190,7 @@ namespace edu.cmu.sphinx.tools.audio
 		internal bool downsample;
 
 		
-		[SourceFile("RawRecorder.java")]
+		.
 		
 		internal sealed class RecordThread : Thread
 		{

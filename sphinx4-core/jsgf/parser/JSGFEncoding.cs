@@ -5,7 +5,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.parser
 {
-	[SourceFile("JSGFParser.java")]
+	.
 	
 	internal sealed class JSGFEncoding : java.lang.Object
 	{

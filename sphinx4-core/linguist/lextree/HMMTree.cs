@@ -599,7 +599,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		internal static bool assertionsDisabled = !ClassLiteral<HMMTree>.Value.desiredAssertionStatus();
 
 		
-		[SourceFile("HMMTree.java")]
+		.
 		
 		internal sealed class EntryPoint : java.lang.Object
 		{
@@ -943,7 +943,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		}
 
 		
-		[SourceFile("HMMTree.java")]
+		.
 		
 		internal sealed class EntryPointTable : java.lang.Object
 		{

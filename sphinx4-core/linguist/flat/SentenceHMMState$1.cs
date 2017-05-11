@@ -10,8 +10,8 @@ namespace edu.cmu.sphinx.linguist.flat
 	{
 		"edu.cmu.sphinx.linguist.flat.SentenceHMMStateVisitor"
 	})]
-	[EnclosingMethod("edu.cmu.sphinx.linguist.flat.SentenceHMMState", "resetAllProcessed", "()V")]
-	[SourceFile("SentenceHMMState.java")]
+	
+	.
 	
 	internal sealed class SentenceHMMState_1 : java.lang.Object, SentenceHMMStateVisitor
 	{

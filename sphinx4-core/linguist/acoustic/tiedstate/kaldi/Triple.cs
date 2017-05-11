@@ -5,7 +5,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	[SourceFile("TransitionModel.java")]
+	.
 	internal sealed class Triple : java.lang.Object
 	{
 		[LineNumberTable(new byte[]
