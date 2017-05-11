@@ -1,33 +1,11 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 
 namespace edu.cmu.sphinx.util
 {
 	public class SocketCommandClient : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			76,
-			130,
-			102,
-			104,
-			130,
-			108,
-			109,
-			102,
-			159,
-			7,
-			226,
-			55,
-			230,
-			76
-		})]
-		
+	{		
 		public virtual bool sendCommand(string command)
 		{
 			for (int i = 0; i < 2; i++)
@@ -45,20 +23,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			124,
-			130,
-			104,
-			194,
-			215,
-			226,
-			61,
-			97,
-			111,
-			134
-		})]
 		
 		public virtual bool isResponse()
 		{
@@ -81,20 +45,6 @@ namespace edu.cmu.sphinx.util
 			this.close();
 			return result != 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			101,
-			130,
-			104,
-			194,
-			215,
-			226,
-			61,
-			97,
-			111,
-			134
-		})]
 		
 		public virtual string getResponse()
 		{
@@ -117,15 +67,6 @@ namespace edu.cmu.sphinx.util
 			this.close();
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			84,
-			98,
-			105,
-			135
-		})]
 		
 		public virtual string sendCommandGetResponse(string command)
 		{
@@ -136,37 +77,11 @@ namespace edu.cmu.sphinx.util
 			}
 			return result;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			33,
-			114
-		})]
 		
 		private void open()
 		{
 			this.open(this.host, this.port);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			16,
-			103,
-			231,
-			71,
-			151,
-			103,
-			116,
-			119
-		})]
 		
 		public virtual void open(string aHost, int aPort)
 		{
@@ -176,20 +91,6 @@ namespace edu.cmu.sphinx.util
 			this.inReader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 			this.outWriter = new PrintWriter(this.socket.getOutputStream(), true);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			111,
-			104,
-			241,
-			70,
-			226,
-			60,
-			97,
-			143,
-			135
-		})]
 		
 		private bool checkOpen()
 		{
@@ -211,20 +112,6 @@ namespace edu.cmu.sphinx.util
 			IL_32:
 			return this.socket != null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			95,
-			104,
-			141,
-			250,
-			69,
-			2,
-			97,
-			143,
-			103
-		})]
 		
 		public virtual void close()
 		{
@@ -249,20 +136,6 @@ namespace edu.cmu.sphinx.util
 			IL_41:
 			this.socket = null;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			104,
-			103,
-			103,
-			102
-		})]
 		
 		public SocketCommandClient(string host, int port)
 		{
@@ -270,27 +143,10 @@ namespace edu.cmu.sphinx.util
 			this.port = port;
 			this.open();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			3,
-			102
-		})]
 		
 		public SocketCommandClient()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.SocketException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			43,
-			104,
-			140
-		})]
 		
 		public virtual int getSoTimeout()
 		{
@@ -300,18 +156,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return 0;
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.SocketException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			59,
-			104,
-			142,
-			175
-		})]
 		
 		public virtual void setSoTimeout(int millisecs)
 		{
@@ -324,33 +168,9 @@ namespace edu.cmu.sphinx.util
 				java.lang.System.err.println("SocketCommandClient.setSoTimeout(): socket is null");
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			124,
-			102,
-			144,
-			241,
-			80,
-			241,
-			78,
-			241,
-			83,
-			107,
-			253,
-			70,
-			226,
-			60,
-			97,
-			111,
-			102,
-			134
-		})]
 		
 		public static void main(string[] args)
 		{
-			Exception ex3;
 			try
 			{
 				CommandInterpreter commandInterpreter = new CommandInterpreter();
@@ -361,22 +181,13 @@ namespace edu.cmu.sphinx.util
 				commandInterpreter.setPrompt("scc-test> ");
 				commandInterpreter.run();
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_6E;
+				java.lang.System.err.println("error occured.");
+				Throwable.instancehelper_printStackTrace(ex);
+				java.lang.System.exit(-1);
 			}
 			return;
-			IL_6E:
-			Exception ex4 = ex3;
-			java.lang.System.err.println("error occured.");
-			Throwable.instancehelper_printStackTrace(ex4);
-			java.lang.System.exit(-1);
 		}
 
 		private string host;

@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
@@ -40,11 +37,6 @@ namespace edu.cmu.sphinx.util
 				Long.valueOf(this.end)
 			});
 		}
-
-		static TimeFrame()
-		{
-		}
-
 		
 		public static TimeFrame NULL
 		{
@@ -54,7 +46,6 @@ namespace edu.cmu.sphinx.util
 			}
 		}
 
-		
 		public static TimeFrame INFINITE
 		{
 			get

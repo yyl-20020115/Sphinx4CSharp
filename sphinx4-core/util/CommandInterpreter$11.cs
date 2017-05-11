@@ -1,45 +1,15 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class CommandInterpreter_11 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal CommandInterpreter_11(CommandInterpreter commandInterpreter)
 		{
+			this_0 = commandInterpreter;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			147,
-			136,
-			105,
-			111,
-			102,
-			55,
-			239,
-			69,
-			2,
-			97,
-			112,
-			130,
-			144
-		})]
-		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
 			if (array.Length >= 3)
@@ -55,17 +25,13 @@ namespace edu.cmu.sphinx.util
 				}
 				catch (NumberFormatException ex)
 				{
-					goto IL_49;
+					this.this_0.putResponse("Usage: repeat count command args");
 				}
-				goto IL_71;
-				IL_49:
-				this.this_0.putResponse("Usage: repeat count command args");
 			}
 			else
 			{
 				this.this_0.putResponse("Usage: repeat count command args");
 			}
-			IL_71:
 			return "";
 		}
 
@@ -74,7 +40,6 @@ namespace edu.cmu.sphinx.util
 			return "repeatedly execute a command";
 		}
 
-		
-		internal CommandInterpreter this_0 = commandInterpreter;
+		internal CommandInterpreter this_0;
 	}
 }

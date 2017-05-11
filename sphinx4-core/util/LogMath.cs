@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;
 
@@ -9,21 +6,6 @@ namespace edu.cmu.sphinx.util
 {
 	public sealed class LogMath : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			48,
-			104,
-			108,
-			104,
-			106,
-			175
-		})]
-		
 		public static LogMath getLogMath()
 		{
 			if (null == LogMath.instance)
@@ -38,42 +20,21 @@ namespace edu.cmu.sphinx.util
 			}
 			return LogMath.instance;
 		}
-
-		
 		
 		public double logToLinear(float logValue)
 		{
 			return java.lang.Math.exp((double)this.logToLn(logValue));
-		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		
+		}		
 		
 		public float linearToLog(double linearValue)
 		{
 			return (float)java.lang.Math.log(linearValue) * this.inverseNaturalLogBase;
 		}
-
-		
 		
 		public static float log10(float value)
 		{
 			return (float)(0.4342944819 * java.lang.Math.log((double)value));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			99,
-			99,
-			231,
-			71,
-			104,
-			99,
-			131
-		})]
 		
 		public float addAsLinear(float logVal1, float logVal2)
 		{
@@ -86,16 +47,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return num + this.addTable(num2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			232,
-			99,
-			102,
-			45,
-			166
-		})]
 		
 		public void linearToLog(float[] vector)
 		{
@@ -110,15 +61,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return logSource * this.inverseNaturalLogBase;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			244,
-			103,
-			45,
-			166
-		})]
 		
 		public void logToLinear(float[] vector, float[] @out)
 		{
@@ -127,8 +69,6 @@ namespace edu.cmu.sphinx.util
 				@out[i] = (float)this.logToLinear(vector[i]);
 			}
 		}
-
-		
 		
 		public float log10ToLog(float logSource)
 		{
@@ -139,37 +79,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return LogMath.logBase;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			177,
-			104,
-			114,
-			115,
-			234,
-			70,
-			102,
-			226,
-			86,
-			103,
-			221,
-			104,
-			134,
-			100,
-			255,
-			20,
-			71,
-			108,
-			230,
-			70,
-			107,
-			105,
-			240,
-			56,
-			230,
-			75
-		})]
 		
 		private LogMath()
 		{
@@ -198,18 +107,6 @@ namespace edu.cmu.sphinx.util
 			}
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			87,
-			211,
-			106,
-			137
-		})]
 		private float addTable(float num)
 		{
 			int num2 = ByteCodeHelper.d2i((double)num + 0.5);
@@ -219,18 +116,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return 0f;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			146,
-			106,
-			106
-		})]
 		
 		public static float logToLog(float logSource, float sourceBase, float resultBase)
 		{
@@ -243,15 +128,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return logSource * this.naturalLogBase;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			67,
-			108,
-			121,
-			103,
-			111
-		})]
 		
 		public static void setLogBase(float logBase)
 		{
@@ -265,17 +141,6 @@ namespace edu.cmu.sphinx.util
 				LogMath.logBase = logBase;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			110,
-			98,
-			108,
-			121,
-			102,
-			111
-		})]
 		
 		public static void setUseTable(bool useTable)
 		{
@@ -289,14 +154,6 @@ namespace edu.cmu.sphinx.util
 				LogMath.useTable = useTable;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			68,
-			107,
-			105
-		})]
 		
 		private float addTableActualComputation(float num)
 		{
@@ -304,21 +161,6 @@ namespace edu.cmu.sphinx.util
 			num2 += (double)1f;
 			return this.linearToLog(num2);
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			115,
-			102,
-			223,
-			24,
-			102,
-			112
-		})]
 		
 		public float subtractAsLinear(float logMinuend, float logSubtrahend)
 		{
@@ -338,14 +180,6 @@ namespace edu.cmu.sphinx.util
 			return LogMath.useTable;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			162,
-			245,
-			71,
-			106
-		})]
 		static LogMath()
 		{
 			LogMath.logBase = 1.0001f;
@@ -368,7 +202,6 @@ namespace edu.cmu.sphinx.util
 
 		private float[] theAddTable;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<LogMath>.Value.desiredAssertionStatus();
 	}
 }

@@ -1,12 +1,5 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.util
+﻿namespace edu.cmu.sphinx.util
 {
-	.
-	
 	internal sealed class HypothesisWord : java.lang.Object
 	{
 		internal float getStartTime()
@@ -23,16 +16,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			55,
-			104,
-			103,
-			104,
-			104
-		})]
 		
 		internal HypothesisWord(string text, float num, float num2)
 		{
@@ -40,13 +23,10 @@ namespace edu.cmu.sphinx.util
 			this.startTime = num;
 			this.endTime = num2;
 		}
-
 		
 		private string text;
-
 		
 		private float startTime;
-
 		
 		private float endTime;
 	}

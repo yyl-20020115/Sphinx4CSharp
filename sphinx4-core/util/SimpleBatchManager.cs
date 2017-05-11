@@ -1,28 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.BatchManager"
-	})]
 	public class SimpleBatchManager : java.lang.Object, BatchManager
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			104,
-			103,
-			103,
-			103,
-			104
-		})]
-		
+	{	
 		public SimpleBatchManager(string filename, int skip, int whichBatch, int totalBatches)
 		{
 			this.batchFile = filename;
@@ -30,28 +11,7 @@ namespace edu.cmu.sphinx.util
 			this.whichBatch = whichBatch;
 			this.totalBatches = totalBatches;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			42,
-			141,
-			108,
-			118,
-			100,
-			130,
-			110,
-			142,
-			137,
-			112,
-			144,
-			203
-		})]
-		
+	
 		private List getBatchItems(string text)
 		{
 			List list = BatchFile.getLines(text, this.skip);
@@ -80,39 +40,12 @@ namespace edu.cmu.sphinx.util
 			}
 			return list;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			191,
-			103,
-			114
-		})]
 		
 		public virtual void start()
 		{
 			this.curItem = 0;
 			this.items = this.getBatchItems(this.batchFile);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			11,
-			115,
-			130,
-			127,
-			5,
-			103,
-			42
-		})]
 		
 		public virtual BatchItem getNextItem()
 		{
@@ -128,10 +61,6 @@ namespace edu.cmu.sphinx.util
 			return new BatchItem(BatchFile.getFilename(batchFileLine), BatchFile.getReference(batchFileLine));
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		public virtual void stop()
 		{
 		}
@@ -140,20 +69,16 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.batchFile;
 		}
-
 		
 		private string batchFile;
-
 		
 		private int skip;
 
 		private int whichBatch;
-
 		
 		private int totalBatches;
 
 		private int curItem;
-
 		
 		private List items;
 	}

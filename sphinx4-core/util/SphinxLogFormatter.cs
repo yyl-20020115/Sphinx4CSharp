@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.text;
 using java.util;
 using java.util.logging;
@@ -10,7 +7,6 @@ namespace edu.cmu.sphinx.util
 {
 	public class SphinxLogFormatter : java.util.logging.Formatter
 	{
-		
 		public SphinxLogFormatter()
 		{
 			this.DATE_FORMATTER = new SimpleDateFormat("HH:mm:ss.SSS");
@@ -50,7 +46,6 @@ namespace edu.cmu.sphinx.util
 			stringBuilder.append("  ").append(record.getMessage()).append('\n');
 			return stringBuilder.toString();
 		}
-
 		
 		private DateFormat DATE_FORMATTER;
 

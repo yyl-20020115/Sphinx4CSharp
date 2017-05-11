@@ -1,49 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
-using java.lang;
+﻿using java.io;
 using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	.
-	
 	internal sealed class HypothesisFile : java.lang.Object
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			155,
-			104,
-			113
-		})]
-		
+	{		
 		internal HypothesisFile(string text)
 		{
 			this.reader = new BufferedReader(new FileReader(text));
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			166,
-			117,
-			103,
-			99,
-			147,
-			167,
-			104,
-			130
-		})]
 		
 		internal HypothesisWord nextWord()
 		{
@@ -70,23 +35,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.utteranceCount;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			188,
-			108,
-			99,
-			110,
-			103,
-			105,
-			135,
-			162
-		})]
 		
 		private HypothesisUtterance nextUtterance()
 		{
@@ -105,7 +53,6 @@ namespace edu.cmu.sphinx.util
 		}
 
 		private BufferedReader reader;
-
 		
 		private Iterator iterator;
 

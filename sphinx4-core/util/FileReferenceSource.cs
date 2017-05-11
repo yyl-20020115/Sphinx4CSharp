@@ -1,51 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
-using java.lang;
+﻿using java.io;
 using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.ReferenceSource"
-	})]
 	public class FileReferenceSource : java.lang.Object, ReferenceSource
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			104,
-			107,
-			108,
-			98,
-			109,
-			109,
-			98,
-			99,
-			104,
-			101,
-			105,
-			110,
-			99,
-			162,
-			236,
-			56,
-			232,
-			74,
-			100,
-			142,
-			142,
-			133,
-			102
-		})]
-		
+	{	
 		public FileReferenceSource(string file)
 		{
 			this.references = new LinkedList();
@@ -80,13 +39,10 @@ namespace edu.cmu.sphinx.util
 			bufferedReader.close();
 		}
 
-		
 		public virtual List getReferences()
 		{
 			return this.references;
-		}
-
-		
+		}		
 		
 		private List references;
 	}

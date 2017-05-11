@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 using java.util.zip;

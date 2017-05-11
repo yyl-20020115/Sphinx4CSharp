@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 using java.util;
@@ -12,52 +8,21 @@ namespace edu.cmu.sphinx.util
 {
 	public class CommandInterpreter : Thread
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			9,
-			110
-		})]
-		
 		public virtual void add(string name, CommandInterface command)
 		{
 			this.commandList.put(name, command);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			20,
-			121
-		})]
-		
+	
 		public virtual void addAlias(string command, string alias)
 		{
 			this.commandList.put(alias, this.commandList.get(command));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			18,
-			232,
-			34,
-			236,
-			95,
-			176,
-			107,
-			104
-		})]
-		
+	
 		public CommandInterpreter()
 		{
 			this.history = new CommandInterpreter.CommandHistory(this);
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.@in));
-			PrintWriter printWriter = new PrintWriter(System.@out);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(java.lang.System.@in));
+			PrintWriter printWriter = new PrintWriter(java.lang.System.@out);
 			this.init(bufferedReader, printWriter);
 		}
 
@@ -65,31 +30,6 @@ namespace edu.cmu.sphinx.util
 		{
 			this.prompt = prompt;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			141,
-			139,
-			102,
-			103,
-			117,
-			133,
-			104,
-			111,
-			159,
-			5,
-			103,
-			104,
-			248,
-			71,
-			229,
-			61,
-			97,
-			111,
-			162,
-			102
-		})]
 		
 		public override void run()
 		{
@@ -137,18 +77,6 @@ namespace edu.cmu.sphinx.util
 			}
 			this.onExit();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			41,
-			107,
-			108,
-			107,
-			104,
-			191,
-			5
-		})]
 		
 		public virtual void putResponse(string response)
 		{
@@ -162,27 +90,11 @@ namespace edu.cmu.sphinx.util
 				}
 			}
 		}
-
-		
-		
 		
 		internal static void access_000(CommandInterpreter commandInterpreter)
 		{
 			commandInterpreter.dumpCommands();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			66,
-			198,
-			133,
-			116,
-			99,
-			139,
-			166,
-			142
-		})]
 		
 		protected internal virtual string execute(string[] args)
 		{
@@ -202,22 +114,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			11,
-			103,
-			167,
-			106,
-			104,
-			109,
-			135,
-			98,
-			102,
-			115,
-			97
-		})]
 		
 		public virtual bool load(string filename)
 		{
@@ -243,23 +139,17 @@ namespace edu.cmu.sphinx.util
 				return false;
 			}
 			return result != 0;
-		}
-
-		
+		}		
 		
 		internal static CommandInterpreter.CommandHistory access_100(CommandInterpreter commandInterpreter)
 		{
 			return commandInterpreter.history;
 		}
-
-		
 		
 		internal static int access_200(CommandInterpreter commandInterpreter)
 		{
 			return commandInterpreter.totalCommands;
-		}
-
-		
+		}		
 		
 		internal static bool access_302(CommandInterpreter commandInterpreter, bool result)
 		{
@@ -267,10 +157,8 @@ namespace edu.cmu.sphinx.util
 			return result;
 		}
 
-
 		private void dumpCommands()
 		{
-			TreeMap.__<clinit>();
 			Iterator iterator = new TreeMap(this.commandList).entrySet().iterator();
 			while (iterator.hasNext())
 			{
@@ -377,8 +265,7 @@ namespace edu.cmu.sphinx.util
 			int num3 = 0;
 			Pattern pattern = CommandInterpreter.historyPush;
 			object _ref = text;
-			CharSequence charSequence;
-			charSequence.__ref = _ref;
+			CharSequence charSequence = CharSequence.Cast(_ref);
 			Matcher matcher = pattern.matcher(charSequence);
 			if (matcher.matches())
 			{
@@ -390,7 +277,7 @@ namespace edu.cmu.sphinx.util
 			{
 				Pattern pattern2 = CommandInterpreter.editPattern;
 				_ref = text;
-				charSequence.__ref = _ref;
+				charSequence = CharSequence.Cast(_ref);
 				matcher = pattern2.matcher(charSequence);
 				if (matcher.matches())
 				{
@@ -402,7 +289,7 @@ namespace edu.cmu.sphinx.util
 						Pattern pattern3 = Pattern.compile(text2);
 						Pattern pattern4 = pattern3;
 						_ref = this.history.getLast(0);
-						charSequence.__ref = _ref;
+						charSequence = CharSequence.Cast(_ref);
 						Matcher matcher2 = pattern4.matcher(charSequence);
 						if (matcher2.find())
 						{
@@ -417,7 +304,7 @@ namespace edu.cmu.sphinx.util
 					}
 					catch (PatternSyntaxException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<PatternSyntaxException>(ex, 1);
+						ex2 = ex;
 						goto IL_114;
 					}
 					goto IL_144;
@@ -437,7 +324,7 @@ namespace edu.cmu.sphinx.util
 			{
 				Pattern pattern5 = CommandInterpreter.bbPattern;
 				_ref = text;
-				charSequence.__ref = _ref;
+				charSequence = CharSequence.Cast(_ref);
 				if ((matcher = pattern5.matcher(charSequence)).find())
 				{
 					text = matcher.replaceAll(this.history.getLast(0));
@@ -502,14 +389,6 @@ namespace edu.cmu.sphinx.util
 		{
 			this.socket = skt;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			30,
-			108
-		})]
 		
 		public virtual void add(Map newCommands)
 		{
@@ -530,26 +409,10 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.@out;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			62,
-			166,
-			111,
-			107,
-			102,
-			191,
-			2,
-			2,
-			97,
-			139
-		})]
 		
 		public static void main(string[] args)
 		{
 			CommandInterpreter commandInterpreter = new CommandInterpreter();
-			Exception ex2;
 			try
 			{
 				java.lang.System.@out.println("Welcome to the Command interpreter test program");
@@ -557,35 +420,19 @@ namespace edu.cmu.sphinx.util
 				commandInterpreter.run();
 				java.lang.System.@out.println("Goodbye!");
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				goto IL_44;
+				java.lang.System.@out.println(ex);
 			}
-			return;
-			IL_44:
-			Exception ex3 = ex2;
-			java.lang.System.@out.println(ex3);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			8,
-			133,
-			111,
-			101,
-			106
-		})]
 		static CommandInterpreter()
 		{
-			Thread.__<clinit>();
 			CommandInterpreter.historyPush = Pattern.compile("(.+):p");
 			CommandInterpreter.editPattern = Pattern.compile("\\^(.+?)\\^(.*?)\\^?");
 			CommandInterpreter.bbPattern = Pattern.compile("(!!)");
 		}
 
-		
 		private Map commandList;
 
 		private int totalCommands;
@@ -600,36 +447,18 @@ namespace edu.cmu.sphinx.util
 
 		private bool trace;
 
-		
 		private CommandInterpreter.CommandHistory history;
 
 		private Socket socket;
-
 		
 		private static Pattern historyPush;
-
 		
 		private static Pattern editPattern;
-
 		
 		private static Pattern bbPattern;
-
-		
-		.
 		
 		internal sealed class CommandHistory : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				162,
-				142,
-				112,
-				104,
-				31,
-				12,
-				198
-			})]
-			
+		{			
 			public void dump()
 			{
 				for (int i = 0; i < this.history.size(); i++)
@@ -638,15 +467,6 @@ namespace edu.cmu.sphinx.util
 					this.this_0.putResponse(new StringBuilder().append(i).append(" ").append(text).toString());
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				113,
-				110,
-				146,
-				112
-			})]
 			
 			public string get(int num)
 			{
@@ -657,40 +477,17 @@ namespace edu.cmu.sphinx.util
 				this.this_0.putResponse("command not found");
 				return "";
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				75,
-				143
-			})]
 			
 			internal CommandHistory(CommandInterpreter commandInterpreter)
 			{
+				this_0 = commandInterpreter;
 				this.history = new ArrayList(100);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				86,
-				109
-			})]
 			
 			public void add(string text)
 			{
 				this.history.add(text);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				97,
-				110,
-				159,
-				1,
-				112
-			})]
 			
 			public string getLast(int num)
 			{
@@ -701,20 +498,6 @@ namespace edu.cmu.sphinx.util
 				this.this_0.putResponse("command not found");
 				return "";
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				129,
-				114,
-				104,
-				105,
-				226,
-				61,
-				230,
-				70,
-				112
-			})]
 			
 			public string findLast(string text)
 			{
@@ -729,13 +512,11 @@ namespace edu.cmu.sphinx.util
 				this.this_0.putResponse("command not found");
 				return "";
 			}
-
-			
 			
 			private List history;
 
 			
-			internal CommandInterpreter this_0 = commandInterpreter;
+			internal CommandInterpreter this_0;
 		}
 	}
 }

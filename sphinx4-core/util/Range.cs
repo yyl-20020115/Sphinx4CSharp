@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
@@ -11,15 +8,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return shift >= this.start && shift < this.end;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			150,
-			104,
-			103,
-			103
-		})]
 		
 		public Range(int start, int end)
 		{
@@ -36,8 +24,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.start;
 		}
-
-		
 		
 		public override string toString()
 		{

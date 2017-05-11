@@ -1,25 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	
+
 	public class Cache : java.lang.Object
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			175,
-			109,
-			99,
-			144,
-			142
-		})]
-		
 		public virtual object cache(object @object)
 		{
 			object obj = this.map.get(@object);
@@ -33,14 +18,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return obj;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			159,
-			136,
-			139
-		})]
 		
 		public Cache()
 		{
@@ -48,8 +25,6 @@ namespace edu.cmu.sphinx.util
 			this.hits = 0;
 		}
 
-		
-		
 		public virtual int getMisses()
 		{
 			return this.map.size();
@@ -59,7 +34,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.hits;
 		}
-
 		
 		private Map map;
 

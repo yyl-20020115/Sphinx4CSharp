@@ -680,8 +680,6 @@
     <Compile Include="util\SocketCommandClient$2.cs" />
     <Compile Include="util\SocketCommandClient$3.cs" />
     <Compile Include="util\SocketCommandClient.cs" />
-    <Compile Include="util\SocketCommandInterpreter$1.cs" />
-    <Compile Include="util\SocketCommandInterpreter$2.cs" />
     <Compile Include="util\SocketCommandInterpreter.cs" />
     <Compile Include="util\SphinxHelp.cs" />
     <Compile Include="util\SphinxLogFormatter.cs" />

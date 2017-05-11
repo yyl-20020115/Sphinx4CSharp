@@ -1,60 +1,16 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	.
-	
 	internal sealed class HypothesisUtterance : java.lang.Object
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			12,
-			102,
-			109
-		})]
-		
 		internal List getWords()
 		{
 			LinkedList linkedList = new LinkedList();
 			linkedList.addAll(this.words);
 			return linkedList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			226,
-			104,
-			107,
-			108,
-			107,
-			135,
-			108,
-			109,
-			139,
-			223,
-			3,
-			226,
-			61,
-			98,
-			127,
-			5,
-			135,
-			101,
-			109,
-			115,
-			109,
-			108,
-			115,
-			141
-		})]
 		
 		internal HypothesisUtterance(string text)
 		{
@@ -63,7 +19,6 @@ namespace edu.cmu.sphinx.util
 			while (stringTokenizer.hasMoreTokens())
 			{
 				string text2 = stringTokenizer.nextToken();
-				NumberFormatException ex2;
 				try
 				{
 					float num = Float.parseFloat(stringTokenizer.nextToken());
@@ -73,14 +28,9 @@ namespace edu.cmu.sphinx.util
 				}
 				catch (NumberFormatException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<NumberFormatException>(ex, 1);
-					goto IL_73;
+					Throwable.instancehelper_printStackTrace(ex);
 				}
 				continue;
-				IL_73:
-				NumberFormatException ex3 = ex2;
-				java.lang.System.@out.println(new StringBuilder().append("NumberFormatException at line: ").append(text).toString());
-				Throwable.instancehelper_printStackTrace(ex3);
 			}
 			if (!this.words.isEmpty())
 			{
@@ -90,8 +40,6 @@ namespace edu.cmu.sphinx.util
 				this.endTime = hypothesisWord3.getEndTime();
 			}
 		}
-
-		
 		
 		internal int getWordCount()
 		{
@@ -107,8 +55,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.endTime;
 		}
-
-		
 		
 		private List words;
 

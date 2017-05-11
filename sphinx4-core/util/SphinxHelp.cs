@@ -1,13 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.util
+﻿namespace edu.cmu.sphinx.util
 {
 	public class SphinxHelp : java.lang.Object
 	{
-		
 		public SphinxHelp()
 		{
 		}

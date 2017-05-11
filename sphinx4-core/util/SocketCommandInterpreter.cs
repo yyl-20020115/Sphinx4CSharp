@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 using java.util;
@@ -11,7 +7,6 @@ namespace edu.cmu.sphinx.util
 {
 	public class SocketCommandInterpreter : Thread
 	{
-
 		private void spawnCommandInterpreter(Socket socket)
 		{
 			try
@@ -50,7 +45,7 @@ namespace edu.cmu.sphinx.util
 		public sealed override void run()
 		{
 			ServerSocket serverSocket;
-			IOException ex2;
+			IOException ex2 = null;
 			try
 			{
 				serverSocket = new ServerSocket(this.port);
@@ -58,7 +53,7 @@ namespace edu.cmu.sphinx.util
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 = ex;
 				goto IL_3F;
 			}
 			IOException ex5;
@@ -72,7 +67,7 @@ namespace edu.cmu.sphinx.util
 				}
 				catch (IOException ex3)
 				{
-					ex4 = ByteCodeHelper.MapException<IOException>(ex3, 1);
+					ex4 = ex3;
 					goto IL_9B;
 				}
 				continue;
@@ -89,7 +84,7 @@ namespace edu.cmu.sphinx.util
 			}
 			catch (IOException ex6)
 			{
-				ex7 = ByteCodeHelper.MapException<IOException>(ex6, 1);
+				ex7 = ex6;
 				goto IL_E4;
 			}
 			return;
@@ -127,7 +122,6 @@ namespace edu.cmu.sphinx.util
 		private bool trace;
 
 		private bool acceptConnections;
-
 
 		internal sealed class SocketCommandInterpreter_1 : java.lang.Object, CommandInterface
 		{

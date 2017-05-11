@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 using java.util;
 using java.util.logging;
@@ -90,13 +87,7 @@ namespace edu.cmu.sphinx.util
 				}
 			}
 		}
-
-		static TimerPool()
-		{
-		}
-
-		
-		
+				
 		private static Map weakRefTimerPool = new WeakHashMap();
 	}
 }

@@ -1,32 +1,12 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.util
+﻿namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class CommandInterpreter_1 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal CommandInterpreter_1(CommandInterpreter commandInterpreter)
 		{
+			this_0 = commandInterpreter;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			69,
-			107
-		})]
-		
+	
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
 			CommandInterpreter.access_000(this.this_0);
@@ -38,7 +18,6 @@ namespace edu.cmu.sphinx.util
 			return "lists available commands";
 		}
 
-		
-		internal CommandInterpreter this_0 = commandInterpreter;
+		internal CommandInterpreter this_0;
 	}
 }

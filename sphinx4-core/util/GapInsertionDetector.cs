@@ -1,86 +1,15 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
-using IKVM.Runtime;
+﻿using ikvm.@internal;
 using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
 	public class GapInsertionDetector : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			104,
-			108,
-			108
-		})]
-		
 		public GapInsertionDetector(string referenceFile, string hypothesisFile, bool showGapInsertions)
 		{
 			this.referenceFile = new ReferenceFile(referenceFile);
 			this.hypothesisFile = new HypothesisFile(hypothesisFile);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			11,
-			98,
-			98,
-			108,
-			102,
-			102,
-			109,
-			103,
-			163,
-			100,
-			110,
-			206,
-			99,
-			104,
-			133,
-			111,
-			108,
-			100,
-			103,
-			99,
-			226,
-			70,
-			163,
-			103,
-			100,
-			107,
-			127,
-			1,
-			125,
-			127,
-			9,
-			99,
-			122,
-			120,
-			152,
-			169,
-			98,
-			130,
-			101,
-			104,
-			139
-		})]
 		
 		public virtual int detect()
 		{
@@ -151,21 +80,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			77,
-			101,
-			207,
-			100,
-			132,
-			137,
-			191,
-			33,
-			2,
-			98,
-			135
-		})]
 		
 		public static void main(string[] argv)
 		{
@@ -173,7 +87,6 @@ namespace edu.cmu.sphinx.util
 			{
 				java.lang.System.@out.println("Usage: java GapInsertionDetector <referenceFile> <hypothesisFile>");
 			}
-			Exception ex3;
 			try
 			{
 				string text = argv[0];
@@ -181,25 +94,10 @@ namespace edu.cmu.sphinx.util
 				GapInsertionDetector gapInsertionDetector = new GapInsertionDetector(text, text2, true);
 				java.lang.System.@out.println(new StringBuilder().append("# of gap insertions: ").append(gapInsertionDetector.detect()).toString());
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_62;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_62:
-			Exception ex4 = ex3;
-			Throwable.instancehelper_printStackTrace(ex4);
-		}
-
-		
-		static GapInsertionDetector()
-		{
 		}
 
 		private ReferenceFile referenceFile;
@@ -207,7 +105,6 @@ namespace edu.cmu.sphinx.util
 		private HypothesisFile hypothesisFile;
 
 		private bool showGapInsertions;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<GapInsertionDetector>.Value.desiredAssertionStatus();
 	}

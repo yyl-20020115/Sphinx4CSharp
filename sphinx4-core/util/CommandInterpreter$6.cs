@@ -1,24 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.util
+﻿namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class CommandInterpreter_6 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal CommandInterpreter_6(CommandInterpreter commandInterpreter)
 		{
+			this_0 = commandInterpreter;
 		}
 
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
@@ -31,7 +17,6 @@ namespace edu.cmu.sphinx.util
 			return "command executed upon exit";
 		}
 
-		
-		internal CommandInterpreter this_0 = commandInterpreter;
+		internal CommandInterpreter this_0;
 	}
 }

@@ -1,35 +1,13 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
 	internal sealed class SocketCommandClient_1 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal SocketCommandClient_1(SocketCommandClient socketCommandClient)
 		{
+			val_sci = socketCommandClient;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			129,
-			102,
-			103,
-			49,
-			166,
-			114
-		})]
 		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
@@ -46,8 +24,7 @@ namespace edu.cmu.sphinx.util
 		{
 			return "send a command";
 		}
-
 		
-		internal SocketCommandClient val_sci = socketCommandClient;
+		internal SocketCommandClient val_sci;
 	}
 }

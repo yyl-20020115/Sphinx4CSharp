@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using IKVM.Runtime;
 using java.lang;
 using java.text;
 
@@ -9,20 +6,6 @@ namespace edu.cmu.sphinx.util
 {
 	public class MatrixUtils : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			104,
-			103,
-			39,
-			198
-		})]
 		public static float[] double2float(double[] values)
 		{
 			float[] array = new float[values.Length];
@@ -33,14 +16,6 @@ namespace edu.cmu.sphinx.util
 			return array;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			14,
-			104,
-			103,
-			39,
-			166
-		})]
 		public static double[] float2double(float[] values)
 		{
 			double[] array = new double[values.Length];
@@ -50,16 +25,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			166,
-			139,
-			112,
-			58,
-			198
-		})]
 		
 		public static string toString(double[] m)
 		{
@@ -72,16 +37,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return stringBuilder.append(" ]").toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			23,
-			127,
-			9,
-			103,
-			43,
-			166
-		})]
 		
 		public static double[][] float2double(float[][] array)
 		{
@@ -99,18 +54,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return array3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			154,
-			139,
-			112,
-			110,
-			9,
-			230,
-			69
-		})]
 		
 		public static string toString(double[][] m)
 		{
@@ -125,34 +68,19 @@ namespace edu.cmu.sphinx.util
 			return stringBuilder.append(" ]").toString();
 		}
 
-		
-		
 		public MatrixUtils()
 		{
 		}
-
 		
 		public static int numCols(double[][] m)
 		{
 			return m[0].Length;
 		}
-
-		
 		
 		public static string toString(float[][] matrix)
 		{
 			return MatrixUtils.toString(MatrixUtils.float2double(matrix));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			127,
-			9,
-			103,
-			43,
-			166
-		})]
 		
 		public static float[][] double2float(double[][] array)
 		{
@@ -170,12 +98,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return array3;
 		}
-
-		
-		static MatrixUtils()
-		{
-		}
-
 		
 		public static DecimalFormat df
 		{

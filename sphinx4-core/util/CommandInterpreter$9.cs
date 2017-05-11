@@ -1,38 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class CommandInterpreter_9 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal CommandInterpreter_9(CommandInterpreter commandInterpreter)
 		{
+			this_0 = commandInterpreter;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			106,
-			107,
-			139,
-			159,
-			27,
-			159,
-			27
-		})]
-		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
 			long num = Runtime.getRuntime().totalMemory();
@@ -46,8 +22,7 @@ namespace edu.cmu.sphinx.util
 		{
 			return "shows memory statistics";
 		}
-
 		
-		internal CommandInterpreter this_0 = commandInterpreter;
+		internal CommandInterpreter this_0;
 	}
 }

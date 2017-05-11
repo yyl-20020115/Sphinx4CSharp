@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.util
@@ -30,7 +27,6 @@ namespace edu.cmu.sphinx.util
 			this.value = (double)0f;
 		}
 
-
 		public virtual void dump()
 		{
 			if (this.isEnabled())
@@ -53,7 +49,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.enabled;
 		}
-
 		
 		public static void dumpAll()
 		{
@@ -124,17 +119,10 @@ namespace edu.cmu.sphinx.util
 			StatisticsVariable.resetAll();
 			StatisticsVariable.dumpAll();
 		}
-
-		static StatisticsVariable()
-		{
-		}
-
-		
 		
 		private static Map pool = new HashMap();
 
 		public double value;
-
 		
 		private string name;
 

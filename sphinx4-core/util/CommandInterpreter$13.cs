@@ -1,54 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class CommandInterpreter_13 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal CommandInterpreter_13(CommandInterpreter commandInterpreter)
 		{
+			this_0 = commandInterpreter;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			189,
-			104,
-			106,
-			103,
-			98,
-			103,
-			111,
-			100,
-			110,
-			164,
-			234,
-			57,
-			230,
-			75,
-			100,
-			174,
-			127,
-			0,
-			120,
-			98,
-			98,
-			144
-		})]
-		
+	
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
 			if (array.Length > 1)
@@ -97,7 +57,6 @@ namespace edu.cmu.sphinx.util
 			return "execute multiple commands on a single line";
 		}
 
-		
-		internal CommandInterpreter this_0 = commandInterpreter;
+		internal CommandInterpreter this_0;
 	}
 }

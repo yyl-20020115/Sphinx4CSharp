@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.text;
@@ -10,23 +7,7 @@ using java.util;
 namespace edu.cmu.sphinx.util
 {
 	public class NISTAlign : java.lang.Object
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			113,
-			100,
-			104,
-			103,
-			103,
-			102
-		})]
-		
+	{	
 		public NISTAlign(bool showResults, bool showAlignedResults)
 		{
 			this.showResults = showResults;
@@ -59,22 +40,6 @@ namespace edu.cmu.sphinx.util
 			this.totalInsertions = 0;
 			this.totalDeletions = 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			38,
-			104,
-			127,
-			16,
-			191,
-			16,
-			104,
-			127,
-			16,
-			159,
-			16
-		})]
 		
 		public virtual void printSentenceSummary()
 		{
@@ -89,36 +54,6 @@ namespace edu.cmu.sphinx.util
 				java.lang.System.@out.println(new StringBuilder().append("ALIGN_HYP: ").append(this.toString(this.alignedHypothesisWords)).toString());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			57,
-			108,
-			155,
-			37,
-			47,
-			165,
-			117,
-			63,
-			54,
-			229,
-			69,
-			223,
-			38,
-			37,
-			239,
-			61,
-			229,
-			69,
-			223,
-			45,
-			37,
-			239,
-			61,
-			229,
-			70
-		})]
 		
 		public virtual void printTotalSummary()
 		{
@@ -130,39 +65,6 @@ namespace edu.cmu.sphinx.util
 				java.lang.System.@out.println(new StringBuilder().append("   Sentences: ").append(this.totalSentences).append("   Matches: ").append(this.totalSentences - this.totalSentencesWithErrors).append("   SentenceAcc: ").append(this.toPercentage("##0.000%", this.getTotalSentenceAccuracy())).toString());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			124,
-			103,
-			231,
-			69,
-			110,
-			100,
-			114,
-			155,
-			103,
-			242,
-			72,
-			110,
-			100,
-			106,
-			37,
-			172,
-			242,
-			69,
-			103,
-			103,
-			231,
-			70,
-			255,
-			11,
-			85,
-			255,
-			7,
-			70,
-			134
-		})]
 		
 		public virtual bool align(string reference, string hypothesis)
 		{
@@ -196,19 +98,6 @@ namespace edu.cmu.sphinx.util
 			this.updateTotals();
 			return this.insertions + this.deletions + this.substitutions == 0;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			18,
-			102,
-			108,
-			104,
-			103,
-			104,
-			98
-		})]
 		
 		internal virtual LinkedList toList(string text)
 		{
@@ -221,63 +110,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return linkedList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			235,
-			97,
-			159,
-			18,
-			97,
-			255,
-			18,
-			71,
-			102,
-			230,
-			70,
-			109,
-			107,
-			7,
-			232,
-			73,
-			109,
-			107,
-			7,
-			232,
-			73,
-			112,
-			112,
-			199,
-			110,
-			102,
-			100,
-			105,
-			232,
-			70,
-			124,
-			109,
-			105,
-			100,
-			105,
-			170,
-			112,
-			102,
-			100,
-			105,
-			232,
-			72,
-			110,
-			102,
-			99,
-			105,
-			232,
-			25,
-			43,
-			235,
-			108
-		})]
 		
 		internal virtual int[][] createBacktraceTable(LinkedList linkedList, LinkedList linkedList2, NISTAlign.Comparator comparator)
 		{
@@ -351,32 +183,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return array3;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			71,
-			102,
-			108,
-			108,
-			110,
-			113,
-			156,
-			100,
-			100,
-			130,
-			100,
-			100,
-			110,
-			130,
-			100,
-			110,
-			130,
-			100,
-			110,
-			165
-		})]
 		
 		internal virtual LinkedList backtrace(int[][] array)
 		{
@@ -409,61 +215,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return linkedList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			108,
-			108,
-			172,
-			98,
-			130,
-			107,
-			171,
-			114,
-			148,
-			101,
-			103,
-			140,
-			131,
-			101,
-			103,
-			140,
-			131,
-			153,
-			105,
-			105,
-			162,
-			105,
-			162,
-			105,
-			226,
-			72,
-			100,
-			148,
-			100,
-			244,
-			70,
-			112,
-			138,
-			103,
-			6,
-			37,
-			201,
-			112,
-			138,
-			103,
-			6,
-			37,
-			231,
-			70,
-			110,
-			238,
-			6,
-			235,
-			124
-		})]
 		
 		internal virtual void alignWords(LinkedList linkedList, NISTAlign.StringRenderer stringRenderer)
 		{
@@ -529,28 +280,6 @@ namespace edu.cmu.sphinx.util
 				this.alignedHypothesisWords.add(text2);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			184,
-			110,
-			118,
-			142,
-			104,
-			142,
-			104,
-			142,
-			104,
-			142,
-			120,
-			120,
-			152,
-			115,
-			115,
-			115,
-			115
-		})]
 		
 		internal virtual void updateTotals()
 		{
@@ -579,20 +308,6 @@ namespace edu.cmu.sphinx.util
 			this.totalInsertions += this.insertions;
 			this.totalDeletions += this.deletions;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			35,
-			107,
-			102,
-			102,
-			103,
-			104,
-			118,
-			110
-		})]
 		
 		private string toString(LinkedList linkedList)
 		{
@@ -623,27 +338,12 @@ namespace edu.cmu.sphinx.util
 			}
 			return (float)this.totalWordsCorrect / (float)this.totalReferenceWords;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			233,
-			107
-		})]
 		
 		internal virtual string toPercentage(string text, float num)
 		{
 			NISTAlign.percentageFormat.applyPattern(text);
 			return NISTAlign.percentageFormat.format((double)num);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			203,
-			104,
-			134
-		})]
 		
 		public virtual float getTotalWordErrorRate()
 		{
@@ -663,37 +363,17 @@ namespace edu.cmu.sphinx.util
 			}
 			return (float)num / (float)this.totalSentences;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			217,
-			107,
-			140,
-			5
-		})]
 		
 		internal virtual string toPercentage(string text, int num, int num2)
 		{
 			NISTAlign.percentageFormat.applyPattern(text);
 			return this.padLeft(6, NISTAlign.percentageFormat.format((double)num / (double)num2));
 		}
-
-		
 		
 		internal virtual string padLeft(int num, int num2)
 		{
 			return this.padLeft(num, Integer.toString(num2));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			2,
-			103,
-			100,
-			149
-		})]
 		
 		internal virtual string padLeft(int num, string text)
 		{
@@ -704,52 +384,6 @@ namespace edu.cmu.sphinx.util
 			}
 			return text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			82,
-			149,
-			138,
-			127,
-			16,
-			104,
-			159,
-			7,
-			138,
-			127,
-			16,
-			104,
-			159,
-			7,
-			138,
-			138,
-			104,
-			191,
-			33,
-			191,
-			10,
-			191,
-			7,
-			5,
-			178,
-			156,
-			246,
-			58,
-			229,
-			72,
-			191,
-			2,
-			5,
-			173,
-			156,
-			246,
-			58,
-			229,
-			73,
-			106,
-			111
-		})]
 		
 		public virtual void printNISTSentenceSummary()
 		{
@@ -781,109 +415,6 @@ namespace edu.cmu.sphinx.util
 			java.lang.System.@out.println();
 			java.lang.System.@out.println("============================================================================");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			131,
-			142,
-			106,
-			111,
-			106,
-			111,
-			159,
-			10,
-			159,
-			2,
-			119,
-			246,
-			61,
-			197,
-			159,
-			7,
-			124,
-			246,
-			61,
-			197,
-			159,
-			7,
-			124,
-			246,
-			61,
-			197,
-			159,
-			7,
-			124,
-			246,
-			61,
-			197,
-			159,
-			7,
-			124,
-			246,
-			61,
-			229,
-			69,
-			106,
-			106,
-			138,
-			111,
-			159,
-			7,
-			124,
-			246,
-			61,
-			197,
-			159,
-			7,
-			124,
-			246,
-			61,
-			197,
-			159,
-			7,
-			124,
-			246,
-			61,
-			197,
-			159,
-			7,
-			124,
-			246,
-			61,
-			197,
-			155,
-			127,
-			3,
-			251,
-			61,
-			229,
-			69,
-			138,
-			124,
-			47,
-			133,
-			124,
-			47,
-			133,
-			124,
-			47,
-			165,
-			106,
-			159,
-			7,
-			156,
-			153,
-			187,
-			43,
-			215,
-			158,
-			246,
-			50,
-			229,
-			81,
-			106
-		})]
 		
 		public virtual void printNISTTotalSummary()
 		{
@@ -916,28 +447,19 @@ namespace edu.cmu.sphinx.util
 			java.lang.System.@out.println();
 		}
 
-		
-		
 		public virtual string getReference()
 		{
 			return this.toString(this.referenceItems);
 		}
-
-		
-		
 		public virtual string getHypothesis()
 		{
 			return this.toString(this.hypothesisItems);
 		}
-
-		
 		
 		public virtual string getAlignedReference()
 		{
 			return this.toString(this.alignedReferenceWords);
 		}
-
-		
 		
 		public virtual string getAlignedHypothesis()
 		{
@@ -974,44 +496,14 @@ namespace edu.cmu.sphinx.util
 			return this.totalSentencesWithDeletions;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			163,
-			51,
-			232,
-			72,
-			152,
-			216,
-			103,
-			104,
-			103,
-			130,
-			106,
-			206,
-			60,
-			129,
-			255,
-			0,
-			71,
-			226,
-			58,
-			98,
-			108,
-			103,
-			106,
-			111,
-			138
-		})]
 		
 		public static void main(string[] args)
 		{
 			NISTAlign nistalign = new NISTAlign(true, true);
-			Exception ex4;
+			System.Exception ex4 = null;
 			try
 			{
-				FileInputStream.__<clinit>();
 				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(args[0])));
-				FileInputStream.__<clinit>();
 				BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream(args[1])));
 				try
 				{
@@ -1035,51 +527,35 @@ namespace edu.cmu.sphinx.util
 				{
 				}
 			}
-			catch (Exception ex2)
+			catch (System.Exception ex2)
 			{
-				Exception ex3 = ByteCodeHelper.MapException<Exception>(ex2, 0);
-				if (ex3 == null)
-				{
-					throw;
-				}
-				ex4 = ex3;
+				ex4 = ex2;
 				goto IL_80;
 			}
 			goto IL_85;
 			IL_80:
-			Exception ex5 = ex4;
+			System.Exception ex5 = ex4;
 			goto IL_A6;
-			Exception ex8;
+			IL_85:
+			System.Exception ex8 = null;
 			try
 			{
-				IL_85:
 				nistalign.printNISTTotalSummary();
 			}
-			catch (Exception ex6)
+			catch (System.Exception ex6)
 			{
-				Exception ex7 = ByteCodeHelper.MapException<Exception>(ex6, 0);
-				if (ex7 == null)
-				{
-					throw;
-				}
-				ex8 = ex7;
+				ex8 = ex6;
 				goto IL_A0;
 			}
 			return;
 			IL_A0:
 			ex5 = ex8;
 			IL_A6:
-			Exception ex9 = ex5;
-			java.lang.System.err.println(ex9);
-			Throwable.instancehelper_printStackTrace(ex9);
+			java.lang.System.err.println(ex5);
+			Throwable.instancehelper_printStackTrace(ex5);
 			java.lang.System.@out.println();
 			java.lang.System.@out.println("Usage: align <reference file> <hypothesis file>");
 			java.lang.System.@out.println();
-		}
-
-		
-		static NISTAlign()
-		{
 		}
 
 		internal const int OK = 0;
@@ -1140,36 +616,27 @@ namespace edu.cmu.sphinx.util
 
 		private string referenceAnnotation;
 
-		
 		private LinkedList referenceItems;
 
-		
 		private LinkedList alignedReferenceWords;
 
 		private string rawHypothesis;
 
-		
 		private LinkedList hypothesisItems;
-
 		
 		private LinkedList alignedHypothesisWords;
 
-		
 		internal static DecimalFormat percentageFormat = new DecimalFormat("##0.0%");
 
 		private bool showResults;
 
 		private bool showAlignedResults;
 
-		
-		.
 		internal interface Comparator
 		{
-			bool isSimilar(object, object);
+			bool isSimilar(object a, object b);
 		}
 
-		
-		.
 		public interface StringRenderer
 		{
 			string getRef(object obj1, object obj2);

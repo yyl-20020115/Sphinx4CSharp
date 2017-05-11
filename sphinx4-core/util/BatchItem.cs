@@ -1,9 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.util
+﻿namespace edu.cmu.sphinx.util
 {
 	public class BatchItem : java.lang.Object
 	{
@@ -16,15 +11,6 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.transcript;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			104,
-			103,
-			103
-		})]
 		
 		public BatchItem(string filename, string transcript)
 		{
@@ -32,9 +18,7 @@ namespace edu.cmu.sphinx.util
 			this.transcript = transcript;
 		}
 
-		
 		private string filename;
-
 		
 		private string transcript;
 	}

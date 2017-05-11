@@ -1,36 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
+
 	internal sealed class CommandInterpreter_4 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal CommandInterpreter_4(CommandInterpreter commandInterpreter)
 		{
+			this_0 = commandInterpreter;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			105,
-			136,
-			103,
-			106,
-			9,
-			198,
-			113
-		})]
 		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
@@ -49,7 +27,6 @@ namespace edu.cmu.sphinx.util
 			return "display a line of text";
 		}
 
-		
-		internal CommandInterpreter this_0 = commandInterpreter;
+		internal CommandInterpreter this_0;
 	}
 }

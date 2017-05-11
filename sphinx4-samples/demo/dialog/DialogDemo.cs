@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using edu.cmu.sphinx.api;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.api;
 using java.lang;
 using java.util;
 
@@ -9,24 +6,6 @@ namespace edu.cmu.sphinx.demo.dialog
 {
 	public class DialogDemo : java.lang.Object
 	{
-		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			0,
-			134,
-			103,
-			111,
-			142,
-			244,
-			60,
-			230,
-			71
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		private static double parseNumber(string[] array)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -44,24 +23,6 @@ namespace edu.cmu.sphinx.demo.dialog
 			return java.lang.Double.parseDouble(stringBuilder.toString());
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			12,
-			111,
-			111,
-			111,
-			111,
-			143,
-			135,
-			108,
-			115,
-			103,
-			130,
-			107,
-			98,
-			102
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		private static void recognizeDigits(LiveSpeechRecognizer liveSpeechRecognizer)
 		{
 			java.lang.System.@out.println("Digits recognition (using GrXML)");
@@ -86,40 +47,6 @@ namespace edu.cmu.sphinx.demo.dialog
 			liveSpeechRecognizer.stopRecognition();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			31,
-			111,
-			111,
-			111,
-			111,
-			111,
-			111,
-			143,
-			102,
-			167,
-			108,
-			109,
-			101,
-			109,
-			114,
-			101,
-			127,
-			0,
-			114,
-			114,
-			101,
-			127,
-			0,
-			111,
-			191,
-			5,
-			127,
-			0,
-			133,
-			102
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		private static void recognizerBankAccount(LiveSpeechRecognizer liveSpeechRecognizer)
 		{
 			java.lang.System.@out.println("This is bank account voice menu");
@@ -168,23 +95,6 @@ namespace edu.cmu.sphinx.demo.dialog
 			liveSpeechRecognizer.stopRecognition();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			65,
-			111,
-			111,
-			111,
-			111,
-			143,
-			135,
-			108,
-			109,
-			130,
-			107,
-			98,
-			102
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		private static void recognizeWeather(LiveSpeechRecognizer liveSpeechRecognizer)
 		{
 			java.lang.System.@out.println("Try some forecast. End with \"the end\"");
@@ -205,56 +115,10 @@ namespace edu.cmu.sphinx.demo.dialog
 			liveSpeechRecognizer.stopRecognition();
 		}
 
-		[LineNumberTable(21)]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public DialogDemo()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.Exception"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			83,
-			102,
-			107,
-			107,
-			107,
-			135,
-			107,
-			167,
-			107,
-			167,
-			103,
-			107,
-			167,
-			135,
-			111,
-			111,
-			111,
-			111,
-			143,
-			141,
-			110,
-			133,
-			110,
-			102,
-			102,
-			167,
-			110,
-			102,
-			102,
-			167,
-			110,
-			102,
-			102,
-			135,
-			133,
-			102
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void main(string[] args)
 		{
 			Configuration configuration = new Configuration();
@@ -304,23 +168,6 @@ namespace edu.cmu.sphinx.demo.dialog
 			liveSpeechRecognizer.stopRecognition();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			202,
-			118,
-			118,
-			118,
-			118,
-			118,
-			118,
-			118,
-			118,
-			118,
-			118,
-			119
-		})]
 		static DialogDemo()
 		{
 			DialogDemo.DIGITS.put("oh", Integer.valueOf(0));
@@ -344,8 +191,6 @@ namespace edu.cmu.sphinx.demo.dialog
 
 		private const string LANGUAGE_MODEL = "resource:/edu/cmu/sphinx/demo/dialog/weather.lm";
 
-		[Modifiers((Modifiers)26)]
-		[Signature("Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;")]
 		private static Map DIGITS = new HashMap();
 	}
 }

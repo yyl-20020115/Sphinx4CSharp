@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 using java.text;
 using java.util.logging;
@@ -10,7 +7,6 @@ namespace edu.cmu.sphinx.util
 {
 	public class Timer : java.lang.Object
 	{
-		
 		public virtual void start()
 		{
 			if (this.startTime != 0L)
@@ -160,10 +156,8 @@ namespace edu.cmu.sphinx.util
 			Timer.timeFormatter = new DecimalFormat("###0.0000");
 		}
 
-		
 		private static DecimalFormat timeFormatter;
 
-		
 		private string name;
 
 		private double sum;
@@ -179,7 +173,6 @@ namespace edu.cmu.sphinx.util
 		private long maxTime;
 
 		private bool notReliable;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<Timer>.Value.desiredAssertionStatus();
 	}

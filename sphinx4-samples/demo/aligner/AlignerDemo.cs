@@ -1,12 +1,8 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using edu.cmu.sphinx.alignment;
+﻿using edu.cmu.sphinx.alignment;
 using edu.cmu.sphinx.api;
 using edu.cmu.sphinx.result;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
-using java.lang;
 using java.net;
 using java.util;
 
@@ -14,84 +10,17 @@ namespace edu.cmu.sphinx.demo.aligner
 {
 	public class AlignerDemo : java.lang.Object
 	{
-		[LineNumberTable(40)]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public AlignerDemo()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.Exception"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			1,
-			101,
-			120,
-			120,
-			108,
-			103,
-			102,
-			98,
-			112,
-			134,
-			144,
-			113,
-			109,
-			172,
-			107,
-			103,
-			127,
-			1,
-			116,
-			130,
-			138,
-			111,
-			139,
-			139,
-			99,
-			109,
-			104,
-			159,
-			8,
-			107,
-			159,
-			15,
-			121,
-			48,
-			134,
-			130,
-			127,
-			4,
-			126,
-			6,
-			166,
-			231,
-			50,
-			235,
-			82,
-			117,
-			104,
-			37,
-			159,
-			4,
-			121,
-			48,
-			134,
-			130
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void main(string[] args)
 		{
 			URL audioUrl;
 			string text;
 			if (args.Length > 1)
 			{
-				File.__<clinit>();
 				audioUrl = new File(args[0]).toURI().toURL();
-				Scanner.__<clinit>();
-				File.__<clinit>();
 				Scanner scanner = new Scanner(new File(args[1]));
 				scanner.useDelimiter("\\Z");
 				text = scanner.next();

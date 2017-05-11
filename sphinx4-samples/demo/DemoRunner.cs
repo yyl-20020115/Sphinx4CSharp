@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using edu.cmu.sphinx.demo.aligner;
 using edu.cmu.sphinx.demo.dialog;
 using edu.cmu.sphinx.demo.speakerid;
 using edu.cmu.sphinx.demo.transcriber;
-using IKVM.Attributes;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.lang;
 using java.lang.reflect;
 using java.util;
@@ -37,18 +34,6 @@ namespace edu.cmu.sphinx.demo
 			return;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			111,
-			143,
-			127,
-			5,
-			127,
-			7
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void printUsage()
 		{
 			java.lang.System.err.println("Usage: DemoRunner <DEMO> [<ARG> ...]\n");
@@ -61,23 +46,10 @@ namespace edu.cmu.sphinx.demo
 			}
 		}
 
-		[LineNumberTable(15)]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public DemoRunner()
 		{
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			159,
-			115,
-			202,
-			117,
-			117,
-			117,
-			117
-		})]
 		static DemoRunner()
 		{
 			DemoRunner.classes.put("aligner", ClassLiteral<AlignerDemo>.Value);
@@ -86,16 +58,11 @@ namespace edu.cmu.sphinx.demo
 			DemoRunner.classes.put("transcriber", ClassLiteral<TranscriberDemo>.Value);
 		}
 		
-
-		[Modifiers((Modifiers)24)]
-		[Signature("[Ljava/lang/Class<*>;")]
 		internal static Class[] paramTypes = new Class[]
 		{
 			ClassLiteral<string[]>.Value
 		};
 
-		[Modifiers((Modifiers)26)]
-		[Signature("Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;")]
 		private static Map classes = new TreeMap();
 
 		class CID : CallerID { };

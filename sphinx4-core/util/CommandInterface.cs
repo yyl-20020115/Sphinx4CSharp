@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.util
+﻿namespace edu.cmu.sphinx.util
 {
 	public interface CommandInterface
 	{

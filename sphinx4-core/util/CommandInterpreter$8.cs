@@ -1,33 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class CommandInterpreter_8 : java.lang.Object, CommandInterface
-	{
-		
-		
+	{	
 		internal CommandInterpreter_8(CommandInterpreter commandInterpreter)
 		{
+			this_0 = commandInterpreter;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			94,
-			106
-		})]
-		
+	
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
 			Runtime.getRuntime().gc();
@@ -38,8 +19,7 @@ namespace edu.cmu.sphinx.util
 		{
 			return "performs garbage collection";
 		}
-
 		
-		internal CommandInterpreter this_0 = commandInterpreter;
+		internal CommandInterpreter this_0;
 	}
 }

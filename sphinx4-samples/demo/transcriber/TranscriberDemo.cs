@@ -1,79 +1,18 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using edu.cmu.sphinx.api;
+﻿using edu.cmu.sphinx.api;
 using edu.cmu.sphinx.decoder.adaptation;
 using edu.cmu.sphinx.result;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
-using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.demo.transcriber
 {
 	public class TranscriberDemo : java.lang.Object
 	{
-		[LineNumberTable(27)]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public TranscriberDemo()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.Exception"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			143,
-			166,
-			102,
-			229,
-			69,
-			102,
-			101,
-			102,
-			133,
-			135,
-			106,
-			102,
-			170,
-			135,
-			141,
-			159,
-			0,
-			111,
-			127,
-			5,
-			108,
-			130,
-			111,
-			127,
-			6,
-			179,
-			198,
-			106,
-			102,
-			170,
-			105,
-			103,
-			106,
-			138,
-			166,
-			105,
-			168,
-			106,
-			102,
-			106,
-			103,
-			106,
-			159,
-			2,
-			134
-		})]
-		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void main(string[] args)
 		{
 			java.lang.System.@out.println("Loading models...");
