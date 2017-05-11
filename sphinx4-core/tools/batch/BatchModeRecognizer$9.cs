@@ -1,61 +1,16 @@
-﻿using System;
-
-using edu.cmu.sphinx.result;
+﻿using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 
 namespace edu.cmu.sphinx.tools.batch
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class BatchModeRecognizer_9 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal BatchModeRecognizer_9(BatchModeRecognizer batchModeRecognizer)
 		{
+			this_0 = batchModeRecognizer;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			80,
-			130,
-			106,
-			240,
-			71,
-			109,
-			144,
-			251,
-			69,
-			109,
-			112,
-			187,
-			113,
-			113,
-			101,
-			159,
-			3,
-			108,
-			255,
-			5,
-			69,
-			226,
-			61,
-			98,
-			114,
-			47,
-			197
-		})]
 		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
@@ -66,7 +21,6 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			else
 			{
-				IOException ex2;
 				try
 				{
 					if (this.this_0.curBatchItem == null)
@@ -93,15 +47,9 @@ namespace edu.cmu.sphinx.tools.batch
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_102;
+					commandInterpreter.putResponse(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex)).toString());
 				}
-				goto IL_12F;
-				IL_102:
-				IOException ex3 = ex2;
-				commandInterpreter.putResponse(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex3)).toString());
 			}
-			IL_12F:
 			return (result == null) ? "" : result.getBestResultNoFiller();
 		}
 
@@ -110,7 +58,6 @@ namespace edu.cmu.sphinx.tools.batch
 			return "advance the batch and perform recognition";
 		}
 
-		
-		internal BatchModeRecognizer this_0 = batchModeRecognizer;
+		internal BatchModeRecognizer this_0;
 	}
 }

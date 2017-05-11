@@ -1,43 +1,17 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
 
 namespace edu.cmu.sphinx.tools.batch
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.CommandInterface"
-	})]
-	
-	.
-	
 	internal sealed class BatchModeRecognizer_12 : java.lang.Object, CommandInterface
 	{
-		
-		
 		internal BatchModeRecognizer_12(BatchModeRecognizer batchModeRecognizer)
 		{
+			this_0 = batchModeRecognizer;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			185,
-			101,
-			173,
-			191,
-			1,
-			2,
-			97,
-			191,
-			16
-		})]
-		
 		public string execute(CommandInterpreter commandInterpreter, string[] array)
 		{
 			if (array.Length != 2)
@@ -71,6 +45,6 @@ namespace edu.cmu.sphinx.tools.batch
 		}
 
 		
-		internal BatchModeRecognizer this_0 = batchModeRecognizer;
+		internal BatchModeRecognizer this_0;
 	}
 }
