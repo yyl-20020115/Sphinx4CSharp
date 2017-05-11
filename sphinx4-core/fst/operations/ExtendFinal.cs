@@ -1,47 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.fst.semiring;
 using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
 	public class ExtendFinal : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			175,
-			102
-		})]
-		
+	{		
 		private ExtendFinal()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			103,
-			134,
-			103,
-			102,
-			105,
-			111,
-			233,
-			61,
-			230,
-			72,
-			109,
-			104,
-			159,
-			0,
-			151,
-			109,
-			98
-		})]
 		
 		public static void apply(Fst fst)
 		{
@@ -66,36 +32,6 @@ namespace edu.cmu.sphinx.fst.operations
 				state3.setFinalWeight(semiring.zero());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			23,
-			98,
-			103,
-			102,
-			104,
-			115,
-			98,
-			226,
-			60,
-			230,
-			72,
-			99,
-			111,
-			129,
-			105,
-			104,
-			109,
-			106,
-			116,
-			114,
-			237,
-			60,
-			8,
-			233,
-			74,
-			103
-		})]
 		
 		public static void undo(Fst fst)
 		{

@@ -1,9 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-using edu.cmu.sphinx.fst.semiring;
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using edu.cmu.sphinx.fst.semiring;
 using java.io;
 using java.lang;
 using java.util;
@@ -11,72 +6,13 @@ using java.util;
 namespace edu.cmu.sphinx.fst
 {
 	public class ImmutableFst : Fst
-	{
-		[LineNumberTable(new byte[]
-		{
-			4,
-			233,
-			37,
-			231,
-			92,
-			103,
-			108
-		})]
-		
+	{		
 		private ImmutableFst(int num) : base(0)
 		{
 			this.states = null;
 			this.numStates = num;
 			this.states = new ImmutableState[num];
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			62,
-			103,
-			103,
-			103,
-			108,
-			104,
-			105,
-			104,
-			104,
-			104,
-			108,
-			104,
-			107,
-			104,
-			112,
-			112,
-			112,
-			142,
-			105,
-			109,
-			241,
-			53,
-			235,
-			77,
-			144,
-			106,
-			108,
-			108,
-			112,
-			103,
-			109,
-			109,
-			109,
-			117,
-			235,
-			58,
-			8,
-			235,
-			76
-		})]
 		
 		private static ImmutableFst readImmutableFst(ObjectInputStream objectInputStream)
 		{
@@ -124,21 +60,10 @@ namespace edu.cmu.sphinx.fst
 			return immutableFst;
 		}
 
-		
 		public new virtual ImmutableState getState(int index)
 		{
 			return this.states[index];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			232,
-			52,
-			231,
-			78
-		})]
 		
 		private ImmutableFst()
 		{
@@ -150,20 +75,12 @@ namespace edu.cmu.sphinx.fst
 			return this.numStates;
 		}
 
-		
-		
 		public override void addState(State state)
 		{
 			string text = "You cannot modify an ImmutableFst.";
 			
 			throw new IllegalArgumentException(text);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
 		
 		public override void saveModel(string filename)
 		{
@@ -171,24 +88,6 @@ namespace edu.cmu.sphinx.fst
 			
 			throw new IllegalArgumentException(text);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			116,
-			98,
-			98,
-			103,
-			103,
-			103,
-			102,
-			102,
-			134
-		})]
 		
 		public static ImmutableFst loadModel(InputStream inputStream)
 		{
@@ -200,42 +99,10 @@ namespace edu.cmu.sphinx.fst
 			inputStream.close();
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			75,
-			98,
-			98,
-			98,
-			103,
-			103,
-			103,
-			103,
-			102,
-			102,
-			255,
-			23,
-			74,
-			226,
-			55,
-			98,
-			103,
-			98,
-			98,
-			103,
-			98,
-			98,
-			103,
-			162
-		})]
 		
 		public new static ImmutableFst loadModel(string filename)
 		{
 			ImmutableFst result;
-			FileNotFoundException ex2;
-			IOException ex4;
-			ClassNotFoundException ex6;
 			try
 			{
 				try
@@ -252,37 +119,23 @@ namespace edu.cmu.sphinx.fst
 					}
 					catch (FileNotFoundException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<FileNotFoundException>(ex, 1);
-						goto IL_58;
+						Throwable.instancehelper_printStackTrace(ex);
+						return null;
 					}
 				}
 				catch (IOException ex3)
 				{
-					ex4 = ByteCodeHelper.MapException<IOException>(ex3, 1);
-					goto IL_5C;
+					Throwable.instancehelper_printStackTrace(ex3);
+					return null;
 				}
 			}
 			catch (ClassNotFoundException ex5)
 			{
-				ex6 = ByteCodeHelper.MapException<ClassNotFoundException>(ex5, 1);
-				goto IL_60;
+				Throwable.instancehelper_printStackTrace(ex5);
+				return null;
 			}
 			return result;
-			IL_58:
-			FileNotFoundException ex7 = ex2;
-			Throwable.instancehelper_printStackTrace(ex7);
-			return null;
-			IL_5C:
-			IOException ex8 = ex4;
-			Throwable.instancehelper_printStackTrace(ex8);
-			return null;
-			IL_60:
-			ClassNotFoundException ex9 = ex6;
-			Throwable.instancehelper_printStackTrace(ex9);
-			return null;
 		}
-
-		
 		
 		public override void deleteState(State state)
 		{
@@ -290,32 +143,6 @@ namespace edu.cmu.sphinx.fst
 			
 			throw new IllegalArgumentException(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			116,
-			102,
-			127,
-			38,
-			63,
-			15,
-			134,
-			104,
-			105,
-			105,
-			127,
-			12,
-			104,
-			105,
-			106,
-			31,
-			13,
-			232,
-			60,
-			233,
-			74
-		})]
 		
 		public override string toString()
 		{
@@ -335,21 +162,6 @@ namespace edu.cmu.sphinx.fst
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			140,
-			100,
-			98,
-			110,
-			98,
-			103,
-			115,
-			98,
-			105,
-			98
-		})]
 		
 		public override bool equals(object obj)
 		{
@@ -364,23 +176,12 @@ namespace edu.cmu.sphinx.fst
 			ImmutableFst immutableFst = (ImmutableFst)obj;
 			return Arrays.equals(this.states, immutableFst.states) && base.equals(obj);
 		}
-
-		
 		
 		public override int hashCode()
 		{
 			return Arrays.hashCode(this.states) + base.hashCode();
 		}
-
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		
-		
-		public virtual State <bridge>getState(int i)
-		{
-			return this.getState(i);
-		}
-
 		private ImmutableState[] states;
 
 		private int numStates;

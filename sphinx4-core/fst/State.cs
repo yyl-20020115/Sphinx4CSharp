@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.fst
@@ -17,38 +14,21 @@ namespace edu.cmu.sphinx.fst
 		{
 			return this.fnlWeight;
 		}
-
-		
 		
 		public virtual int getNumArcs()
 		{
 			return this.arcs.size();
-		}
-
-		
+		}		
 		
 		public virtual Arc getArc(int index)
 		{
 			return (Arc)this.arcs.get(index);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			104,
-			104
-		})]
 		
 		public State(float fnlWeight) : this()
 		{
 			this.fnlWeight = fnlWeight;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			78,
-			109
-		})]
 		
 		public virtual void addArc(Arc arc)
 		{
@@ -60,21 +40,6 @@ namespace edu.cmu.sphinx.fst
 			this.fnlWeight = fnlfloat;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			15,
-			232,
-			30,
-			231,
-			70,
-			167,
-			231,
-			90,
-			103,
-			100,
-			140
-		})]
-		
 		public State(int initialNumArcs)
 		{
 			this.id = -1;
@@ -87,29 +52,6 @@ namespace edu.cmu.sphinx.fst
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			98,
-			100,
-			98,
-			99,
-			98,
-			110,
-			98,
-			103,
-			110,
-			98,
-			110,
-			113,
-			103,
-			130,
-			104,
-			104,
-			98,
-			115,
-			98
-		})]
-		
 		public override bool equals(object obj)
 		{
 			if (this == obj)
@@ -151,38 +93,16 @@ namespace edu.cmu.sphinx.fst
 		{
 			return this.id * 991;
 		}
-
 		
 		public virtual void setArcs(ArrayList arcs)
 		{
 			this.arcs = arcs;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			95,
-			110
-		})]
-		
 		public virtual void setArc(int index, Arc arc)
 		{
 			this.arcs.set(index, arc);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			232,
-			50,
-			231,
-			70,
-			167,
-			231,
-			70,
-			107
-		})]
 		
 		protected internal State()
 		{
@@ -191,26 +111,11 @@ namespace edu.cmu.sphinx.fst
 			this.initialNumArcs = -1;
 			this.arcs = new ArrayList();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			27,
-			108
-		})]
 		
 		public virtual void arcSort(Comparator cmp)
 		{
 			Collections.sort(this.arcs, cmp);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			127,
-			102,
-			127,
-			38
-		})]
 		
 		public override string toString()
 		{
@@ -218,8 +123,6 @@ namespace edu.cmu.sphinx.fst
 			stringBuilder.append(new StringBuilder().append("(").append(this.id).append(", ").append(this.fnlWeight).append(")").toString());
 			return stringBuilder.toString();
 		}
-
-		
 		
 		public virtual Arc deleteArc(int index)
 		{
@@ -230,7 +133,6 @@ namespace edu.cmu.sphinx.fst
 
 		private float fnlWeight;
 
-		
 		private ArrayList arcs;
 
 		protected internal int initialNumArcs;

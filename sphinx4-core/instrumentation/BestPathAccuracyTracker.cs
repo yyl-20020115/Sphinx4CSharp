@@ -1,17 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using java.lang;
 
 namespace edu.cmu.sphinx.instrumentation
 {
 	public class BestPathAccuracyTracker : AccuracyTracker
 	{
-		
 		private void showFullPath(Result result)
 		{
 			if (this._showFullPath)

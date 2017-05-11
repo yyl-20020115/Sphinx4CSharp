@@ -1,37 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
 	public class Connect : java.lang.Object
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			102,
-			126,
-			104,
-			103,
-			117,
-			103,
-			104,
-			112,
-			111,
-			239,
-			61,
-			232,
-			72,
-			165,
-			124,
-			106,
-			98
-		})]
-		
 		private static void calcCoAccessible(Fst fst, State state, ArrayList arrayList, HashSet hashSet)
 		{
 			ArrayList arrayList2 = new ArrayList();
@@ -59,19 +31,6 @@ namespace edu.cmu.sphinx.fst.operations
 				Connect.calcCoAccessible(fst, state2, arrayList, hashSet);
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			14,
-			141,
-			104,
-			104,
-			100,
-			137,
-			142,
-			104
-		})]
 		
 		private static void duplicatePath(int num, State state, State state2, ArrayList arrayList)
 		{
@@ -85,15 +44,6 @@ namespace edu.cmu.sphinx.fst.operations
 			ArrayList arrayList3 = new ArrayList(arrayList2.subList(num2, num3));
 			arrayList.add(arrayList3);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			70,
-			101,
-			136,
-			138
-		})]
 		
 		private static void addExploredArc(int num, Arc arc, ArrayList[] array)
 		{
@@ -103,36 +53,6 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			array[num].add(arc);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			32,
-			137,
-			105,
-			115,
-			107,
-			98,
-			103,
-			107,
-			106,
-			102,
-			106,
-			105,
-			104,
-			142,
-			105,
-			147,
-			105,
-			142,
-			111,
-			237,
-			49,
-			235,
-			84,
-			105,
-			137
-		})]
 		
 		private static State depthFirstSearchNext(Fst fst, State state, ArrayList arrayList, ArrayList[] array, HashSet hashSet)
 		{
@@ -170,25 +90,6 @@ namespace edu.cmu.sphinx.fst.operations
 			hashSet.add(state);
 			return state;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			83,
-			103,
-			130,
-			105,
-			171,
-			110,
-			103,
-			102,
-			105,
-			116,
-			235,
-			61,
-			230,
-			70
-		})]
 		
 		private static void depthFirstSearch(Fst fst, HashSet hashSet, ArrayList arrayList, ArrayList[] array, HashSet hashSet2)
 		{
@@ -212,36 +113,10 @@ namespace edu.cmu.sphinx.fst.operations
 				}
 			}
 		}
-
-		
 		
 		public Connect()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			106,
-			103,
-			99,
-			111,
-			161,
-			102,
-			134,
-			140,
-			103,
-			141,
-			139,
-			135,
-			109,
-			106,
-			116,
-			234,
-			61,
-			232,
-			71,
-			104
-		})]
 		
 		public static void apply(Fst fst)
 		{

@@ -13,7 +13,7 @@ namespace edu.cmu.sphinx.util.props
 	})]
 	public sealed class S4PropertyAttribute : AnnotationAttributeBase, S4Property
 	{
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		public S4PropertyAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);

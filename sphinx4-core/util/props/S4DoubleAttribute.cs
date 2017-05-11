@@ -14,7 +14,7 @@ namespace edu.cmu.sphinx.util.props
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4DoubleAttribute : AnnotationAttributeBase, S4Double
 	{
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		public S4DoubleAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);

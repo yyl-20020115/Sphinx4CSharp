@@ -697,7 +697,7 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 
 			
-			[EditorBrowsable(EditorBrowsableState.Never)]
+			
 			
 			
 			public virtual object <bridge>next()

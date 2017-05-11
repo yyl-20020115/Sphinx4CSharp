@@ -1,56 +1,9 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.fst.semiring;
 
 namespace edu.cmu.sphinx.fst.operations
 {
 	public class Reverse : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			104,
-			162,
-			134,
-			135,
-			108,
-			135,
-			108,
-			140,
-			108,
-			103,
-			104,
-			106,
-			109,
-			104,
-			107,
-			111,
-			232,
-			58,
-			232,
-			74,
-			152,
-			107,
-			106,
-			107,
-			105,
-			105,
-			107,
-			112,
-			113,
-			115,
-			233,
-			59,
-			232,
-			60,
-			235,
-			77,
-			102
-		})]
-		
+	{		
 		public static Fst get(Fst fst)
 		{
 			if (fst.getSemiring() == null)
@@ -93,13 +46,6 @@ namespace edu.cmu.sphinx.fst.operations
 			ExtendFinal.undo(fst);
 			return fst2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			173,
-			102
-		})]
 		
 		private Reverse()
 		{

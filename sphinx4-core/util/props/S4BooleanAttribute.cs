@@ -14,7 +14,7 @@ namespace edu.cmu.sphinx.util.props
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4BooleanAttribute : AnnotationAttributeBase, S4Boolean
 	{
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		public S4BooleanAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);

@@ -14,7 +14,7 @@ namespace edu.cmu.sphinx.util.props
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4IntegerAttribute : AnnotationAttributeBase, S4Integer
 	{
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		public S4IntegerAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);

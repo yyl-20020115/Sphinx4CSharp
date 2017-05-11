@@ -1,50 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
+﻿using edu.cmu.sphinx.fst.semiring;
 using edu.cmu.sphinx.fst.utils;
-using IKVM.Attributes;
-using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
 	public class Compose : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			120,
-			135,
-			99,
-			133,
-			103,
-			167,
-			106,
-			108,
-			105,
-			109,
-			105,
-			109,
-			103,
-			116,
-			117,
-			117,
-			105,
-			54,
-			168,
-			167,
-			104,
-			118,
-			105,
-			55,
-			232,
-			69,
-			104,
-			118,
-			105,
-			55,
-			200
-		})]
-		
+	{		
 		public static Fst getFilter(string[] syms, Semiring semiring)
 		{
 			Fst fst = new Fst(semiring);
@@ -81,43 +42,6 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			return fst;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			116,
-			103,
-			135,
-			99,
-			133,
-			100,
-			134,
-			104,
-			108,
-			138,
-			117,
-			103,
-			105,
-			107,
-			109,
-			107,
-			108,
-			232,
-			59,
-			232,
-			72,
-			99,
-			104,
-			186,
-			152,
-			100,
-			104,
-			187,
-			247,
-			39,
-			235,
-			93
-		})]
 		
 		public static void augment(int label, Fst fst, Semiring semiring)
 		{
@@ -168,67 +92,6 @@ namespace edu.cmu.sphinx.fst.operations
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			128,
-			98,
-			147,
-			162,
-			135,
-			102,
-			134,
-			104,
-			136,
-			104,
-			111,
-			162,
-			107,
-			106,
-			37,
-			172,
-			104,
-			104,
-			107,
-			137,
-			107,
-			109,
-			110,
-			110,
-			111,
-			105,
-			105,
-			108,
-			107,
-			108,
-			107,
-			115,
-			101,
-			115,
-			105,
-			105,
-			139,
-			111,
-			100,
-			99,
-			103,
-			5,
-			172,
-			104,
-			107,
-			137,
-			113,
-			154,
-			233,
-			43,
-			11,
-			235,
-			91,
-			133,
-			108,
-			140
-		})]
 		
 		public static Fst compose(Fst fst1, Fst fst2, Semiring semiring, bool sorted)
 		{
@@ -293,31 +156,10 @@ namespace edu.cmu.sphinx.fst.operations
 			fst3.setOsyms(fst2.getOsyms());
 			return fst3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			102
-		})]
 		
 		private Compose()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			86,
-			102,
-			162,
-			147,
-			162,
-			109,
-			104,
-			136,
-			138,
-			202
-		})]
 		
 		public static Fst get(Fst fst1, Fst fst2, Semiring semiring)
 		{

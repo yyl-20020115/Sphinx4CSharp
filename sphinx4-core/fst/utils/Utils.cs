@@ -1,24 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.fst.utils
 {
 	public class Utils : java.lang.Object
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			47,
-			108,
-			127,
-			1,
-			116,
-			98
-		})]
-		
+	{		
 		public static string[] toStringArray(HashMap syms)
 		{
 			string[] array = new string[syms.size()];
@@ -31,44 +17,10 @@ namespace edu.cmu.sphinx.fst.utils
 			return array;
 		}
 
-		
-		
 		public Utils()
 		{
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			98,
-			98,
-			98,
-			112,
-			194,
-			101,
-			117,
-			107,
-			100,
-			162,
-			98,
-			109,
-			127,
-			3,
-			98,
-			98,
-			226,
-			60,
-			232,
-			72,
-			99,
-			100,
-			130,
-			134,
-			142
-		})]
-		
 		public static int search(ArrayList src, ArrayList pattern, int start)
 		{
 			int result = -1;
@@ -110,16 +62,6 @@ namespace edu.cmu.sphinx.fst.utils
 			result = num + num2;
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			32,
-			103,
-			117,
-			2,
-			230,
-			69
-		})]
 		
 		public static int getIndex(string[] strings, string @string)
 		{

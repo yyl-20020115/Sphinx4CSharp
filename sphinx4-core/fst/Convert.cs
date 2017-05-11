@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
+﻿using edu.cmu.sphinx.fst.semiring;
 using edu.cmu.sphinx.fst.utils;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 using java.util;
@@ -10,27 +7,7 @@ using java.util;
 namespace edu.cmu.sphinx.fst
 {
 	public class Convert : java.lang.Object
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			73,
-			99,
-			129,
-			103,
-			135,
-			103,
-			100,
-			31,
-			7,
-			230,
-			69,
-			134
-		})]
-		
+	{		
 		private static void exportSymbols(string[] array, string text)
 		{
 			if (array == null)
@@ -46,51 +23,6 @@ namespace edu.cmu.sphinx.fst
 			}
 			printWriter.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			24,
-			103,
-			167,
-			103,
-			191,
-			17,
-			103,
-			104,
-			106,
-			116,
-			255,
-			19,
-			61,
-			232,
-			71,
-			104,
-			104,
-			103,
-			107,
-			106,
-			105,
-			108,
-			107,
-			114,
-			108,
-			114,
-			140,
-			127,
-			60,
-			47,
-			229,
-			57,
-			235,
-			61,
-			235,
-			79,
-			134
-		})]
 		
 		private static void exportFst(Fst fst, string text)
 		{
@@ -124,31 +56,6 @@ namespace edu.cmu.sphinx.fst
 			}
 			printWriter.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.NumberFormatException",
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			100,
-			103,
-			112,
-			162,
-			103,
-			103,
-			108,
-			167,
-			107,
-			110,
-			102,
-			112,
-			140,
-			98,
-			134
-		})]
 		
 		private static HashMap importSymbols(string text)
 		{
@@ -172,32 +79,10 @@ namespace edu.cmu.sphinx.fst
 			bufferedReader.close();
 			return hashMap;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			182,
-			102
-		})]
 		
 		private Convert()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			7,
-			127,
-			6,
-			127,
-			6,
-			127,
-			1
-		})]
 		
 		public static void export(Fst fst, string basename)
 		{
@@ -205,79 +90,6 @@ namespace edu.cmu.sphinx.fst
 			Convert.exportSymbols(fst.getOsyms(), new StringBuilder().append(basename).append(".output.syms").toString());
 			Convert.exportFst(fst, new StringBuilder().append(basename).append(".fst.txt").toString());
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.NumberFormatException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			73,
-			135,
-			127,
-			1,
-			99,
-			102,
-			178,
-			159,
-			1,
-			99,
-			102,
-			178,
-			223,
-			1,
-			159,
-			7,
-			105,
-			115,
-			131,
-			135,
-			111,
-			142,
-			99,
-			146,
-			145,
-			112,
-			100,
-			109,
-			104,
-			172,
-			100,
-			99,
-			168,
-			137,
-			99,
-			146,
-			177,
-			112,
-			100,
-			109,
-			104,
-			172,
-			108,
-			150,
-			118,
-			108,
-			150,
-			182,
-			102,
-			141,
-			135,
-			111,
-			105,
-			98,
-			102,
-			107,
-			105,
-			98,
-			172,
-			101,
-			135,
-			108,
-			140
-		})]
 		
 		public static Fst importFst(string basename, Semiring semiring)
 		{
@@ -295,7 +107,6 @@ namespace edu.cmu.sphinx.fst
 				hashMap2.put("<eps>", Integer.valueOf(0));
 			}
 			HashMap hashMap3 = Convert.importSymbols(new StringBuilder().append(basename).append(".states.syms").toString());
-			FileInputStream.__<clinit>();
 			FileInputStream fileInputStream = new FileInputStream(new StringBuilder().append(basename).append(".fst.txt").toString());
 			DataInputStream dataInputStream = new DataInputStream(fileInputStream);
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream, "UTF-8"));

@@ -1,13 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder;
+﻿using edu.cmu.sphinx.decoder;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.text;
 using java.util;
@@ -48,13 +45,12 @@ namespace edu.cmu.sphinx.instrumentation
 				this.frontEnd.addSignalListener(this);
 			}
 		}
-
-		
 		
 		private long getTime()
 		{
 			return java.lang.System.currentTimeMillis();
 		}		
+
 		protected internal virtual void showAudioUsage()
 		{
 			this.logger.info(new StringBuilder().append("   This  Time Audio: ").append(SpeedTracker.timeFormat.format((double)this.audioTime)).append("s  Proc: ").append(SpeedTracker.timeFormat.format((double)this.processingTime)).append("s  Speed: ").append(SpeedTracker.timeFormat.format((double)this.getSpeed())).append(" X real time").toString());
@@ -188,11 +184,6 @@ namespace edu.cmu.sphinx.instrumentation
 			}
 		}
 
-		
-		static SpeedTracker()
-		{
-		}
-
 		[S4Component(new object[]
 		{
 			64,
@@ -255,7 +246,6 @@ namespace edu.cmu.sphinx.instrumentation
 		})]
 		public const string PROP_SHOW_TIMERS = "showTimers";
 
-		
 		private static DecimalFormat timeFormat = new DecimalFormat("0.00");
 
 		private string name;

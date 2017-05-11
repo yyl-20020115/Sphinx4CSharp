@@ -381,7 +381,7 @@ namespace edu.cmu.sphinx.linguist
 		}
 
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		
 		
 		public int compareTo(object obj)

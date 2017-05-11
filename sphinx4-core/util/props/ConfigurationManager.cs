@@ -964,7 +964,7 @@ namespace edu.cmu.sphinx.util.props
 			"java.lang.CloneNotSupportedException"
 		})]
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		
 		
 		public virtual object <bridge>clone()

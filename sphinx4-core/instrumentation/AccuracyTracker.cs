@@ -1,17 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder;
+﻿using edu.cmu.sphinx.decoder;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.instrumentation
 {
-
 	public abstract class AccuracyTracker : ConfigurableAdapter, ResultListener, EventListener, Configurable, Resetable, StateListener, Monitor
 	{
 		private void initRecognizer(Recognizer recognizer)
@@ -174,7 +170,6 @@ namespace edu.cmu.sphinx.instrumentation
 
 		private bool showRaw;
 
-		
 		private NISTAlign aligner;
 	}
 }

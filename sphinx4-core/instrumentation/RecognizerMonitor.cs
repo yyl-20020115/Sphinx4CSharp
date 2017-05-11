@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.recognizer;
+﻿using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -107,9 +104,7 @@ namespace edu.cmu.sphinx.instrumentation
 
 		internal Recognizer recognizer;
 
-		
 		internal List allocatedMonitors;
-
 		
 		internal List deallocatedMonitors;
 

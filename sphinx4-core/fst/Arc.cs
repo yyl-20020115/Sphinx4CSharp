@@ -1,32 +1,12 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.fst
 {
 	public class Arc : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			102
-		})]
-		
+	{		
 		public Arc()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			0,
-			104,
-			104,
-			103,
-			103,
-			104
-		})]
 		
 		public Arc(int iLabel, int oLabel, float weight, State nextState)
 		{
@@ -75,31 +55,6 @@ namespace edu.cmu.sphinx.fst
 		{
 			this.nextState = nextState;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			81,
-			100,
-			98,
-			99,
-			98,
-			110,
-			98,
-			103,
-			110,
-			98,
-			104,
-			104,
-			98,
-			120,
-			98,
-			110,
-			98,
-			110,
-			113,
-			103,
-			130
-		})]
 		
 		public override bool equals(object obj)
 		{
@@ -133,24 +88,12 @@ namespace edu.cmu.sphinx.fst
 			}
 			return this.oLabel == arc.oLabel && (this.weight == arc.weight || Float.floatToIntBits(this.weight) == Float.floatToIntBits(arc.weight));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			107,
-			159,
-			4,
-			108,
-			234,
-			61
-		})]
 		
 		public override int hashCode()
 		{
 			return 31 * (this.iLabel + 31 * (this.oLabel + (31 * ((this.nextState != null) ? this.nextState.getId() : 0) + Float.floatToIntBits(this.weight))));
 		}
 
-		
-		
 		public override string toString()
 		{
 			return new StringBuilder().append("(").append(this.iLabel).append(", ").append(this.oLabel).append(", ").append(this.weight).append(", ").append(this.nextState).append(")").toString();

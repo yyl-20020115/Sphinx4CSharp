@@ -44,7 +44,7 @@ namespace edu.cmu.sphinx.linguist.g2p
 		}
 
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		
 		
 		public virtual int compare(object obj1, object obj2)

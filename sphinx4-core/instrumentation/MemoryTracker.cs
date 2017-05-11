@@ -1,10 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder;
+﻿using edu.cmu.sphinx.decoder;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.text;
 using java.util;
@@ -91,11 +88,6 @@ namespace edu.cmu.sphinx.instrumentation
 			}
 		}
 
-		
-		static MemoryTracker()
-		{
-		}
-
 		[S4Component(new object[]
 		{
 			64,
@@ -127,7 +119,6 @@ namespace edu.cmu.sphinx.instrumentation
 		})]
 		public const string PROP_SHOW_DETAILS = "showDetails";
 
-		
 		private static DecimalFormat memFormat = new DecimalFormat("0.00 Mb");
 
 		private string name;

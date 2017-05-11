@@ -1,7 +1,5 @@
 ﻿using System;
-
 using edu.cmu.sphinx.fst.semiring;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -13,31 +11,9 @@ namespace edu.cmu.sphinx.fst.sequitur
 {
 	public class SequiturImport : java.lang.Object
 	{
-		
-		
 		public SequiturImport()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"javax.xml.bind.JAXBException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			137,
-			116,
-			103,
-			121,
-			103,
-			105,
-			127,
-			20,
-			229,
-			74
-		})]
 		
 		public static void main(params string[] args)
 		{
@@ -47,48 +23,17 @@ namespace edu.cmu.sphinx.fst.sequitur
 			});
 			Unmarshaller unmarshaller = jaxbcontext.createUnmarshaller();
 			Unmarshaller unmarshaller2 = unmarshaller;
-			File.__<clinit>();
 			SequiturImport.FSA fsa = (SequiturImport.FSA)unmarshaller2.unmarshal(new File(args[0]));
 			Fst fst = fsa.toFst();
 			fst.saveModel(args[1]);
 			java.lang.System.@out.println(new StringBuilder().append("The Sequitur G2P XML-formatted FST ").append(args[0]).append(" has been converted to Sphinx' OpenFst binary format in the file ").append(args[1]).toString());
 		}
 
-		
-		.
 		public class Alphabet : java.lang.Object
 		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			
-			
 			public Alphabet()
 			{
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				84,
-				108,
-				104,
-				124,
-				136,
-				115,
-				127,
-				11,
-				127,
-				17,
-				247,
-				61,
-				233,
-				69,
-				102,
-				107,
-				109
-			})]
 			
 			public virtual void afterUnmarshal(Unmarshaller unmarshaller, object parent)
 			{
@@ -118,15 +63,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 				symbol.content = "<s>";
 				this.symbols.add(symbol);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				100,
-				113,
-				103,
-				57,
-				166
-			})]
 			
 			internal virtual string[] toSymbols()
 			{
@@ -139,11 +75,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 			}
 
 			
-			static Alphabet()
-			{
-			}
-
-			
 			[XmlElement(new object[]
 			{
 				64,
@@ -152,40 +83,20 @@ namespace edu.cmu.sphinx.fst.sequitur
 				"symbol"
 			})]
 			internal List symbols;
-
 			
 			internal static bool assertionsDisabled = !ClassLiteral<SequiturImport>.Value.desiredAssertionStatus();
 		}
 
-		
-		.
 		public class Arc : java.lang.Object
 		{
-			
-			
 			public Arc()
 			{
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				160,
-				114,
-				142
-			})]
 			public virtual void afterUnmarshal(Unmarshaller unmarshaller, object parent)
 			{
 				this.target++;
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				160,
-				120,
-				121,
-				47
-			})]
 			
 			public virtual edu.cmu.sphinx.fst.Arc toOpenFstArc(List openFstStates)
 			{
@@ -221,8 +132,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 			internal float weight;
 		}
 
-		
-		.
 		[XmlRootElement(new object[]
 		{
 			64,
@@ -231,36 +140,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			"fsa"
 		})]
 		public class FSA : java.lang.Object
-		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			[LineNumberTable(new byte[]
-			{
-				57,
-				108,
-				113,
-				113,
-				103,
-				111,
-				127,
-				1,
-				97,
-				102,
-				103,
-				127,
-				1,
-				109,
-				98,
-				183,
-				127,
-				1,
-				108,
-				98
-			})]
-			
+		{			
 			public virtual Fst toFst()
 			{
 				Fst fst = new Fst(this.ring);
@@ -289,36 +169,11 @@ namespace edu.cmu.sphinx.fst.sequitur
 				}
 				return fst;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				13,
-				232,
-				76
-			})]
 			
 			public FSA()
 			{
 				this.ring = new TropicalSemiring();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				30,
-				191,
-				5,
-				102,
-				103,
-				102,
-				120,
-				120,
-				110,
-				113,
-				108,
-				173,
-				241,
-				69
-			})]
 			
 			public virtual void afterUnmarshal(Unmarshaller unmarshaller, object parent)
 			{
@@ -338,11 +193,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 				});
 				this.states.add(state);
 				Collections.sort(this.states, new SequiturImport_FSA_1(this));
-			}
-
-			
-			static FSA()
-			{
 			}
 
 			[XmlAttribute(new object[]
@@ -376,7 +226,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 				"output-alphabet"
 			})]
 			internal SequiturImport.Alphabet outputAlphabet;
-
 			
 			[XmlElement(new object[]
 			{
@@ -387,47 +236,25 @@ namespace edu.cmu.sphinx.fst.sequitur
 			})]
 			internal List states;
 
-			
 			[NonSerialized]
 			internal List openFstStates;
 
 			[NonSerialized]
 			internal Semiring ring;
-
 			
 			internal static bool assertionsDisabled = !ClassLiteral<SequiturImport>.Value.desiredAssertionStatus();
 		}
 
-		
-		.
 		public class State : java.lang.Object
 		{
-			
-			
 			public State()
 			{
 			}
-
-			
 			
 			public virtual edu.cmu.sphinx.fst.State toUnconnectedOpenFstState()
 			{
 				return new edu.cmu.sphinx.fst.State((this.weight == null) ? 0f : this.weight.floatValue());
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				160,
-				92,
-				104,
-				127,
-				1,
-				98,
-				102,
-				119,
-				98
-			})]
 			
 			public virtual void connectStates(List openFstStates)
 			{
@@ -443,12 +270,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 				}
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				160,
-				74,
-				142
-			})]
 			public virtual void afterUnmarshal(Unmarshaller unmarshaller, object parent)
 			{
 				this.id++;
@@ -476,7 +297,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 				"Ljavax/xml/bind/annotation/XmlElement;"
 			})]
 			internal Float weight;
-
 			
 			[XmlElement(new object[]
 			{
@@ -487,35 +307,11 @@ namespace edu.cmu.sphinx.fst.sequitur
 			})]
 			internal List arcs;
 		}
-
-		
-		.
 		public class Symbol : java.lang.Object
-		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			
-			
+		{						
 			public Symbol()
 			{
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				116,
-				127,
-				26,
-				127,
-				32,
-				119,
-				114,
-				109,
-				114,
-				139
-			})]
 			
 			public virtual void afterUnmarshal(Unmarshaller unmarshaller, object parent)
 			{
@@ -542,19 +338,13 @@ namespace edu.cmu.sphinx.fst.sequitur
 				}
 			}
 
-			
-			static Symbol()
-			{
-			}
-
 			[XmlAttribute(new object[]
 			{
 				64,
 				"Ljavax/xml/bind/annotation/XmlAttribute;"
 			})]
 			internal Integer index;
-
-			
+		
 			[XmlMixed(new object[]
 			{
 				64,
@@ -564,7 +354,6 @@ namespace edu.cmu.sphinx.fst.sequitur
 
 			[NonSerialized]
 			internal string content;
-
 			
 			internal static bool assertionsDisabled = !ClassLiteral<SequiturImport>.Value.desiredAssertionStatus();
 		}

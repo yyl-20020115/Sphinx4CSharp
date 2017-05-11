@@ -1,8 +1,6 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.fst.semiring
@@ -10,26 +8,14 @@ namespace edu.cmu.sphinx.fst.semiring
 	[Serializable]
 	public class ProbabilitySemiring : Semiring
 	{
-		
-		
 		public override bool isMember(float w)
 		{
 			return !Float.isNaN(w) && w >= 0f;
 		}
-
-		
 		
 		public ProbabilitySemiring()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			116,
-			166
-		})]
 		
 		public override float plus(float w1, float w2)
 		{
@@ -39,13 +25,6 @@ namespace edu.cmu.sphinx.fst.semiring
 			}
 			return w1 + w2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			116,
-			166
-		})]
 		
 		public override float times(float w1, float w2)
 		{
@@ -63,19 +42,13 @@ namespace edu.cmu.sphinx.fst.semiring
 
 		public override float zero()
 		{
-			return ProbabilitySemiring.zero;
+			return ProbabilitySemiring._zero;
 		}
 
 		public override float one()
 		{
-			return ProbabilitySemiring.one;
+			return ProbabilitySemiring._one;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			66,
-			111
-		})]
 		
 		public override float reverse(float w1)
 		{
@@ -96,8 +69,8 @@ namespace edu.cmu.sphinx.fst.semiring
 
 		private const long serialVersionUID = 5592668313009971909L;
 
-		private new static float zero = 0f;
+		private static float _zero = 0f;
 
-		private new static float one = 1f;
+		private static float _one = 1f;
 	}
 }

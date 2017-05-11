@@ -241,7 +241,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		}
 
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		
 		object Iterator.next()
 		{

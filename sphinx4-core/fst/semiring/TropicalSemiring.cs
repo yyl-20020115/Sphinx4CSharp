@@ -1,8 +1,6 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.fst.semiring
@@ -10,32 +8,15 @@ namespace edu.cmu.sphinx.fst.semiring
 	[Serializable]
 	public class TropicalSemiring : Semiring
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		
 		public TropicalSemiring()
 		{
 		}
 
-		
-		
 		public override bool isMember(float w)
 		{
 			return !Float.isNaN(w) && w != float.NegativeInfinity;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			116,
-			166
-		})]
-		
 		public override float plus(float w1, float w2)
 		{
 			if (!this.isMember(w1) || !this.isMember(w2))
@@ -45,13 +26,6 @@ namespace edu.cmu.sphinx.fst.semiring
 			return (w1 >= w2) ? w2 : w1;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			7,
-			116,
-			166
-		})]
-		
 		public override float times(float w1, float w2)
 		{
 			if (!this.isMember(w1) || !this.isMember(w2))
@@ -61,42 +35,31 @@ namespace edu.cmu.sphinx.fst.semiring
 			return w1 + w2;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			23,
-			116,
-			166,
-			105,
-			102,
-			105,
-			166
-		})]
-		
 		public override float divide(float w1, float w2)
 		{
 			if (!this.isMember(w1) || !this.isMember(w2))
 			{
 				return float.NegativeInfinity;
 			}
-			if (w2 == TropicalSemiring.zero)
+			if (w2 == TropicalSemiring._zero)
 			{
 				return float.NegativeInfinity;
 			}
-			if (w1 == TropicalSemiring.zero)
+			if (w1 == TropicalSemiring._zero)
 			{
-				return TropicalSemiring.zero;
+				return TropicalSemiring._zero;
 			}
 			return w1 - w2;
 		}
 
 		public override float zero()
 		{
-			return TropicalSemiring.zero;
+			return TropicalSemiring._zero;
 		}
 
 		public override float one()
 		{
-			return TropicalSemiring.one;
+			return TropicalSemiring._one;
 		}
 
 		public override float reverse(float w1)
@@ -116,8 +79,8 @@ namespace edu.cmu.sphinx.fst.semiring
 
 		private const long serialVersionUID = 2711172386738607866L;
 
-		private new static float zero = float.PositiveInfinity;
+		private static float _zero = float.PositiveInfinity;
 
-		private new static float one = 0f;
+		private static float _one = 0f;
 	}
 }

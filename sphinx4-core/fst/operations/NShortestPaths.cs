@@ -1,55 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
+﻿using edu.cmu.sphinx.fst.semiring;
 using edu.cmu.sphinx.fst.utils;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
 	public class NShortestPaths : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			5,
-			135,
-			108,
-			140,
-			135,
-			108,
-			140,
-			135,
-			142,
-			115,
-			147,
-			108,
-			115,
-			138,
-			107,
-			143,
-			113,
-			107,
-			105,
-			112,
-			104,
-			42,
-			135,
-			102,
-			112,
-			113,
-			112,
-			37,
-			37,
-			166,
-			107,
-			234,
-			52,
-			235,
-			80,
-			101
-		})]
-		
+	{		
 		public static float[] shortestDistance(Fst fst)
 		{
 			Fst fst2 = Reverse.get(fst);
@@ -87,84 +44,10 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			185,
-			102
-		})]
 		
 		private NShortestPaths()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			114,
-			66,
-			99,
-			162,
-			104,
-			130,
-			98,
-			99,
-			135,
-			103,
-			103,
-			108,
-			140,
-			136,
-			134,
-			141,
-			246,
-			88,
-			97,
-			108,
-			97,
-			140,
-			104,
-			116,
-			106,
-			139,
-			108,
-			110,
-			110,
-			142,
-			110,
-			104,
-			108,
-			139,
-			173,
-			119,
-			122,
-			110,
-			107,
-			112,
-			107,
-			51,
-			229,
-			61,
-			232,
-			73,
-			110,
-			153,
-			124,
-			165,
-			112,
-			110,
-			107,
-			118,
-			98,
-			115,
-			108,
-			234,
-			58,
-			235,
-			73,
-			133
-		})]
 		
 		public static Fst get(Fst fst, int n, bool determinize)
 		{

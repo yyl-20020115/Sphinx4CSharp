@@ -1,22 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.fst.semiring;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
 	public class RmEpsilon : java.lang.Object
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			47,
-			106,
-			180
-		})]
-		
+	{	
 		private static Float getPathWeight(State state, State state2, HashMap[] array)
 		{
 			if (array[state.getId()] != null)
@@ -25,18 +14,6 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			return null;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			105,
-			99,
-			102,
-			137,
-			111
-		})]
 		
 		private static void put(State state, State state2, float num, HashMap[] array)
 		{
@@ -48,33 +25,6 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			hashMap.put(state2, Float.valueOf(num));
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			18,
-			162,
-			103,
-			105,
-			104,
-			118,
-			111,
-			142,
-			114,
-			109,
-			37,
-			158,
-			98,
-			115,
-			5,
-			167,
-			108,
-			130,
-			244,
-			49,
-			233,
-			82
-		})]
 		
 		private static void calcClosure(Fst fst, State state, HashMap[] array, Semiring semiring)
 		{
@@ -102,16 +52,6 @@ namespace edu.cmu.sphinx.fst.operations
 				}
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			4,
-			105,
-			99,
-			140,
-			183
-		})]
 		
 		private static void add(State state, State state2, float num, HashMap[] array, Semiring semiring)
 		{
@@ -125,96 +65,10 @@ namespace edu.cmu.sphinx.fst.operations
 				RmEpsilon.put(state, state2, semiring.plus(num, pathWeight.floatValue()), array);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			175,
-			102
-		})]
 		
 		private RmEpsilon()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			63,
-			99,
-			162,
-			104,
-			162,
-			135,
-			167,
-			108,
-			108,
-			141,
-			104,
-			108,
-			138,
-			110,
-			104,
-			107,
-			108,
-			116,
-			232,
-			56,
-			235,
-			76,
-			108,
-			138,
-			107,
-			105,
-			105,
-			107,
-			114,
-			114,
-			109,
-			11,
-			229,
-			61,
-			235,
-			74,
-			107,
-			234,
-			48,
-			235,
-			85,
-			104,
-			108,
-			106,
-			108,
-			110,
-			127,
-			16,
-			100,
-			111,
-			112,
-			108,
-			37,
-			37,
-			202,
-			105,
-			108,
-			107,
-			114,
-			113,
-			106,
-			42,
-			136,
-			114,
-			233,
-			57,
-			235,
-			74,
-			229,
-			42,
-			235,
-			90,
-			108,
-			140,
-			134
-		})]
 		
 		public static Fst get(Fst fst)
 		{

@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
+﻿using edu.cmu.sphinx.util.props;
 using edu.cmu.sphinx.util.props.tools;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util.logging;

@@ -13,7 +13,7 @@ namespace edu.cmu.sphinx.util.props
 	})]
 	public sealed class ConfCategoryAttribute : AnnotationAttributeBase, ConfCategory
 	{
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		public ConfCategoryAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);

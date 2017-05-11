@@ -1,10 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder;
+﻿using edu.cmu.sphinx.decoder;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 

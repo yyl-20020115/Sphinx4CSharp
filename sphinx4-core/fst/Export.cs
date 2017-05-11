@@ -1,42 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.fst
+﻿namespace edu.cmu.sphinx.fst
 {
 	public class Export : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			102
-		})]
-		
+	{		
 		private Export()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			101,
-			111,
-			106,
-			101,
-			111,
-			166,
-			169,
-			111,
-			105
-		})]
 		
 		public static void main(string[] args)
 		{

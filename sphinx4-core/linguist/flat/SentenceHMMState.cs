@@ -665,7 +665,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		public abstract int getOrder();
 
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		
 		
 		public virtual object <bridge>getLexState()

@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.fst.semiring;
 using java.io;
 using java.lang;
 using java.util;
@@ -23,40 +20,22 @@ namespace edu.cmu.sphinx.fst
 		public virtual State getStart()
 		{
 			return this.start;
-		}
-
-		
+		}	
 		
 		public virtual int getNumStates()
 		{
 			return this.states.size();
 		}
-
-		
 		
 		public virtual State getState(int index)
 		{
 			return (State)this.states.get(index);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			33,
-			104,
-			103
-		})]
 		
 		public Fst(Semiring s) : this()
 		{
 			this.semiring = s;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			93,
-			109,
-			115
-		})]
 		
 		public virtual void addState(State state)
 		{
@@ -78,32 +57,6 @@ namespace edu.cmu.sphinx.fst
 		{
 			this.osyms = osyms;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			231,
-			171,
-			98,
-			98,
-			98,
-			103,
-			103,
-			103,
-			104,
-			102,
-			102,
-			134,
-			116,
-			63,
-			2,
-			165
-		})]
 		
 		public static Fst loadModel(string filename)
 		{
@@ -118,36 +71,12 @@ namespace edu.cmu.sphinx.fst
 			java.lang.System.err.println(new StringBuilder().append("Load Time: ").append((double)(Calendar.getInstance().getTimeInMillis() - timeInMillis) / 1000.0).toString());
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			9,
-			232,
-			47,
-			231,
-			82,
-			107
-		})]
 		
 		public Fst()
 		{
 			this.states = null;
 			this.states = new ArrayList();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			81,
-			104,
-			103,
-			41,
-			166
-		})]
 		
 		private void writeStringMap(ObjectOutputStream objectOutputStream, string[] array)
 		{
@@ -157,47 +86,6 @@ namespace edu.cmu.sphinx.fst
 				objectOutputStream.writeObject(array[i]);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			96,
-			109,
-			109,
-			151,
-			108,
-			145,
-			102,
-			112,
-			112,
-			114,
-			108,
-			108,
-			108,
-			238,
-			59,
-			230,
-			72,
-			108,
-			105,
-			115,
-			105,
-			105,
-			107,
-			109,
-			109,
-			109,
-			253,
-			59,
-			232,
-			61,
-			233,
-			75
-		})]
 		
 		private void writeFst(ObjectOutputStream objectOutputStream)
 		{
@@ -231,24 +119,6 @@ namespace edu.cmu.sphinx.fst
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			158,
-			103,
-			103,
-			102,
-			108,
-			4,
-			230,
-			69
-		})]
 		
 		protected internal static string[] readStringMap(ObjectInputStream @in)
 		{
@@ -261,17 +131,6 @@ namespace edu.cmu.sphinx.fst
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			20,
-			232,
-			36,
-			231,
-			93,
-			100,
-			140
-		})]
 		
 		public Fst(int numStates)
 		{
@@ -281,55 +140,6 @@ namespace edu.cmu.sphinx.fst
 				this.states = new ArrayList(numStates);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			180,
-			103,
-			103,
-			103,
-			108,
-			104,
-			105,
-			104,
-			104,
-			104,
-			108,
-			104,
-			107,
-			104,
-			112,
-			112,
-			112,
-			142,
-			105,
-			109,
-			239,
-			53,
-			235,
-			77,
-			153,
-			105,
-			108,
-			107,
-			112,
-			103,
-			109,
-			109,
-			109,
-			126,
-			233,
-			58,
-			11,
-			235,
-			76
-		})]
 		
 		private static Fst readFst(ObjectInputStream objectInputStream)
 		{
@@ -376,16 +186,6 @@ namespace edu.cmu.sphinx.fst
 			}
 			return fst;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			98,
-			108,
-			102,
-			55,
-			198
-		})]
 		
 		public virtual void remapStateIds()
 		{
@@ -405,24 +205,6 @@ namespace edu.cmu.sphinx.fst
 		{
 			this.semiring = semiring;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			135,
-			103,
-			103,
-			103,
-			103,
-			102,
-			102,
-			102,
-			102
-		})]
 		
 		public virtual void saveModel(string filename)
 		{
@@ -435,38 +217,6 @@ namespace edu.cmu.sphinx.fst
 			bufferedOutputStream.close();
 			fileOutputStream.close();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			2,
-			100,
-			98,
-			99,
-			98,
-			110,
-			98,
-			103,
-			115,
-			98,
-			115,
-			98,
-			104,
-			104,
-			98,
-			115,
-			98,
-			104,
-			104,
-			98,
-			115,
-			98,
-			104,
-			104,
-			98,
-			115,
-			98
-		})]
 		
 		public override bool equals(object obj)
 		{
@@ -526,49 +276,11 @@ namespace edu.cmu.sphinx.fst
 			}
 			return true;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			33,
-			117,
-			120,
-			120,
-			120,
-			238,
-			60
-		})]
 		
 		public override int hashCode()
 		{
 			return 31 * (Arrays.hashCode(this.isyms) + 31 * (Arrays.hashCode(this.osyms) + 31 * (((this.start != null) ? this.start.hashCode() : 0) + 31 * (((this.states != null) ? this.states.hashCode() : 0) + 31 * ((this.semiring != null) ? java.lang.Object.instancehelper_hashCode(this.semiring) : 0)))));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			47,
-			102,
-			127,
-			38,
-			63,
-			15,
-			134,
-			108,
-			105,
-			114,
-			127,
-			12,
-			104,
-			105,
-			106,
-			31,
-			13,
-			232,
-			60,
-			233,
-			74
-		})]
 		
 		public override string toString()
 		{
@@ -588,28 +300,6 @@ namespace edu.cmu.sphinx.fst
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			72,
-			105,
-			111,
-			161,
-			141,
-			127,
-			4,
-			102,
-			107,
-			105,
-			111,
-			233,
-			61,
-			230,
-			70,
-			103,
-			101
-		})]
 		
 		public virtual void deleteState(State state)
 		{
@@ -635,33 +325,6 @@ namespace edu.cmu.sphinx.fst
 				state2.setArcs(arrayList);
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			107,
-			110,
-			111,
-			161,
-			134,
-			127,
-			4,
-			108,
-			104,
-			102,
-			109,
-			106,
-			111,
-			233,
-			61,
-			232,
-			70,
-			135,
-			101,
-			135,
-			102
-		})]
 		
 		public virtual void deleteStates(HashSet toDelete)
 		{
@@ -693,7 +356,6 @@ namespace edu.cmu.sphinx.fst
 			this.states = arrayList;
 			this.remapStateIds();
 		}
-
 		
 		private ArrayList states;
 

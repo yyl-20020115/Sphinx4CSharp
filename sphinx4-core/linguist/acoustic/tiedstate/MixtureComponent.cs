@@ -361,7 +361,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			"java.lang.CloneNotSupportedException"
 		})]
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		
 		
 		public virtual object <bridge>clone()

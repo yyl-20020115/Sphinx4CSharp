@@ -15,7 +15,7 @@ namespace edu.cmu.sphinx.util.props
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4ComponentListAttribute : AnnotationAttributeBase, S4ComponentList
 	{
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		public S4ComponentListAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);

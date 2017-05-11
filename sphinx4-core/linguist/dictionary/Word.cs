@@ -124,7 +124,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		}
 
 		
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		
 		
 		
 		public virtual int compareTo(object obj)

@@ -1,28 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst.semiring;
+﻿using edu.cmu.sphinx.fst.semiring;
 using edu.cmu.sphinx.fst.utils;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
 	public class Determinize : java.lang.Object
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			23,
-			134,
-			126,
-			105,
-			140,
-			127,
-			38,
-			101
-		})]
-		
+	{		
 		private static State getStateLabel(ArrayList arrayList, HashMap hashMap)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -38,24 +22,6 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			return (State)hashMap.get(stringBuilder.toString());
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			5,
-			134,
-			126,
-			140,
-			104,
-			105,
-			106,
-			116,
-			243,
-			61,
-			232,
-			70,
-			101
-		})]
 		
 		private static ArrayList getUniqueLabels(Fst fst, ArrayList arrayList)
 		{
@@ -77,22 +43,6 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			return arrayList2;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			98,
-			123,
-			120,
-			98,
-			130,
-			130,
-			99,
-			104,
-			168
-		})]
 		
 		private static Pair getPair(ArrayList arrayList, State state, Float right)
 		{
@@ -114,112 +64,10 @@ namespace edu.cmu.sphinx.fst.operations
 			}
 			return pair;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			173,
-			134
-		})]
 		
 		private Determinize()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			44,
-			136,
-			194,
-			103,
-			103,
-			108,
-			172,
-			134,
-			134,
-			109,
-			127,
-			33,
-			108,
-			127,
-			8,
-			104,
-			107,
-			136,
-			107,
-			109,
-			106,
-			106,
-			127,
-			9,
-			141,
-			127,
-			4,
-			110,
-			110,
-			105,
-			105,
-			107,
-			107,
-			107,
-			49,
-			236,
-			61,
-			232,
-			71,
-			197,
-			103,
-			127,
-			4,
-			110,
-			110,
-			122,
-			105,
-			108,
-			107,
-			110,
-			105,
-			101,
-			42,
-			135,
-			101,
-			114,
-			104,
-			49,
-			5,
-			239,
-			58,
-			235,
-			76,
-			165,
-			103,
-			127,
-			4,
-			110,
-			110,
-			110,
-			157,
-			127,
-			32,
-			133,
-			109,
-			109,
-			104,
-			139,
-			110,
-			127,
-			1,
-			117,
-			54,
-			145,
-			98,
-			142,
-			137,
-			127,
-			5,
-			101,
-			133
-		})]
 		
 		public static Fst get(Fst fst)
 		{
