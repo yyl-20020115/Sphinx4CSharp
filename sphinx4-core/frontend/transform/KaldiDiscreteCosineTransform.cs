@@ -1,55 +1,17 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.lang;
+﻿using IKVM.Runtime;
 using java.util;
 
 namespace edu.cmu.sphinx.frontend.transform
 {
 	public class KaldiDiscreteCosineTransform : DiscreteCosineTransform
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			166,
-			104
-		})]
-		
+	{		
 		public KaldiDiscreteCosineTransform(int numberMelFilters, int cepstrumSize) : base(numberMelFilters, cepstrumSize)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			169,
-			102
-		})]
 		
 		public KaldiDiscreteCosineTransform()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			127,
-			20,
-			159,
-			0,
-			152,
-			110,
-			151,
-			109,
-			63,
-			4,
-			232,
-			61,
-			233,
-			70
-		})]
 		
 		protected internal override void computeMelCosine()
 		{
@@ -73,18 +35,6 @@ namespace edu.cmu.sphinx.frontend.transform
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			140,
-			103,
-			107,
-			61,
-			38,
-			230,
-			69
-		})]
 		protected internal override double[] applyMelCosine(double[] melspectrum)
 		{
 			double[] array = new double[this.cepstrumSize];

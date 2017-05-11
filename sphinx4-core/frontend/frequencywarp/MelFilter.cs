@@ -1,53 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
 	public class MelFilter : java.lang.Object
-	{
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			13,
-			232,
-			72,
-			106,
-			240,
-			70,
-			115,
-			110,
-			105,
-			240,
-			71,
-			111,
-			199,
-			99,
-			176,
-			236,
-			69,
-			241,
-			69,
-			105,
-			234,
-			71,
-			104,
-			230,
-			75,
-			102,
-			179,
-			244,
-			50,
-			241,
-			85,
-			104,
-			107
-		})]
-		
+	{		
 		public MelFilter(double leftEdge, double centerFreq, double rightEdge, double initialFreq, double deltaFreq)
 		{
 			if (deltaFreq == (double)0f)
@@ -91,18 +47,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.initialFreqIndex = (int)java.lang.Math.round(initialFreq / deltaFreq);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			100,
-			166,
-			108,
-			105,
-			101,
-			240,
-			61,
-			230,
-			70
-		})]
 		public virtual double filterOutput(double[] spectrum)
 		{
 			double num = (double)0f;

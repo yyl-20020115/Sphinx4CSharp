@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
@@ -14,39 +11,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			double num3 = num2 / (num2 + 160000.0);
 			return num3 * num3 * ((num2 + 1440000.0) / (num2 + 9610000.0));
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			52,
-			203,
-			134,
-			145,
-			104,
-			144,
-			105,
-			223,
-			11,
-			103,
-			106,
-			104,
-			47,
-			232,
-			79,
-			111,
-			143,
-			105,
-			191,
-			11,
-			146,
-			109,
-			114,
-			17,
-			200
-		})]
 		
 		private void buildCriticalBandFilterbank()
 		{
@@ -86,16 +50,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				this.criticalBandFilter[i] = new PLPFilter(array, centerFreqInHz);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			126,
-			113,
-			107,
-			110,
-			16,
-			198
-		})]
 		
 		private void buildEqualLoudnessScalingFactors()
 		{
@@ -106,38 +60,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				this.equalLoudnessScaling[i] = this.loudnessScalingFunction(_centerFreqInHz);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			81,
-			135,
-			111,
-			103,
-			108,
-			108,
-			102,
-			136,
-			110,
-			255,
-			32,
-			69,
-			236,
-			69,
-			139,
-			146,
-			247,
-			60,
-			230,
-			71,
-			98,
-			102,
-			140
-		})]
 		
 		private DoubleData process(DoubleData doubleData)
 		{
@@ -166,16 +88,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return new DoubleData(array, doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			9,
-			104,
-			102,
-			105,
-			105,
-			103
-		})]
 		
 		public PLPFrequencyFilterBank(double minFreq, double maxFreq, int numberFilters)
 		{
@@ -184,30 +96,11 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.maxFreq = maxFreq;
 			this.numberFilters = numberFilters;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			16,
-			102
-		})]
 		
 		public PLPFrequencyFilterBank()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			26,
-			103,
-			114,
-			114,
-			113
-		})]
-		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
@@ -215,31 +108,11 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.maxFreq = ps.getDouble("maximumFrequency");
 			this.numberFilters = ps.getInt("numberFilters");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			36,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			126,
-			108,
-			104,
-			109,
-			210
-		})]
 		
 		public override Data getData()
 		{

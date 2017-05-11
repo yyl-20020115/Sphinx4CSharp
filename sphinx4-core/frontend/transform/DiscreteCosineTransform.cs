@@ -1,54 +1,17 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using IKVM.Runtime;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.transform
 {
 	public class DiscreteCosineTransform : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			104,
-			102,
-			103,
-			103
-		})]
-		
+	{		
 		public DiscreteCosineTransform(int numberMelFilters, int cepstrumSize)
 		{
 			this.initLogger();
 			this.numberMelFilters = numberMelFilters;
 			this.cepstrumSize = cepstrumSize;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			45,
-			135,
-			104,
-			104,
-			136,
-			106,
-			255,
-			28,
-			70,
-			103,
-			54,
-			230,
-			71,
-			136,
-			104,
-			42
-		})]
 		
 		private DoubleData process(DoubleData doubleData)
 		{
@@ -71,22 +34,6 @@ namespace edu.cmu.sphinx.frontend.transform
 			double[] values2 = this.applyMelCosine(values);
 			return new DoubleData(values2, doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			74,
-			127,
-			20,
-			115,
-			107,
-			113,
-			109,
-			63,
-			2,
-			8,
-			233,
-			70
-		})]
 		
 		protected internal virtual void computeMelCosine()
 		{
@@ -109,25 +56,6 @@ namespace edu.cmu.sphinx.frontend.transform
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			93,
-			108,
-			104,
-			138,
-			106,
-			108,
-			106,
-			99,
-			126,
-			109,
-			60,
-			168,
-			243,
-			56,
-			233,
-			76
-		})]
 		protected internal virtual double[] applyMelCosine(double[] melspectrum)
 		{
 			double[] array = new double[this.cepstrumSize];
@@ -159,27 +87,9 @@ namespace edu.cmu.sphinx.frontend.transform
 			return array;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			0,
-			102
-		})]
-		
 		public DiscreteCosineTransform()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			5,
-			135,
-			113,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -187,29 +97,11 @@ namespace edu.cmu.sphinx.frontend.transform
 			this.numberMelFilters = ps.getInt("numberFilters");
 			this.cepstrumSize = ps.getInt("cepstrumLength");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			14,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			27,
-			108,
-			117,
-			146
-		})]
 		
 		public override Data getData()
 		{

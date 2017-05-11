@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;
@@ -11,44 +8,13 @@ namespace edu.cmu.sphinx.frontend
 {
 	public class DataBlocker : BaseDataProcessor
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			232,
-			54,
-			171,
-			135,
-			235,
-			70
-		})]
-		
 		public DataBlocker()
 		{
 			this.blockSizeSamples = int.MaxValue;
 			this.sampleRate = -1;
 			this.inBuffer = new LinkedList();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			232,
-			48,
-			171,
-			135,
-			235,
-			76,
-			102,
-			105
-		})]
-		
+	
 		public DataBlocker(double blockSizeMs)
 		{
 			this.blockSizeSamples = int.MaxValue;
@@ -57,74 +23,16 @@ namespace edu.cmu.sphinx.frontend
 			this.initLogger();
 			this.blockSizeMs = blockSizeMs;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			185,
-			103,
-			114
-		})]
 		
 		public override void newProperties(PropertySheet propertySheet)
 		{
 			base.newProperties(propertySheet);
 			this.blockSizeMs = propertySheet.getDouble("blockSizeMs");
 		}
-
 		public virtual double getBlockSizeMs()
 		{
 			return this.blockSizeMs;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			5,
-			121,
-			140,
-			104,
-			113,
-			159,
-			5,
-			103,
-			135,
-			171,
-			104,
-			162,
-			135,
-			109,
-			116,
-			165,
-			140,
-			130,
-			159,
-			1,
-			112,
-			115,
-			105,
-			153,
-			177,
-			110,
-			159,
-			0,
-			111,
-			110,
-			130,
-			101,
-			135,
-			133,
-			255,
-			21,
-			69
-		})]
 		
 		public override Data getData()
 		{
@@ -177,11 +85,6 @@ namespace edu.cmu.sphinx.frontend
 			return new DoubleData(array, this.sampleRate, firstSampleNumber);
 		}
 
-		
-		static DataBlocker()
-		{
-		}
-
 		[S4Double(new object[]
 		{
 			64,
@@ -199,13 +102,10 @@ namespace edu.cmu.sphinx.frontend
 
 		private int sampleRate;
 
-		
-		
 		private LinkedList inBuffer;
 
 		private int curInBufferSize;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<DataBlocker>.Value.desiredAssertionStatus();
 	}
 }

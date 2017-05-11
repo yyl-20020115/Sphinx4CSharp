@@ -118,7 +118,7 @@ namespace edu.cmu.sphinx.util.props
 				ClassNotFoundException ex2;
 				try
 				{
-					Class confClass = Class.forName(propValue, ConfigurationManagerUtils.__<GetCallerID>()).asSubclass(ClassLiteral<Configurable>.Value);
+					Class confClass = Class.forName(propValue, ConfigurationManagerUtils.__GetCallerID()).asSubclass(ClassLiteral<Configurable>.Value);
 					ConfigurationManagerUtils.setClass(cm.getPropertySheet(propName), confClass);
 				}
 				catch (ClassNotFoundException ex)
@@ -1364,13 +1364,13 @@ namespace edu.cmu.sphinx.util.props
 			ConfigurationManagerUtils.jarPattern = Pattern.compile("resource:(.*)", 2);
 		}
 
-		private static CallerID __<GetCallerID>()
+		private static CallerID __GetCallerID()
 		{
-			if (ConfigurationManagerUtils.__<callerID> == null)
+			if (ConfigurationManagerUtils.__callerID == null)
 			{
-				ConfigurationManagerUtils.__<callerID> = new ConfigurationManagerUtils.__<CallerID>();
+				ConfigurationManagerUtils.__callerID = new ConfigurationManagerUtils.__CallerID();
 			}
-			return ConfigurationManagerUtils.__<callerID>;
+			return ConfigurationManagerUtils.__callerID;
 		}
 
 		
@@ -1386,11 +1386,11 @@ namespace edu.cmu.sphinx.util.props
 		
 		internal static bool assertionsDisabled = !ClassLiteral<ConfigurationManagerUtils>.Value.desiredAssertionStatus();
 
-		private static CallerID __<callerID>;
+		private static CallerID __callerID;
 
-		private sealed class __<CallerID> : CallerID
+		private sealed class __CallerID : CallerID
 		{
-			internal __<CallerID>()
+			internal __CallerID()
 			{
 			}
 		}

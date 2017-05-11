@@ -1,45 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
 	public class PLPFilter : java.lang.Object
 	{
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			13,
-			136,
-			134,
-			104,
-			105,
-			143,
-			149,
-			208,
-			145,
-			174,
-			114,
-			108,
-			114,
-			108,
-			127,
-			8,
-			108,
-			111,
-			108,
-			159,
-			15,
-			237,
-			51,
-			233,
-			79
-		})]
-		
 		public PLPFilter(double[] DFTFrequenciesInHz, double centerFreqInHz)
 		{
 			FrequencyWarper frequencyWarper = new FrequencyWarper();
@@ -78,23 +42,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			58,
-			106,
-			255,
-			28,
-			69,
-			102,
-			107,
-			48,
-			166
-		})]
 		
 		public virtual double filterOutput(double[] spectrum)
 		{
@@ -111,7 +58,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return num;
 		}
-
 		
 		public double centerFreqInHz
 		{
@@ -126,7 +72,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				this.__centerFreqInHz = value;
 			}
 		}
-
 		
 		public double centerFreqInBark
 		{
@@ -143,7 +88,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 		}
 
 		private double[] filterCoefficients;
-
 		
 		private int numDFTPoints;
 

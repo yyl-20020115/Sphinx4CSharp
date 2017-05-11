@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -11,28 +8,6 @@ namespace edu.cmu.sphinx.frontend
 {
 	public class FrontEnd : BaseDataProcessor
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			115,
-			145,
-			103,
-			127,
-			1,
-			149,
-			104,
-			140,
-			104,
-			135,
-			103,
-			98,
-			102
-		})]
-		
 		private void init()
 		{
 			this.timer = TimerPool.getTimer(this, "Frontend");
@@ -59,17 +34,6 @@ namespace edu.cmu.sphinx.frontend
 			this.initialize();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			74,
-			102,
-			127,
-			1,
-			102,
-			98
-		})]
-		
 		public override void initialize()
 		{
 			base.initialize();
@@ -80,16 +44,7 @@ namespace edu.cmu.sphinx.frontend
 				dataProcessor.initialize();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			156,
-			127,
-			6,
-			105
-		})]
-		
+	
 		protected internal virtual void fireSignalListeners(Signal signal)
 		{
 			Iterator iterator = new ArrayList(this.signalListeners).iterator();
@@ -99,30 +54,12 @@ namespace edu.cmu.sphinx.frontend
 				signalListener.signalOccurred(signal);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			88,
-			108
-		})]
 		
 		public virtual void setDataSource(DataProcessor dataSource)
 		{
 			this.first.setPredecessor(dataSource);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			94,
-			8,
-			171,
-			102,
-			103,
-			102
-		})]
-		
+	
 		public FrontEnd(List frontEndList)
 		{
 			this.signalListeners = new ArrayList();
@@ -130,61 +67,24 @@ namespace edu.cmu.sphinx.frontend
 			this.frontEndList = frontEndList;
 			this.init();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			100,
-			232,
-			56,
-			235,
-			74
-		})]
-		
+	
 		public FrontEnd()
 		{
 			this.signalListeners = new ArrayList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			109,
-			103,
-			118,
-			102
-		})]
-		
+	
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.frontEndList = ps.getComponentList("pipeline", ClassLiteral<DataProcessor>.Value);
 			this.init();
 		}
-
 		
 		public virtual List getElements()
 		{
 			return this.frontEndList;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			107,
-			107,
-			172,
-			104,
-			140,
-			108
-		})]
-		
+	
 		public override Data getData()
 		{
 			this.timer.start();
@@ -195,38 +95,16 @@ namespace edu.cmu.sphinx.frontend
 			}
 			this.timer.stop();
 			return data;
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			126,
-			103
-		})]
-		
+		}		
 		public override void setPredecessor(DataProcessor dataSource)
 		{
 			this.setDataSource(dataSource);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			136,
-			109
-		})]
-		
 		public virtual void addSignalListener(SignalListener listener)
 		{
 			this.signalListeners.add(listener);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			146,
-			109
-		})]
 		
 		public virtual void removeSignalListener(SignalListener listener)
 		{
@@ -237,23 +115,6 @@ namespace edu.cmu.sphinx.frontend
 		{
 			return this.last;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			177,
-			104,
-			127,
-			1,
-			102,
-			106,
-			39,
-			137,
-			118,
-			124,
-			117,
-			110
-		})]
 		
 		public override string toString()
 		{
@@ -277,11 +138,6 @@ namespace edu.cmu.sphinx.frontend
 			return stringBuilder.append('}').toString();
 		}
 
-		
-		static FrontEnd()
-		{
-		}
-
 		[S4ComponentList(new object[]
 		{
 			64,
@@ -298,16 +154,13 @@ namespace edu.cmu.sphinx.frontend
 		
 		private List frontEndList;
 
-		private Timer timer;
+		private sphinx.util.Timer timer;
 
 		private DataProcessor first;
 
 		private DataProcessor last;
-
-		
 		
 		private List signalListeners;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<FrontEnd>.Value.desiredAssertionStatus();
 	}

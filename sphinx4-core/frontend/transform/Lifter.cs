@@ -1,47 +1,15 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.transform
 {
 	public class Lifter : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			104,
-			102,
-			103
-		})]
-		
+	{		
 		public Lifter(int lifterValue)
 		{
 			this.initLogger();
 			this.lifterValue = lifterValue;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			31,
-			135,
-			104,
-			104,
-			104,
-			106,
-			255,
-			28,
-			70,
-			103,
-			48,
-			166
-		})]
 		
 		private void liftCepstrum(DoubleData doubleData)
 		{
@@ -62,17 +30,6 @@ namespace edu.cmu.sphinx.frontend.transform
 				values[i] *= this.lifterWeights[i];
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			52,
-			113,
-			107,
-			127,
-			10,
-			9,
-			198
-		})]
 		
 		private void computeLifterWeights()
 		{
@@ -82,58 +39,21 @@ namespace edu.cmu.sphinx.frontend.transform
 				this.lifterWeights[i] = (double)1f + (double)(this.lifterValue / 2) * java.lang.Math.sin((double)i * 3.1415926535897931 / (double)this.lifterValue);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			102
-		})]
 		
 		public Lifter()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			103,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.lifterValue = ps.getInt("lifterValue");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			2,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			16,
-			108,
-			107,
-			140
-		})]
 		
 		public override Data getData()
 		{

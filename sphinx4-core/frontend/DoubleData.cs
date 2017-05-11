@@ -1,36 +1,16 @@
-﻿using System;
-using System.ComponentModel;
-
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.util.machlearn;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.frontend.Data"
-	})]
-	[Serializable]
 	public class DoubleData : OVector, Data
 	{
 		public virtual long getFirstSampleNumber()
 		{
 			return this.firstSampleNumber;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			137,
-			103,
-			122,
-			103
-		})]
 		
 		public DoubleData(double[] values, int sampleRate, long firstSampleNumber) : base(values)
 		{
@@ -40,23 +20,8 @@ namespace edu.cmu.sphinx.frontend
 			this.collectTime = ((num2 != -1L) ? (num / num2) : (-num));
 			this.firstSampleNumber = firstSampleNumber;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			60,
-			108,
-			108,
-			108,
-			108,
-			119,
-			97
-		})]
 		
-		public virtual DoubleData clone()
+		public new virtual DoubleData clone()
 		{
 			DoubleData result;
 			CloneNotSupportedException ex2;
@@ -70,36 +35,14 @@ namespace edu.cmu.sphinx.frontend
 			}
 			catch (CloneNotSupportedException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<CloneNotSupportedException>(ex, 1);
-				goto IL_43;
+				throw new InternalError(Throwable.instancehelper_toString(ex));
 			}
 			return result;
-			IL_43:
-			CloneNotSupportedException ex3 = ex2;
-			string text = Throwable.instancehelper_toString(ex3);
-			
-			throw new InternalError(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			175,
-			103
-		})]
 		
 		public DoubleData(double[] values) : base(values)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			13,
-			137,
-			103,
-			103,
-			104
-		})]
 		
 		public DoubleData(double[] values, int sampleRate, long collectTime, long firstSampleNumber) : base(values)
 		{
@@ -107,8 +50,6 @@ namespace edu.cmu.sphinx.frontend
 			this.collectTime = collectTime;
 			this.firstSampleNumber = firstSampleNumber;
 		}
-
-		
 		
 		public override string toString()
 		{
@@ -124,20 +65,6 @@ namespace edu.cmu.sphinx.frontend
 		{
 			return this.collectTime;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		
-		
-		public virtual object <bridge>clone()
-		{
-			return this.clone();
-		}
-
 		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected DoubleData(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)

@@ -1,24 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.transform
 {
 	public class DiscreteFourierTransform : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			74,
-			108,
-			114,
-			102,
-			107,
-			107
-		})]
-		
+	{		
 		private void initializeFFT()
 		{
 			this.computeLogBase2(this.numberFftPoints);
@@ -27,23 +14,6 @@ namespace edu.cmu.sphinx.frontend.transform
 			this.weightFftTimesFrom2 = new Complex();
 			this.tempComplex = new Complex();
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			104,
-			103,
-			134,
-			114,
-			31,
-			6,
-			244,
-			70
-		})]
 		
 		private void computeLogBase2(int num)
 		{
@@ -63,22 +33,6 @@ namespace edu.cmu.sphinx.frontend.transform
 				this.logBase2NumberFftPoints++;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			82,
-			130,
-			238,
-			70,
-			110,
-			99,
-			163,
-			104,
-			63,
-			0,
-			166
-		})]
 		
 		private void createWeightFft(int num, bool flag)
 		{
@@ -93,21 +47,6 @@ namespace edu.cmu.sphinx.frontend.transform
 				this.weightFft[i] = new Complex(java.lang.Math.cos(num2 * (double)i), java.lang.Math.sin(num2 * (double)i));
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			85,
-			113,
-			113,
-			145,
-			107,
-			109,
-			109,
-			237,
-			61,
-			230,
-			69
-		})]
 		
 		private void initComplexArrays()
 		{
@@ -121,31 +60,6 @@ namespace edu.cmu.sphinx.frontend.transform
 				this.to[i] = new Complex();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			53,
-			99,
-			99,
-			136,
-			227,
-			70,
-			102,
-			109,
-			17,
-			230,
-			73,
-			246,
-			70,
-			106,
-			104,
-			49,
-			200,
-			104,
-			49,
-			198
-		})]
 		
 		private void recurseFft(Complex[] array, double[] array2, int num, bool flag)
 		{
@@ -179,18 +93,6 @@ namespace edu.cmu.sphinx.frontend.transform
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			204,
-			130,
-			100,
-			100,
-			100,
-			191,
-			6
-		})]
 		
 		private static int getNumberFftPoints(int num)
 		{
@@ -207,45 +109,6 @@ namespace edu.cmu.sphinx.frontend.transform
 			}
 			return i;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			115,
-			135,
-			109,
-			98,
-			105,
-			53,
-			166,
-			101,
-			115,
-			127,
-			23,
-			229,
-			61,
-			230,
-			69,
-			98,
-			98,
-			101,
-			53,
-			166,
-			105,
-			45,
-			230,
-			72,
-			240,
-			69,
-			249,
-			69,
-			98,
-			102,
-			139
-		})]
 		
 		private DoubleData process(DoubleData doubleData)
 		{
@@ -288,39 +151,6 @@ namespace edu.cmu.sphinx.frontend.transform
 			this.recurseFft(this.inputFrame, array3, this.numberFftPoints, this.invert);
 			return new DoubleData(array3, doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			46,
-			136,
-			133,
-			106,
-			98,
-			101,
-			99,
-			103,
-			99,
-			234,
-			69,
-			114,
-			229,
-			69,
-			109,
-			229,
-			69,
-			109,
-			101,
-			100,
-			100,
-			103,
-			103,
-			236,
-			35,
-			233,
-			105,
-			141
-		})]
 		
 		private void butterflyStage(Complex[] array, Complex[] array2, int num, int num2)
 		{
@@ -347,18 +177,6 @@ namespace edu.cmu.sphinx.frontend.transform
 				this.butterflyStage(array2, array, num, num2 >> 1);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			123,
-			98,
-			104,
-			102,
-			103,
-			109,
-			103
-		})]
 		
 		public DiscreteFourierTransform(int numberFftPoints, bool invert)
 		{
@@ -367,30 +185,10 @@ namespace edu.cmu.sphinx.frontend.transform
 			this.isNumberFftPointsSet = (numberFftPoints != -1);
 			this.invert = invert;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			34,
-			102
-		})]
 		
 		public DiscreteFourierTransform()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			44,
-			103,
-			108,
-			113,
-			114,
-			118
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -400,14 +198,6 @@ namespace edu.cmu.sphinx.frontend.transform
 			this.isNumberFftPointsSet = (this.numberFftPoints != -1);
 			this.invert = ps.getBoolean("invert").booleanValue();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			57,
-			102,
-			104,
-			134
-		})]
 		
 		public override void initialize()
 		{
@@ -417,35 +207,6 @@ namespace edu.cmu.sphinx.frontend.transform
 				this.initializeFFT();
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			155,
-			140,
-			123,
-			108,
-			232,
-			70,
-			114,
-			109,
-			113,
-			235,
-			70,
-			111,
-			109,
-			108,
-			105,
-			255,
-			34,
-			70,
-			232,
-			72
-		})]
 		
 		public override Data getData()
 		{

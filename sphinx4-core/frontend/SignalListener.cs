@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.frontend
+﻿namespace edu.cmu.sphinx.frontend
 {
 	public interface SignalListener
 	{

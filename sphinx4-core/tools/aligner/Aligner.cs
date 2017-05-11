@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.api;
+﻿using edu.cmu.sphinx.api;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 using java.util;
@@ -94,25 +91,10 @@ namespace edu.cmu.sphinx.tools.aligner
 			audioInputStream.close();
 			audioInputStream2.close();
 		}
-
-		
 		
 		public Aligner()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.Exception"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			110,
-			114,
-			122
-		})]
 		
 		public static void main(string[] args)
 		{

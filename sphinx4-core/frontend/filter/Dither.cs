@@ -1,63 +1,24 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using java.lang;
-using java.util;
 
 namespace edu.cmu.sphinx.frontend.filter
 {
 	public class Dither : BaseDataProcessor
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			33,
-			102,
-			104,
-			141,
-			113
-		})]
-		
 		public override void initialize()
 		{
 			base.initialize();
 			if (this.useRandSeed)
 			{
-				this.r = new Random();
+				this.r = new java.util.Random();
 			}
 			else
 			{
-				this.r = new Random((long)((ulong)12345));
+				this.r = new java.util.Random((long)((ulong)12345));
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			70,
-			186,
-			103,
-			103,
-			104,
-			103,
-			127,
-			10,
-			29,
-			230,
-			69,
-			104,
-			140
-		})]
-		
+	
 		private DoubleData process(Data data)
 		{
 			if (!Dither.assertionsDisabled && !(data is DoubleData))
@@ -75,20 +36,6 @@ namespace edu.cmu.sphinx.frontend.filter
 			}
 			return new DoubleData(array, doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			129,
-			162,
-			104,
-			134,
-			105,
-			135,
-			105,
-			106,
-			102
-		})]
 		
 		public Dither(double ditherMax, bool useRandSeed, double maxValue, double minValue)
 		{
@@ -99,30 +46,10 @@ namespace edu.cmu.sphinx.frontend.filter
 			this.minValue = minValue;
 			this.initialize();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			16,
-			134
-		})]
-		
+	
 		public Dither()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			22,
-			135,
-			114,
-			150,
-			114,
-			114
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -132,20 +59,7 @@ namespace edu.cmu.sphinx.frontend.filter
 			this.maxValue = ps.getDouble("upperValueBound");
 			this.minValue = ps.getDouble("lowerValueBound");
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			50,
-			108,
-			117,
-			122,
-			173
-		})]
-		
+	
 		public override Data getData()
 		{
 			object obj = this.getPredecessor().getData();
@@ -167,11 +81,6 @@ namespace edu.cmu.sphinx.frontend.filter
 				result = null;
 			}
 			return result;
-		}
-
-		
-		static Dither()
-		{
 		}
 
 		[S4Double(new object[]
@@ -218,9 +127,8 @@ namespace edu.cmu.sphinx.frontend.filter
 
 		private bool useRandSeed;
 
-		internal Random r;
+		internal java.util.Random r;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<Dither>.Value.desiredAssertionStatus();
 	}
 }

@@ -1,81 +1,25 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 
 namespace edu.cmu.sphinx.frontend
 {
 	public class GainControlProcessor : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			162,
-			104,
-			102,
-			105
-		})]
-		
+	{		
 		public GainControlProcessor(double gainFactor)
 		{
 			this.initLogger();
 			this.gainFactor = gainFactor;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			167,
-			102
-		})]
 		
 		public GainControlProcessor()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			177,
-			103,
-			114
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.gainFactor = ps.getDouble("gainFactor");
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			184,
-			140,
-			104,
-			108,
-			141,
-			103,
-			54,
-			230,
-			70,
-			106,
-			109,
-			141,
-			104,
-			54,
-			230,
-			71
-		})]
-		
+	
 		public override Data getData()
 		{
 			Data data = this.getPredecessor().getData();
@@ -109,7 +53,6 @@ namespace edu.cmu.sphinx.frontend
 			}
 			return data;
 		}
-
 		public virtual double getGainFactor()
 		{
 			return this.gainFactor;

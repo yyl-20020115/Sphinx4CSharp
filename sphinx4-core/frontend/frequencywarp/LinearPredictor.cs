@@ -1,27 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.lang;
+﻿using IKVM.Runtime;
 using java.util;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
 	public class LinearPredictor : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			180,
-			104,
-			167,
-			103,
-			103,
-			108,
-			103,
-			103
-		})]
-		
 		public LinearPredictor(int order)
 		{
 			this.order = order;
@@ -32,43 +15,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.bilinearCepstra = null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			9,
-			106,
-			130,
-			115,
-			115,
-			142,
-			106,
-			113,
-			109,
-			112,
-			159,
-			6,
-			110,
-			102,
-			45,
-			166,
-			109,
-			102,
-			63,
-			3,
-			166,
-			154,
-			102,
-			63,
-			1,
-			166,
-			112,
-			127,
-			6,
-			109,
-			226,
-			48,
-			233,
-			83
-		})]
 		public virtual double[] getARFilter(double[] autocor)
 		{
 			if (autocor[0] == (double)0f)
@@ -120,27 +66,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			return this.ARParameters;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			53,
-			159,
-			9,
-			103,
-			145,
-			105,
-			104,
-			62,
-			168,
-			232,
-			60,
-			233,
-			70,
-			109,
-			102,
-			45,
-			166
-		})]
-		
 		public virtual double[] reflectionCoeffsToARParameters(double[] RC, int lpcorder)
 		{
 			int num = lpcorder + 1;
@@ -168,37 +93,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return this.ARParameters;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			85,
-			100,
-			162,
-			103,
-			145,
-			116,
-			105,
-			167,
-			145,
-			123,
-			109,
-			102,
-			60,
-			166,
-			238,
-			59,
-			233,
-			71,
-			108,
-			102,
-			107,
-			60,
-			166,
-			238,
-			59,
-			233,
-			71
-		})]
 		
 		public virtual double[] getData(int ceporder)
 		{
@@ -236,35 +130,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return this.cepstra;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			65,
-			191,
-			10,
-			146,
-			107,
-			104,
-			118,
-			104,
-			50,
-			200,
-			114,
-			119,
-			127,
-			8,
-			104,
-			63,
-			11,
-			232,
-			61,
-			235,
-			72,
-			104,
-			47,
-			200
-		})]
 		
 		public virtual double[] getBilinearCepstra(double warp, int nbilincepstra)
 		{
@@ -310,7 +175,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 
 		private double[] cepstra;
 
-		
 		private double[] bilinearCepstra;
 	}
 }

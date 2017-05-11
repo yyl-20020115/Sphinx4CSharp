@@ -237,7 +237,7 @@ namespace edu.cmu.sphinx.util.props
 						{
 							try
 							{
-								Class @class = Class.forName(className, ConfigurationManager.__<GetCallerID>());
+								Class @class = Class.forName(className, ConfigurationManager.__GetCallerID());
 								PropertySheet.__<clinit>();
 								PropertySheet propertySheet = new PropertySheet(@class.asSubclass(ClassLiteral<Configurable>.Value), instanceName, this, rawPropertyData);
 								this.symbolTable.put(instanceName, propertySheet);
@@ -977,13 +977,13 @@ namespace edu.cmu.sphinx.util.props
 		{
 		}
 
-		private static CallerID __<GetCallerID>()
+		private static CallerID __GetCallerID()
 		{
-			if (ConfigurationManager.__<callerID> == null)
+			if (ConfigurationManager.__callerID == null)
 			{
-				ConfigurationManager.__<callerID> = new ConfigurationManager.__<CallerID>();
+				ConfigurationManager.__callerID = new ConfigurationManager.__CallerID();
 			}
-			return ConfigurationManager.__<callerID>;
+			return ConfigurationManager.__callerID;
 		}
 
 		
@@ -1013,11 +1013,11 @@ namespace edu.cmu.sphinx.util.props
 		
 		internal static bool assertionsDisabled = !ClassLiteral<ConfigurationManager>.Value.desiredAssertionStatus();
 
-		private static CallerID __<callerID>;
+		private static CallerID __callerID;
 
-		private sealed class __<CallerID> : CallerID
+		private sealed class __CallerID : CallerID
 		{
-			internal __<CallerID>()
+			internal __CallerID()
 			{
 			}
 		}

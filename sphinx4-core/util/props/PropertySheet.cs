@@ -679,7 +679,7 @@ namespace edu.cmu.sphinx.util.props
 							
 							throw new InternalConfigurationException(text, text2, text3);
 						}
-						this.owner = (Configurable)this.ownerClass.newInstance(PropertySheet.__<GetCallerID>());
+						this.owner = (Configurable)this.ownerClass.newInstance(PropertySheet.__GetCallerID());
 						this.owner.newProperties(this);
 					}
 				}
@@ -1211,7 +1211,7 @@ namespace edu.cmu.sphinx.util.props
 				IllegalAccessException ex2;
 				try
 				{
-					string text2 = (string)((Field)entry.getKey()).get(null, PropertySheet.__<GetCallerID>());
+					string text2 = (string)((Field)entry.getKey()).get(null, PropertySheet.__GetCallerID());
 					if (!PropertySheet.assertionsDisabled && hashSet.contains(text2))
 					{
 						object obj = new StringBuilder().append("duplicate property-name for different properties: ").append(text2).append(" for the class ").append(@class).toString();
@@ -1267,7 +1267,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		private static Map parseClass(Class @class)
 		{
-			Field[] fields = @class.getFields(PropertySheet.__<GetCallerID>());
+			Field[] fields = @class.getFields(PropertySheet.__GetCallerID());
 			HashMap hashMap = new HashMap();
 			Field[] array = fields;
 			int num = array.Length;
@@ -1611,7 +1611,7 @@ namespace edu.cmu.sphinx.util.props
 			{
 				try
 				{
-					Class @class = Class.forName((string)this.propValues.get(propName), PropertySheet.__<GetCallerID>());
+					Class @class = Class.forName((string)this.propValues.get(propName), PropertySheet.__GetCallerID());
 					result = @class.asSubclass(ClassLiteral<Configurable>.Value);
 				}
 				catch (ClassNotFoundException ex)
@@ -1678,13 +1678,13 @@ namespace edu.cmu.sphinx.util.props
 		{
 		}
 
-		private static CallerID __<GetCallerID>()
+		private static CallerID __GetCallerID()
 		{
-			if (PropertySheet.__<callerID> == null)
+			if (PropertySheet.__callerID == null)
 			{
-				PropertySheet.__<callerID> = new PropertySheet.__<CallerID>();
+				PropertySheet.__callerID = new PropertySheet.__CallerID();
 			}
-			return PropertySheet.__<callerID>;
+			return PropertySheet.__callerID;
 		}
 
 		
@@ -1718,11 +1718,11 @@ namespace edu.cmu.sphinx.util.props
 		
 		internal static bool assertionsDisabled = !ClassLiteral<PropertySheet>.Value.desiredAssertionStatus();
 
-		private static CallerID __<callerID>;
+		private static CallerID __callerID;
 
-		private sealed class __<CallerID> : CallerID
+		private sealed class __CallerID : CallerID
 		{
-			internal __<CallerID>()
+			internal __CallerID()
 			{
 			}
 		}

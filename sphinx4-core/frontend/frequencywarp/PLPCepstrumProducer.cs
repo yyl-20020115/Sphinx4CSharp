@@ -1,31 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using IKVM.Runtime;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
 	public class PLPCepstrumProducer : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			39,
-			159,
-			22,
-			147,
-			107,
-			145,
-			109,
-			63,
-			2,
-			232,
-			61,
-			233,
-			71
-		})]
-		
+	{		
 		private void computeCosine()
 		{
 			int num = this.LPCOrder + 1;
@@ -46,28 +26,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			102,
-			135,
-			106,
-			255,
-			28,
-			71,
-			168,
-			136,
-			140,
-			136,
-			142,
-			99,
-			102,
-			140
-		})]
 		
 		private Data process(DoubleData doubleData)
 		{
@@ -85,15 +43,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			double[] data = linearPredictor.getData(this.cepstrumSize);
 			return new DoubleData(data, doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			61,
-			136,
-			103,
-			53,
-			166
-		})]
 		
 		private double[] powerLawCompress(double[] array)
 		{
@@ -105,26 +54,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			return array2;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			75,
-			110,
-			104,
-			170,
-			142,
-			108,
-			106,
-			99,
-			158,
-			109,
-			60,
-			168,
-			243,
-			54,
-			233,
-			78
-		})]
 		private double[] applyCosine(double[] array)
 		{
 			double[] array2 = new double[this.LPCOrder + 1];
@@ -155,16 +84,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return array2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			104,
-			102,
-			103,
-			103,
-			103
-		})]
 		
 		public PLPCepstrumProducer(int numberPLPFilters, int cepstrumSize, int LPCOrder)
 		{
@@ -173,29 +92,10 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.cepstrumSize = cepstrumSize;
 			this.LPCOrder = LPCOrder;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			12,
-			102
-		})]
 		
 		public PLPCepstrumProducer()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			22,
-			103,
-			113,
-			113,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -204,34 +104,13 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.cepstrumSize = ps.getInt("cepstrumLength");
 			this.LPCOrder = ps.getInt("lpcOrder");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			32,
-			102,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 			this.computeCosine();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			80,
-			108,
-			130,
-			99,
-			104,
-			205
-		})]
-		
+	
 		public override Data getData()
 		{
 			Data data = this.getPredecessor().getData();

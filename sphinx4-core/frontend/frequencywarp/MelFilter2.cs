@@ -1,38 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
 	public class MelFilter2 : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			104,
-			98,
-			99,
-			103,
-			104,
-			137,
-			109,
-			111,
-			113,
-			105,
-			163,
-			112,
-			115,
-			227,
-			55,
-			235,
-			77,
-			103,
-			113
-		})]
-		
+	{		
 		public MelFilter2(double center, double delta, double[] melPoints)
 		{
 			int num = 0;
@@ -57,15 +28,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.offset = num2;
 			this.weights = Arrays.copyOfRange(array, num2, num + 1);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			23,
-			102,
-			108,
-			55,
-			166
-		})]
 		public virtual double apply(double[] powerSpectrum)
 		{
 			double num = (double)0f;
@@ -75,10 +37,8 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return num;
 		}
-
 		
 		private int offset;
-
 		
 		private double[] weights;
 	}

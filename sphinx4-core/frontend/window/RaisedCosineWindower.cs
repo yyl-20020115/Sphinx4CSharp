@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;
@@ -12,32 +9,7 @@ using java.util;
 namespace edu.cmu.sphinx.frontend.window
 {
 	public class RaisedCosineWindower : BaseDataProcessor
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			69,
-			113,
-			161,
-			135,
-			109,
-			140,
-			146,
-			106,
-			110,
-			108,
-			127,
-			10,
-			9,
-			230,
-			70,
-			108
-		})]
-		
+	{		
 		private void createWindow(int num)
 		{
 			if (this.cosineWindow != null && num == this.sampleRate)
@@ -58,50 +30,6 @@ namespace edu.cmu.sphinx.frontend.window
 			}
 			this.overflowBuffer = new DoubleBuffer(samplesPerWindow);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			105,
-			103,
-			143,
-			102,
-			136,
-			162,
-			109,
-			109,
-			105,
-			110,
-			146,
-			114,
-			99,
-			162,
-			142,
-			133,
-			163,
-			136,
-			168,
-			127,
-			0,
-			173,
-			127,
-			0,
-			105,
-			111,
-			104,
-			194,
-			171,
-			107,
-			103,
-			148,
-			131,
-			102,
-			141
-		})]
 		
 		private void process(DoubleData doubleData)
 		{
@@ -156,17 +84,6 @@ namespace edu.cmu.sphinx.frontend.window
 				this.outputQueue.add(data);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			169,
-			110,
-			114,
-			103,
-			114,
-			139
-		})]
 		
 		private void processUtteranceEnd()
 		{
@@ -177,34 +94,6 @@ namespace edu.cmu.sphinx.frontend.window
 				this.overflowBuffer.reset();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			192,
-			106,
-			109,
-			106,
-			99,
-			98,
-			98,
-			212,
-			159,
-			12,
-			131,
-			139,
-			167,
-			110,
-			52,
-			238,
-			69,
-			191,
-			0,
-			244,
-			51,
-			246,
-			80
-		})]
 		
 		private int applyRaisedCosineWindow(double[] array, int num)
 		{
@@ -262,16 +151,6 @@ namespace edu.cmu.sphinx.frontend.window
 			}
 			return num4;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			33,
-			104,
-			102,
-			105,
-			104,
-			104
-		})]
 		
 		public RaisedCosineWindower(double alpha, float windowSizeInMs, float windowShiftInMs)
 		{
@@ -280,29 +159,10 @@ namespace edu.cmu.sphinx.frontend.window
 			this.windowSizeInMs = windowSizeInMs;
 			this.windowShiftInMs = windowShiftInMs;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			40,
-			134
-		})]
 		
 		public RaisedCosineWindower()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			46,
-			135,
-			114,
-			113,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -311,58 +171,12 @@ namespace edu.cmu.sphinx.frontend.window
 			this.windowSizeInMs = ps.getFloat("windowSizeInMs");
 			this.windowShiftInMs = ps.getFloat("windowShiftInMs");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			56,
-			166,
-			107
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 			this.outputQueue = new LinkedList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			103,
-			112,
-			140,
-			102,
-			104,
-			167,
-			106,
-			236,
-			69,
-			172,
-			103,
-			101,
-			104,
-			135,
-			204,
-			103,
-			119,
-			184,
-			104,
-			138,
-			106,
-			144,
-			166,
-			237,
-			69,
-			109,
-			114,
-			104,
-			191,
-			8,
-			130
-		})]
 		
 		public override Data getData()
 		{
@@ -417,15 +231,6 @@ namespace edu.cmu.sphinx.frontend.window
 			}
 			return data;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			0,
-			109,
-			159,
-			6
-		})]
 		
 		public virtual float getWindowShiftInMs()
 		{
@@ -437,25 +242,10 @@ namespace edu.cmu.sphinx.frontend.window
 			}
 			return this.windowShiftInMs;
 		}
-
 		public virtual int getSampleRate()
 		{
 			return this.sampleRate;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			19,
-			114,
-			146,
-			142,
-			99,
-			136,
-			102,
-			233,
-			60
-		})]
 		
 		public virtual long roundToFrames(long samples)
 		{
@@ -474,11 +264,6 @@ namespace edu.cmu.sphinx.frontend.window
 				num3 += -1;
 			}
 			return (long)(samplesPerShift * (num3 + 1) + samplesPerWindow);
-		}
-
-		
-		static RaisedCosineWindower()
-		{
 		}
 
 		[S4Double(new object[]
@@ -531,7 +316,6 @@ namespace edu.cmu.sphinx.frontend.window
 
 		private int sampleRate;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<RaisedCosineWindower>.Value.desiredAssertionStatus();
 	}
 }

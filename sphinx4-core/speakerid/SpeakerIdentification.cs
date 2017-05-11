@@ -3,7 +3,6 @@
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -16,17 +15,6 @@ namespace edu.cmu.sphinx.speakerid
 {
 	public class SpeakerIdentification : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			120,
-			102,
-			113,
-			103,
-			103,
-			44,
-			134
-		})]
-		
 		public static double getBICValue(Array2DRowRealMatrix mat)
 		{
 			double num = (double)0f;
@@ -38,19 +26,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			return num * (double)(mat.getRowDimension() / 2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			49,
-			99,
-			127,
-			24,
-			142,
-			117,
-			117,
-			106,
-			106
-		})]
 		
 		internal virtual double getLikelihoodRatio(double num, int num2, Array2DRowRealMatrix array2DRowRealMatrix)
 		{
@@ -64,25 +39,6 @@ namespace edu.cmu.sphinx.speakerid
 			double num6 = SpeakerIdentification.getBICValue(mat2);
 			return num - num5 - num6 - num4;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			72,
-			106,
-			106,
-			151,
-			105,
-			108,
-			110,
-			101,
-			99,
-			227,
-			60,
-			232,
-			71,
-			104,
-			102
-		})]
 		
 		private int getPoint(int num, int num2, int num3, Array2DRowRealMatrix array2DRowRealMatrix)
 		{
@@ -106,40 +62,10 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			return num5 + num;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			3,
-			134,
-			98,
-			108,
-			107,
-			104,
-			108,
-			100,
-			131,
-			105,
-			105,
-			42,
-			168,
-			105,
-			106,
-			109,
-			100,
-			164,
-			137,
-			223,
-			9,
-			2,
-			98,
-			135
-		})]
 		
 		private ArrayList getFeatures()
 		{
 			ArrayList arrayList = new ArrayList();
-			Exception ex3;
 			try
 			{
 				int num = -1;
@@ -172,71 +98,13 @@ namespace edu.cmu.sphinx.speakerid
 					data = this.frontEnd.getData();
 				}
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_B3;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return arrayList;
-			IL_B3:
-			Exception ex4 = ex3;
-			Throwable.instancehelper_printStackTrace(ex4);
 			return arrayList;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			79,
-			102,
-			110,
-			104,
-			103,
-			114,
-			107,
-			114,
-			148,
-			150,
-			119,
-			100,
-			101,
-			168,
-			106,
-			137,
-			103,
-			134,
-			105,
-			105,
-			102,
-			17,
-			40,
-			200,
-			144,
-			108,
-			105,
-			117,
-			110,
-			100,
-			228,
-			60,
-			40,
-			235,
-			73,
-			101,
-			130,
-			127,
-			0,
-			109,
-			105,
-			102,
-			101
-		})]
 		
 		public virtual ArrayList cluster(ArrayList features)
 		{
@@ -296,25 +164,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			191,
-			110,
-			104,
-			98,
-			102,
-			103,
-			104,
-			52,
-			136,
-			232,
-			60,
-			230,
-			70
-		})]
 		
 		internal virtual Array2DRowRealMatrix ArrayToRealMatrix(ArrayList arrayList, int num)
 		{
@@ -331,24 +180,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			return array2DRowRealMatrix;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			96,
-			102,
-			109,
-			109,
-			101,
-			101,
-			116,
-			101,
-			99,
-			101,
-			144,
-			136,
-			109
-		})]
 		
 		private LinkedList getAllChangingPoints(Array2DRowRealMatrix array2DRowRealMatrix)
 		{
@@ -375,23 +206,6 @@ namespace edu.cmu.sphinx.speakerid
 			linkedList.add(Integer.valueOf(rowDimension));
 			return linkedList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			160,
-			103,
-			104,
-			105,
-			102,
-			127,
-			7,
-			16,
-			38,
-			233,
-			70
-		})]
 		
 		internal virtual Array2DRowRealMatrix updateDistances(ArrayList arrayList)
 		{
@@ -407,29 +221,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			return array2DRowRealMatrix;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			141,
-			103,
-			102,
-			127,
-			8,
-			18,
-			198,
-			104,
-			102,
-			52,
-			38,
-			198,
-			102,
-			104,
-			52,
-			38,
-			166
-		})]
 		
 		internal virtual void updateDistances(ArrayList arrayList, int num, int num2, Array2DRowRealMatrix array2DRowRealMatrix)
 		{
@@ -454,23 +245,6 @@ namespace edu.cmu.sphinx.speakerid
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			172,
-			120,
-			108,
-			104,
-			115,
-			114,
-			38,
-			133,
-			104,
-			107,
-			127,
-			29
-		})]
 		
 		internal virtual double computeDistance(SpeakerCluster speakerCluster, SpeakerCluster speakerCluster2)
 		{
@@ -484,20 +258,6 @@ namespace edu.cmu.sphinx.speakerid
 			double num3 = 0.5 * (num2 + 0.5 * num2 * (num2 + (double)1f)) * java.lang.Math.log((double)array2DRowRealMatrix.getRowDimension()) * 2.0;
 			return num - speakerCluster.getBicValue() - speakerCluster2.getBicValue() - num3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			232,
-			58,
-			235,
-			71,
-			113,
-			108,
-			123,
-			123
-		})]
 		
 		public SpeakerIdentification()
 		{
@@ -507,37 +267,13 @@ namespace edu.cmu.sphinx.speakerid
 			this.audioSource = (StreamDataSource)this.cm.lookup("streamDataSource");
 			this.frontEnd = (FrontEnd)this.cm.lookup("plpFrontEnd");
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			69,
-			108,
-			103
-		})]
-		
+				
 		public virtual ArrayList cluster(InputStream stream)
 		{
 			this.audioSource.setInputStream(stream);
 			ArrayList features = this.getFeatures();
 			return this.cluster(features);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			204,
-			107,
-			107,
-			63,
-			12,
-			134,
-			234,
-			61,
-			230,
-			69
-		})]
 		
 		internal virtual void printMatrix(Array2DRowRealMatrix array2DRowRealMatrix)
 		{
@@ -550,7 +286,6 @@ namespace edu.cmu.sphinx.speakerid
 				java.lang.System.@out.println();
 			}
 		}
-
 		
 		public string FRONTEND_NAME
 		{

@@ -1,10 +1,8 @@
 ﻿using System;
-
 using edu.cmu.sphinx.decoder;
 using edu.cmu.sphinx.instrumentation;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -172,45 +170,27 @@ namespace edu.cmu.sphinx.recognizer
 
 		private Recognizer.State currentState;
 
-		
-		
 		private List stateListeners;
-
 		
 		private List monitors;
 
-		
-				
 		[Serializable]
 		public sealed class State : java.lang.Enum
-		{
-			
-			
-			
+		{			
 			private State(string text, int num) : base(text, num)
 			{
 				GC.KeepAlive(this);
 			}
-
-			
 			
 			public static Recognizer.State[] values()
 			{
 				return (Recognizer.State[])Recognizer.State._VALUES_.Clone();
 			}
-
-			
 			
 			public static Recognizer.State valueOf(string name)
 			{
 				return (Recognizer.State)java.lang.Enum.valueOf(ClassLiteral<Recognizer.State>.Value, name);
 			}
-
-			
-			static State()
-			{
-			}
-
 			
 			public static Recognizer.State DEALLOCATED
 			{
@@ -221,7 +201,6 @@ namespace edu.cmu.sphinx.recognizer
 				}
 			}
 
-			
 			public static Recognizer.State ALLOCATING
 			{
 				
@@ -230,7 +209,6 @@ namespace edu.cmu.sphinx.recognizer
 					return Recognizer.State.__ALLOCATING;
 				}
 			}
-
 			
 			public static Recognizer.State ALLOCATED
 			{
@@ -241,7 +219,6 @@ namespace edu.cmu.sphinx.recognizer
 				}
 			}
 
-			
 			public static Recognizer.State READY
 			{
 				
@@ -250,7 +227,6 @@ namespace edu.cmu.sphinx.recognizer
 					return Recognizer.State.__READY;
 				}
 			}
-
 			
 			public static Recognizer.State RECOGNIZING
 			{
@@ -260,7 +236,6 @@ namespace edu.cmu.sphinx.recognizer
 					return Recognizer.State.__RECOGNIZING;
 				}
 			}
-
 			
 			public static Recognizer.State DEALLOCATING
 			{
@@ -270,8 +245,7 @@ namespace edu.cmu.sphinx.recognizer
 					return Recognizer.State.__DEALLOCATING;
 				}
 			}
-
-			
+		
 			public static Recognizer.State ERROR
 			{
 				
@@ -280,29 +254,21 @@ namespace edu.cmu.sphinx.recognizer
 					return Recognizer.State.__ERROR;
 				}
 			}
-
 			
 			internal static Recognizer.State __DEALLOCATED = new Recognizer.State("DEALLOCATED", 0);
-
 			
 			internal static Recognizer.State __ALLOCATING = new Recognizer.State("ALLOCATING", 1);
-
 			
 			internal static Recognizer.State __ALLOCATED = new Recognizer.State("ALLOCATED", 2);
-
 			
 			internal static Recognizer.State __READY = new Recognizer.State("READY", 3);
 
-			
 			internal static Recognizer.State __RECOGNIZING = new Recognizer.State("RECOGNIZING", 4);
-
 			
 			internal static Recognizer.State __DEALLOCATING = new Recognizer.State("DEALLOCATING", 5);
-
 			
 			internal static Recognizer.State __ERROR = new Recognizer.State("ERROR", 6);
 
-			
 			private static Recognizer.State[] _VALUES_ = new Recognizer.State[]
 			{
 				Recognizer.State.__DEALLOCATED,
@@ -314,7 +280,6 @@ namespace edu.cmu.sphinx.recognizer
 				Recognizer.State.__ERROR
 			};
 
-			
 			[Serializable]
 			public enum __Enum
 			{

@@ -1,49 +1,17 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.speakerid
 {
 	public class Tester : java.lang.Object
-	{
-		
-		
+	{		
 		public static string time(int seconds)
 		{
 			StringBuilder stringBuilder = new StringBuilder().append(seconds / 60000).append(":");
 			int num = 60000;
 			return stringBuilder.append(java.lang.Math.round((double)((num != -1) ? (seconds % num) : 0) / 1000.0)).toString();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			102,
-			102,
-			103,
-			105,
-			104,
-			63,
-			5,
-			136,
-			117,
-			104,
-			104,
-			104,
-			62,
-			136,
-			233,
-			60,
-			232,
-			60,
-			233,
-			75
-		})]
 		
 		public static ArrayList generateDistinctSpeakers(int vectorSize, int vectorsCount, int speakersCount)
 		{
@@ -69,25 +37,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			17,
-			127,
-			20,
-			98,
-			126,
-			127,
-			19,
-			103,
-			127,
-			0,
-			127,
-			55,
-			106,
-			101
-		})]
 		
 		public static void printIntervals(ArrayList speakers)
 		{
@@ -111,30 +60,6 @@ namespace edu.cmu.sphinx.speakerid
 				java.lang.System.@out.println();
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			38,
-			127,
-			10,
-			103,
-			98,
-			127,
-			0,
-			100,
-			105,
-			127,
-			4,
-			159,
-			88,
-			101,
-			102
-		})]
 		
 		public static void printSpeakerIntervals(ArrayList speakers, string fileName)
 		{
@@ -156,19 +81,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			fileWriter.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			97,
-			103,
-			108,
-			102,
-			103
-		})]
 		
 		public static void testSpeakerIdentification(string inputFile)
 		{
@@ -177,36 +89,16 @@ namespace edu.cmu.sphinx.speakerid
 			Tester.printIntervals(speakers);
 			Tester.printSpeakerIntervals(speakers, inputFile);
 		}
-
-		
 		
 		public Tester()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			63,
-			105,
-			112
-		})]
 		
 		public static void testDistinctSpeakerIdentification(int vectorSize, int vectorsCount, int speakersCount)
 		{
 			ArrayList features = Tester.generateDistinctSpeakers(vectorSize, vectorsCount, speakersCount);
 			Tester.printIntervals(new SpeakerIdentification().cluster(features));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			82,
-			102,
-			105,
-			102,
-			40,
-			134,
-			112
-		})]
 		
 		public static void testRepeatedSpeakerIdentification(int vectorSize, int vectorsCount, int speakersCount, int repeatFactor)
 		{
@@ -218,21 +110,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			Tester.printIntervals(new SpeakerIdentification().cluster(arrayList));
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			104,
-			98,
-			103,
-			111,
-			8,
-			166,
-			102
-		})]
 		
 		public static void main(string[] args)
 		{

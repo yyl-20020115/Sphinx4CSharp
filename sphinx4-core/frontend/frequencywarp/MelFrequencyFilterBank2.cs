@@ -1,29 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
 	public class MelFrequencyFilterBank2 : BaseDataProcessor
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			73,
-			104,
-			102,
-			105,
-			105,
-			103
-		})]
-		
+	{	
 		public MelFrequencyFilterBank2(double minFreq, double maxFreq, int numberFilters)
 		{
 			this.initLogger();
@@ -31,40 +13,11 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.maxFreq = maxFreq;
 			this.numberFilters = numberFilters;
 		}
-
-		
 		
 		private double linearToMel(double num)
 		{
 			return 1127.0 * java.lang.Math.log1p(num / 700.0);
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			72,
-			118,
-			246,
-			69,
-			106,
-			107,
-			234,
-			71,
-			108,
-			106,
-			140,
-			106,
-			49,
-			168,
-			104,
-			108,
-			19,
-			200
-		})]
 		
 		private void buildFilterbank(int num, int num2, double num3, double num4)
 		{
@@ -94,31 +47,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				this.filters[i] = new MelFilter2(center, num7, array);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			109,
-			103,
-			135,
-			118,
-			108,
-			123,
-			105,
-			255,
-			27,
-			70,
-			108,
-			107,
-			50,
-			166,
-			136,
-			108
-		})]
 		
 		private DoubleData process(DoubleData doubleData)
 		{
@@ -142,29 +70,10 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return new DoubleData(array, this.sampleRate, doubleData.getFirstSampleNumber());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			80,
-			102
-		})]
 		
 		public MelFrequencyFilterBank2()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			91,
-			103,
-			114,
-			114,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -173,31 +82,11 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			this.maxFreq = ps.getDouble("maximumFrequency");
 			this.numberFilters = ps.getInt("numberFilters");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			105,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			142,
-			108,
-			104,
-			109,
-			178
-		})]
 		
 		public override Data getData()
 		{
@@ -221,7 +110,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			return result;
 		}
-
 		
 		static MelFrequencyFilterBank2()
 		{
@@ -264,7 +152,6 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 
 		private MelFilter2[] filters;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<MelFrequencyFilterBank2>.Value.desiredAssertionStatus();
 	}
 }

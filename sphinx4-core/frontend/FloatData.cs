@@ -1,34 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using edu.cmu.sphinx.util;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.frontend.Data",
-		"java.lang.Cloneable"
-	})]
 	public class FloatData : java.lang.Object, Data, Cloneable.__Interface
 	{
-		[LineNumberTable(new byte[]
-		{
-			58,
-			104,
-			105,
-			104,
-			103,
-			114,
-			107,
-			98,
-			159,
-			21
-		})]
-		
 		public static FloatData toFloatData(Data data)
 		{
 			FloatData result;
@@ -59,53 +35,26 @@ namespace edu.cmu.sphinx.frontend
 		{
 			return this.collectTime;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			104,
-			103,
-			103,
-			103,
-			104
-		})]
 		
 		public FloatData(float[] values, int sampleRate, long collectTime, long firstSampleNumber)
+		{
+			init(values, sampleRate, collectTime, firstSampleNumber);
+		}
+		
+		public FloatData(float[] values, int sampleRate, long firstSampleNumber)
+		{
+			long num = firstSampleNumber * (long)((ulong)1000);
+			long num2 = (long)sampleRate;
+			init(values, sampleRate, (num2 != -1L) ? (num / num2) : (-num), firstSampleNumber);
+		}
+		private void init(float[] values, int sampleRate, long collectTime, long firstSampleNumber)
 		{
 			this.values = values;
 			this.sampleRate = sampleRate;
 			this.collectTime = collectTime;
 			this.firstSampleNumber = firstSampleNumber;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			125
-		})]
-		
-		public FloatData(float[] values, int sampleRate, long firstSampleNumber)
-		{
-			long num = firstSampleNumber * (long)((ulong)1000);
-			long num2 = (long)sampleRate;
-			this..ctor(values, sampleRate, (num2 != -1L) ? (num / num2) : (-num), firstSampleNumber);
-		}
-
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			43,
-			108,
-			119,
-			97
-		})]
-		
-		public virtual FloatData clone()
+		public new virtual FloatData clone()
 		{
 			FloatData result;
 			CloneNotSupportedException ex2;
@@ -116,15 +65,9 @@ namespace edu.cmu.sphinx.frontend
 			}
 			catch (CloneNotSupportedException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<CloneNotSupportedException>(ex, 1);
-				goto IL_1F;
+				throw new InternalError(Throwable.instancehelper_toString(ex),ex);
 			}
 			return result;
-			IL_1F:
-			CloneNotSupportedException ex3 = ex2;
-			string text = Throwable.instancehelper_toString(ex3);
-			
-			throw new InternalError(text);
 		}
 
 		public virtual int getSampleRate()
@@ -136,37 +79,20 @@ namespace edu.cmu.sphinx.frontend
 		{
 			return this.firstSampleNumber;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		
-		
-		public virtual object <bridge>clone()
-		{
-			return this.clone();
-		}
-
 		
 		public static implicit operator Cloneable(FloatData _ref)
 		{
-			Cloneable result;
-			result.__ref = _ref;
+			Cloneable result = Cloneable.Cast(_ref);  
+
 			return result;
 		}
 
 		
 		private float[] values;
-
 		
 		private int sampleRate;
 
-		
 		private long firstSampleNumber;
-
 		
 		private long collectTime;
 	}
