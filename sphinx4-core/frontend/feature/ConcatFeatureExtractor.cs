@@ -1,55 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-
-namespace edu.cmu.sphinx.frontend.feature
+﻿namespace edu.cmu.sphinx.frontend.feature
 {
 	public class ConcatFeatureExtractor : AbstractFeatureExtractor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			169,
-			103
-		})]
-		
+	{		
 		public ConcatFeatureExtractor(int window) : base(window)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			102
-		})]
 		
 		public ConcatFeatureExtractor()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			182,
-			110,
-			120,
-			98,
-			116,
-			127,
-			2,
-			112,
-			121,
-			42,
-			232,
-			61,
-			233,
-			71,
-			158,
-			98,
-			102,
-			10
-		})]
 		
 		protected internal override Data computeNextFeature()
 		{

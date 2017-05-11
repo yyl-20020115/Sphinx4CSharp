@@ -1,78 +1,15 @@
-﻿using System;
-
-using IKVM.Attributes;
-
-namespace edu.cmu.sphinx.frontend.feature
+﻿namespace edu.cmu.sphinx.frontend.feature
 {
 	public class KaldiDeltasFeatureExtractor : AbstractFeatureExtractor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			159,
-			103
-		})]
-		
+	{	
 		public KaldiDeltasFeatureExtractor(int window) : base(window)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			162,
-			102
-		})]
-		
+	
 		public KaldiDeltasFeatureExtractor()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			168,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			122,
-			122,
-			122,
-			154,
-			111,
-			112,
-			112,
-			112,
-			112,
-			105,
-			111,
-			111,
-			111,
-			111,
-			140,
-			158,
-			99,
-			121,
-			46,
-			168,
-			106,
-			63,
-			31,
-			200,
-			109,
-			63,
-			111,
-			203,
-			100,
-			103,
-			10
-		})]
-		
+	
 		protected internal override Data computeNextFeature()
 		{
 			int num = this.currentPosition - 1 + this.cepstraBufferSize;

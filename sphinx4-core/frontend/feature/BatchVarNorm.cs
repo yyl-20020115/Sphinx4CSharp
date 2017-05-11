@@ -1,23 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.frontend.feature
 {
 	public class BatchVarNorm : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			11,
-			103,
-			107,
-			103
-		})]
-		
+	{		
 		private void reset()
 		{
 			this.variances = null;
@@ -25,36 +14,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.numberDataCepstra = 0;
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			52,
-			162,
-			108,
-			102,
-			107,
-			110,
-			108,
-			104,
-			143,
-			107,
-			255,
-			29,
-			71,
-			103,
-			59,
-			166,
-			141,
-			114,
-			109,
-			130,
-			173,
-			134
-		})]
-		
 		private int readUtterance()
 		{
 			Data data;
@@ -107,22 +66,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			IL_100:
 			return this.numberDataCepstra;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			93,
-			108,
-			62,
-			198,
-			127,
-			4,
-			104,
-			108,
-			105,
-			60,
-			200,
-			101
-		})]
 		
 		private void normalizeList()
 		{
@@ -147,43 +90,16 @@ namespace edu.cmu.sphinx.frontend.feature
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			104,
-			102
-		})]
 		
 		public BatchVarNorm()
 		{
 			this.initLogger();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			3,
-			102,
-			103,
-			107
-		})]
 		
 		public override void initialize()
 		{
@@ -191,22 +107,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.variances = null;
 			this.cepstraList = new LinkedList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			26,
-			130,
-			109,
-			148,
-			166,
-			105,
-			102,
-			210
-		})]
 		
 		public override Data getData()
 		{
@@ -228,7 +128,6 @@ namespace edu.cmu.sphinx.frontend.feature
 		}
 
 		private double[] variances;
-
 		
 		private List cepstraList;
 

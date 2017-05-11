@@ -1,24 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.feature
 {
 	public class FrameDropper : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			125,
-			130,
-			103,
-			100,
-			208,
-			103
-		})]
-		
+	{		
 		protected internal virtual void initVars(int dropEveryNthFrame, bool replaceNthWithPrevious)
 		{
 			this.dropEveryNthFrame = dropEveryNthFrame;
@@ -30,19 +16,7 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 			this.replaceNthWithPrevious = replaceNthWithPrevious;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			99,
-			108,
-			99,
-			142
-		})]
-		
+	
 		private Data readData()
 		{
 			Data data = this.getPredecessor().getData();
@@ -52,44 +26,16 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 			return data;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			130,
-			130,
-			104,
-			102,
-			104
-		})]
-		
+	
 		public FrameDropper(int dropEveryNthFrame, bool replaceNthWithPrevious)
 		{
 			this.initLogger();
 			this.initVars(dropEveryNthFrame, replaceNthWithPrevious);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			102
-		})]
-		
+	
 		public FrameDropper()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			15,
-			103,
-			127,
-			2
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -97,54 +43,11 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.initVars(ps.getInt("dropEveryNthFrame"), ps.getBoolean("replaceNthWithPrevious").booleanValue());
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			32,
-			102,
-			103
-		})]
-		
 		public override void initialize()
 		{
 			base.initialize();
 			this.id = -1;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			46,
-			103,
-			107,
-			112,
-			159,
-			4,
-			139,
-			109,
-			140,
-			97,
-			102,
-			102,
-			107,
-			98,
-			140,
-			97,
-			102,
-			102,
-			107,
-			162,
-			199,
-			99,
-			104,
-			135,
-			104,
-			156,
-			169,
-			199
-		})]
 		
 		public override Data getData()
 		{

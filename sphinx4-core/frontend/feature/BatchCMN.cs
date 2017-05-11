@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.text;
 using java.util;
@@ -10,52 +7,13 @@ using java.util;
 namespace edu.cmu.sphinx.frontend.feature
 {
 	public class BatchCMN : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			30,
-			103,
-			107,
-			103
-		})]
-		
+	{		
 		private void reset()
 		{
 			this.sums = null;
 			this.cepstraList.clear();
 			this.numberDataCepstra = 0;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			71,
-			162,
-			108,
-			102,
-			107,
-			108,
-			104,
-			143,
-			107,
-			255,
-			29,
-			70,
-			138,
-			103,
-			55,
-			166,
-			174,
-			141,
-			114,
-			109,
-			130,
-			173,
-			134
-		})]
 		
 		private int readUtterance()
 		{
@@ -112,28 +70,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			IL_106:
 			return this.numberDataCepstra;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			113,
-			134,
-			108,
-			120,
-			122,
-			233,
-			61,
-			230,
-			69,
-			145,
-			127,
-			8,
-			105,
-			110,
-			106,
-			55,
-			200,
-			101
-		})]
 		
 		private void normalizeList()
 		{
@@ -165,70 +101,25 @@ namespace edu.cmu.sphinx.frontend.feature
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			6,
-			8,
-			191,
-			5,
-			102
-		})]
 		
 		public BatchCMN()
 		{
-			DecimalFormat.__<clinit>();
 			string text = "0.00;-0.00";
-			DecimalFormatSymbols.__<clinit>();
 			this.formatter = new DecimalFormat(text, new DecimalFormatSymbols(Locale.US));
 			this.initLogger();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			15,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			22,
-			102,
-			103,
-			107
-		})]
-		
 		public override void initialize()
 		{
 			base.initialize();
 			this.sums = null;
 			this.cepstraList = new LinkedList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			45,
-			130,
-			109,
-			148,
-			166,
-			105,
-			102,
-			210
-		})]
 		
 		public override Data getData()
 		{
@@ -250,7 +141,6 @@ namespace edu.cmu.sphinx.frontend.feature
 		}
 
 		private double[] sums;
-
 		
 		private List cepstraList;
 

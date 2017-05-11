@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.lang;
 using java.text;
@@ -11,34 +8,7 @@ using java.util;
 namespace edu.cmu.sphinx.frontend.feature
 {
 	public class LiveCMN : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			63,
-			130,
-			127,
-			4,
-			104,
-			130,
-			172,
-			100,
-			99,
-			108,
-			199,
-			106,
-			104,
-			60,
-			168,
-			142,
-			165,
-			100,
-			129,
-			108,
-			104,
-			59,
-			168
-		})]
-		
+	{		
 		private void initMeansSums()
 		{
 			int num = -1;
@@ -79,35 +49,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			79,
-			104,
-			129,
-			140,
-			107,
-			255,
-			36,
-			69,
-			106,
-			103,
-			52,
-			166,
-			206,
-			103,
-			52,
-			198,
-			142,
-			135,
-			110,
-			124,
-			10,
-			200,
-			146,
-			134
-		})]
-		
 		private void normalize(Data data)
 		{
 			if (!(data is DoubleData))
@@ -151,18 +92,6 @@ namespace edu.cmu.sphinx.frontend.feature
 				this.updateMeanSumBuffers();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			124,
-			143,
-			154,
-			172,
-			110,
-			116,
-			140
-		})]
 		
 		private void updateMeanSumBuffers()
 		{
@@ -176,14 +105,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			146,
-			103,
-			46,
-			166
-		})]
 		private static void multiplyArray(double[] array, double num)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -193,26 +114,9 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			33,
-			232,
-			38,
-			255,
-			5,
-			88,
-			171,
-			102,
-			103,
-			103,
-			104
-		})]
-		
 		public LiveCMN(double initialMean, int cmnWindow, int cmnShiftWindow, int initialCmnWindow)
 		{
-			DecimalFormat.__<clinit>();
 			string text = "0.00;-0.00";
-			DecimalFormatSymbols.__<clinit>();
 			this.formatter = new DecimalFormat(text, new DecimalFormatSymbols(Locale.US));
 			this.initialList = new LinkedList();
 			this.initLogger();
@@ -220,40 +124,13 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.cmnShiftWindow = cmnShiftWindow;
 			this.initialCmnWindow = initialCmnWindow;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			40,
-			232,
-			31,
-			255,
-			5,
-			88,
-			235,
-			75
-		})]
 		
 		public LiveCMN()
 		{
-			DecimalFormat.__<clinit>();
 			string text = "0.00;-0.00";
-			DecimalFormatSymbols.__<clinit>();
 			this.formatter = new DecimalFormat(text, new DecimalFormatSymbols(Locale.US));
 			this.initialList = new LinkedList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			46,
-			103,
-			113,
-			113,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -262,38 +139,11 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.cmnShiftWindow = ps.getInt("shiftWindow");
 			this.initialCmnWindow = ps.getInt("initialCmnWindow");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			55,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			112,
-			104,
-			115,
-			108,
-			109,
-			144,
-			130,
-			102,
-			116,
-			141,
-			180,
-			172,
-			103
-		})]
 		
 		public override Data getData()
 		{
@@ -365,7 +215,6 @@ namespace edu.cmu.sphinx.frontend.feature
 
 		private int numberFrame;
 
-		
 		internal List initialList;
 	}
 }

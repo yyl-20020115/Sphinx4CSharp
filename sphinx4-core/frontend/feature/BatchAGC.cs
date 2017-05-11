@@ -1,39 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.util;
 
 namespace edu.cmu.sphinx.frontend.feature
 {
 	public class BatchAGC : BaseDataProcessor
-	{
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			33,
-			98,
-			162,
-			108,
-			99,
-			101,
-			112,
-			109,
-			98,
-			104,
-			109,
-			110,
-			105,
-			104,
-			98,
-			141,
-			169
-		})]
-		
+	{		
 		private int readUtterance()
 		{
 			int num = 0;
@@ -69,16 +41,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.cepstraList.add(data);
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			59,
-			127,
-			1,
-			104,
-			156,
-			98
-		})]
 		
 		private void normalizeList()
 		{
@@ -95,66 +57,22 @@ namespace edu.cmu.sphinx.frontend.feature
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			104,
-			102
-		})]
 		
 		public BatchAGC()
 		{
 			this.initLogger();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			180,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			102,
-			107
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 			this.cepstraList = new LinkedList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			7,
-			130,
-			109,
-			148,
-			108,
-			139,
-			105,
-			102,
-			210
-		})]
 		
 		public override Data getData()
 		{
@@ -175,7 +93,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 			return result;
 		}
-
 		
 		private List cepstraList;
 

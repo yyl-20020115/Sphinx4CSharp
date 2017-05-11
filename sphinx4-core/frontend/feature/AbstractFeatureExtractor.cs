@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
@@ -15,21 +12,7 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.bufferPosition = 0;
 			this.currentPosition = 0;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			72,
-			108,
-			127,
-			4,
-			109,
-			174
-		})]
-		
+	
 		private Data getNextData()
 		{
 			Data data = this.getPredecessor().getData();
@@ -40,14 +23,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 			return data;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			73,
-			123,
-			124
-		})]
 		private void addCepstrum(DoubleData doubleData)
 		{
 			DoubleData[] array = this.cepstraBuffer;
@@ -59,17 +34,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			int num4 = this.cepstraBufferSize;
 			this.bufferPosition = ((num4 != -1) ? (num3 % num4) : 0);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			105,
-			100,
-			168,
-			102,
-			38,
-			198
-		})]
 		
 		private void computeFeatures(int num)
 		{
@@ -85,43 +49,6 @@ namespace edu.cmu.sphinx.frontend.feature
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			92,
-			104,
-			109,
-			98,
-			104,
-			240,
-			70,
-			117,
-			110,
-			124,
-			108,
-			124,
-			98,
-			103,
-			110,
-			103,
-			102,
-			136,
-			110,
-			144,
-			108,
-			103,
-			100,
-			98,
-			104,
-			240,
-			51,
-			233,
-			81
-		})]
 		
 		private int processFirstCepstrum(Data data)
 		{
@@ -176,20 +103,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 			return num5;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			85,
-			105,
-			114,
-			104,
-			147,
-			144,
-			107,
-			39,
-			166
-		})]
 		
 		private int replicateLastCepstrum()
 		{
@@ -214,14 +127,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			}
 			return this.window;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			118,
-			103,
-			109
-		})]
 		
 		private void computeFeature()
 		{
@@ -230,60 +135,22 @@ namespace edu.cmu.sphinx.frontend.feature
 		}
 
 		protected internal abstract Data computeNextFeature();
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			104,
-			102,
-			103
-		})]
 		
 		public AbstractFeatureExtractor(int window)
 		{
 			this.initLogger();
 			this.window = window;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			102
-		})]
 		
 		public AbstractFeatureExtractor()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			6,
-			103,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.window = ps.getInt("windowSize");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			18,
-			102,
-			107,
-			113,
-			119,
-			107,
-			102
-		})]
 		
 		public override void initialize()
 		{
@@ -294,35 +161,6 @@ namespace edu.cmu.sphinx.frontend.feature
 			this.outputQueue = new LinkedList();
 			this.reset();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			42,
-			112,
-			103,
-			102,
-			104,
-			108,
-			108,
-			104,
-			103,
-			109,
-			103,
-			104,
-			103,
-			104,
-			146,
-			138,
-			103,
-			103,
-			109,
-			106,
-			205
-		})]
 		
 		public override Data getData()
 		{
@@ -375,7 +213,6 @@ namespace edu.cmu.sphinx.frontend.feature
 		private int bufferPosition;
 
 		private Signal pendingSignal;
-
 		
 		private LinkedList outputQueue;
 

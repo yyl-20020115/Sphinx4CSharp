@@ -1,60 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-
-namespace edu.cmu.sphinx.frontend.feature
+﻿namespace edu.cmu.sphinx.frontend.feature
 {
 	public class S3FeatureExtractor : AbstractFeatureExtractor
 	{
-		
-		
 		public S3FeatureExtractor()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			121,
-			122,
-			154,
-			111,
-			112,
-			112,
-			111,
-			105,
-			111,
-			111,
-			111,
-			140,
-			190,
-			99,
-			106,
-			49,
-			232,
-			69,
-			106,
-			55,
-			232,
-			69,
-			112,
-			181,
-			106,
-			63,
-			4,
-			232,
-			69,
-			100,
-			103,
-			10
-		})]
 		
 		protected internal override Data computeNextFeature()
 		{

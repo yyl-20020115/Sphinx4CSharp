@@ -1,71 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-
-namespace edu.cmu.sphinx.frontend.feature
+﻿namespace edu.cmu.sphinx.frontend.feature
 {
 	public class DeltasFeatureExtractor : AbstractFeatureExtractor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			184,
-			103
-		})]
-		
+	{		
 		public DeltasFeatureExtractor(int window) : base(window)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			102
-		})]
 		
 		public DeltasFeatureExtractor()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			6,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			121,
-			122,
-			154,
-			111,
-			112,
-			112,
-			111,
-			105,
-			111,
-			111,
-			111,
-			140,
-			190,
-			99,
-			121,
-			46,
-			232,
-			69,
-			106,
-			55,
-			200,
-			106,
-			63,
-			4,
-			168,
-			100,
-			103,
-			10
-		})]
 		
 		protected internal override Data computeNextFeature()
 		{
