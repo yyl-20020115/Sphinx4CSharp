@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.text;
 using java.util;
@@ -10,52 +7,7 @@ using java.util;
 namespace edu.cmu.sphinx.frontend.util
 {
 	public class DataDumper : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			47,
-			99,
-			116,
-			104,
-			107,
-			159,
-			10,
-			107,
-			103,
-			103,
-			127,
-			6,
-			115,
-			63,
-			14,
-			168,
-			106,
-			112,
-			104,
-			104,
-			111,
-			105,
-			142,
-			108,
-			127,
-			6,
-			115,
-			63,
-			14,
-			168,
-			106,
-			112,
-			104,
-			105,
-			127,
-			7,
-			119,
-			63,
-			15,
-			168,
-			138
-		})]
-		
+	{		
 		private void dumpData(Data data)
 		{
 			if (data == null)
@@ -121,88 +73,33 @@ namespace edu.cmu.sphinx.frontend.util
 				java.lang.System.@out.println();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			133,
-			162,
-			104,
-			102,
-			127,
-			1,
-			103
-		})]
 		
 		public DataDumper(string format, bool outputSignals)
 		{
 			this.initLogger();
-			DecimalFormat.__<clinit>();
-			DecimalFormatSymbols.__<clinit>();
 			this.formatter = new DecimalFormat(format, new DecimalFormatSymbols(Locale.US));
 			this.outputSignals = outputSignals;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			134
-		})]
 		
 		public DataDumper()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			8,
-			135,
-			140,
-			108,
-			127,
-			1,
-			118
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.logger = ps.getLogger();
 			string @string = ps.getString("outputFormat");
-			DecimalFormat.__<clinit>();
 			string text = @string;
-			DecimalFormatSymbols.__<clinit>();
 			this.formatter = new DecimalFormat(text, new DecimalFormatSymbols(Locale.US));
 			this.outputSignals = ps.getBoolean("outputSignals").booleanValue();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			20,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			33,
-			108,
-			135
-		})]
-		
 		public override Data getData()
 		{
 			Data data = this.getPredecessor().getData();

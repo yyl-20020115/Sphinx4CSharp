@@ -1,7 +1,5 @@
 ﻿using System;
-
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -13,24 +11,7 @@ using javax.sound.sampled;
 namespace edu.cmu.sphinx.frontend.util
 {
 	public class AudioFileDataSource : BaseDataProcessor
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			31,
-			135,
-			131,
-			123,
-			103,
-			162,
-			102
-		})]
-		
+	{	
 		private void create(int num, List list)
 		{
 			this.bytesPerRead = num;
@@ -45,15 +26,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			this.initialize();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			221,
-			99,
-			129,
-			109
-		})]
 		
 		public virtual void addNewFileListener(AudioFileProcessListener l)
 		{
@@ -63,17 +35,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			this.__fileListeners.add(l);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			46,
-			166,
-			103,
-			103,
-			135,
-			116,
-			142
-		})]
 		
 		public override void initialize()
 		{
@@ -89,38 +50,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			84,
-			136,
-			189,
-			2,
-			97,
-			166,
-			167,
-			117,
-			99,
-			136,
-			130,
-			255,
-			8,
-			70,
-			226,
-			59,
-			98,
-			127,
-			6,
-			167,
-			2,
-			98,
-			167,
-			118,
-			127,
-			5,
-			143,
-			104
-		})]
-		
 		public virtual void setAudioFile(URL audioFileURL, string streamName)
 		{
 			if (this.dataStream != null)
@@ -181,7 +110,6 @@ namespace edu.cmu.sphinx.frontend.util
 			IOException ex9 = ex7;
 			Throwable.instancehelper_printStackTrace(ex9);
 			IL_B9:
-			File.__<clinit>();
 			this.curAudioFile = new File(audioFileURL.getFile());
 			Iterator iterator = this.__fileListeners.iterator();
 			while (iterator.hasNext())
@@ -191,31 +119,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			this.setInputStream(inputStream, streamName);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			123,
-			103,
-			103,
-			103,
-			135,
-			103,
-			113,
-			140,
-			103,
-			159,
-			6,
-			115,
-			112,
-			206,
-			103,
-			109,
-			105,
-			109,
-			137,
-			144,
-			104
-		})]
 		
 		public virtual void setInputStream(AudioInputStream inputStream, string streamName)
 		{
@@ -254,16 +157,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			this.totalValuesRead = 0L;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			128,
-			104,
-			127,
-			1,
-			142
-		})]
 		
 		private DataEndSignal createDataEndSignal()
 		{
@@ -278,41 +171,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return new DataEndSignal(this.getDuration());
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			145,
-			98,
-			103,
-			108,
-			167,
-			146,
-			101,
-			133,
-			105,
-			100,
-			102,
-			168,
-			126,
-			100,
-			183,
-			104,
-			102,
-			133,
-			99,
-			221,
-			2,
-			98,
-			210,
-			104,
-			152,
-			182
-		})]
 		
 		private Data readNextFrame()
 		{
@@ -379,24 +237,10 @@ namespace edu.cmu.sphinx.frontend.util
 			
 			throw new DataProcessingException(message, cause);
 		}
-
 		private long getDuration()
 		{
 			return ByteCodeHelper.d2l((double)this.totalValuesRead / (double)this.sampleRate * 1000.0);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			190,
-			103,
-			104,
-			139
-		})]
 		
 		private void closeDataStream()
 		{
@@ -406,18 +250,6 @@ namespace edu.cmu.sphinx.frontend.util
 				this.dataStream.close();
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			15,
-			232,
-			48,
-			235,
-			81,
-			102,
-			104
-		})]
 		
 		public AudioFileDataSource(int bytesPerRead, List listeners)
 		{
@@ -425,33 +257,11 @@ namespace edu.cmu.sphinx.frontend.util
 			this.initLogger();
 			this.create(bytesPerRead, listeners);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			20,
-			232,
-			43,
-			235,
-			86
-		})]
 		
 		public AudioFileDataSource()
 		{
 			this.__fileListeners = new ArrayList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			25,
-			103,
-			108,
-			127,
-			2
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -459,16 +269,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.logger = ps.getLogger();
 			this.create(ps.getInt("bytesPerRead"), ps.getComponentList("audioFileListners", ClassLiteral<AudioFileProcessListener>.Value));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			68,
-			191,
-			5,
-			2,
-			97,
-			134
-		})]
 		
 		public virtual void setAudioFile(File audioFile, string streamName)
 		{
@@ -487,31 +287,6 @@ namespace edu.cmu.sphinx.frontend.util
 			MalformedURLException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			99,
-			98,
-			104,
-			168,
-			103,
-			169,
-			104,
-			103,
-			142,
-			104,
-			103,
-			104,
-			104,
-			103,
-			231,
-			70
-		})]
 		
 		public override Data getData()
 		{
@@ -553,7 +328,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return result;
 		}
-
 		public virtual int getSampleRate()
 		{
 			return this.sampleRate;
@@ -563,15 +337,6 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return this.bigEndian;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			232,
-			99,
-			129,
-			109
-		})]
 		
 		public virtual void removeNewFileListener(AudioFileProcessListener l)
 		{
@@ -581,12 +346,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			this.__fileListeners.remove(l);
 		}
-
-		
-		static AudioFileDataSource()
-		{
-		}
-
 		
 		protected internal List fileListeners
 		{
@@ -623,7 +382,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 		})]
 		public const string AUDIO_FILE_LISTENERS = "audioFileListners";
-
 		
 		internal List __fileListeners;
 
@@ -648,7 +406,6 @@ namespace edu.cmu.sphinx.frontend.util
 		private bool utteranceStarted;
 
 		private File curAudioFile;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<AudioFileDataSource>.Value.desiredAssertionStatus();
 	}

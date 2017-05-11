@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -10,21 +7,7 @@ using java.lang;
 namespace edu.cmu.sphinx.frontend.util
 {
 	public class StreamCepstrumSource : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			125,
-			130,
-			104,
-			102,
-			103,
-			103,
-			104,
-			111,
-			112
-		})]
-		
+	{		
 		public StreamCepstrumSource(int cepstrumLength, bool binary, float frameShiftMs, float frameSizeMs, int sampleRate)
 		{
 			this.initLogger();
@@ -35,34 +18,9 @@ namespace edu.cmu.sphinx.frontend.util
 			this.frameSize = DataUtil.getSamplesPerShift(sampleRate, frameSizeMs);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			29,
-			102
-		})]
-		
 		public StreamCepstrumSource()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			39,
-			103,
-			113,
-			118,
-			118,
-			108,
-			108,
-			113,
-			114,
-			114
-		})]
-		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
@@ -75,16 +33,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.frameShift = DataUtil.getSamplesPerWindow(this.sampleRate, @float);
 			this.frameSize = DataUtil.getSamplesPerShift(this.sampleRate, float2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			54,
-			102,
-			103,
-			104,
-			103
-		})]
-		
 		public override void initialize()
 		{
 			base.initialize();
@@ -92,32 +40,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.firstSampleNumber = 0L;
 			this.bigEndian = false;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			112,
-			66,
-			103,
-			107,
-			113,
-			99,
-			113,
-			145,
-			113,
-			143,
-			159,
-			27,
-			109,
-			118,
-			144,
-			103,
-			104
-		})]
 		
 		public virtual void setInputStream(InputStream @is, bool bigEndian)
 		{
@@ -150,53 +72,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.curPoint = -1;
 			this.firstSampleNumber = 0L;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			103,
-			105,
-			108,
-			115,
-			113,
-			105,
-			223,
-			0,
-			118,
-			114,
-			186,
-			167,
-			104,
-			141,
-			139,
-			191,
-			3,
-			2,
-			98,
-			146,
-			115,
-			135,
-			141,
-			142,
-			104,
-			104,
-			146,
-			178,
-			149,
-			191,
-			3,
-			2,
-			98,
-			242,
-			51,
-			233,
-			82,
-			148,
-			180
-		})]
 		
 		public override Data getData()
 		{
@@ -220,7 +95,6 @@ namespace edu.cmu.sphinx.frontend.util
 					int i = (num3 - 1) * this.frameShift + this.frameSize;
 					long duration = ByteCodeHelper.d2l((double)i / (double)this.sampleRate * 1000.0);
 					obj = new DataEndSignal(duration);
-					IOException ex2;
 					try
 					{
 						if (this.binary)
@@ -235,16 +109,9 @@ namespace edu.cmu.sphinx.frontend.util
 					}
 					catch (IOException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-						goto IL_E8;
+						throw new DataProcessingException("IOException closing cepstrum stream", ex);
 					}
 					goto IL_1E9;
-					IL_E8:
-					IOException ex3 = ex2;
-					string message = "IOException closing cepstrum stream";
-					Exception cause = ex3;
-					
-					throw new DataProcessingException(message, cause);
 				}
 				if (this.curPoint > this.numPoints)
 				{
@@ -278,17 +145,10 @@ namespace edu.cmu.sphinx.frontend.util
 						}
 						catch (IOException ex4)
 						{
-							ex5 = ByteCodeHelper.MapException<IOException>(ex4, 1);
-							goto IL_19E;
+							throw new DataProcessingException("IOException reading from cepstrum stream", ex4);
 						}
 						i++;
 						continue;
-						IL_19E:
-						IOException ex6 = ex5;
-						string message2 = "IOException reading from cepstrum stream";
-						Exception cause2 = ex6;
-						
-						throw new DataProcessingException(message2, cause2);
 					}
 					obj = new DoubleData(array, this.sampleRate, this.firstSampleNumber);
 					this.firstSampleNumber += (long)this.frameShift;

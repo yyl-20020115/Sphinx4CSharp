@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -11,20 +8,6 @@ namespace edu.cmu.sphinx.frontend.util
 {
 	public class StreamHTKCepstrum : BaseDataProcessor
 	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			109,
-			98,
-			103,
-			110,
-			10,
-			198
-		})]
-		
 		public static short readLittleEndianShort(DataInputStream dataStream)
 		{
 			int num = 0;
@@ -35,19 +18,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return (short)num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			125,
-			98,
-			104,
-			102,
-			103,
-			104,
-			111,
-			111
-		})]
 		
 		public StreamHTKCepstrum(float frameShiftMs, float frameSizeMs, bool bigEndian, int sampleRate)
 		{
@@ -57,34 +27,11 @@ namespace edu.cmu.sphinx.frontend.util
 			this.frameShift = DataUtil.getSamplesPerWindow(sampleRate, frameShiftMs);
 			this.frameSize = DataUtil.getSamplesPerShift(sampleRate, frameSizeMs);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			27,
-			102
-		})]
 		
 		public StreamHTKCepstrum()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			37,
-			103,
-			140,
-			140,
-			118,
-			113,
-			114,
-			114,
-			108
-		})]
-		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
@@ -96,14 +43,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.frameSize = DataUtil.getSamplesPerShift(this.sampleRate, float2);
 			this.logger = ps.getLogger();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			53,
-			102,
-			103,
-			200
-		})]
 		
 		public override void initialize()
 		{
@@ -111,48 +50,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.curPoint = -1;
 			this.firstSampleNumber = 0L;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			72,
-			113,
-			107,
-			113,
-			108,
-			108,
-			140,
-			105,
-			147,
-			127,
-			6,
-			127,
-			6,
-			127,
-			6,
-			112,
-			101,
-			145,
-			108,
-			108,
-			140,
-			105,
-			147,
-			127,
-			6,
-			127,
-			6,
-			127,
-			6,
-			144,
-			159,
-			25,
-			103,
-			104
-		})]
 		
 		public virtual void setInputStream(InputStream stream)
 		{
@@ -191,50 +88,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.curPoint = -1;
 			this.firstSampleNumber = 0L;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			65,
-			105,
-			108,
-			115,
-			113,
-			105,
-			223,
-			0,
-			118,
-			114,
-			186,
-			167,
-			107,
-			191,
-			3,
-			2,
-			98,
-			146,
-			115,
-			135,
-			141,
-			142,
-			104,
-			146,
-			144,
-			191,
-			3,
-			2,
-			98,
-			242,
-			55,
-			233,
-			78,
-			148,
-			180
-		})]
 		
 		public override Data getData()
 		{
@@ -258,7 +111,6 @@ namespace edu.cmu.sphinx.frontend.util
 					int i = (num3 - 1) * this.frameShift + this.frameSize;
 					long duration = ByteCodeHelper.d2l((double)i / (double)this.sampleRate * 1000.0);
 					obj = new DataEndSignal(duration);
-					IOException ex2;
 					try
 					{
 						this.binaryStream.close();
@@ -266,16 +118,9 @@ namespace edu.cmu.sphinx.frontend.util
 					}
 					catch (IOException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-						goto IL_D3;
+						throw new DataProcessingException("IOException closing cepstrum stream", ex);
 					}
 					goto IL_1B5;
-					IL_D3:
-					IOException ex3 = ex2;
-					string message = "IOException closing cepstrum stream";
-					Exception cause = ex3;
-					
-					throw new DataProcessingException(message, cause);
 				}
 				if (this.curPoint > this.numPoints)
 				{
@@ -302,17 +147,10 @@ namespace edu.cmu.sphinx.frontend.util
 						}
 						catch (IOException ex4)
 						{
-							ex5 = ByteCodeHelper.MapException<IOException>(ex4, 1);
-							goto IL_16A;
+							throw new DataProcessingException("IOException reading from cepstrum stream", ex4);
 						}
 						i++;
 						continue;
-						IL_16A:
-						IOException ex6 = ex5;
-						string message2 = "IOException reading from cepstrum stream";
-						Exception cause2 = ex6;
-						
-						throw new DataProcessingException(message2, cause2);
 					}
 					obj = new DoubleData(array, this.sampleRate, this.firstSampleNumber);
 					this.firstSampleNumber += (long)this.frameShift;

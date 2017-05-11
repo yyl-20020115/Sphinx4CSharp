@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend.endpoint;
+﻿using edu.cmu.sphinx.frontend.endpoint;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -13,19 +10,6 @@ namespace edu.cmu.sphinx.frontend.util
 {
 	public class WavWriter : BaseDataProcessor
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			120,
-			134,
-			122,
-			107
-		})]
-		
 		public override void initialize()
 		{
 			base.initialize();
@@ -37,21 +21,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.baos = new ByteArrayOutputStream();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			98,
-			194,
-			135,
-			105,
-			49,
-			223,
-			1,
-			109,
-			130,
-			100,
-			130
-		})]
-		
 		private static string getNextFreeIndex(string text)
 		{
 			int num = 0;
@@ -69,24 +38,6 @@ namespace edu.cmu.sphinx.frontend.util
 			return text3;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			125,
-			123,
-			139,
-			108,
-			103,
-			155,
-			136,
-			138,
-			191,
-			0,
-			2,
-			98,
-			167
-		})]
-		
 		protected internal virtual void writeFile(string wavName)
 		{
 			AudioFormat audioFormat = new AudioFormat((float)this.sampleRate, this.bitsPerSample, 1, this.isSigned, true);
@@ -117,18 +68,6 @@ namespace edu.cmu.sphinx.frontend.util
 				Throwable.instancehelper_printStackTrace(ex3);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			73,
-			134,
-			112,
-			111,
-			3,
-			230,
-			70
-		})]
 		
 		private static AudioFileFormat.Type getTargetType(string text)
 		{
@@ -145,26 +84,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			128,
-			168,
-			232,
-			57,
-			231,
-			72,
-			134,
-			103,
-			135,
-			103,
-			110,
-			176,
-			103,
-			135,
-			102
-		})]
 		
 		public WavWriter(string dumpFilePath, bool isCompletePath, int bitsPerSample, bool isSigned, bool captureUtts)
 		{
@@ -184,39 +103,12 @@ namespace edu.cmu.sphinx.frontend.util
 			this.captureUtts = captureUtts;
 			this.initialize();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			26,
-			232,
-			40,
-			231,
-			89
-		})]
 		
 		public WavWriter()
 		{
 			this.isSigned = true;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			34,
-			135,
-			113,
-			150,
-			113,
-			115,
-			176,
-			118,
-			150,
-			102
-		})]
-		
+	
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
@@ -235,44 +127,7 @@ namespace edu.cmu.sphinx.frontend.util
 			this.captureUtts = ps.getBoolean("captureUtterances").booleanValue();
 			this.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			52,
-			140,
-			104,
-			145,
-			120,
-			107,
-			209,
-			191,
-			1,
-			104,
-			137,
-			140,
-			135,
-			167,
-			104,
-			135,
-			127,
-			7,
-			124,
-			135,
-			152,
-			191,
-			18,
-			2,
-			98,
-			231,
-			60,
-			232,
-			73
-		})]
-		
+	
 		public override Data getData()
 		{
 			Data data = this.getPredecessor().getData();
@@ -313,24 +168,16 @@ namespace edu.cmu.sphinx.frontend.util
 				while (i < num)
 				{
 					double num2 = array[i];
-					IOException ex2;
 					try
 					{
 						this.dos.writeShort((int)new Short((short)ByteCodeHelper.d2i(num2)).shortValue());
 					}
 					catch (IOException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-						goto IL_141;
+						Throwable.instancehelper_printStackTrace(ex);
 					}
-					IL_150:
 					i++;
 					continue;
-					goto IL_150;
-					IL_141:
-					IOException ex3 = ex2;
-					Throwable.instancehelper_printStackTrace(ex3);
-					goto IL_150;
 				}
 			}
 			return data;
@@ -341,28 +188,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.outFileNamePattern = outFileNamePattern;
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.ArrayIndexOutOfBoundsException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			99,
-			138,
-			130,
-			115,
-			169,
-			106,
-			111,
-			6,
-			232,
-			69,
-			228,
-			55,
-			232,
-			76
-		})]
 		public static byte[] valuesToBytes(double[] values, int bytesPerValue, bool signedData)
 		{
 			byte[] array = new byte[bytesPerValue * values.Length];
@@ -380,11 +205,6 @@ namespace edu.cmu.sphinx.frontend.util
 				num += bytesPerValue;
 			}
 			return array;
-		}
-
-		
-		static WavWriter()
-		{
 		}
 
 		[S4String(new object[]
@@ -449,7 +269,6 @@ namespace edu.cmu.sphinx.frontend.util
 		protected internal bool captureUtts;
 
 		private bool isCompletePath;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<WavWriter>.Value.desiredAssertionStatus();
 	}

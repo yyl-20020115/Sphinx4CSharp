@@ -65,7 +65,7 @@ namespace edu.cmu.sphinx.frontend
 			}
 			catch (CloneNotSupportedException ex)
 			{
-				throw new InternalError(Throwable.instancehelper_toString(ex),ex);
+				throw new InternalError(Throwable.instancehelper_toString(ex));
 			}
 			return result;
 		}

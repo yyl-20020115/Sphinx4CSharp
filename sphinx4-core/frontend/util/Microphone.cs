@@ -1,8 +1,6 @@
 ﻿using System;
-
 using System.Threading;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -16,47 +14,31 @@ namespace edu.cmu.sphinx.frontend.util
 {
 	public class Microphone : BaseDataProcessor
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		
 		internal static Logger access_000(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static TargetDataLine access_100(Microphone microphone)
 		{
 			return microphone.audioLine;
 		}
 
-		
-		
 		internal static Logger access_200(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static bool access_300(Microphone microphone)
 		{
 			return microphone.keepDataReference;
 		}
 
-		
-		
 		internal static AudioInputStream access_500(Microphone microphone)
 		{
 			return microphone.audioStream;
 		}
 
-		
 		
 		internal static Utterance access_402(Microphone microphone, Utterance result)
 		{
@@ -65,144 +47,87 @@ namespace edu.cmu.sphinx.frontend.util
 		}
 
 		
-		
 		internal static BlockingQueue access_700(Microphone microphone)
 		{
 			return microphone.audioList;
 		}
 
-		
-		
 		internal static int access_600(Microphone microphone)
 		{
 			return microphone.sampleRate;
 		}
 
-		
-		
 		internal static Logger access_800(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static Utterance access_400(Microphone microphone)
 		{
 			return microphone.currentUtterance;
 		}
 
-		
-		
 		internal static bool access_900(Microphone microphone)
 		{
 			return microphone.closeBetweenUtterances;
 		}
 
-		
-		
 		internal static TargetDataLine access_102(Microphone microphone, TargetDataLine result)
 		{
 			microphone.audioLine = result;
 			return result;
 		}
 
-		
-		
 		internal static Logger access_1000(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static Logger access_1100(Microphone microphone)
 		{
 			return microphone.logger;
 		}
-
-		
 		
 		internal static Logger access_1200(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static Logger access_1300(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static int access_1400(Microphone microphone)
 		{
 			return microphone.frameSizeInBytes;
 		}
 
-		
-		
 		internal static Logger access_1500(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static Logger access_1600(Microphone microphone)
 		{
 			return microphone.logger;
 		}
 
-		
-		
 		internal static bool access_1700(Microphone microphone)
 		{
 			return microphone.bigEndian;
 		}
 
-		
-		
 		internal static bool access_1800(Microphone microphone)
 		{
 			return microphone.signed;
 		}
-
-		
-		
 		
 		internal static double[] access_1900(Microphone microphone, double[] array, int num)
 		{
 			return microphone.convertStereoToMono(array, num);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			162,
-			50,
-			127,
-			2,
-			114,
-			117,
-			105,
-			104,
-			104,
-			43,
-			168,
-			232,
-			59,
-			235,
-			71,
-			114,
-			142,
-			38,
-			204,
-			191,
-			11
-		})]
-		
 		private double[] convertStereoToMono(double[] array, int num)
 		{
 			if (!Microphone.assertionsDisabled)
@@ -256,18 +181,6 @@ namespace edu.cmu.sphinx.frontend.util
 			return array2;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			173,
-			114,
-			130,
-			102,
-			114,
-			140,
-			108
-		})]
-		
 		private Mixer getSelectedMixer()
 		{
 			if (java.lang.String.instancehelper_equals(this.selectedMixerIndex, "default"))
@@ -282,32 +195,7 @@ namespace edu.cmu.sphinx.frontend.util
 			int num = Integer.parseInt(this.selectedMixerIndex);
 			return AudioSystem.getMixer(mixerInfo[num]);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			191,
-			104,
-			231,
-			78,
-			159,
-			11,
-			241,
-			71,
-			103,
-			99,
-			147,
-			242,
-			70,
-			255,
-			4,
-			71,
-			2,
-			97,
-			191,
-			11
-		})]
-		
+	
 		private TargetDataLine getAudioLine()
 		{
 			if (this.audioLine != null)
@@ -342,40 +230,7 @@ namespace edu.cmu.sphinx.frontend.util
 			IL_C9:
 			return this.audioLine;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			245,
-			103,
-			102,
-			107,
-			144,
-			223,
-			5,
-			226,
-			61,
-			97,
-			127,
-			11,
-			162,
-			108,
-			104,
-			109,
-			106,
-			250,
-			69,
-			111,
-			103,
-			115,
-			120,
-			139,
-			159,
-			21,
-			130,
-			112
-		})]
-		
+	
 		private bool open()
 		{
 			TargetDataLine targetDataLine = this.getAudioLine();
@@ -418,34 +273,11 @@ namespace edu.cmu.sphinx.frontend.util
 			this.logger.severe("Can't find microphone");
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			97,
-			76,
-			233,
-			19,
-			238,
-			110,
-			134,
-			103,
-			103,
-			135,
-			177,
-			103,
-			104,
-			103,
-			104,
-			104,
-			104,
-			104
-		})]
-		
+	
 		public Microphone(int sampleRate, int bitsPerSample, int channels, bool bigEndian, bool signed, bool closeBetweenUtterances, int msecPerRead, bool keepLastAudio, string stereoToMono, int selectedChannel, string selectedMixerIndex, int audioBufferSize)
 		{
 			this.utteranceEndReached = true;
-			Thread.MemoryBarrier();
+			System.Threading.Thread.MemoryBarrier();
 			this.initLogger();
 			this.sampleRate = sampleRate;
 			this.bigEndian = bigEndian;
@@ -459,50 +291,13 @@ namespace edu.cmu.sphinx.frontend.util
 			this.selectedMixerIndex = selectedMixerIndex;
 			this.audioBufferSize = audioBufferSize;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			85,
-			232,
-			0,
-			238,
-			160,
-			66
-		})]
-		
+	
 		public Microphone()
 		{
 			this.utteranceEndReached = true;
-			Thread.MemoryBarrier();
+			System.Threading.Thread.MemoryBarrier();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			96,
-			103,
-			140,
-			145,
-			140,
-			108,
-			118,
-			150,
-			191,
-			1,
-			118,
-			113,
-			118,
-			113,
-			113,
-			113,
-			113
-		})]
-		
+	
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
@@ -521,41 +316,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.selectedMixerIndex = ps.getString("selectMixer");
 			this.audioBufferSize = ps.getInt("bufferSize");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			125,
-			102,
-			139,
-			241,
-			71,
-			107,
-			127,
-			11,
-			135,
-			37,
-			134,
-			99,
-			149,
-			167,
-			104,
-			138,
-			104,
-			123,
-			122,
-			57,
-			167,
-			155,
-			122,
-			25,
-			229,
-			69,
-			98,
-			127,
-			21,
-			140
-		})]
 		
 		public override void initialize()
 		{
@@ -605,23 +365,6 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return this.recording;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			63,
-			106,
-			130,
-			104,
-			130,
-			110,
-			109,
-			144,
-			122,
-			113,
-			107,
-			110
-		})]
 		
 		public virtual bool startRecording()
 		{
@@ -650,18 +393,7 @@ namespace edu.cmu.sphinx.frontend.util
 			Thread.MemoryBarrier();
 			return true;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			86,
-			104,
-			104,
-			107,
-			135,
-			142
-		})]
-		
+	
 		public virtual void stopRecording()
 		{
 			if (this.audioLine != null)
@@ -675,38 +407,12 @@ namespace edu.cmu.sphinx.frontend.util
 				Thread.MemoryBarrier();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			77,
-			107
-		})]
-		
+	
 		public virtual void clear()
 		{
 			this.audioList.clear();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			92,
-			130,
-			138,
-			191,
-			4,
-			2,
-			97,
-			145,
-			104,
-			174
-		})]
-		
+	
 		public override Data getData()
 		{
 			Data data = null;
@@ -739,16 +445,9 @@ namespace edu.cmu.sphinx.frontend.util
 			return data;
 		}
 
-		
-		
 		public virtual bool hasMoreData()
 		{
 			return !this.utteranceEndReached || !this.audioList.isEmpty();
-		}
-
-		
-		static Microphone()
-		{
 		}
 
 		[S4Integer(new object[]
@@ -913,26 +612,9 @@ namespace edu.cmu.sphinx.frontend.util
 		internal static bool assertionsDisabled = !ClassLiteral<Microphone>.Value.desiredAssertionStatus();
 
 		
-		.
-		
-		internal sealed class RecordingThread : Thread
+		internal sealed class RecordingThread : java.lang.Thread
 		{
-			
-			public static void __<clinit>()
-			{
-			}
 
-			[LineNumberTable(new byte[]
-			{
-				161,
-				220,
-				106,
-				209,
-				2,
-				97,
-				149
-			})]
-			
 			private void waitForStart()
 			{
 				try
@@ -950,50 +632,7 @@ namespace edu.cmu.sphinx.frontend.util
 				IL_18:
 				Microphone.access_1300(this.this_0).warning("wait was interrupted");
 			}
-
-			[Throws(new string[]
-			{
-				"java.io.IOException"
-			})]
-			[LineNumberTable(new byte[]
-			{
-				161,
-				239,
-				145,
-				118,
-				147,
-				181,
-				106,
-				105,
-				110,
-				102,
-				176,
-				119,
-				191,
-				21,
-				100,
-				130,
-				102,
-				115,
-				154,
-				142,
-				111,
-				176,
-				168,
-				109,
-				231,
-				69,
-				109,
-				108,
-				142,
-				108,
-				172,
-				100,
-				176,
-				104,
-				58
-			})]
-			
+	
 			private Data readData(Utterance utterance)
 			{
 				byte[] array = new byte[Microphone.access_1400(this.this_0)];
@@ -1007,7 +646,7 @@ namespace edu.cmu.sphinx.frontend.util
 					lock (this)
 					{
 						this.started = true;
-						Thread.MemoryBarrier();
+						System.Threading.Thread.MemoryBarrier();
 						java.lang.Object.instancehelper_notifyAll(this);
 					}
 				}
@@ -1055,56 +694,20 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				return new DoubleData(array2, ByteCodeHelper.f2i(Microphone.access_500(this.this_0).getFormat().getSampleRate()), firstSampleNumber);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				112,
-				103,
-				233,
-				55,
-				235,
-				74
-			})]
-			
+	
 			public RecordingThread(Microphone microphone, string text) : base(text)
 			{
-				this.@lock = new Object();
+				this.@lock = new System.Object();
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				161,
-				122,
-				110,
-				102,
-				102
-			})]
-			
 			public override void start()
 			{
 				this.started = false;
-				Thread.MemoryBarrier();
+				System.Threading.Thread.MemoryBarrier();
 				base.start();
 				this.waitForStart();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				133,
-				144,
-				109,
-				104,
-				141,
-				191,
-				43,
-				2,
-				98,
-				231,
-				69
-			})]
-			
+	
 			public void stopRecording()
 			{
 				Microphone.access_100(this.this_0).stop();
@@ -1157,53 +760,6 @@ namespace edu.cmu.sphinx.frontend.util
 				InterruptedException ex10 = ex9;
 				Throwable.instancehelper_printStackTrace(ex10);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				154,
-				104,
-				149,
-				109,
-				113,
-				47,
-				198,
-				127,
-				2,
-				149,
-				112,
-				104,
-				114,
-				99,
-				103,
-				130,
-				114,
-				98,
-				112,
-				237,
-				75,
-				112,
-				112,
-				111,
-				255,
-				0,
-				69,
-				226,
-				61,
-				97,
-				127,
-				16,
-				134,
-				141,
-				159,
-				2,
-				119,
-				117,
-				149,
-				110,
-				107,
-				112
-			})]
 			
 			public override void run()
 			{
@@ -1259,21 +815,13 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 			}
 
-			
-			static RecordingThread()
-			{
-				Thread.__<clinit>();
-			}
-
 			private bool done;
 
 			private volatile bool started;
 
 			private long totalSamplesRead;
 
-			
 			private object @lock;
-
 			
 			internal Microphone this_0 = microphone;
 		}

@@ -1,28 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using IKVM.Runtime;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.frontend.util
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public class EnergyPlotter : java.lang.Object, Configurable
-	{
-		[LineNumberTable(new byte[]
-		{
-			20,
-			110,
-			104,
-			47,
-			166
-		})]
-		
+	{		
 		private void buildPlots(int num)
 		{
 			this.plots = new string[num + 1];
@@ -31,18 +15,6 @@ namespace edu.cmu.sphinx.frontend.util
 				this.plots[i] = this.getPlotString(i);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			33,
-			103,
-			104,
-			100,
-			101,
-			141,
-			104,
-			174
-		})]
 		
 		private string getPlotString(int num)
 		{
@@ -62,15 +34,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return new StringBuilder().append('+').append(java.lang.String.newhelper(array)).toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			72,
-			100,
-			102,
-			105,
-			137
-		})]
 		
 		private string getPlot(int num)
 		{
@@ -84,58 +47,22 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return this.getPlotString(num);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			0,
-			104,
-			103,
-			103
-		})]
 		
 		public EnergyPlotter(int maxEnergy)
 		{
 			this.maxEnergy = maxEnergy;
 			this.buildPlots(maxEnergy);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			134
-		})]
 		
 		public EnergyPlotter()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			10,
-			113,
-			108
-		})]
-		
 		public virtual void newProperties(PropertySheet ps)
 		{
 			this.maxEnergy = ps.getInt("maxEnergy");
 			this.buildPlots(this.maxEnergy);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			53,
-			99,
-			104,
-			115,
-			113,
-			98,
-			171
-		})]
 		
 		public virtual void plot(Data cepstrum)
 		{

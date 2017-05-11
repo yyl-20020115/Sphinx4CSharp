@@ -1,83 +1,27 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.frontend.util
 {
 	public class DataConverter : BaseDataProcessor
 	{
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			167,
-			104,
-			102,
-			103
-		})]
-		
 		public DataConverter(string convMode)
 		{
 			this.initLogger();
 			this.convMode = convMode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			134
-		})]
 		
 		public DataConverter()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			135,
-			113
-		})]
-		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.convMode = ps.getString("conversionMode");
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			191,
-			140,
-			127,
-			0,
-			108,
-			114,
-			107,
-			127,
-			2,
-			108,
-			114,
-			171
-		})]
-		
 		public override Data getData()
 		{
 			object obj = this.getPredecessor().getData();

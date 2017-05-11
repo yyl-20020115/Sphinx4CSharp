@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -13,79 +10,39 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.frontend.util
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.ReferenceSource"
-	})]
 	public class ConcatAudioFileDataSource : AudioFileDataSource, ReferenceSource
-	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		
-		
+	{		
 		internal static URL access_000(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.nextFile;
 		}
 
-		
-		
 		internal static URL access_002(ConcatAudioFileDataSource concatAudioFileDataSource, URL result)
 		{
 			concatAudioFileDataSource.nextFile = result;
 			return result;
 		}
-
-		
 		
 		internal static bool access_100(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.isInitialized;
 		}
-
-		
 		
 		internal static bool access_102(ConcatAudioFileDataSource concatAudioFileDataSource, bool result)
 		{
 			concatAudioFileDataSource.isInitialized = result;
 			return result;
 		}
-
-		
 		
 		internal static Logger access_200(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.logger;
 		}
-
-		
 		
 		internal static Logger access_300(ConcatAudioFileDataSource concatAudioFileDataSource)
 		{
 			return concatAudioFileDataSource.logger;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			35,
-			103,
-			162,
-			108,
-			166,
-			119,
-			104,
-			115,
-			130,
-			186,
-			2,
-			98,
-			167,
-			117
-		})]
 		
 		private static List readDriver(string text)
 		{
@@ -122,34 +79,11 @@ namespace edu.cmu.sphinx.frontend.util
 			return arrayList;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			25,
-			108,
-			102
-		})]
-		
 		public virtual void setBatchUrls(List urls)
 		{
 			this.batchFiles = new ArrayList(urls);
 			this.initialize();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			134,
-			104,
-			161,
-			107,
-			191,
-			10,
-			2,
-			97,
-			134
-		})]
 		
 		public override void initialize()
 		{
@@ -174,54 +108,19 @@ namespace edu.cmu.sphinx.frontend.util
 			IOException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			104
-		})]
 		
 		public ConcatAudioFileDataSource(int bytesPerRead, List listeners) : base(bytesPerRead, listeners)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			134
-		})]
 		
 		public ConcatAudioFileDataSource()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			8,
-			113
-		})]
 		
 		public virtual void setBatchFile(File file)
 		{
 			this.setBatchUrls(ConcatAudioFileDataSource.readDriver(file.getAbsolutePath()));
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			12,
-			166,
-			123,
-			191,
-			5,
-			2,
-			98,
-			167,
-			103
-		})]
 		
 		public virtual void setBatchFiles(List files)
 		{
@@ -249,8 +148,7 @@ namespace edu.cmu.sphinx.frontend.util
 			this.setBatchUrls(arrayList);
 		}
 
-		
-		
+
 		public override void setAudioFile(URL audioFileURL, string streamName)
 		{
 			
@@ -262,52 +160,24 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return this.referenceList;
 		}
-
 		
 		static ConcatAudioFileDataSource()
 		{
-			AudioFileDataSource.__<clinit>();
 			ConcatAudioFileDataSource.assertionsDisabled = !ClassLiteral<ConcatAudioFileDataSource>.Value.desiredAssertionStatus();
 		}
 
 		private URL nextFile;
-
-		
+	
 		private List referenceList;
 
 		private bool isInitialized;
 
-		
 		internal List batchFiles;
-
 		
 		internal new static bool assertionsDisabled;
-
-		
-		[Implements(new string[]
-		{
-			"java.util.Enumeration"
-		})]
-		
-		.
 		
 		internal sealed class InputStreamEnumeration : java.lang.Object, Enumeration
 		{
-			[LineNumberTable(new byte[]
-			{
-				160,
-				98,
-				107,
-				159,
-				28,
-				127,
-				6,
-				157,
-				167,
-				109,
-				150
-			})]
-			
 			public URL readNext()
 			{
 				if (this.lastFile != null)
@@ -318,7 +188,6 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						AudioFileProcessListener audioFileProcessListener = (AudioFileProcessListener)iterator.next();
 						AudioFileProcessListener audioFileProcessListener2 = audioFileProcessListener;
-						File.__<clinit>();
 						audioFileProcessListener2.audioFileProcFinished(new File(this.lastFile.getFile()));
 					}
 					this.lastFile = null;
@@ -329,50 +198,6 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				return this.lastFile;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				107,
-				98,
-				104,
-				178,
-				144,
-				102,
-				203,
-				103,
-				109,
-				141,
-				113,
-				118,
-				113,
-				106,
-				179,
-				117,
-				105,
-				114,
-				176,
-				98,
-				127,
-				1,
-				54,
-				133,
-				127,
-				7,
-				159,
-				4,
-				113,
-				255,
-				16,
-				71,
-				226,
-				58,
-				98,
-				103,
-				159,
-				26,
-				98,
-				199
-			})]
 			
 			public AudioInputStream nextElement()
 			{
@@ -412,7 +237,6 @@ namespace edu.cmu.sphinx.frontend.util
 							{
 								AudioFileProcessListener audioFileProcessListener = (AudioFileProcessListener)iterator.next();
 								AudioFileProcessListener audioFileProcessListener2 = audioFileProcessListener;
-								File.__<clinit>();
 								audioFileProcessListener2.audioFileProcStarted(new File(ConcatAudioFileDataSource.access_000(this.this_0).getFile()));
 							}
 							this.lastFile = ConcatAudioFileDataSource.access_000(this.this_0);
@@ -442,31 +266,12 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				return result;
 			}
-
-			[Throws(new string[]
-			{
-				"java.io.IOException"
-			})]
-			
-			[LineNumberTable(new byte[]
-			{
-				83,
-				111,
-				113
-			})]
 			
 			internal InputStreamEnumeration(ConcatAudioFileDataSource concatAudioFileDataSource, List list)
 			{
 				this.fileIt = new ArrayList(list).iterator();
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				94,
-				109,
-				146
-			})]
-			
 			public bool hasMoreElements()
 			{
 				if (ConcatAudioFileDataSource.access_000(this.this_0) == null)
@@ -478,19 +283,15 @@ namespace edu.cmu.sphinx.frontend.util
 
 			
 			
-			
-			public object nextElement()
+			object Enumeration.nextElement()
 			{
 				return this.nextElement();
 			}
 
 			private URL lastFile;
-
-			
 			
 			internal Iterator fileIt;
 
-			
 			internal ConcatAudioFileDataSource this_0 = concatAudioFileDataSource;
 		}
 	}

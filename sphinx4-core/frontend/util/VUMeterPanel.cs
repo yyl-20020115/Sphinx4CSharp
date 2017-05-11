@@ -1,8 +1,6 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.awt;
@@ -13,23 +11,7 @@ namespace edu.cmu.sphinx.frontend.util
 {
 	[Serializable]
 	public class VUMeterPanel : JPanel
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			163,
-			232,
-			126,
-			104,
-			104,
-			104
-		})]
-		
+	{		
 		public VUMeterPanel()
 		{
 			this.numberOfLights = 50;
@@ -43,44 +25,12 @@ namespace edu.cmu.sphinx.frontend.util
 			this.vu = vu;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			103,
-			108,
-			107
-		})]
-		
 		public virtual void start()
 		{
 			this.quit = false;
 			this.thread = new VUMeterPanel.VUMeterPanelThread(this);
 			this.thread.start();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			45,
-			127,
-			8,
-			159,
-			8,
-			118,
-			151,
-			103,
-			103,
-			139,
-			107,
-			152,
-			104,
-			105,
-			28,
-			232,
-			69,
-			104,
-			155
-		})]
 		
 		private void paintVUMeter(Graphics graphics)
 		{
@@ -109,18 +59,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.setLevelColor(num2, graphics);
 			graphics.fillRect(1, size.height - num2 * num3 + 1, width - 2, num3 - 2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			70,
-			101,
-			109,
-			101,
-			109,
-			101,
-			141,
-			107
-		})]
 		
 		private void setLevelColor(int num, Graphics graphics)
 		{
@@ -141,20 +79,6 @@ namespace edu.cmu.sphinx.frontend.util
 				graphics.setColor(Color.RED);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			103,
-			98,
-			131,
-			107,
-			141,
-			34,
-			97,
-			130
-		})]
 		
 		public virtual void stop()
 		{
@@ -173,15 +97,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			25,
-			135,
-			104,
-			135
-		})]
-		
-		public override void paintComponent(Graphics g)
+		protected override void paintComponent(Graphics g)
 		{
 			base.paintComponent(g);
 			if (this.vu != null)
@@ -198,11 +114,9 @@ namespace edu.cmu.sphinx.frontend.util
 		
 		static VUMeterPanel()
 		{
-			JPanel.__<clinit>();
 			VUMeterPanel.assertionsDisabled = !ClassLiteral<VUMeterPanel>.Value.desiredAssertionStatus();
 		}
 
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected VUMeterPanel(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
@@ -228,33 +142,13 @@ namespace edu.cmu.sphinx.frontend.util
 
 		
 		internal static bool assertionsDisabled;
-
-		
-		.
 		
 		internal sealed class VUMeterPanelThread : Thread
-		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			
-			
+		{			
 			internal VUMeterPanelThread(VUMeterPanel vumeterPanel)
 			{
+				this.this_0 = vumeterPanel;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				7,
-				109,
-				139,
-				179,
-				2,
-				129,
-				130
-			})]
 			
 			public override void run()
 			{
@@ -271,14 +165,7 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 			}
 
-			
-			static VUMeterPanelThread()
-			{
-				Thread.__<clinit>();
-			}
-
-			
-			internal VUMeterPanel this_0 = vumeterPanel;
+			internal VUMeterPanel this_0;
 		}
 	}
 }

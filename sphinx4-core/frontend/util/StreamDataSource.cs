@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -20,33 +17,11 @@ namespace edu.cmu.sphinx.frontend.util
 			this.utteranceStarted = false;
 			this.totalValuesRead = 0L;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			85,
-			108
-		})]
 		
 		public virtual void setInputStream(InputStream inputStream)
 		{
 			this.setInputStream(inputStream, TimeFrame.__INFINITE);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			115,
-			102,
-			103,
-			103,
-			135,
-			115,
-			176,
-			105,
-			103,
-			103,
-			121
-		})]
 		
 		private void init(int num, int num2, int num3, bool flag, bool flag2)
 		{
@@ -73,42 +48,6 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return ByteCodeHelper.d2l((double)this.totalValuesRead / (double)this.sampleRate * 1000.0);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			95,
-			98,
-			103,
-			108,
-			167,
-			146,
-			101,
-			133,
-			105,
-			100,
-			102,
-			168,
-			126,
-			100,
-			183,
-			104,
-			102,
-			133,
-			99,
-			221,
-			2,
-			98,
-			210,
-			104,
-			184,
-			246,
-			70
-		})]
 		
 		private DoubleData readNextFrame()
 		{
@@ -117,7 +56,6 @@ namespace edu.cmu.sphinx.frontend.util
 			byte[] array = new byte[this.bytesPerRead];
 			long firstSampleNumber = this.totalValuesRead;
 			DoubleData result;
-			IOException ex2;
 			try
 			{
 				int num3;
@@ -153,8 +91,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_BB;
+				throw new DataProcessingException("Error reading data", ex);
 			}
 			return result;
 			IL_B9:
@@ -168,26 +105,7 @@ namespace edu.cmu.sphinx.frontend.util
 				values = DataUtil.littleEndianBytesToValues(array, 0, num, this.bytesPerValue, this.signedData);
 			}
 			return new DoubleData(values, this.sampleRate, firstSampleNumber);
-			IL_BB:
-			IOException ex3 = ex2;
-			string message = "Error reading data";
-			Exception cause = ex3;
-			
-			throw new DataProcessingException(message, cause);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			143,
-			103,
-			104,
-			139
-		})]
 		
 		private void closeDataStream()
 		{
@@ -197,105 +115,29 @@ namespace edu.cmu.sphinx.frontend.util
 				this.dataStream.close();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			123,
-			134,
-			232,
-			61,
-			203,
-			102,
-			107
-		})]
-		
+	
 		public StreamDataSource(int sampleRate, int bytesPerRead, int bitsPerSample, bool bigEndian, bool signedData)
 		{
 			this.timeFrame = TimeFrame.__INFINITE;
 			this.initLogger();
 			this.init(sampleRate, bytesPerRead, bitsPerSample, bigEndian, signedData);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			33,
-			232,
-			56,
-			235,
-			74
-		})]
 		
 		public StreamDataSource()
 		{
 			this.timeFrame = TimeFrame.__INFINITE;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			45,
-			103,
-			103,
-			107,
-			107,
-			107,
-			112,
-			234,
-			59,
-			229,
-			70
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.init(ps.getInt("sampleRate"), ps.getInt("bytesPerRead"), ps.getInt("bitsPerSample"), ps.getBoolean("bigEndianData").booleanValue(), ps.getBoolean("signedData").booleanValue());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			81,
-			102
-		})]
 		
 		public override void initialize()
 		{
 			base.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			113,
-			98,
-			104,
-			171,
-			108,
-			172,
-			104,
-			103,
-			145,
-			139,
-			103,
-			155,
-			159,
-			4,
-			108,
-			103,
-			169,
-			112,
-			104,
-			108,
-			231,
-			69
-		})]
 		
 		public override Data getData()
 		{

@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.awt;
 using javax.swing;
 
@@ -9,22 +6,6 @@ namespace edu.cmu.sphinx.frontend.util
 {
 	public class VUMeterMonitor : BaseDataProcessor
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			168,
-			104,
-			139,
-			107,
-			113,
-			139,
-			107,
-			150,
-			117,
-			151,
-			108
-		})]
-		
 		public VUMeterMonitor()
 		{
 			this.vumeter = new VUMeter();
@@ -42,21 +23,6 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return this.vuMeterDialog;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			172,
-			104,
-			156,
-			104,
-			140
-		})]
 		
 		public override Data getData()
 		{
@@ -71,22 +37,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return data;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			18,
-			223,
-			5,
-			102,
-			135,
-			102,
-			108,
-			167
-		})]
 		
 		public static void main(string[] args)
 		{
@@ -101,14 +51,11 @@ namespace edu.cmu.sphinx.frontend.util
 				vumeterMonitor.getData();
 			}
 		}
-
 		
 		internal VUMeter vumeter;
-
 		
 		internal VUMeterPanel vuMeterPanel;
 
-		
 		internal JDialog vuMeterDialog;
 	}
 }

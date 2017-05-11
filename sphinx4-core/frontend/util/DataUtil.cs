@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -12,24 +9,7 @@ using javax.sound.sampled;
 namespace edu.cmu.sphinx.frontend.util
 {
 	public class DataUtil : java.lang.Object
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			128,
-			136,
-			103,
-			103,
-			103,
-			39,
-			198
-		})]
-		
+	{	
 		public static FloatData DoubleData2FloatData(DoubleData data)
 		{
 			int num = data.getValues().Length;
@@ -41,37 +21,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return new FloatData(array, data.getSampleRate(), data.getFirstSampleNumber());
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.ArrayIndexOutOfBoundsException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			111,
-			99,
-			113,
-			127,
-			1,
-			145,
-			130,
-			106,
-			105,
-			99,
-			138,
-			104,
-			105,
-			9,
-			232,
-			69,
-			230,
-			54,
-			233,
-			77,
-			130
-		})]
-		
+	
 		public static double[] bytesToValues(byte[] byteArray, int offset, int length, int bytesPerValue, bool signedData)
 		{
 			if (0 >= length || offset + length > byteArray.Length)
@@ -107,38 +57,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.ArrayIndexOutOfBoundsException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			99,
-			131,
-			113,
-			127,
-			1,
-			145,
-			134,
-			106,
-			105,
-			99,
-			138,
-			104,
-			105,
-			9,
-			232,
-			70,
-			134,
-			230,
-			51,
-			233,
-			80,
-			162
-		})]
-		
+	
 		public static double[] littleEndianBytesToValues(byte[] data, int offset, int length, int bytesPerValue, bool signedData)
 		{
 			if (0 >= length || offset + length > data.Length)
@@ -175,28 +94,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			154,
-			141,
-			115,
-			100,
-			109,
-			37,
-			168,
-			100,
-			107,
-			120,
-			102,
-			107,
-			37,
-			230,
-			55,
-			233,
-			77
-		})]
 		
 		private static string doubleArrayToString(double[] array, int num)
 		{
@@ -211,7 +108,7 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				else if (num == 1)
 				{
-					DoubleConverter doubleConverter;
+					DoubleConverter doubleConverter = new DoubleConverter();
 					long num4 = DoubleConverter.ToLong(num3, ref doubleConverter);
 					stringBuilder.append(" 0x").append(Long.toHexString(num4));
 				}
@@ -222,27 +119,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			233,
-			115,
-			102,
-			41,
-			198,
-			112,
-			173,
-			105,
-			100,
-			123,
-			137,
-			103,
-			104,
-			42,
-			168,
-			105
-		})]
 		
 		public static string formatDouble(double number, int integerDigits, int fractionDigits)
 		{
@@ -267,28 +143,6 @@ namespace edu.cmu.sphinx.frontend.util
 			stringBuilder2.append(text);
 			return stringBuilder2.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			199,
-			141,
-			115,
-			100,
-			110,
-			37,
-			168,
-			100,
-			107,
-			120,
-			102,
-			108,
-			37,
-			230,
-			55,
-			233,
-			77
-		})]
 		
 		private static string floatArrayToString(float[] array, int num)
 		{
@@ -303,7 +157,7 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				else if (num == 1)
 				{
-					FloatConverter floatConverter;
+					FloatConverter floatConverter = new FloatConverter();
 					int num4 = FloatConverter.ToInt(num3, ref floatConverter);
 					stringBuilder.append(" 0x").append(Integer.toHexString(num4));
 				}
@@ -314,37 +168,6 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			66,
-			99,
-			107,
-			136,
-			106,
-			166,
-			162,
-			150,
-			142,
-			249,
-			69,
-			113,
-			111,
-			102,
-			105,
-			109,
-			99,
-			226,
-			53,
-			235,
-			78,
-			131,
-			226,
-			44,
-			235,
-			87
-		})]
 		
 		public static AudioFormat getNativeAudioFormat(AudioFormat format, Mixer mixer)
 		{
@@ -382,37 +205,11 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return audioFormat;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			15,
-			102
-		})]
 		
 		private DataUtil()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.ArrayIndexOutOfBoundsException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			35,
-			113,
-			100,
-			135,
-			136,
-			107,
-			114,
-			230,
-			61,
-			232,
-			69,
-			130
-		})]
-		
 		public static short[] byteToShortArray(byte[] byteArray, int offset, int length)
 		{
 			if (0 < length && offset + length <= byteArray.Length)
@@ -439,32 +236,12 @@ namespace edu.cmu.sphinx.frontend.util
 			throw new ArrayIndexOutOfBoundsException(text);
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.ArrayIndexOutOfBoundsException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			103,
-			182
-		})]
 		public static short bytesToShort(byte[] byteArray, int offset)
 		{
 			int num = offset;
 			offset++;
 			return (short)((int)byteArray[num] << 8 | (int)(byte.MaxValue & byteArray[offset]));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			118,
-			109,
-			112,
-			48,
-			166
-		})]
 		
 		public static string shortArrayToString(short[] data)
 		{
@@ -477,15 +254,11 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			return stringBuilder.toString();
 		}
-
-		
 		
 		public static string doubleArrayToString(double[] data)
 		{
 			return DataUtil.doubleArrayToString(data, DataUtil.dumpFormat);
 		}
-
-		
 		
 		public static string floatArrayToString(float[] data)
 		{
@@ -501,19 +274,6 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return ByteCodeHelper.f2i((float)sampleRate * windowShiftInMs / 1000f);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			36,
-			103,
-			103,
-			102
-		})]
 		
 		public static void bytesToFile(byte[] data, string filename)
 		{
@@ -521,25 +281,11 @@ namespace edu.cmu.sphinx.frontend.util
 			fileOutputStream.write(data);
 			fileOutputStream.close();
 		}
-
-		
 		
 		public static AudioFormat getNativeAudioFormat(AudioFormat format)
 		{
 			return DataUtil.getNativeAudioFormat(format, null);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			110,
-			136,
-			103,
-			103,
-			103,
-			39,
-			198
-		})]
 		
 		public static DoubleData FloatData2DoubleData(FloatData data)
 		{
@@ -553,24 +299,6 @@ namespace edu.cmu.sphinx.frontend.util
 			return new DoubleData(array, data.getSampleRate(), data.getFirstSampleNumber());
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			169,
-			245,
-			72,
-			234,
-			75,
-			230,
-			70,
-			144,
-			109,
-			104,
-			109,
-			104,
-			109,
-			134
-		})]
 		static DataUtil()
 		{
 			DataUtil.format = new DecimalFormat();
@@ -595,7 +323,6 @@ namespace edu.cmu.sphinx.frontend.util
 		private const int SCIENTIFIC = 2;
 
 		private const int DECIMAL = 3;
-
 		
 		private static DecimalFormat format;
 
@@ -608,8 +335,7 @@ namespace edu.cmu.sphinx.frontend.util
 		private const int doubleScientificFractionDigits = 8;
 
 		private static int dumpFormat;
-
-		
+	
 		internal static bool assertionsDisabled = !ClassLiteral<DataUtil>.Value.desiredAssertionStatus();
 	}
 }

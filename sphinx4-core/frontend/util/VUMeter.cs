@@ -1,54 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.frontend.util
+﻿namespace edu.cmu.sphinx.frontend.util
 {
 	public class VUMeter : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			33,
-			102,
-			140,
-			102,
-			166,
-			234,
-			70,
-			101,
-			103,
-			135,
-			100,
-			135,
-			100,
-			167,
-			159,
-			34,
-			98,
-			131,
-			138,
-			135,
-			105,
-			144,
-			106,
-			107,
-			113,
-			105,
-			232,
-			31,
-			233,
-			102,
-			108,
-			114,
-			113
-		})]
-		
 		private void calculateVULevels(double[] array)
 		{
 			double num = (double)0f;
@@ -89,43 +42,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.rms = java.lang.Math.sqrt(this.rms);
 			this.average /= (double)array.Length;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			86,
-			102,
-			140,
-			102,
-			166,
-			234,
-			70,
-			101,
-			103,
-			135,
-			100,
-			136,
-			100,
-			168,
-			159,
-			33,
-			98,
-			131,
-			138,
-			135,
-			105,
-			144,
-			106,
-			107,
-			113,
-			105,
-			232,
-			31,
-			233,
-			102,
-			108,
-			114,
-			113
-		})]
 		
 		private void calculateVULevels(short[] array)
 		{
@@ -167,20 +83,6 @@ namespace edu.cmu.sphinx.frontend.util
 			this.rms = java.lang.Math.sqrt(this.rms);
 			this.average /= (double)array.Length;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			157,
-			232,
-			73,
-			107,
-			139,
-			107,
-			139,
-			107,
-			107
-		})]
 		
 		public VUMeter()
 		{
@@ -192,47 +94,30 @@ namespace edu.cmu.sphinx.frontend.util
 			this.b2 = -1.9561f;
 			this.b3 = 0.978f;
 		}
-
-		
 		
 		public double getRmsDB()
 		{
 			return java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(this.rms) / VUMeter.log10);
 		}
-
-		
 		
 		public double getAverageDB()
 		{
 			return java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(this.average) / VUMeter.log10);
 		}
-
-		
 		
 		public double getPeakDB()
 		{
 			return java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(this.peak) / VUMeter.log10);
 		}
-
-		
 		public bool getIsClipping()
 		{
 			return 32767.0 < 2.0 * this.peak;
 		}
-
 		
 		public double getMaxDB()
 		{
 			return VUMeter.maxDB;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			12,
-			136,
-			140,
-			135
-		})]
 		
 		public virtual void calculateVULevels(Data data)
 		{
@@ -242,18 +127,6 @@ namespace edu.cmu.sphinx.frontend.util
 				this.calculateVULevels(values);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			22,
-			105,
-			104,
-			102,
-			21,
-			230,
-			69,
-			103
-		})]
 		
 		public virtual void calculateVULevels(byte[] data, int offset, int cnt)
 		{
@@ -266,46 +139,28 @@ namespace edu.cmu.sphinx.frontend.util
 			this.calculateVULevels(array);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			163,
-			116
-		})]
-		static VUMeter()
-		{
-		}
-
 		private double rms;
 
 		private double average;
 
 		private double peak;
-
-		
+	
 		private static double log10 = java.lang.Math.log(10.0);
-
 		
 		private static double maxDB = java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(32767.0) / VUMeter.log10);
-
 		
 		private int peakHoldTime;
 
 		private long then;
-
 		
 		private float a2;
-
 		
 		private float a3;
-
 		
 		private float b1;
 
-		
 		private float b2;
 
-		
 		private float b3;
 	}
 }
