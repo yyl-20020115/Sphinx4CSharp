@@ -1,58 +1,31 @@
 ﻿using System;
-
-using IKVM.Attributes;
 using ikvm.@internal;
-using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	
-	
 	[Serializable]
-	public sealed class HMMPosition : Enum
+	public sealed class HMMPosition : java.lang.Enum
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		
 		public static HMMPosition[] values()
 		{
 			return (HMMPosition[])HMMPosition._VALUES_.Clone();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			131,
-			130,
-			106,
-			108
-		})]
 		
 		private HMMPosition(string text, int num, char c) : base(text, num)
 		{
 			this.rep = java.lang.String.valueOf(c);
 			GC.KeepAlive(this);
 		}
-
-		
 		
 		public static HMMPosition valueOf(string name)
 		{
-			return (HMMPosition)Enum.valueOf(ClassLiteral<HMMPosition>.Value, name);
+			return (HMMPosition)java.lang.Enum.valueOf(ClassLiteral<HMMPosition>.Value, name);
 		}
 
-		
-		
 		public static HMMPosition lookup(string rep)
 		{
 			return (rep != null && !java.lang.String.instancehelper_isEmpty(rep)) ? HMMPosition.posByRep[(int)java.lang.String.instancehelper_charAt(rep, 0)] : null;
 		}
-
 		public bool isWordEnd()
 		{
 			return this == HMMPosition.__SINGLE || this == HMMPosition.__END;
@@ -68,29 +41,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			return this.rep;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			163,
-			114,
-			114,
-			114,
-			114,
-			242,
-			58,
-			255,
-			20,
-			74,
-			98,
-			116,
-			112,
-			14,
-			166,
-			109,
-			116,
-			53,
-			134
-		})]
 		static HMMPosition()
 		{
 			int num = 0;
@@ -114,7 +64,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 		}
 
-		
 		public static HMMPosition BEGIN
 		{
 			
@@ -123,7 +72,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 				return HMMPosition.__BEGIN;
 			}
 		}
-
 		
 		public static HMMPosition END
 		{
@@ -134,7 +82,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 		}
 
-		
 		public static HMMPosition SINGLE
 		{
 			
@@ -144,7 +91,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 		}
 
-		
 		public static HMMPosition INTERNAL
 		{
 			
@@ -154,7 +100,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 		}
 
-		
 		public static HMMPosition UNDEFINED
 		{
 			
@@ -164,28 +109,20 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 		}
 
-		
 		internal static HMMPosition __BEGIN = new HMMPosition("BEGIN", 0, 'b');
-
 		
 		internal static HMMPosition __END = new HMMPosition("END", 1, 'e');
-
 		
 		internal static HMMPosition __SINGLE = new HMMPosition("SINGLE", 2, 's');
-
 		
 		internal static HMMPosition __INTERNAL = new HMMPosition("INTERNAL", 3, 'i');
-
 		
 		internal static HMMPosition __UNDEFINED = new HMMPosition("UNDEFINED", 4, '-');
-
 		
 		private static HMMPosition[] posByRep;
 
-		
 		private string rep;
 
-		
 		private static HMMPosition[] _VALUES_ = new HMMPosition[]
 		{
 			HMMPosition.__BEGIN,

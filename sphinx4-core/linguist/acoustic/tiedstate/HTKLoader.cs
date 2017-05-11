@@ -1,10 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.adaptation;
+﻿using edu.cmu.sphinx.decoder.adaptation;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -15,59 +12,28 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.acoustic.tiedstate.Loader"
-	})]
 	public class HTKLoader : java.lang.Object, Loader, Configurable
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		
+	{		
 		internal static float access_000(HTKLoader htkloader)
 		{
 			return htkloader.varianceFloor;
-		}
-
-		
+		}		
 		
 		internal static float access_100(HTKLoader htkloader)
 		{
 			return htkloader.mixtureWeightFloor;
-		}
-
-		
+		}		
 		
 		internal static LogMath access_200(HTKLoader htkloader)
 		{
 			return htkloader.logMath;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			88,
-			104,
-			139,
-			114,
-			99,
-			191,
-			4,
-			2,
-			97,
-			166
-		})]
 		
 		private void loadProperties()
 		{
 			if (this.properties == null)
 			{
 				this.properties = new Properties();
-				IOException ex2;
 				try
 				{
 					URL resource = java.lang.Object.instancehelper_getClass(this).getResource(this.propsFile);
@@ -78,42 +44,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_48;
+					Throwable.instancehelper_printStackTrace(ex);
 				}
-				return;
-				IL_48:
-				IOException ex3 = ex2;
-				Throwable.instancehelper_printStackTrace(ex3);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			152,
-			127,
-			6,
-			127,
-			11,
-			127,
-			11,
-			159,
-			11,
-			103,
-			135,
-			109,
-			115,
-			115,
-			173,
-			120,
-			127,
-			24
-		})]
 		
 		private void loadModelFiles(string text)
 		{
@@ -130,54 +64,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.senonePool = this.createSenonePool(this.distFloor, this.varianceFloor);
 			this.loadHMMPool(this.useCDUnits, htkstruct, new StringBuilder().append(this.location).append(File.separator).append(this.model).toString());
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			183,
-			139,
-			108,
-			172,
-			108,
-			109,
-			131,
-			127,
-			6,
-			127,
-			7,
-			127,
-			6,
-			159,
-			6,
-			118,
-			121,
-			153,
-			119,
-			108,
-			114,
-			108,
-			119,
-			108,
-			114,
-			140,
-			108,
-			104,
-			104,
-			113,
-			182,
-			248,
-			70,
-			230,
-			53,
-			232,
-			78,
-			145,
-			234,
-			46,
-			235,
-			84
-		})]
 		
 		private Pool createSenonePool(float num, float num2)
 		{
@@ -217,7 +103,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				{
 					MixtureComponent[] array2 = array;
 					int num6 = j;
-					MixtureComponent.__<clinit>();
 					array2[num6] = new MixtureComponent((float[])this.meansPool.get(num5), meanTransformationMatrix, meanTransformationVector, (float[])this.variancePool.get(num5), varianceTransformationMatrix, varianceTransformationVector, num, num2);
 					num5++;
 				}
@@ -226,160 +111,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return pool;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			25,
-			98,
-			107,
-			108,
-			107,
-			108,
-			99,
-			101,
-			135,
-			127,
-			1,
-			122,
-			103,
-			137,
-			135,
-			168,
-			104,
-			173,
-			99,
-			105,
-			106,
-			138,
-			114,
-			230,
-			59,
-			232,
-			76,
-			122,
-			149,
-			114,
-			223,
-			7,
-			124,
-			167,
-			116,
-			138,
-			107,
-			108,
-			109,
-			170,
-			117,
-			110,
-			99,
-			101,
-			103,
-			177,
-			127,
-			1,
-			122,
-			103,
-			137,
-			135,
-			168,
-			104,
-			205,
-			99,
-			105,
-			106,
-			138,
-			114,
-			230,
-			59,
-			232,
-			76,
-			110,
-			37,
-			135,
-			149,
-			114,
-			223,
-			7,
-			107,
-			113,
-			167,
-			116,
-			138,
-			107,
-			108,
-			237,
-			9,
-			235,
-			127,
-			103,
-			99,
-			99,
-			131,
-			103,
-			109,
-			108,
-			110,
-			100,
-			101,
-			105,
-			105,
-			233,
-			70,
-			110,
-			103,
-			110,
-			103,
-			127,
-			16,
-			171,
-			133,
-			234,
-			69,
-			103,
-			137,
-			105,
-			142,
-			99,
-			105,
-			107,
-			107,
-			114,
-			230,
-			60,
-			232,
-			74,
-			134,
-			159,
-			16,
-			107,
-			134,
-			104,
-			150,
-			104,
-			150,
-			139,
-			146,
-			100,
-			132,
-			114,
-			191,
-			7,
-			148,
-			100,
-			112,
-			138,
-			100,
-			132,
-			104,
-			108,
-			141,
-			101
-		})]
 		
 		protected internal virtual void loadHMMPool(bool useCDUnits, HTKLoader.HTKStruct htkModels, string path)
 		{
@@ -411,7 +142,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					{
 						if (singleHMM.isEmitting(i))
 						{
-							HMMState state = singleHMM.getState(i);
+							HTK.HMMState state = singleHMM.getState(i);
 							array[num] = htkModels.hmmsHTK.getStateIdx(state);
 							num++;
 						}
@@ -461,7 +192,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 						{
 							if (singleHMM.isEmitting(i))
 							{
-								HMMState state = singleHMM.getState(i);
+								HTK.HMMState state = singleHMM.getState(i);
 								array[num] = htkModels.hmmsHTK.getStateIdx(state);
 								num++;
 							}
@@ -520,7 +251,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					{
 						if (singleHMM2.isEmitting(k))
 						{
-							HMMState state2 = singleHMM2.getState(k);
+							HTK.HMMState state2 = singleHMM2.getState(k);
 							array2[num2] = htkModels.hmmsHTK.getStateIdx(state2);
 							num2++;
 						}
@@ -563,31 +294,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					}
 				}
 			}
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
+		}	
 		
 		private char readChar(DataInputStream dataInputStream)
 		{
 			return (char)((sbyte)dataInputStream.readByte());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			43,
-			104,
-			137,
-			135
-		})]
 		
 		protected internal virtual float readFloat(DataInputStream dis)
 		{
@@ -603,16 +315,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return result;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			162,
-			81,
-			104,
-			103,
-			54,
-			166
-		})]
-		
 		protected internal virtual SenoneSequence getSenoneSequence(int[] stateId)
 		{
 			Senone[] array = new Senone[stateId.Length];
@@ -623,18 +325,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return new SenoneSequence(array);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			162,
-			62,
-			102,
-			103,
-			104,
-			2,
-			230,
-			69,
-			130
-		})]
 		protected internal virtual bool sameSenoneSequence(int[] ssid1, int[] ssid2)
 		{
 			if (ssid1.Length == ssid2.Length)
@@ -650,24 +340,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			102,
-			163,
-			136,
-			150,
-			103,
-			134,
-			107,
-			103,
-			104,
-			103,
-			105,
-			105,
-			105
-		})]
 		
 		public HTKLoader(string propsFile, UnitManager unitManager, bool isBinary, int vectorLength, string model, bool tie1ph, float distFloor, float mixtureWeightFloor, float varianceFloor)
 		{
@@ -682,37 +354,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.mixtureWeightFloor = mixtureWeightFloor;
 			this.varianceFloor = varianceFloor;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			65,
-			134
-		})]
 		
 		public HTKLoader()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			70,
-			140,
-			113,
-			134,
-			150,
-			118,
-			151,
-			150,
-			113,
-			113,
-			113
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -728,26 +373,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.varianceFloor = ps.getFloat("varianceFloor");
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			101,
-			104,
-			107,
-			139,
-			103,
-			103,
-			103,
-			135,
-			108,
-			111,
-			135
-		})]
-		
 		public virtual void load()
 		{
 			if (!this.loaded)
@@ -768,14 +393,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.name;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			126,
-			104,
-			134
-		})]
 		
 		public virtual Properties getProperties()
 		{
@@ -790,28 +407,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.location;
 		}
-
 		
 		public virtual Map getContextIndependentUnits()
 		{
 			return this.contextIndependentUnits;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			244,
-			198,
-			104,
-			168,
-			104,
-			104,
-			104
-		})]
 		
 		internal virtual string readWord(DataInputStream dataInputStream)
 		{
@@ -830,18 +430,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			while (!Character.isWhitespace((char)num));
 			return stringBuilder.toString();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			25,
-			104,
-			135
-		})]
 		
 		protected internal virtual int readInt(DataInputStream dis)
 		{
@@ -851,20 +439,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return dis.readInt();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			64,
-			103,
-			102,
-			42,
-			166
-		})]
 		
 		protected internal virtual float[] readFloatArray(DataInputStream dis, int size)
 		{
@@ -875,38 +449,32 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return array;
 		}
-
 		
 		public virtual Pool getMeansPool()
 		{
 			return this.meansPool;
 		}
-
 		
 		public virtual Pool getMeansTransformationMatrixPool()
 		{
 			return this.meanTransformationMatrixPool;
 		}
 
-		
 		public virtual Pool getMeansTransformationVectorPool()
 		{
 			return this.meanTransformationVectorPool;
 		}
 
-		
 		public virtual Pool getVariancePool()
 		{
 			return this.variancePool;
 		}
-
 		
 		public virtual Pool getVarianceTransformationMatrixPool()
 		{
 			return this.varianceTransformationMatrixPool;
 		}
 
-		
 		public virtual Pool getVarianceTransformationVectorPool()
 		{
 			return this.varianceTransformationVectorPool;
@@ -917,19 +485,16 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return this.mixtureWeights;
 		}
 
-		
 		public virtual Pool getTransitionMatrixPool()
 		{
 			return this.matrixPool;
 		}
-
 		
 		public virtual float[][] getTransformMatrix()
 		{
 			return (float[][])null;
 		}
 
-		
 		public virtual Pool getSenonePool()
 		{
 			return this.senonePool;
@@ -949,30 +514,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.hmmManager;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			142,
-			112,
-			113,
-			113,
-			113,
-			145,
-			104,
-			113,
-			104,
-			113,
-			104,
-			113,
-			104,
-			145,
-			113,
-			123,
-			47,
-			133,
-			113
-		})]
 		
 		public virtual void logInfo()
 		{
@@ -1001,25 +542,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.logger.info(new StringBuilder().append("Context Independent Unit Entries: ").append(this.contextIndependentUnits.size()).toString());
 			this.hmmManager.logInfo(this.logger);
 		}
-
 		public virtual void update(Transform transform, ClusteredDensityFileData clusters)
 		{
 		}
-
-		
-		static HTKLoader()
-		{
-		}
-
-		
-		[NameSig("loadHMMPool", "(ZLedu.cmu.sphinx.linguist.acoustic.tiedstate.HTKLoader_HTKStruct;Ljava.lang.java.lang.String;)V")]
 		protected internal void loadHMMPool(bool flag, object obj, string path)
 		{
 			this.loadHMMPool(flag, (HTKLoader.HTKStruct)obj, path);
 		}
 
-		
-		[NameSig("loadHMMPool", "(ZLedu.cmu.sphinx.linguist.acoustic.tiedstate.HTKLoader_HTKStruct;Ljava.lang.java.lang.String;)V")]
 		protected internal void _0(bool flag, object obj, string path)
 		{
 			this.loadHMMPool(flag, (HTKLoader.HTKStruct)obj, path);
@@ -1121,33 +651,24 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public const string MODEL_VERSION = "0.3";
 
 		protected internal const int CONTEXT_SIZE = 1;
-
 		
 		private Pool meansPool;
 
-		
 		private Pool variancePool;
-
 		
 		private Pool matrixPool;
-
 		
 		private Pool meanTransformationMatrixPool;
-
 		
 		private Pool meanTransformationVectorPool;
-
 		
 		private Pool varianceTransformationMatrixPool;
-
 		
 		private Pool varianceTransformationVectorPool;
 
 		private GaussianWeights mixtureWeights;
-
 		
 		private Pool senonePool;
-
 		
 		private Map contextIndependentUnits;
 
@@ -1190,70 +711,38 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		private bool loaded;
 
 		private bool tie1ph;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<HTKLoader>.Value.desiredAssertionStatus();
-
 		
-		.
-		
-		internal sealed class HTKStruct : java.lang.Object
+		public sealed class HTKStruct : java.lang.Object
 		{
-			
-			
+						
 			internal int getNumStates()
 			{
 				return this.hmmsHTK.getNstates();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				181,
-				119
-			})]
 			
 			internal int getGMMSize()
 			{
 				GMMDiag gmmdiag = (GMMDiag)this.hmmsHTK.__gmms.get(0);
 				return gmmdiag.getNgauss();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				186,
-				119
-			})]
 			
 			internal int getNcoefs()
 			{
 				GMMDiag gmmdiag = (GMMDiag)this.hmmsHTK.__gmms.get(0);
 				return gmmdiag.getNcoefs();
 			}
-
-			
 			
 			internal int getNumHMMs()
 			{
 				return this.hmmsHTK.getNhmms();
 			}
-
-			
 			
 			internal HTKStruct(HTKLoader htkloader)
 			{
+				this.this_0 = htkloader;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				168,
-				111,
-				107,
-				172,
-				111
-			})]
 			
 			public void load(string nomFich)
 			{
@@ -1262,34 +751,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				this.hmmsHTK.loadHTK(nomFich);
 				java.lang.System.err.println("HTK loading finished");
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				162,
-				195,
-				135,
-				103,
-				98,
-				103,
-				108,
-				108,
-				108,
-				104,
-				107,
-				121,
-				104,
-				105,
-				105,
-				48,
-				168,
-				169,
-				234,
-				56,
-				11,
-				235,
-				77
-			})]
 			
 			public Pool htkMeans(string name)
 			{
@@ -1318,35 +779,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				}
 				return pool;
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				162,
-				221,
-				103,
-				103,
-				98,
-				103,
-				108,
-				108,
-				108,
-				104,
-				107,
-				121,
-				107,
-				105,
-				137,
-				16,
-				200,
-				114,
-				169,
-				234,
-				54,
-				11,
-				235,
-				79
-			})]
 			
 			public Pool htkVars(string name, float num)
 			{
@@ -1376,28 +808,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				}
 				return pool;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				248,
-				103,
-				98,
-				103,
-				106,
-				107,
-				121,
-				104,
-				104,
-				46,
-				168,
-				114,
-				178,
-				235,
-				54,
-				235,
-				76
-			})]
 			
 			public GaussianWeights htkWeights(string name, float num)
 			{
@@ -1419,51 +829,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				}
 				return gaussianWeights;
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				163,
-				12,
-				103,
-				103,
-				226,
-				73,
-				112,
-				118,
-				119,
-				127,
-				18,
-				106,
-				109,
-				63,
-				1,
-				40,
-				200,
-				233,
-				57,
-				233,
-				75,
-				107,
-				111,
-				108,
-				105,
-				127,
-				20,
-				106,
-				109,
-				63,
-				2,
-				40,
-				200,
-				104,
-				109,
-				162,
-				238,
-				50,
-				235,
-				81
-			})]
 			
 			public Pool htkTrans(string name)
 			{
@@ -1532,7 +897,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			internal HMMSet hmmsHTK;
 
 			
-			internal HTKLoader this_0 = htkloader;
+			internal HTKLoader this_0;
 		}
 	}
 }

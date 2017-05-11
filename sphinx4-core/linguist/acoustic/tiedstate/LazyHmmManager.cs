@@ -1,31 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
 	public class LazyHmmManager : HMMManager
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			104,
-			103,
-			103,
-			136,
-			107,
-			103,
-			103,
-			107,
-			109,
-			107
-		})]
-		
+	{		
 		public LazyHmmManager(KaldiTextParser parser, TransitionModel transitionModel, Pool senonePool, Map symbolTable)
 		{
 			this.transitionModel = transitionModel;
@@ -39,20 +19,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			parser.expectToken("EndContextDependency");
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			0,
-			135,
-			109,
-			140,
-			109,
-			136,
-			109,
-			136,
-			109,
-			130
-		})]
-		
 		private EventMap parseEventMap(KaldiTextParser kaldiTextParser)
 		{
 			string token = kaldiTextParser.getToken();
@@ -76,21 +42,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			
 			throw new InputMismatchException(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			18,
-			135,
-			102,
-			125,
-			41,
-			168,
-			107,
-			105,
-			105,
-			109,
-			139
-		})]
 		
 		private EventMap parseSplitEventMap(KaldiTextParser kaldiTextParser)
 		{
@@ -110,18 +61,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			kaldiTextParser.expectToken("}");
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			34,
-			103,
-			103,
-			135,
-			139,
-			104,
-			144,
-			107
-		})]
 		
 		private EventMap parseTableEventMap(KaldiTextParser kaldiTextParser)
 		{
@@ -143,37 +82,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			kaldiTextParser.expectToken(")");
 			return new TableEventMap(@int, arrayList);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			49,
-			105,
-			134,
-			103,
-			158,
-			104,
-			108,
-			105,
-			106,
-			126,
-			127,
-			0,
-			98,
-			125,
-			189,
-			104,
-			113,
-			113,
-			145,
-			104,
-			120,
-			120,
-			120,
-			169,
-			114,
-			109,
-			136
-		})]
 		
 		public override HMM get(HMMPosition position, Unit unit)
 		{
@@ -214,18 +122,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.put(senoneHMM);
 			return senoneHMM;
 		}
-
 		
-		private EventMap eventMap;
-
-		
+		private EventMap eventMap;		
 		
 		private Pool senonePool;
-
-		
 		
 		private Map symbolTable;
-
 		
 		private TransitionModel transitionModel;
 	}

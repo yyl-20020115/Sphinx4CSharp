@@ -1,39 +1,25 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public interface Saver : Configurable
 	{
-		
 		Pool getMeansPool();
-
 		
 		Pool getMeansTransformationMatrixPool();
-
 		
 		Pool getMeansTransformationVectorPool();
-
 		
 		Pool getVariancePool();
-
 		
 		Pool getVarianceTransformationMatrixPool();
-
 		
 		Pool getVarianceTransformationVectorPool();
-
 		
 		Pool getSenonePool();
 
 		HMMManager getHMMManager();
-
 		
 		Map getContextIndependentUnits();
 
@@ -43,10 +29,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		int getRightContextSize();
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		void save(string str, bool b);
 
 		[S4Double(new object[]

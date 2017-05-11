@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.linguist.acoustic
+﻿namespace edu.cmu.sphinx.linguist.acoustic
 {
 	public interface HMM
 	{

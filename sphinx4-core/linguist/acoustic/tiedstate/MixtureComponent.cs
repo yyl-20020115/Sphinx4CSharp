@@ -1,12 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
-
 using System.Runtime.Serialization;
 using System.Security;
 using System.Security.Permissions;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -14,39 +11,9 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Implements(new string[]
-	{
-		"java.lang.Cloneable",
-		"java.io.Serializable"
-	})]
 	[Serializable]
 	public class MixtureComponent : java.lang.Object, Cloneable.__Interface, Serializable.__Interface, ISerializable
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			65,
-			231,
-			71,
-			103,
-			110,
-			18,
-			230,
-			74,
-			236,
-			70,
-			104,
-			111,
-			166,
-			105,
-			167
-		})]
-		
+	{		
 		public virtual float getScore(float[] feature)
 		{
 			float num = this.logPreComputedGaussianFactor;
@@ -72,25 +39,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.mean;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			57,
-			136,
-			153,
-			103,
-			103,
-			103,
-			104,
-			104,
-			136,
-			127,
-			3,
-			116,
-			137,
-			134,
-			108
-		})]
 		
 		public MixtureComponent(float[] mean, float[][] meanTransformationMatrix, float[] meanTransformationVector, float[] variance, float[][] varianceTransformationMatrix, float[] varianceTransformationVector, float distFloor, float varianceFloor)
 		{
@@ -116,46 +64,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.transformStats();
 			this.logPreComputedGaussianFactor = this.precomputeDistance();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			142,
-			232,
-			77,
-			107,
-			108,
-			102,
-			102,
-			63,
-			9,
-			38,
-			200,
-			172,
-			104,
-			102,
-			60,
-			230,
-			72,
-			107,
-			114,
-			102,
-			102,
-			63,
-			9,
-			38,
-			200,
-			150,
-			104,
-			102,
-			60,
-			166,
-			102,
-			127,
-			3,
-			24,
-			198
-		})]
 		
 		public virtual void transformStats()
 		{
@@ -222,21 +130,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				this.precisionTransformed[i] = 1f / (-2f * num3);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			113,
-			230,
-			69,
-			108,
-			113,
-			8,
-			230,
-			77,
-			105,
-			210
-		})]
 		
 		public virtual float precomputeDistance()
 		{
@@ -248,42 +141,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			num = java.lang.Math.log(6.2831853071795862) * (double)this.variance.Length - num;
 			return -(float)num * 0.5f;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			193,
-			140,
-			108,
-			108,
-			140,
-			127,
-			2,
-			104,
-			118,
-			108,
-			58,
-			166,
-			111,
-			114,
-			159,
-			2,
-			127,
-			2,
-			104,
-			118,
-			108,
-			58,
-			166,
-			111,
-			114,
-			111,
-			146
-		})]
 		
 		public virtual MixtureComponent clone()
 		{
@@ -315,24 +172,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			mixtureComponent.precisionTransformed = ((this.precisionTransformed == null) ? null : ((float[])this.precisionTransformed.Clone()));
 			return mixtureComponent;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			11,
-			127,
-			1
-		})]
 		
 		public MixtureComponent(float[] mean, float[] variance) : this(mean, (float[][])null, null, variance, (float[][])null, null, 0f, 0.0001f)
 		{
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			32,
-			153
-		})]
-		
 		public MixtureComponent(float[] mean, float[][] meanTransformationMatrix, float[] meanTransformationVector, float[] variance, float[][] varianceTransformationMatrix, float[] varianceTransformationVector) : this(mean, meanTransformationMatrix, meanTransformationVector, variance, varianceTransformationMatrix, varianceTransformationVector, 0f, 0.0001f)
 		{
 		}
@@ -340,60 +184,36 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public virtual float[] getVariance()
 		{
 			return this.variance;
-		}
-
-		
+		}		
 		
 		public virtual float getScore(FloatData feature)
 		{
 			return this.getScore(feature.getValues());
 		}
-
-		
-		
+				
 		public override string toString()
 		{
 			return new StringBuilder().append("mu=").append(Arrays.toString(this.mean)).append(" cov=").append(Arrays.toString(this.variance)).toString();
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		
-		
-		
-		
-		public virtual object <bridge>clone()
-		{
-			return this.clone();
-		}
-
-		
-		static MixtureComponent()
-		{
-		}
-
 		
 		public static implicit operator Cloneable(MixtureComponent _ref)
 		{
-			Cloneable result;
-			result.__ref = _ref;
+			Cloneable result = Cloneable.Cast(_ref);
 			return result;
 		}
 
 		
 		public static implicit operator Serializable(MixtureComponent _ref)
 		{
-			Serializable result;
-			result.__ref = _ref;
+			Serializable result = Serializable.Cast(_ref);
 			return result;
 		}
 
 		[SecurityCritical]
 		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		public virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
 		{
 			Serialization.writeObject(this, serializationInfo);
 		}
@@ -431,7 +251,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		protected internal float logPreComputedGaussianFactor;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<MixtureComponent>.Value.desiredAssertionStatus();
 	}
 }

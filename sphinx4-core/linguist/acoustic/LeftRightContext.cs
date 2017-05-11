@@ -1,22 +1,13 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
 	[Serializable]
 	public class LeftRightContext : Context
-	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		
-		
+	{		
 		public static LeftRightContext get(Unit[] leftContext, Unit[] rightContext)
 		{
 			return new LeftRightContext(leftContext, rightContext);
@@ -31,20 +22,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		{
 			return this.rightContext;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			26,
-			99,
-			102,
-			100,
-			102,
-			102,
-			112,
-			60,
-			166,
-			110
-		})]
 		
 		public static string getContextName(Unit[] context)
 		{
@@ -66,41 +43,17 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			stringBuilder.setLength(stringBuilder.length() - 1);
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			104,
-			103,
-			103
-		})]
 		
 		private LeftRightContext(Unit[] array, Unit[] array2)
 		{
 			this.leftContext = array;
 			this.rightContext = array2;
 		}
-
-		
 		
 		public override string toString()
 		{
 			return new StringBuilder().append(LeftRightContext.getContextName(this.leftContext)).append(',').append(LeftRightContext.getContextName(this.rightContext)).toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			48,
-			104,
-			103,
-			103,
-			135,
-			127,
-			12,
-			43,
-			161
-		})]
 		
 		public override bool isPartialMatch(Context context)
 		{
@@ -113,13 +66,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			return context == Context.__EMPTY_CONTEXT && this.leftContext == null && this.rightContext == null;
 		}
-
-		
-		static LeftRightContext()
-		{
-			Context.__<clinit>();
-		}
-
 		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected LeftRightContext(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
@@ -127,10 +73,8 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		}
 
 		internal string stringRepresentation;
-
 		
 		internal Unit[] leftContext;
-
 		
 		internal Unit[] rightContext;
 	}

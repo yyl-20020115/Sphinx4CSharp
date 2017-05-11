@@ -1,19 +1,10 @@
-﻿using System;
-
-using System.Threading;
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
 	public class Unit : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
 		public virtual string getName()
 		{
 			return this.name;
@@ -28,8 +19,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		{
 			return this.filler;
 		}
-
-		
 		
 		public virtual bool isContextDependent()
 		{
@@ -41,17 +30,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			return this.context;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			120,
-			109,
-			109,
-			159,
-			30,
-			191,
-			53
-		})]
-		
 		public override string toString()
 		{
 			if (this.key == null)
@@ -59,32 +37,17 @@ namespace edu.cmu.sphinx.linguist.acoustic
 				if (this.context == Context.__EMPTY_CONTEXT)
 				{
 					this.key = new StringBuilder().append((!this.filler) ? "" : "*").append(this.name).toString();
-					Thread.MemoryBarrier();
+					System.Threading.Thread.MemoryBarrier();
 				}
 				else
 				{
 					this.key = new StringBuilder().append((!this.filler) ? "" : "*").append(this.name).append('[').append(this.context).append(']').toString();
-					Thread.MemoryBarrier();
+					System.Threading.Thread.MemoryBarrier();
 				}
 			}
 			return this.key;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			99,
-			102,
-			101,
-			102,
-			130,
-			103,
-			119,
-			2,
-			230,
-			69
-		})]
-		
 		public static bool isContextMatch(Unit[] a, Unit[] b)
 		{
 			if (a == null || b == null)
@@ -104,27 +67,11 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			return true;
 		}
-
-		
 		
 		private string getKey()
 		{
 			return this.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			133,
-			162,
-			104,
-			103,
-			103,
-			113,
-			103,
-			103,
-			107
-		})]
 		
 		internal Unit(string text, bool flag, int num)
 		{
@@ -135,20 +82,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			this.baseUnit = this;
 			this.context = Context.__EMPTY_CONTEXT;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			128,
-			66,
-			104,
-			108,
-			103,
-			118,
-			108,
-			103,
-			103
-		})]
 		
 		internal Unit(Unit unit, bool flag, Context context)
 		{
@@ -169,16 +102,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		{
 			return this.baseUnit;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			93,
-			100,
-			98,
-			104,
-			103,
-			146
-		})]
 		
 		public override bool equals(object o)
 		{
@@ -193,28 +116,16 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			return false;
 		}
-
-		
 		
 		public override int hashCode()
 		{
 			return java.lang.String.instancehelper_hashCode(this.getKey());
 		}
-
-		
 		
 		public virtual bool isPartialMatch(string name, Context context)
 		{
 			return java.lang.String.instancehelper_equals(this.getName(), name) && context.isPartialMatch(this.context);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			86,
-			103,
-			107
-		})]
 		
 		public static Unit[] getEmptyContext(int size)
 		{
@@ -222,12 +133,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			Arrays.fill(array, UnitManager.__SILENCE);
 			return array;
 		}
-
-		
-		static Unit()
-		{
-		}
-
 		
 		public static Unit[] EMPTY_ARRAY
 		{
@@ -239,22 +144,16 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		}
 
 		internal static Unit[] __EMPTY_ARRAY = new Unit[0];
-
 		
 		private string name;
-
 		
 		private bool filler;
-
 		
 		private bool silence;
-
-		
+	
 		private int baseID;
-
 		
 		private Unit baseUnit;
-
 		
 		private Context context;
 

@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -11,25 +8,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 {
 	public class HMMPool : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			79,
-			107,
-			108,
-			124,
-			124,
-			106,
-			110,
-			12,
-			198
-		})]
-		
 		public virtual int getID(Unit unit)
 		{
 			if (!unit.isContextDependent())
@@ -49,34 +27,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			return this.buildID(this.getSimpleUnitID(unit), this.getSimpleUnitID(leftRightContext.getLeftContext()[0]), this.getSimpleUnitID(leftRightContext.getRightContext()[0]));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			68,
-			104,
-			104,
-			136,
-			105,
-			162,
-			105,
-			106,
-			138,
-			117,
-			118,
-			150,
-			104,
-			104,
-			102,
-			102,
-			139,
-			103,
-			45,
-			199,
-			114,
-			191,
-			29
-		})]
-		
+	
 		private Unit synthesizeUnit(int num)
 		{
 			int centralUnitID = this.getCentralUnitID(num);
@@ -117,14 +68,12 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			return unit4;
 		}
 
-		
 		private int getCentralUnitID(int num)
 		{
 			int num2 = this.numCIUnits * this.numCIUnits;
 			return (num2 != -1) ? (num / num2) : (-num);
 		}
 
-		
 		private int getLeftUnitID(int num)
 		{
 			int num2 = this.numCIUnits;
@@ -133,31 +82,12 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			return (num4 != -1) ? (num3 % num4) : 0;
 		}
 
-		
 		private int getRightUnitID(int num)
 		{
 			int num2 = this.numCIUnits;
 			return (num2 != -1) ? (num % num2) : 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			180,
-			104,
-			104,
-			136,
-			127,
-			22,
-			102,
-			127,
-			22,
-			103,
-			127,
-			22,
-			135
-		})]
-		
+	
 		private string getUnitNameFromID(int num)
 		{
 			int centralUnitID = this.getCentralUnitID(num);
@@ -168,26 +98,11 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			string text3 = (this.unitTable[rightUnitID] != null) ? this.unitTable[rightUnitID].toString() : new StringBuilder().append("(").append(rightUnitID).append(')').toString();
 			return new StringBuilder().append(text).append('[').append(text2).append(',').append(text3).append(']').toString();
 		}
-
-		
 		
 		private int getSimpleUnitID(Unit unit)
 		{
 			return unit.getBaseID();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			123,
-			106,
-			162,
-			111,
-			132,
-			251,
-			69,
-			156
-		})]
 		
 		public virtual int buildID(int unitID, int leftID, int rightID)
 		{
@@ -211,80 +126,20 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			return num;
 		}
-
 		
 		public virtual bool isValidID(int unitID)
 		{
 			return unitID >= 0 && unitID < this.unitTable.Length && this.unitTable[unitID] != null;
 		}
 
-		
-		
 		public virtual HMM getHMM(int unitID, HMMPosition position)
 		{
 			return ((HMM[])this.hmmTable.get(position))[unitID];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			102
-		})]
 		
 		protected internal HMMPool()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			2,
-			104,
-			103,
-			98,
-			103,
-			135,
-			105,
-			144,
-			105,
-			176,
-			111,
-			108,
-			127,
-			1,
-			105,
-			135,
-			130,
-			137,
-			159,
-			0,
-			114,
-			109,
-			105,
-			106,
-			107,
-			109,
-			159,
-			19,
-			165,
-			117,
-			127,
-			0,
-			110,
-			112,
-			110,
-			107,
-			100,
-			138,
-			100,
-			112,
-			249,
-			57,
-			235,
-			61,
-			235,
-			78
-		})]
 		
 		public HMMPool(AcousticModel model, Logger logger, UnitManager unitManager)
 		{
@@ -328,7 +183,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 					logger.finer(new StringBuilder().append("Unit ").append(unit2).append(" id ").append(id).toString());
 				}
 			}
-			EnumMap.__<clinit>();
 			this.hmmTable = new EnumMap(ClassLiteral<HMMPosition>.Value);
 			HMMPosition[] array = HMMPosition.values();
 			int num2 = array.Length;
@@ -367,48 +221,10 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			return this.numCIUnits;
 		}
 
-		
 		public virtual Unit getUnit(int unitID)
 		{
 			return this.unitTable[unitID];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			210,
-			98,
-			104,
-			104,
-			136,
-			105,
-			127,
-			11,
-			130,
-			105,
-			127,
-			11,
-			130,
-			105,
-			127,
-			11,
-			130,
-			106,
-			100,
-			127,
-			12,
-			63,
-			5,
-			133,
-			130,
-			107,
-			100,
-			127,
-			12,
-			63,
-			5,
-			197
-		})]
 		
 		public virtual HMM getHMM(Unit @base, Unit lc, Unit rc, HMMPosition pos)
 		{
@@ -443,21 +259,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			return hmm;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			246,
-			127,
-			11,
-			159,
-			12,
-			114,
-			108,
-			63,
-			21,
-			198
-		})]
 		
 		public virtual void dumpInfo()
 		{
@@ -471,27 +272,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			13,
-			98,
-			111,
-			144,
-			106,
-			120,
-			120,
-			106,
-			100,
-			228,
-			59,
-			233,
-			72,
-			113,
-			127,
-			5
-		})]
 		
 		internal virtual void benchmark()
 		{
@@ -517,16 +297,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			java.lang.System.@out.println(new StringBuilder().append("null count ").append(num).toString());
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			173,
-			245,
-			161,
-			89,
-			223,
-			12
-		})]
 		static HMMPool()
 		{
 			HMMPool.pos = new HMMPosition[]
@@ -550,7 +320,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		private AcousticModel model;
 
 		private Unit[] unitTable;
-
 		
 		private Map hmmTable;
 
@@ -559,13 +328,10 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		private Logger logger;
 
 		private UnitManager unitManager;
-
 		
 		internal static HMMPosition[] pos;
-
-		
+	
 		internal static int[] ids;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<HMMPool>.Value.desiredAssertionStatus();
 	}

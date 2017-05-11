@@ -1,34 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.acoustic.HMM"
-	})]
 	public class SenoneHMM : java.lang.Object, HMM
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			104,
-			103,
-			103,
-			103,
-			104,
-			151,
-			109,
-			108,
-			47,
-			198,
-			108
-		})]
-		
+	{		
 		public SenoneHMM(Unit unit, SenoneSequence senoneSequence, float[][] transitionMatrix, HMMPosition position)
 		{
 			this.unit = unit;
@@ -48,23 +24,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.senoneSequence;
 		}
-
 		
 		public virtual HMMState getState(int which)
 		{
 			return this.hmmStates[which];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			75,
-			108,
-			112,
-			105,
-			2,
-			230,
-			69
-		})]
 		
 		public virtual bool isComposite()
 		{
@@ -91,8 +55,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.baseUnit;
 		}
-
-		
 		
 		public virtual int getOrder()
 		{
@@ -103,7 +65,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.transitionMatrix;
 		}
-
 		
 		public virtual float getTransitionProbability(int stateFrom, int stateTo)
 		{
@@ -113,60 +74,34 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public virtual HMMPosition getPosition()
 		{
 			return this.position;
-		}
-
-		
+		}		
 		
 		public virtual bool isFiller()
 		{
 			return this.unit.isFiller();
 		}
-
-		
 		
 		public virtual bool isContextDependent()
 		{
 			return this.unit.isContextDependent();
-		}
-
-		
+		}		
 		
 		public virtual HMMState getInitialState()
 		{
 			return this.getState(0);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			94,
-			117
-		})]
 		
 		public override string toString()
 		{
 			string text = (!this.isComposite()) ? "HMM" : "HMM@";
 			return new StringBuilder().append(text).append('(').append(this.unit).append("):").append(this.position).toString();
 		}
-
-		
 		
 		public override int hashCode()
 		{
 			return this.getSenoneSequence().hashCode();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			107,
-			100,
-			98,
-			104,
-			103,
-			146
-		})]
-		
 		public override bool equals(object o)
 		{
 			if (this == o)
@@ -180,24 +115,18 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return false;
 		}
-
 		
 		private Unit unit;
-
 		
 		private Unit baseUnit;
-
 		
 		private SenoneSequence senoneSequence;
-
 		
 		private float[][] transitionMatrix;
-
 		
 		private HMMPosition position;
 
 		private static int objectCount;
-
 		
 		private HMMState[] hmmStates;
 	}

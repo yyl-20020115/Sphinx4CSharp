@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 
 namespace edu.cmu.sphinx.linguist.acoustic

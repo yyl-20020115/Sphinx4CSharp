@@ -1,41 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.lang;
 using java.util;
 using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public class UnitManager : java.lang.Object, Configurable
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			128,
-			130,
-			114,
-			107,
-			102,
-			127,
-			1,
-			110,
-			122,
-			223,
-			8,
-			137
-		})]
-		
+	{		
 		public virtual Unit getUnit(string name, bool filler, Context context)
 		{
 			Unit unit = (Unit)this.ciMap.get(name);
@@ -43,7 +14,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			{
 				if (unit == null)
 				{
-					Unit.__<clinit>();
 					int num = this.nextID;
 					int num2 = num;
 					this.nextID = num + 1;
@@ -61,18 +31,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			return unit;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			232,
-			56,
-			139,
-			182,
-			199,
-			118
-		})]
 		
 		public UnitManager()
 		{
@@ -81,42 +39,21 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			this.nextID = 2;
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			108
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 		}
-
-		
 		
 		public virtual Unit getUnit(string name, bool filler)
 		{
 			return this.getUnit(name, filler, Context.__EMPTY_CONTEXT);
 		}
 
-		
-		
 		public virtual Unit getUnit(string name)
 		{
 			return this.getUnit(name, false, Context.__EMPTY_CONTEXT);
 		}
-
-		
-		static UnitManager()
-		{
-		}
-
 		
 		public static Unit SILENCE
 		{
@@ -132,8 +69,6 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		private const int SILENCE_ID = 1;
 
 		internal static Unit __SILENCE = new Unit("SIL", true, 1);
-
-		
 		
 		private Map ciMap;
 

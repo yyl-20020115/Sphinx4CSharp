@@ -1,9 +1,7 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security;
 using System.Security.Permissions;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -11,21 +9,9 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Implements(new string[]
-	{
-		"java.io.Serializable"
-	})]
 	[Serializable]
 	public class SenoneSequence : java.lang.Object, Serializable.__Interface, ISerializable
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			104,
-			103
-		})]
-		
+	{		
 		public SenoneSequence(Senone[] sequence)
 		{
 			this.senones = sequence;
@@ -35,15 +21,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.senones;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			13,
-			99,
-			117,
-			45,
-			166
-		})]
 		
 		public override int hashCode()
 		{
@@ -57,23 +34,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			28,
-			100,
-			130,
-			104,
-			103,
-			112,
-			130,
-			108,
-			119,
-			2,
-			230,
-			69,
-			162
-		})]
 		
 		public override bool equals(object o)
 		{
@@ -99,24 +59,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return true;
 		}
-
-		
-		
 		
 		public static SenoneSequence create(List senoneList)
 		{
 			return new SenoneSequence((Senone[])senoneList.toArray(new Senone[senoneList.size()]));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			55,
-			127,
-			12,
-			116,
-			43,
-			166
-		})]
 		
 		public virtual void dump(string msg)
 		{
@@ -129,31 +76,26 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				senone.dump("  seq:");
 			}
 		}
-
 		
 		public static implicit operator Serializable(SenoneSequence _ref)
 		{
-			Serializable result;
-			result.__ref = _ref;
+			Serializable result = Serializable.Cast(_ref);
 			return result;
 		}
 
 		[SecurityCritical]
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		public virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
 		{
 			Serialization.writeObject(this, serializationInfo);
 		}
 
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected SenoneSequence(SerializationInfo serializationInfo, StreamingContext streamingContext)
 		{
 			Serialization.readObject(this, serializationInfo);
 		}
 
-		
 		private Senone[] senones;
 	}
 }

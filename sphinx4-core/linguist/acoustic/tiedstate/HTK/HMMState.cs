@@ -1,6 +1,6 @@
 ﻿namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	public class HMMState : java.lang.Object
+	public class HMMState : java.lang.Object//, acoustic.HMMState
 	{
 		public HMMState(GMMDiag g, Lab l)
 		{

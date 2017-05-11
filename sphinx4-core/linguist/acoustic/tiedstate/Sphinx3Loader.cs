@@ -1,10 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.adaptation;
+﻿using edu.cmu.sphinx.decoder.adaptation;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -15,17 +12,8 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.acoustic.tiedstate.Loader"
-	})]
 	public class Sphinx3Loader : java.lang.Object, Loader, Configurable
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
 		public virtual int[] getVectorLength()
 		{
 			return this.vectorLength;
@@ -46,18 +34,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return this.numGaussiansPerState;
 		}
 
-		
 		public virtual Pool getVariancePool()
 		{
 			return this.variancePool;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			99,
-			118
-		})]
 		
 		public virtual bool hasTiedMixtures()
 		{
@@ -69,23 +49,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.senone2ci;
 		}
-
 		
 		public virtual Pool getMeansPool()
 		{
 			return this.meansPool;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			164,
-			8,
-			104,
-			97,
-			116,
-			39,
-			134
-		})]
 		
 		public virtual void setGauScoresQueueLength(int scoresQueueLen)
 		{
@@ -101,17 +69,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				mixtureComponentSet.setScoreQueueLength(scoresQueueLen);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			164,
-			1,
-			104,
-			97,
-			116,
-			38,
-			134
-		})]
 		
 		public virtual void clearGauScores()
 		{
@@ -127,22 +84,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				mixtureComponentSet.clearStoredScores();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			99,
-			99,
-			107,
-			103,
-			104,
-			103,
-			104,
-			105,
-			105,
-			104,
-			103
-		})]
 		
 		protected internal virtual void init(URL location, UnitManager unitManager, float distFloor, float mixtureWeightFloor, float varianceFloor, int topGauNum, bool useCDUnits, Logger logger)
 		{
@@ -156,31 +97,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.topGauNum = topGauNum;
 			this.useCDUnits = useCDUnits;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			184,
-			118,
-			151,
-			119,
-			113,
-			113,
-			145,
-			136,
-			134,
-			186,
-			216,
-			108,
-			99,
-			144,
-			109
-		})]
 		
 		protected internal virtual void loadModelFiles()
 		{
@@ -208,71 +124,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			this.loadHMMPool(this.useCDUnits, dataStream);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			152,
-			102,
-			130,
-			137,
-			140,
-			112,
-			191,
-			6,
-			109,
-			120,
-			134,
-			105,
-			105,
-			137,
-			105,
-			105,
-			44,
-			200,
-			137,
-			127,
-			7,
-			127,
-			7,
-			127,
-			7,
-			127,
-			8,
-			159,
-			7,
-			105,
-			40,
-			200,
-			157,
-			104,
-			110,
-			110,
-			142,
-			108,
-			105,
-			105,
-			110,
-			105,
-			250,
-			61,
-			40,
-			43,
-			235,
-			75,
-			137,
-			134,
-			104,
-			104,
-			104,
-			136
-		})]
 		
 		public virtual Pool loadDensityFile(string path, float floor)
 		{
@@ -337,53 +188,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.vectorLength = array;
 			return pool;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			163,
-			101,
-			159,
-			6,
-			134,
-			137,
-			140,
-			112,
-			191,
-			6,
-			108,
-			118,
-			134,
-			105,
-			105,
-			105,
-			105,
-			142,
-			127,
-			7,
-			127,
-			7,
-			159,
-			7,
-			158,
-			105,
-			105,
-			139,
-			103,
-			105,
-			109,
-			237,
-			58,
-			40,
-			235,
-			75,
-			137,
-			102
-		})]
 		
 		protected internal virtual GaussianWeights loadMixtureWeights(string path, float floor)
 		{
@@ -428,53 +232,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			dataInputStream.close();
 			return gaussianWeights;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			158,
-			159,
-			6,
-			102,
-			137,
-			140,
-			112,
-			191,
-			6,
-			108,
-			118,
-			134,
-			136,
-			105,
-			105,
-			105,
-			137,
-			158,
-			108,
-			137,
-			110,
-			146,
-			105,
-			110,
-			111,
-			106,
-			240,
-			60,
-			232,
-			70,
-			235,
-			52,
-			235,
-			79,
-			137,
-			102
-		})]
 		
 		protected internal virtual Pool loadTransitionMatrices(string path)
 		{
@@ -519,53 +276,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			dataInputStream.close();
 			return pool;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			163,
-			215,
-			159,
-			6,
-			198,
-			255,
-			1,
-			69,
-			226,
-			60,
-			97,
-			108,
-			97,
-			167,
-			141,
-			114,
-			191,
-			6,
-			109,
-			120,
-			134,
-			104,
-			105,
-			105,
-			137,
-			155,
-			105,
-			105,
-			46,
-			200,
-			137,
-			102
-		})]
 		
 		protected internal virtual float[][] loadTransformMatrix(string path)
 		{
 			this.logger.fine(new StringBuilder().append("Loading transform matrix from: ").append(path).toString());
 			Properties properties = new Properties();
 			DataInputStream dataInputStream;
-			URISyntaxException ex2;
 			try
 			{
 				try
@@ -574,13 +290,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				}
 				catch (URISyntaxException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<URISyntaxException>(ex, 1);
-					goto IL_45;
+					throw new RuntimeException(ex);
 				}
 			}
 			catch (IOException ex3)
 			{
-				goto IL_48;
+				return (float[][])null;
 			}
 			string property = properties.getProperty("version");
 			if (property == null || !java.lang.String.instancehelper_equals(property, "0.1"))
@@ -609,33 +324,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.validateChecksum(dataInputStream, num != 0);
 			dataInputStream.close();
 			return array;
-			IL_45:
-			URISyntaxException ex4 = ex2;
-			Exception ex5 = ex4;
-			
-			throw new RuntimeException(ex5);
-			IL_48:
-			return (float[][])null;
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException",
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			164,
-			95,
-			102,
-			98,
-			144,
-			106,
-			108,
-			109,
-			98
-		})]
 		
 		protected internal virtual Properties loadModelProps(string path)
 		{
@@ -649,56 +338,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return properties;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			218,
-			108,
-			99,
-			144,
-			170,
-			159,
-			11,
-			139,
-			113,
-			139,
-			108,
-			139,
-			108,
-			139,
-			109,
-			139,
-			141,
-			108,
-			139,
-			109,
-			139,
-			148,
-			127,
-			2,
-			191,
-			2,
-			146,
-			104,
-			39,
-			136,
-			141,
-			107,
-			52,
-			168,
-			139,
-			248,
-			53,
-			235,
-			78,
-			102
-		})]
 		
 		private void getSenoneToCIPhone()
 		{
@@ -760,66 +399,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			extendedStreamTokenizer.close();
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			83,
-			139,
-			108,
-			108,
-			108,
-			109,
-			141,
-			127,
-			7,
-			127,
-			6,
-			127,
-			6,
-			159,
-			6,
-			118,
-			127,
-			1,
-			159,
-			1,
-			119,
-			108,
-			114,
-			108,
-			119,
-			108,
-			114,
-			140,
-			113,
-			112,
-			103,
-			108,
-			104,
-			107,
-			113,
-			113,
-			150,
-			250,
-			59,
-			235,
-			73,
-			234,
-			53,
-			235,
-			77,
-			246,
-			49,
-			235,
-			82,
-			105,
-			127,
-			0,
-			10,
-			200
-		})]
-		
 		private Pool createTiedSenonePool(float num, float num2)
 		{
 			Pool pool = new Pool("senones");
@@ -863,7 +442,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 						int id = i * gauPerState * streamsNum + j * gauPerState + k;
 						PrunableMixtureComponent[] array2 = array;
 						int num5 = k;
-						PrunableMixtureComponent.__<clinit>();
 						array2[num5] = new PrunableMixtureComponent((float[])this.meansPool.get(id), meanTransformationMatrix, meanTransformationVector, (float[])this.variancePool.get(id), varianceTransformationMatrix, varianceTransformationVector, num, num2, k);
 					}
 					arrayList.add(array);
@@ -878,54 +456,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return pool;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			26,
-			139,
-			108,
-			108,
-			108,
-			109,
-			109,
-			131,
-			127,
-			7,
-			127,
-			6,
-			127,
-			6,
-			159,
-			6,
-			118,
-			121,
-			153,
-			119,
-			108,
-			114,
-			108,
-			119,
-			108,
-			114,
-			140,
-			108,
-			139,
-			104,
-			113,
-			150,
-			216,
-			230,
-			56,
-			232,
-			75,
-			113,
-			234,
-			49,
-			235,
-			81
-		})]
-		
 		protected internal virtual Pool createSenonePool(float distFloor, float varianceFloor)
 		{
 			Pool pool = new Pool("senones");
@@ -965,7 +495,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				{
 					MixtureComponent[] array2 = array;
 					int num4 = j;
-					MixtureComponent.__<clinit>();
 					array2[num4] = new MixtureComponent((float[])this.meansPool.get(num3), meanTransformationMatrix, meanTransformationVector, (float[])this.variancePool.get(num3), varianceTransformationMatrix, varianceTransformationVector, distFloor, varianceFloor);
 					num3++;
 				}
@@ -974,148 +503,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return pool;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		
 		
 		protected internal virtual InputStream getDataStream(string path)
 		{
-			URL.__<clinit>();
 			return new URL(Utilities.pathJoin(this.location.toString(), path)).openStream();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			203,
-			130,
-			170,
-			159,
-			11,
-			139,
-			108,
-			139,
-			108,
-			139,
-			109,
-			139,
-			109,
-			139,
-			102,
-			103,
-			139,
-			109,
-			139,
-			144,
-			127,
-			2,
-			191,
-			2,
-			107,
-			104,
-			104,
-			104,
-			104,
-			104,
-			141,
-			139,
-			107,
-			112,
-			31,
-			4,
-			200,
-			139,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			152,
-			123,
-			149,
-			114,
-			223,
-			7,
-			124,
-			167,
-			116,
-			138,
-			104,
-			108,
-			237,
-			26,
-			235,
-			105,
-			119,
-			240,
-			71,
-			103,
-			99,
-			99,
-			131,
-			107,
-			104,
-			104,
-			104,
-			104,
-			104,
-			141,
-			139,
-			107,
-			112,
-			31,
-			5,
-			232,
-			69,
-			139,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			152,
-			134,
-			159,
-			16,
-			107,
-			134,
-			104,
-			150,
-			104,
-			150,
-			139,
-			146,
-			100,
-			132,
-			114,
-			191,
-			7,
-			148,
-			100,
-			112,
-			138,
-			100,
-			132,
-			104,
-			108,
-			237,
-			6,
-			235,
-			126,
-			102
-		})]
 		
 		protected internal virtual void loadHMMPool(bool useCDUnits, InputStream inputStream)
 		{
@@ -1294,42 +686,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			extendedStreamTokenizer.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.URISyntaxException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			234,
-			136,
-			99,
-			159,
-			6,
-			140,
-			104,
-			109,
-			191,
-			6,
-			107,
-			109,
-			105,
-			106,
-			194,
-			104,
-			105,
-			127,
-			6,
-			105,
-			110,
-			127,
-			6,
-			137,
-			159,
-			6
-		})]
 		
 		public virtual DataInputStream readS3BinaryHeader(string path, Properties props)
 		{
@@ -1378,21 +734,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			this.calculatedCheckSum = 0L;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			92,
-			104,
-			137,
-			135,
-			127,
-			4
-		})]
 		
 		public virtual int readInt(DataInputStream dis)
 		{
@@ -1405,23 +746,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			{
 				num = dis.readInt();
 			}
-			this.calculatedCheckSum = ((this.calculatedCheckSum << 20 | this.calculatedCheckSum >> 12) + (long)num & (long)((ulong)-1));
+			this.calculatedCheckSum = ((this.calculatedCheckSum << 20 | this.calculatedCheckSum >> 12) + (long)num & unchecked((long)((ulong)-1)));
 			return num;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			135,
-			103,
-			102,
-			42,
-			166
-		})]
 		
 		public virtual float[] readFloatArray(DataInputStream dis, int size)
 		{
@@ -1432,25 +759,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			224,
-			66,
-			99,
-			97,
-			104,
-			104,
-			100,
-			117,
-			117,
-			154
-		})]
 		
 		private void validateChecksum(DataInputStream dis, bool flag)
 		{
@@ -1467,22 +775,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				throw new IOException(text);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			21,
-			198,
-			104,
-			168,
-			104,
-			104,
-			104
-		})]
 		
 		internal virtual string readWord(DataInputStream dataInputStream)
 		{
@@ -1502,31 +794,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return stringBuilder.toString();
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		
 		private char readChar(DataInputStream dataInputStream)
 		{
 			return (char)((sbyte)dataInputStream.readByte());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			112,
-			104,
-			137,
-			135,
-			127,
-			4
-		})]
 		
 		public virtual float readFloat(DataInputStream dis)
 		{
@@ -1539,20 +810,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			{
 				num = dis.readInt();
 			}
-			this.calculatedCheckSum = ((this.calculatedCheckSum << 20 | this.calculatedCheckSum >> 12) + (long)num & (long)((ulong)-1));
-			FloatConverter floatConverter;
+			this.calculatedCheckSum = ((this.calculatedCheckSum << 20 | this.calculatedCheckSum >> 12) + (long)num & unchecked((long)(unchecked((ulong)-1))));
+			FloatConverter floatConverter = new FloatConverter();
 			return FloatConverter.ToFloat(num, ref floatConverter);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			80,
-			104,
-			103,
-			54,
-			166
-		})]
 		
 		protected internal virtual SenoneSequence getSenoneSequence(int[] stateid)
 		{
@@ -1564,18 +825,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return new SenoneSequence(array);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			163,
-			60,
-			102,
-			103,
-			104,
-			2,
-			230,
-			69,
-			130
-		})]
 		protected internal virtual bool sameSenoneSequence(int[] ssid1, int[] ssid2)
 		{
 			if (ssid1.Length == ssid2.Length)
@@ -1591,129 +840,33 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			104,
-			67,
-			232,
-			162,
-			11,
-			232,
-			157,
-			247,
-			143,
-			15,
-			165
-		})]
 		
 		public Sphinx3Loader(URL location, UnitManager unitManager, float distFloor, float mixtureWeightFloor, float varianceFloor, int topGauNum, bool useCDUnits)
 		{
 			this.calculatedCheckSum = 0L;
 			this.init(location, unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName()));
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			102,
-			131,
-			232,
-			162,
-			1,
-			232,
-			158,
-			1,
-			180,
-			239,
-			61,
-			197
-		})]
 		
 		public Sphinx3Loader(string location, UnitManager unitManager, float distFloor, float mixtureWeightFloor, float varianceFloor, int topGauNum, bool useCDUnits)
 		{
 			this.calculatedCheckSum = 0L;
 			this.init(ConfigurationManagerUtils.resourceToURL(location), unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName()));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			70,
-			232,
-			161,
-			235,
-			232,
-			158,
-			23
-		})]
 		
 		public Sphinx3Loader()
 		{
 			this.calculatedCheckSum = 0L;
-		}
-
-		
+		}		
 		
 		public virtual string getLocation()
 		{
 			return this.location.getPath();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			105,
-			114,
-			112,
-			118,
-			107,
-			107,
-			240,
-			59,
-			229,
-			70
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
 			this.init(ConfigurationManagerUtils.getResource("location", ps), (UnitManager)ps.getComponent("unitManager"), ps.getFloat("mixtureComponentScoreFloor"), ps.getFloat("mixtureWeightFloor"), ps.getFloat("varianceFloor"), ps.getInt("topGaussiansNum"), ps.getBoolean("useCDUnits").booleanValue(), ps.getLogger());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			123,
-			107,
-			144,
-			107,
-			171,
-			103,
-			103,
-			103,
-			103,
-			204,
-			184,
-			2,
-			97,
-			204,
-			103,
-			145
-		})]
 		
 		public virtual void load()
 		{
@@ -1734,17 +887,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				}
 				catch (URISyntaxException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<URISyntaxException>(ex, 1);
-					goto IL_6E;
+					throw new RuntimeException(ex);
 				}
 				this.loaded = true;
 				TimerPool.getTimer(this, "Load AM").stop();
-				return;
-				IL_6E:
-				URISyntaxException ex3 = ex2;
-				Exception ex4 = ex3;
-				
-				throw new RuntimeException(ex4);
 			}
 		}
 
@@ -1752,7 +898,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.hmmManager;
 		}
-
 		
 		protected internal virtual Pool getMatrixPool()
 		{
@@ -1764,30 +909,25 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return this.mixtureWeights;
 		}
 
-		
 		public virtual Map getContextIndependentUnits()
 		{
 			return this.contextIndependentUnits;
 		}
-
 		
 		public virtual Pool getMeansTransformationMatrixPool()
 		{
 			return this.meanTransformationMatrixPool;
 		}
-
 		
 		public virtual Pool getMeansTransformationVectorPool()
 		{
 			return this.meanTransformationVectorPool;
 		}
-
 		
 		public virtual Pool getVarianceTransformationMatrixPool()
 		{
 			return this.varianceTransformationMatrixPool;
 		}
-
 		
 		public virtual Pool getVarianceTransformationVectorPool()
 		{
@@ -1799,7 +939,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return this.mixtureWeights;
 		}
 
-		
 		public virtual Pool getTransitionMatrixPool()
 		{
 			return this.transitionsPool;
@@ -1809,7 +948,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.transformMatrix;
 		}
-
 		
 		public virtual Pool getSenonePool()
 		{
@@ -1830,32 +968,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.hmmManager;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			164,
-			67,
-			127,
-			11,
-			113,
-			113,
-			113,
-			145,
-			104,
-			113,
-			104,
-			113,
-			104,
-			113,
-			104,
-			145,
-			113,
-			113,
-			123,
-			47,
-			133,
-			113
-		})]
 		
 		public virtual void logInfo()
 		{
@@ -1890,34 +1002,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			return this.modelProps;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			164,
-			107,
-			115,
-			104,
-			110,
-			146,
-			112,
-			115,
-			105,
-			112,
-			63,
-			11,
-			200,
-			255,
-			2,
-			58,
-			235,
-			72,
-			235,
-			55,
-			235,
-			59,
-			233,
-			81
-		})]
 		
 		public virtual void update(Transform transform, ClusteredDensityFileData clusters)
 		{
@@ -1948,11 +1032,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					ByteCodeHelper.arraycopy_primitive_4(array, 0, array2, 0, array.Length);
 				}
 			}
-		}
-
-		
-		static Sphinx3Loader()
-		{
 		}
 
 		[S4Component(new object[]
@@ -2033,13 +1112,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		private const int CONTEXT_SIZE = 1;
 
 		protected internal Properties modelProps;
-
 		
 		protected internal Pool meansPool;
-
 		
 		protected internal Pool variancePool;
-
 		
 		protected internal Pool transitionsPool;
 
@@ -2056,16 +1132,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		private int[] vectorLength;
 
 		private int[] senone2ci;
-
 		
 		protected internal Pool meanTransformationMatrixPool;
-
-		
+	
 		protected internal Pool meanTransformationVectorPool;
 
-		
 		protected internal Pool varianceTransformationMatrixPool;
-
 		
 		protected internal Pool varianceTransformationVectorPool;
 
@@ -2073,10 +1145,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		private MixtureComponentSet[] phoneticTiedMixtures;
 
-		
 		protected internal Pool senonePool;
 
-		
 		private Map contextIndependentUnits;
 
 		private HMMManager hmmManager;
@@ -2112,7 +1182,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		private bool loaded;
 
 		private long calculatedCheckSum;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<Sphinx3Loader>.Value.desiredAssertionStatus();
 	}
