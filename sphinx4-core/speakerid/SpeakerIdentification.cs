@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;

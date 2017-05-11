@@ -1,7 +1,5 @@
 ﻿using System;
-
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 
@@ -9,28 +7,6 @@ namespace edu.cmu.sphinx.result
 {
 	public class GDLLatticeFactory : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			10,
-			108,
-			116,
-			106,
-			148,
-			113,
-			145,
-			113,
-			146,
-			108,
-			104,
-			6,
-			167,
-			141,
-			110,
-			106,
-			110,
-			136
-		})]
-		
 		private static void createNode(string text, Lattice lattice, Dictionary dictionary)
 		{
 			string[] array = java.lang.String.instancehelper_split(text, "\\s");
@@ -53,20 +29,6 @@ namespace edu.cmu.sphinx.result
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			35,
-			108,
-			116,
-			116,
-			116,
-			141,
-			115,
-			105,
-			5,
-			166
-		})]
-		
 		private static void createEdge(string text, Lattice lattice)
 		{
 			string[] array = java.lang.String.instancehelper_split(text, "\\s");
@@ -76,37 +38,11 @@ namespace edu.cmu.sphinx.result
 			string[] array2 = java.lang.String.instancehelper_split(text2, ",");
 			lattice.addEdge(lattice.getNode(id), lattice.getNode(id2), Double.parseDouble(array2[0]), Double.parseDouble(array2[1]));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			169,
-			102
-		})]
-		
+	
 		private GDLLatticeFactory()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			134,
-			108,
-			130,
-			106,
-			109,
-			106,
-			109,
-			169,
-			102
-		})]
-		
 		public static Lattice getLattice(string gdlFile, Dictionary dictionary)
 		{
 			Lattice lattice = new Lattice();

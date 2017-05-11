@@ -9,22 +9,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
 	public class NamesConversion : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			42,
-			105,
-			100,
-			112,
-			105,
-			106,
-			105,
-			100,
-			113,
-			110,
-			110
-		})]
-		
+	{		
 		internal virtual void split3ph(string text)
 		{
 			int num = java.lang.String.instancehelper_indexOf(text, 45);
@@ -50,18 +35,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			this.@base = java.lang.String.instancehelper_substring(text2, 0, num);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			180,
-			137,
-			103,
-			137,
-			157,
-			137
-		})]
 		
 		internal virtual void addInConv(string text, HashMap hashMap)
 		{
@@ -75,31 +48,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				hashMap.put(text, text2);
 			}
 		}
-
-		
 		
 		internal virtual string conv1ph(string text)
 		{
 			return (string)this.phoneConv.get(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			56,
-			104,
-			127,
-			6,
-			102,
-			127,
-			3,
-			104,
-			159,
-			10,
-			109,
-			127,
-			46,
-			134
-		})]
 		
 		internal virtual string conv3ph()
 		{
@@ -124,44 +77,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			232,
-			60,
-			107,
-			203
-		})]
 		
 		public NamesConversion()
 		{
 			this.phoneConv = new HashMap();
 			this.wordConv = new HashMap();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			1,
-			172,
-			103,
-			104,
-			108,
-			103,
-			105,
-			105,
-			108,
-			104,
-			122,
-			122,
-			154,
-			101,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		internal virtual void buildPhoneConversion(string text)
 		{

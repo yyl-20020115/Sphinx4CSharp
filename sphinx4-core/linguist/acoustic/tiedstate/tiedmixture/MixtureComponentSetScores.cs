@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.lang;
+﻿using IKVM.Runtime;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 {
@@ -12,18 +8,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		{
 			return this.frameStartSample;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			165,
-			104,
-			127,
-			10,
-			127,
-			10,
-			103
-		})]
 		
 		public MixtureComponentSetScores(int numStreams, int gauNum, long frameStartSample)
 		{
@@ -44,34 +28,20 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			this.frameStartSample = frameStartSample;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			108
-		})]
 		public virtual void setScore(int featStream, int gauIdx, float score)
 		{
 			this.scores[featStream][gauIdx] = score;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			107
-		})]
 		public virtual void setGauId(int featStream, int gauIdx, int id)
 		{
 			this.ids[featStream][gauIdx] = id;
 		}
-
 		
 		public virtual float getScore(int featStream, int gauIdx)
 		{
 			return this.scores[featStream][gauIdx];
 		}
-
 		
 		public virtual int getGauId(int featStream, int gauIdx)
 		{

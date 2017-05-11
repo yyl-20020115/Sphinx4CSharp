@@ -1,36 +1,15 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	.
 	internal sealed class Triple : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			3,
-			104,
-			103,
-			103,
-			103
-		})]
-		
+	{		
 		public Triple(int num, int num2, int num3)
 		{
 			this.phone = num;
 			this.hmmState = num2;
 			this.pdf = num3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			11,
-			104,
-			130,
-			135
-		})]
 		public override bool equals(object obj)
 		{
 			if (!(obj is Triple))
@@ -45,8 +24,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 		{
 			return 31 * (31 * this.phone + this.hmmState) + this.pdf;
 		}
-
-		
 		
 		public override string toString()
 		{

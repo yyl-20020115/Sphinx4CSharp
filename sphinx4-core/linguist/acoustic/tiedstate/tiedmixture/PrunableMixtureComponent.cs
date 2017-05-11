@@ -1,33 +1,14 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 {
 	[Serializable]
 	public class PrunableMixtureComponent : MixtureComponent
-	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			247,
-			50,
-			107,
-			235,
-			78,
-			104
-		})]
-		
+	{	
 		public PrunableMixtureComponent(float[] mean, float[][] meanTransformationMatrix, float[] meanTransformationVector, float[] variance, float[][] varianceTransformationMatrix, float[] varianceTransformationVector, float distFloor, float varianceFloor, int id) : base(mean, meanTransformationMatrix, meanTransformationVector, variance, varianceTransformationMatrix, varianceTransformationVector, distFloor, varianceFloor)
 		{
 			this.score = float.MinValue;
@@ -49,20 +30,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		{
 			return this.partScore;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			31,
-			231,
-			70,
-			103,
-			110,
-			18,
-			230,
-			69,
-			103,
-			109
-		})]
 		
 		public virtual void updateScore(float[] feature)
 		{
@@ -75,23 +42,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			this.partScore = num;
 			this.score = this.convertScore(num);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			11,
-			231,
-			70,
-			103,
-			110,
-			114,
-			101,
-			226,
-			60,
-			230,
-			71,
-			103,
-			109
-		})]
 		
 		public virtual bool isTopComponent(float[] feature, float threshold)
 		{
@@ -109,18 +59,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			this.score = this.convertScore(num);
 			return true;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			185,
-			206,
-			105,
-			111,
-			167,
-			106,
-			168
-		})]
 		
 		private float convertScore(float num)
 		{
@@ -136,13 +74,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			}
 			return num;
 		}
-
-		
-		static PrunableMixtureComponent()
-		{
-			MixtureComponent.__<clinit>();
-		}
-
 		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected PrunableMixtureComponent(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)

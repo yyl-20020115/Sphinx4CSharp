@@ -1,49 +1,17 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.frontend;
-using IKVM.Attributes;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 {
 	[Serializable]
 	public class SetBasedGaussianMixture : GaussianMixture
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			107,
-			103
-		})]
-		
+	{	
 		public SetBasedGaussianMixture(GaussianWeights mixtureWeights, MixtureComponentSet mixtureComponentSet, int id) : base(mixtureWeights, null, id)
 		{
 			this.mixtureComponentSet = mixtureComponentSet;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			180,
-			108,
-			102,
-			115,
-			102,
-			112,
-			111,
-			111,
-			255,
-			6,
-			61,
-			230,
-			69,
-			229,
-			57,
-			233,
-			73
-		})]
 		
 		public override float calculateScore(Data feature)
 		{
@@ -62,21 +30,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			10,
-			108,
-			113,
-			98,
-			115,
-			112,
-			63,
-			22,
-			38,
-			233,
-			69
-		})]
 		
 		public override float[] calculateComponentScore(Data feature)
 		{
@@ -95,29 +48,22 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			}
 			return array;
 		}
-
-		
 		
 		public override MixtureComponent[] getMixtureComponents()
 		{
 			return this.mixtureComponentSet.toArray();
 		}
-
-		
-		
+				
 		public override int dimension()
 		{
 			return this.mixtureComponentSet.dimension();
 		}
-
-		
-		
+	
 		public override int numComponents()
 		{
 			return this.mixtureComponentSet.size();
 		}
-
-		
+	
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected SetBasedGaussianMixture(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{

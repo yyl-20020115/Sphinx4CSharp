@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -11,73 +8,8 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.acoustic.tiedstate.Saver"
-	})]
 	public class Sphinx3Saver : java.lang.Object, Saver, Configurable
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.FileNotFoundException",
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			77,
-			130,
-			102,
-			130,
-			112,
-			140,
-			113,
-			146,
-			144,
-			110,
-			110,
-			142,
-			105,
-			105,
-			137,
-			99,
-			105,
-			105,
-			107,
-			108,
-			240,
-			61,
-			232,
-			70,
-			119,
-			127,
-			3,
-			233,
-			72,
-			108,
-			105,
-			105,
-			147,
-			143,
-			233,
-			59,
-			40,
-			40,
-			235,
-			75,
-			104,
-			191,
-			9,
-			136,
-			102
-		})]
-		
 		private void saveDensityFileBinary(Pool pool, string text, bool append)
 		{
 			Properties properties = new Properties();
@@ -139,51 +71,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.writeInt(dataOutputStream, val);
 			dataOutputStream.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.FileNotFoundException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			246,
-			162,
-			112,
-			140,
-			134,
-			113,
-			104,
-			178,
-			144,
-			103,
-			104,
-			136,
-			104,
-			105,
-			137,
-			151,
-			105,
-			137,
-			107,
-			108,
-			105,
-			105,
-			105,
-			49,
-			136,
-			111,
-			233,
-			58,
-			43,
-			235,
-			74,
-			104,
-			223,
-			9,
-			102
-		})]
 		
 		private void saveMixtureWeightsBinary(GaussianWeights gaussianWeights, string text, bool append)
 		{
@@ -238,56 +125,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			dataOutputStream.close();
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			158,
-			215,
-			66,
-			112,
-			108,
-			134,
-			113,
-			104,
-			178,
-			144,
-			103,
-			118,
-			136,
-			110,
-			103,
-			134,
-			105,
-			105,
-			105,
-			137,
-			107,
-			175,
-			105,
-			138,
-			105,
-			62,
-			200,
-			105,
-			103,
-			106,
-			111,
-			233,
-			60,
-			232,
-			53,
-			235,
-			82,
-			104,
-			191,
-			9,
-			102
-		})]
-		
 		protected internal virtual void saveTransitionMatricesBinary(Pool pool, string path, bool append)
 		{
 			this.logger.info("Saving transition matrices to: ");
@@ -349,56 +186,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			dataOutputStream.close();
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.FileNotFoundException",
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			89,
-			98,
-			112,
-			140,
-			142,
-			99,
-			159,
-			17,
-			136,
-			107,
-			109,
-			127,
-			1,
-			110,
-			127,
-			2,
-			110,
-			136,
-			107,
-			127,
-			2,
-			107,
-			140,
-			159,
-			2,
-			106,
-			111,
-			109,
-			63,
-			5,
-			232,
-			69,
-			230,
-			53,
-			235,
-			61,
-			235,
-			81,
-			102
-		})]
-		
 		private void saveDensityFileAscii(Pool pool, string text, bool append)
 		{
 			this.logger.info("Saving density file to: ");
@@ -437,60 +224,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			outputStream.close();
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.FileNotFoundException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			2,
-			130,
-			112,
-			140,
-			110,
-			99,
-			159,
-			17,
-			136,
-			107,
-			103,
-			127,
-			1,
-			104,
-			127,
-			2,
-			104,
-			136,
-			107,
-			108,
-			127,
-			29,
-			105,
-			105,
-			105,
-			49,
-			136,
-			111,
-			103,
-			105,
-			43,
-			136,
-			104,
-			107,
-			105,
-			63,
-			5,
-			136,
-			230,
-			50,
-			43,
-			235,
-			82,
-			102
-		})]
-		
 		private void saveMixtureWeightsAscii(GaussianWeights gaussianWeights, string text, bool append)
 		{
 			this.logger.info("Saving mixture weights to: ");
@@ -539,62 +272,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			outputStream.close();
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.FileNotFoundException",
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			158,
-			232,
-			98,
-			110,
-			99,
-			159,
-			17,
-			136,
-			112,
-			108,
-			135,
-			118,
-			110,
-			135,
-			159,
-			15,
-			107,
-			159,
-			9,
-			111,
-			108,
-			236,
-			69,
-			107,
-			104,
-			102,
-			139,
-			110,
-			111,
-			38,
-			199,
-			154,
-			104,
-			136,
-			235,
-			69,
-			114,
-			255,
-			47,
-			38,
-			43,
-			235,
-			60,
-			235,
-			101,
-			102
-		})]
-		
 		protected internal virtual void saveTransitionMatricesAscii(Pool pool, string path, bool append)
 		{
 			OutputStream outputStream = StreamFactory.getOutputStream(this.location, path, append);
@@ -659,136 +336,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 			outputStream.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.FileNotFoundException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			51,
-			112,
-			140,
-			99,
-			191,
-			17,
-			232,
-			73,
-			98,
-			98,
-			98,
-			99,
-			127,
-			5,
-			110,
-			110,
-			134,
-			100,
-			138,
-			98,
-			107,
-			127,
-			1,
-			127,
-			1,
-			127,
-			2,
-			109,
-			127,
-			2,
-			127,
-			1,
-			99,
-			127,
-			2,
-			159,
-			2,
-			107,
-			107,
-			171,
-			127,
-			8,
-			105,
-			105,
-			162,
-			137,
-			105,
-			126,
-			103,
-			127,
-			2,
-			103,
-			126,
-			110,
-			126,
-			119,
-			126,
-			116,
-			120,
-			159,
-			2,
-			105,
-			105,
-			124,
-			111,
-			124,
-			255,
-			2,
-			61,
-			235,
-			69,
-			139,
-			114,
-			191,
-			7,
-			197,
-			127,
-			8,
-			105,
-			105,
-			162,
-			105,
-			110,
-			105,
-			105,
-			158,
-			105,
-			126,
-			107,
-			127,
-			2,
-			107,
-			126,
-			110,
-			126,
-			119,
-			127,
-			1,
-			126,
-			116,
-			120,
-			159,
-			2,
-			105,
-			105,
-			124,
-			111,
-			125,
-			255,
-			2,
-			61,
-			235,
-			69,
-			139,
-			114,
-			191,
-			7,
-			133,
-			102
-		})]
-		
+	
 		private void saveHMMPool(bool flag, OutputStream outputStream, string text)
 		{
 			this.logger.info("Saving HMM file to: ");
@@ -946,30 +494,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			outputStream.close();
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			59,
-			67,
-			105,
-			104,
-			151,
-			140,
-			140,
-			111,
-			109,
-			106,
-			127,
-			14,
-			98,
-			140,
-			140
-		})]
-		
 		protected internal virtual DataOutputStream writeS3BinaryHeader(string location, string path, Properties props, bool append)
 		{
 			OutputStream outputStream = StreamFactory.getOutputStream(location, path, append);
@@ -993,19 +517,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			return dataOutputStream;
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			2,
-			104,
-			142,
-			135
-		})]
-		
 		protected internal virtual void writeInt(DataOutputStream dos, int val)
 		{
 			if (this.swap)
@@ -1018,19 +529,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			35,
-			111,
-			40,
-			166
-		})]
-		
 		protected internal virtual void writeFloatArray(DataOutputStream dos, float[] data)
 		{
 			int num = data.Length;
@@ -1041,35 +539,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			246,
-			103
-		})]
-		
 		internal virtual void writeWord(DataOutputStream dataOutputStream, string text)
 		{
 			dataOutputStream.writeBytes(text);
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			18,
-			104,
-			143,
-			136
-		})]
-		
 		protected internal virtual void writeFloat(DataOutputStream dos, float val)
 		{
 			if (this.swap)
@@ -1082,40 +556,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 		}
 
-		
-		
 		public Sphinx3Saver()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			58,
-			140,
-			113,
-			145,
-			118,
-			118,
-			171,
-			145,
-			113,
-			108,
-			108,
-			108,
-			108,
-			108,
-			108,
-			171,
-			107,
-			127,
-			5,
-			103
-		})]
-		
 		public virtual void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
@@ -1152,45 +596,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 		{
 			return this.location;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			119,
-			127,
-			6,
-			127,
-			11,
-			127,
-			6,
-			255,
-			11,
-			69,
-			139,
-			159,
-			13,
-			127,
-			13,
-			127,
-			13,
-			191,
-			18,
-			127,
-			13,
-			127,
-			13,
-			127,
-			13,
-			255,
-			13,
-			69,
-			127,
-			39
-		})]
-		
+	
 		public virtual void save(string modelName, bool b)
 		{
 			this.logger.info(new StringBuilder().append("Saving acoustic model: ").append(modelName).toString());
@@ -1213,50 +619,41 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 			this.saveHMMPool(this.useCDUnits, StreamFactory.getOutputStream(this.location, "mdef", true), new StringBuilder().append(this.location).append(File.separator).append("mdef").toString());
 		}
-
-		
 		public virtual Map getContextIndependentUnits()
 		{
 			return this.contextIndependentUnits;
 		}
-
 		
 		public virtual Pool getMeansPool()
 		{
 			return this.meansPool;
 		}
 
-		
 		public virtual Pool getMeansTransformationMatrixPool()
 		{
 			return this.meanTransformationMatrixPool;
 		}
 
-		
 		public virtual Pool getMeansTransformationVectorPool()
 		{
 			return this.meanTransformationVectorPool;
 		}
-
 		
 		public virtual Pool getVariancePool()
 		{
 			return this.variancePool;
 		}
-
 		
 		public virtual Pool getVarianceTransformationMatrixPool()
 		{
 			return this.varianceTransformationMatrixPool;
 		}
 
-		
 		public virtual Pool getVarianceTransformationVectorPool()
 		{
 			return this.varianceTransformationVectorPool;
 		}
 
-		
 		public virtual Pool getSenonePool()
 		{
 			return this.senonePool;
@@ -1276,26 +673,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 		{
 			return this.hmmManager;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			196,
-			112,
-			113,
-			113,
-			113,
-			113,
-			113,
-			113,
-			113,
-			113,
-			113,
-			113,
-			127,
-			16,
-			113
-		})]
 		
 		public virtual void logInfo()
 		{
@@ -1312,11 +689,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.senonePool.logInfo(this.logger);
 			this.logger.info(new StringBuilder().append("Context Independent Unit Entries: ").append(this.contextIndependentUnits.size()).toString());
 			this.hmmManager.logInfo(this.logger);
-		}
-
-		
-		static Sphinx3Saver()
-		{
 		}
 
 		[S4Boolean(new object[]
@@ -1386,35 +758,26 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 
 		private bool doCheckSum;
 
-		
 		private Pool meansPool;
-
 		
 		private Pool variancePool;
 
-		
 		private Pool matrixPool;
 
-		
 		private Pool meanTransformationMatrixPool;
 
-		
 		private Pool meanTransformationVectorPool;
 
-		
 		private Pool varianceTransformationMatrixPool;
 
-		
 		private Pool varianceTransformationVectorPool;
 
 		private GaussianWeights mixtureWeights;
 
-		
 		private Pool senonePool;
 
 		private int vectorLength;
 
-		
 		private Map contextIndependentUnits;
 
 		private HMMManager hmmManager;
@@ -1468,7 +831,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 
 		public bool useCDUnits;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<Sphinx3Saver>.Value.desiredAssertionStatus();
 	}
 }

@@ -1,8 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.frontend;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
@@ -47,35 +43,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 		{
 			return this.logOutputProbability;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			25,
-			136,
-			103,
-			103,
-			171,
-			139,
-			103,
-			140,
-			167,
-			238,
-			70,
-			104,
-			105,
-			137,
-			174,
-			100,
-			110,
-			110,
-			104,
-			108,
-			20,
-			232,
-			70,
-			103,
-			135
-		})]
 		
 		public TrainerScore(Data feature, float probability, HMMState state, float logAlpha, float logBeta, float[] logComponentProb)
 		{
@@ -109,24 +76,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				this.logComponentGamma = null;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			104,
-			103,
-			104,
-			103,
-			107,
-			107,
-			107,
-			107,
-			108,
-			109,
-			108,
-			109
-		})]
 		
 		public TrainerScore(Data feature, float probability, int senone)
 		{
@@ -142,33 +91,15 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.logComponentGamma = new float[1];
 			this.logComponentGamma[0] = 0f;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			82,
-			116
-		})]
 		
 		public TrainerScore(Data feature, float probability, HMMState state, float logAlpha, float[] logComponentProb) : this(feature, probability, state, logAlpha, 0f, logComponentProb)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			98,
-			118
-		})]
 		
 		public TrainerScore(Data feature, float probability, HMMState state, float[] logComponentProb) : this(feature, probability, state, 0f, 0f, logComponentProb)
 		{
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			112,
-			117
-		})]
-		
 		public TrainerScore(Data feature, float probability, HMMState state) : this(feature, probability, state, 0f, 0f, null)
 		{
 		}
@@ -198,20 +129,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.logBeta = logBeta;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			168,
-			156,
-			104,
-			108,
-			120,
-			111,
-			237,
-			61,
-			230,
-			71
-		})]
 		public virtual void setGamma()
 		{
 			this.logGamma = this.logAlpha + this.logBeta + this.logScalingFactor;

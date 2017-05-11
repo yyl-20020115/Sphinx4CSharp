@@ -1,25 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
 	public class Lab : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			232,
-			54,
-			103,
-			238,
-			74,
-			103,
-			103
-		})]
-		
+	{	
 		public Lab(string s, int n)
 		{
 			this.numState = -1;
@@ -28,15 +12,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			this.setName(s);
 			this.setStateIdx(n);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			25,
-			114,
-			159,
-			7
-		})]
-		
+	
 		public virtual bool isEqual(Lab l)
 		{
 			if (l.getState() != -1 && this.getState() != -1)
@@ -45,7 +21,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return java.lang.String.instancehelper_equals(l.getName(), this.getName());
 		}
-
 		public virtual string getName()
 		{
 			return this.nameHMM;
@@ -85,16 +60,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		{
 			this.end = i;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			164,
-			232,
-			61,
-			103,
-			174
-		})]
 		
 		public Lab()
 		{
@@ -102,18 +67,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			this.start = -1;
 			this.end = -1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			167,
-			232,
-			58,
-			103,
-			238,
-			70,
-			103
-		})]
 		
 		public Lab(string s)
 		{
@@ -122,21 +75,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			this.end = -1;
 			this.setName(s);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			177,
-			232,
-			48,
-			103,
-			238,
-			80,
-			108,
-			108,
-			108,
-			108
-		})]
 		
 		public Lab(Lab @ref)
 		{
@@ -148,19 +86,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			this.setName(@ref.getName());
 			this.setStateIdx(@ref.getState());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			34,
-			102,
-			119,
-			127,
-			25,
-			124,
-			105,
-			127,
-			14
-		})]
 		
 		public override string toString()
 		{

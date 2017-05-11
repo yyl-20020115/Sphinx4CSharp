@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.result
+﻿namespace edu.cmu.sphinx.result
 {
 	public interface Path
 	{

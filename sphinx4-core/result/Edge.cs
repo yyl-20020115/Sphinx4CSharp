@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.util;
 
@@ -28,18 +25,7 @@ namespace edu.cmu.sphinx.result
 		{
 			return this.acousticScore;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			104,
-			105,
-			106,
-			103,
-			103
-		})]
-		
+	
 		protected internal Edge(Node fromNode, Node toNode, double acousticScore, double lmScore)
 		{
 			this.acousticScore = acousticScore;
@@ -47,38 +33,18 @@ namespace edu.cmu.sphinx.result
 			this.__fromNode = fromNode;
 			this.__toNode = toNode;
 		}
-
-		
 		
 		public override string toString()
 		{
 			return new StringBuilder().append("Edge(").append(this.__fromNode).append("-->").append(this.__toNode).append('[').append(this.acousticScore).append(',').append(this.lmScore).append("])").toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			10,
-			103,
-			103,
-			109,
-			141,
-			105,
-			100,
-			191,
-			16,
-			105,
-			100,
-			191,
-			16,
-			109
-		})]
 		
 		internal static void load(Lattice lattice, StringTokenizer stringTokenizer)
 		{
 			string text = stringTokenizer.nextToken();
 			string text2 = stringTokenizer.nextToken();
-			double num = Double.parseDouble(stringTokenizer.nextToken());
-			double num2 = Double.parseDouble(stringTokenizer.nextToken());
+			double num = java.lang.Double.parseDouble(stringTokenizer.nextToken());
+			double num2 = java.lang.Double.parseDouble(stringTokenizer.nextToken());
 			Node node = lattice.getNode(text);
 			if (node == null)
 			{
@@ -96,54 +62,16 @@ namespace edu.cmu.sphinx.result
 			lattice.addEdge(node, node2, num, num2);
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			36,
-			159,
-			70
-		})]
-		
 		internal virtual void dump(PrintWriter printWriter)
 		{
 			printWriter.println(new StringBuilder().append("edge: ").append(this.__fromNode.getId()).append(' ').append(this.__toNode.getId()).append(' ').append(this.acousticScore).append(' ').append(this.lmScore).toString());
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			48,
-			127,
-			17,
-			63,
-			33,
-			165
-		})]
-		
 		internal virtual void dumpAISee(FileWriter fileWriter)
 		{
 			fileWriter.write(new StringBuilder().append("edge: { sourcename: \"").append(this.__fromNode.getId()).append("\" targetname: \"").append(this.__toNode.getId()).append("\" label: \"").append(this.acousticScore).append(',').append(this.lmScore).append("\" }\n").toString());
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			60,
-			127,
-			22,
-			159,
-			63
-		})]
-		
 		public virtual void dumpDot(FileWriter f)
 		{
 			string text = new StringBuilder().append("").append(this.acousticScore).append(",").append(this.lmScore).toString();
@@ -160,24 +88,11 @@ namespace edu.cmu.sphinx.result
 			this.lmScore = v;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			76,
-			119,
-			124,
-			110,
-			115,
-			240,
-			61
-		})]
-		
 		public virtual bool isEquivalent(Edge other)
 		{
 			double num = java.lang.Math.abs(this.acousticScore) * 1E-05;
 			return java.lang.Math.abs(this.acousticScore - other.getAcousticScore()) <= num && this.lmScore == other.getLMScore() && this.__fromNode.isEquivalent(other.getFromNode()) && this.__toNode.isEquivalent(other.getToNode());
 		}
-
 		
 		protected internal Node fromNode
 		{
@@ -192,7 +107,6 @@ namespace edu.cmu.sphinx.result
 				this.__fromNode = value;
 			}
 		}
-
 		
 		protected internal Node toNode
 		{

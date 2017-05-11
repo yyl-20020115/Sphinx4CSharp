@@ -12,39 +12,17 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.acoustic.tiedstate.Senone"
-	})]
 	[Serializable]
 	public abstract class ScoreCachingSenone : java.lang.Object, Senone, Serializable.__Interface, ISerializable
 	{
 		protected internal abstract float calculateScore(Data d);
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			160,
-			232,
-			76
-		})]
-		
 		public ScoreCachingSenone()
 		{
 			this.scoreCache = new ScoreCachingSenone.ScoreCache(this, null, 0f);
-			Thread.MemoryBarrier();
+			System.Threading.Thread.MemoryBarrier();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			180,
-			105,
-			105,
-			111,
-			142
-		})]
-		
 		public virtual float getScore(Data feature)
 		{
 			ScoreCachingSenone.ScoreCache scoreCache = this.scoreCache;
@@ -52,19 +30,18 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			{
 				scoreCache = new ScoreCachingSenone.ScoreCache(this, feature, this.calculateScore(feature));
 				this.scoreCache = scoreCache;
-				Thread.MemoryBarrier();
+				System.Threading.Thread.MemoryBarrier();
 			}
 			return ScoreCachingSenone.ScoreCache.access_100(scoreCache);
 		}
 
-		[HideFromReflection]
-		public abstract float[] calculateComponentScore(Data);
+		public abstract float[] calculateComponentScore(Data d);
 
 		[HideFromReflection]
 		public abstract long getID();
 
 		[HideFromReflection]
-		public abstract void dump(string);
+		public abstract void dump(string s);
 
 		[HideFromReflection]
 		public abstract MixtureComponent[] getMixtureComponents();

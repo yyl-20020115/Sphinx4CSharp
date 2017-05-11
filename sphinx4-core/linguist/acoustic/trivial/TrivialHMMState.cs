@@ -1,36 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
-using IKVM.Attributes;
-using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.trivial
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.acoustic.HMMState"
-	})]
-	.
-	
 	internal sealed class TrivialHMMState : java.lang.Object, HMMState
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			69,
-			130,
-			104,
-			103,
-			103,
-			103
-		})]
-		
 		internal TrivialHMMState(HMM hmm, int num, bool flag)
 		{
 			this.hmm = hmm;
@@ -52,8 +26,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 		{
 			return 0f;
 		}
-
-		
 		
 		public float[] calculateComponentScore(Data data)
 		{
@@ -64,18 +36,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 		{
 			return !this.isFinal;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			238,
-			104,
-			134,
-			103,
-			110,
-			127,
-			1
-		})]
 		
 		public HMMStateArc[] getSuccessors()
 		{
@@ -110,21 +70,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 			return null;
 		}
 
-		
-		static TrivialHMMState()
-		{
-		}
-
-		
 		private static HMMStateArc[] EMPTY_ARC = new HMMStateArc[0];
 
-		
 		private HMM hmm;
 
-		
 		private int which;
 
-		
 		private bool isFinal;
 	}
 }

@@ -1,26 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-
-namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
+﻿namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	
 	public class KaldiGmmPool : Pool
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			159,
-			109,
-			139,
-			103,
-			107,
-			135,
-			102,
-			46,
-			134
-		})]
-		
+	{		
 		public KaldiGmmPool(KaldiTextParser parser) : base("senones")
 		{
 			parser.expectToken("<DIMENSION>");

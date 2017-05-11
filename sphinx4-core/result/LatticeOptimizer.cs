@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 using java.util;
 
@@ -9,50 +6,16 @@ namespace edu.cmu.sphinx.result
 {
 	public class LatticeOptimizer : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			104,
-			103
-		})]
-		
 		public LatticeOptimizer(Lattice lattice)
 		{
 			this.__lattice = lattice;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			102,
-			102
-		})]
-		
+	
 		public virtual void optimize()
 		{
 			this.optimizeForward();
 			this.optimizeBackward();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			27,
-			98,
-			99,
-			162,
-			223,
-			6,
-			110,
-			138,
-			132
-		})]
 		
 		protected internal virtual void optimizeForward()
 		{
@@ -71,20 +34,6 @@ namespace edu.cmu.sphinx.result
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			121,
-			98,
-			99,
-			162,
-			223,
-			6,
-			110,
-			138,
-			132
-		})]
 		
 		protected internal virtual void optimizeBackward()
 		{
@@ -103,27 +52,6 @@ namespace edu.cmu.sphinx.result
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			56,
-			159,
-			1,
-			108,
-			110,
-			109,
-			109,
-			238,
-			70,
-			119,
-			117,
-			105,
-			226,
-			54,
-			9,
-			233,
-			83
-		})]
 		
 		protected internal virtual bool optimizeNodeForward(Node n)
 		{
@@ -153,17 +81,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			92,
-			127,
-			1,
-			191,
-			1,
-			236,
-			69
-		})]
 		
 		protected internal virtual bool equivalentNodesForward(Node n1, Node n2)
 		{
@@ -179,53 +96,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return this.equivalentNodeLabels(n1, n2) && n1.hasEquivalentEnteringEdges(n2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			117,
-			127,
-			6,
-			127,
-			1,
-			127,
-			1,
-			159,
-			1,
-			103,
-			135,
-			123,
-			159,
-			6,
-			127,
-			4,
-			110,
-			118,
-			100,
-			103,
-			37,
-			138,
-			107,
-			37,
-			138,
-			165,
-			127,
-			4,
-			110,
-			100,
-			110,
-			43,
-			232,
-			69,
-			100,
-			103,
-			37,
-			138,
-			107,
-			37,
-			170,
-			165,
-			108
-		})]
 		
 		protected internal virtual void mergeNodesAndEdgesForward(Edge e1, Edge e2)
 		{
@@ -291,56 +161,21 @@ namespace edu.cmu.sphinx.result
 			}
 			this.__lattice.removeNodeAndEdges(toNode2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			202,
-			116,
-			110,
-			17
-		})]
 		
 		protected internal virtual bool equivalentNodeLabels(Node n1, Node n2)
 		{
 			return n1.getWord().equals(n2.getWord()) && n1.getBeginTime() == n2.getBeginTime() && n1.getEndTime() == n2.getEndTime();
 		}
-
-		
 		
 		private double mergeAcousticScores(double num, double num2)
 		{
 			return java.lang.Math.max(num, num2);
 		}
-
-		
 		
 		private double mergeLanguageScores(double num, double num2)
 		{
 			return java.lang.Math.max(num, num2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			147,
-			108,
-			110,
-			109,
-			114,
-			238,
-			70,
-			119,
-			105,
-			37,
-			135,
-			105,
-			226,
-			53,
-			9,
-			233,
-			84
-		})]
 		
 		protected internal virtual bool optimizeNodeBackward(Node n)
 		{
@@ -365,17 +200,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			182,
-			127,
-			1,
-			191,
-			1,
-			204
-		})]
 		
 		protected internal virtual bool equivalentNodesBackward(Node n1, Node n2)
 		{
@@ -391,54 +215,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return this.equivalentNodeLabels(n1, n2) && n1.hasEquivalentLeavingEdges(n2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			220,
-			127,
-			6,
-			127,
-			1,
-			127,
-			1,
-			159,
-			1,
-			103,
-			135,
-			123,
-			159,
-			6,
-			127,
-			4,
-			110,
-			118,
-			100,
-			103,
-			37,
-			138,
-			107,
-			37,
-			138,
-			165,
-			127,
-			4,
-			110,
-			100,
-			110,
-			43,
-			232,
-			69,
-			100,
-			103,
-			37,
-			138,
-			107,
-			37,
-			170,
-			165,
-			108
-		})]
 		
 		protected internal virtual void mergeNodesAndEdgesBackward(Edge e1, Edge e2)
 		{
@@ -504,23 +280,6 @@ namespace edu.cmu.sphinx.result
 			}
 			this.__lattice.removeNodeAndEdges(fromNode2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			9,
-			127,
-			9,
-			110,
-			144,
-			176,
-			110,
-			108,
-			108,
-			102,
-			193,
-			101
-		})]
 		
 		protected internal virtual void removeHangingNodes()
 		{
@@ -545,12 +304,6 @@ namespace edu.cmu.sphinx.result
 				}
 			}
 		}
-
-		
-		static LatticeOptimizer()
-		{
-		}
-
 		
 		protected internal Lattice lattice
 		{
@@ -568,7 +321,6 @@ namespace edu.cmu.sphinx.result
 
 		internal Lattice __lattice;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<LatticeOptimizer>.Value.desiredAssertionStatus();
 	}
 }

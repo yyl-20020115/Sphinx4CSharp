@@ -1,24 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
+﻿namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
 	public class HMMState : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			167,
-			232,
-			58,
-			231,
-			71,
-			103,
-			103
-		})]
-		
 		public HMMState(GMMDiag g, Lab l)
 		{
 			this.gmmidx = -1;
@@ -29,9 +12,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		public virtual Lab getLab()
 		{
 			return this.lab;
-		}
-
-		
+		}		
 		
 		public virtual float getLogLike()
 		{
@@ -42,8 +23,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		{
 			this.lab = l;
 		}
-
-		
+	
 		public GMMDiag gmm
 		{
 			

@@ -1,30 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
-using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.result
 {
 	public class Result : java.lang.Object
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			40,
-			162,
-			103,
-			99,
-			134,
-			104,
-			137
-		})]
-		
 		public virtual List getTimedBestResult(bool withFillers)
 		{
 			Token bestToken = this.getBestToken();
@@ -41,17 +24,8 @@ namespace edu.cmu.sphinx.result
 
 		public virtual bool toCreateLattice()
 		{
-			return this.toCreateLattice;
+			return this._toCreateLattice;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			246,
-			103,
-			99,
-			134
-		})]
 		
 		public virtual string getBestResultNoFiller()
 		{
@@ -65,22 +39,13 @@ namespace edu.cmu.sphinx.result
 
 		public virtual bool isFinal()
 		{
-			return this.isFinal;
+			return this._isFinal;
 		}
 
 		public virtual void setReferenceText(string @ref)
 		{
 			this.reference = @ref;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			97,
-			135,
-			99,
-			167
-		})]
 		
 		public virtual Token getBestToken()
 		{
@@ -92,42 +57,16 @@ namespace edu.cmu.sphinx.result
 			return token;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			120,
-			105,
-			104,
-			103,
-			103,
-			103,
-			103,
-			103,
-			103,
-			107
-		})]
-		
 		public Result(ActiveList activeList, List resultList, long collectTime, bool isFinal, bool wordTokenFirst, bool toCreateLattice)
 		{
 			this.activeList = activeList;
 			this.resultList = resultList;
 			this.currentCollectTime = collectTime;
-			this.isFinal = isFinal;
-			this.toCreateLattice = toCreateLattice;
+			this._isFinal = isFinal;
+			this._toCreateLattice = toCreateLattice;
 			this.wordTokenFirst = wordTokenFirst;
 			this.logMath = LogMath.getLogMath();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			125,
-			137,
-			111,
-			103
-		})]
 		
 		public Result(AlternateHypothesisManager alternateHypothesisManager, ActiveList activeList, List resultList, long collectTime, bool isFinal, bool wordTokenFirst, bool toCreateLattice) : this(activeList, resultList, collectTime, isFinal, wordTokenFirst, toCreateLattice)
 		{
@@ -138,15 +77,6 @@ namespace edu.cmu.sphinx.result
 		{
 			return this.reference;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			120,
-			103,
-			99,
-			134
-		})]
 		
 		public override string toString()
 		{
@@ -157,18 +87,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return bestToken.getWordPath();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			79,
-			98,
-			127,
-			1,
-			113,
-			130,
-			98
-		})]
 		
 		public virtual Token getBestFinalToken()
 		{
@@ -194,19 +112,6 @@ namespace edu.cmu.sphinx.result
 		{
 			return this.alternateHypothesisManager;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			112,
-			98,
-			104,
-			127,
-			1,
-			113,
-			130,
-			130
-		})]
 		
 		public virtual Token getBestActiveToken()
 		{
@@ -225,20 +130,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return token;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			150,
-			102,
-			104,
-			127,
-			1,
-			110,
-			136,
-			98
-		})]
 		
 		public virtual List findPartialMatchingTokens(string text)
 		{
@@ -255,27 +146,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			34,
-			66,
-			99,
-			134,
-			134,
-			101,
-			135,
-			104,
-			103,
-			107,
-			115,
-			155,
-			135,
-			173,
-			102
-		})]
 		
 		private List getTimedWordPath(Token predecessor, bool flag)
 		{
@@ -292,7 +162,6 @@ namespace edu.cmu.sphinx.result
 					Word word = predecessor.getWord();
 					if (flag || !word.isFiller())
 					{
-						TimeFrame.__<clinit>();
 						TimeFrame timeFrame = new TimeFrame(predecessor.getCollectTime(), num);
 						arrayList.add(new WordResult(word, timeFrame, (double)predecessor.getScore(), (double)1f));
 					}
@@ -303,29 +172,6 @@ namespace edu.cmu.sphinx.result
 			Collections.reverse(arrayList);
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			27,
-			162,
-			99,
-			99,
-			130,
-			103,
-			102,
-			104,
-			104,
-			107,
-			105,
-			188,
-			103,
-			135,
-			103,
-			173,
-			103
-		})]
 		
 		private List getTimedWordTokenLastPath(Token predecessor, bool flag)
 		{
@@ -362,7 +208,6 @@ namespace edu.cmu.sphinx.result
 			return this.activeList;
 		}
 
-		
 		public virtual List getResultTokens()
 		{
 			return this.resultList;
@@ -372,18 +217,6 @@ namespace edu.cmu.sphinx.result
 		{
 			return this.currentCollectTime;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			132,
-			104,
-			127,
-			1,
-			110,
-			130,
-			98
-		})]
 		
 		public virtual Token findToken(string text)
 		{
@@ -399,18 +232,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			169,
-			104,
-			98,
-			123,
-			113,
-			130,
-			98
-		})]
 		
 		public virtual Token getBestActiveParitalMatchingToken(string text)
 		{
@@ -442,22 +263,6 @@ namespace edu.cmu.sphinx.result
 		{
 			return 0;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			218,
-			135,
-			99,
-			130,
-			166,
-			103,
-			99,
-			136,
-			103,
-			131
-		})]
 		
 		public virtual List getDataFrames()
 		{
@@ -479,15 +284,6 @@ namespace edu.cmu.sphinx.result
 			while (token != null);
 			return linkedList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			8,
-			103,
-			99,
-			134
-		})]
 		
 		public virtual string getBestFinalResultNoFiller()
 		{
@@ -498,15 +294,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return bestFinalToken.getWordPathNoFiller();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			25,
-			103,
-			99,
-			134
-		})]
 		
 		public virtual string getBestPronunciationResult()
 		{
@@ -520,21 +307,8 @@ namespace edu.cmu.sphinx.result
 
 		internal virtual void setFinal(bool flag)
 		{
-			this.isFinal = flag;
+			this._isFinal = flag;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			144,
-			98,
-			127,
-			1,
-			104,
-			98,
-			134,
-			98
-		})]
 		
 		public virtual bool validate()
 		{
@@ -552,16 +326,13 @@ namespace edu.cmu.sphinx.result
 			return result != 0;
 		}
 
-		
 		private ActiveList activeList;
 
-		
-		
 		private List resultList;
 
 		private AlternateHypothesisManager alternateHypothesisManager;
 
-		private bool isFinal;
+		private bool _isFinal;
 
 		private bool wordTokenFirst;
 
@@ -574,6 +345,6 @@ namespace edu.cmu.sphinx.result
 		private LogMath logMath;
 
 		
-		private bool toCreateLattice;
+		private bool _toCreateLattice;
 	}
 }

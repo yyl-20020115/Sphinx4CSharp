@@ -1,47 +1,11 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.frontend;
 using IKVM.Runtime;
-using java.lang;
-using java.lang.reflect;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 {
 	public class MixtureComponentSet : java.lang.Object
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			232,
-			160,
-			220,
-			236,
-			159,
-			37,
-			103,
-			108,
-			103,
-			115,
-			107,
-			107,
-			103,
-			102,
-			49,
-			134,
-			237,
-			60,
-			230,
-			70,
-			104,
-			103,
-			107,
-			103
-		})]
-		
 		public MixtureComponentSet(ArrayList components, int topGauNum)
 		{
 			this.componentComparator = new MixtureComponentSet_1(this);
@@ -64,13 +28,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			this.storedScores = new LinkedList();
 			this.curScores = null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			75,
-			107
-		})]
 		
 		public virtual void clearStoredScores()
 		{
@@ -82,15 +39,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			this.toStoreScore = (scoresQueueLen > 0);
 			this.scoresQueueLen = scoresQueueLen;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			56,
-			111,
-			110,
-			2,
-			166
-		})]
 		
 		private bool isInTopComponents(PrunableMixtureComponent[] array, PrunableMixtureComponent prunableMixtureComponent)
 		{
@@ -105,22 +53,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			42,
-			105,
-			112,
-			102,
-			129,
-			232,
-			59,
-			230,
-			71,
-			115,
-			137,
-			103
-		})]
 		
 		private void insertTopComponent(PrunableMixtureComponent[] array, PrunableMixtureComponent prunableMixtureComponent)
 		{
@@ -142,20 +74,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 				array[array.Length - 1] = prunableMixtureComponent;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			16,
-			109,
-			98,
-			152,
-			98,
-			127,
-			1,
-			105,
-			98,
-			130
-		})]
 		
 		private MixtureComponentSetScores getStoredScores(long num)
 		{
@@ -179,32 +97,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			return null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			63,
-			146,
-			103,
-			110,
-			108,
-			114,
-			179,
-			120,
-			40,
-			136,
-			172,
-			106,
-			121,
-			107,
-			98,
-			108,
-			105,
-			234,
-			59,
-			232,
-			52,
-			233,
-			85
-		})]
 		
 		private void updateTopScores(float[] array)
 		{
@@ -243,21 +135,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			30,
-			115,
-			110,
-			107,
-			127,
-			1,
-			31,
-			1,
-			38,
-			233,
-			70
-		})]
 		
 		private MixtureComponentSetScores createFromTopGau(long frameStartSample)
 		{
@@ -272,14 +149,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			}
 			return mixtureComponentSetScores;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			10,
-			109,
-			115,
-			110
-		})]
 		
 		private void storeScores(MixtureComponentSetScores mixtureComponentSetScores)
 		{
@@ -289,21 +158,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 				this.storedScores.poll();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			113,
-			114,
-			103,
-			110,
-			108,
-			127,
-			6,
-			40,
-			8,
-			233,
-			70
-		})]
 		
 		private void updateScores(float[] array)
 		{
@@ -323,47 +177,17 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 				}
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			113,
-			99,
-			163,
-			126,
-			106,
-			138
-		})]
 		
 		private object[] concatenate(object[] array, object[] array2)
 		{
 			int num = array.Length;
 			int num2 = array2.Length;
-			object[] array3 = (object[])((object[])Array.newInstance(java.lang.Object.instancehelper_getClass(array).getComponentType(), num + num2));
+		
+			object[] array3 = (object[])java.lang.reflect.Array.newInstance(java.lang.Object.instancehelper_getClass(array).getComponentType(), num + num2);
 			ByteCodeHelper.arraycopy(array, 0, array3, 0, num);
 			ByteCodeHelper.arraycopy(array2, 0, array3, num, num2);
 			return array3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			91,
-			104,
-			143,
-			108,
-			104,
-			143,
-			118,
-			135,
-			136,
-			97,
-			108,
-			135,
-			109,
-			104,
-			108
-		})]
 		
 		public virtual void updateTopScores(Data feature)
 		{
@@ -392,18 +216,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 				this.storeScores(this.curScores);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			124,
-			104,
-			143,
-			108,
-			105,
-			108,
-			103,
-			135
-		})]
 		
 		public virtual void updateScores(Data feature)
 		{
@@ -428,45 +240,27 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		public virtual int getGauNum()
 		{
 			return this.gauNum;
-		}
-
-		
+		}		
 		
 		public virtual float getTopGauScore(int streamId, int topGauId)
 		{
 			return this.curScores.getScore(streamId, topGauId);
 		}
-
-		
 		
 		public virtual int getTopGauId(int streamId, int topGauId)
 		{
 			return this.curScores.getGauId(streamId, topGauId);
-		}
-
-		
+		}		
 		
 		public virtual float getGauScore(int streamId, int topGauId)
 		{
 			return ((PrunableMixtureComponent[])this.components.get(streamId))[topGauId].getStoredScore();
-		}
-
-		
+		}		
 		
 		public virtual int getGauId(int streamId, int topGauId)
 		{
 			return ((PrunableMixtureComponent[])this.components.get(streamId))[topGauId].getId();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			125,
-			103,
-			107,
-			57,
-			134
-		})]
 		
 		protected internal virtual MixtureComponent[] toArray()
 		{
@@ -477,16 +271,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			132,
-			98,
-			107,
-			60,
-			166
-		})]
 		
 		protected internal virtual int dimension()
 		{
@@ -497,17 +281,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			140,
-			98,
-			107,
-			53,
-			166
-		})]
-		
 		protected internal virtual int size()
 		{
 			int num = 0;
@@ -522,15 +295,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 
 		private bool toStoreScore;
 
-		
 		private LinkedList storedScores;
 
 		internal MixtureComponentSetScores curScores;
 
-		
 		private ArrayList components;
 
-		
 		private ArrayList topComponents;
 
 		private int numStreams;
@@ -541,7 +311,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 
 		private long gauCalcSampleNumber;
 
-		
 		private Comparator componentComparator;
 	}
 }

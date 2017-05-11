@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.linguist;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -11,20 +8,7 @@ using java.util;
 namespace edu.cmu.sphinx.result
 {
 	public class TokenGraphDumper : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			27,
-			107,
-			124,
-			140,
-			127,
-			6,
-			110,
-			130,
-			108
-		})]
-		
+	{		
 		public virtual string dumpGDL(string title)
 		{
 			StringBuilder stringBuilder = new StringBuilder("graph: {\n");
@@ -39,43 +23,6 @@ namespace edu.cmu.sphinx.result
 			stringBuilder.append("}\n");
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			48,
-			110,
-			134,
-			127,
-			14,
-			119,
-			104,
-			191,
-			2,
-			130,
-			104,
-			173,
-			127,
-			1,
-			118,
-			99,
-			148,
-			140,
-			137,
-			141,
-			104,
-			124,
-			123,
-			190,
-			107,
-			109,
-			102,
-			127,
-			0,
-			124,
-			119,
-			122,
-			162
-		})]
 		
 		private string dumpTokenGDL(Token token)
 		{
@@ -123,20 +70,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			102,
-			102,
-			104,
-			104,
-			104,
-			104,
-			104,
-			104,
-			104,
-			134
-		})]
 		
 		private string getColor(SearchState searchState)
 		{
@@ -159,15 +92,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			123,
-			114,
-			99,
-			121,
-			142
-		})]
 		
 		private Integer getTokenID(Token token)
 		{
@@ -182,17 +106,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return integer;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			104,
-			103,
-			108,
-			107,
-			107
-		})]
 		
 		public TokenGraphDumper(Result result)
 		{
@@ -201,19 +114,6 @@ namespace edu.cmu.sphinx.result
 			this.tokenIDMap = new HashMap();
 			this.dumpedTokens = new HashSet();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			10,
-			127,
-			21,
-			103,
-			109,
-			184,
-			2,
-			97,
-			134
-		})]
 		
 		public virtual void dumpGDL(string title, string fileName)
 		{
@@ -235,18 +135,12 @@ namespace edu.cmu.sphinx.result
 			IOException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
 		
 		private AlternateHypothesisManager loserManager;
-
 		
 		private Result result;
-
 		
-		
-		private Map tokenIDMap;
-
-		
+		private Map tokenIDMap;		
 		
 		private Set dumpedTokens;
 

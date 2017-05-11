@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -21,39 +18,20 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			return this.ncoefs;
 		}
 
-		
 		public virtual float getMean(int i, int j)
 		{
 			return this.means[i][j];
 		}
-
 		
 		public virtual float getVar(int i, int j)
 		{
 			return -1f / (2f * this.covar[i][j]);
 		}
-
-		
 		
 		public virtual float getWeight(int i)
 		{
 			return (float)this.logMath.logToLinear(this.weights[i]);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			4,
-			104,
-			102,
-			107,
-			113,
-			127,
-			20,
-			127,
-			20,
-			145
-		})]
 		
 		private void allocate()
 		{
@@ -83,14 +61,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.logPreComputedGaussianFactor = new float[this.ngauss];
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			13,
-			104,
-			113,
-			118
-		})]
 		
 		public virtual void setWeight(int i, float w)
 		{
@@ -101,24 +71,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			this.weights[i] = this.logMath.linearToLog((double)w);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			28,
-			108
-		})]
 		public virtual void setMean(int i, int j, float v)
 		{
 			this.means[i][j] = v;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			19,
-			201,
-			127,
-			6,
-			122
-		})]
 		
 		public virtual void setVar(int i, int j, float v)
 		{
@@ -128,23 +84,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			this.covar[i][j] = -1f / (2f * v);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			249,
-			110,
-			102,
-			107,
-			56,
-			166,
-			127,
-			2,
-			240,
-			58,
-			233,
-			72
-		})]
 		
 		public virtual void precomputeDistance()
 		{
@@ -159,64 +98,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.logPreComputedGaussianFactor[i] = num * 0.5f;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			101,
-			108,
-			107,
-			107,
-			127,
-			6,
-			159,
-			32,
-			107,
-			107,
-			127,
-			6,
-			127,
-			8,
-			107,
-			107,
-			107,
-			127,
-			6,
-			110,
-			127,
-			22,
-			107,
-			127,
-			6,
-			107,
-			63,
-			10,
-			166,
-			102,
-			127,
-			6,
-			107,
-			63,
-			10,
-			166,
-			230,
-			52,
-			233,
-			78,
-			107,
-			107,
-			107,
-			107,
-			107,
-			184,
-			2,
-			98,
-			135
-		})]
 		
 		public virtual void saveHTK(string nomFich, string nomHMM, string parmKind)
 		{
-			IOException ex2;
 			try
 			{
 				PrintWriter printWriter = new PrintWriter(new FileWriter(nomFich));
@@ -258,25 +142,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_29B;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_29B:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			241,
-			107,
-			113,
-			107,
-			53,
-			166
-		})]
 		
 		private void allocateWeights()
 		{
@@ -288,73 +156,24 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			104,
-			103,
-			103,
-			102
-		})]
-		
 		public GMMDiag(int ng, int nc)
 		{
 			this.ngauss = ng;
 			this.ncoefs = nc;
 			this.allocate();
 		}
-
-		
 		
 		private bool isDiff(float num, float num2)
 		{
 			return (double)java.lang.Math.abs(1f - num2 / num) > 0.01;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			102
-		})]
 		
 		public GMMDiag()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			41,
-			108,
-			127,
-			17,
-			110,
-			127,
-			20,
-			107,
-			63,
-			10,
-			134,
-			102,
-			107,
-			63,
-			8,
-			134,
-			230,
-			57,
-			233,
-			73,
-			108,
-			184,
-			2,
-			98,
-			135
-		})]
 		
 		public virtual void save(string name)
 		{
-			IOException ex2;
 			try
 			{
 				PrintWriter printWriter = new PrintWriter(new FileWriter(name));
@@ -378,58 +197,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_125;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_125:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			65,
-			108,
-			103,
-			108,
-			110,
-			110,
-			102,
-			110,
-			103,
-			108,
-			122,
-			127,
-			18,
-			134,
-			143,
-			103,
-			108,
-			109,
-			50,
-			200,
-			103,
-			108,
-			109,
-			50,
-			232,
-			47,
-			233,
-			85,
-			103,
-			163,
-			140,
-			102,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		public virtual void load(string name)
 		{
-			IOException ex2;
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(name));
@@ -471,49 +244,18 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_171;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_171:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			106,
-			109
-		})]
 		
 		public virtual void saveHTK(string nomFich, string nomHMM)
 		{
 			this.saveHTK(nomFich, nomHMM, "<USER>");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			111,
-			108,
-			107,
-			107,
-			127,
-			6,
-			159,
-			32,
-			107,
-			107,
-			127,
-			6,
-			119,
-			97,
-			102
-		})]
 		
 		public virtual PrintWriter saveHTKheader(string nomFich, string parmKind)
 		{
 			PrintWriter result;
-			IOException ex2;
 			try
 			{
 				PrintWriter printWriter = new PrintWriter(new FileWriter(nomFich));
@@ -528,45 +270,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_D4;
+				Throwable.instancehelper_printStackTrace(ex);
+				return null;
 			}
 			return result;
-			IL_D4:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
-			return null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			64,
-			127,
-			6,
-			110,
-			127,
-			22,
-			107,
-			127,
-			6,
-			107,
-			63,
-			10,
-			166,
-			102,
-			127,
-			6,
-			107,
-			63,
-			10,
-			166,
-			230,
-			52,
-			233,
-			78
-		})]
-		
 		public virtual void saveHTKState(PrintWriter fout)
 		{
 			fout.println(new StringBuilder().append("<NUMMIXES> ").append(this.getNgauss()).toString());
@@ -588,32 +297,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				fout.println();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			82,
-			159,
-			1,
-			102,
-			43,
-			134,
-			102,
-			104,
-			102,
-			43,
-			134,
-			107,
-			104,
-			43,
-			230,
-			60,
-			230,
-			71,
-			102,
-			107,
-			107
-		})]
 		
 		public virtual void saveHTKtailer(int nstates, PrintWriter fout)
 		{
@@ -639,58 +322,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			fout.println("0 0 0");
 			fout.println("<ENDHMM>");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			142,
-			172,
-			103,
-			135,
-			103,
-			99,
-			98,
-			125,
-			110,
-			104,
-			104,
-			104,
-			215,
-			102,
-			102,
-			108,
-			99,
-			103,
-			99,
-			101,
-			125,
-			103,
-			104,
-			108,
-			105,
-			17,
-			200,
-			103,
-			125,
-			102,
-			139,
-			103,
-			104,
-			108,
-			105,
-			17,
-			200,
-			171,
-			102,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		public virtual void loadHTK(string nom)
 		{
-			IOException ex2;
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(nom));
@@ -706,7 +340,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					}
 					string text2 = text;
 					object _ref = "<MEAN>";
-					charSequence.__ref = _ref;
+					charSequence = CharSequence.Cast(_ref);
 					if (java.lang.String.instancehelper_contains(text2, charSequence))
 					{
 						this.ngauss++;
@@ -731,7 +365,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					}
 					string text3 = text;
 					object _ref = "<MEAN>";
-					charSequence.__ref = _ref;
+					charSequence =CharSequence.Cast( _ref);
 					if (java.lang.String.instancehelper_contains(text3, charSequence))
 					{
 						text = bufferedReader.readLine();
@@ -746,7 +380,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						text = bufferedReader.readLine();
 						string text5 = text;
 						_ref = "<VARIANCE>";
-						charSequence.__ref = _ref;
+						charSequence = CharSequence.Cast(_ref);
 						if (!java.lang.String.instancehelper_contains(text5, charSequence))
 						{
 							goto Block_8;
@@ -773,68 +407,15 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_19D;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
 			IL_19B:
 			return;
-			IL_19D:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			198,
-			130,
-			140,
-			103,
-			99,
-			226,
-			61,
-			230,
-			69,
-			105,
-			102,
-			108,
-			103,
-			108,
-			106,
-			102,
-			108,
-			102,
-			103,
-			112,
-			103,
-			108,
-			113,
-			125,
-			109,
-			53,
-			168,
-			103,
-			108,
-			109,
-			51,
-			232,
-			54,
-			235,
-			78,
-			109,
-			58,
-			168,
-			102,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		public virtual void loadScaleKMeans(string nom)
 		{
 			int num = 0;
-			IOException ex2;
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(nom));
@@ -878,38 +459,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_183;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_183:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			21,
-			102,
-			110,
-			102,
-			103,
-			112,
-			20,
-			198,
-			108,
-			104,
-			191,
-			69,
-			134,
-			104,
-			166,
-			243,
-			47,
-			233,
-			83
-		})]
 		
 		public virtual void computeLogLikes(float[] data)
 		{
@@ -934,16 +486,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.loglikes[i] = this.weights[i] + num;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			50,
-			105,
-			107,
-			53,
-			166
-		})]
 		
 		public virtual float getLogLike()
 		{
@@ -955,16 +497,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			return num;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			63,
-			98,
-			107,
-			114,
-			2,
-			198
-		})]
 		public virtual int getWinningGauss()
 		{
 			int num = 0;
@@ -977,33 +509,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			80,
-			98,
-			112,
-			100,
-			4,
-			166,
-			110,
-			98,
-			110,
-			101,
-			109,
-			115,
-			19,
-			200,
-			228,
-			58,
-			233,
-			73,
-			107,
-			47,
-			166,
-			103
-		})]
 		
 		public virtual GMMDiag getMarginal(bool[] mask)
 		{
@@ -1038,33 +543,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			gmmdiag.precomputeDistance();
 			return gmmdiag;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			109,
-			121,
-			107,
-			125,
-			125,
-			242,
-			61,
-			233,
-			69,
-			110,
-			122,
-			37,
-			133,
-			122,
-			37,
-			133,
-			255,
-			1,
-			59,
-			233,
-			71,
-			102
-		})]
 		
 		public virtual GMMDiag merge(GMMDiag g, float w1)
 		{
@@ -1084,17 +562,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			gmmdiag.precomputeDistance();
 			return gmmdiag;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			133,
-			109,
-			125,
-			125,
-			108,
-			102
-		})]
 		
 		public virtual GMMDiag getGauss(int i)
 		{
@@ -1110,29 +577,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		{
 			this.nom = s;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			152,
-			110,
-			98,
-			110,
-			98,
-			110,
-			118,
-			98,
-			107,
-			120,
-			98,
-			120,
-			226,
-			60,
-			230,
-			61,
-			233,
-			74
-		})]
 		
 		public virtual bool isEqual(GMMDiag g)
 		{
@@ -1164,17 +608,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return true;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			175,
-			102,
-			107,
-			63,
-			11,
-			198
-		})]
 		
 		public override string toString()
 		{

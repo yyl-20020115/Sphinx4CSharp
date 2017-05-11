@@ -1,36 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist;
+﻿using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.language.ngram;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.result
 {
 	public class LatticeRescorer : java.lang.Object
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			23,
-			102,
-			98,
-			114,
-			99,
-			159,
-			14,
-			101,
-			119,
-			138,
-			104,
-			127,
-			10,
-			115,
-			130
-		})]
-		
+	{	
 		protected internal virtual List allPathsTo(string path, Edge edge, int currentDepth)
 		{
 			LinkedList linkedList = new LinkedList();
@@ -56,34 +33,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return linkedList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			159,
-			9,
-			102,
-			115,
-			104,
-			162,
-			115,
-			127,
-			3,
-			103,
-			127,
-			4,
-			49,
-			168,
-			147,
-			105,
-			119,
-			101,
-			99,
-			101,
-			104,
-			101
-		})]
 		
 		private void rescoreEdges()
 		{
@@ -123,19 +72,6 @@ namespace edu.cmu.sphinx.result
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			232,
-			56,
-			235,
-			73,
-			103,
-			103,
-			108
-		})]
 		
 		public LatticeRescorer(Lattice lattice, LanguageModel model)
 		{
@@ -144,18 +80,11 @@ namespace edu.cmu.sphinx.result
 			this.__model = model;
 			this.depth = model.getMaxDepth();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			42,
-			102
-		})]
 		
 		public virtual void rescore()
 		{
 			this.rescoreEdges();
 		}
-
 		
 		protected internal Lattice lattice
 		{
@@ -171,7 +100,6 @@ namespace edu.cmu.sphinx.result
 			}
 		}
 
-		
 		protected internal LanguageModel model
 		{
 			

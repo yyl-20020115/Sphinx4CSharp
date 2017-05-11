@@ -1,6 +1,4 @@
 ﻿using System;
-
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
@@ -8,44 +6,10 @@ namespace edu.cmu.sphinx.result
 {
 	public class Nbest : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			167,
-			104,
-			103
-		})]
-		
 		public Nbest(Lattice lattice)
 		{
 			this.lattice = lattice;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			5,
-			102,
-			167,
-			159,
-			7,
-			120,
-			108,
-			120,
-			109,
-			162,
-			127,
-			10,
-			137,
-			104,
-			145,
-			141,
-			139,
-			144,
-			104,
-			133,
-			133
-		})]
 		
 		public virtual Collection getNbest(int n)
 		{
@@ -76,18 +40,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return hashSet;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			40,
-			109,
-			127,
-			3,
-			109,
-			137,
-			127,
-			12
-		})]
 		
 		private string getNewPathString(Nbest.NBestPath nbestPath, Node node)
 		{
@@ -106,16 +58,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return result;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			51,
-			106,
-			123,
-			107,
-			98
-		})]
 		
 		private void printQueue(BoundedPriorityQueue boundedPriorityQueue)
 		{
@@ -129,61 +71,35 @@ namespace edu.cmu.sphinx.result
 		}
 
 		protected internal Lattice lattice;
-
-		
-		[Implements(new string[]
-		{
-			"java.lang.Comparable"
-		})]
-		
-		.
 		
 		internal sealed class NBestPath : java.lang.Object, Comparable
 		{
-			
-			
 			public int compareTo(Nbest.NBestPath nbestPath)
 			{
-				return Double.compare(this.score, nbestPath.score);
+				return java.lang.Double.compare(this.score, nbestPath.score);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				159,
-				178,
-				103,
-				104,
-				103,
-				103,
-				106,
-				106
-			})]
 			
 			public NBestPath(Nbest nbest, string text, Node node, double num, double num2)
 			{
+				this.this_0 = nbest;
 				this.path = text;
 				this.node = node;
 				this.score = num;
 				this.forwardScore = num2;
 			}
 
-			
-			
 			public override string toString()
 			{
 				return new StringBuilder().append(this.path).append(" [").append(this.score).append(',').append(this.forwardScore).append(']').toString();
 			}
-
-			
-			
-			
+						
 			public int compareTo(object obj)
 			{
 				return this.compareTo((Nbest.NBestPath)obj);
 			}
 
 			
-			int IComparable.Object;)IcompareTo(object obj)
+			int IComparable.CompareTo(object obj)
 			{
 				return this.compareTo(obj);
 			}
@@ -197,7 +113,7 @@ namespace edu.cmu.sphinx.result
 			internal double forwardScore;
 
 			
-			internal Nbest this_0 = nbest;
+			internal Nbest this_0;
 		}
 	}
 }

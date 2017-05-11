@@ -1,16 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
-using java.lang;
 
 namespace edu.cmu.sphinx.result
 {
 	public abstract class FrameStatistics : java.lang.Object
 	{
-		
-		
 		public FrameStatistics()
 		{
 		}

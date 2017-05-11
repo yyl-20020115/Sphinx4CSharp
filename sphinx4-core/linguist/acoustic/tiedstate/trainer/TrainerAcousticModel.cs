@@ -1,8 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using edu.cmu.sphinx.util.props;
 using java.io;
 using java.lang;
 
@@ -10,27 +6,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
 	public class TrainerAcousticModel : TiedStateAcousticModel
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			128,
-			130,
-			139,
-			104,
-			108,
-			136,
-			102
-		})]
-		
 		public TrainerAcousticModel(Loader loader, UnitManager unitManager, bool useComposites, Saver saver, string saveFormat) : base(loader, unitManager, useComposites)
 		{
 			this.saver = saver;
@@ -38,34 +13,10 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.saveFormat = saveFormat;
 			this.logInfo();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			17,
-			102
-		})]
 		
 		public TrainerAcousticModel()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			22,
-			135,
-			150,
-			191,
-			9,
-			2,
-			97,
-			140,
-			145,
-			102
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -74,123 +25,53 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			IOException ex2;
 			try
 			{
-				HMMPoolManager.__<clinit>();
 				this.hmmPoolManager = new HMMPoolManager(this.loader);
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_42;
+				throw new PropertyException(ex);
 			}
 			this.saveFormat = ps.getString("saveFormat");
 			this.logInfo();
-			return;
-			IL_42:
-			IOException ex3 = ex2;
-			Exception e = ex3;
-			
-			throw new PropertyException(e);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			46,
-			109,
-			127,
-			11
-		})]
 		
 		public virtual void save(string name)
 		{
 			this.saver.save(name, true);
 			this.logger.info(new StringBuilder().append("saved models with ").append(this.saver).toString());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.io.FileNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			61,
-			102,
-			118
-		})]
 		
 		public virtual void load()
 		{
 			this.logInfo();
-			HMMPoolManager.__<clinit>();
 			this.hmmPoolManager = new HMMPoolManager(this.loader);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			68,
-			107
-		})]
 		
 		public virtual void resetBuffers()
 		{
 			this.hmmPoolManager.resetBuffers();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			83,
-			110
-		})]
 		
 		public virtual void accumulate(int index, TrainerScore[] trainerScore, TrainerScore[] nextTrainerScore)
 		{
 			this.hmmPoolManager.accumulate(index, trainerScore, nextTrainerScore);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			95,
-			109
-		})]
 		
 		public virtual void accumulate(int index, TrainerScore[] trainerScore)
 		{
 			this.hmmPoolManager.accumulate(index, trainerScore);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			103,
-			107
-		})]
 		
 		public virtual void updateLogLikelihood()
 		{
 			this.hmmPoolManager.updateLogLikelihood();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			112,
-			108,
-			107
-		})]
 		
 		public virtual float normalize()
 		{
 			float result = this.hmmPoolManager.normalize();
 			this.hmmPoolManager.update();
 			return result;
-		}
-
-		
-		static TrainerAcousticModel()
-		{
-			TiedStateAcousticModel.__<clinit>();
 		}
 
 		[S4Component(new object[]

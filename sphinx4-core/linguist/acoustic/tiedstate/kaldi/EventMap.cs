@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
+﻿namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
 	public interface EventMap
 	{

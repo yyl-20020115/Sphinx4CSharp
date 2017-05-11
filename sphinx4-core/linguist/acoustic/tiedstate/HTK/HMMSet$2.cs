@@ -1,34 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	
-	[Implements(new string[]
-	{
-		"java.util.Iterator"
-	})]
-	
-	
-	.
-	
 	internal sealed class HMMSet_2 : java.lang.Object, Iterator
 	{
-		[LineNumberTable(new byte[]
-		{
-			17,
-			120,
-			98,
-			127,
-			10,
-			120,
-			104,
-			101
-		})]
-		
 		public SingleHMM next()
 		{
 			while (this.cur < this.this_0.__hmms.size())
@@ -46,10 +21,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			return null;
 		}
 
-		
-		
 		internal HMMSet_2(HMMSet hmmset)
 		{
+			this.this_0 = hmmset;
 		}
 
 		public void remove()
@@ -61,10 +35,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			return false;
 		}
 
-		
-		
-		
-		public object next()
+
+		object Iterator.next()
 		{
 			return this.next();
 		}
@@ -72,6 +44,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		internal int cur;
 
 		
-		internal HMMSet this_0 = hmmset;
+		internal HMMSet this_0;
 	}
 }

@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -13,33 +10,7 @@ using java.util;
 namespace edu.cmu.sphinx.result
 {
 	public class Lattice : java.lang.Object
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			111,
-			104,
-			117,
-			103,
-			102,
-			127,
-			0,
-			127,
-			2,
-			108,
-			140,
-			107,
-			108,
-			108,
-			104,
-			139,
-			135
-		})]
-		
+	{	
 		public Lattice(Result result) : this()
 		{
 			if (!Lattice.assertionsDisabled && result == null)
@@ -55,7 +26,6 @@ namespace edu.cmu.sphinx.result
 					
 					throw new AssertionError();
 				}
-				Node.__<clinit>();
 				this.terminalNode = new Node(this.getNodeID(bestFinalToken), bestFinalToken.getWord(), -1L, -1L);
 				this.initialNode = this.terminalNode;
 				this.addNode(this.terminalNode);
@@ -69,32 +39,11 @@ namespace edu.cmu.sphinx.result
 				this.collapseWordToken(bestFinalToken);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			89,
-			105
-		})]
 		
 		public virtual void computeNodePosteriors(float languageModelWeightAdjustment)
 		{
 			this.computeNodePosteriors(languageModelWeightAdjustment, false);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			177,
-			103,
-			102,
-			123,
-			122,
-			98,
-			109,
-			98
-		})]
 		
 		public virtual List getWordResultPath()
 		{
@@ -114,9 +63,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return linkedList;
 		}
-
-		
-		
 		
 		public virtual Collection getNodes()
 		{
@@ -133,28 +79,15 @@ namespace edu.cmu.sphinx.result
 			return this.terminalNode;
 		}
 
-		
 		public virtual Collection getEdges()
 		{
 			return this.edges;
 		}
 
-		
-		
 		protected internal virtual Node getNode(string id)
 		{
 			return (Node)this.nodes.get(id);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			112,
-			109,
-			103,
-			103,
-			109
-		})]
 		
 		public virtual Edge addEdge(Node fromNode, Node toNode, double acousticScore, double lmScore)
 		{
@@ -164,15 +97,6 @@ namespace edu.cmu.sphinx.result
 			this.edges.add(edge);
 			return edge;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			95,
-			104,
-			107,
-			107,
-			107
-		})]
 		
 		public Lattice()
 		{
@@ -180,14 +104,6 @@ namespace edu.cmu.sphinx.result
 			this.nodes = new HashMap();
 			this.logMath = LogMath.getLogMath();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			131,
-			107,
-			103
-		})]
 		
 		protected internal virtual Node addNode(string id, Word word, long beginTime, long endTime)
 		{
@@ -205,22 +121,11 @@ namespace edu.cmu.sphinx.result
 		{
 			this.terminalNode = terminalNode;
 		}
-
-		
 		
 		private string getNodeID(Token token)
 		{
 			return Integer.toString(java.lang.Object.instancehelper_hashCode(token));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			190,
-			127,
-			1,
-			115
-		})]
 		
 		protected internal virtual void addNode(Node n)
 		{
@@ -231,24 +136,6 @@ namespace edu.cmu.sphinx.result
 			}
 			this.nodes.put(n.getId(), n);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			132,
-			117,
-			110,
-			129,
-			141,
-			125,
-			37,
-			165,
-			118,
-			127,
-			7,
-			122,
-			130
-		})]
 		
 		private void collapseWordToken(Token token)
 		{
@@ -273,34 +160,11 @@ namespace edu.cmu.sphinx.result
 				}
 			}
 		}
-
-		
-		
+				
 		private TimeFrame getTimeFrameWordTokenFirst(Token token)
 		{
 			return new TimeFrame(0L, 0L);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			72,
-			138,
-			98,
-			99,
-			99,
-			99,
-			100,
-			105,
-			104,
-			168,
-			104,
-			136,
-			104,
-			139,
-			106,
-			136
-		})]
 		
 		private TimeFrame getTimeFrameWordTokenLast(Token token)
 		{
@@ -327,14 +191,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			97,
-			104,
-			136
-		})]
 		
 		private TimeFrame getTimeFrame(Token token)
 		{
@@ -344,20 +200,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return this.getTimeFrameWordTokenLast(token);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			111,
-			109,
-			135,
-			120,
-			99,
-			104,
-			127,
-			5,
-			135
-		})]
 		
 		private Node getNode(Token token)
 		{
@@ -369,46 +211,11 @@ namespace edu.cmu.sphinx.result
 			if (node == null)
 			{
 				TimeFrame timeFrame = this.getTimeFrame(token);
-				Node.__<clinit>();
 				node = new Node(this.getNodeID(token), token.getWord(), timeFrame.getStart(), timeFrame.getEnd());
 				this.addNode(node);
 			}
 			return node;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			161,
-			99,
-			129,
-			232,
-			69,
-			104,
-			112,
-			136,
-			169,
-			127,
-			0,
-			135,
-			225,
-			73,
-			116,
-			109,
-			135,
-			99,
-			129,
-			126,
-			98,
-			99,
-			130,
-			178,
-			118,
-			127,
-			7,
-			109,
-			130
-		})]
 		
 		private void collapseWordPath(Node node, Token token, float num, float num2)
 		{
@@ -468,100 +275,6 @@ namespace edu.cmu.sphinx.result
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.NumberFormatException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			7,
-			102,
-			140,
-			98,
-			98,
-			99,
-			99,
-			107,
-			110,
-			127,
-			1,
-			98,
-			98,
-			130,
-			127,
-			1,
-			98,
-			98,
-			133,
-			142,
-			101,
-			166,
-			110,
-			127,
-			23,
-			102,
-			159,
-			7,
-			145,
-			127,
-			1,
-			108,
-			99,
-			116,
-			103,
-			131,
-			116,
-			103,
-			131,
-			110,
-			103,
-			131,
-			110,
-			99,
-			118,
-			117,
-			110,
-			104,
-			110,
-			104,
-			171,
-			110,
-			127,
-			32,
-			103,
-			102,
-			159,
-			7,
-			108,
-			108,
-			114,
-			117,
-			127,
-			16,
-			133,
-			110,
-			127,
-			33,
-			110,
-			127,
-			33,
-			113,
-			191,
-			39,
-			159,
-			13,
-			127,
-			6,
-			127,
-			1,
-			63,
-			0,
-			34,
-			165
-		})]
 		
 		public static Lattice readSlf(InputStream stream)
 		{
@@ -577,8 +290,7 @@ namespace edu.cmu.sphinx.result
 			{
 				string text2 = text;
 				object obj = "Node definitions";
-				CharSequence charSequence;
-				charSequence.__ref = obj;
+				CharSequence charSequence = CharSequence.Cast(obj);
 				if (java.lang.String.instancehelper_contains(text2, charSequence))
 				{
 					num2 = 0;
@@ -588,7 +300,7 @@ namespace edu.cmu.sphinx.result
 				{
 					string text3 = text;
 					obj = "Link definitions";
-					charSequence.__ref = obj;
+					charSequence = CharSequence.Cast(obj);
 					if (java.lang.String.instancehelper_contains(text3, charSequence))
 					{
 						num2 = 1;
@@ -607,7 +319,7 @@ namespace edu.cmu.sphinx.result
 								throw new IOException(text4);
 							}
 							int num6 = Integer.parseInt(java.lang.String.instancehelper_substring(array[0], 2));
-							long beginTime = ByteCodeHelper.d2l(Double.parseDouble(java.lang.String.instancehelper_substring(array[1], 2)) * 1000.0);
+							long beginTime = ByteCodeHelper.d2l(java.lang.Double.parseDouble(java.lang.String.instancehelper_substring(array[1], 2)) * 1000.0);
 							string text5 = java.lang.String.instancehelper_substring(array[2], 2);
 							int isFiller = 0;
 							if (num6 == num3 || java.lang.String.instancehelper_equals(text5, "!ENTER"))
@@ -629,7 +341,6 @@ namespace edu.cmu.sphinx.result
 							{
 								isFiller = 1;
 							}
-							Word.__<clinit>();
 							Word word = new Word(text5, new Pronunciation[0], isFiller != 0);
 							Node node = lattice.addNode(Integer.toString(num6), word, beginTime, -1L);
 							if (java.lang.String.instancehelper_equals(text5, "<s>"))
@@ -653,8 +364,8 @@ namespace edu.cmu.sphinx.result
 							}
 							string text7 = java.lang.String.instancehelper_substring(array[1], 2);
 							string text8 = java.lang.String.instancehelper_substring(array[2], 2);
-							double acousticScore = Double.parseDouble(java.lang.String.instancehelper_substring(array[3], 2));
-							double lmScore = Double.parseDouble(java.lang.String.instancehelper_substring(array[4], 2)) * num5;
+							double acousticScore = java.lang.Double.parseDouble(java.lang.String.instancehelper_substring(array[3], 2));
+							double lmScore = java.lang.Double.parseDouble(java.lang.String.instancehelper_substring(array[4], 2)) * num5;
 							lattice.addEdge((Node)lattice.nodes.get(text7), (Node)lattice.nodes.get(text8), acousticScore, lmScore);
 						}
 						else
@@ -665,10 +376,10 @@ namespace edu.cmu.sphinx.result
 								object obj2 = "start=";
 								obj = "";
 								object obj3 = obj2;
-								charSequence.__ref = obj3;
+								charSequence = CharSequence.Cast(obj3);
 								CharSequence charSequence2 = charSequence;
 								obj3 = obj;
-								charSequence.__ref = obj3;
+								charSequence = CharSequence.Cast(obj3);
 								num3 = Integer.parseInt(java.lang.String.instancehelper_replace(text9, charSequence2, charSequence));
 							}
 							if (java.lang.String.instancehelper_startsWith(text, "end="))
@@ -677,10 +388,10 @@ namespace edu.cmu.sphinx.result
 								object obj4 = "end=";
 								object obj3 = "";
 								obj = obj4;
-								charSequence.__ref = obj;
+								charSequence = CharSequence.Cast(obj);
 								CharSequence charSequence3 = charSequence;
 								obj = obj3;
-								charSequence.__ref = obj;
+								charSequence = CharSequence.Cast(obj);
 								num4 = Integer.parseInt(java.lang.String.instancehelper_replace(text10, charSequence3, charSequence));
 							}
 							if (java.lang.String.instancehelper_startsWith(text, "lmscale="))
@@ -689,11 +400,11 @@ namespace edu.cmu.sphinx.result
 								object obj5 = "lmscale=";
 								obj = "";
 								object obj3 = obj5;
-								charSequence.__ref = obj3;
+								charSequence = CharSequence.Cast(obj3);
 								CharSequence charSequence4 = charSequence;
 								obj3 = obj;
-								charSequence.__ref = obj3;
-								num5 = Double.parseDouble(java.lang.String.instancehelper_replace(text11, charSequence4, charSequence));
+								charSequence = CharSequence.Cast(obj3);
+								num5 = java.lang.Double.parseDouble(java.lang.String.instancehelper_replace(text11, charSequence4, charSequence));
 							}
 						}
 					}
@@ -715,38 +426,11 @@ namespace edu.cmu.sphinx.result
 			}
 			return lattice;
 		}
-
-		
 		
 		protected internal virtual bool hasNode(string ID)
 		{
 			return this.nodes.containsKey(ID);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			123,
-			127,
-			6,
-			103,
-			98,
-			127,
-			1,
-			103,
-			98,
-			127,
-			11,
-			127,
-			11,
-			127,
-			11,
-			102
-		})]
 		
 		protected internal virtual void dump(PrintWriter @out)
 		{
@@ -767,42 +451,6 @@ namespace edu.cmu.sphinx.result
 			@out.println(new StringBuilder().append("logBase: ").append(this.logMath.getLogBase()).toString());
 			@out.flush();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			20,
-			127,
-			9,
-			127,
-			1,
-			105,
-			159,
-			19,
-			98,
-			127,
-			1,
-			105,
-			159,
-			19,
-			98,
-			101,
-			127,
-			5,
-			111,
-			159,
-			7,
-			111,
-			159,
-			7,
-			117,
-			159,
-			7,
-			117,
-			159,
-			7,
-			101
-		})]
 		
 		internal virtual bool checkConsistency()
 		{
@@ -864,24 +512,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return true;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			158,
-			127,
-			1,
-			140,
-			109,
-			98,
-			127,
-			1,
-			140,
-			109,
-			130,
-			146,
-			122
-		})]
 		
 		protected internal virtual void removeNodeAndEdges(Node n)
 		{
@@ -906,30 +536,11 @@ namespace edu.cmu.sphinx.result
 				throw new AssertionError();
 			}
 		}
-
-		
-		
 		
 		public virtual List allPaths()
 		{
 			return this.allPathsFrom("", this.initialNode);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			7,
-			127,
-			4,
-			102,
-			105,
-			138,
-			127,
-			1,
-			116,
-			130
-		})]
 		
 		protected internal virtual List allPathsFrom(string path, Node n)
 		{
@@ -950,37 +561,16 @@ namespace edu.cmu.sphinx.result
 			}
 			return linkedList;
 		}
-
-		
 		
 		internal virtual bool hasEdge(Edge edge)
 		{
 			return this.edges.contains(edge);
-		}
-
-		
+		}		
 		
 		internal virtual bool hasNode(Node node)
 		{
 			return this.hasNode(node.getId());
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			50,
-			105,
-			129,
-			104,
-			99,
-			144,
-			127,
-			1,
-			110,
-			98,
-			104
-		})]
 		
 		protected internal virtual void sortHelper(Node n, List sorted, Set visited)
 		{
@@ -1003,56 +593,6 @@ namespace edu.cmu.sphinx.result
 			}
 			sorted.add(n);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			158,
-			151,
-			162,
-			104,
-			129,
-			112,
-			112,
-			103,
-			127,
-			2,
-			126,
-			127,
-			8,
-			111,
-			110,
-			104,
-			114,
-			49,
-			133,
-			114,
-			126,
-			109,
-			142,
-			101,
-			165,
-			112,
-			127,
-			9,
-			112,
-			108,
-			109,
-			104,
-			127,
-			1,
-			111,
-			113,
-			114,
-			49,
-			133,
-			98,
-			165,
-			110,
-			127,
-			10,
-			121,
-			98
-		})]
 		
 		public virtual void computeNodePosteriors(float languageModelWeightAdjustment, bool useAcousticScoresOnly)
 		{
@@ -1117,16 +657,6 @@ namespace edu.cmu.sphinx.result
 				node2.setPosterior(node2.getForwardScore() + node2.getBackwardScore() - num5);
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			69,
-			113,
-			114,
-			102
-		})]
 		
 		public virtual List sortNodes()
 		{
@@ -1135,15 +665,6 @@ namespace edu.cmu.sphinx.result
 			Collections.reverse(arrayList);
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			158,
-			128,
-			98,
-			99,
-			135
-		})]
 		
 		private double computeEdgeScore(Edge edge, float num, bool flag)
 		{
@@ -1153,19 +674,6 @@ namespace edu.cmu.sphinx.result
 			}
 			return edge.getAcousticScore() + edge.getLMScore() * (double)num;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			160,
-			102,
-			103,
-			105,
-			103,
-			137,
-			108
-		})]
 		
 		public virtual List getViterbiPath()
 		{
@@ -1177,36 +685,6 @@ namespace edu.cmu.sphinx.result
 			linkedList.addFirst(this.initialNode);
 			return linkedList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			230,
-			152,
-			104,
-			102,
-			103,
-			135,
-			159,
-			28,
-			159,
-			0,
-			138,
-			100,
-			111,
-			130,
-			234,
-			69,
-			111,
-			162,
-			119,
-			99,
-			194,
-			101,
-			104,
-			111,
-			162
-		})]
 		
 		private bool checkNodesEquivalent(Node node, Node node2)
 		{
@@ -1250,43 +728,9 @@ namespace edu.cmu.sphinx.result
 			}
 			return num != 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			228,
-			136,
-			191,
-			5,
-			140,
-			109,
-			103,
-			107,
-			136,
-			110,
-			108,
-			110,
-			108,
-			110,
-			119,
-			110,
-			119,
-			110,
-			148,
-			102,
-			191,
-			40,
-			101,
-			191,
-			0,
-			2,
-			98,
-			146
-		})]
 		
 		public Lattice(string fileName) : this()
 		{
-			Exception ex3;
 			try
 			{
 				java.lang.System.err.println(new StringBuilder().append("Loading from ").append(fileName).toString());
@@ -1323,42 +767,18 @@ namespace edu.cmu.sphinx.result
 								
 								throw new Error(text3);
 							}
-							this.logBase = Double.parseDouble(stringTokenizer.nextToken());
+							this.logBase = java.lang.Double.parseDouble(stringTokenizer.nextToken());
 						}
 					}
 				}
 				lineNumberReader.close();
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_16C;
-			}
-			return;
-			IL_16C:
-			Exception ex4 = ex3;
-			string text4 = Throwable.instancehelper_toString(ex4);
-			
-			throw new Error(text4);
-		}
+				throw new Error(Throwable.instancehelper_toString(ex));
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			95,
-			103,
-			103,
-			102
-		})]
+			}
+		}
 		
 		public static Lattice readSlf(string fileName)
 		{
@@ -1367,90 +787,34 @@ namespace edu.cmu.sphinx.result
 			fileInputStream.close();
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			148,
-			115
-		})]
 		
 		public virtual Node addNode(string id, string word, long beginTime, long endTime)
 		{
-			Word.__<clinit>();
 			Word word2 = new Word(word, new Pronunciation[0], false);
 			return this.addNode(id, word2, beginTime, endTime);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			200,
-			127,
-			1,
-			114
-		})]
 		
 		protected internal virtual void removeNode(Node n)
 		{
 			if (!Lattice.assertionsDisabled && !this.hasNode(n.getId()))
 			{
-				
 				throw new AssertionError();
 			}
 			this.nodes.remove(n.getId());
 		}
-
-		
-		
 		
 		protected internal virtual Collection getCopyOfNodes()
 		{
 			return new ArrayList(this.nodes.values());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			239,
-			109
-		})]
 		
 		protected internal virtual void removeEdge(Edge e)
 		{
 			this.edges.remove(e);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			4,
-			127,
-			21,
-			103,
-			107,
-			127,
-			11,
-			235,
-			80,
-			127,
-			6,
-			103,
-			98,
-			127,
-			1,
-			103,
-			98,
-			107,
-			186,
-			2,
-			98,
-			146
-		})]
 		
 		public virtual void dumpAISee(string fileName, string title)
 		{
-			IOException ex2;
 			try
 			{
 				java.lang.System.err.println(new StringBuilder().append("Dumping ").append(title).append(" to ").append(fileName).toString());
@@ -1475,45 +839,12 @@ namespace edu.cmu.sphinx.result
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_F3;
-			}
-			return;
-			IL_F3:
-			IOException ex3 = ex2;
-			string text = Throwable.instancehelper_toString(ex3);
-			
-			throw new Error(text);
+				throw new Error(Throwable.instancehelper_toString(ex));
+			}			
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			46,
-			127,
-			21,
-			103,
-			127,
-			11,
-			139,
-			127,
-			6,
-			103,
-			98,
-			127,
-			1,
-			103,
-			98,
-			107,
-			186,
-			2,
-			98,
-			146
-		})]
 		
 		public virtual void dumpDot(string fileName, string title)
 		{
-			IOException ex2;
 			try
 			{
 				java.lang.System.err.println(new StringBuilder().append("Dumping ").append(title).append(" to ").append(fileName).toString());
@@ -1537,77 +868,10 @@ namespace edu.cmu.sphinx.result
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_E8;
+				throw new Error(Throwable.instancehelper_toString(ex));
 			}
-			return;
-			IL_E8:
-			IOException ex3 = ex2;
-			string text = Throwable.instancehelper_toString(ex3);
-			
-			throw new Error(text);
-		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			65,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			255,
-			47,
-			71,
-			134,
-			120,
-			152,
-			98,
-			107,
-			127,
-			9,
-			110,
-			159,
-			14,
-			115,
-			127,
-			1,
-			132,
-			127,
-			23,
-			109,
-			110,
-			103,
-			127,
-			2,
-			107,
-			101,
-			107,
-			98,
-			127,
-			5,
-			127,
-			1,
-			127,
-			18,
-			127,
-			18,
-			127,
-			7,
-			127,
-			17,
-			107,
-			100,
-			101,
-			102
-		})]
+		}
 		
 		public virtual void dumpSlf(Writer w)
 		{
@@ -1663,55 +927,18 @@ namespace edu.cmu.sphinx.result
 			}
 			w.flush();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			143,
-			191,
-			4,
-			2,
-			97,
-			145
-		})]
 		
 		public virtual void dump(string file)
 		{
-			IOException ex2;
 			try
 			{
 				this.dump(new PrintWriter(new FileWriter(file)));
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_20;
+				throw new Error(Throwable.instancehelper_toString(ex));
 			}
-			return;
-			IL_20:
-			IOException ex3 = ex2;
-			string text = Throwable.instancehelper_toString(ex3);
-			
-			throw new Error(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			188,
-			127,
-			15,
-			127,
-			1,
-			127,
-			1,
-			127,
-			0,
-			98,
-			101,
-			135,
-			122
-		})]
 		
 		protected internal virtual void removeNodeAndCrossConnectEdges(Node n)
 		{
@@ -1734,16 +961,6 @@ namespace edu.cmu.sphinx.result
 				throw new AssertionError();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			241,
-			127,
-			1,
-			107,
-			98
-		})]
 		
 		public virtual void dumpAllPaths()
 		{
@@ -1754,41 +971,23 @@ namespace edu.cmu.sphinx.result
 				java.lang.System.@out.println(text);
 			}
 		}
-
-		
 		
 		public virtual bool isEquivalent(Lattice other)
 		{
 			return this.checkNodesEquivalent(this.initialNode, other.getInitialNode());
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			164,
-			16,
-			103,
-			112,
-			98
-		})]
-		
 		internal virtual bool isFillerNode(Node node)
 		{
 			Word word = node.getWord();
 			return !word.isSentenceStartWord() && !word.isSentenceEndWord() && word.isFiller();
 		}
 
-		
-		static Lattice()
-		{
-		}
-
 		protected internal Node initialNode;
 
 		protected internal Node terminalNode;
 
-		
 		protected internal Set edges;
-
 		
 		protected internal Map nodes;
 
@@ -1797,7 +996,6 @@ namespace edu.cmu.sphinx.result
 		protected internal LogMath logMath;
 
 		private bool wordTokenFirst;
-
 		
 		private Set visitedWordTokens;
 

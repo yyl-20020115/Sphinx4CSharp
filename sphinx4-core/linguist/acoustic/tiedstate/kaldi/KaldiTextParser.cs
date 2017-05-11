@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 using java.util;
@@ -9,78 +6,33 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
 	public class KaldiTextParser : java.lang.Object
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"java.net.MalformedURLException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			163,
-			136,
-			108,
-			118,
-			108,
-			151,
-			106,
-			109
-		})]
-		
+	{		
 		public KaldiTextParser(string path)
 		{
 			File file = new File(path, "final.mdl");
-			URL.__<clinit>();
 			InputStream inputStream = new URL(file.getPath()).openStream();
 			File file2 = new File(path, "tree");
-			URL.__<clinit>();
 			InputStream inputStream2 = new URL(file2.getPath()).openStream();
 			SequenceInputStream sequenceInputStream = new SequenceInputStream(inputStream, inputStream2);
 			this.scanner = new Scanner(sequenceInputStream);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			30,
-			108,
-			104
-		})]
-		
 		public virtual void expectToken(string expected)
 		{
 			string actual = this.scanner.next();
 			this.assertToken(expected, actual);
 		}
 
-		
-		
 		public virtual int getInt()
 		{
 			return this.scanner.nextInt();
 		}
-
-		
 		
 		public virtual string getToken()
 		{
 			return this.scanner.next();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			102,
-			127,
-			11,
-			148,
-			108,
-			105,
-			54,
-			168
-		})]
-		
 		public virtual int[] getIntArray()
 		{
 			ArrayList arrayList = new ArrayList();
@@ -97,19 +49,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			7,
-			102,
-			127,
-			11,
-			148,
-			108,
-			105,
-			54,
-			168
-		})]
 		
 		public virtual float[] getFloatArray()
 		{
@@ -127,16 +66,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			}
 			return array;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			19,
-			103,
-			166,
-			117,
-			138
-		})]
 		
 		public virtual List getTokenList(string openToken, string closeToken)
 		{
@@ -149,14 +78,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			}
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			35,
-			105,
-			161,
-			121
-		})]
 		
 		public virtual void assertToken(string expected, string actual)
 		{
@@ -173,14 +94,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			
 			throw new InputMismatchException(text2);
 		}
-
-		
 		
 		public virtual float parseFloat()
 		{
 			return this.scanner.nextFloat();
 		}
-
 		
 		private Scanner scanner;
 	}

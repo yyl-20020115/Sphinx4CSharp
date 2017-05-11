@@ -1,32 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.util.props;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.trivial
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.acoustic.AcousticModel"
-	})]
 	public class TrivialAcousticModel : java.lang.Object, AcousticModel, Configurable
 	{
-		[LineNumberTable(new byte[]
-		{
-			11,
-			103,
-			199,
-			255,
-			160,
-			219,
-			73,
-			112,
-			40,
-			166
-		})]
-		
 		private void init(int num, int num2)
 		{
 			this.leftContextSize = num;
@@ -81,48 +59,17 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 		private void createTrivialHMM(string text)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			232,
-			60,
-			235,
-			69,
-			104
-		})]
 		
 		public TrivialAcousticModel(int leftContextSize, int rightContextSize)
 		{
 			this.hmmMap = new HashMap();
 			this.init(leftContextSize, rightContextSize);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			232,
-			56,
-			235,
-			74
-		})]
 		
 		public TrivialAcousticModel()
 		{
 			this.hmmMap = new HashMap();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			6,
-			156
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -132,26 +79,13 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 		public virtual string getName()
 		{
 			return this.name;
-		}
-
-		
+		}		
 		
 		public virtual Properties getProperties()
 		{
 			return new Properties();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			114,
-			98,
-			98,
-			107,
-			104,
-			146
-		})]
-		
 		public virtual HMM lookupNearestHMM(Unit unit, HMMPosition position, bool exactMatch)
 		{
 			HMM result = null;
@@ -162,17 +96,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 			}
 			return result;
 		}
-
-		
-		
 		
 		public virtual Iterator getHMMIterator()
 		{
 			return this.hmmMap.values().iterator();
 		}
-
-		
-		
 		
 		public virtual Iterator getContextIndependentUnitIterator()
 		{
@@ -189,10 +117,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 			return this.rightContextSize;
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		public virtual void allocate()
 		{
 		}
@@ -221,8 +145,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 
 		private string name;
 
-		
-		
 		private Map hmmMap;
 
 		private int leftContextSize;

@@ -11,23 +11,8 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
-	
 	internal sealed class HMMPoolManager : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			44,
-			115,
-			115,
-			115,
-			114
-		})]
-		
 		protected internal void createBuffers()
 		{
 			this.meansBufferPool = this.create1DPoolBuffer(this.meansPool, false);
@@ -35,23 +20,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.matrixBufferPool = this.create2DPoolBuffer(this.matrixPool, true);
 			this.mixtureWeightsBufferPool = this.createWeightsPoolBuffer(this.mixtureWeights);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			117,
-			162,
-			140,
-			107,
-			109,
-			115,
-			112,
-			233,
-			60,
-			230,
-			70
-		})]
 		
 		private Pool create1DPoolBuffer(Pool pool, bool flag)
 		{
@@ -60,34 +28,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			{
 				float[] array = (float[])pool.get(i);
 				this.indexMap.put(array, Integer.valueOf(i));
-				Buffer.__<clinit>();
 				Buffer o = new Buffer(array.Length, flag, i);
 				pool2.put(i, o);
 			}
 			return pool2;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			110,
-			162,
-			140,
-			110,
-			109,
-			115,
-			100,
-			105,
-			105,
-			55,
-			168,
-			233,
-			56,
-			233,
-			74
-		})]
-		
 		private Pool create2DPoolBuffer(Pool pool, bool flag)
 		{
 			Pool pool2 = new Pool(pool.getName());
@@ -101,7 +47,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				{
 					Buffer[] array3 = array2;
 					int num2 = j;
-					Buffer.__<clinit>();
 					array3[num2] = new Buffer(array[j].Length, flag, j);
 				}
 				pool2.put(i, array2);
@@ -109,25 +54,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			return pool2;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			65,
-			108,
-			103,
-			103,
-			103,
-			104,
-			104,
-			105,
-			107,
-			234,
-			61,
-			40,
-			232,
-			71
-		})]
-		
 		private Pool createWeightsPoolBuffer(GaussianWeights gaussianWeights)
 		{
 			Pool pool = new Pool(gaussianWeights.getName());
@@ -145,28 +71,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 			return pool;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			115,
-			228,
-			70,
-			139,
-			150,
-			108,
-			131,
-			103,
-			100,
-			106,
-			106,
-			106,
-			236,
-			70,
-			104,
-			178,
-			106,
-			170
-		})]
 		
 		protected internal void accumulate(int num, TrainerScore[] array, TrainerScore[] array2)
 		{
@@ -193,36 +97,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			87,
-			100,
-			112,
-			40,
-			203,
-			114,
-			103,
-			106,
-			138,
-			121,
-			119,
-			119,
-			116,
-			114,
-			106,
-			106,
-			108,
-			144,
-			106,
-			47,
-			168,
-			235,
-			48,
-			233,
-			83
-		})]
-		
 		private void accumulateMean(int num, TrainerScore trainerScore)
 		{
 			if (num == -1)
@@ -264,36 +138,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			118,
-			100,
-			112,
-			40,
-			203,
-			114,
-			103,
-			106,
-			106,
-			138,
-			121,
-			116,
-			114,
-			106,
-			106,
-			108,
-			112,
-			106,
-			114,
-			28,
-			200,
-			235,
-			49,
-			233,
-			82
-		})]
 		
 		private void accumulateVariance(int num, TrainerScore trainerScore)
 		{
@@ -332,24 +176,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			149,
-			100,
-			112,
-			40,
-			200,
-			114,
-			112,
-			105,
-			106,
-			238,
-			61,
-			230,
-			70
-		})]
-		
 		private void accumulateMixture(int num, TrainerScore trainerScore)
 		{
 			if (num == -1)
@@ -371,22 +197,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			7,
-			164,
-			127,
-			1,
-			107,
-			53,
-			166,
-			228,
-			69,
-			100,
-			170
-		})]
-		
 		private void accumulateTransition(int num, int num2, TrainerScore[] array, TrainerScore[] array2)
 		{
 			if (num == -1)
@@ -406,23 +216,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				this.accumulateStateTransition(num2, array, array2);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			237,
-			199,
-			228,
-			69,
-			183,
-			178,
-			169,
-			107,
-			242,
-			60,
-			232,
-			71
-		})]
 		
 		private void accumulateStateTransition(int num, SenoneHMM senoneHMM, float num2)
 		{
@@ -438,39 +231,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			171,
-			105,
-			131,
-			129,
-			103,
-			108,
-			199,
-			184,
-			180,
-			133,
-			141,
-			239,
-			73,
-			166,
-			198,
-			118,
-			45,
-			139,
-			106,
-			107,
-			103,
-			107,
-			112,
-			140,
-			243,
-			37,
-			235,
-			100
-		})]
 		
 		private void accumulateStateTransition(int num, TrainerScore[] array, TrainerScore[] array2)
 		{
@@ -506,21 +266,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			49,
-			117,
-			107,
-			109,
-			104,
-			230,
-			61,
-			230,
-			70
-		})]
 		
 		private void normalizePool(Pool pool)
 		{
@@ -539,21 +284,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			64,
-			117,
-			107,
-			109,
-			104,
-			230,
-			61,
-			230,
-			70
-		})]
-		
 		private void logNormalizePool(Pool pool)
 		{
 			if (!HMMPoolManager.assertionsDisabled && pool == null)
@@ -570,24 +300,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			81,
-			117,
-			110,
-			109,
-			109,
-			103,
-			106,
-			11,
-			230,
-			61,
-			233,
-			73
-		})]
 		
 		private void logNormalize2DPool(Pool pool, Pool pool2)
 		{
@@ -609,26 +321,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			115,
-			127,
-			11,
-			115,
-			114,
-			114,
-			104,
-			103,
-			104,
-			98,
-			255,
-			15,
-			57,
-			233,
-			74
-		})]
 		
 		private void updateMeans()
 		{
@@ -652,32 +344,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			130,
-			127,
-			11,
-			115,
-			114,
-			114,
-			114,
-			107,
-			104,
-			121,
-			105,
-			126,
-			109,
-			235,
-			61,
-			232,
-			70,
-			233,
-			51,
-			233,
-			80
-		})]
 		
 		private void updateVariances()
 		{
@@ -714,21 +380,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			151,
-			115,
-			114,
-			103,
-			117,
-			40,
-			232,
-			61,
-			233,
-			71
-		})]
 		
 		private void recomputeMixtureComponents()
 		{
@@ -745,29 +396,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			162,
-			108,
-			108,
-			127,
-			3,
-			105,
-			105,
-			103,
-			116,
-			105,
-			111,
-			141,
-			105,
-			239,
-			56,
-			41,
-			233,
-			77
-		})]
 		
 		private void updateMixtureWeights()
 		{
@@ -796,37 +424,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			182,
-			127,
-			11,
-			115,
-			114,
-			114,
-			106,
-			101,
-			108,
-			110,
-			107,
-			105,
-			127,
-			0,
-			106,
-			239,
-			59,
-			235,
-			73,
-			109,
-			240,
-			51,
-			233,
-			61,
-			233,
-			84
-		})]
 		
 		private void updateTransitionMatrices()
 		{
@@ -866,14 +463,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			109,
-			120,
-			107
-		})]
 		
 		private void copyVector(float[] array, float[] array2)
 		{
@@ -884,28 +473,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 			ByteCodeHelper.arraycopy_primitive_4(array, 0, array2, 0, array.Length);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			8,
-			104,
-			102,
-			108,
-			107,
-			108,
-			108,
-			108,
-			108,
-			236,
-			77,
-			102,
-			107,
-			107
-		})]
 		
 		protected internal HMMPoolManager(Loader loader)
 		{
@@ -921,25 +488,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.logLikelihood = 0f;
 			this.logMath = LogMath.getLogMath();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			36,
-			102,
-			107
-		})]
 		
 		protected internal void resetBuffers()
 		{
 			this.createBuffers();
 			this.logLikelihood = 0f;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			103,
-			105
-		})]
 		
 		protected internal void accumulate(int num, TrainerScore[] array)
 		{
@@ -949,16 +503,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 		protected internal void updateLogLikelihood()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			36,
-			108,
-			108,
-			108,
-			114
-		})]
 		
 		protected internal float normalize()
 		{
@@ -968,17 +512,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.logNormalize2DPool(this.matrixBufferPool, this.matrixPool);
 			return this.logLikelihood;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			95,
-			102,
-			102,
-			102,
-			102,
-			102
-		})]
 		
 		protected internal void update()
 		{
@@ -989,46 +522,30 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.updateTransitionMatrices();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			168,
-			245,
-			88
-		})]
 		static HMMPoolManager()
 		{
 			HMMPoolManager.logger = Logger.getLogger("edu.cmu.sphinx.linguist.acoustic.HMMPoolManager");
 		}
 
 		private HMMManager hmmManager;
-
 		
 		private HashMap indexMap;
 
-		
 		private Pool meansPool;
 
-		
 		private Pool variancePool;
-
 		
 		private Pool matrixPool;
 
 		private GaussianWeights mixtureWeights;
-
 		
 		private Pool meansBufferPool;
-
 		
 		private Pool varianceBufferPool;
-
 		
 		private Pool matrixBufferPool;
 
-		
 		private Pool mixtureWeightsBufferPool;
-
 		
 		private Pool senonePool;
 
@@ -1046,7 +563,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 
 		private static Logger logger;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<HMMPoolManager>.Value.desiredAssertionStatus();
 	}
 }

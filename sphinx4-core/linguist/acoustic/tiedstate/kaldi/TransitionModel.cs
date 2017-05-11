@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using IKVM.Runtime;
 using java.lang;
 using java.util;
@@ -9,40 +6,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
 	public class TransitionModel : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			46,
-			104,
-			107,
-			135,
-			107,
-			107,
-			103,
-			130,
-			105,
-			104,
-			104,
-			104,
-			109,
-			116,
-			105,
-			255,
-			8,
-			57,
-			233,
-			74,
-			107,
-			107,
-			108,
-			107,
-			139,
-			103,
-			110,
-			57,
-			136
-		})]
-		
+	{		
 		public TransitionModel(KaldiTextParser parser)
 		{
 			parser.expectToken("<TransitionModel>");
@@ -71,25 +35,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 				this.logProbabilities[j] = logMath.lnToLog(this.logProbabilities[j]);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			65,
-			127,
-			5,
-			141,
-			127,
-			21,
-			105,
-			110,
-			110,
-			153,
-			127,
-			6,
-			125,
-			133
-		})]
 		
 		public virtual float[][] getTransitionMatrix(int phone, int[] pdfs)
 		{
@@ -124,37 +69,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			}
 			return array2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			77,
-			139,
-			171,
-			119,
-			108,
-			139,
-			102,
-			116,
-			148,
-			103,
-			151,
-			103,
-			135,
-			109,
-			104,
-			103,
-			116,
-			147,
-			169,
-			108,
-			145,
-			133,
-			127,
-			0,
-			113,
-			133,
-			108
-		})]
 		
 		private void parseTopology(KaldiTextParser kaldiTextParser)
 		{
@@ -198,9 +112,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			kaldiTextParser.assertToken("</Topology>", token);
 		}
 
-		
 		private Map phoneStates;
-
 		
 		private Map transitionStates;
 

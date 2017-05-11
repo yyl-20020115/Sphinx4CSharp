@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
@@ -9,23 +6,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
 	public class HMMSet : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			160,
-			71,
-			232,
-			159,
-			100,
-			107,
-			235,
-			160,
-			156,
-			107,
-			107,
-			107
-		})]
-		
+	{	
 		public HMMSet()
 		{
 			this.__transitions = new ArrayList();
@@ -34,45 +15,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			this.__hmms = new ArrayList();
 			this.__gmms = new ArrayList();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			79,
-			172,
-			103,
-			99,
-			101,
-			109,
-			110,
-			37,
-			134,
-			105,
-			145,
-			109,
-			110,
-			37,
-			134,
-			106,
-			117,
-			110,
-			37,
-			134,
-			110,
-			106,
-			133,
-			127,
-			0,
-			133,
-			184,
-			2,
-			98,
-			135
-		})]
-		
+	
 		public virtual void loadHTK(string nomFich)
 		{
-			IOException ex2;
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(nomFich));
@@ -110,111 +55,40 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_10F;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
 			return;
-			IL_10F:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
 
-		
-		
 		public virtual int getNstates()
 		{
 			return this.__gmms.size();
 		}
 
-		
-		
 		public virtual int getNhmms()
 		{
 			return this.__hmms.size();
 		}
-
-		
 		
 		public virtual SingleHMM getHMM(int idx)
 		{
 			return (SingleHMM)this.__hmms.get(idx);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			175,
-			231,
-			86
-		})]
 		
 		public virtual Iterator get1phIt()
 		{
 			return new HMMSet_1(this);
 		}
 
-		
 		public virtual int getStateIdx(HMMState st)
 		{
 			return st.gmmidx;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			9,
-			231,
-			86
-		})]
 		
 		public virtual Iterator get3phIt()
 		{
 			return new HMMSet_2(this);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			24,
-			135,
-			99,
-			132,
-			108,
-			109,
-			123,
-			140,
-			103,
-			141,
-			105,
-			159,
-			36,
-			134,
-			105,
-			182,
-			110,
-			100,
-			140,
-			109,
-			108,
-			108,
-			109,
-			159,
-			18,
-			134,
-			105,
-			244,
-			51,
-			233,
-			80,
-			107,
-			108,
-			114
-		})]
 		
 		private void loadState(BufferedReader bufferedReader, string nom, string text)
 		{
@@ -270,42 +144,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			this.g.setNom(nom);
 			this.__gmms.add(this.g);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			237,
-			98,
-			99,
-			132,
-			108,
-			109,
-			150,
-			134,
-			111,
-			166,
-			159,
-			10,
-			103,
-			104,
-			108,
-			109,
-			136,
-			24,
-			232,
-			61,
-			232,
-			72,
-			99,
-			109,
-			116,
-			114,
-			131
-		})]
 		
 		private int loadTrans(BufferedReader bufferedReader, string text, string text2)
 		{
@@ -356,80 +194,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return -1;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			161,
-			130,
-			98,
-			134,
-			109,
-			137,
-			150,
-			100,
-			104,
-			104,
-			104,
-			109,
-			105,
-			112,
-			151,
-			102,
-			103,
-			98,
-			112,
-			110,
-			37,
-			167,
-			109,
-			110,
-			111,
-			226,
-			61,
-			232,
-			69,
-			100,
-			106,
-			127,
-			15,
-			134,
-			98,
-			109,
-			111,
-			158,
-			112,
-			105,
-			110,
-			109,
-			135,
-			109,
-			103,
-			101,
-			141,
-			110,
-			37,
-			135,
-			106,
-			105,
-			130,
-			109,
-			127,
-			5,
-			134,
-			106,
-			141,
-			103,
-			109,
-			127,
-			5,
-			134
-		})]
 		
 		private SingleHMM loadHMM(BufferedReader bufferedReader, string text, List list)
 		{
@@ -513,65 +277,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return singleHMM;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			18,
-			119
-		})]
 		
 		private int getTrans(string text)
 		{
 			return ((Integer)this.__transNames.get(text)).intValue();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			76,
-			131,
-			132,
-			108,
-			109,
-			108,
-			109,
-			108,
-			109,
-			127,
-			5,
-			134,
-			118,
-			104,
-			114,
-			108,
-			108,
-			101,
-			159,
-			49,
-			134,
-			102,
-			53,
-			166,
-			108,
-			109,
-			127,
-			5,
-			134,
-			108,
-			108,
-			101,
-			159,
-			18,
-			134,
-			102,
-			53,
-			166
-		})]
 		
 		private void loadHTKGauss(BufferedReader bufferedReader, int i, string text)
 		{
@@ -631,18 +341,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.g.setVar(i, j, Float.parseFloat(array[j]));
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			39,
-			112,
-			114,
-			100,
-			226,
-			61,
-			230,
-			69
-		})]
 		
 		public virtual int getHMMidx(SingleHMM hmm)
 		{
@@ -656,16 +354,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return -1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			52,
-			113,
-			103,
-			114,
-			9,
-			198
-		})]
 		
 		public virtual string[] getHMMnames()
 		{
@@ -677,18 +365,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			74,
-			98,
-			127,
-			1,
-			127,
-			1,
-			100,
-			98
-		})]
 		
 		public virtual int getNhmmsMono()
 		{
@@ -704,18 +380,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			83,
-			98,
-			127,
-			1,
-			113,
-			111,
-			100,
-			98
-		})]
 		
 		public virtual int getNhmmsTri()
 		{
@@ -731,30 +395,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return num;
 		}
-
-		
 		
 		public virtual int getHMMIndex(SingleHMM h)
 		{
 			return this.__hmms.indexOf(h);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			104,
-			98,
-			102,
-			114,
-			9,
-			198,
-			114,
-			102,
-			105,
-			4,
-			198,
-			105,
-			162
-		})]
 		
 		public virtual int getStateIdx(int hmmidx, int stateidx)
 		{
@@ -779,18 +424,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return -1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			126,
-			98,
-			127,
-			1,
-			98,
-			110,
-			98,
-			98
-		})]
 		
 		public virtual SingleHMM getHMM(string nom)
 		{
@@ -807,40 +440,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			return singleHMM;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			115,
-			172,
-			130,
-			103,
-			99,
-			98,
-			108,
-			133,
-			166,
-			127,
-			18,
-			102,
-			108,
-			99,
-			103,
-			99,
-			98,
-			108,
-			133,
-			110,
-			182,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		public virtual void loadTiedList(string nomFich)
 		{
-			IOException ex2;
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(nomFich));
@@ -890,41 +492,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_CE;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_CE:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			121,
-			130,
-			112,
-			114,
-			110,
-			226,
-			61,
-			230,
-			69,
-			110,
-			135,
-			136,
-			108,
-			119,
-			2,
-			230,
-			69,
-			106,
-			119,
-			165,
-			127,
-			5
-		})]
 		
 		public virtual GMMDiag findState(Lab l)
 		{
@@ -967,7 +537,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			java.lang.System.err.println(new StringBuilder().append("WARNING: state is not found in hmmset ").append(l).toString());
 			return null;
 		}
-
 		
 		public List states
 		{
@@ -982,7 +551,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.__states = value;
 			}
 		}
-
 		
 		public List transitions
 		{
@@ -997,7 +565,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.__transitions = value;
 			}
 		}
-
 		
 		public Map transNames
 		{
@@ -1012,7 +579,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.__transNames = value;
 			}
 		}
-
 		
 		public List gmms
 		{
@@ -1027,7 +593,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.__gmms = value;
 			}
 		}
-
 		
 		public List hmms
 		{
@@ -1048,19 +613,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		private int nGaussians;
 
 		internal float[][] trans;
-
 		
 		internal List __states;
-
 		
 		internal List __transitions;
-
 		
 		internal Map __transNames;
-
 		
 		internal List __gmms;
-
 		
 		internal List __hmms;
 

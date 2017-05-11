@@ -19,33 +19,12 @@ namespace edu.cmu.sphinx.result
 		{
 			return this.word;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			7,
-			109,
-			113,
-			11,
-			165
-		})]
 		
 		public WordResult(Node node)
 		{
 			Word w = node.getWord();
-			TimeFrame.__<clinit>();
 			this..ctor(w, new TimeFrame(node.getBeginTime(), node.getEndTime()), node.getViterbiScore(), node.getPosterior());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			104,
-			103,
-			103,
-			105,
-			106
-		})]
 		
 		public WordResult(Word w, TimeFrame timeFrame, double score, double posterior)
 		{
