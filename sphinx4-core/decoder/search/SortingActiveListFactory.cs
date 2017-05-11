@@ -1,79 +1,35 @@
 ﻿using System;
 using System.Collections;
-
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.lang;
 using java.lang;
 using java.util;
+using java.util.function;
 
 namespace edu.cmu.sphinx.decoder.search
 {
 	public class SortingActiveListFactory : ActiveListFactory
 	{
-		
-		
 		public override ActiveList newInstance()
 		{
 			return new SortingActiveListFactory.SortingActiveList(this, this.absoluteBeamWidth, this.logRelativeBeamWidth);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			175,
-			105
-		})]
 		
 		public SortingActiveListFactory(int absoluteBeamWidth, double relativeBeamWidth) : base(absoluteBeamWidth, relativeBeamWidth)
 		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			134
-		})]
-		
+		}		
 		public SortingActiveListFactory()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 		}
-
-		
-		[Implements(new string[]
-		{
-			"edu.cmu.sphinx.decoder.search.ActiveList"
-		})]
-		.
 		
 		internal sealed class SortingActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
-		{
-			[LineNumberTable(new byte[]
-			{
-				93,
-				102,
-				104,
-				140
-			})]
-			
+		{			
 			public float getBestScore()
 			{
 				float result = float.MinValue;
@@ -83,32 +39,14 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return result;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				38,
-				111,
-				103,
-				136,
-				109,
-				108
-			})]
 			
 			public SortingActiveList(SortingActiveListFactory sortingActiveListFactory, int num, float num2)
 			{
 				this.absoluteBeamWidth = num;
 				this.logRelativeBeamWidth = num2;
 				int num3 = (num <= 0) ? 1000 : num;
-				this.tokenList = new ArrayList(num3);
+				this.tokenList = new java.util.ArrayList(num3);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				53,
-				109,
-				123,
-				135
-			})]
 			
 			public void add(Token token)
 			{
@@ -118,14 +56,6 @@ namespace edu.cmu.sphinx.decoder.search
 					this.bestToken = token;
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				69,
-				124,
-				112,
-				152
-			})]
 			
 			public ActiveList purge()
 			{
@@ -136,8 +66,6 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return this;
 			}
-
-			
 			
 			public float getBeamThreshold()
 			{
@@ -153,54 +81,61 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				return this.bestToken;
 			}
-
-			
-			
 			
 			public Iterator iterator()
 			{
 				return this.tokenList.iterator();
 			}
-
 			
 			public List getTokens()
 			{
 				return this.tokenList;
-			}
-
-			
+			}			
 			
 			public int size()
 			{
 				return this.tokenList.size();
-			}
-
-			
+			}			
 			
 			public ActiveList newInstance()
 			{
 				return this.this_0.newInstance();
 			}
-
 			
 			IEnumerator IEnumerable.GetEnumerator()
 			{
 				return new IterableEnumerator(this);
 			}
 
+			public void forEach(Consumer action)
+			{
+				tokenList.forEach(action);
+			}
+
+			public void forEach(Iterable value1, Consumer value2)
+			{
+				throw new NotImplementedException();
+			}
+
+			public Spliterator spliterator()
+			{
+				return ((Iterable)tokenList).spliterator();
+			}
+
+			public Spliterator spliterator(Iterable value)
+			{
+				throw new NotImplementedException();
+			}
+
 			private const int DEFAULT_SIZE = 1000;
 
-			
 			private int absoluteBeamWidth;
-
 			
 			private float logRelativeBeamWidth;
 
 			private Token bestToken;
-
 			
 			private List tokenList;
-
 			
 			internal SortingActiveListFactory this_0 = sortingActiveListFactory;
 		}

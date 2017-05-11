@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.scorer;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.decoder.scorer;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -10,40 +7,12 @@ namespace edu.cmu.sphinx.decoder.search
 {
 	public class AlternateHypothesisManager : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			232,
-			55,
-			235,
-			74,
-			103
-		})]
-		
 		public AlternateHypothesisManager(int maxEdges)
 		{
 			this.viterbiLoserMap = new HashMap();
 			this.maxEdges = maxEdges;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			191,
-			123,
-			114,
-			104,
-			102,
-			147,
-			125
-		})]
-		
+	
 		public virtual void addAlternatePredecessor(Token token, Token predecessor)
 		{
 			if (!AlternateHypothesisManager.assertionsDisabled && predecessor == token.getPredecessor())
@@ -71,29 +40,13 @@ namespace edu.cmu.sphinx.decoder.search
 				list = null;
 			}
 			list.add(predecessor);
-		}
-
-		
-		
+		}		
 		
 		public virtual List getAlternatePredecessors(Token token)
 		{
 			return (List)this.viterbiLoserMap.get(token);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			23,
-			137,
-			127,
-			9,
-			108,
-			107,
-			123,
-			116,
-			101
-		})]
-		
+	
 		public virtual void purge()
 		{
 			int num = this.maxEdges - 1;
@@ -108,25 +61,14 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 		}
 
-		
-		
 		public virtual bool hasAlternatePredecessors(Token token)
 		{
 			return this.viterbiLoserMap.containsKey(token);
 		}
 
-		
-		static AlternateHypothesisManager()
-		{
-		}
-
-		
-		
 		private Map viterbiLoserMap;
-
 		
 		private int maxEdges;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<AlternateHypothesisManager>.Value.desiredAssertionStatus();
 	}

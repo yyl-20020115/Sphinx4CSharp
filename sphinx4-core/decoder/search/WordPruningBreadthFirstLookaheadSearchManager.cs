@@ -1,6 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.pruner;
+﻿using edu.cmu.sphinx.decoder.pruner;
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist;
@@ -10,7 +8,6 @@ using edu.cmu.sphinx.linguist.lextree;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -18,19 +15,7 @@ using java.util;
 namespace edu.cmu.sphinx.decoder.search
 {
 	public class WordPruningBreadthFirstLookaheadSearchManager : WordPruningBreadthFirstSearchManager
-	{
-		[LineNumberTable(new byte[]
-		{
-			160,
-			92,
-			135,
-			99,
-			102,
-			110,
-			102,
-			134
-		})]
-		
+	{		
 		private void fastMatchRecognize()
 		{
 			int num = this.scoreFastMatchTokens() ? 1 : 0;
@@ -42,26 +27,6 @@ namespace edu.cmu.sphinx.decoder.search
 				this.growFastmatchBranches();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			171,
-			107,
-			119,
-			140,
-			98,
-			104,
-			137,
-			167,
-			104,
-			172,
-			204,
-			127,
-			0,
-			159,
-			0
-		})]
 		
 		protected internal virtual bool scoreFastMatchTokens()
 		{
@@ -86,15 +51,6 @@ namespace edu.cmu.sphinx.decoder.search
 			totalTokensScored.value += (double)this.fastmatchActiveList.size();
 			return result != 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			198,
-			107,
-			119,
-			108
-		})]
 		
 		protected internal virtual void pruneFastMatchBranches()
 		{
@@ -102,16 +58,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.fastmatchActiveList = this.pruner.prune(this.fastmatchActiveList);
 			this.pruneTimer.stop();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			106,
-			111,
-			99,
-			130,
-			108
-		})]
 		
 		protected internal virtual void createFastMatchBestTokenMap()
 		{
@@ -122,34 +68,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			this.fastMatchBestTokenMap = new HashMap(num);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			141,
-			107,
-			103,
-			113,
-			135,
-			139,
-			107,
-			102,
-			127,
-			3,
-			105,
-			101,
-			162,
-			110,
-			115,
-			104,
-			102,
-			101,
-			131,
-			104,
-			101,
-			116,
-			108
-		})]
 		
 		protected internal virtual void growFastmatchBranches()
 		{
@@ -185,42 +103,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.ciScores.add(new WordPruningBreadthFirstLookaheadSearchManager.FrameCiScores(this, array, num));
 			this.growTimer.stop();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			212,
-			103,
-			231,
-			73,
-			118,
-			169,
-			113,
-			233,
-			72,
-			105,
-			116,
-			115,
-			120,
-			109,
-			237,
-			69,
-			106,
-			100,
-			116,
-			115,
-			120,
-			106,
-			109,
-			98,
-			107,
-			113,
-			44,
-			229,
-			32,
-			235,
-			101
-		})]
 		
 		protected internal virtual void collectFastMatchSuccessorTokens(Token token)
 		{
@@ -264,41 +146,16 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 			}
 		}
-
-		
 		
 		protected internal virtual Token getFastMatchBestToken(SearchState state)
 		{
 			return (Token)this.fastMatchBestTokenMap.get(state);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			208,
-			110
-		})]
 		
 		protected internal virtual void setFastMatchBestToken(Token token, SearchState state)
 		{
 			this.fastMatchBestTokenMap.put(state, token);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			105,
-			109,
-			107,
-			102,
-			127,
-			1,
-			113,
-			100,
-			98,
-			98,
-			120
-		})]
 		
 		private Float updateLookaheadPenalty(int num)
 		{
@@ -320,26 +177,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.penalties.put(Integer.valueOf(num), Float.valueOf(num2));
 			return Float.valueOf(num2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			111,
-			140,
-			190,
-			103,
-			103,
-			104,
-			104,
-			105,
-			107,
-			159,
-			17,
-			107,
-			107,
-			117,
-			111
-		})]
 		
 		public WordPruningBreadthFirstLookaheadSearchManager(Linguist linguist, Linguist fastmatchLinguist, Loader loader, Pruner pruner, AcousticScorer scorer, ActiveListManager activeListManager, ActiveListFactory fastmatchActiveListFactory, bool showTokenCount, double relativeWordBeamWidth, int growSkipInterval, bool checkStateOrder, bool buildWordLattice, int lookaheadWindow, float lookaheadWeight, int maxLatticeEdges, float acousticLookaheadFrames, bool keepAllTokens) : base(linguist, pruner, scorer, activeListManager, showTokenCount, relativeWordBeamWidth, growSkipInterval, checkStateOrder, buildWordLattice, maxLatticeEdges, acousticLookaheadFrames, keepAllTokens)
 		{
@@ -361,39 +198,10 @@ namespace edu.cmu.sphinx.decoder.search
 				((Sphinx3Loader)loader).setGauScoresQueueLength(lookaheadWindow + 2);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			93,
-			134
-		})]
 		
 		public WordPruningBreadthFirstLookaheadSearchManager()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			106,
-			135,
-			118,
-			118,
-			118,
-			113,
-			113,
-			115,
-			159,
-			36,
-			107,
-			107,
-			127,
-			0,
-			120
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -418,30 +226,6 @@ namespace edu.cmu.sphinx.decoder.search
 				((Sphinx3Loader)this.loader).setGauScoresQueueLength(this.lookaheadWindow + 2);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			67,
-			98,
-			98,
-			135,
-			105,
-			104,
-			102,
-			107,
-			108,
-			231,
-			59,
-			230,
-			72,
-			104,
-			127,
-			5,
-			204,
-			104,
-			134
-		})]
 		
 		public override Result recognize(int nFrames)
 		{
@@ -470,26 +254,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			119,
-			103,
-			127,
-			0,
-			144,
-			113,
-			113,
-			125,
-			102,
-			102,
-			103,
-			117,
-			38,
-			166,
-			102
-		})]
 		
 		protected internal override void localStart()
 		{
@@ -501,7 +265,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.fastmatchActiveList = this.fastmatchActiveListFactory.newInstance();
 			SearchState initialState = this.fastmatchLinguist.getSearchGraph().getInitialState();
 			ActiveList activeList = this.fastmatchActiveList;
-			Token.__<clinit>();
 			activeList.add(new Token(initialState, (long)this.currentFastMatchFrameNumber));
 			this.createFastMatchBestTokenMap();
 			this.growFastmatchBranches();
@@ -514,58 +277,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			base.localStart();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			21,
-			104,
-			115,
-			225,
-			76,
-			121,
-			161,
-			103,
-			103,
-			232,
-			75,
-			103,
-			109,
-			158,
-			123,
-			169,
-			103,
-			137,
-			125,
-			124,
-			106,
-			118,
-			197,
-			104,
-			233,
-			69,
-			140,
-			138,
-			100,
-			115,
-			114,
-			120,
-			106,
-			104,
-			176,
-			105,
-			112,
-			43,
-			133,
-			113,
-			143,
-			115,
-			99,
-			238,
-			22,
-			235,
-			110
-		})]
 		
 		protected internal override void collectSuccessorTokens(Token token)
 		{
@@ -721,33 +432,18 @@ namespace edu.cmu.sphinx.decoder.search
 		protected internal Map fastMatchBestTokenMap;
 
 		private bool fastmatchStreamEnd;
-
-		
-		.
 		
 		internal sealed class FrameCiScores : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				161,
-				121,
-				111,
-				103,
-				104
-			})]
-			
+		{			
 			public FrameCiScores(WordPruningBreadthFirstLookaheadSearchManager wordPruningBreadthFirstLookaheadSearchManager, float[] array, float num)
 			{
 				this.scores = array;
 				this.maxScore = num;
 			}
-
 			
 			public float[] scores;
-
 			
 			public float maxScore;
-
 			
 			internal WordPruningBreadthFirstLookaheadSearchManager this_0 = wordPruningBreadthFirstLookaheadSearchManager;
 		}

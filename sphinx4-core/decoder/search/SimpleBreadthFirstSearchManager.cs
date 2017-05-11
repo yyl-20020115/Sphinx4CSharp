@@ -1,5 +1,4 @@
 ﻿using System;
-
 using edu.cmu.sphinx.decoder.pruner;
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.frontend;
@@ -7,7 +6,6 @@ using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -22,20 +20,7 @@ namespace edu.cmu.sphinx.decoder.search
 		{
 			return this.activeList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			186,
-			103,
-			113,
-			108,
-			113,
-			110,
-			135,
-			102
-		})]
-		
+	
 		protected internal virtual void localStart()
 		{
 			this.currentFrameNumber = 0;
@@ -46,19 +31,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.activeList = activeList;
 			this.growBranches();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			171,
-			103,
-			99,
-			102,
-			110,
-			159,
-			1,
-			166
-		})]
 		
 		protected internal virtual bool recognize()
 		{
@@ -81,23 +53,6 @@ namespace edu.cmu.sphinx.decoder.search
 			IL_44:
 			return num == 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			134,
-			140,
-			127,
-			4,
-			167,
-			105,
-			125,
-			112,
-			111,
-			172,
-			103,
-			133
-		})]
 		
 		protected internal virtual ActiveList undoLastGrowStep()
 		{
@@ -115,31 +70,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return activeList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			176,
-			117,
-			102,
-			127,
-			1,
-			99,
-			104,
-			137,
-			98,
-			127,
-			11,
-			102,
-			127,
-			1,
-			99,
-			104,
-			137,
-			98,
-			159,
-			11
-		})]
 		
 		protected internal virtual void showTokenCount()
 		{
@@ -171,31 +101,6 @@ namespace edu.cmu.sphinx.decoder.search
 		protected internal virtual void localStop()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			238,
-			130,
-			107,
-			119,
-			140,
-			98,
-			104,
-			105,
-			99,
-			167,
-			99,
-			98,
-			108,
-			204,
-			127,
-			0,
-			127,
-			0,
-			254,
-			72
-		})]
 		
 		protected internal virtual bool scoreTokens()
 		{
@@ -225,18 +130,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.tokensPerSecond.value = this.totalTokensScored.value / this.getTotalTime();
 			return result != 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			28,
-			108,
-			107,
-			119,
-			127,
-			2,
-			108
-		})]
 		
 		protected internal virtual void pruneBranches()
 		{
@@ -247,31 +140,6 @@ namespace edu.cmu.sphinx.decoder.search
 			statisticsVariable.value += (double)(num - this.activeList.size());
 			this.pruneTimer.stop();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			207,
-			111,
-			99,
-			130,
-			107,
-			108,
-			103,
-			107,
-			113,
-			108,
-			148,
-			123,
-			103,
-			98,
-			108,
-			114,
-			109,
-			111,
-			191,
-			49
-		})]
 		
 		protected internal virtual void growBranches()
 		{
@@ -301,59 +169,6 @@ namespace edu.cmu.sphinx.decoder.search
 				this.logger.fine(new StringBuilder().append("Frame: ").append(this.currentFrameNumber).append(" Hmms: ").append(num2).append("  total ").append(this.totalHmms).toString());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			74,
-			135,
-			104,
-			141,
-			110,
-			129,
-			105,
-			109,
-			129,
-			231,
-			73,
-			118,
-			169,
-			113,
-			104,
-			106,
-			133,
-			147,
-			165,
-			233,
-			72,
-			105,
-			109,
-			103,
-			146,
-			120,
-			109,
-			237,
-			69,
-			106,
-			100,
-			109,
-			103,
-			147,
-			120,
-			107,
-			109,
-			98,
-			107,
-			106,
-			103,
-			11,
-			197,
-			154,
-			248,
-			13,
-			235,
-			119
-		})]
 		
 		protected internal virtual void collectSuccessorTokens(Token token)
 		{
@@ -434,26 +249,11 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 			}
 		}
-
-		
-		
 		private double getTotalTime()
 		{
-			return ((double)System.currentTimeMillis() - this.startTime) / 1000.0;
+			return ((double)java.lang.System.currentTimeMillis() - this.startTime) / 1000.0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			160,
-			135,
-			136,
-			107,
-			110,
-			130,
-			138
-		})]
-		
+	
 		private bool isVisited(Token predecessor)
 		{
 			SearchState searchState = predecessor.getSearchState();
@@ -468,16 +268,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			43,
-			114,
-			117,
-			159,
-			22
-		})]
 		
 		protected internal virtual Token getBestToken(SearchState state)
 		{
@@ -488,43 +278,15 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return token;
 		}
-
-		
 		
 		protected internal virtual Token setBestToken(Token token, SearchState state)
 		{
 			return (Token)this.bestTokenMap.put(state, token);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			85,
-			134
-		})]
 		
 		public SimpleBreadthFirstSearchManager()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			104,
-			134,
-			104,
-			113,
-			113,
-			107,
-			103,
-			103,
-			103,
-			104,
-			103,
-			104,
-			103,
-			116,
-			103
-		})]
 		
 		public SimpleBreadthFirstSearchManager(Linguist linguist, Pruner pruner, AcousticScorer scorer, ActiveListFactory activeListFactory, bool showTokenCount, double relativeWordBeamWidth, int growSkipInterval, bool wantEntryPruning)
 		{
@@ -541,29 +303,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.logRelativeWordBeamWidth = this.logMath.linearToLog(relativeWordBeamWidth);
 			this.keepAllTokens = true;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			121,
-			135,
-			107,
-			108,
-			140,
-			118,
-			118,
-			118,
-			118,
-			150,
-			109,
-			113,
-			118,
-			146,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -582,19 +321,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.logRelativeWordBeamWidth = this.logMath.linearToLog(linearValue);
 			this.keepAllTokens = true;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			80,
-			144,
-			107,
-			107,
-			107,
-			102,
-			109,
-			141
-		})]
 		
 		public override void startRecognition()
 		{
@@ -608,26 +334,6 @@ namespace edu.cmu.sphinx.decoder.search
 				this.startTime = (double)System.currentTimeMillis();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			99,
-			98,
-			98,
-			135,
-			105,
-			39,
-			230,
-			70,
-			141,
-			167,
-			104,
-			117,
-			177,
-			104,
-			166
-		})]
 		
 		public override Result recognize(int nFrames)
 		{
@@ -654,17 +360,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			156,
-			102,
-			107,
-			107,
-			139,
-			112
-		})]
 		
 		public override void stopRecognition()
 		{
@@ -674,19 +369,15 @@ namespace edu.cmu.sphinx.decoder.search
 			this.linguist.stopRecognition();
 			this.logger.finer("recognition stopped");
 		}
-
 		
 		protected internal virtual Map getBestTokenMap()
 		{
 			return this.bestTokenMap;
-		}
-
-		
+		}		
 		protected internal virtual void setBestTokenMap(Map bestTokenMap)
 		{
 			this.bestTokenMap = bestTokenMap;
 		}
-
 		
 		public virtual List getResultList()
 		{
@@ -698,7 +389,7 @@ namespace edu.cmu.sphinx.decoder.search
 			return this.currentFrameNumber;
 		}
 
-		public virtual Timer getGrowTimer()
+		public virtual util.Timer getGrowTimer()
 		{
 			return this.growTimer;
 		}
@@ -707,32 +398,6 @@ namespace edu.cmu.sphinx.decoder.search
 		{
 			return this.tokensCreated;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			7,
-			102,
-			106,
-			102,
-			106,
-			102,
-			106,
-			102,
-			106,
-			102,
-			106,
-			208,
-			107,
-			107,
-			189,
-			2,
-			97,
-			177,
-			113,
-			113,
-			113
-		})]
 		
 		public override void allocate()
 		{
@@ -765,18 +430,6 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			throw new RuntimeException(text, ex4);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			41,
-			107,
-			107,
-			189,
-			2,
-			97,
-			145
-		})]
 		
 		public override void deallocate()
 		{
@@ -915,11 +568,11 @@ namespace edu.cmu.sphinx.decoder.search
 
 		private string name;
 
-		private Timer scoreTimer;
+		private util.Timer scoreTimer;
 
-		private Timer pruneTimer;
+		private util.Timer pruneTimer;
 
-		protected internal Timer growTimer;
+		protected internal util.Timer growTimer;
 
 		private StatisticsVariable totalTokensScored;
 

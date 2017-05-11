@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.scorer;
+﻿using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.linguist;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -11,27 +8,10 @@ namespace edu.cmu.sphinx.decoder.search
 {
 	public class TokenHeapSearchManager : WordPruningBreadthFirstSearchManager
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			168,
-			136
-		})]
-		
 		public TokenHeapSearchManager()
 		{
 			this.__maxTokenHeapSize = 3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			110,
-			99,
-			130,
-			113
-		})]
 		
 		protected internal override void createBestTokenMap()
 		{
@@ -42,17 +22,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			this.bestTokenMap = new HashMap(num, 0.3f);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			185,
-			114,
-			99,
-			104,
-			142,
-			103
-		})]
 		
 		protected internal override void setBestToken(Token token, SearchState state)
 		{
@@ -64,18 +33,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			tokenHeap.add(token);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			178,
-			99,
-			98,
-			107,
-			98,
-			104,
-			130
-		})]
 		
 		protected internal override Token getBestToken(SearchState state)
 		{
@@ -95,8 +52,6 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return tokenHeap.getSmallest();
 		}
-
-		
 		protected internal int maxTokenHeapSize
 		{
 			
@@ -113,32 +68,10 @@ namespace edu.cmu.sphinx.decoder.search
 
 		internal int __maxTokenHeapSize;
 
-		
 		internal new Map bestTokenMap;
-
-		
-		.
 		
 		internal sealed class TokenHeap : java.lang.Object
 		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			[LineNumberTable(new byte[]
-			{
-				91,
-				107,
-				122,
-				127,
-				8,
-				105,
-				226,
-				60,
-				230,
-				71
-			})]
 			
 			private bool tryReplace(Token token)
 			{
@@ -162,40 +95,16 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return false;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				103,
-				121
-			})]
 			
 			private void fixupInsert()
 			{
 				Arrays.sort(this.tokens, 0, this.curSize - 1, Scoreable.COMPARATOR);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				36,
-				111,
-				108
-			})]
 			
 			internal TokenHeap(TokenHeapSearchManager tokenHeapSearchManager, int num)
 			{
 				this.tokens = new Token[num];
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				50,
-				105,
-				111,
-				125,
-				124,
-				176,
-				102
-			})]
 			
 			internal void add(Token token)
 			{
@@ -216,13 +125,6 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				this.fixupInsert();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				66,
-				104,
-				130
-			})]
 			internal Token getSmallest()
 			{
 				if (this.curSize == 0)
@@ -231,23 +133,12 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return this.tokens[this.curSize - 1];
 			}
-
-			
 			internal bool isFull()
 			{
 				return this.curSize == this.tokens.Length;
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				114,
-				107,
-				117,
-				9,
-				230,
-				69
-			})]
-			
+
 			internal Token get(SearchState searchState)
 			{
 				for (int i = 0; i < this.curSize; i++)
@@ -259,12 +150,6 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return null;
 			}
-
-			
-			static TokenHeap()
-			{
-			}
-
 			
 			internal Token[] tokens;
 

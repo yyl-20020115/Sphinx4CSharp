@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -13,7 +10,6 @@ namespace edu.cmu.sphinx.decoder
 {
 	public abstract class AbstractDecoder : java.lang.Object, ResultProducer, Configurable
 	{
-	
 		private void init(string text, Logger logger, SearchManager searchManager, bool flag, bool flag2, List list)
 		{
 			this.name = text;
@@ -92,10 +88,8 @@ namespace edu.cmu.sphinx.decoder
 			return this.name;
 		}
 
-		
 		protected internal List resultListeners
 		{
-			
 			get
 			{
 				return this.__resultListeners;
@@ -135,7 +129,6 @@ namespace edu.cmu.sphinx.decoder
 		})]
 		public const string PROP_RESULT_LISTENERS = "resultListeners";
 
-		
 		internal List __resultListeners;
 
 		[S4Boolean(new object[]

@@ -1,79 +1,36 @@
 ﻿using System;
 using System.Collections;
-
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.lang;
 using java.lang;
 using java.util;
+using java.util.function;
 
 namespace edu.cmu.sphinx.decoder.search
 {
 	public class SimpleActiveListFactory : ActiveListFactory
-	{
-		
-		
+	{		
 		public override ActiveList newInstance()
 		{
 			return new SimpleActiveListFactory.SimpleActiveList(this, this.absoluteBeamWidth, this.logRelativeBeamWidth);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			105
-		})]
 		
 		public SimpleActiveListFactory(int absoluteBeamWidth, double relativeBeamWidth) : base(absoluteBeamWidth, relativeBeamWidth)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			134
-		})]
 		
 		public SimpleActiveListFactory()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 		}
-
-		
-		[Implements(new string[]
-		{
-			"edu.cmu.sphinx.decoder.search.ActiveList"
-		})]
-		.
 		
 		internal sealed class SimpleActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
-		{
-			[LineNumberTable(new byte[]
-			{
-				48,
-				109,
-				123,
-				135
-			})]
-			
+		{			
 			public void add(Token token)
 			{
 				this.tokenList.add(token);
@@ -82,15 +39,6 @@ namespace edu.cmu.sphinx.decoder.search
 					this.bestToken = token;
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				160,
-				73,
-				102,
-				104,
-				140
-			})]
 			
 			public float getBestScore()
 			{
@@ -101,19 +49,7 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return result;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				36,
-				239,
-				51,
-				171,
-				235,
-				75,
-				103,
-				104
-			})]
-			
+		
 			public SimpleActiveList(SimpleActiveListFactory simpleActiveListFactory, int num, float num2)
 			{
 				this.absoluteBeamWidth = 2000;
@@ -121,15 +57,6 @@ namespace edu.cmu.sphinx.decoder.search
 				this.absoluteBeamWidth = num;
 				this.logRelativeBeamWidth = num2;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				62,
-				103,
-				99,
-				238,
-				74
-			})]
 			
 			public void replace(Token token, Token token2)
 			{
@@ -138,14 +65,6 @@ namespace edu.cmu.sphinx.decoder.search
 				{
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				83,
-				124,
-				112,
-				152
-			})]
 			
 			public ActiveList purge()
 			{
@@ -155,36 +74,27 @@ namespace edu.cmu.sphinx.decoder.search
 					this.tokenList = this.tokenList.subList(0, this.absoluteBeamWidth);
 				}
 				return this;
-			}
-
-			
-			
+			}			
 			
 			public Iterator iterator()
 			{
 				return this.tokenList.iterator();
 			}
-
 			
 			public List getTokens()
 			{
 				return this.tokenList;
 			}
-
-			
 			
 			public int size()
 			{
 				return this.tokenList.size();
 			}
-
-			
 			
 			public float getBeamThreshold()
 			{
 				return this.getBestScore() + this.logRelativeBeamWidth;
 			}
-
 			public void setBestToken(Token token)
 			{
 				this.bestToken = token;
@@ -194,30 +104,44 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				return this.bestToken;
 			}
-
-			
 			
 			public ActiveList newInstance()
 			{
 				return this.this_0.newInstance();
 			}
-
-			
+		
 			IEnumerator IEnumerable.GetEnumerator()
 			{
 				return new IterableEnumerator(this);
 			}
 
+			public void forEach(Consumer action)
+			{
+				throw new NotImplementedException();
+			}
+
+			public void forEach(Iterable value1, Consumer value2)
+			{
+				throw new NotImplementedException();
+			}
+
+			public Spliterator spliterator()
+			{
+				throw new NotImplementedException();
+			}
+
+			public Spliterator spliterator(Iterable value)
+			{
+				throw new NotImplementedException();
+			}
+
 			private int absoluteBeamWidth;
 
-			
 			private float logRelativeBeamWidth;
 
 			private Token bestToken;
-
 			
 			private List tokenList;
-
 			
 			internal SimpleActiveListFactory this_0 = simpleActiveListFactory;
 		}

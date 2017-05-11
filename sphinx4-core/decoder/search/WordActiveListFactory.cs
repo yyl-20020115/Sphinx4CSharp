@@ -1,75 +1,42 @@
 ﻿using System;
 using System.Collections;
-
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.lang;
 using java.lang;
 using java.util;
+using java.util.function;
 
 namespace edu.cmu.sphinx.decoder.search
 {
 	public class WordActiveListFactory : ActiveListFactory
-	{
-		
-		
+	{		
 		internal static int access_000(WordActiveListFactory wordActiveListFactory)
 		{
 			return wordActiveListFactory.maxFiller;
 		}
-
-		
-		
+				
 		internal static int access_100(WordActiveListFactory wordActiveListFactory)
 		{
 			return wordActiveListFactory.maxPathsPerWord;
 		}
 
-		
-		
 		public override ActiveList newInstance()
 		{
 			return new WordActiveListFactory.WordActiveList(this);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			3,
-			107,
-			103,
-			104
-		})]
 		
 		public WordActiveListFactory(int absoluteBeamWidth, double relativeBeamWidth, int maxPathsPerWord, int maxFiller) : base(absoluteBeamWidth, relativeBeamWidth)
 		{
 			this.maxPathsPerWord = maxPathsPerWord;
 			this.maxFiller = maxFiller;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			8,
-			102
-		})]
 		
 		public WordActiveListFactory()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			19,
-			135,
-			113,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -100,23 +67,10 @@ namespace edu.cmu.sphinx.decoder.search
 
 		private int maxFiller;
 
-		
-		[Implements(new string[]
-		{
-			"edu.cmu.sphinx.decoder.search.ActiveList"
-		})]
-		.
+
 		
 		internal sealed class WordActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
-		{
-			[LineNumberTable(new byte[]
-			{
-				55,
-				109,
-				123,
-				135
-			})]
-			
+		{			
 			public void add(Token token)
 			{
 				this.tokenList.add(token);
@@ -125,15 +79,6 @@ namespace edu.cmu.sphinx.decoder.search
 					this.bestToken = token;
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				160,
-				110,
-				102,
-				104,
-				140
-			})]
 			
 			public float getBestScore()
 			{
@@ -144,25 +89,11 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return result;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				43,
-				175
-			})]
 			
 			internal WordActiveList(WordActiveListFactory wordActiveListFactory)
 			{
 				this.tokenList = new LinkedList();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				69,
-				103,
-				99,
-				141
-			})]
 			
 			public void replace(Token token, Token token2)
 			{
@@ -172,35 +103,6 @@ namespace edu.cmu.sphinx.decoder.search
 					this.tokenList.remove(token);
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				83,
-				98,
-				102,
-				144,
-				119,
-				108,
-				141,
-				174,
-				110,
-				105,
-				110,
-				134,
-				102,
-				229,
-				69,
-				110,
-				111,
-				240,
-				69,
-				113,
-				148,
-				166,
-				133,
-				120,
-				189
-			})]
 			
 			public ActiveList purge()
 			{
@@ -242,30 +144,22 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return this;
 			}
-
-			
-			
 			
 			public Iterator iterator()
 			{
 				return this.tokenList.iterator();
 			}
-
 			
 			public List getTokens()
 			{
 				return this.tokenList;
 			}
-
-			
 			
 			public int size()
 			{
 				return this.tokenList.size();
 			}
-
-			
-			
+		
 			public float getBeamThreshold()
 			{
 				return this.getBestScore() + this.this_0.logRelativeBeamWidth;
@@ -280,25 +174,40 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				return this.bestToken;
 			}
-
-			
 			
 			public ActiveList newInstance()
 			{
 				return this.this_0.newInstance();
 			}
-
-			
+		
 			IEnumerator IEnumerable.GetEnumerator()
 			{
 				return new IterableEnumerator(this);
 			}
 
-			private Token bestToken;
+			public void forEach(Consumer action)
+			{
+				throw new NotImplementedException();
+			}
 
+			public void forEach(Iterable value1, Consumer value2)
+			{
+				throw new NotImplementedException();
+			}
+
+			public Spliterator spliterator()
+			{
+				throw new NotImplementedException();
+			}
+
+			public Spliterator spliterator(Iterable value)
+			{
+				throw new NotImplementedException();
+			}
+
+			private Token bestToken;
 			
 			private List tokenList;
-
 			
 			internal WordActiveListFactory this_0 = wordActiveListFactory;
 		}

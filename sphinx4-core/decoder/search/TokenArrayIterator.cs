@@ -3,47 +3,19 @@
 using IKVM.Attributes;
 using java.lang;
 using java.util;
+using java.util.function;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	[Implements(new string[]
-	{
-		"java.util.Iterator"
-	})]
-	
-	.
-	
 	internal sealed class TokenArrayIterator : java.lang.Object, Iterator
 	{
-		[LineNumberTable(new byte[]
-		{
-			160,
-			130,
-			104,
-			103,
-			103,
-			103
-		})]
-		
 		internal TokenArrayIterator(Token[] array, int num)
 		{
 			this.tokenArray = array;
 			this.pos = 0;
 			this.size = num;
 		}
-
-		[Throws(new string[]
-		{
-			"java.util.NoSuchElementException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			145,
-			111,
-			139
-		})]
-		
+	
 		public Token next()
 		{
 			if (this.pos >= this.tokenArray.Length)
@@ -63,27 +35,36 @@ namespace edu.cmu.sphinx.decoder.search
 			return this.pos < this.size;
 		}
 
-		
-		
+	
 		public void remove()
 		{
 			string text = "TokenArrayIterator.remove() unimplemented";
 			
 			throw new Error(text);
 		}
-
 		
-		
-		
-		public object next()
+		object Iterator.next()
 		{
 			return this.next();
 		}
 
-		
+		public void remove(Iterator value)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void forEachRemaining(Consumer action)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void forEachRemaining(Iterator value1, Consumer value2)
+		{
+			throw new NotImplementedException();
+		}
+
 		private Token[] tokenArray;
 
-		
 		private int size;
 
 		private int pos;

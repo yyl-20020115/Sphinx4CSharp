@@ -1,33 +1,14 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.scorer;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.decoder.scorer;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.search
 {
 	public class Partitioner : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			165,
-			168
-		})]
-		
+	{		
 		public Partitioner()
 		{
 			this.MAX_DEPTH = 50;
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			45,
-			101,
-			142
-		})]
-		
+		}		
 		public virtual int partition(Token[] tokens, int size, int n)
 		{
 			if (tokens.Length > n)
@@ -36,38 +17,10 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return this.findBest(tokens, size);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			85,
-			100
-		})]
 		private void setToken(Token[] array, int num, Token token)
 		{
 			array[num] = token;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			182,
-			100,
-			135,
-			98,
-			196,
-			111,
-			102,
-			111,
-			134,
-			100,
-			130,
-			101,
-			107,
-			106,
-			133,
-			107,
-			105
-		})]
 		
 		private int endPointPartition(Token[] array, int num, int num2)
 		{
@@ -100,21 +53,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.setToken(array, num3, token);
 			return num3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			99,
-			102,
-			140,
-			100,
-			130,
-			106,
-			102,
-			101,
-			98,
-			101,
-			146
-		})]
 		
 		private int midPointSelect(Token[] array, int num, int num2, int num3, int num4)
 		{
@@ -139,26 +77,6 @@ namespace edu.cmu.sphinx.decoder.search
 			return this.midPointSelect(array, num5 + 1, num2, num3 - num6, num4 + 1);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			60,
-			98,
-			102,
-			103,
-			105,
-			100,
-			98,
-			226,
-			60,
-			230,
-			74,
-			100,
-			100,
-			101,
-			107,
-			202
-		})]
-		
 		private int findBest(Token[] array, int num)
 		{
 			int num2 = -1;
@@ -182,27 +100,12 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			return i;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			126,
-			111
-		})]
 		
 		private int simplePointSelect(Token[] array, int num, int num2, int num3)
 		{
 			Arrays.sort(array, num, num2 + 1, Scoreable.COMPARATOR);
 			return num + num3 - 1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			27,
-			102,
-			100,
-			107,
-			105
-		})]
 		
 		private int midPointPartition(Token[] array, int num, int num2)
 		{

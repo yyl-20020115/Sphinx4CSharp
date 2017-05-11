@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
-	public abstract class Scoreable : Data
+	public abstract class Scoreable : java.lang.Object, Data
 	{
 		public abstract float normalizeScore(float f);
 
