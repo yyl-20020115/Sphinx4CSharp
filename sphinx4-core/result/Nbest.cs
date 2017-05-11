@@ -97,7 +97,6 @@ namespace edu.cmu.sphinx.result
 			{
 				return this.compareTo((Nbest.NBestPath)obj);
 			}
-
 			
 			int IComparable.CompareTo(object obj)
 			{
@@ -112,7 +111,6 @@ namespace edu.cmu.sphinx.result
 
 			internal double forwardScore;
 
-			
 			internal Nbest this_0;
 		}
 	}

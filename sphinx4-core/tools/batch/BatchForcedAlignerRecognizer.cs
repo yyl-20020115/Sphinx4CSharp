@@ -1,11 +1,8 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.search;
+﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.linguist.language.grammar;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 using java.util;
@@ -35,14 +32,12 @@ namespace edu.cmu.sphinx.tools.batch
 			Token bestToken = result.getBestToken();
 			this.dumpTokenTimes(bestToken);
 		}
-
 				
 		public BatchForcedAlignerRecognizer(BatchForcedAlignerGrammar bfaGrammar, Recognizer recognizer, List inputDataProcessors, string ctlFile, string dataDir, string refFile, string ctmFile, int bitsPerSample, int samplesPerSecond, int framesPerSecond, int channelCount) : base(recognizer, inputDataProcessors, ctlFile, dataDir, refFile, ctmFile, bitsPerSample, samplesPerSecond, framesPerSecond, channelCount)
 		{
 			this.bfaGrammar = bfaGrammar;
 		}
 
-	
 		public BatchForcedAlignerRecognizer()
 		{
 		}

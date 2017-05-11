@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using java.lang;
 using java.util;
 
@@ -9,33 +6,6 @@ namespace edu.cmu.sphinx.linguist.util
 {
 	public class LinguistTimer : java.lang.Object
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			57,
-			103,
-			142,
-			106,
-			136,
-			115,
-			105,
-			105,
-			110,
-			110,
-			105,
-			110,
-			105,
-			113,
-			159,
-			11,
-			142,
-			142,
-			238,
-			49,
-			233,
-			81
-		})]
-		
 		private void expandState(int num, List list, SearchState searchState)
 		{
 			SearchStateArc[] successors = searchState.getSuccessors();
@@ -72,74 +42,18 @@ namespace edu.cmu.sphinx.linguist.util
 				this.totalStates++;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			132,
-			162,
-			104,
-			103,
-			103
-		})]
 		
 		public LinguistTimer(Linguist linguist, bool details)
 		{
 			this.linguist = linguist;
 			this.details = details;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			12,
-			108,
-			108,
-			172,
-			159,
-			37,
-			102,
-			105,
-			99,
-			103,
-			125,
-			107,
-			107,
-			100,
-			107,
-			102,
-			127,
-			20,
-			113,
-			98,
-			103,
-			109,
-			111,
-			240,
-			54,
-			235,
-			77,
-			235,
-			46,
-			233,
-			84,
-			103,
-			127,
-			10,
-			127,
-			10,
-			127,
-			10,
-			127,
-			10,
-			127,
-			10
-		})]
 		
 		public virtual void timeLinguist(int numRuns, int numFrames, int maxBeam)
 		{
-			Random random = new Random((long)((ulong)1000));
-			Timer timer = TimerPool.getTimer(this, "frameTimer");
-			Timer timer2 = TimerPool.getTimer(this, "totalTimer");
+			java.util.Random random = new java.util.Random((long)((ulong)1000));
+			sphinx.util.Timer timer = TimerPool.getTimer(this, "frameTimer");
+			sphinx.util.Timer timer2 = TimerPool.getTimer(this, "totalTimer");
 			java.lang.System.@out.println(new StringBuilder().append("TestLinguist: runs ").append(numRuns).append(" frames ").append(numFrames).append(" beam ").append(maxBeam).toString());
 			timer2.start();
 			for (int i = 0; i < numRuns; i++)
@@ -188,10 +102,8 @@ namespace edu.cmu.sphinx.linguist.util
 			java.lang.System.@out.println(new StringBuilder().append("   NonEmitting : ").append(this.totalNonEmittingStates).toString());
 			java.lang.System.@out.println(new StringBuilder().append("  Final States : ").append(this.totalFinalStates).toString());
 		}
-
 		
 		private Linguist linguist;
-
 		
 		private bool details;
 

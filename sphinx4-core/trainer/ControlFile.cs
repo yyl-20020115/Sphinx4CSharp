@@ -1,13 +1,7 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 
 namespace edu.cmu.sphinx.trainer
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public interface ControlFile : Configurable
 	{
 		void startUtteranceIterator();

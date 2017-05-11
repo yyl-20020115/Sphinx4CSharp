@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.decoder.search;
@@ -12,9 +10,7 @@ using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -24,28 +20,7 @@ using java.util.logging;
 namespace edu.cmu.sphinx.tools.batch
 {
 	public class BatchNISTRecognizer : BatchModeRecognizer
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			193,
-			127,
-			1,
-			104,
-			103,
-			108,
-			104,
-			97,
-			107,
-			135,
-			141,
-			101
-		})]
-		
+	{		
 		protected internal virtual void setInputStream(BatchNISTRecognizer.CTLUtterance utt)
 		{
 			Iterator iterator = this.inputDataProcessors.iterator();
@@ -64,49 +39,11 @@ namespace edu.cmu.sphinx.tools.batch
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			237,
-			111
-		})]
 		
 		protected internal virtual void handleResult(DataOutputStream @out, BatchNISTRecognizer.CTLUtterance utt, Result result)
 		{
 			this.dumpBestPath(@out, utt, result.getBestFinalToken());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			243,
-			134,
-			103,
-			106,
-			139,
-			135,
-			108,
-			109,
-			105,
-			113,
-			114,
-			127,
-			89,
-			37,
-			133,
-			109,
-			144,
-			130
-		})]
 		
 		private long dumpBestPath(DataOutputStream dataOutputStream, BatchNISTRecognizer.CTLUtterance ctlutterance, Token token)
 		{
@@ -134,20 +71,6 @@ namespace edu.cmu.sphinx.tools.batch
 			return num;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			12,
-			110,
-			107,
-			109,
-			111,
-			236,
-			61,
-			230,
-			69
-		})]
-		
 		public static byte[] hex2Binary(string spelling)
 		{
 			byte[] array = new byte[java.lang.String.instancehelper_length(spelling) / 2];
@@ -159,32 +82,6 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			44,
-			98,
-			159,
-			160,
-			136,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			131,
-			131,
-			131,
-			131,
-			131,
-			131,
-			131
-		})]
 		
 		private static int hexToByte(char c)
 		{
@@ -227,48 +124,12 @@ namespace edu.cmu.sphinx.tools.batch
 			
 			throw new Error(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			211,
-			103,
-			118,
-			139,
-			114,
-			108,
-			103,
-			108,
-			127,
-			31,
-			127,
-			10,
-			127,
-			5,
-			127,
-			32,
-			127,
-			6,
-			105,
-			110,
-			133,
-			191,
-			0,
-			2,
-			98,
-			159,
-			12,
-			127,
-			21
-		})]
 		
 		public virtual void decode()
 		{
-			IOException ex2;
 			try
 			{
 				this.utteranceId = 0;
-				FileOutputStream.__<clinit>();
 				DataOutputStream @out = new DataOutputStream(new FileOutputStream(this.ctmFile));
 				this.recognizer.allocate();
 				BatchNISTRecognizer.CTLIterator ctliterator = new BatchNISTRecognizer.CTLIterator(this);
@@ -289,39 +150,10 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_17F;
+				this.logger.severe(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex)).toString());
 			}
-			goto IL_1B2;
-			IL_17F:
-			IOException ex3 = ex2;
-			this.logger.severe(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex3)).toString());
-			IL_1B2:
 			this.logger.info(new StringBuilder().append("BatchCTLDecoder: ").append(this.utteranceId).append(" utterances decoded").toString());
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			65,
-			104,
-			118,
-			103,
-			103,
-			104,
-			103,
-			104,
-			136,
-			104,
-			104,
-			104,
-			136,
-			155,
-			255,
-			160,
-			69,
-			72
-		})]
 		
 		public BatchNISTRecognizer(Recognizer recognizer, List inputDataProcessors, string ctlFile, string dataDir, string refFile, string ctmFile, int bitsPerSample, int samplesPerSecond, int framesPerSecond, int channelCount)
 		{
@@ -340,42 +172,10 @@ namespace edu.cmu.sphinx.tools.batch
 			this.bytesPerFrame = ((framesPerSecond != -1) ? (num / framesPerSecond) : (-num));
 			this.logger.info(new StringBuilder().append("BatchNISTRecognizer:\n  dataDirectory=").append(dataDir).append('\n').append("  ctlFile=").append(ctlFile).append('\n').append("  bitsPerSample=").append(bitsPerSample).append('\n').append("  channelCount=").append(channelCount).append('\n').append("  samplesPerSecond=").append(samplesPerSecond).append('\n').append("  framesPerSecond=").append(framesPerSecond).append('\n').toString());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			91,
-			134
-		})]
 		
 		public BatchNISTRecognizer()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			102,
-			108,
-			118,
-			118,
-			113,
-			113,
-			113,
-			145,
-			113,
-			113,
-			113,
-			145,
-			159,
-			12,
-			255,
-			160,
-			94,
-			72
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -395,37 +195,6 @@ namespace edu.cmu.sphinx.tools.batch
 			this.bytesPerFrame = ((num2 != -1) ? (num / num2) : (-num));
 			this.logger.info(new StringBuilder().append("BatchNISTRecognizer:\n  dataDirectory=").append(this.dataDir).append('\n').append("  ctlFile=").append(this.ctlFile).append('\n').append("  bitsPerSample=").append(this.bitsPerSample).append('\n').append("  channelCount=").append(this.channelCount).append('\n').append("  samplesPerSecond=").append(this.samplesPerSecond).append('\n').append("  framesPerSecond=").append(this.framesPerSecond).append('\n').toString());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			65,
-			101,
-			143,
-			166,
-			228,
-			71,
-			113,
-			103,
-			255,
-			20,
-			71,
-			226,
-			58,
-			98,
-			127,
-			6,
-			97,
-			98,
-			127,
-			6,
-			161,
-			99,
-			127,
-			5,
-			161,
-			102
-		})]
 		
 		public new static void main(string[] argv)
 		{
@@ -436,8 +205,6 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			string text = argv[0];
 			BatchNISTRecognizer batchNISTRecognizer;
-			IOException ex2;
-			PropertyException ex4;
 			try
 			{
 				try
@@ -448,14 +215,14 @@ namespace edu.cmu.sphinx.tools.batch
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_61;
+					java.lang.System.err.println(new StringBuilder().append("I/O error during initialization: \n   ").append(ex).toString());
+					return;
 				}
 			}
 			catch (PropertyException ex3)
 			{
-				ex4 = ByteCodeHelper.MapException<PropertyException>(ex3, 1);
-				goto IL_65;
+				java.lang.System.err.println(new StringBuilder().append("Error during initialization: \n  ").append(ex3).toString());
+				return;
 			}
 			if (batchNISTRecognizer == null)
 			{
@@ -463,14 +230,6 @@ namespace edu.cmu.sphinx.tools.batch
 				return;
 			}
 			batchNISTRecognizer.decode();
-			return;
-			IL_61:
-			IOException ex5 = ex2;
-			java.lang.System.err.println(new StringBuilder().append("I/O error during initialization: \n   ").append(ex5).toString());
-			return;
-			IL_65:
-			PropertyException ex6 = ex4;
-			java.lang.System.err.println(new StringBuilder().append("Error during initialization: \n  ").append(ex6).toString());
 		}
 
 		protected internal string ctlFile;
@@ -563,82 +322,36 @@ namespace edu.cmu.sphinx.tools.batch
 		})]
 		public const string PROP_FRAMES_PER_SECOND = "framesPerSecond";
 
-		
-		.
 		[Serializable]
-		public class CTLException : Exception
+		public class CTLException : System.Exception
 		{
-			[LineNumberTable(new byte[]
-			{
-				160,
-				66,
-				103,
-				103
-			})]
-			
 			internal CTLException(BatchNISTRecognizer batchNISTRecognizer, string text)
+				:base(text)
 			{
 				this.this_0 = batchNISTRecognizer;
-				base..ctor(text);
 			}
-
 			
 			[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 			protected CTLException(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 			{
 			}
 
-			
 			internal BatchNISTRecognizer this_0;
 		}
 
-		
-		[Implements(new string[]
-		{
-			"java.util.Iterator"
-		})]
-		
-		.
 		public class CTLIterator : java.lang.Object, Iterator
-		{
-			[Throws(new string[]
-			{
-				"java.io.IOException"
-			})]
-			[LineNumberTable(new byte[]
-			{
-				160,
-				153,
-				111,
-				118,
-				118,
-				108
-			})]
-			
+		{			
 			public CTLIterator(BatchNISTRecognizer this_0)
 			{
+				this.this_0 = this_0;
 				this.ctlReader = new LineNumberReader(new FileReader(this_0.ctlFile));
 				this.refReader = new LineNumberReader(new FileReader(this_0.refFile));
 				this.utterance = this.nextUtterance();
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				160,
-				162,
-				108,
-				108,
-				102,
-				132,
-				127,
-				11,
-				98
-			})]
-			
 			private BatchNISTRecognizer.CTLUtterance nextUtterance()
 			{
 				BatchNISTRecognizer.CTLUtterance result;
-				Exception ex3;
 				try
 				{
 					string text = this.ctlReader.readLine();
@@ -649,32 +362,13 @@ namespace edu.cmu.sphinx.tools.batch
 					}
 					result = null;
 				}
-				catch (Exception ex)
+				catch (System.Exception ex)
 				{
-					Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-					if (ex2 == null)
-					{
-						throw;
-					}
-					ex3 = ex2;
-					goto IL_48;
+					throw new Error(Throwable.instancehelper_getMessage(ex));
 				}
 				return result;
-				IL_48:
-				Exception ex4 = ex3;
-				string text3 = Throwable.instancehelper_getMessage(ex4);
-				
-				throw new Error(text3);
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				160,
-				180,
-				103,
-				108
-			})]
-			
 			public virtual BatchNISTRecognizer.CTLUtterance next()
 			{
 				BatchNISTRecognizer.CTLUtterance result = this.utterance;
@@ -686,29 +380,15 @@ namespace edu.cmu.sphinx.tools.batch
 			{
 				return this.utterance != null;
 			}
-
-			
 			
 			public virtual void remove()
-			{
-				string text = "Not implemented";
-				
-				throw new Error(text);
+			{				
+				throw new Error("Not implemented");
 			}
 
-			
-			
-			
-			
-			public virtual object <bridge>next()
+			object Iterator.next()
 			{
 				return this.next();
-			}
-
-			
-			object Iterator.Object;next()
-			{
-				return this.<bridge>next();
 			}
 
 			internal BatchNISTRecognizer.CTLUtterance utterance;
@@ -717,16 +397,11 @@ namespace edu.cmu.sphinx.tools.batch
 
 			internal LineNumberReader refReader;
 
-			
-			internal BatchNISTRecognizer this_0 = this_0;
+			internal BatchNISTRecognizer this_0;
 		}
 
-		
-		.
 		public class CTLUtterance : java.lang.Object
 		{
-			
-			
 			public virtual InputStream getInputStream()
 			{
 				return new ByteArrayInputStream(this.data);
@@ -741,47 +416,10 @@ namespace edu.cmu.sphinx.tools.batch
 			{
 				return this.@ref;
 			}
-
-			[Throws(new string[]
-			{
-				"edu.cmu.sphinx.tools.batch.BatchNISTRecognizer_CTLException"
-			})]
-			[LineNumberTable(new byte[]
-			{
-				160,
-				88,
-				239,
-				69,
-				103,
-				108,
-				127,
-				12,
-				110,
-				110,
-				105,
-				127,
-				0,
-				107,
-				105,
-				100,
-				147,
-				159,
-				24,
-				113,
-				117,
-				117,
-				102,
-				159,
-				34,
-				218,
-				2,
-				98,
-				159,
-				34
-			})]
-			
+	
 			internal CTLUtterance(BatchNISTRecognizer batchNISTRecognizer, string text, string text2)
 			{
+				this_0 = batchNISTRecognizer;
 				this.@ref = text2;
 				string[] array = java.lang.String.instancehelper_split(text, " ");
 				if (array.Length != 4)
@@ -804,7 +442,6 @@ namespace edu.cmu.sphinx.tools.batch
 				IOException ex2;
 				try
 				{
-					FileInputStream.__<clinit>();
 					FileInputStream fileInputStream = new FileInputStream(this.file);
 					fileInputStream.skip((long)(this.startOffset * batchNISTRecognizer.bytesPerFrame));
 					if (fileInputStream.read(this.data) != this.data.Length)
@@ -818,15 +455,8 @@ namespace edu.cmu.sphinx.tools.batch
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_18B;
+					throw new BatchNISTRecognizer.CTLException(batchNISTRecognizer, new StringBuilder().append("Unable to read utterance ").append(this.name).append(": ").append(Throwable.instancehelper_getMessage(ex)).toString());
 				}
-				return;
-				IL_18B:
-				IOException ex3 = ex2;
-				string text5 = new StringBuilder().append("Unable to read utterance ").append(this.name).append(": ").append(Throwable.instancehelper_getMessage(ex3)).toString();
-				
-				throw new BatchNISTRecognizer.CTLException(batchNISTRecognizer, text5);
 			}
 
 			public virtual string getFile()
@@ -851,14 +481,12 @@ namespace edu.cmu.sphinx.tools.batch
 			internal string name;
 
 			internal byte[] data;
-
 			
 			internal string @ref;
 
 			internal string file;
 
-			
-			internal BatchNISTRecognizer this_0 = batchNISTRecognizer;
+			internal BatchNISTRecognizer this_0;
 		}
 	}
 }

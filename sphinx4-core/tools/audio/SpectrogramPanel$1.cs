@@ -1,33 +1,14 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 using javax.swing.@event;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	
-	[Implements(new string[]
-	{
-		"javax.swing.event.ChangeListener"
-	})]
-	
-	.
-	
 	internal sealed class SpectrogramPanel_1 : java.lang.Object, ChangeListener, EventListener
 	{
-		
-		
 		internal SpectrogramPanel_1(SpectrogramPanel spectrogramPanel)
 		{
+			this_0 = spectrogramPanel;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			27,
-			107
-		})]
 		
 		public void stateChanged(ChangeEvent changeEvent)
 		{
@@ -35,6 +16,6 @@ namespace edu.cmu.sphinx.tools.audio
 		}
 
 		
-		internal SpectrogramPanel this_0 = spectrogramPanel;
+		internal SpectrogramPanel this_0;
 	}
 }

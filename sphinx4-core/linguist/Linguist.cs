@@ -1,6 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 
 namespace edu.cmu.sphinx.linguist
 {
@@ -59,7 +57,6 @@ namespace edu.cmu.sphinx.linguist
 			1.0
 		})]
 		public const string PROP_LANGUAGE_WEIGHT = "languageWeight";
-
 		
 		public static class __Fields
 		{

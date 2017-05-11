@@ -12,49 +12,29 @@ using javax.swing;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	[Implements(new string[]
-	{
-		"java.awt.event.MouseMotionListener",
-		"java.awt.event.MouseListener"
-	})]
 	[Serializable]
 	public class AudioPanel : JPanel, MouseMotionListener, EventListener, MouseListener
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		
+	{		
 		internal static AudioData access_000(AudioPanel audioPanel)
 		{
 			return audioPanel.audio;
 		}
 
-		
-		
 		internal static float access_100(AudioPanel audioPanel)
 		{
 			return audioPanel.xScale;
 		}
-
-		
 		
 		internal static float access_200(AudioPanel audioPanel)
 		{
 			return audioPanel.yScale;
 		}
 
-		
-		
 		internal static float[] access_302(AudioPanel audioPanel, float[] result)
 		{
 			audioPanel.labelTimes = result;
 			return result;
 		}
-
-		
 		
 		internal static string[] access_402(AudioPanel audioPanel, string[] result)
 		{
@@ -79,21 +59,6 @@ namespace edu.cmu.sphinx.tools.audio
 				this.selectionStart = this.selectionEnd;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			84,
-			103,
-			104,
-			103,
-			104,
-			103,
-			103,
-			108,
-			130,
-			194
-		})]
 		
 		private JViewport getViewport()
 		{
@@ -124,32 +89,6 @@ namespace edu.cmu.sphinx.tools.audio
 		{
 			return this.selectionEnd;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			2,
-			232,
-			49,
-			103,
-			231,
-			79,
-			103,
-			108,
-			108,
-			104,
-			104,
-			140,
-			123,
-			147,
-			109,
-			139,
-			241,
-			83,
-			103,
-			103,
-			103,
-			102
-		})]
 		
 		public AudioPanel(AudioData audioData, float scaleX, float scaleY)
 		{
@@ -171,14 +110,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.setFocusable(true);
 			this.requestFocus();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			47,
-			103,
-			103,
-			102
-		})]
 		
 		public virtual void setLabels(float[] labelTimes, string[] labels)
 		{
@@ -186,17 +117,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.labels = labels;
 			this.repaint();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			57,
-			112,
-			123,
-			147,
-			109,
-			102,
-			102
-		})]
 		
 		protected internal virtual void zoomSet(float zoom)
 		{
@@ -207,61 +127,8 @@ namespace edu.cmu.sphinx.tools.audio
 			this.revalidate();
 			this.repaint();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			77,
-			135,
-			103,
-			105,
-			236,
-			69,
-			103,
-			99,
-			104,
-			110,
-			110,
-			98,
-			99,
-			242,
-			70,
-			107,
-			243,
-			69,
-			110,
-			114,
-			104,
-			101,
-			134,
-			114,
-			107,
-			246,
-			69,
-			105,
-			105,
-			105,
-			103,
-			114,
-			102,
-			217,
-			230,
-			56,
-			232,
-			74,
-			107,
-			236,
-			69,
-			110,
-			151,
-			115,
-			115,
-			251,
-			59,
-			235,
-			71
-		})]
-		
-		public override void paintComponent(Graphics g)
+	
+		protected override void paintComponent(Graphics g)
 		{
 			base.paintComponent(g);
 			Dimension size = this.getSize();
@@ -315,20 +182,6 @@ namespace edu.cmu.sphinx.tools.audio
 				g.drawString(this.labels[i], num2 + 5, size.height - 5);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			167,
-			108,
-			109,
-			103,
-			100,
-			131,
-			147,
-			103,
-			103
-		})]
 		
 		public virtual void crop()
 		{
@@ -343,15 +196,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.setSelectionStart(-1);
 			this.setSelectionEnd(-1);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			182,
-			103,
-			103,
-			102
-		})]
 		
 		public virtual void selectAll()
 		{
@@ -359,16 +203,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.setSelectionEnd(-1);
 			this.repaint();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			194,
-			114,
-			122,
-			122,
-			102
-		})]
 		
 		public virtual void mousePressed(MouseEvent evt)
 		{
@@ -377,17 +211,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.setSelectionEnd(ByteCodeHelper.f2i((float)this.xDragStart / this.xScale));
 			this.repaint();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			207,
-			108,
-			124,
-			156,
-			154,
-			102
-		})]
 		
 		public virtual void mouseDragged(MouseEvent evt)
 		{
@@ -423,19 +246,11 @@ namespace edu.cmu.sphinx.tools.audio
 		{
 		}
 
-		
-		static AudioPanel()
-		{
-			JPanel.__<clinit>();
-		}
-
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected AudioPanel(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
 		}
 
-		
 		private AudioData audio;
 
 		private float[] labelTimes;
@@ -444,9 +259,7 @@ namespace edu.cmu.sphinx.tools.audio
 
 		private float xScale;
 
-		
 		private float yScale;
-
 		
 		private float originalXScale;
 

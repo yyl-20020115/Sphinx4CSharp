@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist

@@ -1,45 +1,16 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using IKVM.Runtime;
 using java.awt;
-using java.lang;
 using java.util;
 using javax.swing.@event;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	
-	[Implements(new string[]
-	{
-		"javax.swing.event.ChangeListener"
-	})]
-	
-	.
-	
 	internal sealed class AudioPanel_1 : java.lang.Object, ChangeListener, EventListener
 	{
-		
-		
 		internal AudioPanel_1(AudioPanel audioPanel)
 		{
+			this_0 = audioPanel;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			18,
-			127,
-			6,
-			152,
-			114,
-			146,
-			108,
-			140,
-			114,
-			140,
-			107,
-			123
-		})]
 		
 		public void stateChanged(ChangeEvent changeEvent)
 		{
@@ -55,7 +26,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.this_0.repaint(0L, 0, 0, size.width, size.height);
 		}
 
-		
-		internal AudioPanel this_0 = audioPanel;
+		internal AudioPanel this_0;
 	}
 }

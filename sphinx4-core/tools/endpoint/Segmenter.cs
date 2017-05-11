@@ -1,7 +1,6 @@
 ﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;

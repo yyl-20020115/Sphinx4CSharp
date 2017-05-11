@@ -1,23 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.linguist.util
 {
-	.
-	
 	internal sealed class StateLevel : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			160,
-			126,
-			104,
-			103,
-			103
-		})]
-		
+	{		
 		internal StateLevel(SearchState searchState, int num)
 		{
 			this.state = searchState;
@@ -34,17 +20,6 @@ namespace edu.cmu.sphinx.linguist.util
 			return this.state;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			171,
-			104,
-			134,
-			104,
-			134,
-			104,
-			134
-		})]
 		public string getTypeLabel(SearchState searchState)
 		{
 			if (searchState is UnitSearchState)
@@ -61,24 +36,13 @@ namespace edu.cmu.sphinx.linguist.util
 			}
 			return "other";
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			159,
-			127,
-			30,
-			47
-		})]
 		
 		public override string toString()
 		{
 			return new StringBuilder().append(java.lang.String.valueOf(this.level)).append(' ').append(this.state.getSignature()).append(" 1 ").append(this.getTypeLabel(this.state)).toString();
 		}
 
-		
 		private int level;
-
 		
 		private SearchState state;
 	}

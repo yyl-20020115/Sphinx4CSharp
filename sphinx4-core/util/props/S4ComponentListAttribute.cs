@@ -7,7 +7,6 @@ using java.lang;
 namespace edu.cmu.sphinx.util.props
 {
 	
-	
 	[Implements(new string[]
 	{
 		"edu.cmu.sphinx.util.props.S4ComponentList"

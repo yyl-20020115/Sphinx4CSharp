@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.trainer
+﻿namespace edu.cmu.sphinx.trainer
 {
 	public interface UtteranceGraph
 	{

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
-
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;
@@ -10,45 +7,14 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist
 {
-	[Implements(new string[]
-	{
-		"java.lang.Comparable"
-	})]
-	
 	public sealed class WordSequence : java.lang.Object, Comparable
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			28,
-			232,
-			39,
-			231,
-			90,
-			124,
-			102
-		})]
-		
+	{		
 		public WordSequence(List list)
 		{
-			this.hashCode = -1;
+			this._hashCode = -1;
 			this.words = (Word[])list.toArray(new Word[list.size()]);
 			this.check();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			71,
-			134,
-			105,
-			111,
-			154
-		})]
 		
 		public WordSequence getOldest()
 		{
@@ -60,18 +26,6 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return wordSequence;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			150,
-			116,
-			102,
-			119,
-			22,
-			230,
-			70
-		})]
 		
 		public int compareTo(WordSequence other)
 		{
@@ -85,25 +39,10 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return this.words.Length - other.words.Length;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			20,
-			108
-		})]
 		
 		public WordSequence(params Word[] words) : this(Arrays.asList(words))
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			34,
-			116,
-			99,
-			16,
-			166
-		})]
 		
 		private void check()
 		{
@@ -120,34 +59,16 @@ namespace edu.cmu.sphinx.linguist
 			}
 		}
 
-		
 		public int size()
 		{
 			return this.words.Length;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			10,
-			232,
-			57,
-			231,
-			72,
-			108
-		})]
-		
 		private WordSequence(int num)
 		{
-			this.hashCode = -1;
+			this._hashCode = -1;
 			this.words = new Word[num];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			65,
-			124
-		})]
 		
 		public Word getWord(int n)
 		{
@@ -158,16 +79,6 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return this.words[n];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			132,
-			134,
-			102,
-			46,
-			198
-		})]
 		
 		public WordSequence getSubSequence(int startIndex, int stopIndex)
 		{
@@ -178,18 +89,8 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return new WordSequence(arrayList);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			104,
-			103,
-			44,
-			166
-		})]
 		
-		public static WordSequence asWordSequence(Dictionary dictionary, params string[] words)
+		public static WordSequence asWordSequence(dictionary.Dictionary dictionary, params string[] words)
 		{
 			Word[] array = new Word[words.Length];
 			for (int i = 0; i < words.Length; i++)
@@ -198,21 +99,6 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return new WordSequence(array);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			48,
-			100,
-			134,
-			119,
-			103,
-			100,
-			105,
-			141,
-			104,
-			154,
-			134
-		})]
 		
 		public WordSequence addWord(Word word, int maxSize)
 		{
@@ -241,15 +127,6 @@ namespace edu.cmu.sphinx.linguist
 			wordSequence.check();
 			return wordSequence;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			86,
-			134,
-			105,
-			111,
-			154
-		})]
 		
 		public WordSequence getNewest()
 		{
@@ -261,23 +138,6 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return wordSequence;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			103,
-			108,
-			102,
-			105,
-			130,
-			105,
-			136,
-			103,
-			106,
-			138,
-			102,
-			56,
-			166
-		})]
 		
 		public WordSequence trim(int maxSize)
 		{
@@ -308,16 +168,6 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return wordSequence;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			86,
-			102,
-			117,
-			55,
-			134
-		})]
 		
 		public override string toString()
 		{
@@ -331,85 +181,46 @@ namespace edu.cmu.sphinx.linguist
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			99,
-			105,
-			99,
-			108,
-			54,
-			166,
-			135
-		})]
 		
 		public override int hashCode()
 		{
-			if (this.hashCode == -1)
+			if (this._hashCode == -1)
 			{
 				int num = 123;
 				for (int i = 0; i < this.words.Length; i++)
 				{
 					num += this.words[i].hashCode() * (2 * i + 1);
 				}
-				this.hashCode = num;
+				this._hashCode = num;
 			}
-			return this.hashCode;
+			return this._hashCode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			117,
-			100,
-			98,
-			104,
-			130
-		})]
 		
 		public override bool equals(object @object)
 		{
 			return this == @object || (@object is WordSequence && Arrays.equals(this.words, ((WordSequence)@object).words));
 		}
-
-		
 		
 		public Word[] getWords()
 		{
 			return this.getSubSequence(0, this.size()).words;
-		}
-
-		
-		
-		
+		}		
 		
 		public int compareTo(object obj)
 		{
 			return this.compareTo((WordSequence)obj);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			170,
-			245,
-			69,
-			234,
-			72
-		})]
 		static WordSequence()
 		{
 			WordSequence.__OLDEST_COMPARATOR = new WordSequence_1();
 			WordSequence.__EMPTY = new WordSequence(0);
 		}
 
-		
-		int IComparable.Object;)IcompareTo(object obj)
+		int IComparable.CompareTo(object obj)
 		{
 			return this.compareTo(obj);
 		}
-
 		
 		public static Comparator OLDEST_COMPARATOR
 		{
@@ -419,7 +230,6 @@ namespace edu.cmu.sphinx.linguist
 				return WordSequence.__OLDEST_COMPARATOR;
 			}
 		}
-
 		
 		public static WordSequence EMPTY
 		{
@@ -430,17 +240,14 @@ namespace edu.cmu.sphinx.linguist
 			}
 		}
 
-		
 		internal static Comparator __OLDEST_COMPARATOR;
 
 		internal static WordSequence __EMPTY;
-
 		
 		private Word[] words;
 
 		[NonSerialized]
-		private int hashCode;
-
+		private int _hashCode;
 		
 		internal static bool assertionsDisabled = !ClassLiteral<WordSequence>.Value.desiredAssertionStatus();
 	}

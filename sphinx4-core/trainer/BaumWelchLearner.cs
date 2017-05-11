@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.linguist.acoustic;
@@ -7,9 +6,7 @@ using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
@@ -17,29 +14,8 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.trainer
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.trainer.Learner"
-	})]
 	public class BaumWelchLearner : java.lang.Object, Learner, Configurable
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			38,
-			103,
-			103,
-			109
-		})]
-		
 		public virtual void setUtterance(Utterance utterance)
 		{
 			string text = java.lang.Object.instancehelper_toString(utterance);
@@ -51,36 +27,10 @@ namespace edu.cmu.sphinx.trainer
 		{
 			this.graph = graph;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			51,
-			145,
-			104,
-			167,
-			109,
-			113,
-			104,
-			196,
-			109,
-			164,
-			109,
-			255,
-			7,
-			70,
-			226,
-			60,
-			97,
-			127,
-			5,
-			102,
-			130
-		})]
 		
 		private bool getFeature()
 		{
 			bool result;
-			DataProcessingException ex2;
 			try
 			{
 				this.curFeature = this.frontEnd.getData();
@@ -113,112 +63,13 @@ namespace edu.cmu.sphinx.trainer
 			}
 			catch (DataProcessingException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<DataProcessingException>(ex, 1);
-				goto IL_8B;
+				java.lang.System.@out.println(new StringBuilder().append("DataProcessingException ").append(ex).toString());
+				Throwable.instancehelper_printStackTrace(ex);
+				return false;
 			}
 			return result;
-			IL_8B:
-			DataProcessingException ex3 = ex2;
-			java.lang.System.@out.println(new StringBuilder().append("DataProcessingException ").append(ex3).toString());
-			Throwable.instancehelper_printStackTrace(ex3);
-			return false;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			212,
-			112,
-			111,
-			151,
-			155,
-			240,
-			58,
-			233,
-			74,
-			103,
-			246,
-			69,
-			115,
-			173,
-			109,
-			133,
-			109,
-			110,
-			105,
-			165,
-			109,
-			102,
-			139,
-			109,
-			111,
-			174,
-			196,
-			114,
-			41,
-			139,
-			105,
-			137,
-			132,
-			103,
-			5,
-			233,
-			71,
-			199,
-			125,
-			230,
-			71,
-			165,
-			191,
-			0,
-			240,
-			7,
-			233,
-			125,
-			115,
-			109,
-			99,
-			99,
-			109,
-			109,
-			110,
-			105,
-			133,
-			110,
-			109,
-			109,
-			165,
-			109,
-			102,
-			171,
-			109,
-			111,
-			113,
-			98,
-			204,
-			114,
-			41,
-			139,
-			105,
-			169,
-			132,
-			103,
-			5,
-			199,
-			98,
-			199,
-			127,
-			3,
-			230,
-			71,
-			229,
-			71,
-			240,
-			4,
-			233,
-			126
-		})]
-		
 		private void forwardPass(TrainerScore[] array)
 		{
 			for (int i = 0; i < this.graph.size(); i++)
@@ -339,61 +190,6 @@ namespace edu.cmu.sphinx.trainer
 				goto IL_35D;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			121,
-			102,
-			108,
-			103,
-			108,
-			236,
-			70,
-			140,
-			108,
-			110,
-			104,
-			46,
-			200,
-			142,
-			102,
-			107,
-			104,
-			105,
-			111,
-			142,
-			208,
-			110,
-			105,
-			142,
-			146,
-			197,
-			103,
-			104,
-			103,
-			104,
-			144,
-			159,
-			10,
-			110,
-			46,
-			168,
-			109,
-			143,
-			110,
-			103,
-			108,
-			105,
-			105,
-			111,
-			142,
-			110,
-			210,
-			110,
-			105,
-			174,
-			133
-		})]
 		
 		private TrainerScore[][] prepareScore()
 		{
@@ -475,84 +271,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 			return (TrainerScore[][])arrayList.toArray(new TrainerScore[arrayList.size()][]);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			105,
-			112,
-			112,
-			16,
-			198,
-			103,
-			182,
-			115,
-			173,
-			109,
-			133,
-			109,
-			110,
-			105,
-			197,
-			109,
-			102,
-			171,
-			109,
-			111,
-			110,
-			164,
-			114,
-			41,
-			139,
-			107,
-			137,
-			100,
-			103,
-			37,
-			233,
-			70,
-			199,
-			127,
-			9,
-			198,
-			133,
-			240,
-			16,
-			233,
-			120,
-			117,
-			109,
-			99,
-			109,
-			109,
-			105,
-			133,
-			110,
-			109,
-			109,
-			165,
-			109,
-			102,
-			171,
-			109,
-			111,
-			110,
-			174,
-			191,
-			2,
-			231,
-			74,
-			98,
-			199,
-			127,
-			3,
-			166,
-			133,
-			240,
-			15,
-			233,
-			115
-		})]
 		
 		private void backwardPass(TrainerScore[] array)
 		{
@@ -660,19 +378,6 @@ namespace edu.cmu.sphinx.trainer
 				goto IL_2DE;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			187,
-			119,
-			139,
-			146,
-			173,
-			156,
-			103,
-			134
-		})]
 		
 		private float calculateScores(int i)
 		{
@@ -696,24 +401,9 @@ namespace edu.cmu.sphinx.trainer
 			return result;
 		}
 
-		
-		
 		public BaumWelchLearner()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			17,
-			107,
-			150,
-			118,
-			113
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -735,51 +425,12 @@ namespace edu.cmu.sphinx.trainer
 		public virtual void stop()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			99,
-			103,
-			103
-		})]
 		
 		public virtual void initializeComputation(Utterance utterance, UtteranceGraph graph)
 		{
 			this.setUtterance(utterance);
 			this.setGraph(graph);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			143,
-			136,
-			108,
-			140,
-			110,
-			108,
-			102,
-			110,
-			125,
-			103,
-			108,
-			104,
-			21,
-			198,
-			112,
-			102,
-			137,
-			116,
-			103,
-			223,
-			26,
-			194,
-			108
-		})]
 		
 		public virtual TrainerScore[] getScore()
 		{
@@ -819,15 +470,6 @@ namespace edu.cmu.sphinx.trainer
 			return array;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			177,
-			245,
-			80,
-			101,
-			42
-		})]
 		static BaumWelchLearner()
 		{
 			BaumWelchLearner.logger = Logger.getLogger("edu.cmu.sphinx.trainer.BaumWelch");
@@ -887,7 +529,6 @@ namespace edu.cmu.sphinx.trainer
 
 		private float totalLogScore;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<BaumWelchLearner>.Value.desiredAssertionStatus();
 	}
 }

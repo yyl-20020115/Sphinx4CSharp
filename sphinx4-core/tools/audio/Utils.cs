@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 using javax.sound.sampled;
 
@@ -9,26 +6,6 @@ namespace edu.cmu.sphinx.tools.audio
 {
 	public class Utils : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			104,
-			135,
-			123,
-			140,
-			98,
-			106,
-			176
-		})]
-		
 		public static short[] toSignedPCM(AudioInputStream ais)
 		{
 			AudioFormat format = ais.getFormat();
@@ -47,17 +24,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return array;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			117,
-			68,
-			99,
-			103,
-			141,
-			107,
-			135
-		})]
 		public static void toBytes(short sVal, byte[] bytes, bool bigEndian)
 		{
 			if (bigEndian)
@@ -71,26 +37,6 @@ namespace edu.cmu.sphinx.tools.audio
 				bytes[1] = (byte)((sbyte)(sVal >> 8));
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			105,
-			103,
-			240,
-			70,
-			104,
-			103,
-			120,
-			40,
-			168,
-			102,
-			102
-		})]
 		
 		public static void writeRawFile(AudioData audio, string filename)
 		{
@@ -109,28 +55,11 @@ namespace edu.cmu.sphinx.tools.audio
 			fileOutputStream.close();
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			64,
-			145,
-			103,
-			103,
-			102,
-			112,
-			97
-		})]
-		
 		public static AudioData readAudioFile(string filename)
 		{
 			AudioData result;
 			try
 			{
-				BufferedInputStream.__<clinit>();
 				BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(filename));
 				AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(bufferedInputStream);
 				AudioData audioData = new AudioData(audioInputStream);
@@ -145,21 +74,6 @@ namespace edu.cmu.sphinx.tools.audio
 			IL_31:
 			return null;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			85,
-			103,
-			240,
-			69,
-			104,
-			102
-		})]
 		
 		public static AudioData readRawFile(string filename)
 		{
@@ -170,16 +84,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return new AudioData(data, 8000f);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			125,
-			66,
-			101,
-			101,
-			99,
-			145
-		})]
 		public static short toShort(byte[] bytes, bool bigEndian)
 		{
 			if (bytes.Length == 1)
@@ -193,16 +97,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return (short)((int)bytes[1] << 8 | (int)(byte.MaxValue & bytes[0]));
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			121,
-			66,
-			101,
-			106,
-			99,
-			144
-		})]
 		public static int toUnsignedShort(byte[] bytes, bool bigEndian)
 		{
 			if (bytes.Length == 1)
@@ -216,27 +110,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return (int)bytes[1] << 8 | (int)(byte.MaxValue & bytes[0]);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			70,
-			98,
-			103,
-			135,
-			104,
-			109,
-			103,
-			138,
-			104,
-			109,
-			100,
-			132,
-			105,
-			106,
-			146,
-			159,
-			5
-		})]
-		
 		public static short bytesToShort(AudioFormat format, byte[] byteArray)
 		{
 			int num = 0;
@@ -269,23 +142,11 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 			return (short)num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			8,
-			102
-		})]
 		
 		private Utils()
 		{
 		}
-
-		
-		static Utils()
-		{
-		}
-
-		
+	
 		private static short[] ulawTable = new short[]
 		{
 			32760,

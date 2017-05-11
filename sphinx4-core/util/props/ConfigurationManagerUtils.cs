@@ -15,27 +15,6 @@ namespace edu.cmu.sphinx.util.props
 {
 	public sealed class ConfigurationManagerUtils : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			110,
-			124,
-			104,
-			104,
-			140,
-			107,
-			156
-		})]
-		
 		public static URL resourceToURL(string location)
 		{
 			Pattern pattern = ConfigurationManagerUtils.jarPattern;
@@ -54,41 +33,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return new URL(location);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			238,
-			149,
-			103,
-			135,
-			127,
-			19,
-			191,
-			37,
-			137,
-			119,
-			191,
-			3,
-			2,
-			98,
-			173,
-			161,
-			127,
-			18,
-			127,
-			1,
-			255,
-			5,
-			70,
-			125,
-			109,
-			102,
-			102,
-			98,
-			190,
-			106
-		})]
 		
 		public static void setProperty(ConfigurationManager cm, string propName, string propValue)
 		{
@@ -165,17 +109,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return ps.getPropertyManager();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			190,
-			111,
-			127,
-			6,
-			103,
-			98
-		})]
 		
 		public static void showConfig(ConfigurationManager cm)
 		{

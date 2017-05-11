@@ -101,7 +101,6 @@ namespace edu.cmu.sphinx.speakerid
 			}
 			return arrayList;
 		}
-
 		
 		public virtual ArrayList cluster(ArrayList features)
 		{

@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 using javax.sound.sampled;
 
@@ -9,23 +6,6 @@ namespace edu.cmu.sphinx.tools.audio
 {
 	public class RawWriter : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			171,
-			104,
-			103,
-			103,
-			110,
-			104,
-			105,
-			104,
-			137,
-			127,
-			5,
-			134
-		})]
-		
 		public RawWriter(OutputStream outputStream, AudioFormat audioFormat)
 		{
 			AudioFormat.Encoding encoding = audioFormat.getEncoding();
@@ -45,23 +25,6 @@ namespace edu.cmu.sphinx.tools.audio
 				java.lang.System.exit(-1);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			3,
-			104,
-			156,
-			255,
-			1,
-			69,
-			109,
-			57,
-			166
-		})]
 		
 		public virtual void writeSample(int sample)
 		{
@@ -79,9 +42,7 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 		}
 
-		
 		private OutputStream outputStream;
-
 		
 		private int bytesPerSample;
 

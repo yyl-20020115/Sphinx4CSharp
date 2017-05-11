@@ -1,8 +1,6 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IKVM.Attributes;
 using java.awt;
 using java.lang;
 using javax.swing;
@@ -12,41 +10,6 @@ namespace edu.cmu.sphinx.tools.audio
 	[Serializable]
 	public class FilenameDialog : JDialog
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			103,
-			198,
-			103,
-			109,
-			107,
-			140,
-			108,
-			251,
-			71,
-			105,
-			136,
-			108,
-			251,
-			71,
-			110,
-			205,
-			108,
-			237,
-			70,
-			109,
-			251,
-			71,
-			106,
-			137,
-			109
-		})]
-		
 		internal virtual void createFilenamePanel()
 		{
 			Container contentPane = this.getContentPane();
@@ -71,19 +34,6 @@ namespace edu.cmu.sphinx.tools.audio
 			contentPane.add(jbutton);
 			this.getRootPane().setDefaultButton(jbutton);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			132,
-			66,
-			106,
-			103,
-			236,
-			70,
-			102,
-			102
-		})]
 		
 		public FilenameDialog(Frame parent, bool modal, string title) : base(parent, modal)
 		{
@@ -92,32 +42,11 @@ namespace edu.cmu.sphinx.tools.audio
 			this.createFilenamePanel();
 			this.pack();
 		}
-
-		
 		
 		public virtual string getFilename()
 		{
 			return this.filename.getText();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			72,
-			102,
-			107,
-			103,
-			102,
-			135,
-			141,
-			111,
-			135,
-			103,
-			127,
-			6,
-			54,
-			133,
-			102
-		})]
 		
 		public static void main(string[] args)
 		{
@@ -134,13 +63,6 @@ namespace edu.cmu.sphinx.tools.audio
 			java.lang.System.exit(0);
 		}
 
-		
-		static FilenameDialog()
-		{
-			JDialog.__<clinit>();
-		}
-
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected FilenameDialog(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{

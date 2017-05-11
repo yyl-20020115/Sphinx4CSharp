@@ -1,30 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.audio
 {
 	public class AudioDataInputStream : InputStream
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			104,
-			108,
-			148,
-			103,
-			108,
-			111,
-			111,
-			237,
-			61,
-			230,
-			69
-		})]
-		
 		public AudioDataInputStream(AudioData audio)
 		{
 			this.shorts = audio.getAudioData();
@@ -38,16 +18,6 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			1,
-			111,
-			130
-		})]
 		public override int read()
 		{
 			if (this.currentIndex >= this.bytes.Length)
@@ -61,23 +31,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return array[num2];
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			13,
-			98,
-			103,
-			111,
-			130,
-			125,
-			228,
-			59,
-			230,
-			72
-		})]
 		public override int read(byte[] buf)
 		{
 			int num = 0;
@@ -98,24 +51,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return (num != 0) ? num : -1;
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			30,
-			98,
-			109,
-			111,
-			130,
-			127,
-			0,
-			228,
-			59,
-			230,
-			72
-		})]
 		public override int read(byte[] buf, int off, int len)
 		{
 			int num = 0;
@@ -138,18 +73,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return (num != 0) ? num : -1;
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			46,
-			98,
-			113,
-			143,
-			110
-		})]
 		public virtual long skip(int n)
 		{
 			int num = n;
@@ -160,26 +83,11 @@ namespace edu.cmu.sphinx.tools.audio
 			this.currentIndex += num;
 			return (long)num;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		
 		public override int available()
 		{
 			return this.bytes.Length - this.currentIndex;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			67,
-			102
-		})]
 		
 		public override void close()
 		{
@@ -196,10 +104,6 @@ namespace edu.cmu.sphinx.tools.audio
 			return true;
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		public override void reset()
 		{
 			this.currentIndex = this.markIndex;
@@ -210,11 +114,9 @@ namespace edu.cmu.sphinx.tools.audio
 		internal int currentIndex;
 
 		internal int markIndex;
-
 		
 		internal short[] shorts;
 
-		
 		internal byte[] bytes;
 	}
 }

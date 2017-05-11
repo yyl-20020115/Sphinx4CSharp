@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using java.io;
 using java.lang;
 
@@ -18,7 +17,7 @@ namespace edu.cmu.sphinx.result
 			string text5 = java.lang.String.instancehelper_substring(text2, 0, java.lang.String.instancehelper_indexOf(text2, 44));
 			string text6 = java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 44) + 1);
 			Node node = lattice.addNode(id, dictionary.getWord(text4), (long)Integer.parseInt(text5), (long)Integer.parseInt(text6));
-			node.setPosterior(Double.parseDouble(text3));
+			node.setPosterior(java.lang.Double.parseDouble(text3));
 			if (java.lang.String.instancehelper_equals(text4, "<s>"))
 			{
 				lattice.setInitialNode(node);
@@ -36,7 +35,7 @@ namespace edu.cmu.sphinx.result
 			string id2 = java.lang.String.instancehelper_substring(array[5], 1, java.lang.String.instancehelper_length(array[5]) - 1);
 			string text2 = java.lang.String.instancehelper_substring(array[7], 1, java.lang.String.instancehelper_length(array[7]) - 1);
 			string[] array2 = java.lang.String.instancehelper_split(text2, ",");
-			lattice.addEdge(lattice.getNode(id), lattice.getNode(id2), Double.parseDouble(array2[0]), Double.parseDouble(array2[1]));
+			lattice.addEdge(lattice.getNode(id), lattice.getNode(id2), java.lang.Double.parseDouble(array2[0]), java.lang.Double.parseDouble(array2[1]));
 		}
 	
 		private GDLLatticeFactory()

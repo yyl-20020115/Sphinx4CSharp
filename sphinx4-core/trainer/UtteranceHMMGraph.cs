@@ -1,17 +1,9 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 
 namespace edu.cmu.sphinx.trainer
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.trainer.UtteranceGraph"
-	})]
 	public class UtteranceHMMGraph : Graph, UtteranceGraph
 	{
-
 		public UtteranceHMMGraph(string context, Utterance utterance, AcousticModel acousticModel, UnitManager unitManager)
 		{
 			utterance.startTranscriptIterator();
@@ -22,7 +14,6 @@ namespace edu.cmu.sphinx.trainer
 				this.add(transcriptGraph);
 			}
 		}
-
 		public virtual void add(Graph transcriptGraph)
 		{
 			this.copyGraph(transcriptGraph);

@@ -1,27 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.lang;
+﻿using IKVM.Runtime;
 
 namespace edu.cmu.sphinx.tools.audio
 {
 	public class Sinusoid : AudioData
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			104,
-			125,
-			127,
-			3,
-			108,
-			112,
-			13,
-			198
-		})]
-		
+	{		
 		public Sinusoid(double frequency, double phase, double amplitude, double duration)
 		{
 			this.shorts = new short[ByteCodeHelper.d2i(8000.0 * duration)];

@@ -1,7 +1,4 @@
-﻿using System;
-
-using System.Threading;
-using IKVM.Attributes;
+﻿using System.Threading;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -11,39 +8,10 @@ using javax.sound.sampled;
 namespace edu.cmu.sphinx.tools.audio
 {
 	public class RawRecorder : java.lang.Object
-	{
-		[Throws(new string[]
-		{
-			"javax.sound.sampled.LineUnavailableException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			180,
-			232,
-			49,
-			235,
-			81,
-			103,
-			231,
-			73,
-			177,
-			104,
-			103,
-			245,
-			69,
-			145,
-			104,
-			255,
-			6,
-			69,
-			113,
-			119
-		})]
-		
+	{		
 		public RawRecorder(AudioFormat audioFormat)
 		{
-			this.@lock = new Object();
+			this.@lock = new object();
 			this.inFormat = audioFormat;
 			this.outFormat = audioFormat;
 			DataLine.Info info = new DataLine.Info(ClassLiteral<TargetDataLine>.Value, this.inFormat);
@@ -62,17 +30,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.microphone = (TargetDataLine)AudioSystem.getLine(info);
 			this.microphone.open(audioFormat, this.microphone.getBufferSize());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			29,
-			109,
-			104,
-			140,
-			108,
-			107,
-			111
-		})]
 		
 		public virtual void start()
 		{
@@ -86,35 +43,6 @@ namespace edu.cmu.sphinx.tools.audio
 				this.recorder.start();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			46,
-			109,
-			104,
-			146,
-			108,
-			107,
-			103,
-			103,
-			136,
-			111,
-			104,
-			136,
-			119,
-			241,
-			61,
-			231,
-			69,
-			255,
-			0,
-			69,
-			244,
-			60,
-			98,
-			103,
-			142
-		})]
 		
 		public virtual short[] stop()
 		{
@@ -142,7 +70,7 @@ namespace edu.cmu.sphinx.tools.audio
 					}
 					catch (IOException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+						ex2 = ex;
 						goto IL_CA;
 					}
 					short[] result = array3;
@@ -174,7 +102,6 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 			return result2;
 		}
-
 		
 		internal object @lock;
 
@@ -182,50 +109,24 @@ namespace edu.cmu.sphinx.tools.audio
 
 		internal AudioFormat inFormat;
 
-		
 		internal AudioFormat outFormat;
 
 		internal TargetDataLine microphone;
 
 		internal bool downsample;
-
 		
-		.
-		
-		internal sealed class RecordThread : Thread
-		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			[LineNumberTable(new byte[]
-			{
-				72,
-				175
-			})]
-			
+		internal sealed class RecordThread : java.lang.Thread
+		{			
 			internal RecordThread(RawRecorder rawRecorder)
 			{
-				this.@lock = new Object();
+				this_0 = rawRecorder;
+				this.@lock = new object();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				81,
-				109,
-				103,
-				107,
-				159,
-				25,
-				34,
-				129
-			})]
 			
 			public ByteArrayOutputStream stopRecording()
 			{
 				object obj;
-				Exception ex2;
+				System.Exception ex2;
 				try
 				{
 					Monitor.Enter(obj = this.@lock);
@@ -235,9 +136,9 @@ namespace edu.cmu.sphinx.tools.audio
 						java.lang.Object.instancehelper_wait(this.@lock);
 						Monitor.Exit(obj);
 					}
-					catch (Exception ex)
+					catch (System.Exception ex)
 					{
-						ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
+						ex2 = ex;
 						goto IL_3A;
 					}
 					goto IL_3D;
@@ -247,12 +148,11 @@ namespace edu.cmu.sphinx.tools.audio
 					goto IL_3F;
 				}
 				IL_3A:
-				Exception ex4 = ex2;
+				System.Exception ex4 = ex2;
 				try
 				{
-					Exception ex5 = ex4;
 					Monitor.Exit(obj);
-					throw Throwable.__<unmap>(ex5);
+					throw ex4;
 				}
 				catch (InterruptedException ex6)
 				{
@@ -261,28 +161,6 @@ namespace edu.cmu.sphinx.tools.audio
 				IL_3F:
 				return this.@out;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				93,
-				118,
-				171,
-				112,
-				112,
-				104,
-				117,
-				100,
-				206,
-				98,
-				112,
-				189,
-				2,
-				97,
-				134,
-				110,
-				107,
-				112
-			})]
 			
 			public override void run()
 			{
@@ -307,7 +185,7 @@ namespace edu.cmu.sphinx.tools.audio
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+					ex2 =ex;
 					goto IL_9C;
 				}
 				goto IL_A8;
@@ -321,21 +199,13 @@ namespace edu.cmu.sphinx.tools.audio
 				}
 			}
 
-			
-			static RecordThread()
-			{
-				Thread.__<clinit>();
-			}
-
 			internal bool done;
 
-			
 			internal object @lock;
 
 			internal ByteArrayOutputStream @out;
-
 			
-			internal RawRecorder this_0 = rawRecorder;
+			internal RawRecorder this_0;
 		}
 	}
 }

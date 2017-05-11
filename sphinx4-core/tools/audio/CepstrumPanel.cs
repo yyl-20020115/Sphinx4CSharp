@@ -1,10 +1,8 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.awt;
 using java.awt.image;
@@ -16,30 +14,7 @@ namespace edu.cmu.sphinx.tools.audio
 {
 	[Serializable]
 	public class CepstrumPanel : JPanel
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			77,
-			104,
-			107,
-			108,
-			140,
-			146,
-			104,
-			149,
-			114,
-			103,
-			103,
-			103,
-			134
-		})]
-		
+	{	
 		protected internal virtual void zoomSet(float zoom)
 		{
 			this.zoom = zoom;
@@ -56,20 +31,6 @@ namespace edu.cmu.sphinx.tools.audio
 				this.repaint();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			23,
-			232,
-			35,
-			235,
-			94,
-			103,
-			103,
-			103,
-			241,
-			69
-		})]
 		
 		public CepstrumPanel(FrontEnd frontEnd, StreamDataSource dataSource, AudioData audioData)
 		{
@@ -79,78 +40,9 @@ namespace edu.cmu.sphinx.tools.audio
 			this.dataSource = dataSource;
 			this.audio.addChangeListener(new CepstrumPanel_1(this));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			39,
-			108,
-			236,
-			69,
-			102,
-			104,
-			107,
-			140,
-			107,
-			107,
-			109,
-			106,
-			106,
-			106,
-			112,
-			238,
-			61,
-			232,
-			70,
-			137,
-			107,
-			109,
-			106,
-			106,
-			107,
-			112,
-			238,
-			61,
-			232,
-			70,
-			137,
-			145,
-			134,
-			104,
-			111,
-			103,
-			139,
-			104,
-			104,
-			200,
-			208,
-			108,
-			111,
-			238,
-			69,
-			220,
-			223,
-			2,
-			105,
-			60,
-			232,
-			51,
-			11,
-			235,
-			83,
-			153,
-			104,
-			150,
-			104,
-			191,
-			22,
-			2,
-			98,
-			135
-		})]
 		
 		protected internal virtual void computeCepstrum()
 		{
-			Exception ex3;
 			try
 			{
 				AudioDataInputStream audioDataInputStream = new AudioDataInputStream(this.audio);
@@ -219,60 +111,22 @@ namespace edu.cmu.sphinx.tools.audio
 				Dimension size = this.getSize();
 				this.repaint(0L, 0, 0, size.width - 1, size.height - 1);
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_294;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_294:
-			Exception ex4 = ex3;
-			Throwable.instancehelper_printStackTrace(ex4);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			11,
-			232,
-			47,
-			235,
-			82
-		})]
 		
 		public CepstrumPanel()
 		{
 			this.zoom = 1f;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			68,
-			105,
-			102
-		})]
 		
 		public virtual void setOffsetFactor(double offsetFactor)
 		{
 			this.offsetFactor = offsetFactor;
 			this.computeCepstrum();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			106,
-			135,
-			107,
-			152,
-			136,
-			144
-		})]
 		
 		public override void paint(Graphics g)
 		{
@@ -284,13 +138,6 @@ namespace edu.cmu.sphinx.tools.audio
 				g.drawImage(this.scaledSpectrogram, 0, 0, null);
 			}
 		}
-
-		
-		static CepstrumPanel()
-		{
-			JPanel.__<clinit>();
-		}
-
 		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected CepstrumPanel(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)

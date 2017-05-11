@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
-using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.result
@@ -21,9 +17,8 @@ namespace edu.cmu.sphinx.result
 		}
 		
 		public WordResult(Node node)
+			:this(node.getWord(), new TimeFrame(node.getBeginTime(), node.getEndTime()), node.getViterbiScore(), node.getPosterior())
 		{
-			Word w = node.getWord();
-			this..ctor(w, new TimeFrame(node.getBeginTime(), node.getEndTime()), node.getViterbiScore(), node.getPosterior());
 		}
 		
 		public WordResult(Word w, TimeFrame timeFrame, double score, double posterior)
@@ -34,8 +29,6 @@ namespace edu.cmu.sphinx.result
 			this.confidence = posterior;
 		}
 
-		
-		
 		public virtual double getConfidence()
 		{
 			return java.lang.Math.min(this.confidence, (double)0f);
@@ -46,42 +39,32 @@ namespace edu.cmu.sphinx.result
 			return this.score;
 		}
 
-		
-		
 		public virtual Pronunciation getPronunciation()
 		{
 			return this.word.getMostLikelyPronunciation();
 		}
-
-		
 		
 		public virtual bool isFiller()
 		{
 			return this.word.isFiller() || java.lang.String.instancehelper_equals(this.word.toString(), "<skip>");
 		}
 
-		
-		
 		public override string toString()
 		{
 			return java.lang.String.format(Locale.US, "{%s, %.3f, [%s]}", new object[]
 			{
 				this.word,
-				Double.valueOf(LogMath.getLogMath().logToLinear((float)this.getConfidence())),
+				java.lang.Double.valueOf(LogMath.getLogMath().logToLinear((float)this.getConfidence())),
 				this.timeFrame
 			});
 		}
 
-		
 		private Word word;
 
-		
 		private TimeFrame timeFrame;
 
-		
 		private double score;
 
-		
 		private double confidence;
 	}
 }

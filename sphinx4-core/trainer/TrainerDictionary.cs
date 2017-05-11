@@ -1,10 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.lang;
 
 namespace edu.cmu.sphinx.trainer
@@ -95,8 +91,6 @@ namespace edu.cmu.sphinx.trainer
 			return graph;
 		}
 
-		
-		
 		public TrainerDictionary()
 		{
 		}
@@ -105,19 +99,13 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return "DEFAULT";
 		}
-
 		
-		static TrainerDictionary()
-		{
-		}
-
 		internal const string UTTERANCE_BEGIN_SYMBOL = "<s>";
 
 		internal const string UTTERANCE_END_SYMBOL = "</s>";
 
 		internal const string SILENCE_SYMBOL = "SIL";
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<TrainerDictionary>.Value.desiredAssertionStatus();
 	}
 }

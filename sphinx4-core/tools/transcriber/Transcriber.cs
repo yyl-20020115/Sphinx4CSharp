@@ -1,20 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.api;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.api;
 using java.io;
-using java.lang;
 
 namespace edu.cmu.sphinx.tools.transcriber
 {
 	public class Transcriber : java.lang.Object
 	{
-		
-		
 		public Transcriber()
 		{
 		}
-
 		
 		public static void main(string[] args)
 		{

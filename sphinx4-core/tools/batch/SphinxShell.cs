@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -10,7 +7,6 @@ namespace edu.cmu.sphinx.tools.batch
 {
 	public class SphinxShell : java.lang.Object
 	{
-				
 		public SphinxShell()
 		{
 		}
@@ -52,12 +48,6 @@ namespace edu.cmu.sphinx.tools.batch
 				ConfigurationManagerUtils.setProperty(cm, propName, propValue);
 			}
 		}
-
-		
-		static SphinxShell()
-		{
-		}
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<SphinxShell>.Value.desiredAssertionStatus();
 	}

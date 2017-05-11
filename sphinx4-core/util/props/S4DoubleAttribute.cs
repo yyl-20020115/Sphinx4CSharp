@@ -1,20 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
-using IKVM.Attributes;
 using ikvm.@internal;
 
 namespace edu.cmu.sphinx.util.props
 {
-	
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.S4Double"
-	})]
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4DoubleAttribute : AnnotationAttributeBase, S4Double
 	{
-		
 		public S4DoubleAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);
@@ -28,7 +19,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return base.getDoubleValue("defaultValue");
 		}
-
 		
 		public double defaultValue
 		{
@@ -49,7 +39,6 @@ namespace edu.cmu.sphinx.util.props
 			return (double[])base.getValue("range");
 		}
 
-		
 		public double[] range
 		{
 			
@@ -69,7 +58,6 @@ namespace edu.cmu.sphinx.util.props
 			return base.getBooleanValue("mandatory");
 		}
 
-		
 		public bool mandatory
 		{
 			

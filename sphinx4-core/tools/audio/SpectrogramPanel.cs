@@ -1,10 +1,8 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.awt;
 using java.awt.image;
@@ -16,30 +14,7 @@ namespace edu.cmu.sphinx.tools.audio
 {
 	[Serializable]
 	public class SpectrogramPanel : JPanel
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			74,
-			104,
-			107,
-			108,
-			140,
-			146,
-			104,
-			149,
-			114,
-			103,
-			103,
-			103,
-			134
-		})]
-		
+	{	
 		protected internal virtual void zoomSet(float zoom)
 		{
 			this.zoom = zoom;
@@ -56,20 +31,6 @@ namespace edu.cmu.sphinx.tools.audio
 				this.repaint();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			21,
-			232,
-			35,
-			235,
-			94,
-			103,
-			103,
-			103,
-			241,
-			69
-		})]
 		
 		public SpectrogramPanel(FrontEnd frontEnd, StreamDataSource dataSource, AudioData audioData)
 		{
@@ -79,69 +40,9 @@ namespace edu.cmu.sphinx.tools.audio
 			this.dataSource = dataSource;
 			this.audio.addChangeListener(new SpectrogramPanel_1(this));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			36,
-			108,
-			236,
-			69,
-			102,
-			106,
-			140,
-			107,
-			107,
-			109,
-			106,
-			234,
-			69,
-			154,
-			104,
-			230,
-			56,
-			232,
-			75,
-			137,
-			145,
-			134,
-			104,
-			111,
-			102,
-			139,
-			104,
-			104,
-			200,
-			240,
-			71,
-			149,
-			108,
-			111,
-			236,
-			69,
-			150,
-			106,
-			202,
-			223,
-			2,
-			244,
-			48,
-			11,
-			235,
-			85,
-			153,
-			104,
-			150,
-			104,
-			191,
-			22,
-			2,
-			98,
-			135
-		})]
-		
+	
 		protected internal virtual void computeSpectrogram()
 		{
-			Exception ex3;
 			try
 			{
 				AudioDataInputStream audioDataInputStream = new AudioDataInputStream(this.audio);
@@ -195,43 +96,17 @@ namespace edu.cmu.sphinx.tools.audio
 				Dimension size = this.getSize();
 				this.repaint(0L, 0, 0, size.width - 1, size.height - 1);
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_22C;
-			}
-			return;
-			IL_22C:
-			Exception ex4 = ex3;
-			Throwable.instancehelper_printStackTrace(ex4);
-		}
+				Throwable.instancehelper_printStackTrace(ex);
 
-		[LineNumberTable(new byte[]
-		{
-			9,
-			232,
-			47,
-			235,
-			82
-		})]
+			}
+		}
 		
 		public SpectrogramPanel()
 		{
 			this.zoom = 1f;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			65,
-			105,
-			102
-		})]
 		
 		public virtual void setOffsetFactor(double offsetFactor)
 		{
@@ -239,17 +114,6 @@ namespace edu.cmu.sphinx.tools.audio
 			this.computeSpectrogram();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			103,
-			135,
-			107,
-			152,
-			136,
-			144
-		})]
-		
 		public override void paint(Graphics g)
 		{
 			Dimension size = this.getSize();
@@ -261,13 +125,6 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 		}
 
-		
-		static SpectrogramPanel()
-		{
-			JPanel.__<clinit>();
-		}
-
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected SpectrogramPanel(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{

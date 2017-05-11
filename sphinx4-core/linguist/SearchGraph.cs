@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.linguist
+﻿namespace edu.cmu.sphinx.linguist
 {
 	public interface SearchGraph
 	{

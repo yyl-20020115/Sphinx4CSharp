@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.awt;
@@ -20,21 +17,6 @@ namespace edu.cmu.sphinx.tools.audio
 {
 	public class AudioTool : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			86,
-			107,
-			111,
-			139,
-			99,
-			146,
-			144,
-			99,
-			111,
-			111,
-			148
-		})]
-		
 		public static void getFilename(string title, int type)
 		{
 			AudioTool.fileChooser.setDialogTitle(title);
@@ -56,35 +38,6 @@ namespace edu.cmu.sphinx.tools.audio
 				AudioTool.prefs.put("filename", AudioTool.filename);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			73,
-			112,
-			177,
-			139,
-			108,
-			103,
-			103,
-			104,
-			97,
-			108,
-			105,
-			112,
-			237,
-			59,
-			232,
-			72,
-			140,
-			102,
-			98,
-			134
-		})]
 		
 		public static void getAudioFromFile(string filename)
 		{
@@ -113,79 +66,35 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 		}
 
-		
 		internal static JButton access_400()
 		{
 			return AudioTool.recordButton;
 		}
-
 		
 		internal static JMenuItem access_000()
 		{
 			return AudioTool.saveMenuItem;
-		}
-
-		
-		
+		}				
 		
 		internal static short[] access_500(Microphone microphone)
 		{
 			return AudioTool.getRecordedAudio(microphone);
 		}
 
-		
-		
-		
 		internal static void access_100()
 		{
 			AudioTool.zoomIn();
 		}
-
-		
-		
 		
 		internal static void access_200()
 		{
 			AudioTool.zoomOut();
 		}
 
-		
-		
-		
 		internal static void access_300()
 		{
 			AudioTool.zoomReset();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			101,
-			103,
-			230,
-			69,
-			139,
-			103,
-			107,
-			102,
-			102,
-			102,
-			102,
-			109,
-			105,
-			50,
-			168,
-			220,
-			5,
-			98,
-			103,
-			165,
-			104,
-			159,
-			15,
-			240,
-			70
-		})]
 		
 		private static short[] getRecordedAudio(Microphone microphone)
 		{
@@ -193,7 +102,6 @@ namespace edu.cmu.sphinx.tools.audio
 			int num = 8000;
 			while (microphone.hasMoreData())
 			{
-				Exception ex3;
 				try
 				{
 					Data data = microphone.getData();
@@ -209,20 +117,11 @@ namespace edu.cmu.sphinx.tools.audio
 						array = array2;
 					}
 				}
-				catch (Exception ex)
+				catch (System.Exception ex)
 				{
-					Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-					if (ex2 == null)
-					{
-						throw;
-					}
-					ex3 = ex2;
-					goto IL_8A;
+					Throwable.instancehelper_printStackTrace(ex);
 				}
 				continue;
-				IL_8A:
-				Exception ex4 = ex3;
-				Throwable.instancehelper_printStackTrace(ex4);
 			}
 			if (num > 8000)
 			{
@@ -231,74 +130,24 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			166,
-			106,
-			101
-		})]
 		
 		private static void zoomReset()
 		{
 			AudioTool.zoom = 1f;
 			AudioTool.zoomPanels();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			160,
-			113,
-			101
-		})]
 		
 		private static void zoomOut()
 		{
 			AudioTool.zoom /= 2f;
 			AudioTool.zoomPanels();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			154,
-			113,
-			101
-		})]
 		
 		private static void zoomIn()
 		{
 			AudioTool.zoom *= 2f;
 			AudioTool.zoomPanels();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			38,
-			130,
-			102,
-			115,
-			108,
-			103,
-			103,
-			121,
-			63,
-			2,
-			168,
-			100,
-			107,
-			127,
-			2,
-			228,
-			54,
-			233,
-			79,
-			99,
-			159,
-			5
-		})]
 		
 		private static void dumpLineInfo(string text, Line.Info[] array)
 		{
@@ -333,19 +182,6 @@ namespace edu.cmu.sphinx.tools.audio
 				java.lang.System.@out.println(new StringBuilder().append(text).append("none").toString());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			105,
-			103,
-			99,
-			135,
-			101,
-			251,
-			74,
-			2,
-			161
-		})]
 		
 		public static void populateAudio(string filename)
 		{
@@ -363,18 +199,6 @@ namespace edu.cmu.sphinx.tools.audio
 			{
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			141,
-			103,
-			143,
-			103,
-			143,
-			103,
-			143
-		})]
 		
 		private static void zoomPanels()
 		{
@@ -391,28 +215,6 @@ namespace edu.cmu.sphinx.tools.audio
 				AudioTool.cepstrumPanel.zoomSet(AudioTool.zoom);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			64,
-			134,
-			106,
-			105,
-			127,
-			8,
-			54,
-			133,
-			119,
-			47,
-			165,
-			111,
-			144,
-			111,
-			240,
-			53,
-			233,
-			77
-		})]
 		
 		private static void dumpMixers()
 		{
@@ -428,79 +230,6 @@ namespace edu.cmu.sphinx.tools.audio
 				AudioTool.dumpLineInfo("        ", mixer.getTargetLineInfo());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			172,
-			102,
-			135,
-			107,
-			136,
-			107,
-			112,
-			235,
-			77,
-			136,
-			111,
-			116,
-			107,
-			239,
-			76,
-			140,
-			107,
-			112,
-			235,
-			78,
-			136,
-			107,
-			112,
-			235,
-			69,
-			168,
-			107,
-			136,
-			107,
-			112,
-			235,
-			69,
-			136,
-			107,
-			112,
-			235,
-			69,
-			168,
-			107,
-			136,
-			107,
-			109,
-			235,
-			69,
-			136,
-			107,
-			109,
-			235,
-			69,
-			136,
-			107,
-			109,
-			235,
-			69,
-			168,
-			107,
-			136,
-			107,
-			112,
-			235,
-			70,
-			136,
-			234,
-			83,
-			107,
-			112,
-			107,
-			104
-		})]
 		
 		private static void createMenuBar(JFrame jframe)
 		{
@@ -561,44 +290,6 @@ namespace edu.cmu.sphinx.tools.audio
 			jmenuItem.addActionListener(AudioTool.recordListener);
 			jmenu.add(jmenuItem);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			81,
-			102,
-			102,
-			103,
-			135,
-			111,
-			107,
-			239,
-			71,
-			111,
-			107,
-			143,
-			111,
-			107,
-			239,
-			70,
-			111,
-			107,
-			239,
-			70,
-			111,
-			107,
-			239,
-			70,
-			107,
-			235,
-			70,
-			108,
-			108,
-			108,
-			108,
-			108,
-			136
-		})]
 		
 		private static JPanel createButtonPanel()
 		{
@@ -631,87 +322,17 @@ namespace edu.cmu.sphinx.tools.audio
 			jpanel.add(jbutton);
 			return jpanel;
 		}
-
-		
-		
-		public AudioTool()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			146,
-			116,
-			121,
-			148,
-			116,
-			101,
-			230,
-			69,
-			101,
-			136,
-			101,
-			154,
-			144,
-			135,
-			117,
-			106,
-			138,
-			113,
-			113,
-			114,
-			178,
-			109,
-			142,
-			108,
-			106,
-			231,
-			69,
-			103,
-			117,
-			191,
-			3,
-			118,
-			152,
-			103,
-			111,
-			109,
-			111,
-			109,
-			111,
-			109,
-			143,
-			137,
-			113,
-			113,
-			138,
-			116,
-			138,
-			138,
-			104,
-			105,
-			103,
-			113,
-			191,
-			2,
-			2,
-			98,
-			135
-		})]
 		
 		public static void main(string[] args)
 		{
 			AudioTool.prefs = Preferences.userRoot().node("/edu/cmu/sphinx/tools/audio/AudioTool");
 			AudioTool.filename = AudioTool.prefs.get("filename", "untitled.raw");
-			File.__<clinit>();
 			AudioTool.file = new File(AudioTool.filename);
 			if (args.Length == 1 && java.lang.String.instancehelper_equals(args[0], "-dumpMixers"))
 			{
 				AudioTool.dumpMixers();
 				java.lang.System.exit(0);
 			}
-			Exception ex3;
 			try
 			{
 				if (args.Length > 0)
@@ -721,7 +342,6 @@ namespace edu.cmu.sphinx.tools.audio
 				URL url;
 				if (args.Length == 2)
 				{
-					File.__<clinit>();
 					url = new File(args[1]).toURI().toURL();
 				}
 				else
@@ -742,11 +362,8 @@ namespace edu.cmu.sphinx.tools.audio
 				AudioTool.fileChooser = new JFileChooser();
 				AudioTool.createMenuBar(jframe);
 				float num = @float * AudioTool.audio.getAudioFormat().getSampleRate() / 1000f;
-				AudioPanel.__<clinit>();
 				AudioTool.audioPanel = new AudioPanel(AudioTool.audio, 1f / num, 0.004f);
-				SpectrogramPanel.__<clinit>();
 				AudioTool.spectrogramPanel = new SpectrogramPanel(frontEnd, dataSource, AudioTool.audio);
-				CepstrumPanel.__<clinit>();
 				AudioTool.cepstrumPanel = new CepstrumPanel(frontEnd2, dataSource2, AudioTool.audio);
 				JPanel jpanel = new JPanel();
 				jpanel.setLayout(new BoxLayout(jpanel, 3));
@@ -757,11 +374,9 @@ namespace edu.cmu.sphinx.tools.audio
 				jpanel.add(AudioTool.cepstrumPanel);
 				AudioTool.cepstrumPanel.setAlignmentX(0f);
 				JScrollPane jscrollPane = new JScrollPane(jpanel);
-				JPanel.__<clinit>();
 				JPanel jpanel2 = new JPanel(new BorderLayout());
 				jpanel2.add(AudioTool.createButtonPanel(), "North");
 				jpanel2.add(jscrollPane);
-				AudioPlayer.__<clinit>();
 				AudioTool.player = new AudioPlayer(AudioTool.audio);
 				AudioTool.player.start();
 				AudioTool.getAudioFromFile(AudioTool.filename);
@@ -771,20 +386,10 @@ namespace edu.cmu.sphinx.tools.audio
 				jframe.setSize(640, 400);
 				jframe.setVisible(true);
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_2C3;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_2C3:
-			Exception ex4 = ex3;
-			Throwable.instancehelper_printStackTrace(ex4);
 		}
 
 		static AudioTool()

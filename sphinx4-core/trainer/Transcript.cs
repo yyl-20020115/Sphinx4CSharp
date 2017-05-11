@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 
 namespace edu.cmu.sphinx.trainer
 {

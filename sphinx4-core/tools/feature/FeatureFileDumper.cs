@@ -1,11 +1,8 @@
-﻿using System;
-
+﻿
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -16,7 +13,6 @@ namespace edu.cmu.sphinx.tools.feature
 {
 	public class FeatureFileDumper : java.lang.Object
 	{
-
 		private void getAllFeatures()
 		{
 			try
@@ -64,8 +60,6 @@ namespace edu.cmu.sphinx.tools.feature
 			return;
 		}
 
-		
-		
 		private int getNumberDataPoints()
 		{
 			return this.allFeatures.size() * this.featureLength;
@@ -276,15 +270,12 @@ namespace edu.cmu.sphinx.tools.feature
 		private FrontEnd frontEnd;
 
 		private StreamDataSource audioSource;
-
 		
 		private List allFeatures;
 
 		private int featureLength;
-
 		
 		private static Logger logger;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<FeatureFileDumper>.Value.desiredAssertionStatus();
 	}

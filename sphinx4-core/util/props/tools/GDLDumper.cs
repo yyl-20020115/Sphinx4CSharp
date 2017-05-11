@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.io;
 using java.lang;
 using java.util;
@@ -9,24 +6,7 @@ using java.util;
 namespace edu.cmu.sphinx.util.props.tools
 {
 	public class GDLDumper : java.lang.Object
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			12,
-			108,
-			102,
-			127,
-			6,
-			104,
-			98,
-			102,
-			102
-		})]
-		
+	{		
 		public static void showConfigAsGDL(ConfigurationManager ConfigurationManager, string path)
 		{
 			PrintStream printStream = new PrintStream(new FileOutputStream(path));
@@ -40,33 +20,6 @@ namespace edu.cmu.sphinx.util.props.tools
 			GDLDumper.dumpGDLFooter(printStream);
 			printStream.close();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			52,
-			104,
-			103,
-			115,
-			107,
-			115,
-			107,
-			115,
-			107,
-			115,
-			107,
-			115,
-			107,
-			115,
-			104,
-			115,
-			104,
-			115,
-			223,
-			7,
-			2,
-			97,
-			134
-		})]
 		
 		public static string getColor(ConfigurationManager ConfigurationManager, string componentName)
 		{
@@ -122,23 +75,6 @@ namespace edu.cmu.sphinx.util.props.tools
 			IL_110:
 			return "black";
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			28,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107
-		})]
 		
 		public static void dumpGDLHeader(PrintStream @out)
 		{
@@ -155,30 +91,6 @@ namespace edu.cmu.sphinx.util.props.tools
 			@out.println("node.textcolor : darkblue ");
 			@out.println("splines        : yes");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			170,
-			191,
-			30,
-			104,
-			135,
-			126,
-			105,
-			137,
-			103,
-			105,
-			159,
-			33,
-			105,
-			105,
-			123,
-			159,
-			28,
-			162,
-			101
-		})]
 		
 		public static void dumpComponentAsGDL(ConfigurationManager cm, PrintStream @out, string name)
 		{
@@ -210,19 +122,11 @@ namespace edu.cmu.sphinx.util.props.tools
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			84,
-			107
-		})]
 		
 		public static void dumpGDLFooter(PrintStream @out)
 		{
 			@out.println("}");
 		}
-
-		
 		
 		public GDLDumper()
 		{

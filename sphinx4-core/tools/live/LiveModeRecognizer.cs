@@ -3,8 +3,6 @@ using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -14,7 +12,6 @@ namespace edu.cmu.sphinx.tools.live
 {
 	public class LiveModeRecognizer : java.lang.Object, Configurable
 	{
-				
 		private void alignResults(List list, List list2)
 		{
 			java.lang.System.@out.println();
@@ -62,7 +59,6 @@ namespace edu.cmu.sphinx.tools.live
 		
 		private void saveAlignedText(string text, string text2)
 		{
-			IOException ex2;
 			try
 			{
 				FileWriter fileWriter = new FileWriter("align.txt");
@@ -78,8 +74,6 @@ namespace edu.cmu.sphinx.tools.live
 			return;
 		}
 
-		
-		
 		private util.Timer getAlignTimer()
 		{
 			return TimerPool.getTimer(this, "Align");
@@ -189,43 +183,28 @@ namespace edu.cmu.sphinx.tools.live
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_61;
+					java.lang.System.err.println(new StringBuilder().append("I/O error during initialization: \n   ").append(ex).toString());
+					return;
 				}
 			}
 			catch (PropertyException ex3)
 			{
-				ex4 = ByteCodeHelper.MapException<PropertyException>(ex3, 1);
-				goto IL_65;
+				Throwable.instancehelper_printStackTrace(ex3);
+				return;
 			}
 			if (liveModeRecognizer == null)
 			{
 				java.lang.System.err.println(new StringBuilder().append("Can't find liveModeRecognizer in ").append(text).toString());
 				return;
 			}
-			IOException ex6;
 			try
 			{
 				liveModeRecognizer.decode();
 			}
 			catch (IOException ex5)
 			{
-				ex6 = ByteCodeHelper.MapException<IOException>(ex5, 1);
-				goto IL_100;
+				java.lang.System.err.println(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex5)).toString());
 			}
-			return;
-			IL_100:
-			IOException ex7 = ex6;
-			java.lang.System.err.println(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex7)).toString());
-			return;
-			IL_61:
-			ex7 = ex2;
-			java.lang.System.err.println(new StringBuilder().append("I/O error during initialization: \n   ").append(ex7).toString());
-			return;
-			IL_65:
-			PropertyException ex8 = ex4;
-			java.lang.System.err.println(new StringBuilder().append("Error during initialization: \n  ").append(ex8).toString());
-			Throwable.instancehelper_printStackTrace(ex8);
 		}
 
 		[S4Component(new object[]
@@ -297,7 +276,6 @@ namespace edu.cmu.sphinx.tools.live
 
 		private ReferenceSource referenceSource;
 
-		
 		private NISTAlign aligner;
 	}
 }

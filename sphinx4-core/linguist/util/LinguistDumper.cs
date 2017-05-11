@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
@@ -11,36 +7,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.util
 {
 	public class LinguistDumper : LinguistProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			95,
-			102,
-			102,
-			103,
-			110,
-			107,
-			109,
-			103,
-			136,
-			114,
-			110,
-			106,
-			105,
-			108,
-			108,
-			111,
-			136,
-			147,
-			241,
-			57,
-			235,
-			74,
-			138,
-			101,
-			103
-		})]
-		
+	{		
 		private void dumpSearchGraph(PrintStream @out, SearchState searchState)
 		{
 			LinkedList linkedList = new LinkedList();
@@ -95,22 +62,6 @@ namespace edu.cmu.sphinx.linguist.util
 		protected internal virtual void endDump(PrintStream @out)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			182,
-			233,
-			60,
-			231,
-			160,
-			139,
-			107,
-			235,
-			159,
-			121,
-			103
-		})]
 		
 		public LinguistDumper(string filename, Linguist linguist) : base(linguist)
 		{
@@ -119,21 +70,6 @@ namespace edu.cmu.sphinx.linguist.util
 			this.eqSigs = new HashMap();
 			this.filename = filename;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			232,
-			56,
-			231,
-			160,
-			139,
-			107,
-			235,
-			159,
-			126
-		})]
 		
 		public LinguistDumper()
 		{
@@ -141,45 +77,17 @@ namespace edu.cmu.sphinx.linguist.util
 			this.eqStates = new Cache();
 			this.eqSigs = new HashMap();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			5,
-			103,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.filename = ps.getString("filename");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			14,
-			113,
-			103,
-			97,
-			112,
-			104,
-			184,
-			2,
-			98,
-			159,
-			24
-		})]
 		
 		public override void run()
 		{
-			FileNotFoundException ex2;
 			try
 			{
-				FileOutputStream.__<clinit>();
 				FileOutputStream fileOutputStream = new FileOutputStream(this.filename);
 				PrintStream printStream = new PrintStream(fileOutputStream);
 				SearchState initialState = this.getLinguist().getSearchGraph().getInitialState();
@@ -188,68 +96,14 @@ namespace edu.cmu.sphinx.linguist.util
 			}
 			catch (FileNotFoundException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<FileNotFoundException>(ex, 1);
-				goto IL_46;
+				java.lang.System.@out.println(new StringBuilder().append("Can't dump to file ").append(this.filename).append(' ').append(ex).toString());
 			}
-			return;
-			IL_46:
-			FileNotFoundException ex3 = ex2;
-			java.lang.System.@out.println(new StringBuilder().append("Can't dump to file ").append(this.filename).append(' ').append(ex3).toString());
 		}
 
 		protected internal virtual void setDepthFirst(bool depthFirst)
 		{
 			this.depthFirst = depthFirst;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			73,
-			114,
-			119,
-			116,
-			111,
-			127,
-			5,
-			127,
-			10,
-			127,
-			5,
-			127,
-			5,
-			99,
-			159,
-			10,
-			99,
-			191,
-			10,
-			99,
-			130,
-			99,
-			115,
-			130,
-			118,
-			111,
-			127,
-			10,
-			127,
-			10,
-			127,
-			5,
-			159,
-			5,
-			108,
-			111,
-			127,
-			10,
-			127,
-			10,
-			127,
-			5,
-			159,
-			5
-		})]
 		
 		private void equalCheck(SearchState searchState)
 		{
@@ -310,12 +164,8 @@ namespace edu.cmu.sphinx.linguist.util
 		private bool depthFirst;
 
 		private string filename;
-
 		
-		
-		internal Cache eqStates;
-
-		
+		internal Cache eqStates;		
 		
 		internal Map eqSigs;
 	}

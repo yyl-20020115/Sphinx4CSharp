@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.util;
 using javax.sound.sampled;
@@ -10,74 +7,9 @@ namespace edu.cmu.sphinx.tools.audio
 {
 	public class RawReader : java.lang.Object
 	{
-		
-		
 		public RawReader()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			130,
-			103,
-			105,
-			104,
-			100,
-			104,
-			132,
-			127,
-			5,
-			134,
-			231,
-			70,
-			104,
-			103,
-			98,
-			98,
-			99,
-			103,
-			111,
-			101,
-			101,
-			99,
-			130,
-			176,
-			169,
-			100,
-			98,
-			99,
-			102,
-			99,
-			138,
-			104,
-			103,
-			9,
-			234,
-			69,
-			104,
-			99,
-			138,
-			106,
-			103,
-			9,
-			232,
-			73,
-			99,
-			143,
-			112,
-			229,
-			69,
-			110,
-			106,
-			56,
-			168
-		})]
 		
 		public static short[] readAudioData(InputStream audioStream, AudioFormat audioFormat)
 		{

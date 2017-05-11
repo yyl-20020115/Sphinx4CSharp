@@ -1,14 +1,8 @@
-﻿using System;
-using IKVM.Attributes;
+﻿using IKVM.Attributes;
 using java.lang.annotation;
 
 namespace edu.cmu.sphinx.util.props
 {
-	[Implements(new string[]
-	{
-		"java.lang.annotation.Annotation"
-	})]
-	
 	[AnnotationAttribute("edu.cmu.sphinx.util.props.ConfCategoryAttribute")]
 	[Documented(new object[]
 	{

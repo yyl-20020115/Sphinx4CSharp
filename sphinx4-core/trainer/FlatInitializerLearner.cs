@@ -1,34 +1,14 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 
 namespace edu.cmu.sphinx.trainer
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.trainer.Learner"
-	})]
 	public class FlatInitializerLearner : java.lang.Object, Learner, Configurable
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			6,
-			103,
-			135,
-			109
-		})]
-		
+	{		
 		public virtual void setUtterance(Utterance utterance)
 		{
 			string text = java.lang.Object.instancehelper_toString(utterance);
@@ -36,44 +16,16 @@ namespace edu.cmu.sphinx.trainer
 			this.dataSource.setInputStream(@is, false);
 		}
 
-		
-		
 		public virtual void setGraph(UtteranceGraph graph)
 		{
 			string text = "Flat initializer does not use a graph!";
 			
 			throw new Error(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			21,
-			145,
-			104,
-			167,
-			109,
-			113,
-			104,
-			196,
-			109,
-			164,
-			109,
-			255,
-			7,
-			71,
-			226,
-			60,
-			97,
-			127,
-			5,
-			102,
-			162
-		})]
 		
 		private bool getFeature()
 		{
 			bool result;
-			DataProcessingException ex2;
 			try
 			{
 				this.curFeature = this.frontEnd.getData();
@@ -106,35 +58,16 @@ namespace edu.cmu.sphinx.trainer
 			}
 			catch (DataProcessingException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<DataProcessingException>(ex, 1);
-				goto IL_8B;
+				java.lang.System.@out.println(new StringBuilder().append("DataProcessingException ").append(ex).toString());
+				Throwable.instancehelper_printStackTrace(ex);
+				return false;
 			}
 			return result;
-			IL_8B:
-			DataProcessingException ex3 = ex2;
-			java.lang.System.@out.println(new StringBuilder().append("DataProcessingException ").append(ex3).toString());
-			Throwable.instancehelper_printStackTrace(ex3);
-			return false;
 		}
-
-		
 		
 		public FlatInitializerLearner()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			184,
-			150,
-			118,
-			113
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -150,32 +83,12 @@ namespace edu.cmu.sphinx.trainer
 		public virtual void stop()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			71,
-			103,
-			103
-		})]
 		
 		public virtual void initializeComputation(Utterance utterance, UtteranceGraph graph)
 		{
 			this.setUtterance(utterance);
 			this.setGraph(graph);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			94,
-			168,
-			103,
-			148,
-			130
-		})]
 		
 		public virtual TrainerScore[] getScore()
 		{

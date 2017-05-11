@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
@@ -34,7 +30,6 @@ namespace edu.cmu.sphinx.trainer
 				}
 				if (this.isStageActive)
 				{
-					IOException ex2;
 					try
 					{
 						if (stage.equals(Stage.___00_INITIALIZATION))
@@ -77,17 +72,8 @@ namespace edu.cmu.sphinx.trainer
 					}
 					catch (IOException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-						goto IL_1B2;
+						throw new Error(new StringBuilder().append("IOE: Can't finish trainer ").append(ex).toString(), ex);
 					}
-					goto IL_1B0;
-					IL_1B2:
-					IOException ex3 = ex2;
-					Throwable.instancehelper_printStackTrace(ex3);
-					string text = new StringBuilder().append("IOE: Can't finish trainer ").append(ex3).toString();					Exception ex4 = ex3;
-					
-					throw new Error(text, ex3);
-					IL_1B0:
 					if (java.lang.String.instancehelper_equals(this.finalStage, stage.toString()))
 					{
 						this.isStageActive = false;
@@ -95,39 +81,12 @@ namespace edu.cmu.sphinx.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			232,
-			80,
-			107
-		})]
 		
 		public Trainer()
 		{
 			this.StageList = new LinkedList();
 			this.StageNames = new HashSet();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			4,
-			150,
-			113,
-			145,
-			107,
-			107,
-			107,
-			107,
-			107,
-			107
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -142,21 +101,6 @@ namespace edu.cmu.sphinx.trainer
 			this.addStage(Stage.___90_CP_MODEL);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			97,
-			101,
-			106,
-			101,
-			134,
-			134,
-			101,
-			132,
-			103,
-			109,
-			135
-		})]
-		
 		public static void main(string[] argv)
 		{
 			if (argv.Length > 1)
@@ -172,11 +116,6 @@ namespace edu.cmu.sphinx.trainer
 				Trainer trainer = (Trainer)configurationManager.lookup(text);
 				trainer.processStages(text);
 			}
-		}
-
-		
-		static Trainer()
-		{
 		}
 
 		[S4Component(new object[]
@@ -215,16 +154,13 @@ namespace edu.cmu.sphinx.trainer
 		private string finalStage;
 
 		private bool isStageActive;
-
 		
 		private List StageList;
 
-		
 		private Set StageNames;
 
 		private TrainManager trainManager;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<Trainer>.Value.desiredAssertionStatus();
 	}
 }

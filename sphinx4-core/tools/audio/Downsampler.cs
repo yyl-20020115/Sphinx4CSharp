@@ -1,40 +1,9 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.tools.audio
 {
 	public class Downsampler : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			180,
-			104,
-			98,
-			98,
-			98,
-			99,
-			103,
-			99,
-			104,
-			100,
-			100,
-			101,
-			99,
-			130,
-			130,
-			104,
-			228,
-			54,
-			232,
-			76,
-			116,
-			101
-		})]
-		
+	{		
 		public static short[] downsample(short[] inSamples, int srIn, int srOut)
 		{
 			short[] array = new short[inSamples.Length];
@@ -68,8 +37,6 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 			return Arrays.copyOf(array, num2);
 		}
-
-		
 		
 		public Downsampler()
 		{

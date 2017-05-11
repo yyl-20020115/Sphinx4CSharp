@@ -117,7 +117,6 @@ namespace edu.cmu.sphinx.result
 		
 		public virtual void dumpGDL(string title, string fileName)
 		{
-			IOException ex2;
 			try
 			{
 				java.lang.System.err.println(new StringBuilder().append("Dumping ").append(title).append(" to ").append(fileName).toString());
@@ -127,13 +126,8 @@ namespace edu.cmu.sphinx.result
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_5D;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_5D:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
 		
 		private AlternateHypothesisManager loserManager;

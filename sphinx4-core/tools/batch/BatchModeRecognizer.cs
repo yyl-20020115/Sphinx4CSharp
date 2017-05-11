@@ -18,30 +18,12 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.batch
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public class BatchModeRecognizer : java.lang.Object, Configurable
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			76,
-			104,
-			153,
-			190
-		})]
-		
+	{	
 		public virtual void setBatchFile(string batchFile)
 		{
 			if (this.usePooledBatchManager)
 			{
-				PooledBatchManager.__<clinit>();
 				this.batchManager = new PooledBatchManager(batchFile, this.skip);
 			}
 			else
@@ -49,44 +31,6 @@ namespace edu.cmu.sphinx.tools.batch
 				this.batchManager = new SimpleBatchManager(batchFile, this.skip, this.whichBatch, this.totalBatches);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			126,
-			191,
-			4,
-			103,
-			103,
-			111,
-			242,
-			75,
-			226,
-			54,
-			97,
-			127,
-			11,
-			101,
-			167,
-			114,
-			112,
-			178,
-			104,
-			110,
-			104,
-			97,
-			103,
-			136,
-			138,
-			106,
-			136,
-			136,
-			101
-		})]
 		
 		internal virtual void setInputStream(string text)
 		{
@@ -136,39 +80,6 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			168,
-			241,
-			80,
-			241,
-			82,
-			241,
-			84,
-			241,
-			80,
-			241,
-			80,
-			241,
-			94,
-			144,
-			241,
-			80,
-			241,
-			94,
-			144,
-			241,
-			110,
-			144,
-			241,
-			102,
-			241,
-			83,
-			241,
-			83
-		})]
-		
 		internal virtual void addCommands(CommandInterpreter commandInterpreter)
 		{
 			commandInterpreter.add("ls", new BatchModeRecognizer_1(this));
@@ -188,35 +99,8 @@ namespace edu.cmu.sphinx.tools.batch
 			commandInterpreter.add("batchLoad", new BatchModeRecognizer_12(this));
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			207,
-			102,
-			107,
-			103,
-			103,
-			107,
-			102,
-			107,
-			114,
-			253,
-			69,
-			226,
-			61,
-			97,
-			127,
-			11,
-			135
-		})]
-		
 		public virtual void shell(string batchfile)
 		{
-			IOException ex2;
 			try
 			{
 				CommandInterpreter commandInterpreter = new CommandInterpreter();
@@ -233,57 +117,14 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_67;
+				this.logger.severe(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex)).toString());
+				throw ex;
 			}
-			return;
-			IL_67:
-			IOException ex3 = ex2;
-			this.logger.severe(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex3)).toString());
-			throw Throwable.__<unmap>(ex3);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			92,
-			130,
-			107,
-			135,
-			107,
-			123,
-			47,
-			165,
-			114,
-			108,
-			108,
-			114,
-			127,
-			11,
-			127,
-			6,
-			100,
-			101,
-			107,
-			221,
-			226,
-			61,
-			98,
-			127,
-			12,
-			136,
-			127,
-			16
-		})]
 		
 		public virtual void decode(string batchFile)
 		{
 			int num = 0;
-			IOException ex2;
 			try
 			{
 				this.recognizer.allocate();
@@ -304,35 +145,12 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_107;
+				this.logger.severe(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex)).toString());
+				throw ex;
 			}
 			this.logger.info(new StringBuilder().append("BatchDecoder: ").append(num).append(" files decoded").toString());
-			return;
-			IL_107:
-			IOException ex3 = ex2;
-			this.logger.severe(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex3)).toString());
-			throw Throwable.__<unmap>(ex3);
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			107,
-			99,
-			104,
-			118,
-			135,
-			103,
-			104,
-			104,
-			104,
-			135,
-			103,
-			103
-		})]
-		
 		public BatchModeRecognizer(Recognizer recognizer, List inputDataProcessors, int skip, int utteranceId, int whichBatch, int totalBatches, bool usePooledBatchManager)
 		{
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
@@ -345,36 +163,10 @@ namespace edu.cmu.sphinx.tools.batch
 			this.recognizer = recognizer;
 			this.inputDataProcessors = inputDataProcessors;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			105,
-			134
-		})]
 		
 		public BatchModeRecognizer()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			116,
-			108,
-			140,
-			113,
-			113,
-			105,
-			171,
-			113,
-			113,
-			150,
-			118,
-			118
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -393,36 +185,6 @@ namespace edu.cmu.sphinx.tools.batch
 			this.inputDataProcessors = ps.getComponentList("inputDataProcessors", ClassLiteral<DataProcessor>.Value);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			230,
-			101,
-			143,
-			134,
-			100,
-			228,
-			69,
-			113,
-			103,
-			114,
-			100,
-			127,
-			5,
-			133,
-			116,
-			138,
-			136,
-			255,
-			45,
-			79,
-			226,
-			61,
-			98,
-			111,
-			135
-		})]
-		
 		public static void main(string[] argv)
 		{
 			if (argv.Length < 2)
@@ -432,7 +194,6 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			string text = argv[0];
 			string text2 = argv[1];
-			Exception ex3;
 			try
 			{
 				URL url = new File(text).toURI().toURL();
@@ -449,45 +210,15 @@ namespace edu.cmu.sphinx.tools.batch
 						batchModeRecognizer.decode(text2);
 					}
 					java.lang.System.@out.println(new StringBuilder().append("Tokens created: ").append(StatisticsVariable.getStatisticsVariable("totalTokensScored").value).toString());
-					goto IL_E5;
 				}
 				java.lang.System.err.println(new StringBuilder().append("Can't find batchModeRecognizer in ").append(text).toString());
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_E7;
+				java.lang.System.err.println("Error during decoding: \n  ");
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_E5:
-			return;
-			IL_E7:
-			Exception ex4 = ex3;
-			java.lang.System.err.println("Error during decoding: \n  ");
-			Throwable.instancehelper_printStackTrace(ex4);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			20,
-			107,
-			103,
-			107,
-			123,
-			47,
-			133,
-			103
-		})]
 		
 		public virtual void start(string batchFile)
 		{
@@ -497,46 +228,12 @@ namespace edu.cmu.sphinx.tools.batch
 			this.logger.info(new StringBuilder().append("BatchDecoder: decoding files in ").append(this.batchManager.getFilename()).toString());
 			this.count = 0;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			30,
-			107,
-			107
-		})]
 		
 		public virtual void stop()
 		{
 			this.batchManager.stop();
 			this.recognizer.deallocate();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			36,
-			130,
-			119,
-			108,
-			108,
-			114,
-			127,
-			11,
-			127,
-			6,
-			142,
-			127,
-			21
-		})]
 		
 		public virtual Result recognize()
 		{
@@ -626,7 +323,6 @@ namespace edu.cmu.sphinx.tools.batch
 		public const string PROP_INPUT_DATA_PROCESSORS = "inputDataProcessors";
 
 		protected internal string name;
-
 		
 		protected internal List inputDataProcessors;
 

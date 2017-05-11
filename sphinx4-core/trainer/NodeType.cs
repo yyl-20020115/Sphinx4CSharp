@@ -1,24 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.trainer
+﻿namespace edu.cmu.sphinx.trainer
 {
 	public class NodeType : java.lang.Object
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			10,
-			99,
-			146
-		})]
-		
+	{	
 		public virtual bool equals(NodeType nodeType)
 		{
 			return nodeType != null && java.lang.String.instancehelper_equals(this.toString(), nodeType.toString());
@@ -28,35 +11,11 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return this.name;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			104,
-			103
-		})]
 		
 		protected internal NodeType(string name)
 		{
 			this.name = name;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			164,
-			175,
-			207,
-			175,
-			207,
-			175,
-			175
-		})]
-		static NodeType()
-		{
-		}
-
 		
 		public static NodeType DUMMY
 		{
@@ -66,7 +25,6 @@ namespace edu.cmu.sphinx.trainer
 				return NodeType.__DUMMY;
 			}
 		}
-
 		
 		public static NodeType SILENCE_WITH_LOOPBACK
 		{
@@ -76,7 +34,6 @@ namespace edu.cmu.sphinx.trainer
 				return NodeType.__SILENCE_WITH_LOOPBACK;
 			}
 		}
-
 		
 		public static NodeType UTTERANCE_END
 		{
@@ -87,7 +44,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
 		public static NodeType UTTERANCE_BEGIN
 		{
 			
@@ -97,7 +53,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
 		public static NodeType WORD
 		{
 			
@@ -107,7 +62,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
 		public static NodeType PHONE
 		{
 			
@@ -117,7 +71,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
 		public static NodeType STATE
 		{
 			

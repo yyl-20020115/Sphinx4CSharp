@@ -9,40 +9,14 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class AudioPlayer : Thread
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			104,
-			103,
-			103,
-			109
-		})]
-		
+	public class AudioPlayer : java.lang.Thread
+	{		
 		public AudioPlayer(AudioData audio)
 		{
 			this.audio = audio;
 			this.selectionStart = 0;
 			this.selectionEnd = audio.getAudioData().Length;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			109,
-			103,
-			103,
-			107,
-			111
-		})]
 		
 		public virtual void play(int selectionStart, int selectionEnd)
 		{
@@ -53,46 +27,10 @@ namespace edu.cmu.sphinx.tools.audio
 				java.lang.Object.instancehelper_notify(this.audio);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			2,
-			109,
-			107,
-			108,
-			108,
-			109,
-			104,
-			101,
-			164,
-			173,
-			114,
-			108,
-			139,
-			104,
-			99,
-			108,
-			108,
-			18,
-			232,
-			69,
-			107,
-			107,
-			103,
-			223,
-			59,
-			229,
-			61,
-			98,
-			103,
-			162
-		})]
 		
 		public override void run()
 		{
 			AudioData obj;
-			Exception ex2;
-			Exception ex5;
 			for (;;)
 			{
 				try
@@ -126,14 +64,13 @@ namespace edu.cmu.sphinx.tools.audio
 						this.line = null;
 						Monitor.Exit(obj);
 					}
-					catch (Exception ex)
+					catch (System.Exception ex)
 					{
-						ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
 						break;
 					}
 					continue;
 				}
-				catch (Exception ex3)
+				catch (System.Exception ex3)
 				{
 					Exception ex4 = ByteCodeHelper.MapException<Exception>(ex3, 0);
 					if (ex4 == null)
@@ -171,13 +108,7 @@ namespace edu.cmu.sphinx.tools.audio
 			Throwable.instancehelper_printStackTrace(ex12);
 		}
 
-		
-		static AudioPlayer()
-		{
-			Thread.__<clinit>();
-		}
 
-		
 		private AudioData audio;
 
 		private SourceDataLine line;

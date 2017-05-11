@@ -1,20 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
-using IKVM.Attributes;
 using ikvm.@internal;
 
 namespace edu.cmu.sphinx.util.props
 {
-	
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.S4String"
-	})]
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4StringAttribute : AnnotationAttributeBase, S4String
 	{
-		
 		public S4StringAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);
@@ -29,7 +20,6 @@ namespace edu.cmu.sphinx.util.props
 			return (string)base.getValue("defaultValue");
 		}
 
-		
 		public string defaultValue
 		{
 			
@@ -49,7 +39,6 @@ namespace edu.cmu.sphinx.util.props
 			return (string[])base.getValue("range");
 		}
 
-		
 		public string[] range
 		{
 			
@@ -68,7 +57,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return base.getBooleanValue("mandatory");
 		}
-
 		
 		public bool mandatory
 		{

@@ -12,21 +12,7 @@ using org.xml.sax;
 namespace edu.cmu.sphinx.util.props
 {
 	public class SaxLoader : java.lang.Object
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			132,
-			131,
-			104,
-			103,
-			103,
-			103,
-			127,
-			5
-		})]
-		
+	{		
 		public SaxLoader(URL url, Map globalProperties, Map initRPD, bool replaceDuplicates)
 		{
 			this.url = url;
@@ -47,34 +33,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			this.rpdMap = map2;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			17,
-			102,
-			108,
-			126,
-			103,
-			255,
-			35,
-			72,
-			229,
-			57,
-			98,
-			127,
-			46,
-			109,
-			98,
-			127,
-			7,
-			98,
-			178
-		})]
 		
 		public virtual Map load()
 		{
@@ -128,29 +86,16 @@ namespace edu.cmu.sphinx.util.props
 			
 			throw new IOException(text4);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			6,
-			106
-		})]
 		
 		public SaxLoader(URL url, Map globalProperties) : this(url, globalProperties, null, false)
 		{
 		}
-
 		
 		private URL url;
-
-		
 		
 		private Map rpdMap;
-
-		
 		
 		private Map globalProperties;
-
 		
 		private bool replaceDuplicates;
 	}

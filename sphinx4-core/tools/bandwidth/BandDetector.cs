@@ -1,11 +1,8 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.frequencywarp;
 using edu.cmu.sphinx.frontend.transform;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.frontend.window;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 using java.util;

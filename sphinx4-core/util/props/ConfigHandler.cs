@@ -14,20 +14,7 @@ using org.xml.sax.helpers;
 namespace edu.cmu.sphinx.util.props
 {
 	public class ConfigHandler : DefaultHandler
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			134,
-			130,
-			104,
-			103,
-			103,
-			103,
-			104
-		})]
-		
+	{		
 		public ConfigHandler(Map rpdMap, Map globalProperties, bool replaceDuplicates, URL baseURL)
 		{
 			this.__rpdMap = rpdMap;
@@ -35,43 +22,14 @@ namespace edu.cmu.sphinx.util.props
 			this.replaceDuplicates = replaceDuplicates;
 			this.baseURL = baseURL;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			109,
-			98,
-			127,
-			1,
-			159,
-			27,
-			112,
-			159,
-			26,
-			117,
-			255,
-			11,
-			69,
-			226,
-			60,
-			98,
-			127,
-			25,
-			98,
-			135
-		})]
 		
 		private void mergeConfigs(string text, bool flag)
 		{
-			IOException ex2;
-			URISyntaxException ex4;
 			try
 			{
 				try
 				{
-					File.__<clinit>();
 					File parentFile = new File(this.baseURL.toURI().getPath()).getParentFile();
-					File.__<clinit>();
 					URL url = new File(new StringBuilder().append(parentFile.getPath()).append(File.separatorChar).append(text).toString()).toURI().toURL();
 					Logger logger = Logger.getLogger(ClassLiteral<ConfigHandler>.Value.getSimpleName());
 					logger.fine(new StringBuilder().append((!flag) ? "including" : "extending").append(" config:").append(url.toURI()).toString());
@@ -80,88 +38,18 @@ namespace edu.cmu.sphinx.util.props
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_DC;
+					throw new RuntimeException(new StringBuilder().append("Error while processing <include file=\"").append(text).append("\">: ").append(ex5).toString(), ex);
 				}
 			}
 			catch (URISyntaxException ex3)
 			{
-				ex4 = ByteCodeHelper.MapException<URISyntaxException>(ex3, 1);
-				goto IL_E0;
+				Throwable.instancehelper_printStackTrace(ex3);
 			}
-			return;
-			IL_DC:
-			IOException ex5 = ex2;
-			string text2 = new StringBuilder().append("Error while processing <include file=\"").append(text).append("\">: ").append(ex5).toString();
-			Exception ex6 = ex5;
-			
-			throw new RuntimeException(text2, ex6);
-			IL_E0:
-			URISyntaxException ex7 = ex4;
-			Throwable.instancehelper_printStackTrace(ex7);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			184,
-			106
-		})]
 		
 		public ConfigHandler(Map rpdMap, Map globalProperties) : this(rpdMap, globalProperties, false, null)
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"org.xml.sax.SAXException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			141,
-			109,
-			99,
-			104,
-			135,
-			114,
-			109,
-			104,
-			114,
-			109,
-			104,
-			117,
-			109,
-			109,
-			118,
-			159,
-			12,
-			109,
-			117,
-			109,
-			109,
-			112,
-			150,
-			200,
-			112,
-			118,
-			159,
-			12,
-			141,
-			114,
-			114,
-			114,
-			150,
-			109,
-			109,
-			105,
-			150,
-			141,
-			159,
-			19
-		})]
 		
 		public override void startElement(string uri, string localName, string qName, Attributes attributes)
 		{
@@ -255,17 +143,6 @@ namespace edu.cmu.sphinx.util.props
 				this.curItem = new StringBuilder();
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"org.xml.sax.SAXParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			51,
-			104,
-			143
-		})]
 		
 		public override void characters(char[] ch, int start, int length)
 		{
@@ -274,28 +151,6 @@ namespace edu.cmu.sphinx.util.props
 				this.curItem.append(ch, start, length);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"org.xml.sax.SAXParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			58,
-			109,
-			125,
-			108,
-			146,
-			109,
-			115,
-			159,
-			17,
-			119,
-			137,
-			109,
-			124,
-			135
-		})]
 		
 		public override void endElement(string uri, string localName, string qName)
 		{
@@ -331,7 +186,6 @@ namespace edu.cmu.sphinx.util.props
 			this.locator = locator;
 		}
 
-		
 		protected internal Map rpdMap
 		{
 			
@@ -345,7 +199,6 @@ namespace edu.cmu.sphinx.util.props
 				this.__rpdMap = value;
 			}
 		}
-
 		
 		protected internal Map globalProperties
 		{
@@ -365,21 +218,17 @@ namespace edu.cmu.sphinx.util.props
 
 		protected internal Locator locator;
 
-		
 		protected internal List itemList;
 
 		protected internal string itemListName;
 
 		protected internal StringBuilder curItem;
-
 		
 		internal Map __rpdMap;
-
 		
 		internal Map __globalProperties;
 
 		private bool replaceDuplicates;
-
 		
 		private URL baseURL;
 	}

@@ -5,16 +5,9 @@ using ikvm.@internal;
 
 namespace edu.cmu.sphinx.util.props
 {
-	
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.S4Integer"
-	})]
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4IntegerAttribute : AnnotationAttributeBase, S4Integer
 	{
-		
 		public S4IntegerAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);
@@ -28,7 +21,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return base.getIntValue("defaultValue");
 		}
-
 		
 		public int defaultValue
 		{
@@ -49,7 +41,6 @@ namespace edu.cmu.sphinx.util.props
 			return (int[])base.getValue("range");
 		}
 
-		
 		public int[] range
 		{
 			
@@ -68,7 +59,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return base.getBooleanValue("mandatory");
 		}
-
 		
 		public bool mandatory
 		{

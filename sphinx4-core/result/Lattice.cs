@@ -1001,7 +1001,6 @@ namespace edu.cmu.sphinx.result
 
 		private AlternateHypothesisManager loserManager;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<Lattice>.Value.desiredAssertionStatus();
 	}
 }

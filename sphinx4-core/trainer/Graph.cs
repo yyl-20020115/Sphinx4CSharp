@@ -1,56 +1,11 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
 	public class Graph : java.lang.Object
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			202,
-			98,
-			102,
-			107,
-			103,
-			105,
-			103,
-			103,
-			100,
-			105,
-			127,
-			5,
-			162,
-			102,
-			104,
-			150,
-			100,
-			105,
-			127,
-			5,
-			162,
-			102,
-			104,
-			150,
-			101,
-			102,
-			104,
-			104,
-			106,
-			117,
-			117,
-			98
-		})]
-		
+	{				
 		public virtual bool validate()
 		{
 			int num = 1;
@@ -92,46 +47,17 @@ namespace edu.cmu.sphinx.trainer
 			}
 			return num != 0;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			104,
-			107,
-			107
-		})]
 		
 		public Graph()
 		{
 			this.edges = new ArrayList();
 			this.nodes = new ArrayList();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			66,
-			109
-		})]
 		
 		public virtual void addNode(Node node)
 		{
 			this.nodes.add(node);
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			105,
-			137,
-			144
-		})]
 		
 		public virtual void setInitialNode(Node node)
 		{
@@ -144,19 +70,6 @@ namespace edu.cmu.sphinx.trainer
 			
 			throw new IllegalArgumentException(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			107,
-			136,
-			103,
-			135,
-			105,
-			167,
-			105,
-			167,
-			135
-		})]
 		
 		public virtual Edge linkNodes(Node sourceNode, Node destinationNode)
 		{
@@ -174,18 +87,6 @@ namespace edu.cmu.sphinx.trainer
 			this.addEdge(edge);
 			return edge;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			11,
-			105,
-			137,
-			144
-		})]
 		
 		public virtual void setFinalNode(Node node)
 		{
@@ -198,22 +99,6 @@ namespace edu.cmu.sphinx.trainer
 			
 			throw new IllegalArgumentException(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			142,
-			127,
-			13,
-			102,
-			104,
-			142,
-			102,
-			104,
-			142,
-			108,
-			108
-		})]
 		
 		public virtual void copyGraph(Graph graph)
 		{
@@ -235,47 +120,11 @@ namespace edu.cmu.sphinx.trainer
 			this.setInitialNode(graph.getInitialNode());
 			this.setFinalNode(graph.getFinalNode());
 		}
-
-		
 		
 		public virtual Node[] nodeToArray()
 		{
 			return (Node[])this.nodes.toArray(new Node[this.nodes.size()]);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			164,
-			127,
-			1,
-			122,
-			127,
-			5,
-			109,
-			141,
-			104,
-			104,
-			50,
-			166,
-			102,
-			104,
-			142,
-			103,
-			102,
-			104,
-			103,
-			103,
-			103,
-			98,
-			104,
-			102,
-			104,
-			104,
-			105,
-			105,
-			98
-		})]
 		
 		public virtual void insertGraph(Graph graph, Node node)
 		{
@@ -328,79 +177,46 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
-		
 		public virtual Node getNode(int index)
 		{
 			return (Node)this.nodes.get(index);
 		}
 
-		
-		
 		public virtual bool isNodeInGraph(Node node)
 		{
 			return this.nodes.contains(node);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			74,
-			109
-		})]
 		
 		public virtual void addEdge(Edge edge)
 		{
 			this.edges.add(edge);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			98,
-			113
-		})]
 		
 		public virtual void startNodeIterator()
 		{
 			this.nodeIterator = this.nodes.iterator();
 		}
 
-		
-		
 		public virtual bool hasMoreNodes()
 		{
 			return this.nodeIterator.hasNext();
 		}
 
-		
-		
 		public virtual Node nextNode()
 		{
 			return (Node)this.nodeIterator.next();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			118,
-			113
-		})]
 		
 		public virtual void startEdgeIterator()
 		{
 			this.edgeIterator = this.edges.iterator();
 		}
 
-		
-		
 		public virtual bool hasMoreEdges()
 		{
 			return this.edgeIterator.hasNext();
 		}
 
-		
-		
 		public virtual Edge nextEdge()
 		{
 			return (Edge)this.edgeIterator.next();
@@ -425,50 +241,22 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return node == this.initialNode;
 		}
-
-		
 		
 		public virtual int size()
 		{
 			return this.nodes.size();
 		}
 
-		
-		
 		public virtual int indexOf(Node node)
 		{
 			return this.nodes.indexOf(node);
 		}
 
-		
-		
 		public virtual bool isEdgeInGraph(Edge edge)
 		{
 			return this.edges.contains(edge);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			243,
-			102,
-			104,
-			103,
-			105,
-			143,
-			105,
-			143,
-			107,
-			102,
-			98,
-			102,
-			104,
-			103,
-			107,
-			102,
-			98
-		})]
-		
 		public virtual void printGraph()
 		{
 			this.startNodeIterator();
@@ -494,28 +282,18 @@ namespace edu.cmu.sphinx.trainer
 				edge.print();
 			}
 		}
-
-		
-		static Graph()
-		{
-		}
-
-		
+	
 		private ArrayList edges;
-
 		
 		private ArrayList nodes;
-
 		
 		private Iterator edgeIterator;
-
 		
 		private Iterator nodeIterator;
 
 		private Node initialNode;
 
 		private Node finalNode;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<Graph>.Value.desiredAssertionStatus();
 	}

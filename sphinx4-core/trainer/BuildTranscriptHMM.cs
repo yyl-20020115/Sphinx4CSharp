@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 
@@ -11,71 +8,6 @@ namespace edu.cmu.sphinx.trainer
 {
 	public class BuildTranscriptHMM : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			30,
-			135,
-			104,
-			54,
-			139,
-			140,
-			198,
-			102,
-			107,
-			103,
-			135,
-			107,
-			98,
-			102,
-			136,
-			102,
-			140,
-			138,
-			99,
-			130,
-			108,
-			106,
-			104,
-			133,
-			139,
-			169,
-			102,
-			107,
-			104,
-			104,
-			108,
-			133,
-			169,
-			236,
-			69,
-			138,
-			108,
-			108,
-			101,
-			108,
-			101,
-			159,
-			12,
-			113,
-			110,
-			238,
-			56,
-			235,
-			76,
-			139,
-			138,
-			101,
-			236,
-			69,
-			106,
-			136
-		})]
-		
 		private Graph buildWordGraph(Transcript transcript)
 		{
 			Dictionary dictionary = transcript.getDictionary();
@@ -139,21 +71,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 			return graph;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			117,
-			102,
-			135,
-			117,
-			115,
-			169,
-			112,
-			234,
-			58,
-			230,
-			73
-		})]
 		
 		private Graph buildPhonemeGraph(Graph graph)
 		{
@@ -173,14 +90,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 			return graph2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			78,
-			102,
-			103
-		})]
 		
 		public virtual Graph buildContextDependentPhonemeGraph(Graph phonemeGraph)
 		{
@@ -188,29 +97,6 @@ namespace edu.cmu.sphinx.trainer
 			graph.copyGraph(phonemeGraph);
 			return graph;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			91,
-			134,
-			135,
-			120,
-			98,
-			115,
-			118,
-			115,
-			242,
-			70,
-			110,
-			103,
-			111,
-			104,
-			234,
-			49,
-			233,
-			81
-		})]
 		
 		public virtual Graph buildHMMGraph(Graph cdGraph)
 		{
@@ -244,37 +130,7 @@ namespace edu.cmu.sphinx.trainer
 				goto IL_AB;
 			}
 			return graph;
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			124,
-			134,
-			98,
-			135,
-			107,
-			103,
-			167,
-			146,
-			118,
-			110,
-			135,
-			100,
-			137,
-			169,
-			142,
-			242,
-			59,
-			232,
-			72,
-			226,
-			47,
-			235,
-			86,
-			135
-		})]
-		
+		}		
 		private Graph buildModelGraph(SenoneHMM senoneHMM)
 		{
 			Graph graph = new Graph();
@@ -304,28 +160,6 @@ namespace edu.cmu.sphinx.trainer
 			graph.setFinalNode(node);
 			return graph;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			136,
-			103,
-			104,
-			109,
-			127,
-			5,
-			114,
-			127,
-			5,
-			104,
-			106,
-			159,
-			5,
-			114,
-			159,
-			5
-		})]
 		
 		public BuildTranscriptHMM(string context, Transcript transcript, AcousticModel acousticModel, UnitManager unitManager)
 		{
@@ -366,11 +200,6 @@ namespace edu.cmu.sphinx.trainer
 			return this.hmmGraph;
 		}
 
-		
-		static BuildTranscriptHMM()
-		{
-		}
-
 		private Graph wordGraph;
 
 		private Graph phonemeGraph;
@@ -384,7 +213,6 @@ namespace edu.cmu.sphinx.trainer
 		private AcousticModel acousticModel;
 
 		private UnitManager unitManager;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<BuildTranscriptHMM>.Value.desiredAssertionStatus();
 	}

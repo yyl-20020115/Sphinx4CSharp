@@ -11,10 +11,9 @@ namespace edu.cmu.sphinx.util
 {
 	public class SocketCommandInterpreter : Thread
 	{
-	
+
 		private void spawnCommandInterpreter(Socket socket)
 		{
-			IOException ex2;
 			try
 			{
 				BufferedReader @in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -30,7 +29,7 @@ namespace edu.cmu.sphinx.util
 				java.lang.System.err.println(new StringBuilder().append("Could not attach CI to socket ").append(ex).toString());
 			}
 		}
-		
+
 		public SocketCommandInterpreter(int port)
 		{
 			this.acceptConnections = true;
@@ -47,7 +46,7 @@ namespace edu.cmu.sphinx.util
 		{
 			this.trace = trace;
 		}
-	
+
 		public sealed override void run()
 		{
 			ServerSocket serverSocket;
@@ -120,7 +119,7 @@ namespace edu.cmu.sphinx.util
 			socketCommandInterpreter.start();
 		}
 
-		
+
 		private int port;
 
 		private Map commandList;
@@ -129,8 +128,8 @@ namespace edu.cmu.sphinx.util
 
 		private bool acceptConnections;
 
-		
-	internal sealed class SocketCommandInterpreter_1 : java.lang.Object, CommandInterface
+
+		internal sealed class SocketCommandInterpreter_1 : java.lang.Object, CommandInterface
 		{
 
 			internal SocketCommandInterpreter_1()
@@ -149,13 +148,13 @@ namespace edu.cmu.sphinx.util
 		}
 		internal sealed class SocketCommandInterpreter_2 : java.lang.Object, CommandInterface
 		{
-			
+
 
 			internal SocketCommandInterpreter_2()
 			{
 			}
 
-			
+
 
 			public string execute(CommandInterpreter commandInterpreter, string[] array)
 			{

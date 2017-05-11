@@ -1,42 +1,15 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.trainer.TrainManager"
-	})]
 	public class SimpleTrainManager : java.lang.Object, TrainManager, Configurable
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			86,
-			139,
-			127,
-			1,
-			102,
-			98,
-			139
-		})]
-		
 		private void loadModels(string text)
 		{
 			this.dumpMemoryInfo("TrainManager start");
@@ -48,23 +21,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 			this.dumpMemoryInfo("acoustic model");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			66,
-			110,
-			153,
-			127,
-			1,
-			104,
-			135,
-			140,
-			130
-		})]
 		
 		public virtual void saveModels(string context)
 		{
@@ -86,49 +42,22 @@ namespace edu.cmu.sphinx.trainer
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			140,
-			104,
-			134
-		})]
 		
 		private void dumpMemoryInfo(string msg)
 		{
-			if (this.dumpMemoryInfo)
+			if (this._dumpMemoryInfo)
 			{
 				Utilities.dumpMemoryInfo(msg);
 			}
 		}
 
-		
-		
 		public SimpleTrainManager()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			17,
-			118,
-			118,
-			118,
-			118,
-			113,
-			113,
-			118,
-			118
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
-			this.dumpMemoryInfo = ps.getBoolean("dumpMemoryInfo").booleanValue();
+			this._dumpMemoryInfo = ps.getBoolean("dumpMemoryInfo").booleanValue();
 			this.learner = (Learner)ps.getComponent("learner");
 			this.controlFile = (ControlFile)ps.getComponent("control");
 			this.initLearner = (Learner)ps.getComponent("initLearner");
@@ -137,26 +66,11 @@ namespace edu.cmu.sphinx.trainer
 			this.acousticModels = ps.getComponentList("models", ClassLiteral<TrainerAcousticModel>.Value);
 			this.unitManager = (UnitManager)ps.getComponent("unitManager");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			30,
-			122,
-			107,
-			109,
-			108,
-			107,
-			102,
-			104,
-			146,
-			98
-		})]
 		
 		public virtual void train()
 		{
 			if (!SimpleTrainManager.assertionsDisabled && this.controlFile == null)
 			{
-				
 				throw new AssertionError();
 			}
 			this.controlFile.startUtteranceIterator();
@@ -171,46 +85,12 @@ namespace edu.cmu.sphinx.trainer
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			54,
-			103,
-			103
-		})]
 		
 		public virtual void copyModels(string context)
 		{
 			this.loadModels(context);
 			this.saveModels(context);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			104,
-			139,
-			159,
-			4,
-			107,
-			109,
-			108,
-			108,
-			111,
-			119,
-			138,
-			162,
-			103,
-			101,
-			107
-		})]
 		
 		public virtual void initializeModels(string context)
 		{
@@ -239,62 +119,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 			this.dumpMemoryInfo("acoustic model");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			76,
-			104,
-			199,
-			139,
-			159,
-			4,
-			102,
-			102,
-			99,
-			185,
-			127,
-			6,
-			102,
-			107,
-			112,
-			109,
-			150,
-			109,
-			109,
-			99,
-			112,
-			106,
-			101,
-			142,
-			234,
-			60,
-			232,
-			71,
-			134,
-			102,
-			101,
-			104,
-			127,
-			6,
-			103,
-			104,
-			104,
-			178,
-			101,
-			134,
-			223,
-			22,
-			227,
-			26,
-			235,
-			104,
-			101
-		})]
 		
 		public virtual void trainContextIndependentModels(string context)
 		{
@@ -318,7 +142,6 @@ namespace edu.cmu.sphinx.trainer
 					while (this.controlFile.hasMoreUtterances())
 					{
 						Utterance utterance = this.controlFile.nextUtterance();
-						UtteranceHMMGraph.__<clinit>();
 						UtteranceHMMGraph graph = new UtteranceHMMGraph(context, utterance, trainerAcousticModel, this.unitManager);
 						this.learner.setUtterance(utterance);
 						this.learner.setGraph(graph);
@@ -362,11 +185,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
-		static SimpleTrainManager()
-		{
-		}
-
 		[S4Component(new object[]
 		{
 			64,
@@ -382,7 +200,7 @@ namespace edu.cmu.sphinx.trainer
 
 		private ControlFile controlFile;
 
-		private bool dumpMemoryInfo;
+		private bool _dumpMemoryInfo;
 
 		[S4Component(new object[]
 		{
@@ -442,7 +260,6 @@ namespace edu.cmu.sphinx.trainer
 		})]
 		public const string AM_COLLECTION = "models";
 
-		
 		private List acousticModels;
 
 		[S4Boolean(new object[]
@@ -458,7 +275,6 @@ namespace edu.cmu.sphinx.trainer
 
 		private float minimumImprovement;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<SimpleTrainManager>.Value.desiredAssertionStatus();
 	}
 }

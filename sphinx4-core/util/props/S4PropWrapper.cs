@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-using java.lang.annotation;
+﻿using java.lang.annotation;
 
 namespace edu.cmu.sphinx.util.props
 {
@@ -13,20 +9,11 @@ namespace edu.cmu.sphinx.util.props
 			return this.annotation;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			157,
-			104,
-			103
-		})]
-		
 		public S4PropWrapper(Annotation annotation)
 		{
 			this.annotation = annotation;
 		}
 
-		
 		private Annotation annotation;
 	}
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.util.props
+﻿namespace edu.cmu.sphinx.util.props
 {
 	public interface ConfigurationChangeListener
 	{

@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.trainer
 {
@@ -16,16 +13,6 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return this.sourceNode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			104,
-			103,
-			103,
-			103
-		})]
 		
 		internal Edge(Node node, Node node2, string text)
 		{
@@ -33,13 +20,6 @@ namespace edu.cmu.sphinx.trainer
 			this.destinationNode = node2;
 			this.id = text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			185,
-			105
-		})]
 		
 		internal Edge(Node node, Node node2) : this(node, node2, null)
 		{
@@ -60,17 +40,6 @@ namespace edu.cmu.sphinx.trainer
 			return this.sourceNode != null && this.destinationNode != null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			53,
-			127,
-			10,
-			127,
-			10,
-			127,
-			10
-		})]
-		
 		public virtual void print()
 		{
 			java.lang.System.@out.print(new StringBuilder().append("ID: ").append(this.id).toString());

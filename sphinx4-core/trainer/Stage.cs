@@ -1,19 +1,12 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.trainer
+﻿namespace edu.cmu.sphinx.trainer
 {
 	public class Stage : java.lang.Object
 	{
-
 		public override string toString()
 		{
 			return this.name;
 		}
 
-		
 		protected internal Stage(string name)
 		{
 			this.name = name;
@@ -28,10 +21,6 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return stage != null && java.lang.String.instancehelper_equals(this.toString(), stage);
 		}
-		static Stage()
-		{
-		}
-
 		
 		public static Stage _00_INITIALIZATION
 		{
@@ -40,7 +29,6 @@ namespace edu.cmu.sphinx.trainer
 				return Stage.___00_INITIALIZATION;
 			}
 		}
-
 		
 		public static Stage _10_CI_TRAIN
 		{
@@ -49,7 +37,6 @@ namespace edu.cmu.sphinx.trainer
 				return Stage.___10_CI_TRAIN;
 			}
 		}
-
 		
 		public static Stage _20_UNTIED_CD_TRAIN
 		{
@@ -58,7 +45,6 @@ namespace edu.cmu.sphinx.trainer
 				return Stage.___20_UNTIED_CD_TRAIN;
 			}
 		}
-
 		
 		public static Stage _30_STATE_PRUNING
 		{
@@ -68,7 +54,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
 		public static Stage _40_TIED_CD_TRAIN
 		{
 			
@@ -78,7 +63,6 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 
-		
 		public static Stage _90_CP_MODEL
 		{
 			

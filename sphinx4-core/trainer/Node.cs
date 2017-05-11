@@ -1,40 +1,24 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
 	public class Node : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			97,
-			113
-		})]
-		
 		public virtual void startOutgoingEdgeIterator()
 		{
 			this.outgoingEdgeIterator = this.outgoingEdges.iterator();
 		}
 
-		
-		
 		public virtual bool hasMoreOutgoingEdges()
 		{
 			return this.outgoingEdgeIterator.hasNext();
 		}
-
-		
-		
 		public virtual Edge nextOutgoingEdge()
 		{
 			return (Edge)this.outgoingEdgeIterator.next();
 		}
 
-		
-		
 		public virtual bool isType(string type)
 		{
 			return java.lang.String.instancehelper_equals(type, this.nodeType.toString());
@@ -44,53 +28,25 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return this.@object;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			50,
-			113
-		})]
 		
 		public virtual void startIncomingEdgeIterator()
 		{
 			this.incomingEdgeIterator = this.incomingEdges.iterator();
 		}
 
-		
-		
 		public virtual bool hasMoreIncomingEdges()
 		{
 			return this.incomingEdgeIterator.hasNext();
 		}
-
-		
 		
 		public virtual Edge nextIncomingEdge()
 		{
 			return (Edge)this.incomingEdgeIterator.next();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			13,
-			104
-		})]
 		
 		internal Node(NodeType nodeType) : this(nodeType, null)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			104,
-			107,
-			107,
-			103,
-			103,
-			103
-		})]
 		
 		internal Node(NodeType nodeType, string text)
 		{
@@ -115,42 +71,16 @@ namespace edu.cmu.sphinx.trainer
 		{
 			this.@object = @object;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			91,
-			109
-		})]
 		
 		public virtual void addOutgoingEdge(Edge edge)
 		{
 			this.outgoingEdges.add(edge);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			44,
-			109
-		})]
 		
 		public virtual void addIncomingEdge(Edge edge)
 		{
 			this.incomingEdges.add(edge);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			104,
-			130,
-			122,
-			104,
-			111,
-			162,
-			112,
-			111,
-			130
-		})]
 		
 		public virtual bool validate()
 		{
@@ -167,40 +97,16 @@ namespace edu.cmu.sphinx.trainer
 			}
 			return result != 0;
 		}
-
-		
 		
 		public virtual int incomingEdgesSize()
 		{
 			return this.incomingEdges.size();
 		}
-
-		
 		
 		public virtual int outgoingEdgesSize()
 		{
 			return this.outgoingEdges.size();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			122,
-			127,
-			10,
-			127,
-			20,
-			102,
-			104,
-			159,
-			12,
-			111,
-			102,
-			104,
-			159,
-			12,
-			106
-		})]
 		
 		public virtual void print()
 		{
@@ -225,17 +131,13 @@ namespace edu.cmu.sphinx.trainer
 		private object @object;
 
 		private NodeType nodeType;
-
 		
 		private List incomingEdges;
-
 		
 		private Iterator incomingEdgeIterator;
-
-		
+	
 		private List outgoingEdges;
-
-		
+	
 		private Iterator outgoingEdgeIterator;
 	}
 }
