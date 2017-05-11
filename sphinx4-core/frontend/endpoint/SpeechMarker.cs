@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.lang;
 using java.util;
 
@@ -9,22 +6,10 @@ namespace edu.cmu.sphinx.frontend.endpoint
 {
 	public class SpeechMarker : BaseDataProcessor
 	{
-		[LineNumberTable(new byte[]
-		{
-			65,
-			103,
-			103,
-			103,
-			111,
-			111,
-			111,
-			107,
-			107
-		})]
-		
+
 		private void reset()
 		{
-			this.inSpeech = false;
+			this._inSpeech = false;
 			this.speechCount = 0;
 			this.silenceCount = 0;
 			this.startSpeechFrames = this.startSpeechTime / 10;
@@ -34,16 +19,6 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			this.outputQueue = new LinkedList();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			33,
-			104,
-			102,
-			103,
-			103,
-			103
-		})]
-		
 		public SpeechMarker(int startSpeechTime, int endSilenceTime, int speechLeader)
 		{
 			this.initLogger();
@@ -51,30 +26,11 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			this.speechLeader = speechLeader;
 			this.endSilenceTime = endSilenceTime;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			40,
-			102
-		})]
-		
+	
 		public SpeechMarker()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			45,
-			135,
-			113,
-			113,
-			113
-		})]
-		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
@@ -82,73 +38,13 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			this.endSilenceTime = ps.getInt("endSilence");
 			this.speechLeader = ps.getInt("speechLeader");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			57,
-			102,
-			102
-		})]
-		
+	
 		public override void initialize()
 		{
 			base.initialize();
 			this.reset();
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			85,
-			112,
-			140,
-			99,
-			133,
-			104,
-			102,
-			109,
-			165,
-			104,
-			104,
-			145,
-			109,
-			165,
-			107,
-			135,
-			104,
-			110,
-			137,
-			103,
-			174,
-			104,
-			143,
-			109,
-			122,
-			205,
-			124,
-			103,
-			127,
-			8,
-			115,
-			63,
-			4,
-			139,
-			139,
-			118,
-			103,
-			183,
-			165,
-			109,
-			114,
-			109,
-			108,
-			135,
-			149
-		})]
-		
 		public override Data getData()
 		{
 			while (this.outputQueue.isEmpty())
@@ -166,7 +62,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 				}
 				if (data is DataEndSignal)
 				{
-					if (this.inSpeech)
+					if (this._inSpeech)
 					{
 						this.outputQueue.add(new SpeechEndSignal());
 					}
@@ -186,7 +82,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 						this.speechCount = 0;
 						this.silenceCount++;
 					}
-					if (this.inSpeech)
+					if (this._inSpeech)
 					{
 						this.outputQueue.add(data);
 					}
@@ -198,16 +94,16 @@ namespace edu.cmu.sphinx.frontend.endpoint
 							this.inputQueue.remove(0);
 						}
 					}
-					if (!this.inSpeech && this.speechCount == this.startSpeechFrames)
+					if (!this._inSpeech && this.speechCount == this.startSpeechFrames)
 					{
-						this.inSpeech = true;
+						this._inSpeech = true;
 						this.outputQueue.add(new SpeechStartSignal(speechClassifiedData.getCollectTime() - (long)this.speechLeader - (long)this.startSpeechFrames));
 						this.outputQueue.addAll(this.inputQueue.subList(java.lang.Math.max(0, this.inputQueue.size() - this.startSpeechFrames - this.speechLeaderFrames), this.inputQueue.size()));
 						this.inputQueue.clear();
 					}
-					if (this.inSpeech && this.silenceCount == this.endSilenceFrames)
+					if (this._inSpeech && this.silenceCount == this.endSilenceFrames)
 					{
-						this.inSpeech = false;
+						this._inSpeech = false;
 						this.outputQueue.add(new SpeechEndSignal(speechClassifiedData.getCollectTime()));
 					}
 				}
@@ -240,7 +136,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 
 		public virtual bool inSpeech()
 		{
-			return this.inSpeech;
+			return this._inSpeech;
 		}
 
 		[S4Integer(new object[]
@@ -282,7 +178,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 		
 		private LinkedList outputQueue;
 
-		private bool inSpeech;
+		private bool _inSpeech;
 
 		private int speechCount;
 

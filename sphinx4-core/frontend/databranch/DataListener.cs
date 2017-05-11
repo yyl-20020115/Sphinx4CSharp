@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.frontend.databranch
+﻿namespace edu.cmu.sphinx.frontend.databranch
 {
 	public interface DataListener
 	{

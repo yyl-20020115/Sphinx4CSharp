@@ -1,33 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
-using IKVM.Runtime;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.frontend.databranch
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.frontend.databranch.DataListener"
-	})]
 	public class DataBufferProcessor : BaseDataProcessor, DataListener
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			105,
-			99,
-			129,
-			109
-		})]
-		
+	{				
 		public virtual void addDataListener(DataListener l)
 		{
 			if (l == null)
@@ -36,29 +15,6 @@ namespace edu.cmu.sphinx.frontend.databranch
 			}
 			this.dataListeners.add(l);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			127,
-			66,
-			232,
-			25,
-			235,
-			92,
-			235,
-			76,
-			134,
-			103,
-			135,
-			99,
-			136,
-			124,
-			122,
-			108,
-			98
-		})]
 		
 		public DataBufferProcessor(int maxBufferSize, bool waitIfEmpty, int waitTime, List listeners)
 		{
@@ -82,39 +38,12 @@ namespace edu.cmu.sphinx.frontend.databranch
 				}
 				this.addDataListener((DataListener)configurable);
 			}
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			25,
-			232,
-			10,
-			235,
-			92,
-			235,
-			91
-		})]
-		
+		}		
 		public DataBufferProcessor()
 		{
 			this.featureBuffer = new LinkedList();
 			this.dataListeners = new ArrayList();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			30,
-			135,
-			113,
-			150,
-			104,
-			146,
-			118
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -127,18 +56,6 @@ namespace edu.cmu.sphinx.frontend.databranch
 			}
 			this.dataListeners = ps.getComponentList("dataListeners", ClassLiteral<DataListener>.Value);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			43,
-			173,
-			127,
-			1,
-			103,
-			162,
-			115,
-			143
-		})]
 		
 		public virtual void processDataFrame(Data data)
 		{
@@ -154,45 +71,21 @@ namespace edu.cmu.sphinx.frontend.databranch
 				this.featureBuffer.remove(0);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			66,
-			130,
-			149,
-			189,
-			2,
-			97,
-			102,
-			162,
-			109,
-			148,
-			186
-		})]
 		
 		public override Data getData()
 		{
 			Data result = null;
 			while (this.waitIfEmpty && this.featureBuffer.isEmpty())
 			{
-				InterruptedException ex2;
 				try
 				{
 					Thread.sleep(this.waitTime);
 				}
 				catch (InterruptedException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<InterruptedException>(ex, 1);
-					goto IL_31;
+					Throwable.instancehelper_printStackTrace(ex);
 				}
 				continue;
-				IL_31:
-				InterruptedException ex3 = ex2;
-				Throwable.instancehelper_printStackTrace(ex3);
 			}
 			if (!this.featureBuffer.isEmpty())
 			{
@@ -205,40 +98,20 @@ namespace edu.cmu.sphinx.frontend.databranch
 			}
 			return result;
 		}
-
-		
-		
 		public virtual int getBufferSize()
 		{
 			return this.featureBuffer.size();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			92,
-			107
-		})]
 		
 		public virtual void clearBuffer()
 		{
 			this.featureBuffer.clear();
-		}
-
-		
-		
+		}		
 		
 		public virtual List getBuffer()
 		{
 			return Collections.unmodifiableList(this.featureBuffer);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			116,
-			99,
-			129,
-			109
-		})]
 		
 		public virtual void removeDataListener(DataListener l)
 		{
@@ -248,13 +121,6 @@ namespace edu.cmu.sphinx.frontend.databranch
 			}
 			this.dataListeners.remove(l);
 		}
-
-		
-		static DataBufferProcessor()
-		{
-		}
-
-		
 		
 		private List featureBuffer;
 
@@ -305,10 +171,8 @@ namespace edu.cmu.sphinx.frontend.databranch
 			true
 		})]
 		public const string DATA_LISTENERS = "dataListeners";
-
 		
 		private List dataListeners;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<DataBufferProcessor>.Value.desiredAssertionStatus();
 	}

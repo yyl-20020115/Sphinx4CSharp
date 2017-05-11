@@ -1,27 +1,10 @@
-﻿using System;
-
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.util.props;
 using java.util;
 
 namespace edu.cmu.sphinx.frontend.denoise
 {
 	public class Denoise : BaseDataProcessor
-	{
-		[LineNumberTable(new byte[]
-		{
-			27,
-			104,
-			105,
-			105,
-			105,
-			106,
-			106,
-			106,
-			104
-		})]
-		
+	{		
 		public Denoise(double lambdaPower, double lambdaA, double lambdaB, double lambdaT, double muT, double maxGain, int smoothWindow)
 		{
 			this.lambdaPower = lambdaPower;
@@ -32,20 +15,7 @@ namespace edu.cmu.sphinx.frontend.denoise
 			this.maxGain = maxGain;
 			this.smoothWindow = smoothWindow;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			98,
-			109,
-			109,
-			108,
-			108,
-			102,
-			51,
-			166
-		})]
-		
+	
 		private void initStatistics(double[] array, int num)
 		{
 			this.power = Arrays.copyOf(array, num);
@@ -57,16 +27,6 @@ namespace edu.cmu.sphinx.frontend.denoise
 				this.floor[i] = array[i] / this.maxGain;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			82,
-			103,
-			63,
-			10,
-			166
-		})]
 		private void updatePower(double[] array)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -74,21 +34,6 @@ namespace edu.cmu.sphinx.frontend.denoise
 				this.power[i] = this.lambdaPower * this.power[i] + ((double)1f - this.lambdaPower) * array[i];
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			88,
-			103,
-			104,
-			159,
-			2,
-			255,
-			0,
-			60,
-			230,
-			70
-		})]
 		private void estimateEnvelope(double[] array, double[] array2)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -104,21 +49,6 @@ namespace edu.cmu.sphinx.frontend.denoise
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			69,
-			106,
-			132,
-			119,
-			116,
-			147,
-			107,
-			233,
-			56,
-			233,
-			74
-		})]
 		private void tempMasking(double[] array)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -139,14 +69,6 @@ namespace edu.cmu.sphinx.frontend.denoise
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			126,
-			103,
-			109,
-			11,
-			198
-		})]
 		private void powerBoosting(double[] array)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -157,23 +79,6 @@ namespace edu.cmu.sphinx.frontend.denoise
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			112,
-			104,
-			106,
-			111,
-			114,
-			103,
-			104,
-			42,
-			168,
-			235,
-			57,
-			233,
-			73
-		})]
 		
 		private double[] smooth(double[] array)
 		{
@@ -191,33 +96,10 @@ namespace edu.cmu.sphinx.frontend.denoise
 			}
 			return array2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			37,
-			102
-		})]
 		
 		public Denoise()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			49,
-			103,
-			114,
-			114,
-			114,
-			114,
-			114,
-			114,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -230,50 +112,6 @@ namespace edu.cmu.sphinx.frontend.denoise
 			this.maxGain = ps.getDouble("maxGain");
 			this.smoothWindow = ps.getInt("smoothWindow");
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			61,
-			172,
-			104,
-			103,
-			103,
-			103,
-			103,
-			130,
-			104,
-			162,
-			103,
-			103,
-			131,
-			104,
-			136,
-			135,
-			146,
-			104,
-			104,
-			63,
-			4,
-			200,
-			142,
-			136,
-			136,
-			104,
-			104,
-			127,
-			0,
-			31,
-			8,
-			200,
-			138,
-			104,
-			56,
-			200
-		})]
 		
 		public override Data getData()
 		{

@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util.logging;
@@ -11,32 +8,13 @@ namespace edu.cmu.sphinx.frontend.endpoint
 {
 	public class SpeechClassifier : AbstractVoiceActivityDetector
 	{
-		
-		public static void __<clinit>()
-		{
-		}
 
-		[LineNumberTable(new byte[]
-		{
-			67,
-			102,
-			102
-		})]
-		
 		public override void initialize()
 		{
 			base.initialize();
 			this.reset();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			74,
-			108,
-			112,
-			102
-		})]
-		
 		protected internal virtual void reset()
 		{
 			this.level = (double)0f;
@@ -52,19 +30,6 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			this.totalBackgroundLevel = (double)0f;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			87,
-			119,
-			102,
-			112,
-			41,
-			166,
-			101,
-			104,
-			111
-		})]
-		
 		public static double logRootMeanSquare(double[] samples)
 		{
 			if (!SpeechClassifier.assertionsDisabled && samples.Length <= 0)
@@ -98,34 +63,11 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			106,
-			109,
-			103,
-			108,
-			127,
-			0,
-			105,
-			138,
-			157,
-			110,
-			141,
-			187,
-			141,
-			117,
-			102,
-			104,
-			134,
-			223,
-			61,
-			140
-		})]
-		
+	
 		protected internal virtual SpeechClassifiedData classify(DoubleData audio)
 		{
 			double num = SpeechClassifier.logRootMeanSquare(audio.getValues());
-			this.isSpeech = false;
+			this._isSpeech = false;
 			if (num >= this.minSignal)
 			{
 				this.level = (this.level * (double)1f + num) / 2.0;
@@ -141,9 +83,9 @@ namespace edu.cmu.sphinx.frontend.endpoint
 				{
 					this.level = this.background;
 				}
-				this.isSpeech = (this.level - this.background > this.threshold);
+				this._isSpeech = (this.level - this.background > this.threshold);
 			}
-			SpeechClassifiedData speechClassifiedData = new SpeechClassifiedData(audio, this.isSpeech);
+			SpeechClassifiedData speechClassifiedData = new SpeechClassifiedData(audio, this._isSpeech);
 			if (this.logger.isLoggable(Level.FINEST))
 			{
 				string text = "";
@@ -153,24 +95,10 @@ namespace edu.cmu.sphinx.frontend.endpoint
 				}
 				this.logger.finest(new StringBuilder().append("Bkg: ").append(this.background).append(", level: ").append(this.level).append(", current: ").append(num).append(' ').append(text).toString());
 			}
-			this.collectStats(this.isSpeech);
+			this.collectStats(this._isSpeech);
 			return speechClassifiedData;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			136,
-			127,
-			0,
-			127,
-			19,
-			127,
-			19,
-			127,
-			6
-		})]
-		
 		public virtual double getSNR()
 		{
 			double num = this.totalSpeechLevel / (double)this.speechFrames - this.totalBackgroundLevel / (double)this.backgroundFrames;
@@ -179,21 +107,6 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			this.logger.fine(new StringBuilder().append("SNR is ").append(num).toString());
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			33,
-			232,
-			46,
-			236,
-			83,
-			102,
-			143,
-			105,
-			105,
-			138,
-			102
-		})]
 		
 		public SpeechClassifier(int frameLengthMs, double adjustment, double threshold, double minSignal)
 		{
@@ -205,37 +118,11 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			this.minSignal = minSignal;
 			this.initialize();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			44,
-			232,
-			35,
-			236,
-			94
-		})]
-		
+	
 		public SpeechClassifier()
 		{
 			this.__averageNumber = (double)1f;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			49,
-			103,
-			108,
-			143,
-			114,
-			114,
-			146,
-			172,
-			102
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -248,23 +135,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 			this.logger = ps.getLogger();
 			this.initialize();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.frontend.DataProcessingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			106,
-			140,
-			109,
-			134,
-			109,
-			108,
-			136
-		})]
-		
+	
 		public override Data getData()
 		{
 			object obj = this.getPredecessor().getData();
@@ -295,19 +166,12 @@ namespace edu.cmu.sphinx.frontend.endpoint
 
 		public override bool isSpeech()
 		{
-			return this.isSpeech;
-		}
-
-		
+			return this._isSpeech;
+		}		
 		
 		public virtual bool getNoisy()
 		{
 			return this.getSNR() < 20.0;
-		}
-
-		
-		static SpeechClassifier()
-		{
 		}
 
 		
@@ -375,7 +239,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 
 		protected internal float frameLengthSec;
 
-		protected internal new bool isSpeech;
+		protected internal new bool _isSpeech;
 
 		protected internal long speechFrames;
 
