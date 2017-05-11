@@ -1,10 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.language.ngram;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
@@ -12,101 +9,20 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 {
 	public class LMGrammar : Grammar
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			131,
-			74,
-			111,
-			103
-		})]
-		
-		public LMGrammar(LanguageModel languageModel, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
+		public LMGrammar(LanguageModel languageModel, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, dictionary.Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.languageModel = languageModel;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			134
-		})]
 		
 		public LMGrammar()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			9,
-			103,
-			118
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 			this.languageModel = (LanguageModel)ps.getComponent("languageModel");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			22,
-			107,
-			112,
-			98,
-			110,
-			143,
-			102,
-			140,
-			127,
-			0,
-			106,
-			109,
-			104,
-			42,
-			135,
-			101,
-			104,
-			42,
-			135,
-			136,
-			137,
-			101,
-			99,
-			144,
-			159,
-			0,
-			105,
-			130,
-			127,
-			3,
-			110,
-			110,
-			121,
-			111,
-			109,
-			103,
-			107,
-			101,
-			101,
-			113,
-			107
-		})]
 		
 		protected internal override GrammarNode createGrammar()
 		{
@@ -168,12 +84,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			TimerPool.getTimer(this, "LMGrammar.create").stop();
 			this.languageModel.deallocate();
 			return grammarNode;
-		}
-
-		
-		static LMGrammar()
-		{
-			Grammar.__<clinit>();
 		}
 
 		[S4Component(new object[]

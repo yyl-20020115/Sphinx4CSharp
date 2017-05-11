@@ -1,28 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	.
 	internal abstract class UnitNode : Node
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
 		internal abstract Unit getBaseUnit();
 
-		internal abstract object getKey();
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			36,
-			104
-		})]
+		//internal abstract object getKey();
 		
 		internal UnitNode(float num) : base(num)
 		{
@@ -38,12 +22,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 		internal virtual void setType(int num)
 		{
 			this.type = num;
-		}
-
-		
-		static UnitNode()
-		{
-			Node.__<clinit>();
 		}
 
 		public const int SIMPLE_UNIT = 1;

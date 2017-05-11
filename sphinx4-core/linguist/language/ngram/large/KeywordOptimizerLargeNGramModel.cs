@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using java.lang;
 using java.util;
 
@@ -9,27 +6,9 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
 	public class KeywordOptimizerLargeNGramModel : LargeNGramModel
 	{
-		
-		
 		public KeywordOptimizerLargeNGramModel()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			191,
-			136,
-			104,
-			130,
-			117,
-			105,
-			111,
-			251,
-			61,
-			230,
-			71
-		})]
 		
 		public override float getProbability(WordSequence wordSequence)
 		{
@@ -51,7 +30,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return num;
 		}
-
 		
 		public HashMap keywordProbs;
 	}

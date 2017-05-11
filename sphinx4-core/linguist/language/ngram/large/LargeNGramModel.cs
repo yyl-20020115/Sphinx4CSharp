@@ -1,11 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.util;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -14,37 +10,9 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.language.ngram.LanguageModel"
-	})]
 	public class LargeNGramModel : java.lang.Object, LanguageModel, Configurable
-	{
-		[LineNumberTable(new byte[]
-		{
-			160,
-			170,
-			98,
-			108,
-			106,
-			138,
-			99,
-			159,
-			18,
-			164,
-			149,
-			114,
-			255,
-			6,
-			52,
-			233,
-			79,
-			100,
-			159,
-			16
-		})]
-		
-		private void buildUnigramIDMap(Dictionary dictionary)
+	{		
+		private void buildUnigramIDMap(dictionary.Dictionary dictionary)
 		{
 			int num = 0;
 			string[] words = this.loader.getWords();
@@ -67,74 +35,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				this.logger.warning(new StringBuilder().append("Dictionary is missing ").append(num).append(" words that are contained in the language model.").toString());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			193,
-			108,
-			103,
-			144,
-			245,
-			61,
-			230,
-			69
-		})]
 		
 		private void buildUnigramIDMap()
 		{
 			string[] words = this.loader.getWords();
 			for (int i = 0; i < words.Length; i++)
 			{
-				Word.__<clinit>();
 				Word word = new Word(words[i], null, false);
 				this.unigramIDMap.put(word, this.unigrams[i]);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			163,
-			134,
-			140,
-			109,
-			102,
-			191,
-			6,
-			111,
-			102,
-			191,
-			6,
-			107,
-			114,
-			159,
-			11,
-			108,
-			46,
-			166,
-			111,
-			159,
-			27,
-			103,
-			136,
-			105,
-			102,
-			127,
-			17,
-			186,
-			104,
-			106,
-			15,
-			232,
-			52,
-			233,
-			82,
-			102
-		})]
 		
 		private void readSmearInfo(string text)
 		{
@@ -180,110 +90,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			dataInputStream.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			195,
-			102,
-			134,
-			139,
-			109,
-			109,
-			142,
-			146,
-			125,
-			105,
-			112,
-			106,
-			238,
-			60,
-			232,
-			71,
-			159,
-			18,
-			113,
-			138,
-			100,
-			110,
-			165,
-			105,
-			105,
-			138,
-			112,
-			144,
-			113,
-			107,
-			139,
-			112,
-			146,
-			112,
-			144,
-			104,
-			144,
-			223,
-			4,
-			252,
-			47,
-			235,
-			87,
-			125,
-			111,
-			247,
-			69,
-			243,
-			19,
-			235,
-			115,
-			113,
-			159,
-			28,
-			138,
-			100,
-			133,
-			145,
-			107,
-			114,
-			112,
-			107,
-			140,
-			100,
-			144,
-			103,
-			103,
-			113,
-			107,
-			108,
-			104,
-			112,
-			108,
-			112,
-			112,
-			104,
-			104,
-			136,
-			214,
-			243,
-			48,
-			235,
-			84,
-			151,
-			141,
-			104,
-			174,
-			236,
-			23,
-			235,
-			56,
-			235,
-			117,
-			127,
-			10
-		})]
 		
 		private void buildSmearInfo()
 		{
@@ -398,29 +204,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			java.lang.System.@out.println(new StringBuilder().append("Smear count is ").append(this.smearTermCount).toString());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			213,
-			108,
-			137,
-			99,
-			104,
-			139,
-			231,
-			57,
-			230,
-			75,
-			114,
-			112,
-			47,
-			166,
-			159,
-			58,
-			104,
-			145
-		})]
 		
 		private void clearCache()
 		{
@@ -450,36 +233,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				this.ngramProbCache = new LRUCache(this.ngramCacheSize);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			19,
-			103,
-			136,
-			119,
-			141,
-			100,
-			173,
-			136,
-			99,
-			107,
-			38,
-			198,
-			100,
-			104,
-			99,
-			37,
-			135,
-			104,
-			39,
-			198,
-			142,
-			100,
-			108,
-			52,
-			198
-		})]
 		
 		private Float getNGramProbability(WordSequence wordSequence)
 		{
@@ -511,25 +264,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return Float.valueOf(this.getProbability(wordSequence.getNewest()));
 		}
-
-		
 		
 		private bool hasUnigram(Word word)
 		{
 			return this.unigramIDMap.get(word) != null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			238,
-			104,
-			136,
-			99,
-			159,
-			6
-		})]
-		
 		private float getUnigramProbability(WordSequence wordSequence)
 		{
 			Word word = wordSequence.getWord(0);
@@ -542,24 +282,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return unigram.getLogProbability();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			62,
-			103,
-			130,
-			103,
-			107,
-			107,
-			99,
-			104,
-			99,
-			178,
-			99,
-			113,
-			169
-		})]
 		
 		private NGramProbability findNGram(WordSequence wordSequence)
 		{
@@ -582,37 +304,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return result;
 		}
-
-		
 		
 		private UnigramProbability getUnigram(Word word)
 		{
 			return (UnigramProbability)this.unigramIDMap.get(word);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			245,
-			167,
-			105,
-			191,
-			11,
-			105,
-			146,
-			99,
-			110,
-			135,
-			174,
-			136,
-			105,
-			142,
-			113,
-			127,
-			51,
-			52,
-			165
-		})]
 		
 		public virtual float getProbability(WordSequence wordSequence)
 		{
@@ -647,31 +343,14 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				object obj = "][";
 				object obj2 = " ";
 				object _ref = obj;
-				CharSequence charSequence;
-				charSequence.__ref = _ref;
+				CharSequence charSequence = CharSequence.Cast(_ref);
 				CharSequence charSequence2 = charSequence;
 				_ref = obj2;
-				charSequence.__ref = _ref;
+				charSequence = CharSequence.Cast(_ref);
 				printWriter.println(stringBuilder.append(java.lang.String.instancehelper_replace(text2, charSequence2, charSequence)).append(" : ").append(Float.toString(@float.floatValue())).toString());
 			}
 			return @float.floatValue();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			185,
-			98,
-			135,
-			100,
-			246,
-			69,
-			99,
-			136,
-			99,
-			242,
-			72
-		})]
 		
 		private NGramBuffer getNGramBuffer(WordSequence wordSequence)
 		{
@@ -691,16 +370,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return ngramBuffer;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			23,
-			136,
-			99,
-			159,
-			6
-		})]
 		
 		public int getWordID(Word word)
 		{
@@ -713,16 +382,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return unigram.getWordID();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			112,
-			108,
-			130,
-			119,
-			38
-		})]
 		
 		private int getNumberBigramFollowers(int num)
 		{
@@ -732,96 +391,17 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return this.unigrams[num + 1].getFirstBigramEntry() - this.unigrams[num].getFirstBigramEntry();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			223,
-			108,
-			119,
-			135
-		})]
 		
 		private int getFirstNGramEntry(NGramProbability ngramProbability, int num, int num2)
 		{
 			return this.ngramSegmentTable[num2 - 1][num + ngramProbability.getWhichFollower() >> this.loader.getLogNGramSegmentSize()] + ngramProbability.getFirstNPlus1GramEntry();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			88,
-			110,
-			98
-		})]
 		
 		private bool is32bits()
 		{
 			return this.loader.getBytesPerField() == 4;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			102,
-			110,
-			98,
-			98,
-			98,
-			99,
-			105,
-			98,
-			130,
-			110,
-			138,
-			132,
-			130,
-			100,
-			103,
-			115,
-			104,
-			115,
-			115,
-			143,
-			118,
-			110,
-			139,
-			101,
-			130,
-			105,
-			101,
-			40,
-			166,
-			103,
-			40,
-			167,
-			133,
-			99,
-			130,
-			110,
-			132,
-			103,
-			115,
-			104,
-			148,
-			116,
-			202,
-			145,
-			110,
-			105,
-			182,
-			105,
-			255,
-			9,
-			70,
-			226,
-			61,
-			98,
-			103,
-			191,
-			16
-		})]
-		
 		private NGramBuffer loadNGramBuffer(WordSequence wordSequence)
 		{
 			int wordID = this.getWordID(wordSequence.getWord(0));
@@ -864,7 +444,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				position = this.loader.getNGramOffset(num) + (long)num2 * ((this.loader.getMaxDepth() != num) ? 4L : 2L) * (long)this.loader.getBytesPerField();
 			}
 			NGramBuffer result;
-			IOException ex2;
 			try
 			{
 				byte[] array = this.loader.loadBuffer(position, size);
@@ -879,39 +458,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_1E0;
+				throw new Error(new StringBuilder().append("Error loading ").append(num).append("-Grams.").toString(),ex);
 			}
 			return result;
-			IL_1E0:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
-			string text = new StringBuilder().append("Error loading ").append(num).append("-Grams.").toString();
-			
-			throw new Error(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			199,
-			105
-		})]
 		
 		private Float getSmearTerm(int num, int num2)
 		{
 			long num3 = (long)num << 32 | (long)num2;
 			return (Float)this.bigramSmearMap.get(Long.valueOf(num3));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			167,
-			103,
-			123,
-			135
-		})]
 		
 		private NGramBuffer getBigramBuffer(int num)
 		{
@@ -921,16 +477,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			});
 			return this.loadNGramBuffer(wordSequence);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			186,
-			103,
-			123,
-			123,
-			135
-		})]
 		
 		private NGramBuffer loadTrigramBuffer(int num, int num2)
 		{
@@ -941,14 +487,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			});
 			return this.loadNGramBuffer(wordSequence);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			213,
-			104,
-			104
-		})]
 		
 		private float getBigramProb(int num, int num2)
 		{
@@ -956,44 +494,14 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			NGramProbability ngramProbability = bigramBuffer.findNGram(num2);
 			return this.ngramProbTable[1][ngramProbability.getProbabilityID()];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			185,
-			105,
-			121
-		})]
 		
 		private void putSmearTerm(int num, int num2, float num3)
 		{
 			long num4 = (long)num << 32 | (long)num2;
 			this.bigramSmearMap.put(Long.valueOf(num4), Float.valueOf(num3));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			107,
-			73,
-			104,
-			118,
-			103,
-			103,
-			103,
-			104,
-			103,
-			104,
-			107,
-			104,
-			103,
-			105,
-			106,
-			105,
-			103
-		})]
 		
-		public LargeNGramModel(string format, URL location, string ngramLogFile, int maxNGramCacheSize, bool clearCacheAfterUtterance, int maxDepth, Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight, bool fullSmear)
+		public LargeNGramModel(string format, URL location, string ngramLogFile, int maxNGramCacheSize, bool clearCacheAfterUtterance, int maxDepth, dictionary.Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight, bool fullSmear)
 		{
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.format = format;
@@ -1010,41 +518,10 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			this.unigramWeight = unigramWeight;
 			this.fullSmear = fullSmear;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			107,
-			134
-		})]
 		
 		public LargeNGramModel()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			118,
-			108,
-			113,
-			113,
-			113,
-			103,
-			37,
-			138,
-			113,
-			118,
-			103,
-			37,
-			138,
-			113,
-			114,
-			113,
-			118
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -1054,88 +531,13 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			this.ngramCacheSize = ps.getInt("ngramCacheSize");
 			this.clearCacheAfterUtterance = ps.getBoolean("clearCachesAfterUtterance").booleanValue();
 			this.maxDepth = ps.getInt("maxDepth");
-			this.dictionary = (Dictionary)ps.getComponent("dictionary");
+			this.dictionary = (dictionary.Dictionary)ps.getComponent("dictionary");
 			this.applyLanguageWeightAndWip = ps.getBoolean("applyLanguageWeightAndWip").booleanValue();
 			this.languageWeight = ps.getFloat("languageWeight");
 			this.wip = ps.getDouble("wordInsertionProbability");
 			this.unigramWeight = ps.getFloat("unigramWeight");
 			this.fullSmear = ps.getBoolean("fullSmear").booleanValue();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			77,
-			144,
-			191,
-			11,
-			104,
-			155,
-			115,
-			148,
-			255,
-			57,
-			71,
-			229,
-			60,
-			97,
-			191,
-			36,
-			130,
-			255,
-			21,
-			69,
-			107,
-			113,
-			118,
-			118,
-			118,
-			150,
-			115,
-			143,
-			100,
-			150,
-			100,
-			118,
-			246,
-			56,
-			233,
-			76,
-			113,
-			104,
-			142,
-			102,
-			146,
-			124,
-			145,
-			112,
-			127,
-			8,
-			47,
-			37,
-			198,
-			107,
-			143,
-			111,
-			107,
-			255,
-			2,
-			72,
-			226,
-			57,
-			97,
-			127,
-			5,
-			111,
-			102,
-			143,
-			207,
-			113
-		})]
 		
 		public virtual void allocate()
 		{
@@ -1143,37 +545,24 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			this.logger.info(new StringBuilder().append("Loading n-gram language model from: ").append(this.location).toString());
 			if (this.ngramLogFile != null)
 			{
-				FileOutputStream.__<clinit>();
 				this.logFile = new PrintWriter(new FileOutputStream(this.ngramLogFile));
 			}
 			if (this.location.getProtocol() != null)
 			{
 				if (!java.lang.String.instancehelper_equals(this.location.getProtocol(), "file"))
 				{
-					BinaryStreamLoader.__<clinit>();
 					this.loader = new BinaryStreamLoader(this.location, this.format, this.applyLanguageWeightAndWip, this.languageWeight, this.wip, this.unigramWeight);
 					goto IL_15B;
 				}
 			}
 			try
 			{
-				BinaryLoader.__<clinit>();
-				File.__<clinit>();
 				this.loader = new BinaryLoader(new File(this.location.toURI()), this.format, this.applyLanguageWeightAndWip, this.languageWeight, this.wip, this.unigramWeight);
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				if (ByteCodeHelper.MapException<Exception>(ex, 2) == null)
-				{
-					throw;
-				}
-				goto IL_D9;
+				this.loader = new BinaryLoader(new File(this.location.getPath()), this.format, this.applyLanguageWeightAndWip, this.languageWeight, this.wip, this.unigramWeight);
 			}
-			goto IL_15B;
-			IL_D9:
-			BinaryLoader.__<clinit>();
-			File.__<clinit>();
-			this.loader = new BinaryLoader(new File(this.location.getPath()), this.format, this.applyLanguageWeightAndWip, this.languageWeight, this.wip, this.unigramWeight);
 			IL_15B:
 			this.unigramIDMap = new HashMap();
 			this.unigrams = this.loader.getUnigrams();
@@ -1224,47 +613,21 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				}
 				catch (IOException ex2)
 				{
-					ex3 = ByteCodeHelper.MapException<IOException>(ex2, 1);
-					goto IL_353;
+					java.lang.System.@out.println(new StringBuilder().append("... ").append(ex2).toString());
+					java.lang.System.@out.println("... Calculating");
+					this.buildSmearInfo();
+					java.lang.System.@out.println("... Writing");
+					java.lang.System.@out.println("... Done");
 				}
-				goto IL_3B0;
-				IL_353:
-				IOException ex4 = ex3;
-				java.lang.System.@out.println(new StringBuilder().append("... ").append(ex4).toString());
-				java.lang.System.@out.println("... Calculating");
-				this.buildSmearInfo();
-				java.lang.System.@out.println("... Writing");
-				java.lang.System.@out.println("... Done");
 			}
 			IL_3B0:
 			TimerPool.getTimer(this, "Load LM").stop();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			160,
-			107
-		})]
 		
 		public virtual void deallocate()
 		{
 			this.loader.deallocate();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			203,
-			134,
-			104,
-			112,
-			139
-		})]
 		
 		public virtual void onUtteranceEnd()
 		{
@@ -1276,29 +639,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 		}
 
-		
-		
 		public virtual bool hasWord(Word w)
 		{
 			Map map = this.unigramIDMap;
-			Word.__<clinit>();
 			return map.get(new Word(w.toString(), null, false)) != null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			49,
-			134,
-			104,
-			135,
-			100,
-			112,
-			201,
-			122,
-			159,
-			6
-		})]
 		
 		public virtual float getSmearOld(WordSequence wordSequence)
 		{
@@ -1318,34 +663,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			70,
-			134,
-			107,
-			110,
-			135,
-			100,
-			110,
-			105,
-			108,
-			103,
-			112,
-			113,
-			139,
-			100,
-			140,
-			104,
-			206,
-			119,
-			223,
-			31,
-			122,
-			159,
-			6
-		})]
 		
 		public virtual float getSmear(WordSequence wordSequence)
 		{
@@ -1393,20 +710,9 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.maxDepth;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			134,
-			107,
-			37,
-			139
-		})]
 		
 		public virtual Set getVocabulary()
 		{
-			HashSet.__<clinit>();
 			HashSet hashSet = new HashSet(Arrays.asList(this.loader.getWords()));
 			return Collections.unmodifiableSet(hashSet);
 		}
@@ -1420,25 +726,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.ngramHits;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			71,
-			127,
-			32,
-			101,
-			159,
-			37,
-			191,
-			36,
-			127,
-			30,
-			159,
-			37,
-			127,
-			22
-		})]
 		
 		private void dumpProbs(double[] array, double[] array2, int num, int num2, float num3, float num4, double num5, double num6, double num7, double num8)
 		{
@@ -1449,43 +736,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			java.lang.System.@out.print(new StringBuilder().append(" ").append(num3).append(' ').append(num4).append(' ').append(num8).toString());
 			java.lang.System.@out.println(new StringBuilder().append("  ").append(array[num]).append(' ').append(array2[num]).toString());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			163,
-			94,
-			140,
-			107,
-			127,
-			11,
-			141,
-			108,
-			46,
-			166,
-			111,
-			127,
-			27,
-			136,
-			99,
-			103,
-			162,
-			140,
-			107,
-			105,
-			107,
-			104,
-			237,
-			60,
-			230,
-			53,
-			233,
-			83,
-			102
-		})]
 		
 		private void writeSmearInfo(string text)
 		{
@@ -1603,7 +853,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 
 		protected internal bool fullSmear;
 
-		protected internal Dictionary dictionary;
+		protected internal dictionary.Dictionary dictionary;
 
 		protected internal string format;
 
@@ -1626,16 +876,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		private BinaryLoader loader;
 
 		private PrintWriter logFile;
-
 		
 		private Map unigramIDMap;
-
 		
 		private Map[] loadedNGramBuffers;
-
 		
 		private LRUCache ngramProbCache;
-
 		
 		private Map bigramSmearMap;
 

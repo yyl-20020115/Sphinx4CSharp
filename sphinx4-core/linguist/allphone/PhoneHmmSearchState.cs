@@ -1,40 +1,18 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.scorer;
+﻿using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.allphone
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.SearchState",
-		"edu.cmu.sphinx.linguist.SearchStateArc",
-		"edu.cmu.sphinx.decoder.scorer.ScoreProvider"
-	})]
 	public class PhoneHmmSearchState : java.lang.Object, SearchState, SearchStateArc, ScoreProvider
 	{
-		
-		
 		public virtual int getBaseId()
 		{
 			return ((SenoneHMM)this.state.getHMM()).getBaseUnit().getBaseID();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			166,
-			104,
-			103,
-			103,
-			104,
-			105
-		})]
 		
 		public PhoneHmmSearchState(HMMState hmmState, AllphoneLinguist linguist, float insertionProb, float languageProb)
 		{
@@ -58,33 +36,11 @@ namespace edu.cmu.sphinx.linguist.allphone
 		{
 			return this;
 		}
-
-		
 		
 		public virtual float getProbability()
 		{
 			return this.getLanguageProbability() + this.getInsertionProbability();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			5,
-			112,
-			127,
-			2,
-			108,
-			103,
-			63,
-			7,
-			134,
-			130,
-			108,
-			104,
-			103,
-			63,
-			3,
-			166
-		})]
 		
 		public virtual SearchStateArc[] getSuccessors()
 		{
@@ -107,8 +63,6 @@ namespace edu.cmu.sphinx.linguist.allphone
 			}
 			return array;
 		}
-
-		
 		
 		public virtual bool isEmitting()
 		{
@@ -119,8 +73,6 @@ namespace edu.cmu.sphinx.linguist.allphone
 		{
 			return false;
 		}
-
-		
 		
 		public virtual string toPrettyString()
 		{
@@ -146,29 +98,16 @@ namespace edu.cmu.sphinx.linguist.allphone
 		{
 			return 2;
 		}
-
-		
 		
 		public virtual float getScore(Data data)
 		{
 			return this.state.getScore(data);
 		}
-
-		
 		
 		public virtual float[] getComponentScore(Data feature)
 		{
 			return this.state.calculateComponentScore(feature);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			59,
-			104,
-			98,
-			123,
-			118
-		})]
 		
 		public override bool equals(object obj)
 		{
@@ -181,8 +120,6 @@ namespace edu.cmu.sphinx.linguist.allphone
 			return senoneSequence2.equals(senoneSequence);
 		}
 
-		
-		
 		public override int hashCode()
 		{
 			return ((SenoneHMM)this.state.getHMM()).getSenoneSequence().hashCode() + this.state.getState() * 37;

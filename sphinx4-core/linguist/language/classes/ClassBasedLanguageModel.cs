@@ -1,34 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.language.ngram;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
-using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.classes
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.language.ngram.LanguageModel"
-	})]
 	public class ClassBasedLanguageModel : java.lang.Object, LanguageModel, Configurable
-	{
-		[LineNumberTable(new byte[]
-		{
-			114,
-			107,
-			127,
-			6,
-			109,
-			131,
-			143,
-			141,
-			98
-		})]
-		
+	{		
 		private void makeVocabulary()
 		{
 			this.vocabulary = new HashSet();
@@ -47,18 +26,6 @@ namespace edu.cmu.sphinx.linguist.language.classes
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			191,
-			232,
-			60,
-			231,
-			69,
-			103,
-			103
-		})]
 		
 		public ClassBasedLanguageModel(ClassMap classMap, LanguageModel classLM)
 		{
@@ -66,34 +33,11 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.classMap = classMap;
 			this.classLM = classLM;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			4,
-			232,
-			55,
-			231,
-			75
-		})]
 		
 		public ClassBasedLanguageModel()
 		{
 			this.allocated = false;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			15,
-			104,
-			101,
-			214,
-			118,
-			118
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -108,20 +52,6 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.classMap = (ClassMap)ps.getComponent("classMap");
 			this.classLM = (LanguageModel)ps.getComponent("classLanguageModel");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			30,
-			104,
-			103,
-			107,
-			107,
-			134
-		})]
 		
 		public virtual void allocate()
 		{
@@ -133,19 +63,6 @@ namespace edu.cmu.sphinx.linguist.language.classes
 				this.makeVocabulary();
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			43,
-			103,
-			107,
-			107,
-			103
-		})]
 		
 		public virtual void deallocate()
 		{
@@ -154,27 +71,6 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.classMap.deallocate();
 			this.vocabulary = null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			56,
-			108,
-			102,
-			106,
-			104,
-			103,
-			108,
-			145,
-			107,
-			103,
-			132,
-			232,
-			54,
-			233,
-			78,
-			108,
-			103
-		})]
 		
 		public virtual float getProbability(WordSequence wordSequence)
 		{
@@ -199,13 +95,10 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			return 0f;
 		}
 
-		
 		public virtual Set getVocabulary()
 		{
 			return this.vocabulary;
-		}
-
-		
+		}		
 		
 		public virtual int getMaxDepth()
 		{
@@ -243,7 +136,6 @@ namespace edu.cmu.sphinx.linguist.language.classes
 		public const string PROP_CLASS_MAP = "classMap";
 
 		private LanguageModel classLM;
-
 		
 		private Set vocabulary;
 

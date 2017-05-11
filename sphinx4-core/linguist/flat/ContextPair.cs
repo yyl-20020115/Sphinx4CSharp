@@ -1,44 +1,16 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	.
-	
 	internal sealed class ContextPair : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			165,
-			165,
-			104,
-			103,
-			103,
-			121
-		})]
-		
 		private ContextPair(UnitContext unitContext, UnitContext unitContext2)
 		{
 			this.left = unitContext;
 			this.right = unitContext2;
-			this.hashCode = 99 + unitContext.hashCode() * 113 + unitContext2.hashCode();
+			this._hashCode = 99 + unitContext.hashCode() * 113 + unitContext2.hashCode();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			165,
-			181,
-			104,
-			113
-		})]
 		
 		internal static ContextPair get(UnitContext unitContext, UnitContext unitContext2)
 		{
@@ -46,18 +18,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			ContextPair contextPair2 = (ContextPair)ContextPair.contextPairCache.cache(contextPair);
 			return (contextPair2 != null) ? contextPair2 : contextPair;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			165,
-			195,
-			100,
-			98,
-			104,
-			103,
-			159,
-			12
-		})]
 		
 		public override bool equals(object obj)
 		{
@@ -75,10 +35,8 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		public override int hashCode()
 		{
-			return this.hashCode;
+			return this._hashCode;
 		}
-
-		
 		
 		public override string toString()
 		{
@@ -93,24 +51,14 @@ namespace edu.cmu.sphinx.linguist.flat
 		public UnitContext getRightContext()
 		{
 			return this.right;
-		}
-
-		
-		static ContextPair()
-		{
-		}
-
-		
+		}				
 		
 		internal static Cache contextPairCache = new Cache();
-
-		
+	
 		private UnitContext left;
-
 		
 		private UnitContext right;
-
 		
-		private int hashCode;
+		private int _hashCode;
 	}
 }

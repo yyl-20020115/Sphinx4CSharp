@@ -1,52 +1,24 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.language.ngram.LanguageModel"
-	})]
 	public class DynamicTrigramModel : java.lang.Object, LanguageModel, Configurable
 	{
-		
 		public virtual void setText(List sentences)
 		{
 			this.sentences = sentences;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			104,
-			107,
-			107,
-			107
-		})]
-		
+	
 		public DynamicTrigramModel()
 		{
 			this.vocabulary = new HashSet();
 			this.logProbs = new HashMap();
 			this.logBackoffs = new HashMap();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			113,
-			109,
-			99,
-			151,
-			142
-		})]
 		
 		private void addSequence(HashMap hashMap, WordSequence wordSequence)
 		{
@@ -60,20 +32,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				hashMap.put(wordSequence, Integer.valueOf(1));
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			126,
-			110,
-			121,
-			105,
-			119,
-			99,
-			150,
-			149,
-			98,
-			134
-		})]
 		
 		public virtual float getProbability(WordSequence wordSequence)
 		{
@@ -100,163 +58,18 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			104,
-			103
-		})]
 		
-		public DynamicTrigramModel(Dictionary dictionary) : this()
+		public DynamicTrigramModel(dictionary.Dictionary dictionary) : this()
 		{
 			this.dictionary = dictionary;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			184,
-			118,
-			113,
-			113
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
-			this.dictionary = (Dictionary)ps.getComponent("dictionary");
+			this.dictionary = (dictionary.Dictionary)ps.getComponent("dictionary");
 			this.maxDepth = ps.getInt("maxDepth");
 			this.unigramWeight = ps.getFloat("unigramWeight");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			107,
-			107,
-			107,
-			102,
-			102,
-			102,
-			130,
-			127,
-			8,
-			110,
-			103,
-			115,
-			124,
-			105,
-			130,
-			110,
-			111,
-			100,
-			143,
-			234,
-			55,
-			235,
-			76,
-			147,
-			106,
-			127,
-			8,
-			164,
-			106,
-			100,
-			127,
-			8,
-			191,
-			24,
-			113,
-			100,
-			127,
-			9,
-			127,
-			28,
-			255,
-			47,
-			60,
-			235,
-			70,
-			133,
-			103,
-			107,
-			103,
-			127,
-			5,
-			127,
-			15,
-			130,
-			103,
-			112,
-			119,
-			146,
-			114,
-			119,
-			122,
-			127,
-			4,
-			125,
-			104,
-			113,
-			149,
-			103,
-			103,
-			112,
-			101,
-			130,
-			100,
-			158,
-			122,
-			133,
-			127,
-			9,
-			133,
-			103,
-			127,
-			5,
-			127,
-			4,
-			127,
-			16,
-			133,
-			114,
-			119,
-			122,
-			127,
-			4,
-			159,
-			15,
-			103,
-			103,
-			112,
-			101,
-			130,
-			100,
-			158,
-			122,
-			101,
-			127,
-			9,
-			133,
-			127,
-			8,
-			120,
-			127,
-			9,
-			127,
-			3,
-			101
-		})]
 		
 		public virtual void allocate()
 		{
@@ -297,7 +110,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				if (arrayList.size() > 0)
 				{
 					HashMap hashMap4 = hashMap;
-					WordSequence.__<clinit>();
 					this.addSequence(hashMap4, new WordSequence(new Word[]
 					{
 						(Word)arrayList.get(0)
@@ -308,13 +120,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				{
 					num++;
 					HashMap hashMap5 = hashMap;
-					WordSequence.__<clinit>();
 					this.addSequence(hashMap5, new WordSequence(new Word[]
 					{
 						(Word)arrayList.get(1)
 					}));
 					HashMap hashMap6 = hashMap2;
-					WordSequence.__<clinit>();
 					this.addSequence(hashMap6, new WordSequence(new Word[]
 					{
 						(Word)arrayList.get(0),
@@ -325,20 +135,17 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				{
 					num++;
 					HashMap hashMap7 = hashMap;
-					WordSequence.__<clinit>();
 					this.addSequence(hashMap7, new WordSequence(new Word[]
 					{
 						(Word)arrayList.get(j)
 					}));
 					HashMap hashMap8 = hashMap2;
-					WordSequence.__<clinit>();
 					this.addSequence(hashMap8, new WordSequence(new Word[]
 					{
 						(Word)arrayList.get(j - 1),
 						(Word)arrayList.get(j)
 					}));
 					HashMap hashMap9 = hashMap3;
-					WordSequence.__<clinit>();
 					this.addSequence(hashMap9, new WordSequence(new Word[]
 					{
 						(Word)arrayList.get(j - 2),
@@ -360,9 +167,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			float num5 = logMath.linearToLog((double)this.unigramWeight);
 			float num6 = logMath.linearToLog((double)(1f - this.unigramWeight));
 			float num7 = -logMath.linearToLog((double)hashMap10.size());
-			TreeSet.__<clinit>();
 			TreeSet treeSet = new TreeSet(hashMap.keySet());
-			TreeSet.__<clinit>();
 			Iterator iterator3 = new TreeSet(hashMap2.keySet()).iterator();
 			WordSequence wordSequence = (!iterator3.hasNext()) ? null : ((WordSequence)iterator3.next());
 			Iterator iterator4 = treeSet.iterator();
@@ -397,9 +202,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				int num11 = ((Integer)hashMap.get(((WordSequence)entry2.getKey()).getOldest())).intValue();
 				hashMap11.put(entry2.getKey(), Float.valueOf((float)((Integer)entry2.getValue()).intValue() * num4 / (float)num11));
 			}
-			TreeSet.__<clinit>();
 			TreeSet treeSet2 = new TreeSet(hashMap2.keySet());
-			TreeSet.__<clinit>();
 			iterator3 = new TreeSet(hashMap3.keySet()).iterator();
 			wordSequence = ((!iterator3.hasNext()) ? null : ((WordSequence)iterator3.next()));
 			Iterator iterator6 = treeSet2.iterator();
@@ -433,10 +236,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		public virtual void deallocate()
 		{
 		}
@@ -445,7 +244,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 			return 0f;
 		}
-
 		
 		public virtual Set getVocabulary()
 		{
@@ -461,22 +259,17 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 		}
 
-		private Dictionary dictionary;
-
-		
-		
+		private dictionary.Dictionary dictionary;
+	
 		private Set vocabulary;
 
 		private int maxDepth;
 
 		private float unigramWeight;
 
-		
 		private List sentences;
 
-		
 		private Map logProbs;
-
 		
 		private Map logBackoffs;
 	}

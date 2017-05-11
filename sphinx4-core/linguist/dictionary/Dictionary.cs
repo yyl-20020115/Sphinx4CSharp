@@ -1,19 +1,9 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public interface Dictionary : Configurable
 	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		void allocate();
 
 		void deallocate();

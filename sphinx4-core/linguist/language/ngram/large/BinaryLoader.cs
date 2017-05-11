@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -10,30 +7,7 @@ using java.util.regex;
 namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
 	public class BinaryLoader : java.lang.Object
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			114,
-			162,
-			232,
-			8,
-			231,
-			121,
-			103,
-			103,
-			103,
-			107,
-			104,
-			106,
-			105
-		})]
-		
+	{		
 		public BinaryLoader(string format, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight)
 		{
 			this.bigEndian = true;
@@ -45,54 +19,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			this.wip = wip;
 			this.unigramWeight = unigramWeight;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			19,
-			204,
-			167,
-			157,
-			167,
-			110,
-			110,
-			100,
-			186,
-			117,
-			149,
-			108,
-			153,
-			246,
-			52,
-			233,
-			82,
-			110,
-			100,
-			223,
-			6,
-			182,
-			105,
-			111,
-			140,
-			105,
-			111,
-			172,
-			134,
-			104,
-			107,
-			116,
-			148,
-			100,
-			244,
-			59,
-			230,
-			74,
-			102
-		})]
 		
 		protected internal virtual void loadModelLayout(InputStream inputStream)
 		{
@@ -154,13 +80,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			dataInputStream.close();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			119,
-			127,
-			6
-		})]
 		
 		public virtual int getNumberNGrams(int n)
 		{
@@ -171,14 +90,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return this.numberNGrams[n - 1];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			129,
-			127,
-			0
-		})]
 		
 		public virtual float[] getNGramProbabilities(int n)
 		{
@@ -189,14 +100,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return this.NGramProbTable[n - 1];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			143,
-			127,
-			6
-		})]
 		
 		public virtual float[] getNGramBackoffWeights(int n)
 		{
@@ -207,14 +110,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return this.NGramBackoffTable[n - 1];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			157,
-			127,
-			6
-		})]
 		
 		public virtual int[] getNGramSegments(int n)
 		{
@@ -225,14 +120,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return this.NGramSegmentTable[n - 1];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			211,
-			127,
-			6
-		})]
 		
 		public virtual long getNGramOffset(int n)
 		{
@@ -243,78 +130,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return this.NGramOffset[n - 1];
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			91,
-			142,
-			127,
-			23,
-			103,
-			127,
-			14,
-			169,
-			255,
-			16,
-			72,
-			107,
-			104,
-			143,
-			127,
-			24,
-			191,
-			6,
-			109,
-			105,
-			109,
-			137,
-			108,
-			122,
-			242,
-			69,
-			111,
-			138,
-			113,
-			113,
-			113,
-			113,
-			145,
-			105,
-			200,
-			175,
-			135,
-			104,
-			174,
-			102,
-			231,
-			69,
-			114,
-			130,
-			248,
-			69,
-			102,
-			115,
-			115,
-			208,
-			117,
-			98,
-			170,
-			107,
-			223,
-			23,
-			112,
-			127,
-			8,
-			31,
-			36,
-			235,
-			69
-		})]
 		
 		private void readHeader(DataInputStream dataInputStream)
 		{
@@ -338,7 +153,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			{
 				string text3 = "Darpa \\d-gram LM";
 				object _ref = text2;
-				charSequence.__ref = _ref;
+				charSequence = CharSequence.Cast(_ref);
 				if (!Pattern.matches(text3, charSequence))
 				{
 					string text4 = new StringBuilder().append("Bad binary LM file header: ").append(text2).toString();
@@ -359,7 +174,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				Pattern pattern = Pattern.compile("\\d");
 				Pattern pattern2 = pattern;
 				object _ref = text2;
-				charSequence.__ref = _ref;
+				charSequence = CharSequence.Cast(_ref);
 				Matcher matcher = pattern2.matcher(charSequence);
 				this.maxNGram = Integer.parseInt(matcher.group());
 			}
@@ -425,33 +240,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			220,
-			66,
-			135,
-			169,
-			169,
-			100,
-			194,
-			102,
-			182,
-			106,
-			106,
-			138,
-			111,
-			143,
-			239,
-			42,
-			233,
-			90
-		})]
 		
 		private UnigramProbability[] readUnigrams(DataInputStream dataInputStream, int num, bool flag)
 		{
@@ -477,31 +265,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			199,
-			110,
-			117,
-			136,
-			110,
-			118,
-			110,
-			119,
-			106,
-			118,
-			110,
-			117,
-			232,
-			56,
-			233,
-			75
-		})]
 		
 		private void skipNGrams(DataInputStream dataInputStream)
 		{
@@ -524,26 +287,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			233,
-			98,
-			105,
-			108,
-			191,
-			6,
-			135,
-			134,
-			22,
-			230,
-			69
-		})]
 		
 		private float[] readFloatTable(DataInputStream dataInputStream, bool flag)
 		{
@@ -561,25 +304,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			226,
-			66,
-			105,
-			100,
-			159,
-			6,
-			103,
-			102,
-			43,
-			166
-		})]
 		
 		private int[] readIntTable(DataInputStream dataInputStream, bool flag, int num)
 		{
@@ -597,20 +321,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			210,
-			130,
-			111,
-			99,
-			135
-		})]
 		
 		private int readInt(DataInputStream dataInputStream, bool flag)
 		{
@@ -621,36 +331,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return Utilities.readLittleEndianInt(dataInputStream);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			190,
-			103,
-			103,
-			149,
-			98,
-			98,
-			107,
-			103,
-			111,
-			132,
-			110,
-			101,
-			111,
-			105,
-			111,
-			135,
-			228,
-			52,
-			235,
-			79,
-			118
-		})]
 		
 		private string[] readWords(DataInputStream dataInputStream, int num, int num2)
 		{
@@ -685,30 +365,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			233,
-			115,
-			122,
-			157,
-			146,
-			134,
-			114,
-			139,
-			137,
-			106,
-			103,
-			177,
-			104,
-			111,
-			182,
-			233,
-			49,
-			235,
-			81
-		})]
 		
 		private void applyUnigramWeight()
 		{
@@ -735,14 +391,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			162,
-			9,
-			103,
-			42,
-			166
-		})]
 		private void applyLanguageWeight(float[] array, float num)
 		{
 			for (int i = 0; i < array.Length; i++)
@@ -750,16 +398,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				array[i] *= num;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			18,
-			110,
-			103,
-			41,
-			166
-		})]
 		
 		private void applyWip(float[] array, double num)
 		{
@@ -769,22 +407,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				array[i] += num2;
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			168,
-			102,
-			103,
-			149,
-			102,
-			43,
-			166
-		})]
 		
 		private string readString(DataInputStream dataInputStream, int num)
 		{
@@ -797,21 +419,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return stringBuilder.toString();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			223,
-			101,
-			104,
-			110,
-			101,
-			98
-		})]
 		
 		private void skipStreamBytes(DataInputStream dataInputStream, long num)
 		{
@@ -822,25 +429,10 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				num -= num2;
 			}
 		}
-
 		public virtual int getBytesPerField()
 		{
 			return this.bytesPerField;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			158,
-			205,
-			98,
-			111,
-			99,
-			135
-		})]
 		
 		private float readFloat(DataInputStream dataInputStream, bool flag)
 		{
@@ -851,37 +443,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			return Utilities.readLittleEndianFloat(dataInputStream);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			118,
-			130,
-			115,
-			108,
-			113
-		})]
 		
 		public BinaryLoader(File location, string format, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight) : this(format, applyLanguageWeightAndWip, languageWeight, wip, unigramWeight)
 		{
 			this.loadModelLayout(new FileInputStream(location));
 			this.file = new RandomAccessFile(location, "r");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			76,
-			105,
-			107
-		})]
 		
 		public virtual void deallocate()
 		{
@@ -890,23 +457,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				this.file.close();
 			}
 		}
-
-		
-		
 		public virtual int getNumberUnigrams()
 		{
 			return this.getNumberNGrams(1);
 		}
 
-		
-		
 		public virtual int getNumberBigrams()
 		{
 			return this.getNumberNGrams(2);
 		}
 
-		
-		
 		public virtual int getNumberTrigrams()
 		{
 			return this.getNumberNGrams(3);
@@ -916,29 +476,21 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.unigrams;
 		}
-
-		
 		
 		public virtual float[] getBigramProbabilities()
 		{
 			return this.getNGramProbabilities(2);
 		}
-
-		
 		
 		public virtual float[] getTrigramProbabilities()
 		{
 			return this.getNGramProbabilities(3);
 		}
-
-		
 		
 		public virtual float[] getTrigramBackoffWeights()
 		{
 			return this.getNGramBackoffWeights(3);
-		}
-
-		
+		}		
 		
 		public virtual int[] getTrigramSegments()
 		{
@@ -959,15 +511,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.words;
 		}
-
-		
 		
 		public virtual long getBigramOffset()
 		{
 			return this.getNGramOffset(2);
 		}
-
-		
 		
 		public virtual long getTrigramOffset()
 		{
@@ -983,21 +531,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.bigEndian;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			2,
-			108,
-			103,
-			111,
-			159,
-			32
-		})]
 		
 		public virtual byte[] loadBuffer(long position, int size)
 		{
@@ -1010,25 +543,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				throw new IOException(text);
 			}
 			return array;
-		}
-
-		
-		static BinaryLoader()
-		{
-		}
-
-		
-		[NameSig("getUnigrams", "()[Ledu.cmu.sphinx.linguist.language.ngram.large.UnigramProbability;")]
-		public object getUnigrams()
-		{
-			return this.getUnigrams();
-		}
-
-		
-		[NameSig("getUnigrams", "()[Ledu.cmu.sphinx.linguist.language.ngram.large.UnigramProbability;")]
-		protected internal object _0()
-		{
-			return this.getUnigrams();
 		}
 
 		private const string DARPA_TG_HEADER = "Darpa Trigram LM";
@@ -1083,7 +597,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 
 		private int bytesPerField;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<BinaryLoader>.Value.desiredAssertionStatus();
 	}
 }

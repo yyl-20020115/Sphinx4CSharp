@@ -1,39 +1,12 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using ikvm.@internal;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	.
-	
 	internal sealed class HMMNode : UnitNode
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			99,
-			106,
-			135,
-			135,
-			98,
-			104,
-			100,
-			104,
-			100,
-			109,
-			130,
-			103
-		})]
-		
 		internal HMMNode(HMM hmm, float num) : base(num)
 		{
 			this.hmm = hmm;
@@ -54,8 +27,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			this.setType(type);
 		}
 
-		
-		
 		internal override Unit getBaseUnit()
 		{
 			return this.hmm.getBaseUnit();
@@ -66,17 +37,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			return this.hmm;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			191,
-			104,
-			171,
-			127,
-			0
-		})]
-		
 		private Set getRCSet()
 		{
 			if (this.rcSet == null)
@@ -91,16 +51,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			return (Set)this.rcSet;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			176,
-			102,
-			109,
-			108,
-			151
-		})]
-		
 		internal override void freeze()
 		{
 			base.freeze();
@@ -111,47 +61,26 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 		}
 
-		
-		
-		internal new HMM getKey()
+		internal HMM getKey()
 		{
 			return this.getHMM();
-		}
-
-		
+		}	
 		
 		internal override HMMPosition getPosition()
 		{
 			return this.hmm.getPosition();
 		}
-
-		
 		
 		public override string toString()
 		{
 			return new StringBuilder().append("HMMNode ").append(this.hmm).append(" p ").append(this.getUnigramProbability()).toString();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			168,
-			109
-		})]
-		
 		internal void addRC(Unit unit)
 		{
 			this.getRCSet().add(unit);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			206,
-			109,
-			134
-		})]
-		
+	
 		internal Unit[] getRC()
 		{
 			if (this.rcSet is HashSet)
@@ -160,27 +89,15 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 			return (Unit[])((Unit[])this.rcSet);
 		}
-
-		
-		
-		
-		internal override object getKey()
-		{
-			return this.getKey();
-		}
-
 		
 		static HMMNode()
 		{
-			UnitNode.__<clinit>();
 			HMMNode.assertionsDisabled = !ClassLiteral<HMMNode>.Value.desiredAssertionStatus();
 		}
 
-		
 		private HMM hmm;
 
 		private object rcSet;
-
 		
 		internal new static bool assertionsDisabled;
 	}

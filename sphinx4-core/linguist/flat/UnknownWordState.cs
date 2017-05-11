@@ -1,33 +1,16 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.WordSearchState"
-	})]
-	.
-	
 	[Serializable]
 	internal sealed class UnknownWordState : SentenceHMMState, WordSearchState, SearchState
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		
-		
 		internal UnknownWordState()
 		{
 		}
-
-		
 		
 		public Pronunciation getPronunciation()
 		{
@@ -48,22 +31,14 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return true;
 		}
-
 		
-		static UnknownWordState()
+		object SearchState.getLexState()
 		{
-			SentenceHMMState.__<clinit>();
+			return this.getLexState();
 		}
-
-		
-		object SearchState.Object;getLexState()
-		{
-			return this.<bridge>getLexState();
-		}
-
 		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected UnknownWordState(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+		public UnknownWordState(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
 		}
 	}

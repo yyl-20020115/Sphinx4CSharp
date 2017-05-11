@@ -1,43 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.language.ngram.LanguageModel"
-	})]
 	public class InterpolatedLanguageModel : java.lang.Object, LanguageModel, Configurable
-	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			232,
-			55,
-			231,
-			74,
-			107,
-			103,
-			140,
-			109,
-			102,
-			103,
-			103,
-			23,
-			198,
-			122,
-			101,
-			218
-		})]
-		
+	{		
 		public InterpolatedLanguageModel(List languageModels, float[] floats)
 		{
 			this.allocated = false;
@@ -60,59 +30,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				throw new PropertyException(name, propertyName, msg);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			15,
-			232,
-			36,
-			231,
-			94
-		})]
 		
 		public InterpolatedLanguageModel()
 		{
 			this.allocated = false;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			20,
-			104,
-			144,
-			108,
-			106,
-			177,
-			108,
-			110,
-			208,
-			108,
-			109,
-			102,
-			142,
-			116,
-			103,
-			255,
-			3,
-			71,
-			226,
-			58,
-			97,
-			101,
-			187,
-			255,
-			0,
-			54,
-			233,
-			77,
-			122,
-			101,
-			218
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -165,23 +87,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				throw new PropertyException(name2, propertyName2, msg2);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			59,
-			104,
-			103,
-			107,
-			127,
-			1,
-			102,
-			114,
-			130
-		})]
 		
 		public virtual void allocate()
 		{
@@ -198,20 +103,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			70,
-			103,
-			127,
-			1,
-			102,
-			98
-		})]
 		
 		public virtual void deallocate()
 		{
@@ -223,21 +114,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				languageModel.deallocate();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			82,
-			102,
-			107,
-			143,
-			115,
-			99,
-			132,
-			238,
-			57,
-			230,
-			74
-		})]
 		
 		public virtual float getProbability(WordSequence wordSequence)
 		{
@@ -256,29 +132,15 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			return num;
 		}
-
 		public virtual float getSmear(WordSequence wordSequence)
 		{
 			return 1f;
 		}
-
 		
 		public virtual Set getVocabulary()
 		{
 			return this.vocabulary;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			121,
-			98,
-			127,
-			1,
-			103,
-			100,
-			130,
-			98
-		})]
 		
 		public virtual int getMaxDepth()
 		{
@@ -323,7 +185,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		private LogMath logMath;
 
 		private bool allocated;
-
 		
 		private List languageModels;
 
@@ -331,7 +192,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 
 		private int numberOfLanguageModels;
 
-		
 		private Set vocabulary;
 
 		private const double EPSILON = 0.001;

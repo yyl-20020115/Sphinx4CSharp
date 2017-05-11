@@ -1,11 +1,5 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.linguist.language.ngram.large
+﻿namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	
 	internal sealed class NGramProbability : java.lang.Object
 	{
 		public int getProbabilityID()
@@ -27,18 +21,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.firstNPlus1GramEntry;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			184,
-			104,
-			103,
-			103,
-			103,
-			104,
-			104
-		})]
 		
 		public NGramProbability(int num, int num2, int num3, int num4, int num5)
 		{
@@ -53,19 +35,14 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.wordID;
 		}
-
 		
 		private int which;
-
 		
 		private int wordID;
-
 		
 		private int probabilityID;
-
 		
 		private int backoffID;
-
 		
 		private int firstNPlus1GramEntry;
 	}

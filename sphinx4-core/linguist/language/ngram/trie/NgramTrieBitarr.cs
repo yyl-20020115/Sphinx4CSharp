@@ -1,24 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.linguist.language.ngram.trie
+﻿namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
 	public class NgramTrieBitarr : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			175,
-			102,
-			109,
-			119,
-			120,
-			116,
-			105,
-			100
-		})]
 		public virtual int readInt(int memPtr, int bitOffset, int mask)
 		{
 			int num = memPtr + (bitOffset >> 3);
@@ -44,14 +27,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			num3 >>= (bitOffset & 7);
 			return num3 & mask;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			153,
-			104,
-			108
-		})]
 		
 		public NgramTrieBitarr(int memLen)
 		{

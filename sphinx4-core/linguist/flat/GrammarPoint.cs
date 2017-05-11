@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.language.grammar;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;
@@ -13,23 +10,6 @@ namespace edu.cmu.sphinx.linguist.flat
 {
 	public class GrammarPoint : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			49,
-			104,
-			117,
-			103,
-			103,
-			103,
-			104,
-			104
-		})]
-		
 		public GrammarPoint(GrammarNode node, int alternativeIndex, int wordIndex, int pronunciationIndex, int unitIndex)
 		{
 			if (!GrammarPoint.assertionsDisabled && node == null)
@@ -43,26 +23,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.pronunciationIndex = pronunciationIndex;
 			this.unitIndex = unitIndex;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			104,
-			102,
-			104,
-			110,
-			104,
-			110,
-			104,
-			110,
-			104,
-			110,
-			104,
-			145,
-			141,
-			122
-		})]
 		
 		public GrammarPoint(SentenceHMMState state)
 		{
@@ -96,24 +56,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				throw new AssertionError();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			65,
-			98,
-			108,
-			118,
-			105,
-			106,
-			104,
-			102,
-			106,
-			104,
-			103,
-			107,
-			234,
-			69
-		})]
 		
 		private Unit getUnit()
 		{
@@ -137,50 +79,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return result;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			88,
-			130,
-			102,
-			226,
-			69,
-			120,
-			113,
-			112,
-			8,
-			235,
-			75,
-			110,
-			241,
-			71,
-			99,
-			133,
-			191,
-			8,
-			102,
-			115,
-			135,
-			145,
-			107,
-			142,
-			104,
-			103,
-			110,
-			126,
-			108,
-			143,
-			159,
-			0,
-			233,
-			61,
-			232,
-			69,
-			105,
-			205
-		})]
 		
 		private List getNextGrammarPoints(bool flag)
 		{
@@ -240,18 +138,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			87,
-			123,
-			105,
-			129,
-			98,
-			104
-		})]
 		
 		private void addContext(List list, Unit[] array)
 		{
@@ -266,14 +152,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			list.add(array);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			91,
-			103,
-			99,
-			134
-		})]
 		
 		private Unit getUnitOrFill()
 		{
@@ -284,40 +162,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return unit;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			102,
-			98,
-			102,
-			136,
-			104,
-			103,
-			104,
-			101,
-			127,
-			3,
-			100,
-			104,
-			107,
-			105,
-			101,
-			104,
-			38,
-			135,
-			127,
-			1,
-			108,
-			107,
-			110,
-			105,
-			130,
-			105,
-			130,
-			133
-		})]
 		
 		public virtual List getRightContexts(int size, bool startWithCurrent, int maxContexts)
 		{
@@ -361,20 +205,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			198,
-			127,
-			1,
-			108,
-			107,
-			8,
-			198,
-			98
-		})]
 		
 		private static void addNextGrammarPointsWithWords(GrammarNode grammarNode, List list)
 		{
@@ -389,24 +219,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			172,
-			134,
-			120,
-			105,
-			106,
-			105,
-			139,
-			176,
-			233,
-			55,
-			233,
-			76
-		})]
 		
 		private static List getNextGrammarNodesWithWords(GrammarNode grammarNode)
 		{
@@ -435,23 +247,10 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			23,
-			107
-		})]
 		
 		public GrammarPoint(GrammarNode node) : this(node, -1, 0, 0, 0)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			34,
-			105,
-			103
-		})]
 		
 		public GrammarPoint(PronunciationState state, int which) : this(state)
 		{
@@ -461,11 +260,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		internal static void setBounded(bool flag)
 		{
 			GrammarPoint.bounded = flag;
-		}
-
-		
-		static GrammarPoint()
-		{
 		}
 
 		private GrammarNode node;
@@ -479,7 +273,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		private int unitIndex;
 
 		private static bool bounded;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<GrammarPoint>.Value.desiredAssertionStatus();
 	}

@@ -1,11 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.util;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -13,23 +9,8 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.language.ngram.LanguageModel"
-	})]
 	public class NetworkLanguageModel : java.lang.Object, LanguageModel, Configurable
-	{
-		[LineNumberTable(new byte[]
-		{
-			4,
-			104,
-			103,
-			103,
-			104,
-			103,
-			107
-		})]
-		
+	{		
 		public NetworkLanguageModel(string host, int port, URL location, int maxDepth)
 		{
 			this.host = host;
@@ -38,33 +19,10 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.location = location;
 			this.logMath = LogMath.getLogMath();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			12,
-			102
-		})]
 		
 		public NetworkLanguageModel()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			23,
-			104,
-			144,
-			113,
-			113,
-			145,
-			113,
-			105,
-			103
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -83,24 +41,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				this.maxDepth = 3;
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			36,
-			135,
-			119,
-			103,
-			116,
-			119,
-			108,
-			109,
-			144,
-			112
-		})]
 		
 		public virtual void allocate()
 		{
@@ -117,67 +57,24 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			this.cache = new LRUCache(1000);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			50,
-			135,
-			189,
-			2,
-			97,
-			134
-		})]
 		
 		public virtual void deallocate()
 		{
 			this.allocated = false;
-			IOException ex2;
 			try
 			{
 				this.socket.close();
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_21;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_21:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
 
 		public virtual int getMaxDepth()
 		{
 			return this.maxDepth;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			64,
-			146,
-			99,
-			167,
-			102,
-			104,
-			102,
-			120,
-			110,
-			9,
-			200,
-			113,
-			135,
-			109,
-			106,
-			190,
-			2,
-			98,
-			167,
-			110,
-			154,
-			139,
-			110
-		})]
 		
 		public virtual float getProbability(WordSequence wordSequence)
 		{
@@ -201,7 +98,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			this.outWriter.println(stringBuilder.toString());
 			string text = "0";
-			IOException ex2;
 			try
 			{
 				text = this.inReader.readLine();
@@ -212,14 +108,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_B0;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			goto IL_BF;
-			IL_B0:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
-			IL_BF:
 			if (!java.lang.String.instancehelper_equals(text, "-inf"))
 			{
 				@float = Float.valueOf(this.logMath.log10ToLog(Float.parseFloat(text)));
@@ -236,30 +126,10 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 			return 0f;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			101,
-			134,
-			102,
-			176,
-			103,
-			99,
-			98,
-			104,
-			98,
-			143,
-			184,
-			2,
-			98,
-			135
-		})]
 		
 		public virtual Set getVocabulary()
 		{
 			HashSet hashSet = new HashSet();
-			IOException ex2;
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.location.openStream()));
@@ -279,13 +149,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_56;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return hashSet;
-			IL_56:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 			return hashSet;
 		}
 
@@ -326,7 +191,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		private BufferedReader inReader;
 
 		private PrintWriter outWriter;
-
 		
 		internal LRUCache cache;
 

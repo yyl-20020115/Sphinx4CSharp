@@ -1,32 +1,17 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util.props;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public interface LanguageModel : Configurable
 	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		void allocate();
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		void deallocate();
 
 		float getProbability(WordSequence ws);
 
 		float getSmear(WordSequence ws);
-
 		
 		Set getVocabulary();
 
@@ -73,7 +58,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		})]
 		public const string PROP_DICTIONARY = "dictionary";
-
 		
 		public static class __Fields
 		{

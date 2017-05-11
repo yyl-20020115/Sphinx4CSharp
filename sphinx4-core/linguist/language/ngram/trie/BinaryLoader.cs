@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.util;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -11,28 +8,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
 	public class BinaryLoader : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			183,
-			108,
-			102,
-			139,
-			106,
-			98,
-			137,
-			118
-		})]
-		
 		private void loadModelData(InputStream inputStream)
 		{
 			DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(inputStream));
@@ -44,22 +19,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			this.inStream = new DataInputStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			90,
-			102,
-			103,
-			104,
-			102,
-			43,
-			166
-		})]
 		
 		private string readString(DataInputStream dataInputStream, int num)
 		{
@@ -71,33 +30,13 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				stringBuilder.append((char)array[i]);
 			}
 			return stringBuilder.toString();
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
+		}		
 		
 		private int readOrder()
 		{
 			return (int)((sbyte)this.inStream.readByte());
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			73,
-			103,
-			102,
-			46,
-			134
-		})]
-		
 		private float[] readFloatArr(int num)
 		{
 			float[] array = new float[num];
@@ -107,52 +46,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			104,
-			113
-		})]
 		
 		public BinaryLoader(File location)
 		{
 			this.inStream = new DataInputStream(new FileInputStream(location));
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			2,
-			104,
-			108
-		})]
-		
 		public BinaryLoader(URL location)
 		{
 			this.loadModelData(location.openStream());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			11,
-			119,
-			109,
-			159,
-			6
-		})]
 		
 		public virtual void verifyHeader()
 		{
@@ -164,20 +67,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				throw new Error(text2);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			23,
-			103,
-			103,
-			103,
-			46,
-			166
-		})]
 		
 		public virtual int[] readCounts()
 		{
@@ -189,28 +78,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			38,
-			108,
-			109,
-			127,
-			6,
-			104,
-			136,
-			102,
-			116,
-			100,
-			244,
-			61,
-			230,
-			69
-		})]
 		
 		public virtual NgramTrieQuant readQuant(int order)
 		{
@@ -233,24 +100,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return ngramTrieQuant;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			59,
-			105,
-			104,
-			104,
-			115,
-			115,
-			243,
-			60,
-			230,
-			70
-		})]
 		
 		public virtual NgramTrieModel.TrieUnigram[] readUnigrams(int count)
 		{
@@ -264,49 +113,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			77,
-			109
-		})]
 		
 		public virtual void readTrieByteArr(byte[] arr)
 		{
 			this.inStream.read(arr);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			87,
-			108,
-			100,
-			159,
-			6,
-			103,
-			103,
-			141,
-			98,
-			99,
-			104,
-			103,
-			132,
-			112,
-			102,
-			228,
-			58,
-			232,
-			73,
-			118
-		})]
 		
 		public virtual string[] readWords(int unigramNum)
 		{
@@ -338,31 +149,15 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return array;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			115,
-			107
-		})]
 		
 		public virtual void close()
 		{
 			this.inStream.close();
 		}
 
-		
-		static BinaryLoader()
-		{
-		}
-
 		private const string TRIE_HEADER = "Trie Language Model";
 
 		private DataInputStream inStream;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<BinaryLoader>.Value.desiredAssertionStatus();
 	}

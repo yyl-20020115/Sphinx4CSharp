@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 using java.net;
@@ -11,27 +8,9 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.language.ngram.LanguageModel"
-	})]
 	public class SimpleNGramModel : java.lang.Object, LanguageModel, Configurable
-	{
-		[LineNumberTable(new byte[]
-		{
-			21,
-			104,
-			103,
-			104,
-			107,
-			104,
-			103,
-			107,
-			107,
-			107
-		})]
-		
-		public SimpleNGramModel(URL urlLocation, Dictionary dictionary, float unigramWeight, int desiredMaxDepth)
+	{		
+		public SimpleNGramModel(URL urlLocation, dictionary.Dictionary dictionary, float unigramWeight, int desiredMaxDepth)
 		{
 			this.urlLocation = urlLocation;
 			this.unigramWeight = unigramWeight;
@@ -42,85 +21,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.vocabulary = new HashSet();
 			this.tokens = new LinkedList();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			159,
-			111,
-			111,
-			134,
-			135,
-			139,
-			102,
-			109,
-			112,
-			109,
-			106,
-			127,
-			0,
-			47,
-			165,
-			104,
-			110,
-			110,
-			113,
-			115,
-			117,
-			162,
-			149,
-			113,
-			112,
-			102,
-			116,
-			108,
-			109,
-			105,
-			112,
-			139,
-			110,
-			135,
-			109,
-			105,
-			105,
-			110,
-			106,
-			100,
-			135,
-			234,
-			57,
-			232,
-			73,
-			105,
-			105,
-			142,
-			111,
-			143,
-			101,
-			103,
-			103,
-			241,
-			72,
-			236,
-			27,
-			235,
-			103,
-			108,
-			127,
-			10,
-			232,
-			20,
-			235,
-			111,
-			107,
-			102
-		})]
-		
-		private void load(URL url, float num, Dictionary dictionary)
+	
+		private void load(URL url, float num, dictionary.Dictionary dictionary)
 		{
 			float num2 = this.logMath.linearToLog((double)num);
 			float num3 = this.logMath.linearToLog((double)1f - (double)num);
@@ -200,23 +102,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.readUntil("\\end\\");
 			this.close();
 		}
-
-		
 		
 		private Probability getProb(WordSequence wordSequence)
 		{
 			return (Probability)this.map.get(wordSequence);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			69,
-			102,
-			104,
-			99,
-			135
-		})]
 		
 		public virtual float getBackoff(WordSequence wordSequence)
 		{
@@ -228,20 +118,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			97,
-			102,
-			104,
-			99,
-			105,
-			110,
-			175,
-			168,
-			231,
-			69
-		})]
 		
 		public virtual float getProbability(WordSequence wordSequence)
 		{
@@ -264,20 +140,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			return result;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			30,
-			103,
-			108,
-			98,
-			116
-		})]
 		
 		private void open(URL url)
 		{
@@ -285,21 +147,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.fileName = url.toString();
 			this.reader = new BufferedReader(new InputStreamReader(url.openStream()));
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			45,
-			217,
-			2,
-			97,
-			159,
-			1
-		})]
 		
 		private void readUntil(string text)
 		{
@@ -317,20 +164,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			IL_16:
 			this.corrupt(new StringBuilder().append("Premature EOF while waiting for ").append(text).toString());
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			14,
-			110,
-			108,
-			99,
-			139
-		})]
 		
 		private string readLine()
 		{
@@ -342,12 +175,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			return java.lang.String.instancehelper_trim(text);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
 		
 		private void corrupt(string text)
 		{
@@ -355,82 +182,26 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			
 			throw new IOException(text2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			248,
-			118,
-			109
-		})]
 		
 		private void put(WordSequence wordSequence, float num, float num2)
 		{
 			this.map.put(wordSequence, new Probability(num, num2));
 			this.tokens.add(wordSequence);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			58,
-			107,
-			103
-		})]
 		
 		private void close()
 		{
 			this.reader.close();
 			this.reader = null;
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			15,
-			145
-		})]
 		
-		public SimpleNGramModel(string location, Dictionary dictionary, float unigramWeight, int desiredMaxDepth) : this(ConfigurationManagerUtils.resourceToURL(location), dictionary, unigramWeight, desiredMaxDepth)
+		public SimpleNGramModel(string location, dictionary.Dictionary dictionary, float unigramWeight, int desiredMaxDepth) : this(ConfigurationManagerUtils.resourceToURL(location), dictionary, unigramWeight, desiredMaxDepth)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			32,
-			134
-		})]
 		
 		public SimpleNGramModel()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			43,
-			139,
-			104,
-			176,
-			113,
-			113,
-			113,
-			118,
-			107,
-			107,
-			107
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -444,25 +215,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.urlLocation = ConfigurationManagerUtils.getResource("location", ps);
 			this.unigramWeight = ps.getFloat("unigramWeight");
 			this.desiredMaxDepth = ps.getInt("maxDepth");
-			this.dictionary = (Dictionary)ps.getComponent("dictionary");
+			this.dictionary = (dictionary.Dictionary)ps.getComponent("dictionary");
 			this.map = new HashMap();
 			this.vocabulary = new HashSet();
 			this.tokens = new LinkedList();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			63,
-			103,
-			120,
-			105,
-			110,
-			172
-		})]
 		
 		public virtual void allocate()
 		{
@@ -493,9 +250,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 			return this.maxNGram;
 		}
-
-		
-		
 		
 		public virtual Set getVocabulary()
 		{
@@ -505,16 +259,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		public virtual void onUtteranceEnd()
 		{
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			119,
-			102,
-			123,
-			113
-		})]
 		
 		private string listToString(List list)
 		{
@@ -527,16 +271,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			127,
-			127,
-			6,
-			127,
-			23
-		})]
 		
 		public virtual void dump()
 		{
@@ -547,19 +281,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				java.lang.System.@out.println(new StringBuilder().append(entry.getKey()).append(" ").append(entry.getValue()).toString());
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			140,
-			104,
-			102,
-			102,
-			123,
-			113,
-			110
-		})]
 		
 		private string getRepresentation(List list)
 		{
@@ -578,7 +299,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			return stringBuilder.toString();
 		}
 
-		
 		public virtual LinkedList getNGrams()
 		{
 			return this.tokens;
@@ -592,15 +312,13 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 
 		private float unigramWeight;
 
-		private Dictionary dictionary;
+		private dictionary.Dictionary dictionary;
 
 		private int desiredMaxDepth;
 
 		private int maxNGram;
-
 		
 		private Map map;
-
 		
 		private Set vocabulary;
 
@@ -612,7 +330,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 
 		private bool allocated;
 
-		
 		private LinkedList tokens;
 	}
 }

@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -10,24 +7,8 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	.
 	internal class Node : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			74,
-			104,
-			172,
-			127,
-			0
-		})]
-		
 		public virtual Map getSuccessorMap()
 		{
 			if (this.successors == null)
@@ -41,19 +22,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 			return (Map)this.successors;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			85,
-			112,
-			103,
-			124,
-			127,
-			1,
-			102,
-			98,
-			145
-		})]
 		
 		internal virtual void freeze()
 		{
@@ -70,25 +38,12 @@ namespace edu.cmu.sphinx.linguist.lextree
 				Node.successorCount += successorMap.size();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			50,
-			103
-		})]
 		
 		private Node getSuccessor(object obj)
 		{
 			Map successorMap = this.getSuccessorMap();
 			return (Node)successorMap.get(obj);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			62,
-			103,
-			105
-		})]
 		
 		internal virtual void putSuccessor(object obj, Node node)
 		{
@@ -105,27 +60,12 @@ namespace edu.cmu.sphinx.linguist.lextree
 		{
 			this.logUnigramProbability = num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			14,
-			104,
-			104,
-			204
-		})]
 		
 		internal Node(float num)
 		{
 			this.logUnigramProbability = num;
 			Node.nodeCount++;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			97,
-			159,
-			63
-		})]
 		
 		internal static void dumpNodeInfo()
 		{
@@ -135,19 +75,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			int num2 = Node.nodeCount;
 			@out.println(stringBuilder.append((num2 != -1) ? (num / num2) : (-num)).toString());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			111,
-			98,
-			104,
-			99,
-			105,
-			143,
-			106,
-			136,
-			130
-		})]
 		
 		internal virtual Node addSuccessor(HMM hmm, float num)
 		{
@@ -168,24 +95,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 			return node;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			72,
-			98,
-			109,
-			99,
-			109,
-			99,
-			105,
-			137,
-			138,
-			106,
-			136,
-			130
-		})]
 		
 		internal virtual WordNode addSuccessor(Pronunciation pronunciation, float num, Map map)
 		{
@@ -211,31 +120,11 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 			return wordNode2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			92,
-			104
-		})]
 		
 		internal virtual void addSuccessor(WordNode wordNode)
 		{
 			this.putSuccessor(wordNode, wordNode);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			105,
-			103,
-			109,
-			99,
-			138,
-			106,
-			136,
-			131
-		})]
 		
 		internal virtual EndNode addSuccessor(EndNode endNode, float num)
 		{
@@ -255,16 +144,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 			return endNode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			128,
-			114,
-			99,
-			143,
-			163
-		})]
 		
 		internal virtual UnitNode addSuccessor(UnitNode unitNode)
 		{
@@ -279,14 +158,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 			return unitNode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			145,
-			109,
-			134
-		})]
 		
 		internal virtual Node[] getSuccessors()
 		{
@@ -302,11 +173,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 			return "Node ";
 		}
 
-		
-		static Node()
-		{
-		}
-
 		private static int nodeCount;
 
 		private static int successorCount;
@@ -314,7 +180,6 @@ namespace edu.cmu.sphinx.linguist.lextree
 		private object successors;
 
 		private float logUnigramProbability;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<Node>.Value.desiredAssertionStatus();
 	}

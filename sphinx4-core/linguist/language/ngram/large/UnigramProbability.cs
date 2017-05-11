@@ -1,12 +1,8 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	
-	internal sealed class UnigramProbability : java.lang.Object
+	public sealed class UnigramProbability : java.lang.Object
 	{
 		public void setLogProbability(float num)
 		{
@@ -27,17 +23,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.logBackoff;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			104,
-			103,
-			104,
-			104,
-			104
-		})]
 		
 		public UnigramProbability(int num, float num2, float num3, int num4)
 		{
@@ -56,14 +41,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 			return this.wordID;
 		}
-
-		
 		
 		public override string toString()
 		{
 			return new StringBuilder().append("Prob: ").append(this.logProbability).append(' ').append(this.logBackoff).toString();
 		}
-
 		
 		private int wordID;
 
@@ -71,7 +53,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 
 		private float logBackoff;
 
-		
 		private int firstBigramEntry;
 	}
 }

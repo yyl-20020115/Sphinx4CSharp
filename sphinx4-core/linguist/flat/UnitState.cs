@@ -1,36 +1,14 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.UnitSearchState"
-	})]
 	[Serializable]
 	public class UnitState : SentenceHMMState, UnitSearchState, SearchState
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			15,
-			232,
-			24,
-			235,
-			105,
-			103,
-			103
-		})]
-		
 		public UnitState(Unit unit, HMMPosition position)
 		{
 			this.position = HMMPosition.__INTERNAL;
@@ -47,28 +25,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this.position;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			178,
-			239,
-			53,
-			235,
-			76,
-			103,
-			108,
-			227,
-			70,
-			112,
-			164,
-			100,
-			109,
-			99,
-			109,
-			102,
-			139
-		})]
 		
 		public UnitState(PronunciationState parent, int which, Unit unit) : base("U", parent, which)
 		{
@@ -93,29 +49,21 @@ namespace edu.cmu.sphinx.linguist.flat
 				this.position = HMMPosition.__END;
 			}
 		}
-
-		
 		
 		public virtual bool isLast()
 		{
 			return this.position == HMMPosition.__SINGLE || this.position == HMMPosition.__END;
 		}
-
-		
 		
 		public override string getName()
 		{
 			return new StringBuilder().append(base.getName()).append('<').append(this.unit).append('>').toString();
-		}
-
-		
+		}		
 		
 		public override string getValueSignature()
 		{
 			return this.unit.toString();
 		}
-
-		
 		
 		public override string getPrettyName()
 		{
@@ -136,25 +84,16 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return 5;
 		}
-
 		
-		static UnitState()
+		object SearchState.getLexState()
 		{
-			SentenceHMMState.__<clinit>();
+			return this.getLexState();
 		}
 
-		
-		object SearchState.Object;getLexState()
-		{
-			return this.<bridge>getLexState();
-		}
-
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected UnitState(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
 		}
-
 		
 		private Unit unit;
 

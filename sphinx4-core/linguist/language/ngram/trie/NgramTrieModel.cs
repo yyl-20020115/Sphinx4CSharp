@@ -1,11 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.util;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -14,36 +10,8 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.language.ngram.LanguageModel"
-	})]
 	public class NgramTrieModel : java.lang.Object, LanguageModel, Configurable
-	{
-		[LineNumberTable(new byte[]
-		{
-			123,
-			98,
-			104,
-			107,
-			111,
-			116,
-			99,
-			159,
-			23,
-			164,
-			147,
-			114,
-			255,
-			6,
-			53,
-			233,
-			78,
-			100,
-			159,
-			16
-		})]
-		
+	{		
 		private void buildUnigramIDMap()
 		{
 			int num = 0;
@@ -70,25 +38,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				this.logger.warning(new StringBuilder().append("Dictionary is missing ").append(num).append(" words that are contained in the language model.").toString());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			147,
-			107,
-			112,
-			107,
-			112,
-			125,
-			117,
-			106,
-			99,
-			110,
-			234,
-			56,
-			233,
-			74
-		})]
 		
 		private float getAvailableProb(WordSequence wordSequence, NgramTrieModel.TrieRange trieRange, float num)
 		{
@@ -118,30 +67,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			169,
-			102,
-			103,
-			127,
-			0,
-			127,
-			3,
-			105,
-			177,
-			112,
-			127,
-			0,
-			120,
-			106,
-			102,
-			234,
-			59,
-			241,
-			71
-		})]
 		
 		private float getAvailableBackoff(WordSequence wordSequence)
 		{
@@ -173,24 +98,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			194,
-			103,
-			127,
-			0,
-			127,
-			3,
-			110,
-			103,
-			100,
-			130,
-			106,
-			137,
-			139
-		})]
 		
 		private float getProbabilityRaw(WordSequence wordSequence)
 		{
@@ -219,16 +126,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			53,
-			159,
-			58,
-			104,
-			145
-		})]
 		
 		private void clearCache()
 		{
@@ -238,29 +135,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				this.ngramProbCache = new LRUCache(this.ngramCacheSize);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			112,
-			166,
-			104,
-			118,
-			103,
-			103,
-			103,
-			104,
-			103,
-			104,
-			107,
-			104,
-			103,
-			105,
-			116,
-			105
-		})]
 		
-		public NgramTrieModel(string format, URL location, string ngramLogFile, int maxNGramCacheSize, bool clearCacheAfterUtterance, int maxDepth, Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight)
+		public NgramTrieModel(string format, URL location, string ngramLogFile, int maxNGramCacheSize, bool clearCacheAfterUtterance, int maxDepth, dictionary.Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight)
 		{
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
 			this.format = format;
@@ -276,41 +152,10 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			this.logWip = this.logMath.linearToLog(wip);
 			this.unigramWeight = unigramWeight;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			89,
-			102
-		})]
 		
 		public NgramTrieModel()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			100,
-			108,
-			107,
-			113,
-			113,
-			113,
-			113,
-			103,
-			37,
-			138,
-			118,
-			103,
-			37,
-			138,
-			113,
-			124,
-			113
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -321,53 +166,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			this.maxDepth = ps.getInt("maxDepth");
 			this.ngramCacheSize = ps.getInt("ngramCacheSize");
 			this.clearCacheAfterUtterance = ps.getBoolean("clearCachesAfterUtterance").booleanValue();
-			this.dictionary = (Dictionary)ps.getComponent("dictionary");
+			this.dictionary = (dictionary.Dictionary)ps.getComponent("dictionary");
 			this.applyLanguageWeightAndWip = ps.getBoolean("applyLanguageWeightAndWip").booleanValue();
 			this.languageWeight = ps.getFloat("languageWeight");
 			this.logWip = this.logMath.linearToLog(ps.getDouble("wordInsertionProbability"));
 			this.unigramWeight = ps.getFloat("unigramWeight");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			88,
-			144,
-			191,
-			11,
-			104,
-			155,
-			115,
-			145,
-			191,
-			22,
-			2,
-			97,
-			127,
-			1,
-			130,
-			145,
-			102,
-			108,
-			120,
-			109,
-			105,
-			146,
-			116,
-			105,
-			127,
-			8,
-			177,
-			116,
-			102,
-			113,
-			102,
-			113
-		})]
 		
 		public virtual void allocate()
 		{
@@ -375,7 +179,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			this.logger.info(new StringBuilder().append("Loading n-gram language model from: ").append(this.location).toString());
 			if (this.ngramLogFile != null)
 			{
-				FileOutputStream.__<clinit>();
 				this.logFile = new PrintWriter(new FileOutputStream(this.ngramLogFile));
 			}
 			BinaryLoader binaryLoader;
@@ -383,30 +186,18 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			{
 				if (!java.lang.String.instancehelper_equals(this.location.getProtocol(), "file"))
 				{
-					BinaryLoader.__<clinit>();
 					binaryLoader = new BinaryLoader(this.location);
 					goto IL_EC;
 				}
 			}
 			try
 			{
-				BinaryLoader.__<clinit>();
-				File.__<clinit>();
 				binaryLoader = new BinaryLoader(new File(this.location.toURI()));
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				if (ByteCodeHelper.MapException<Exception>(ex, 2) == null)
-				{
-					throw;
-				}
-				goto IL_B3;
+				binaryLoader = new BinaryLoader(new File(this.location.getPath()));
 			}
-			goto IL_EC;
-			IL_B3:
-			BinaryLoader.__<clinit>();
-			File.__<clinit>();
-			binaryLoader = new BinaryLoader(new File(this.location.getPath()));
 			IL_EC:
 			binaryLoader.verifyHeader();
 			this.counts = binaryLoader.readCounts();
@@ -430,18 +221,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			binaryLoader.close();
 			TimerPool.getTimer(this, "Load LM").stop();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			133,
-			104,
-			139
-		})]
 		
 		public virtual void deallocate()
 		{
@@ -450,30 +229,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				this.logFile.flush();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			232,
-			103,
-			105,
-			191,
-			11,
-			105,
-			146,
-			99,
-			110,
-			135,
-			142,
-			110,
-			105,
-			115,
-			107,
-			127,
-			55,
-			47,
-			133
-		})]
 		
 		public virtual float getProbability(WordSequence wordSequence)
 		{
@@ -507,11 +262,10 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				object obj = "][";
 				object obj2 = " ";
 				object _ref = obj;
-				CharSequence charSequence;
-				charSequence.__ref = _ref;
+				CharSequence charSequence = CharSequence.Cast(_ref);
 				CharSequence charSequence2 = charSequence;
 				_ref = obj2;
-				charSequence.__ref = _ref;
+				charSequence = CharSequence.Cast(_ref);
 				printWriter.println(stringBuilder.append(java.lang.String.instancehelper_replace(text2, charSequence2, charSequence)).append(" : ").append(Float.toString(num2)).toString());
 			}
 			return num2;
@@ -522,17 +276,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			return 0f;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			18,
-			118
-		})]
-		
 		public virtual Set getVocabulary()
 		{
-			HashSet.__<clinit>();
 			HashSet hashSet = new HashSet(Arrays.asList(this.words));
 			return Collections.unmodifiableSet(hashSet);
 		}
@@ -551,16 +296,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		{
 			return this.maxDepth;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			65,
-			134,
-			104,
-			112,
-			139
-		})]
 		
 		public virtual void onUtteranceEnd()
 		{
@@ -642,7 +377,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 
 		protected internal bool clearCacheAfterUtterance;
 
-		protected internal Dictionary dictionary;
+		protected internal dictionary.Dictionary dictionary;
 
 		protected internal string format;
 
@@ -670,30 +405,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 
 		protected internal NgramTrie trie;
 
-		
 		protected internal Map unigramIDMap;
-
 		
 		private LRUCache ngramProbCache;
 
-		
-		.
 		public class TrieRange : java.lang.Object
 		{
 			internal virtual void setFound(bool flag)
 			{
 				this.found = flag;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				91,
-				104,
-				103,
-				103,
-				103
-			})]
 			
 			internal TrieRange(int num, int num2)
 			{
@@ -711,8 +432,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			{
 				return this.found;
 			}
-
-			
 			
 			internal virtual bool isSearchable()
 			{
@@ -726,12 +445,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal bool found;
 		}
 
-		
-		.
 		public class TrieUnigram : java.lang.Object
 		{
-			
-			
 			public TrieUnigram()
 			{
 			}

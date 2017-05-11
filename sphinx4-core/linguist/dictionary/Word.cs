@@ -1,23 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
-
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
-	[Implements(new string[]
-	{
-		"java.lang.Comparable"
-	})]
-	
 	public class Word : java.lang.Object, Comparable
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
 		public virtual string getSpelling()
 		{
 			return this.spelling;
@@ -25,24 +12,18 @@ namespace edu.cmu.sphinx.linguist.dictionary
 
 		public virtual bool isFiller()
 		{
-			return this.isFiller;
-		}
-
-		
+			return this._isFiller;
+		}	
 		
 		public override int hashCode()
 		{
 			return java.lang.String.instancehelper_hashCode(this.spelling);
 		}
-
-		
 		
 		public override bool equals(object obj)
 		{
 			return obj is Word && java.lang.String.instancehelper_equals(this.spelling, ((Word)obj).spelling);
 		}
-
-		
 		
 		public virtual int compareTo(Word other)
 		{
@@ -53,57 +34,28 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		{
 			return this.pronunciations;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			132,
-			66,
-			104,
-			103,
-			103,
-			103
-		})]
 		
 		public Word(string spelling, Pronunciation[] pronunciations, bool isFiller)
 		{
 			this.spelling = spelling;
 			this.pronunciations = pronunciations;
-			this.isFiller = isFiller;
+			this._isFiller = isFiller;
 		}
 
 		public override string toString()
 		{
 			return this.spelling;
 		}
-
-		
 		
 		public virtual bool isSentenceEndWord()
 		{
 			return java.lang.String.instancehelper_equals("</s>", this.spelling);
 		}
-
-		
 		
 		public virtual bool isSentenceStartWord()
 		{
 			return java.lang.String.instancehelper_equals("<s>", this.spelling);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			48,
-			102,
-			98,
-			120,
-			106,
-			104,
-			227,
-			61,
-			232,
-			70
-		})]
 		
 		public virtual Pronunciation getMostLikelyPronunciation()
 		{
@@ -121,25 +73,12 @@ namespace edu.cmu.sphinx.linguist.dictionary
 				}
 			}
 			return result;
-		}
-
-		
-		
-		
-		
-		public virtual int compareTo(object obj)
+		}		
+		int IComparable.CompareTo(object obj)
 		{
 			return this.compareTo((Word)obj);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			164,
-			111,
-			113,
-			111
-		})]
 		static Word()
 		{
 			Pronunciation[] array = new Pronunciation[]
@@ -150,13 +89,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			Pronunciation.__UNKNOWN.setWord(Word.__UNKNOWN);
 		}
 
-		
-		int IComparable.Object;)IcompareTo(object obj)
-		{
-			return this.compareTo(obj);
-		}
-
-		
 		public static Word UNKNOWN
 		{
 			
@@ -167,14 +99,11 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		}
 
 		internal static Word __UNKNOWN;
-
 		
 		private string spelling;
-
 		
 		private Pronunciation[] pronunciations;
-
 		
-		private bool isFiller;
+		private bool _isFiller;
 	}
 }

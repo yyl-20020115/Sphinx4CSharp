@@ -1,37 +1,13 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Attributes;
-using java.lang;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 
 namespace edu.cmu.sphinx.linguist.allphone
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.SearchGraph"
-	})]
 	public class AllphoneSearchGraph : java.lang.Object, SearchGraph
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			156,
-			104,
-			103
-		})]
-		
+	{		
 		public AllphoneSearchGraph(AllphoneLinguist linguist)
 		{
 			this.linguist = linguist;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			161,
-			127,
-			2
-		})]
 		
 		public virtual SearchState getInitialState()
 		{

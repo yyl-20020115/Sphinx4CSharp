@@ -1,28 +1,18 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
 	public class NgramTrie : java.lang.Object
-	{
-		
-		
-		
+	{		
 		internal static int access_000(NgramTrie ngramTrie, int num)
 		{
 			return ngramTrie.requiredBits(num);
 		}
-
-		
 		
 		internal static NgramTrieBitarr access_100(NgramTrie ngramTrie)
 		{
 			return ngramTrie.bitArr;
 		}
-
-		
 		
 		internal static int access_300(NgramTrie ngramTrie)
 		{
@@ -42,24 +32,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return num2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			85,
-			109,
-			108,
-			127,
-			7,
-			104,
-			100,
-			103,
-			105,
-			100,
-			103,
-			137,
-			130,
-			101
-		})]
 		
 		private int uniformFind(NgramTrie.NgramSet ngramSet, NgramTrieModel.TrieRange trieRange, int num)
 		{
@@ -86,12 +58,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			return -1;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			106,
-			107,
-			103
-		})]
 		private NgramTrie.NgramSet getNgram(int num)
 		{
 			if (num == this.ordersNum - 1)
@@ -100,17 +66,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return this.middles[num];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			27,
-			110,
-			110,
-			103,
-			162,
-			104,
-			109
-		})]
 		
 		private int findNgram(NgramTrie.NgramSet ngramSet, int num, NgramTrieModel.TrieRange trieRange)
 		{
@@ -127,7 +82,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return num2;
 		}
-
 		
 		private int calculatePivot(int num, int num2, int num3)
 		{
@@ -135,45 +89,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			long num5 = (long)(num2 + 1);
 			return (int)((num5 != -1L) ? (num4 / num5) : (-(int)num4));
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			161,
-			104,
-			98,
-			106,
-			108,
-			107,
-			135,
-			168,
-			112,
-			230,
-			70,
-			112,
-			103,
-			229,
-			48,
-			233,
-			82,
-			108,
-			103,
-			103,
-			111,
-			107,
-			99,
-			107,
-			103,
-			9,
-			232,
-			69,
-			107,
-			63,
-			7,
-			168,
-			114,
-			111
-		})]
 		
 		public NgramTrie(int[] counts, int quantProbBoLen, int quantProbLen)
 		{
@@ -214,21 +129,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			this.longest = new NgramTrie.LongestNgramSet(this, num2, quantProbLen, counts[0]);
 			this.ordersNum = this.middles.Length + 1;
 		}
-
-		
 		
 		public virtual byte[] getMem()
 		{
 			return this.bitArr.getArr();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			50,
-			104,
-			110,
-			102
-		})]
 		
 		public virtual float readNgramBackoff(int wordId, int orderMinusTwo, NgramTrieModel.TrieRange range, NgramTrieQuant quant)
 		{
@@ -240,14 +145,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 			return quant.readBackoff(this.bitArr, ngram.memPtr, ngram.getNgramWeightsOffset(num), orderMinusTwo);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			68,
-			104,
-			110,
-			102
-		})]
 		
 		public virtual float readNgramProb(int wordId, int orderMinusTwo, NgramTrieModel.TrieRange range, NgramTrieQuant quant)
 		{
@@ -260,8 +157,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			return quant.readProb(this.bitArr, ngram.memPtr, ngram.getNgramWeightsOffset(num), orderMinusTwo);
 		}
 
-		
-		
 		internal static int access_200(NgramTrie ngramTrie)
 		{
 			return ngramTrie.quantProbBoLen;
@@ -278,51 +173,21 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		private int quantProbBoLen;
 
 		private int quantProbLen;
-
-		
-		.
 		
 		internal sealed class LongestNgramSet : NgramTrie.NgramSet
-		{
-			[LineNumberTable(new byte[]
-			{
-				160,
-				123,
-				103,
-				107
-			})]
-			
+		{			
 			internal LongestNgramSet(NgramTrie ngramTrie, int num, int num2, int num3) : base(ngramTrie, num, num3, num2)
 			{
 			}
-
-			
 			
 			internal override int getQuantBits()
 			{
 				return NgramTrie.access_300(this.this_0);
 			}
-
-			
-			internal new NgramTrie this_0 = ngramTrie;
 		}
-
-		
-		.
 		
 		internal sealed class MiddleNgramSet : NgramTrie.NgramSet
-		{
-			[LineNumberTable(new byte[]
-			{
-				160,
-				97,
-				103,
-				118,
-				117,
-				116,
-				112
-			})]
-			
+		{			
 			internal MiddleNgramSet(NgramTrie ngramTrie, int num, int num2, int num3, int num4, int num5) : base(ngramTrie, num, num4, num2 + NgramTrie.access_000(ngramTrie, num5))
 			{
 				this.nextMask = (1 << NgramTrie.access_000(ngramTrie, num5)) - 1;
@@ -333,20 +198,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 					throw new Error(text);
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				160,
-				105,
-				105,
-				105,
-				105,
-				127,
-				4,
-				105,
-				127,
-				4
-			})]
 			
 			internal void readNextRange(int num, NgramTrieModel.TrieRange trieRange)
 			{
@@ -357,8 +208,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				num2 += this.totalBits;
 				trieRange.end = NgramTrie.access_100(this.this_0).readInt(this.memPtr, num2, this.nextMask);
 			}
-
-			
 			
 			internal override int getQuantBits()
 			{
@@ -368,32 +217,13 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal int nextMask;
 
 			internal int nextOrderMemPtr;
-
-			
-			internal new NgramTrie this_0 = ngramTrie;
 		}
 
-		
-		.
 		internal abstract class NgramSet : java.lang.Object
 		{
-			[LineNumberTable(new byte[]
-			{
-				160,
-				67,
-				111,
-				103,
-				103,
-				109,
-				106,
-				112,
-				111,
-				115,
-				103
-			})]
-			
 			internal NgramSet(NgramTrie ngramTrie, int num, int num2, int num3)
 			{
+				this.this_0 = ngramTrie;
 				this.maxVocab = num2;
 				this.memPtr = num;
 				this.wordBits = NgramTrie.access_000(ngramTrie, num2);
@@ -408,13 +238,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				this.insertIdx = 0;
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				160,
-				79,
-				105
-			})]
-			
 			internal virtual int readNgramWord(int num)
 			{
 				int bitOffset = num * this.totalBits;
@@ -439,9 +262,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal int insertIdx;
 
 			internal int maxVocab;
-
 			
-			internal NgramTrie this_0 = ngramTrie;
+			internal NgramTrie this_0;
 		}
 	}
 }

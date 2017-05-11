@@ -1,6 +1,4 @@
-﻿using System;
-using IKVM.Attributes;
-using java.util;
+﻿using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.grammar
 {
@@ -8,7 +6,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 	{
 		GrammarNode getInitialNode();
 
-		
 		Set getGrammarNodes();
 	}
 }

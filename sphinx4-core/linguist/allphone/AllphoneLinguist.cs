@@ -1,11 +1,8 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
 using IKVM.Attributes;
-using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.allphone
@@ -15,43 +12,7 @@ namespace edu.cmu.sphinx.linguist.allphone
 		"edu.cmu.sphinx.linguist.Linguist"
 	})]
 	public class AllphoneLinguist : java.lang.Object, Linguist, Configurable
-	{
-		[LineNumberTable(new byte[]
-		{
-			83,
-			107,
-			107,
-			107,
-			107,
-			108,
-			107,
-			140,
-			108,
-			117,
-			102,
-			142,
-			109,
-			109,
-			109,
-			133,
-			112,
-			114,
-			107,
-			105,
-			109,
-			133,
-			141,
-			119,
-			103,
-			176,
-			115,
-			103,
-			140,
-			137,
-			101,
-			114
-		})]
-		
+	{		
 		private void createContextDependentSuccessors()
 		{
 			this.cdHMMs = new HashMap();
@@ -103,24 +64,6 @@ namespace edu.cmu.sphinx.linguist.allphone
 			}
 			this.leftContextSilHMMs.addAll(this.fillerHMMs);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			64,
-			108,
-			107,
-			107,
-			107,
-			108,
-			141,
-			108,
-			117,
-			102,
-			142,
-			109,
-			141,
-			101
-		})]
 		
 		private void createContextIndependentSuccessors()
 		{
@@ -144,31 +87,10 @@ namespace edu.cmu.sphinx.linguist.allphone
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			4,
-			134
-		})]
 		
 		public AllphoneLinguist()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			9,
-			118,
-			156,
-			118,
-			104,
-			136,
-			102
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -184,8 +106,6 @@ namespace edu.cmu.sphinx.linguist.allphone
 				this.createContextIndependentSuccessors();
 			}
 		}
-
-		
 		
 		public virtual SearchGraph getSearchGraph()
 		{
@@ -200,18 +120,10 @@ namespace edu.cmu.sphinx.linguist.allphone
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		public virtual void allocate()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		public virtual void deallocate()
 		{
 		}
@@ -231,21 +143,10 @@ namespace edu.cmu.sphinx.linguist.allphone
 			return this.useCD;
 		}
 
-		
 		public virtual ArrayList getCISuccessors()
 		{
 			return this.ciHMMs;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			52,
-			104,
-			103,
-			104,
-			103
-		})]
 		
 		public virtual ArrayList getCDSuccessors(Unit lc, Unit @base)
 		{
@@ -258,10 +159,7 @@ namespace edu.cmu.sphinx.linguist.allphone
 				return this.fillerHMMs;
 			}
 			return (ArrayList)((HashMap)this.cdHMMs.get(lc)).get(@base);
-		}
-
-		
-		
+		}		
 		
 		public virtual ArrayList getUnits(SenoneSequence senoneSeq)
 		{
@@ -300,19 +198,14 @@ namespace edu.cmu.sphinx.linguist.allphone
 		public const string PROP_CD = "useContextDependentPhones";
 
 		private AcousticModel acousticModel;
-
 		
 		private ArrayList ciHMMs;
-
 		
 		private ArrayList fillerHMMs;
-
 		
 		private ArrayList leftContextSilHMMs;
-
 		
 		private HashMap senonesToUnits;
-
 		
 		private HashMap cdHMMs;
 

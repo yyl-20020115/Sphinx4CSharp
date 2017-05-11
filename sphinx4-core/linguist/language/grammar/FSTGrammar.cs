@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -12,51 +9,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 {
 	public class FSTGrammar : Grammar
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			180,
-			104,
-			98,
-			107,
-			102,
-			103,
-			99,
-			101,
-			112,
-			108,
-			108,
-			100,
-			130,
-			104,
-			100,
-			133,
-			104,
-			103,
-			124,
-			116,
-			100,
-			110,
-			140,
-			139,
-			146,
-			238,
-			69,
-			223,
-			4,
-			101,
-			102
-		})]
-		
 		private int createNodes(string text)
 		{
 			ExtendedStreamTokenizer extendedStreamTokenizer = new ExtendedStreamTokenizer(text, true);
@@ -106,24 +58,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			extendedStreamTokenizer.close();
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			232,
-			108,
-			120,
-			158,
-			105,
-			111,
-			141,
-			104,
-			143,
-			109,
-			142,
-			141,
-			101
-		})]
 		
 		private int expandWordNodes(int num)
 		{
@@ -156,17 +90,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			return num;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			16,
-			123,
-			114,
-			99,
-			105,
-			142
-		})]
 		
 		private GrammarNode get(int num)
 		{
@@ -179,21 +102,11 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			return grammarNode;
 		}
-
-		
 		
 		private bool hasEndNode(GrammarNode grammarNode)
 		{
 			return this.expandedNodes.contains(grammarNode);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			71,
-			103,
-			122
-		})]
 		
 		private GrammarNode getEndNode(GrammarNode grammarNode)
 		{
@@ -205,30 +118,16 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			return successors[0].getGrammarNode();
 		}
-
-		
 		
 		private bool hasWord(GrammarNode grammarNode)
 		{
 			return grammarNode.getNumAlternatives() > 0;
 		}
-
-		
 		
 		private float convertProbability(float num)
 		{
 			return this.logMath.lnToLog(-num);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			44,
-			98,
-			105,
-			103,
-			139
-		})]
 		
 		private string getWord(GrammarNode grammarNode)
 		{
@@ -239,13 +138,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				result = alternatives[0][0].getSpelling();
 			}
 			return result;
-		}
-
-		[Throws(new string[]
-		{
-			"java.lang.NoSuchMethodException"
-		})]
-		
+		}		
 		
 		protected internal override GrammarNode createGrammar(string bogusText)
 		{
@@ -253,23 +146,8 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			
 			throw new NoSuchMethodException(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			110,
-			74,
-			239,
-			42,
-			199,
-			107,
-			235,
-			82,
-			139,
-			103
-		})]
 		
-		public FSTGrammar(string path, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
+		public FSTGrammar(string path, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, dictionary.Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.ignoreUnknownTransitions = true;
 			this.nodes = new HashMap();
@@ -277,17 +155,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.logMath = LogMath.getLogMath();
 			this.path = path;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			84,
-			232,
-			36,
-			199,
-			107,
-			235,
-			89
-		})]
 		
 		public FSTGrammar()
 		{
@@ -295,18 +162,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.nodes = new HashMap();
 			this.expandedNodes = new HashSet();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			96,
-			103,
-			139,
-			113
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -314,75 +169,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.logMath = LogMath.getLogMath();
 			this.path = ps.getString("path");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			111,
-			98,
-			162,
-			173,
-			113,
-			231,
-			69,
-			136,
-			205,
-			139,
-			102,
-			200,
-			100,
-			133,
-			113,
-			117,
-			109,
-			253,
-			73,
-			142,
-			175,
-			104,
-			107,
-			135,
-			109,
-			173,
-			118,
-			109,
-			141,
-			106,
-			234,
-			69,
-			106,
-			170,
-			103,
-			136,
-			210,
-			114,
-			103,
-			237,
-			71,
-			106,
-			204,
-			104,
-			141,
-			110,
-			229,
-			69,
-			188,
-			145,
-			115,
-			109,
-			141,
-			106,
-			131,
-			106,
-			170,
-			145,
-			101,
-			134,
-			149
-		})]
 		
 		protected internal override GrammarNode createGrammar()
 		{
@@ -481,11 +267,9 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			return grammarNode;
 		}
-
 		
 		static FSTGrammar()
 		{
-			Grammar.__<clinit>();
 			FSTGrammar.assertionsDisabled = !ClassLiteral<FSTGrammar>.Value.desiredAssertionStatus();
 		}
 
@@ -502,21 +286,15 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 
 		private bool addOptionalSilence;
 
-		
 		private bool ignoreUnknownTransitions;
 
 		private string path;
 
 		private LogMath logMath;
-
-		
 		
 		private Map nodes;
-
-		
-		
+				
 		private Set expandedNodes;
-
 		
 		internal static bool assertionsDisabled;
 	}

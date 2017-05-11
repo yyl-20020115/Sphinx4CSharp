@@ -1,11 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.fst;
+﻿using edu.cmu.sphinx.fst;
 using edu.cmu.sphinx.fst.operations;
 using edu.cmu.sphinx.fst.semiring;
 using edu.cmu.sphinx.fst.utils;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -15,33 +11,7 @@ using java.util.regex;
 namespace edu.cmu.sphinx.linguist.g2p
 {
 	public class G2PConverter : java.lang.Object
-	{
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			34,
-			232,
-			31,
-			171,
-			171,
-			171,
-			171,
-			171,
-			171,
-			231,
-			81,
-			191,
-			4,
-			2,
-			97,
-			159,
-			7,
-			102
-		})]
-		
+	{		
 		public G2PConverter(URL g2pModelUrl)
 		{
 			this.eps = "<eps>";
@@ -51,40 +21,17 @@ namespace edu.cmu.sphinx.linguist.g2p
 			this.tie = "|";
 			this.skipSeqs = new HashSet();
 			this.clusters = null;
-			ClassNotFoundException ex2;
 			try
 			{
 				this.g2pmodel = ImmutableFst.loadModel(g2pModelUrl.openStream());
 			}
 			catch (ClassNotFoundException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<ClassNotFoundException>(ex, 1);
-				goto IL_71;
+			throw new IOException(new StringBuilder().append("Failed to load the model from ").append(g2pModelUrl).toString(), ex);
 			}
 			this.init();
-			return;
-			IL_71:
-			ClassNotFoundException ex3 = ex2;
-			string text = new StringBuilder().append("Failed to load the model from ").append(g2pModelUrl).toString();
-			Exception ex4 = ex3;
-			
-			throw new IOException(text, ex4);
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			124,
-			108,
-			107,
-			107,
-			116,
-			232,
-			61,
-			230,
-			70
-		})]
-		
 		public virtual ArrayList phoneticize(string word, int nbest)
 		{
 			ArrayList arrayList = new ArrayList(java.lang.String.instancehelper_length(word));
@@ -98,24 +45,6 @@ namespace edu.cmu.sphinx.linguist.g2p
 			}
 			return this.phoneticize(arrayList, nbest);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			59,
-			114,
-			114,
-			114,
-			114,
-			145,
-			119,
-			144,
-			140,
-			167,
-			114,
-			37,
-			138,
-			112
-		})]
 		
 		private void init()
 		{
@@ -131,26 +60,6 @@ namespace edu.cmu.sphinx.linguist.g2p
 			this.epsilonFilter = Compose.getFilter(this.g2pmodel.getIsyms(), this.g2pmodel.getSemiring());
 			ArcSort.apply(this.epsilonFilter, new ILabelCompare());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			224,
-			109,
-			103,
-			41,
-			166,
-			106,
-			100,
-			126,
-			115,
-			98,
-			108,
-			234,
-			58,
-			233,
-			73
-		})]
 		
 		private void loadClusters(string[] array)
 		{
@@ -164,8 +73,7 @@ namespace edu.cmu.sphinx.linguist.g2p
 				string text = array[i];
 				string text2 = text;
 				object _ref = this.tie;
-				CharSequence charSequence;
-				charSequence.__ref = _ref;
+				CharSequence charSequence = CharSequence.Cast(_ref);
 				if (java.lang.String.instancehelper_contains(text2, charSequence))
 				{
 					string[] array2 = java.lang.String.instancehelper_split(text, Pattern.quote(this.tie));
@@ -174,57 +82,6 @@ namespace edu.cmu.sphinx.linguist.g2p
 				}
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			79,
-			102,
-			135,
-			108,
-			103,
-			167,
-			112,
-			108,
-			103,
-			100,
-			111,
-			42,
-			135,
-			123,
-			101,
-			120,
-			186,
-			105,
-			109,
-			104,
-			120,
-			118,
-			236,
-			47,
-			233,
-			86,
-			111,
-			106,
-			103,
-			99,
-			99,
-			104,
-			108,
-			101,
-			111,
-			113,
-			50,
-			133,
-			111,
-			229,
-			52,
-			233,
-			81,
-			113,
-			145
-		})]
 		
 		private Fst entryToFSA(ArrayList arrayList)
 		{
@@ -279,69 +136,6 @@ namespace edu.cmu.sphinx.linguist.g2p
 			fst.setOsyms(this.g2pmodel.getIsyms());
 			return fst;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			148,
-			167,
-			102,
-			102,
-			102,
-			109,
-			109,
-			143,
-			141,
-			104,
-			107,
-			109,
-			143,
-			111,
-			110,
-			138,
-			111,
-			112,
-			139,
-			98,
-			203,
-			105,
-			108,
-			107,
-			109,
-			111,
-			110,
-			152,
-			140,
-			159,
-			5,
-			106,
-			103,
-			106,
-			239,
-			61,
-			232,
-			70,
-			123,
-			105,
-			107,
-			106,
-			233,
-			43,
-			235,
-			88,
-			133,
-			103,
-			127,
-			5,
-			106,
-			130,
-			108,
-			105,
-			105,
-			49,
-			200
-		})]
 		
 		private ArrayList findAllPaths(Fst fst, int num, HashSet hashSet, string text)
 		{
@@ -414,26 +208,6 @@ namespace edu.cmu.sphinx.linguist.g2p
 			}
 			return arrayList;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			89,
-			104,
-			103,
-			104,
-			107,
-			111,
-			107,
-			111,
-			107,
-			100,
-			235,
-			70,
-			172,
-			103,
-			181
-		})]
 		
 		public virtual ArrayList phoneticize(ArrayList entry, int nbest)
 		{
@@ -456,23 +230,6 @@ namespace edu.cmu.sphinx.linguist.g2p
 			fst2 = RmEpsilon.get(fst2);
 			return this.findAllPaths(fst2, nbest, this.skipSeqs, this.tie);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			50,
-			232,
-			15,
-			171,
-			171,
-			171,
-			171,
-			171,
-			171,
-			231,
-			96,
-			108,
-			102
-		})]
 		
 		public G2PConverter(string g2pmodel_file)
 		{
@@ -496,10 +253,8 @@ namespace edu.cmu.sphinx.linguist.g2p
 		internal string skip;
 
 		internal string tie;
-
 		
 		internal HashSet skipSeqs;
-
 		
 		internal ArrayList[] clusters;
 

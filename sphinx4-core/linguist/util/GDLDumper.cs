@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 using java.util;
@@ -10,21 +7,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.util
 {
 	public class GDLDumper : LinguistDumper
-	{
-		[LineNumberTable(new byte[]
-		{
-			101,
-			102,
-			104,
-			104,
-			104,
-			104,
-			104,
-			104,
-			104,
-			134
-		})]
-		
+	{		
 		private string getColor(SearchState searchState)
 		{
 			string result = "lightred";
@@ -46,38 +29,16 @@ namespace edu.cmu.sphinx.linguist.util
 			}
 			return result;
 		}
-
-		
 		
 		private string getUniqueName(SearchState searchState)
 		{
 			return searchState.getSignature();
 		}
-
-		
 		
 		private string qs(string text)
 		{
 			return new StringBuilder().append('"').append(text).append('"').toString();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			114,
-			102,
-			102,
-			104,
-			104,
-			109,
-			105,
-			104,
-			109,
-			138,
-			183,
-			101
-		})]
 		
 		private void findNextNonHMMArc(SearchStateArc searchStateArc, List list)
 		{
@@ -102,21 +63,6 @@ namespace edu.cmu.sphinx.linguist.util
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			160,
-			98,
-			110,
-			134,
-			110,
-			99,
-			136,
-			166,
-			99,
-			134
-		})]
-		
 		private string getArcColor(SearchStateArc searchStateArc)
 		{
 			string text = null;
@@ -141,20 +87,6 @@ namespace edu.cmu.sphinx.linguist.util
 			}
 			return text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			137,
-			105,
-			102,
-			105,
-			134,
-			98,
-			104,
-			105,
-			137
-		})]
 		
 		private string formatEdgeLabel(double num)
 		{
@@ -174,19 +106,6 @@ namespace edu.cmu.sphinx.linguist.util
 			}
 			return text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			130,
-			104,
-			138,
-			103,
-			103,
-			103,
-			103,
-			107
-		})]
 		
 		public GDLDumper(string filename, Linguist linguist, bool verticalLayout, bool skipHMMs, bool dumpArcLabels) : base(filename, linguist)
 		{
@@ -196,30 +115,10 @@ namespace edu.cmu.sphinx.linguist.util
 			this.setDepthFirst(false);
 			this.logMath = LogMath.getLogMath();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			8,
-			134
-		})]
 		
 		public GDLDumper()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			19,
-			103,
-			150,
-			118,
-			150,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -234,20 +133,6 @@ namespace edu.cmu.sphinx.linguist.util
 		{
 			return "linguistDump.gdl";
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			46,
-			107,
-			107,
-			104,
-			107,
-			107,
-			141,
-			107,
-			107,
-			139
-		})]
 		
 		protected internal override void startDump(PrintStream @out)
 		{
@@ -266,31 +151,11 @@ namespace edu.cmu.sphinx.linguist.util
 				@out.println("    splines: no");
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			67,
-			107
-		})]
 		
 		protected internal override void endDump(PrintStream @out)
 		{
 			@out.println("}");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			81,
-			149,
-			104,
-			134,
-			127,
-			15,
-			63,
-			44,
-			229,
-			69
-		})]
 		
 		protected internal override void startDumpNode(PrintStream @out, SearchState state, int level)
 		{
@@ -305,41 +170,6 @@ namespace edu.cmu.sphinx.linguist.util
 		protected internal override void endDumpNode(PrintStream @out, SearchState state, int level)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			74,
-			134,
-			104,
-			104,
-			97,
-			109,
-			138,
-			170,
-			136,
-			126,
-			102,
-			105,
-			107,
-			103,
-			37,
-			136,
-			103,
-			37,
-			136,
-			159,
-			0,
-			116,
-			22,
-			208,
-			127,
-			16,
-			63,
-			24,
-			165,
-			101
-		})]
 		
 		protected internal override void dumpArc(PrintStream @out, SearchState from, SearchStateArc arc, int level)
 		{

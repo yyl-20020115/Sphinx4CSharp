@@ -1,65 +1,22 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.grammar
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public class SimpleWordListGrammar : Grammar, Configurable
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			127,
-			78,
-			111,
-			103,
-			104,
-			107
-		})]
-		
-		public SimpleWordListGrammar(string path, bool isLooping, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
+		public SimpleWordListGrammar(string path, bool isLooping, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, dictionary.Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.path = path;
 			this.isLooping = isLooping;
 			this.logMath = LogMath.getLogMath();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			16,
-			134
-		})]
 		
 		public SimpleWordListGrammar()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			27,
-			135,
-			113,
-			118,
-			107
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -67,13 +24,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.path = ps.getString("path");
 			this.isLooping = ps.getBoolean("isLooping").booleanValue();
 			this.logMath = LogMath.getLogMath();
-		}
-
-		[Throws(new string[]
-		{
-			"java.lang.NoSuchMethodException"
-		})]
-		
+		}		
 		
 		protected internal override GrammarNode createGrammar(string bogusText)
 		{
@@ -81,38 +32,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			
 			throw new NoSuchMethodException(text);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			51,
-			109,
-			108,
-			104,
-			108,
-			103,
-			103,
-			136,
-			107,
-			106,
-			106,
-			98,
-			130,
-			108,
-			109,
-			39,
-			135,
-			127,
-			1,
-			106,
-			109,
-			104,
-			141,
-			130
-		})]
 		
 		protected internal override GrammarNode createGrammar()
 		{
@@ -145,12 +64,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				}
 			}
 			return grammarNode;
-		}
-
-		
-		static SimpleWordListGrammar()
-		{
-			Grammar.__<clinit>();
 		}
 
 		[S4String(new object[]

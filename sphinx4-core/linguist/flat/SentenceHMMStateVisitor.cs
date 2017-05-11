@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace edu.cmu.sphinx.linguist.flat
+﻿namespace edu.cmu.sphinx.linguist.flat
 {
 	internal interface SentenceHMMStateVisitor
 	{
-		bool visit(SentenceHMMState);
+		bool visit(SentenceHMMState s);
 	}
 }

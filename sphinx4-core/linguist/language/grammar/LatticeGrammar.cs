@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
-using edu.cmu.sphinx.result;
+﻿using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
@@ -11,83 +7,19 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 {
 	public class LatticeGrammar : Grammar
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			135,
-			170,
-			111,
-			103
-		})]
-		
-		public LatticeGrammar(Lattice lattice, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
+		public LatticeGrammar(Lattice lattice, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, dictionary.Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.lattice = lattice;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			177,
-			134
-		})]
 		
 		public LatticeGrammar()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			188,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			8,
-			104,
-			172,
-			98,
-			102,
-			127,
-			9,
-			109,
-			106,
-			115,
-			99,
-			115,
-			104,
-			106,
-			101,
-			99,
-			176,
-			127,
-			7,
-			106,
-			116,
-			116,
-			107,
-			130
-		})]
 		
 		protected internal override GrammarNode createGrammar()
 		{
@@ -130,28 +62,11 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			return grammarNode;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			39,
-			103,
-			166
-		})]
 		
 		public virtual void setLattice(Lattice lattice)
 		{
 			this.lattice = lattice;
 			this.allocate();
-		}
-
-		
-		static LatticeGrammar()
-		{
-			Grammar.__<clinit>();
 		}
 
 		public Lattice lattice;

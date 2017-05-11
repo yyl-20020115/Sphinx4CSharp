@@ -1,11 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
-
 using System.Runtime.Serialization;
 using System.Security;
 using System.Security.Permissions;
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -13,34 +10,9 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	[Implements(new string[]
-	{
-		"java.io.Serializable",
-		"edu.cmu.sphinx.linguist.SearchState"
-	})]
 	[Serializable]
 	public abstract class SentenceHMMState : java.lang.Object, Serializable.__Interface, SearchState, ISerializable
-	{
-		
-		protected internal static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			2,
-			127,
-			20,
-			108,
-			110,
-			117,
-			52,
-			5,
-			230,
-			69
-		})]
-		
+	{		
 		private void dump()
 		{
 			java.lang.System.@out.println(new StringBuilder().append(" ----- ").append(this.getTitle()).append(" ---- ").toString());
@@ -50,28 +22,12 @@ namespace edu.cmu.sphinx.linguist.flat
 				java.lang.System.@out.println(new StringBuilder().append("   -> ").append(sentenceHMMStateArc.getState().toPrettyString()).toString());
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			26,
-			104,
-			115,
-			107
-		})]
 		
 		protected internal SentenceHMMState()
 		{
 			this.stateNumber = SentenceHMMState.globalStateNumber--;
 			this.arcs = new LinkedHashMap();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			130,
-			126,
-			118
-		})]
 		
 		public virtual void setWhich(int which)
 		{
@@ -83,15 +39,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.fields |= (which & 65535) << 8;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			94,
-			98,
-			99,
-			144,
-			143
-		})]
 		public virtual void setProcessed(bool processed)
 		{
 			if (processed)
@@ -103,15 +50,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				this.fields &= -5;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			209,
-			104,
-			144,
-			143
-		})]
 		
 		public virtual void setColor(SentenceHMMState.Color color)
 		{
@@ -129,31 +67,12 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this.parent;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			6,
-			130,
-			135,
-			163,
-			240,
-			73,
-			109,
-			162,
-			127,
-			16,
-			106,
-			130,
-			98
-		})]
 		
-		public static bool visitStates(SentenceHMMStateVisitor visitor, SentenceHMMState start, bool sorted)
+		internal static bool visitStates(SentenceHMMStateVisitor visitor, SentenceHMMState start, bool sorted)
 		{
 			object obj = SentenceHMMState.collectStates(start);
 			if (sorted)
 			{
-				TreeSet.__<clinit>();
 				TreeSet treeSet = new TreeSet(new SentenceHMMState_3());
 				treeSet.addAll((Set)obj);
 				obj = treeSet;
@@ -182,23 +101,12 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			184,
-			172,
-			127,
-			14
-		})]
 		
 		private void rawConnect(SentenceHMMStateArc sentenceHMMStateArc)
 		{
 			SentenceHMMState sentenceHMMState = (SentenceHMMState)sentenceHMMStateArc.getState();
 			this.arcs.put(new StringBuilder().append(sentenceHMMState.getValueSignature()).append(sentenceHMMState.getStateNumber()).toString(), sentenceHMMStateArc);
 		}
-
-		
 		
 		public virtual string getValueSignature()
 		{
@@ -209,22 +117,11 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this.stateNumber;
 		}
-
-		
 		
 		public virtual string getTitle()
 		{
 			return new StringBuilder().append(this.getFullName()).append(':').append(this.stateNumber).toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			136,
-			104,
-			159,
-			12
-		})]
 		
 		public virtual SearchStateArc[] getSuccessors()
 		{
@@ -249,24 +146,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return (this.fields & 1) == 1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			40,
-			107,
-			102,
-			104,
-			137,
-			237,
-			69,
-			104,
-			105,
-			173,
-			104,
-			137,
-			140
-		})]
 		
 		public override string toString()
 		{
@@ -291,17 +170,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return this.cachedName;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			81,
-			104,
-			104,
-			142,
-			223,
-			19
-		})]
 		
 		public virtual string getFullName()
 		{
@@ -318,28 +186,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			return this.fullName;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			248,
-			102,
-			134,
-			136,
-			107,
-			141,
-			104,
-			103,
-			120,
-			110,
-			116,
-			233,
-			61,
-			232,
-			70,
-			101
-		})]
 		
 		public static Set collectStates(SentenceHMMState start)
 		{
@@ -370,17 +216,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			16,
-			104,
-			124,
-			103,
-			103,
-			103,
-			107
-		})]
 		
 		protected internal SentenceHMMState(string name, SentenceHMMState parent, int which) : this()
 		{
@@ -396,15 +231,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			return (this.fields & 16) == 16;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			118,
-			130,
-			99,
-			145,
-			143
-		})]
 		public virtual void setWordStart(bool wordStart)
 		{
 			if (wordStart)
@@ -422,15 +248,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			return (this.fields & 32) == 32;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			112,
-			130,
-			99,
-			145,
-			143
-		})]
 		public virtual void setSharedState(bool shared)
 		{
 			if (shared)
@@ -442,18 +259,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				this.fields &= -33;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			86,
-			98,
-			130,
-			107,
-			169,
-			99,
-			103,
-			135
-		})]
 		
 		public virtual Word getAssociatedWord()
 		{
@@ -481,15 +286,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			return (this.fields & 8) == 8;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			98,
-			162,
-			99,
-			144,
-			143
-		})]
 		public virtual void setFanIn(bool fanIn)
 		{
 			if (fanIn)
@@ -506,54 +302,26 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return (this.fields & 4) == 4;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			100,
-			238,
-			70
-		})]
 		
 		public virtual void resetAllProcessed()
 		{
 			SentenceHMMState.visitStates(new SentenceHMMState_1(this), this, false);
 		}
-
-		
 		
 		public virtual WordSequence getWordHistory()
 		{
 			return WordSequence.__EMPTY;
 		}
-
-		
 		
 		public virtual int getNumSuccessors()
 		{
 			return this.arcs.size();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			160,
-			114
-		})]
 		
 		internal virtual void deleteSuccessor(SentenceHMMStateArc sentenceHMMStateArc)
 		{
 			this.arcs.values().remove(sentenceHMMStateArc);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			171,
-			104,
-			135,
-			103
-		})]
 		
 		public virtual void connect(SentenceHMMStateArc arc)
 		{
@@ -564,15 +332,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.rawConnect(arc);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			60,
-			162,
-			99,
-			144,
-			143
-		})]
 		public virtual void setFinalState(bool state)
 		{
 			if (state)
@@ -589,14 +348,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			237,
-			238,
-			70
-		})]
 		
 		public virtual void dumpAll()
 		{
@@ -611,23 +362,17 @@ namespace edu.cmu.sphinx.linguist.flat
 		public virtual void validateAll()
 		{
 		}
-
-		
 		
 		public virtual string getPrettyName()
 		{
 			return this.getName();
-		}
-
-		
+		}		
 		
 		public virtual string toPrettyString()
 		{
 			return this.toString();
 		}
 
-		
-		
 		public virtual string getSignature()
 		{
 			return this.getFullName();
@@ -637,21 +382,11 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this.fields >> 8 & 65535;
 		}
-
-		
 		
 		public virtual SentenceHMMStateArc findArc(SentenceHMMState state)
 		{
 			return (SentenceHMMStateArc)this.arcs.get(state.getValueSignature());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			223,
-			107,
-			134
-		})]
 		
 		public virtual SentenceHMMState.Color getColor()
 		{
@@ -663,74 +398,46 @@ namespace edu.cmu.sphinx.linguist.flat
 		}
 
 		public abstract int getOrder();
-
-		
-		
-		
-		
-		public virtual object <bridge>getLexState()
-		{
-			return this.getLexState();
-		}
-
-		
-		
-		
+				
 		internal static void access_000(SentenceHMMState sentenceHMMState)
 		{
 			sentenceHMMState.dump();
 		}
-
-		
 		
 		internal static int access_100(SentenceHMMState sentenceHMMState)
 		{
 			return sentenceHMMState.stateNumber;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			168,
-			245,
-			79
-		})]
 		static SentenceHMMState()
 		{
 			SentenceHMMState.globalStateNumber = -1000;
 		}
-
 		
 		public static implicit operator Serializable(SentenceHMMState _ref)
 		{
-			Serializable result;
-			result.__ref = _ref;
+			Serializable result = Serializable.Cast(_ref);
 			return result;
 		}
 
-		
-		object SearchState.Object;getLexState()
+		object SearchState.getLexState()
 		{
-			return this.<bridge>getLexState();
+			return this.getLexState();
 		}
 
 		[SecurityCritical]
-		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		public virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
 		{
 			Serialization.writeObject(this, serializationInfo);
 		}
-
 		
 		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected SentenceHMMState(SerializationInfo serializationInfo, StreamingContext streamingContext)
 		{
 			Serialization.readObject(this, serializationInfo);
 		}
-
 		
-		[NameSig("visitStates", "(Ledu.cmu.sphinx.linguist.flat.SentenceHMMStateVisitor;Ledu.cmu.sphinx.linguist.flat.SentenceHMMState;Z)Z")]
 		public static bool visitStates(object obj, SentenceHMMState start, bool sorted)
 		{
 			return SentenceHMMState.visitStates((SentenceHMMStateVisitor)obj, start, sorted);
@@ -759,8 +466,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		private int fields;
 
 		private string name;
-
-		
 		
 		private Map arcs;
 
@@ -772,48 +477,25 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		private SentenceHMMStateArc[] successorArray;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<SentenceHMMState>.Value.desiredAssertionStatus();
 
-		
-		
-		.
-		
 		[Serializable]
-		public sealed class Color : Enum
+		public sealed class Color : java.lang.Enum
 		{
-			
-			public static void __<clinit>()
-			{
-			}
-
-			
-			
-			
 			private Color(string text, int num) : base(text, num)
 			{
 				GC.KeepAlive(this);
 			}
 
-			
-			
 			public static SentenceHMMState.Color[] values()
 			{
 				return (SentenceHMMState.Color[])SentenceHMMState.Color._VALUES_.Clone();
 			}
-
-			
-			
+		
 			public static SentenceHMMState.Color valueOf(string name)
 			{
-				return (SentenceHMMState.Color)Enum.valueOf(ClassLiteral<SentenceHMMState.Color>.Value, name);
+				return (SentenceHMMState.Color)java.lang.Enum.valueOf(ClassLiteral<SentenceHMMState.Color>.Value, name);
 			}
-
-			
-			static Color()
-			{
-			}
-
 			
 			public static SentenceHMMState.Color RED
 			{
@@ -823,7 +505,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					return SentenceHMMState.Color.__RED;
 				}
 			}
-
 			
 			public static SentenceHMMState.Color GREEN
 			{
@@ -834,19 +515,15 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 			}
 
-			
 			internal static SentenceHMMState.Color __RED = new SentenceHMMState.Color("RED", 0);
 
-			
 			internal static SentenceHMMState.Color __GREEN = new SentenceHMMState.Color("GREEN", 1);
-
 			
 			private static SentenceHMMState.Color[] _VALUES_ = new SentenceHMMState.Color[]
 			{
 				SentenceHMMState.Color.__RED,
 				SentenceHMMState.Color.__GREEN
 			};
-
 			
 			[Serializable]
 			public enum __Enum

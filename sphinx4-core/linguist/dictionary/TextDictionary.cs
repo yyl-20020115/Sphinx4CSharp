@@ -1,10 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.g2p;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.io;
 using java.lang;
 using java.net;
@@ -13,28 +10,8 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.dictionary.Dictionary"
-	})]
 	public class TextDictionary : java.lang.Object, Dictionary, Configurable
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			53,
-			232,
-			41,
-			231,
-			88,
-			150,
-			103,
-			103,
-			103,
-			104,
-			104
-		})]
-		
 		public TextDictionary(URL wordDictionaryFile, URL fillerDictionaryFile, List addendaUrlList, string wordReplacement, UnitManager unitManager)
 		{
 			this.g2pMaxPron = 0;
@@ -45,43 +22,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			this.wordReplacement = wordReplacement;
 			this.unitManager = unitManager;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			87,
-			130,
-			103,
-			167,
-			109,
-			103,
-			104,
-			130,
-			105,
-			101,
-			159,
-			6,
-			171,
-			111,
-			163,
-			127,
-			8,
-			111,
-			164,
-			99,
-			127,
-			9,
-			144,
-			143,
-			133,
-			102,
-			102,
-			102
-		})]
 		
 		protected internal virtual void loadDictionary(InputStream inputStream, bool isFillerDict)
 		{
@@ -134,23 +74,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			inputStreamReader.close();
 			inputStream.close();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			109,
-			99,
-			123,
-			127,
-			6,
-			109,
-			130
-		})]
 		
 		private void loadCustomDictionaries(List list)
 		{
@@ -165,16 +88,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			147,
-			107,
-			118,
-			2,
-			198
-		})]
 		
 		private int getSpaceIndex(string text)
 		{
@@ -187,28 +100,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 			return -1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			206,
-			146,
-			99,
-			162,
-			114,
-			102,
-			127,
-			16,
-			104,
-			114,
-			127,
-			0,
-			127,
-			16,
-			104,
-			176,
-			168
-		})]
 		
 		public virtual Word getWord(string text)
 		{
@@ -237,30 +128,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 			return word;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			231,
-			115,
-			102,
-			126,
-			109,
-			105,
-			127,
-			5,
-			113,
-			98,
-			105,
-			141,
-			110,
-			101,
-			120,
-			108,
-			121,
-			41,
-			168
-		})]
 		
 		private Word extractPronunciation(string text)
 		{
@@ -296,39 +163,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 			return word;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			21,
-			134,
-			98,
-			162,
-			100,
-			98,
-			100,
-			159,
-			6,
-			115,
-			103,
-			137,
-			105,
-			109,
-			137,
-			105,
-			105,
-			105,
-			17,
-			200,
-			142,
-			135,
-			120,
-			140,
-			121,
-			41,
-			168,
-			143
-		})]
 		
 		private Word processEntry(string text)
 		{
@@ -373,23 +207,12 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 			this.wordDictionary.put(text, word);
 			return word;
-		}
-
-		
+		}		
 		
 		protected internal virtual Unit getCIUnit(string name, bool isFiller)
 		{
 			return this.unitManager.getUnit(name, isFiller, Context.__EMPTY_CONTEXT);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			48,
-			162,
-			105,
-			115
-		})]
 		
 		private Word createWord(string text, Pronunciation[] pronunciations, bool isFiller)
 		{
@@ -397,24 +220,9 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			this.dictionary.put(text, word.toString());
 			return word;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			68,
-			113,
-			134,
-			127,
-			1,
-			114,
-			127,
-			4,
-			130
-		})]
 		
 		public override string toString()
 		{
-			TreeMap.__<clinit>();
 			TreeMap treeMap = new TreeMap(this.dictionary);
 			StringBuilder stringBuilder = new StringBuilder();
 			Iterator iterator = treeMap.entrySet().iterator();
@@ -426,70 +234,21 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 			return stringBuilder.toString();
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException",
-			"java.lang.ClassNotFoundException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			48,
-			104,
-			42,
-			133
-		})]
 		
 		public TextDictionary(string wordDictionaryFile, string fillerDictionaryFile, List addendaUrlList, bool addSilEndingPronunciation, string wordReplacement, UnitManager unitManager) : this(ConfigurationManagerUtils.resourceToURL(wordDictionaryFile), ConfigurationManagerUtils.resourceToURL(fillerDictionaryFile), addendaUrlList, wordReplacement, unitManager)
 		{
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			65,
-			111,
-			104,
-			104
-		})]
 		
 		public TextDictionary(URL wordDictionaryFile, URL fillerDictionaryFile, List addendaUrlList, bool addSilEndingPronunciation, string wordReplacement, UnitManager unitManager, URL g2pModelFile, int g2pMaxPron) : this(wordDictionaryFile, fillerDictionaryFile, addendaUrlList, wordReplacement, unitManager)
 		{
 			this.g2pModelFile = g2pModelFile;
 			this.g2pMaxPron = g2pMaxPron;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			70,
-			232,
-			24,
-			231,
-			106
-		})]
 		
 		public TextDictionary()
 		{
 			this.g2pMaxPron = 0;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			83,
-			140,
-			113,
-			113,
-			113,
-			113,
-			118,
-			113,
-			113
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -512,32 +271,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		{
 			return this.fillerDictionaryFile;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			119,
-			107,
-			107,
-			139,
-			108,
-			139,
-			134,
-			159,
-			11,
-			146,
-			140,
-			159,
-			11,
-			146,
-			127,
-			0,
-			145,
-			167
-		})]
 		
 		public virtual void allocate()
 		{
@@ -545,7 +278,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			{
 				this.dictionary = new HashMap();
 				this.wordDictionary = new HashMap();
-				Timer timer = TimerPool.getTimer(this, "Load Dictionary");
+				sphinx.util.Timer timer = TimerPool.getTimer(this, "Load Dictionary");
 				this.fillerWords = new HashSet();
 				timer.start();
 				this.logger.info(new StringBuilder().append("Loading dictionary from: ").append(this.wordDictionaryFile).toString());
@@ -570,39 +303,21 @@ namespace edu.cmu.sphinx.linguist.dictionary
 				this.allocated = false;
 			}
 		}
-
-		
 		
 		public virtual Word getSentenceStartWord()
 		{
 			return this.getWord("<s>");
 		}
-
-		
 		
 		public virtual Word getSentenceEndWord()
 		{
 			return this.getWord("</s>");
 		}
-
-		
 		
 		public virtual Word getSilenceWord()
 		{
 			return this.getWord("<sil>");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			85,
-			113,
-			98,
-			127,
-			1,
-			110,
-			98
-		})]
 		
 		public virtual Word[] getFillerWords()
 		{
@@ -619,13 +334,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 			return array;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			97,
-			112
-		})]
 		
 		public virtual void dump()
 		{
@@ -638,7 +346,6 @@ namespace edu.cmu.sphinx.linguist.dictionary
 
 		protected internal URL fillerDictionaryFile;
 
-		
 		protected internal List addendaUrlList;
 
 		private string wordReplacement;
@@ -649,16 +356,13 @@ namespace edu.cmu.sphinx.linguist.dictionary
 
 		protected internal UnitManager unitManager;
 
-		
 		protected internal Map dictionary;
-
 		
 		protected internal Map wordDictionary;
 
 		protected internal G2PConverter g2pDecoder;
 
 		protected internal const string FILLER_TAG = "-F-";
-
 		
 		protected internal Set fillerWords;
 

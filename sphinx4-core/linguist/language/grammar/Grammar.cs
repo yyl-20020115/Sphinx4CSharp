@@ -1,9 +1,6 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -12,27 +9,8 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.language.grammar
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.Configurable",
-		"edu.cmu.sphinx.linguist.language.grammar.GrammarInterface"
-	})]
 	public abstract class Grammar : java.lang.Object, Configurable, GrammarInterface
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			193,
-			103,
-			107,
-			103
-		})]
-		
+	{	
 		protected internal virtual void newGrammar()
 		{
 			this.maxIdentity = 0;
@@ -40,42 +18,10 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.initialNode = null;
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
 		protected internal abstract GrammarNode createGrammar();
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			132,
-			145,
-			135,
-			100,
-			161,
-			126,
-			123,
-			112,
-			104,
-			105,
-			105,
-			110,
-			110,
-			141,
-			120,
-			119,
-			110,
-			238,
-			61,
-			232,
-			70,
-			101
-		})]
 		
 		private void addFillerWords()
 		{
-			HashSet.__<clinit>();
 			HashSet hashSet = new HashSet(this.getGrammarNodes());
 			Word[] interWordFillers = this.getInterWordFillers();
 			if (interWordFillers.Length == 0)
@@ -107,28 +53,9 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			113,
-			113,
-			126,
-			120,
-			111,
-			42,
-			166,
-			112,
-			136,
-			108,
-			109,
-			140,
-			101
-		})]
 		
 		private void addSilenceWords()
 		{
-			HashSet.__<clinit>();
 			HashSet hashSet = new HashSet(this.getGrammarNodes());
 			Iterator iterator = hashSet.iterator();
 			while (iterator.hasNext())
@@ -145,15 +72,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			105,
-			103,
-			123,
-			104
-		})]
 		
 		private void optimizeGrammar()
 		{
@@ -165,23 +83,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				grammarNode.optimize();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			105,
-			117,
-			98,
-			127,
-			11,
-			127,
-			1,
-			140,
-			127,
-			6,
-			120,
-			50,
-			165
-		})]
 		
 		public virtual void dumpStatistics()
 		{
@@ -200,26 +101,10 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 		}
 
-		
-		
 		public virtual int getNumNodes()
 		{
 			return this.grammarNodes.size();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			108,
-			102,
-			103,
-			104,
-			104,
-			103,
-			104,
-			148,
-			138
-		})]
 		
 		public virtual string getRandomSentence()
 		{
@@ -244,35 +129,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 		{
 			return this.initialNode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			129,
-			199,
-			104,
-			104,
-			134,
-			138,
-			103,
-			127,
-			12,
-			7,
-			230,
-			69,
-			103,
-			51,
-			230,
-			69,
-			110,
-			99,
-			112,
-			100,
-			10,
-			232,
-			69,
-			170
-		})]
 		
 		private GrammarNode selectRandomSuccessor(GrammarNode grammarNode)
 		{
@@ -307,30 +163,10 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			return successors[0].getGrammarNode();
 		}
 
-		public virtual Dictionary getDictionary()
+		public virtual dictionary.Dictionary getDictionary()
 		{
 			return this.dictionary;
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.Error"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			81,
-			110,
-			204,
-			107,
-			127,
-			1,
-			142,
-			159,
-			22,
-			162,
-			141
-		})]
 		
 		private void add(GrammarNode grammarNode)
 		{
@@ -354,23 +190,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			this.grammarNodes.add(grammarNode);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			42,
-			102,
-			141,
-			99,
-			103,
-			105,
-			102,
-			104,
-			137,
-			105,
-			159,
-			6
-		})]
 		
 		protected internal virtual GrammarNode createGrammarNode(int identity, string word)
 		{
@@ -394,15 +213,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			return grammarNode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			33,
-			130,
-			104,
-			103
-		})]
 		
 		protected internal virtual GrammarNode createGrammarNode(int identity, bool isFinal)
 		{
@@ -410,27 +220,11 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.add(grammarNode);
 			return grammarNode;
 		}
-
 		
 		public virtual Set getGrammarNodes()
 		{
 			return this.grammarNodes;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			166,
-			102,
-			140,
-			115,
-			119,
-			103,
-			233,
-			61,
-			232,
-			70
-		})]
 		
 		private Word[] getInterWordFillers()
 		{
@@ -448,115 +242,46 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			return (Word[])arrayList.toArray(new Word[arrayList.size()]);
 		}
-
-		
 		
 		protected internal virtual GrammarNode createGrammarNode(bool isFinal)
 		{
 			return this.createGrammarNode(this.maxIdentity + 1, isFinal);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			123,
-			71,
-			232,
-			52,
-			231,
-			72,
-			238,
-			69,
-			118,
-			103,
-			103,
-			103,
-			104
-		})]
 		
-		public Grammar(bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary)
+		public Grammar(bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, dictionary.Dictionary dictionary)
 		{
-			this.optimizeGrammar = true;
-			this.randomizer = new Random((long)((ulong)56));
+			this.randomizer = new java.util.Random((long)((ulong)56));
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
-			this.optimizeGrammar = optimizeGrammar;
-			this.addSilenceWords = addSilenceWords;
-			this.addFillerWords = addFillerWords;
+			this._optimizeGrammar = optimizeGrammar;
+			this._addSilenceWords = addSilenceWords;
+			this._addFillerWords = addFillerWords;
 			this.dictionary = dictionary;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			34,
-			232,
-			44,
-			231,
-			72,
-			238,
-			78
-		})]
 		
 		public Grammar()
 		{
-			this.optimizeGrammar = true;
-			this.randomizer = new Random((long)((ulong)56));
+			this._optimizeGrammar = true;
+			this.randomizer = new java.util.Random((long)((ulong)56));
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			44,
-			108,
-			150,
-			118,
-			150,
-			118
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
-			this.optimizeGrammar = ps.getBoolean("optimizeGrammar").booleanValue();
-			this.addSilenceWords = ps.getBoolean("addSilenceWords").booleanValue();
-			this.addFillerWords = ps.getBoolean("addFillerWords").booleanValue();
-			this.dictionary = (Dictionary)ps.getComponent("dictionary");
+			this._optimizeGrammar = ps.getBoolean("optimizeGrammar").booleanValue();
+			this._addSilenceWords = ps.getBoolean("addSilenceWords").booleanValue();
+			this._addFillerWords = ps.getBoolean("addFillerWords").booleanValue();
+			this.dictionary = (dictionary.Dictionary)ps.getComponent("dictionary");
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			58,
-			107,
-			102,
-			108,
-			102,
-			108,
-			103
-		})]
 		
 		public virtual void allocate()
 		{
 			this.dictionary.allocate();
 			this.newGrammar();
-			Timer timer = TimerPool.getTimer(this, "grammarLoad");
+			sphinx.util.Timer timer = TimerPool.getTimer(this, "grammarLoad");
 			timer.start();
 			this.initialNode = this.createGrammar();
 			timer.stop();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			69,
-			103,
-			103,
-			107
-		})]
 		
 		public virtual void deallocate()
 		{
@@ -564,59 +289,26 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.grammarNodes = null;
 			this.dictionary.deallocate();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			90,
-			104,
-			104,
-			104,
-			166,
-			104,
-			134,
-			102
-		})]
 		
 		protected internal virtual void postProcessGrammar()
 		{
-			if (this.addFillerWords)
+			if (this._addFillerWords)
 			{
 				this.addFillerWords();
 			}
-			else if (this.addSilenceWords)
+			else if (this._addSilenceWords)
 			{
 				this.addSilenceWords();
 			}
-			if (this.optimizeGrammar)
+			if (this._optimizeGrammar)
 			{
 				this.optimizeGrammar();
 			}
 			this.dumpStatistics();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			127,
-			102,
-			108,
-			102,
-			103,
-			105,
-			104,
-			231,
-			60,
-			230,
-			71,
-			186,
-			2,
-			98,
-			159,
-			20
-		})]
 		
 		public virtual void dumpRandomSentences(string path, int count)
 		{
-			IOException ex2;
 			try
 			{
 				HashSet hashSet = new HashSet();
@@ -634,34 +326,9 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_53;
+				this.logger.severe(new StringBuilder().append("Can't write random sentences to ").append(path).append(' ').append(ex).toString());
 			}
-			return;
-			IL_53:
-			IOException ex3 = ex2;
-			this.logger.severe(new StringBuilder().append("Can't write random sentences to ").append(path).append(' ').append(ex3).toString());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			86,
-			102,
-			102,
-			103,
-			105,
-			232,
-			61,
-			230,
-			70,
-			103,
-			134,
-			127,
-			0,
-			108,
-			98
-		})]
 		
 		public virtual void dumpRandomSentences(int count)
 		{
@@ -683,24 +350,11 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				java.lang.System.@out.println(text);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			168,
-			108
-		})]
 		
 		public virtual void dumpGrammar(string name)
 		{
 			this.getInitialNode().dumpDot(name);
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.NoSuchMethodException"
-		})]
-		
 		
 		protected internal virtual GrammarNode createGrammar(string bogusText)
 		{
@@ -708,27 +362,6 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			
 			throw new NoSuchMethodException(text);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			241,
-			104,
-			106,
-			108,
-			105,
-			177,
-			99,
-			102,
-			130,
-			230,
-			56,
-			6,
-			233,
-			78,
-			105,
-			136
-		})]
 		
 		protected internal virtual GrammarNode createGrammarNode(int identity, string[][] alts)
 		{
@@ -751,19 +384,11 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			this.add(grammarNode);
 			return grammarNode;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			16,
-			112
-		})]
 		
 		protected internal virtual GrammarNode createGrammarNode(string word)
 		{
 			return this.createGrammarNode(this.maxIdentity + 1, word);
 		}
-
 		
 		static Grammar()
 		{
@@ -828,24 +453,21 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 
 		protected internal Logger logger;
 
-		private bool optimizeGrammar;
+		private bool _optimizeGrammar;
 
-		private bool addSilenceWords;
+		private bool _addSilenceWords;
 
-		private bool addFillerWords;
+		private bool _addFillerWords;
 
-		protected internal Dictionary dictionary;
+		protected internal dictionary.Dictionary dictionary;
 
 		protected internal GrammarNode initialNode;
-
 		
 		private Set grammarNodes;
-
 		
 		private static Word[][] EMPTY_ALTERNATIVE;
 
-		
-		private Random randomizer;
+		private java.util.Random randomizer;
 
 		private int maxIdentity;
 

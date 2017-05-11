@@ -1,62 +1,18 @@
-﻿using System;
-
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.net;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
 	public class LargeTrigramModel : LargeNGramModel
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			128,
-			105,
-			255,
-			4,
-			69
-		})]
-		
+	{		
 		public LargeTrigramModel(string format, URL urlLocation, string ngramLogFile, int maxTrigramCacheSize, int maxBigramCacheSize, bool clearCacheAfterUtterance, int maxDepth, Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight, bool fullSmear) : base(format, urlLocation, ngramLogFile, maxTrigramCacheSize, clearCacheAfterUtterance, (maxDepth <= 3) ? maxDepth : 3, dictionary, applyLanguageWeightAndWip, languageWeight, wip, unigramWeight, fullSmear)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			17,
-			102
-		})]
 		
 		public LargeTrigramModel()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			29,
-			108,
-			113,
-			113,
-			103,
-			37,
-			138,
-			113,
-			113,
-			118,
-			103,
-			37,
-			138,
-			113,
-			114,
-			113,
-			118
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{

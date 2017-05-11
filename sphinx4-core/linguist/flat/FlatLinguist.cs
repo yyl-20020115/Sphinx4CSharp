@@ -1,39 +1,19 @@
 ﻿using System;
-
 using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.language.grammar;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.Linguist",
-		"edu.cmu.sphinx.util.props.Configurable"
-	})]
 	public class FlatLinguist : java.lang.Object, Linguist, Configurable
 	{
 		private void T(string text)
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			164,
-			107,
-			104,
-			139
-		})]
 		
 		protected internal virtual void allocateAcousticModel()
 		{
@@ -48,55 +28,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this.name;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			219,
-			145,
-			107,
-			139,
-			102,
-			208,
-			112,
-			127,
-			6,
-			104,
-			104,
-			98,
-			113,
-			230,
-			70,
-			112,
-			124,
-			105,
-			209,
-			112,
-			124,
-			105,
-			209,
-			112,
-			124,
-			105,
-			145,
-			168,
-			104,
-			115,
-			98,
-			113,
-			186,
-			110,
-			177,
-			104,
-			127,
-			10,
-			106,
-			103,
-			130,
-			103,
-			103
-		})]
 		
 		protected internal virtual Collection compileGrammar()
 		{
@@ -162,46 +93,21 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.arcPool = null;
 			return SentenceHMMState.collectStates(sentenceHMMState);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			68,
-			116,
-			43
-		})]
 		
 		protected internal virtual bool grammarHasChanged()
 		{
 			return this.initialGrammarState == null || this.initialGrammarState != this.grammar.getInitialNode();
 		}
-
-		
 		
 		protected internal virtual FlatLinguist.GState createGState(GrammarNode grammarNode)
 		{
 			return new FlatLinguist.GState(this, grammarNode);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			46,
-			113
-		})]
 		
 		protected internal virtual void addStartingPath()
 		{
 			this.addStartingPath(this.grammar.getInitialNode());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			79,
-			108,
-			104
-		})]
 		
 		protected internal virtual SentenceHMMState findStartingState()
 		{
@@ -209,17 +115,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			FlatLinguist.GState gstate = this.getGState(initialNode);
 			return gstate.getEntryPoint();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			96,
-			179,
-			114,
-			120,
-			127,
-			5
-		})]
 		
 		protected internal virtual SentenceHMMStateArc getArc(SentenceHMMState nextState, float logLanguageProbability, float logInsertionProbability)
 		{
@@ -229,22 +124,11 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.totalArcs.value = (double)(this.arcPool.getHits() + this.arcPool.getMisses());
 			return (sentenceHMMStateArc2 != null) ? sentenceHMMStateArc2 : sentenceHMMStateArc;
 		}
-
-		
 		
 		protected internal virtual FlatLinguist.GState getGState(GrammarNode node)
 		{
 			return (FlatLinguist.GState)this.nodeStateMap.get(node);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			56,
-			98,
-			104,
-			107
-		})]
 		
 		protected internal virtual void addStartingPath(GrammarNode initialNode)
 		{
@@ -256,35 +140,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this.searchGraph;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			97,
-			108,
-			233,
-			24,
-			231,
-			106,
-			103,
-			107,
-			103,
-			135,
-			116,
-			116,
-			116,
-			116,
-			137,
-			103,
-			103,
-			135,
-			135,
-			99,
-			116,
-			116,
-			168,
-			103
-		})]
 		
 		public FlatLinguist(AcousticModel acousticModel, Grammar grammar, UnitManager unitManager, double wordInsertionProbability, double silenceInsertionProbability, double fillerInsertionProbability, double unitInsertionProbability, float languageWeight, bool dumpGStates, bool showCompilationProgress, bool spreadWordProbabilitiesAcrossPronunciations, bool addOutOfGrammarBranch, double outOfGrammarBranchProbability, double phoneInsertionProbability, AcousticModel phoneLoopAcousticModel)
 		{
@@ -310,51 +165,11 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			this.name = null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			95,
-			232,
-			159,
-			188,
-			231,
-			160,
-			70
-		})]
 		
 		public FlatLinguist()
 		{
 			this.showCompilationProgress = true;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			105,
-			139,
-			118,
-			118,
-			182,
-			124,
-			124,
-			124,
-			124,
-			113,
-			118,
-			118,
-			150,
-			150,
-			104,
-			124,
-			124,
-			182,
-			108
-		})]
 		
 		public virtual void newProperties(PropertySheet ps)
 		{
@@ -379,23 +194,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 			this.name = ps.getInstanceName();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			149,
-			102,
-			107,
-			118,
-			118,
-			118,
-			108,
-			120
-		})]
 		
 		public virtual void allocate()
 		{
@@ -407,15 +205,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.stateSet = this.compileGrammar();
 			this.totalStates.value = (double)this.stateSet.size();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			177,
-			104,
-			139,
-			107
-		})]
 		
 		public virtual void deallocate()
 		{
@@ -426,15 +215,6 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.grammar.deallocate();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			188,
-			104,
-			108,
-			152
-		})]
-		
 		public virtual void startRecognition()
 		{
 			if (this.grammarHasChanged())
@@ -452,73 +232,52 @@ namespace edu.cmu.sphinx.linguist.flat
 		{
 			return this.logSilenceInsertionProbability;
 		}
-
-		
-		
 		
 		internal static void access_100(FlatLinguist flatLinguist, string text)
 		{
 			flatLinguist.T(text);
-		}
-
-		
+		}		
 		
 		internal static UnitManager access_200(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.unitManager;
 		}
 
-		
-		
 		internal static float access_300(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logSilenceInsertionProbability;
 		}
 
-		
-		
 		internal static float access_400(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logFillerInsertionProbability;
 		}
 
-		
-		
 		internal static float access_500(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logWordInsertionProbability;
 		}
 
-		
-		
 		internal static float access_600(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.logUnitInsertionProbability;
 		}
 
-		
-		
 		internal static AcousticModel access_700(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.acousticModel;
 		}
-
-		
 		
 		internal static bool access_800(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.spreadWordProbabilitiesAcrossPronunciations;
 		}
-
-		
 		
 		internal static bool access_900(FlatLinguist flatLinguist)
 		{
 			return flatLinguist.showCompilationProgress;
 		}
 
-		
-		
 		internal static int access_1008(FlatLinguist flatLinguist)
 		{
 			int num = flatLinguist.totalStateCounter;
@@ -677,7 +436,6 @@ namespace edu.cmu.sphinx.linguist.flat
 		private int totalStateCounter;
 
 		private const bool tracing = false;
-
 		
 		[NonSerialized]
 		private Collection stateSet;
@@ -686,7 +444,6 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		
 		protected internal Map nodeStateMap;
-
 		
 		protected internal Cache arcPool;
 
@@ -694,24 +451,11 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		protected internal SearchGraph searchGraph;
 
-		
-		[Implements(new string[]
-		{
-			"edu.cmu.sphinx.linguist.SearchGraph"
-		})]
-		.
 		public class FlatSearchGraph : java.lang.Object, SearchGraph
-		{
-			[LineNumberTable(new byte[]
-			{
-				161,
-				133,
-				111,
-				103
-			})]
-			
+		{			
 			public FlatSearchGraph(FlatLinguist this_0, SearchState initialState)
 			{
+				this.this_0 = this_0;
 				this.initialState = initialState;
 			}
 
@@ -729,67 +473,20 @@ namespace edu.cmu.sphinx.linguist.flat
 			{
 				return 7;
 			}
-
 			
 			private SearchState initialState;
 
 			
-			internal FlatLinguist this_0 = this_0;
+			internal FlatLinguist this_0;
 		}
 
-		
-		.
 		public class GState : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				162,
-				116,
-				102,
-				102
-			})]
-			
+		{			
 			public virtual void collectContexts()
 			{
 				this.pullRightContexts();
 				this.pushLeftContexts();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				127,
-				127,
-				1,
-				127,
-				1,
-				105,
-				115,
-				98,
-				162,
-				109,
-				114,
-				127,
-				10,
-				106,
-				98,
-				210,
-				127,
-				1,
-				103,
-				231,
-				74,
-				127,
-				10,
-				110,
-				110,
-				115,
-				124,
-				106,
-				106,
-				133,
-				102
-			})]
 			
 			public virtual void expand()
 			{
@@ -807,7 +504,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				if (this.node.isFinalNode())
 				{
-					GrammarState.__<clinit>();
 					GrammarState grammarState = new GrammarState(this.node);
 					Iterator iterator3 = this.entryPoints.values().iterator();
 					while (iterator3.hasNext())
@@ -833,7 +529,6 @@ namespace edu.cmu.sphinx.linguist.flat
 						Map.Entry entry = (Map.Entry)iterator.next();
 						ContextPair contextPair2 = (ContextPair)entry.getKey();
 						List list2 = (List)entry.getValue();
-						BranchState.__<clinit>();
 						BranchState branchState = new BranchState(contextPair2.getLeftContext().toString(), contextPair2.getRightContext().toString(), this.node.getID());
 						list2.add(branchState);
 						this.addExitPoint(contextPair2, branchState);
@@ -841,33 +536,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				this.addEmptyEntryPoints();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				75,
-				119,
-				115,
-				112,
-				155,
-				133,
-				232,
-				69,
-				123,
-				116,
-				153,
-				100,
-				127,
-				10,
-				117,
-				100,
-				110,
-				140,
-				226,
-				41,
-				233,
-				89
-			})]
 			
 			public virtual void connect()
 			{
@@ -900,35 +568,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					}
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				184,
-				127,
-				15,
-				127,
-				10,
-				109,
-				145,
-				159,
-				15,
-				127,
-				15,
-				127,
-				15,
-				127,
-				10,
-				127,
-				15,
-				127,
-				15,
-				127,
-				15,
-				127,
-				15,
-				102
-			})]
 			
 			internal virtual void dumpInfo()
 			{
@@ -951,25 +590,10 @@ namespace edu.cmu.sphinx.linguist.flat
 				java.lang.System.@out.println(new StringBuilder().append(" lc: ").append(this.rightContexts.size()).toString());
 				this.dumpDetails();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				187,
-				239,
-				45,
-				107,
-				107,
-				203,
-				107,
-				235,
-				77,
-				103,
-				110
-			})]
 			
 			protected internal GState(FlatLinguist this_0, GrammarNode node)
 			{
+				this.this_0 = this_0;
 				this.entryPoints = new HashMap();
 				this.exitPoints = new HashMap();
 				this.existingStates = new HashMap();
@@ -979,21 +603,10 @@ namespace edu.cmu.sphinx.linguist.flat
 				this_0.nodeStateMap.put(node, this);
 			}
 
-			
-			
-			
 			internal static void access_000(FlatLinguist.GState gstate, UnitContext unitContext)
 			{
 				gstate.addLeftContext(unitContext);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				105,
-				112,
-				104
-			})]
 			
 			public virtual SentenceHMMState getEntryPoint()
 			{
@@ -1001,49 +614,16 @@ namespace edu.cmu.sphinx.linguist.flat
 				List list = this.getEntryPoints(contextPair);
 				return (list != null && !list.isEmpty()) ? ((SentenceHMMState)list.get(0)) : null;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				80,
-				109
-			})]
 			
 			private void addLeftContext(UnitContext unitContext)
 			{
 				this.leftContexts.add(unitContext);
 			}
-
-			
 			
 			private GrammarArc[] getSuccessors()
 			{
 				return this.node.getSuccessors();
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				161,
-				200,
-				107,
-				235,
-				69,
-				109,
-				103,
-				112,
-				116,
-				19,
-				198,
-				130,
-				109,
-				105,
-				119,
-				106,
-				14,
-				232,
-				70
-			})]
 			
 			private Set getStartingContexts()
 			{
@@ -1078,15 +658,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return this.startingContexts;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				161,
-				233,
-				103,
-				103,
-				117
-			})]
 			
 			private UnitContext getStartingContext(Pronunciation pronunciation)
 			{
@@ -1095,40 +666,16 @@ namespace edu.cmu.sphinx.linguist.flat
 				Unit[] array = (units.Length <= rightContextSize) ? units : ((Unit[])Arrays.copyOf(units, rightContextSize));
 				return UnitContext.get(array);
 			}
-
-			
 			
 			protected internal virtual int getRightContextSize()
 			{
 				return FlatLinguist.access_700(this.this_0).getRightContextSize();
 			}
-
-			
 			
 			protected internal virtual int getLeftContextSize()
 			{
 				return FlatLinguist.access_700(this.this_0).getLeftContextSize();
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				161,
-				246,
-				102,
-				112,
-				103,
-				108,
-				103,
-				120,
-				105,
-				101,
-				125,
-				238,
-				60,
-				235,
-				71
-			})]
 			
 			internal virtual Collection getEndingContexts()
 			{
@@ -1151,24 +698,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return arrayList;
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				162,
-				47,
-				110,
-				129,
-				141,
-				116,
-				115,
-				168,
-				110,
-				233,
-				58,
-				230,
-				73
-			})]
 			
 			internal virtual void pushLeftContexts(Set set, Collection collection)
 			{
@@ -1195,38 +724,16 @@ namespace edu.cmu.sphinx.linguist.flat
 			{
 				return this.node;
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				162,
-				70,
-				109
-			})]
 			
 			private void addLeftContext(Collection collection)
 			{
 				this.leftContexts.addAll(collection);
 			}
-
-			
-			
 			
 			private List getEntryPoints(ContextPair contextPair)
 			{
 				return (List)this.entryPoints.get(contextPair);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				10,
-				103,
-				112,
-				116,
-				19,
-				198
-			})]
 			
 			private void pullRightContexts()
 			{
@@ -1240,15 +747,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					this.rightContexts.addAll(gstate.getStartingContexts());
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				33,
-				103,
-				102,
-				104
-			})]
 			
 			internal virtual void pushLeftContexts()
 			{
@@ -1256,19 +754,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				HashSet hashSet = new HashSet();
 				this.pushLeftContexts(hashSet, endingContexts);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				228,
-				108,
-				127,
-				22,
-				103,
-				103,
-				43,
-				166
-			})]
 			
 			private void expandWord(UnitContext unitContext)
 			{
@@ -1280,17 +765,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					this.expandPronunciation(unitContext, pronunciations[i], i);
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				163,
-				128,
-				114,
-				104,
-				102,
-				147,
-				125
-			})]
 			
 			private void addExitPoint(ContextPair contextPair, SentenceHMMState sentenceHMMState)
 			{
@@ -1315,26 +789,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				list.add(sentenceHMMState);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				180,
-				102,
-				127,
-				9,
-				108,
-				108,
-				114,
-				111,
-				105,
-				103,
-				144,
-				159,
-				11,
-				101,
-				108
-			})]
 			
 			private void addEmptyEntryPoints()
 			{
@@ -1372,14 +826,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				this.entryPoints.putAll(hashMap);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				205,
-				103,
-				103
-			})]
 			
 			private bool needsEmptyVersion(ContextPair contextPair)
 			{
@@ -1387,48 +833,11 @@ namespace edu.cmu.sphinx.linguist.flat
 				Unit[] units = leftContext.getUnits();
 				return units.Length > 0 && this.getRightContextSize(units[0]) < this.getRightContextSize();
 			}
-
-			
 			
 			private int getRightContextSize(Unit unit)
 			{
 				return (!unit.isFiller()) ? this.getRightContextSize() : 0;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				163,
-				29,
-				168,
-				127,
-				32,
-				117,
-				105,
-				127,
-				27,
-				104,
-				115,
-				100,
-				159,
-				6,
-				137,
-				104,
-				108,
-				101,
-				131,
-				99,
-				109,
-				53,
-				168,
-				100,
-				127,
-				5,
-				100,
-				111,
-				50,
-				168,
-				98
-			})]
 			
 			private void expandPronunciation(UnitContext unitContext, Pronunciation pronunciation, int which)
 			{
@@ -1472,39 +881,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					}
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				163,
-				77,
-				108,
-				108,
-				103,
-				104,
-				127,
-				6,
-				140,
-				110,
-				111,
-				110,
-				111,
-				105,
-				143,
-				237,
-				69,
-				106,
-				100,
-				144,
-				130,
-				112,
-				136,
-				234,
-				69,
-				105,
-				110,
-				138,
-				137
-			})]
 			
 			private SentenceHMMState attachUnit(PronunciationState parent, SentenceHMMState sentenceHMMState, Unit[] array, int num, UnitContext unitContext, UnitContext unitContext2)
 			{
@@ -1548,25 +924,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return sentenceHMMState;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				163,
-				146,
-				103,
-				101,
-				112,
-				132,
-				104,
-				106,
-				102,
-				101,
-				142,
-				233,
-				59,
-				232,
-				72
-			})]
 			
 			private Unit[] getLC(UnitContext unitContext, Unit[] array, int num)
 			{
@@ -1589,25 +946,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return array2;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				163,
-				173,
-				103,
-				100,
-				104,
-				144,
-				104,
-				106,
-				102,
-				102,
-				139,
-				236,
-				59,
-				232,
-				72
-			})]
 			
 			private Unit[] getRC(Unit[] array, int num, UnitContext unitContext)
 			{
@@ -1631,22 +969,10 @@ namespace edu.cmu.sphinx.linguist.flat
 				return array2;
 			}
 
-			
-			
 			private SentenceHMMState getExistingState(SentenceHMMState sentenceHMMState)
 			{
 				return (SentenceHMMState)this.existingStates.get(sentenceHMMState.getSignature());
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				134,
-				151,
-				127,
-				10,
-				143
-			})]
 			
 			protected internal virtual void attachState(SentenceHMMState prevState, SentenceHMMState nextState, float logLanguageProbablity, float logInsertionProbablity)
 			{
@@ -1661,28 +987,12 @@ namespace edu.cmu.sphinx.linguist.flat
 					}
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				176,
-				115
-			})]
 			
 			private void addStateToCache(SentenceHMMState sentenceHMMState)
 			{
 				this.existingStates.put(sentenceHMMState.getSignature(), sentenceHMMState);
 			}
 
-			[LineNumberTable(new byte[]
-			{
-				164,
-				1,
-				168,
-				141,
-				152
-			})]
-			
 			protected internal virtual SentenceHMMState expandUnit(UnitState unit)
 			{
 				HMMStateState hmmstates = this.getHMMStates(unit);
@@ -1692,18 +1002,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return hmmstates;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				163,
-				239,
-				103,
-				110,
-				99,
-				102,
-				112,
-				102
-			})]
 			
 			internal virtual UnitContext generateNextLeftContext(UnitContext unitContext, Unit unit)
 			{
@@ -1717,27 +1015,11 @@ namespace edu.cmu.sphinx.linguist.flat
 				array[num - 1] = unit;
 				return UnitContext.get(array);
 			}
-
-			
 			
 			private int getLeftContextSize(Unit unit)
 			{
 				return (!unit.isFiller()) ? this.getLeftContextSize() : 0;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				21,
-				103,
-				103,
-				116,
-				103,
-				105,
-				115,
-				104,
-				107
-			})]
 			
 			private HMMStateState getHMMStates(UnitState unitState)
 			{
@@ -1750,27 +1032,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				this.addStateToCache(hmmstateState);
 				return this.expandHMMTree(unitState, hmmstateState);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				41,
-				98,
-				157,
-				110,
-				150,
-				148,
-				106,
-				105,
-				100,
-				146,
-				112,
-				104,
-				234,
-				50,
-				233,
-				81
-			})]
 			
 			private HMMStateState expandHMMTree(UnitState unitState, HMMStateState hmmstateState)
 			{
@@ -1783,12 +1044,10 @@ namespace edu.cmu.sphinx.linguist.flat
 					HMMStateState hmmstateState2;
 					if (hmmstateArc.getHMMState().isEmitting())
 					{
-						HMMStateState.__<clinit>();
 						hmmstateState2 = new HMMStateState(unitState, hmmstateArc.getHMMState());
 					}
 					else
 					{
-						NonEmittingHMMState.__<clinit>();
 						hmmstateState2 = new NonEmittingHMMState(unitState, hmmstateArc.getHMMState());
 					}
 					SentenceHMMState existingState = this.getExistingState(hmmstateState2);
@@ -1806,21 +1065,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return result;
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				164,
-				111,
-				126,
-				103,
-				124,
-				105,
-				122,
-				110,
-				98,
-				101
-			})]
 			
 			private void connect(List list, List list2, float num)
 			{
@@ -1839,18 +1083,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					}
 				}
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				164,
-				151,
-				113,
-				127,
-				6,
-				104,
-				98
-			})]
 			
 			public virtual Collection getStates()
 			{
@@ -1863,22 +1095,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return arrayList;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				206,
-				118,
-				118,
-				118,
-				118,
-				102,
-				113,
-				113,
-				113,
-				113,
-				118
-			})]
 			
 			internal virtual void dumpDetails()
 			{
@@ -1893,19 +1109,6 @@ namespace edu.cmu.sphinx.linguist.flat
 				this.dumpCollection(" branchingOutTo", this.rightContexts);
 				this.dumpCollection(" existingStates", this.existingStates.keySet());
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				164,
-				254,
-				127,
-				5,
-				118,
-				127,
-				5,
-				98
-			})]
 			
 			private void dumpCollection(string text, Collection collection)
 			{
@@ -1917,17 +1120,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					java.lang.System.@out.println(new StringBuilder().append("         ").append(obj).toString());
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				164,
-				223,
-				111,
-				121,
-				63,
-				10,
-				166
-			})]
 			
 			private void dumpNextNodes()
 			{
@@ -1940,23 +1132,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					java.lang.System.@out.println(new StringBuilder().append("          ").append(grammarArc.getGrammarNode()).toString());
 				}
 			}
-
-			
-			[LineNumberTable(new byte[]
-			{
-				164,
-				236,
-				126,
-				126,
-				127,
-				5,
-				125,
-				63,
-				11,
-				168,
-				101,
-				101
-			})]
 			
 			private void dumpExitPoints(Collection collection)
 			{
@@ -1979,15 +1154,6 @@ namespace edu.cmu.sphinx.linguist.flat
 					}
 				}
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				165,
-				11,
-				109,
-				159,
-				11
-			})]
 			
 			public override string toString()
 			{
@@ -1997,37 +1163,24 @@ namespace edu.cmu.sphinx.linguist.flat
 				}
 				return new StringBuilder().append("GState ").append(this.node).append(" word ").append(this.node.getWord()).toString();
 			}
-
 			
+			private Map entryPoints;			
 			
-			private Map entryPoints;
-
-			
-			
-			private Map exitPoints;
-
-			
+			private Map exitPoints;			
 			
 			private Map existingStates;
-
 			
-			private GrammarNode node;
-
+			private GrammarNode node;			
 			
-			
-			private Set rightContexts;
-
-			
+			private Set rightContexts;			
 			
 			private Set leftContexts;
 
-			
 			private Set startingContexts;
 
 			private int exitConnections;
 
-			
-			internal FlatLinguist this_0 = this_0;
+			internal FlatLinguist this_0;
 		}
 	}
 }
