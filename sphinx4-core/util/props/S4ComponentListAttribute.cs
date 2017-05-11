@@ -1,20 +1,12 @@
 ﻿using System;
-using System.ComponentModel;
-using IKVM.Attributes;
 using ikvm.@internal;
 using java.lang;
 
 namespace edu.cmu.sphinx.util.props
 {
-	
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.util.props.S4ComponentList"
-	})]
 	[AttributeUsage(AttributeTargets.Field)]
 	public sealed class S4ComponentListAttribute : AnnotationAttributeBase, S4ComponentList
-	{
-		
+	{		
 		public S4ComponentListAttribute(object[] definition) : this()
 		{
 			base.setDefinition(definition);
@@ -23,7 +15,6 @@ namespace edu.cmu.sphinx.util.props
 		private S4ComponentListAttribute() : base(ClassLiteral<S4ComponentList>.Value)
 		{
 		}
-
 		
 		public S4ComponentListAttribute(Type type) : this()
 		{
@@ -39,7 +30,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return (Class[])base.getValue("defaultList");
 		}
-
 		
 		public Type[] defaultList
 		{
@@ -59,7 +49,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return base.getBooleanValue("beTolerant");
 		}
-
 		
 		public bool beTolerant
 		{

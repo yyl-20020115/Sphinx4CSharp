@@ -1,36 +1,18 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.util.props
 {
 	public class RawPropertyData : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			109
-		})]
-		
+	{		
 		public RawPropertyData(string name, string className) : this(name, className, new HashMap())
 		{
 		}
-
-		
 		
 		public virtual bool contains(string propName)
 		{
 			return this.properties.get(propName) != null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			7,
-			110
-		})]
 		
 		public virtual void add(string propName, string propValue)
 		{
@@ -41,13 +23,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return this.name;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			17,
-			110
-		})]
 		
 		public virtual void add(string propName, List propValue)
 		{
@@ -58,23 +33,11 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return this.className;
 		}
-
 		
 		public virtual Map getProperties()
 		{
 			return this.properties;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			104,
-			103,
-			103,
-			103
-		})]
 		
 		public RawPropertyData(string name, string className, Map properties)
 		{
@@ -82,20 +45,6 @@ namespace edu.cmu.sphinx.util.props
 			this.className = className;
 			this.properties = properties;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			59,
-			146,
-			127,
-			9,
-			103,
-			104,
-			114,
-			178,
-			115,
-			133
-		})]
 		
 		public virtual RawPropertyData flatten(ConfigurationManager cm)
 		{
@@ -113,27 +62,11 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return rawPropertyData;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			26,
-			109
-		})]
 		
 		public virtual void remove(string propName)
 		{
 			this.properties.remove(propName);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			82,
-			109,
-			162,
-			110,
-			125
-		})]
 		
 		public virtual string getGlobalProperty(string key, Map globalProperties)
 		{
@@ -148,19 +81,6 @@ namespace edu.cmu.sphinx.util.props
 			while (key != null && java.lang.String.instancehelper_startsWith(key, "_{") && java.lang.String.instancehelper_endsWith(key, "}"));
 			return key;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			99,
-			123,
-			127,
-			1,
-			99,
-			104,
-			140,
-			136,
-			98
-		})]
 		
 		public override string toString()
 		{
@@ -185,7 +105,6 @@ namespace edu.cmu.sphinx.util.props
 
 		private string className;
 
-		
 		private Map properties;
 	}
 }

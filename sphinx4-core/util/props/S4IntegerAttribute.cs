@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using IKVM.Attributes;
 using ikvm.@internal;
 
 namespace edu.cmu.sphinx.util.props

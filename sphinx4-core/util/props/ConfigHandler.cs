@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
-using IKVM.Runtime;
+﻿using ikvm.@internal;
 using java.io;
 using java.lang;
 using java.net;
@@ -38,7 +34,7 @@ namespace edu.cmu.sphinx.util.props
 				}
 				catch (IOException ex)
 				{
-					throw new RuntimeException(new StringBuilder().append("Error while processing <include file=\"").append(text).append("\">: ").append(ex5).toString(), ex);
+					throw new RuntimeException(new StringBuilder().append("Error while processing <include file=\"").append(text).append("\">: ").append(ex).toString(), ex);
 				}
 			}
 			catch (URISyntaxException ex3)

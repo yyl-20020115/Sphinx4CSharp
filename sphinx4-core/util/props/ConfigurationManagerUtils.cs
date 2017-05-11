@@ -19,8 +19,7 @@ namespace edu.cmu.sphinx.util.props
 		{
 			Pattern pattern = ConfigurationManagerUtils.jarPattern;
 			object _ref = location;
-			CharSequence charSequence;
-			charSequence.__ref = _ref;
+			CharSequence charSequence = CharSequence.Cast(_ref);
 			Matcher matcher = pattern.matcher(charSequence);
 			if (matcher.matches())
 			{
@@ -102,8 +101,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			ConfigurationManagerUtils.setProperty(cm, componentName, propName, propValue);
 		}
-
-		
 		
 		public static ConfigurationManager getPropertyManager(PropertySheet ps)
 		{
@@ -120,23 +117,6 @@ namespace edu.cmu.sphinx.util.props
 				ConfigurationManagerUtils.showConfig(cm, name);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			169,
-			114,
-			143,
-			149,
-			123,
-			103,
-			103,
-			102,
-			184,
-			2,
-			97,
-			134
-		})]
 		
 		public static void save(ConfigurationManager cm, File cmLocation)
 		{
@@ -168,26 +148,6 @@ namespace edu.cmu.sphinx.util.props
 			FileNotFoundException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			89,
-			104,
-			99,
-			223,
-			23,
-			135,
-			99,
-			159,
-			13,
-			119,
-			98
-		})]
 		
 		public static URL getResource(string name, PropertySheet ps)
 		{

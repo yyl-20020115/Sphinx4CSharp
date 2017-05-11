@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -107,7 +103,7 @@ namespace edu.cmu.sphinx.util.props
 				{
 					string className = rawPropertyData.getClassName();
 					ClassNotFoundException ex2;
-					ClassCastException ex5;
+					System.Exception ex5;
 					ExceptionInInitializerError exceptionInInitializerError2;
 					try
 					{
@@ -121,22 +117,17 @@ namespace edu.cmu.sphinx.util.props
 							}
 							catch (ClassNotFoundException ex)
 							{
-								ex2 = ByteCodeHelper.MapException<ClassNotFoundException>(ex, 1);
+								ex2 = ex;
 								goto IL_91;
 							}
 						}
-						catch (Exception ex3)
+						catch (System.Exception ex3)
 						{
-							ClassCastException ex4 = ByteCodeHelper.MapException<ClassCastException>(ex3, 0);
-							if (ex4 == null)
-							{
-								throw;
-							}
-							ex5 = ex4;
+							ex5 = ex3;
 							goto IL_95;
 						}
 					}
-					catch (Exception ex6)
+					catch (System.Exception ex6)
 					{
 						ExceptionInInitializerError exceptionInInitializerError = ByteCodeHelper.MapException<ExceptionInInitializerError>(ex6, 0);
 						if (exceptionInInitializerError == null)
@@ -152,7 +143,7 @@ namespace edu.cmu.sphinx.util.props
 					java.lang.System.err.println(new StringBuilder().append("class not found !").append(ex7).toString());
 					goto IL_11B;
 					IL_95:
-					ClassCastException ex8 = ex5;
+					System.Exception ex8 = ex5;
 					java.lang.System.err.println(new StringBuilder().append("can not cast class !").append(ex8).toString());
 					goto IL_11B;
 					IL_99:

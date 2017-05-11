@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.util;
 
@@ -122,7 +118,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 =ex;
 				goto IL_BD;
 			}
 			return;
@@ -130,23 +126,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			IOException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			24,
-			172,
-			103,
-			101,
-			103,
-			104,
-			103,
-			141,
-			98,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		internal virtual void buildWordConversion(string text)
 		{
@@ -172,7 +151,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 = ex;
 				goto IL_53;
 			}
 			return;
@@ -180,33 +159,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			IOException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			75,
-			108,
-			191,
-			6,
-			103,
-			104,
-			108,
-			100,
-			105,
-			106,
-			109,
-			104,
-			104,
-			127,
-			9,
-			98,
-			103,
-			101,
-			102,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		internal virtual void convertMMF(string text)
 		{
@@ -242,7 +194,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 = ex;
 				goto IL_D2;
 			}
 			return;
@@ -250,40 +202,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			IOException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			158,
-			108,
-			191,
-			6,
-			103,
-			104,
-			103,
-			109,
-			104,
-			116,
-			104,
-			126,
-			107,
-			136,
-			140,
-			112,
-			138,
-			136,
-			104,
-			104,
-			126,
-			101,
-			102,
-			101,
-			102,
-			186,
-			2,
-			98,
-			135
-		})]
 		
 		internal virtual void convertLexicon(string text)
 		{
@@ -335,7 +253,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 = ex;
 				goto IL_131;
 			}
 			return;
@@ -343,115 +261,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			IOException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			101,
-			108,
-			223,
-			6,
-			103,
-			116,
-			103,
-			108,
-			101,
-			162,
-			103,
-			116,
-			103,
-			108,
-			101,
-			130,
-			98,
-			102,
-			103,
-			116,
-			109,
-			100,
-			140,
-			109,
-			114,
-			104,
-			117,
-			127,
-			4,
-			108,
-			105,
-			116,
-			164,
-			127,
-			16,
-			110,
-			148,
-			126,
-			105,
-			159,
-			6,
-			134,
-			133,
-			102,
-			103,
-			116,
-			109,
-			100,
-			140,
-			109,
-			114,
-			104,
-			117,
-			127,
-			4,
-			108,
-			105,
-			116,
-			104,
-			126,
-			108,
-			105,
-			116,
-			104,
-			126,
-			105,
-			191,
-			6,
-			134,
-			133,
-			102,
-			103,
-			116,
-			109,
-			114,
-			104,
-			117,
-			127,
-			4,
-			108,
-			105,
-			116,
-			104,
-			126,
-			108,
-			105,
-			116,
-			104,
-			126,
-			108,
-			105,
-			116,
-			104,
-			126,
-			105,
-			223,
-			6,
-			134,
-			101,
-			102,
-			191,
-			0,
-			2,
-			98,
-			135
-		})]
 		
 		internal virtual void convertWordGrammar(string text)
 		{
@@ -516,7 +325,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						break;
 					}
 					StringTokenizer stringTokenizer = new StringTokenizer(text2);
-					if ((stringTokenizer & stringTokenizer.hasMoreTokens()) != null)
+					if (stringTokenizer.hasMoreTokens())
 					{
 						printWriter.print(new StringBuilder().append(stringTokenizer.nextToken()).append(' ').toString());
 						if (stringTokenizer.hasMoreTokens())
@@ -559,7 +368,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						break;
 					}
 					StringTokenizer stringTokenizer = new StringTokenizer(text2);
-					if ((stringTokenizer & stringTokenizer.hasMoreTokens()) != null)
+					if (stringTokenizer.hasMoreTokens())
 					{
 						printWriter.print(new StringBuilder().append(stringTokenizer.nextToken()).append(' ').toString());
 						if (stringTokenizer.hasMoreTokens())
@@ -604,7 +413,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						break;
 					}
 					StringTokenizer stringTokenizer = new StringTokenizer(text2);
-					if ((stringTokenizer & stringTokenizer.hasMoreTokens()) != null)
+					if (stringTokenizer.hasMoreTokens())
 					{
 						printWriter.print(new StringBuilder().append(stringTokenizer.nextToken()).append(' ').toString());
 						if (stringTokenizer.hasMoreTokens())
@@ -650,7 +459,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 = ex;
 				goto IL_54A;
 			}
 			return;
@@ -660,47 +469,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			IOException ex3 = ex2;
 			Throwable.instancehelper_printStackTrace(ex3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			195,
-			98,
-			98,
-			98,
-			130,
-			108,
-			112,
-			112,
-			112,
-			109,
-			112,
-			109,
-			112,
-			235,
-			56,
-			235,
-			76,
-			134,
-			103,
-			104,
-			104,
-			127,
-			15,
-			104,
-			99,
-			127,
-			15,
-			136,
-			99,
-			127,
-			15,
-			136,
-			99,
-			127,
-			15,
-			168
-		})]
 		
 		public static void main(string[] args)
 		{
@@ -754,13 +522,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					namesConversion.convertWordGrammar(text4);
 				}
 			}
-		}
-
-		
+		}		
 		
 		internal HashMap phoneConv;
-
-		
 		
 		internal HashMap wordConv;
 
