@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.jsgf.rule;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.jsgf.rule;
 using java.lang;
 using java.net;
 using java.util;
@@ -13,43 +10,12 @@ namespace edu.cmu.sphinx.jsgf
 {
 	public class GrXMLHandler : DefaultHandler
 	{
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			168,
-			104,
-			103,
-			103,
-			103
-		})]
-		
 		public GrXMLHandler(URL baseURL, Map rules, Logger logger)
 		{
 			this.baseURL = baseURL;
 			this.__topRuleMap = rules;
 			this.logger = logger;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			31,
-			99,
-			129,
-			104,
-			103,
-			161,
-			109,
-			108,
-			103,
-			108,
-			103,
-			111,
-			108,
-			103,
-			108,
-			135
-		})]
 		
 		private void addToCurrent(JSGFRule jsgfrule, JSGFRule rule)
 		{
@@ -77,39 +43,6 @@ namespace edu.cmu.sphinx.jsgf
 				this.currentRule = jsgfrule;
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"org.xml.sax.SAXException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			176,
-			98,
-			130,
-			127,
-			6,
-			109,
-			109,
-			99,
-			107,
-			115,
-			167,
-			109,
-			109,
-			99,
-			107,
-			109,
-			98,
-			98,
-			107,
-			167,
-			109,
-			112,
-			135,
-			104
-		})]
 		
 		public override void startElement(string uri, string localName, string qName, Attributes attributes)
 		{
@@ -143,29 +76,11 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			if (java.lang.String.instancehelper_equals(qName, "one-of"))
 			{
-				JSGFRuleAlternatives.__<clinit>();
 				jsgfrule = new JSGFRuleAlternatives(new ArrayList());
 				jsgfrule2 = (JSGFRuleAlternatives)jsgfrule;
 			}
 			this.addToCurrent(jsgfrule, jsgfrule2);
 		}
-
-		[Throws(new string[]
-		{
-			"org.xml.sax.SAXException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			16,
-			142,
-			104,
-			129,
-			159,
-			6,
-			103,
-			136,
-			108
-		})]
 		
 		public override void characters(char[] buf, int offset, int len)
 		{
@@ -179,20 +94,6 @@ namespace edu.cmu.sphinx.jsgf
 			this.addToCurrent(jsgfruleToken, jsgfruleToken);
 			this.currentRule = jsgfruleToken.parent;
 		}
-
-		[Throws(new string[]
-		{
-			"org.xml.sax.SAXParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			55,
-			159,
-			6,
-			127,
-			8,
-			113
-		})]
 		
 		public override void endElement(string uri, string localName, string qName)
 		{
@@ -203,7 +104,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 		}
 
-		
 		protected internal Map topRuleMap
 		{
 			
@@ -218,7 +118,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 		}
 
-		
 		internal Map __topRuleMap;
 
 		internal Logger logger;

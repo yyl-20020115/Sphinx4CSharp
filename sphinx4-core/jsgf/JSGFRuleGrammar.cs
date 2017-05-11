@@ -1,7 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.jsgf.rule;
-using IKVM.Attributes;
+﻿using edu.cmu.sphinx.jsgf.rule;
 using java.io;
 using java.lang;
 using java.net;
@@ -12,103 +9,8 @@ namespace edu.cmu.sphinx.jsgf
 {
 	public class JSGFRuleGrammar : java.lang.Object
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			151,
-			145,
-			103,
-			103,
-			103,
-			168,
-			102,
-			191,
-			6,
-			114,
-			166,
-			114,
-			198,
-			109,
-			223,
-			14,
-			100,
-			111,
-			100,
-			138,
-			255,
-			10,
-			74,
-			231,
-			69,
-			109,
-			191,
-			18,
-			159,
-			4,
-			105,
-			105,
-			169,
-			100,
-			223,
-			6,
-			111,
-			100,
-			127,
-			26,
-			197,
-			121,
-			127,
-			26,
-			197,
-			249,
-			71,
-			110,
-			141,
-			255,
-			22,
-			71,
-			173,
-			255,
-			22,
-			72,
-			100,
-			229,
-			70,
-			110,
-			141,
-			255,
-			22,
-			72,
-			106,
-			127,
-			17,
-			133,
-			165,
-			152,
-			130,
-			142,
-			103,
-			127,
-			19,
-			127,
-			1,
-			116,
-			98,
-			112
-		})]
-		
 		public virtual JSGFRuleName resolve(JSGFRuleName ruleName)
 		{
-			JSGFRuleName.__<clinit>();
 			JSGFRuleName jsgfruleName = new JSGFRuleName(ruleName.getRuleName());
 			string simpleRuleName = jsgfruleName.getSimpleRuleName();
 			string simpleGrammarName = jsgfruleName.getSimpleGrammarName();
@@ -130,7 +32,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			if (fullGrammarName == null && this.getRule(simpleRuleName) != null)
 			{
-				JSGFRuleName.__<clinit>();
 				return new JSGFRuleName(new StringBuilder().append(this.name).append('.').append(simpleRuleName).toString());
 			}
 			if (fullGrammarName != null)
@@ -138,14 +39,12 @@ namespace edu.cmu.sphinx.jsgf
 				JSGFRuleGrammar jsgfruleGrammar = this.manager.retrieveGrammar(fullGrammarName);
 				if (jsgfruleGrammar != null && jsgfruleGrammar.getRule(simpleRuleName) != null)
 				{
-					JSGFRuleName.__<clinit>();
 					return new JSGFRuleName(new StringBuilder().append(fullGrammarName).append('.').append(simpleRuleName).toString());
 				}
 			}
 			ArrayList arrayList = new ArrayList();
 			ArrayList arrayList2 = new ArrayList(this.__imports);
 			List list = arrayList2;
-			JSGFRuleName.__<clinit>();
 			list.add(new JSGFRuleName(new StringBuilder().append(this.name).append(".*").toString()));
 			Iterator iterator = arrayList2.iterator();
 			while (iterator.hasNext())
@@ -176,14 +75,12 @@ namespace edu.cmu.sphinx.jsgf
 						if (jsgfruleGrammar2.getRule(simpleRuleName) != null)
 						{
 							List list2 = arrayList;
-							JSGFRuleName.__<clinit>();
 							list2.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
 						}
 					}
 					else if (java.lang.String.instancehelper_equals(simpleRuleName2, simpleRuleName))
 					{
 						List list3 = arrayList;
-						JSGFRuleName.__<clinit>();
 						list3.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
 					}
 				}
@@ -194,14 +91,12 @@ namespace edu.cmu.sphinx.jsgf
 						if (jsgfruleGrammar2.getRule(simpleRuleName) != null)
 						{
 							List list4 = arrayList;
-							JSGFRuleName.__<clinit>();
 							list4.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
 						}
 					}
 					else if (java.lang.String.instancehelper_equals(simpleRuleName2, simpleRuleName))
 					{
 						List list5 = arrayList;
-						JSGFRuleName.__<clinit>();
 						list5.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
 					}
 				}
@@ -228,16 +123,7 @@ namespace edu.cmu.sphinx.jsgf
 			
 			throw new JSGFGrammarException(message3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			85,
-			114,
-			99,
-			130
-		})]
-		
+	
 		public virtual JSGFRule getRule(string ruleName)
 		{
 			JSGFRuleGrammar.JSGFRuleState jsgfruleState = (JSGFRuleGrammar.JSGFRuleState)this.__rules.get(ruleName);
@@ -247,44 +133,17 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return jsgfruleState.rule;
 		}
-
-		
-		
 		
 		public virtual Set getRuleNames()
 		{
 			return this.__rules.keySet();
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			108,
-			114,
-			99,
-			130
-		})]
 		
 		public virtual bool isRulePublic(string ruleName)
 		{
 			JSGFRuleGrammar.JSGFRuleState jsgfruleState = (JSGFRuleGrammar.JSGFRuleState)this.__rules.get(ruleName);
 			return jsgfruleState != null && jsgfruleState.isPublic;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			16,
-			130,
-			127,
-			6,
-			103,
-			98
-		})]
 		
 		public virtual void setEnabled(bool enabled)
 		{
@@ -294,23 +153,11 @@ namespace edu.cmu.sphinx.jsgf
 				JSGFRuleGrammar.JSGFRuleState jsgfruleState = (JSGFRuleGrammar.JSGFRuleState)iterator.next();
 				jsgfruleState.isEnabled = enabled;
 			}
-		}
-
-		
+		}		
 		public virtual List getImports()
 		{
 			return this.__imports;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			66,
-			114,
-			99,
-			159,
-			6
-		})]
 		
 		private JSGFRule getKnownRule(string text)
 		{
@@ -323,54 +170,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return jsgfruleState.rule;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			70,
-			104,
-			161,
-			104,
-			127,
-			6,
-			103,
-			98,
-			161,
-			104,
-			127,
-			6,
-			103,
-			98,
-			161,
-			104,
-			113,
-			161,
-			107,
-			135,
-			103,
-			167,
-			115,
-			105,
-			103,
-			148,
-			159,
-			6,
-			103,
-			161,
-			107,
-			104,
-			138,
-			100,
-			223,
-			28,
-			110,
-			110,
-			193
-		})]
 		
 		protected internal virtual void resolveRule(JSGFRule r)
 		{
@@ -449,27 +248,6 @@ namespace edu.cmu.sphinx.jsgf
 			jsgfruleName.resolvedRuleName = jsgfruleName2.getRuleName();
 			jsgfruleName.setRuleName(jsgfruleName2.getRuleName());
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			233,
-			107,
-			99,
-			103,
-			127,
-			11,
-			127,
-			13,
-			118,
-			126,
-			105,
-			63,
-			0,
-			168,
-			108,
-			135
-		})]
 		
 		private string formatComment(string text)
 		{
@@ -479,8 +257,7 @@ namespace edu.cmu.sphinx.jsgf
 				return stringBuilder.toString();
 			}
 			Pattern pattern = Pattern.compile("[\\n\\r\\f]+");
-			CharSequence charSequence;
-			charSequence.__ref = text;
+			CharSequence charSequence = CharSequence.Cast(text);
 			if (pattern.matcher(charSequence).find())
 			{
 				string[] array = java.lang.String.instancehelper_split(text, new StringBuilder().append('[').append(JSGFRuleGrammar.LINE_SEPARATOR).append("]+").toString());
@@ -496,47 +273,6 @@ namespace edu.cmu.sphinx.jsgf
 			return new StringBuilder().append("//").append(text).toString();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			187,
-			102,
-			118,
-			108,
-			115,
-			108,
-			127,
-			9,
-			140,
-			108,
-			115,
-			127,
-			21,
-			105,
-			126,
-			108,
-			127,
-			19,
-			236,
-			58,
-			233,
-			73,
-			108,
-			127,
-			13,
-			105,
-			115,
-			159,
-			10,
-			110,
-			105,
-			140,
-			127,
-			24,
-			108,
-			101
-		})]
-		
 		public override string toString()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -578,23 +314,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			34,
-			232,
-			21,
-			107,
-			107,
-			139,
-			235,
-			70,
-			171,
-			235,
-			95,
-			103,
-			103
-		})]
 		
 		public JSGFRuleGrammar(string name, JSGFRuleGrammarManager manager)
 		{
@@ -612,13 +331,6 @@ namespace edu.cmu.sphinx.jsgf
 		{
 			this.grammarDocComment = comment;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			53,
-			110,
-			141
-		})]
 		
 		public virtual void addImport(JSGFRuleName importName)
 		{
@@ -627,37 +339,16 @@ namespace edu.cmu.sphinx.jsgf
 				this.__imports.add(importName);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			63,
-			115
-		})]
 		
 		public virtual void addImportDocComment(JSGFRuleName imp, string comment)
 		{
 			this.importDocComments.put(imp.toString(), comment);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			71,
-			110
-		})]
 		
 		public virtual void addRuleDocComment(string rname, string comment)
 		{
 			this.ruleDocComments.put(rname, comment);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			81,
-			114,
-			99,
-			129,
-			109
-		})]
 		
 		public virtual void addSampleSentence(string ruleName, string sample)
 		{
@@ -668,16 +359,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			jsgfruleState.samples.add(sample);
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			95,
-			120
-		})]
 		
 		public virtual void deleteRule(string ruleName)
 		{
@@ -688,16 +369,11 @@ namespace edu.cmu.sphinx.jsgf
 		{
 			return this.grammarDocComment;
 		}
-
-		
 		
 		public virtual string getImportDocComment(JSGFRuleName imp)
 		{
 			return this.importDocComments.getProperty(imp.toString(), null);
 		}
-
-		
-		
 		
 		public virtual Collection getJSGFTags(string ruleName)
 		{
@@ -707,22 +383,12 @@ namespace edu.cmu.sphinx.jsgf
 		public virtual string getName()
 		{
 			return this.name;
-		}
-
-		
+		}		
 		
 		public virtual string getRuleDocComment(string rname)
 		{
 			return this.ruleDocComments.getProperty(rname, null);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			136,
-			110,
-			141
-		})]
 		
 		public virtual void removeImport(JSGFRuleName importName)
 		{
@@ -731,31 +397,6 @@ namespace edu.cmu.sphinx.jsgf
 				this.__imports.remove(importName);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			43,
-			166,
-			127,
-			1,
-			103,
-			110,
-			100,
-			159,
-			15,
-			98,
-			105,
-			177,
-			127,
-			7,
-			109,
-			98
-		})]
 		
 		public virtual void resolveAllRules()
 		{
@@ -783,15 +424,6 @@ namespace edu.cmu.sphinx.jsgf
 				this.resolveRule(jsgfruleState.rule);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			142,
-			114,
-			99,
-			135
-		})]
 		
 		public virtual bool isEnabled(string ruleName)
 		{
@@ -799,20 +431,6 @@ namespace edu.cmu.sphinx.jsgf
 			return jsgfruleState != null && jsgfruleState.isEnabled;
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			10,
-			66,
-			114,
-			105,
-			135
-		})]
-		
 		public virtual void setEnabled(string ruleName, bool enabled)
 		{
 			JSGFRuleGrammar.JSGFRuleState jsgfruleState = (JSGFRuleGrammar.JSGFRuleState)this.__rules.get(ruleName);
@@ -821,88 +439,35 @@ namespace edu.cmu.sphinx.jsgf
 				jsgfruleState.isEnabled = enabled;
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.NullPointerException",
-			"java.lang.IllegalArgumentException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			6,
-			130,
-			106,
-			110
-		})]
 		
 		public virtual void setRule(string ruleName, JSGFRule rule, bool isPublic)
 		{
 			JSGFRuleGrammar.JSGFRuleState jsgfruleState = new JSGFRuleGrammar.JSGFRuleState(this, rule, true, isPublic);
 			this.__rules.put(ruleName, jsgfruleState);
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.URISyntaxException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			7,
-			118,
-			108,
-			102,
-			102
-		})]
 		
 		public virtual void saveJSGF(URL url)
 		{
-			File.__<clinit>();
 			PrintStream printStream = new PrintStream(new File(url.toURI()));
 			printStream.print(this.toString());
 			printStream.flush();
 			printStream.close();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			14,
-			114
-		})]
 		
 		public virtual bool isRuleChanged(string ruleName)
 		{
 			JSGFRuleGrammar.JSGFRuleState jsgfruleState = (JSGFRuleGrammar.JSGFRuleState)this.__rules.get(ruleName);
 			return jsgfruleState.isChanged;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			158,
-			237,
-			98,
-			114,
-			103
-		})]
 		
 		public virtual void setRuleChanged(string ruleName, bool changed)
 		{
 			JSGFRuleGrammar.JSGFRuleState jsgfruleState = (JSGFRuleGrammar.JSGFRuleState)this.__rules.get(ruleName);
 			jsgfruleState.isChanged = changed;
 		}
-
-		
-		static JSGFRuleGrammar()
-		{
-		}
-
 		
 		protected internal Map rules
 		{
-			
 			get
 			{
 				return this.__rules;
@@ -914,7 +479,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 		}
 
-		
 		protected internal List imports
 		{
 			
@@ -929,7 +493,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 		}
 
-		
 		protected internal List importedRules
 		{
 			
@@ -943,8 +506,7 @@ namespace edu.cmu.sphinx.jsgf
 				this.__importedRules = value;
 			}
 		}
-
-		
+	
 		protected internal Map ruleTags
 		{
 			
@@ -958,19 +520,14 @@ namespace edu.cmu.sphinx.jsgf
 				this.__ruleTags = value;
 			}
 		}
-
 		
 		private static string LINE_SEPARATOR = java.lang.System.getProperty("line.separator");
-
 		
 		internal Map __rules;
-
 		
 		internal List __imports;
-
 		
 		internal List __importedRules;
-
 		
 		internal Map __ruleTags;
 
@@ -983,26 +540,12 @@ namespace edu.cmu.sphinx.jsgf
 		internal Properties importDocComments;
 
 		internal string grammarDocComment;
-
-		
-		.
 		
 		internal sealed class JSGFRuleState : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				159,
-				125,
-				69,
-				111,
-				103,
-				103,
-				103,
-				107
-			})]
-			
+		{			
 			public JSGFRuleState(JSGFRuleGrammar jsgfruleGrammar, JSGFRule jsgfrule, bool flag, bool flag2)
 			{
+				this.this_0 = jsgfruleGrammar;
 				this.rule = jsgfrule;
 				this.isPublic = flag2;
 				this.isEnabled = flag;
@@ -1015,13 +558,11 @@ namespace edu.cmu.sphinx.jsgf
 
 			public JSGFRule rule;
 
-			
 			public ArrayList samples;
 
 			public bool isChanged;
 
-			
-			internal JSGFRuleGrammar this_0 = jsgfruleGrammar;
+			internal JSGFRuleGrammar this_0;
 		}
 	}
 }

@@ -1,9 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.jsgf.rule
+﻿namespace edu.cmu.sphinx.jsgf.rule
 {
 	public class JSGFRule : java.lang.Object
 	{
@@ -12,8 +7,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 			return this.ruleName;
 		}
 
-		
-		
 		public JSGFRule()
 		{
 		}

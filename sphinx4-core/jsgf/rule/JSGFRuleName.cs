@@ -1,32 +1,15 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.jsgf.rule
 {
 	public class JSGFRuleName : JSGFRule
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
 		public virtual string getRuleName()
 		{
 			return this.fullRuleName;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			104,
-			191,
-			12
-		})]
-		
 		public virtual string getFullGrammarName()
 		{
 			if (this.packageName != null)
@@ -41,20 +24,10 @@ namespace edu.cmu.sphinx.jsgf.rule
 			return this.simpleRuleName;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			172,
-			136,
-			103
-		})]
-		
 		public JSGFRuleName(string name)
 		{
 			this.setRuleName(name);
 		}
-
-		
 		
 		public override string toString()
 		{
@@ -70,26 +43,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 		{
 			return this.packageName;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			67,
-			103,
-			135,
-			137,
-			100,
-			103,
-			103,
-			140,
-			140,
-			100,
-			103,
-			110,
-			145,
-			110,
-			112,
-			175
-		})]
 		
 		public virtual void setRuleName(string ruleName)
 		{
@@ -119,33 +72,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			15,
-			99,
-			130,
-			136,
-			109,
-			177,
-			104,
-			162,
-			127,
-			1,
-			104,
-			162,
-			140,
-			104,
-			135,
-			135,
-			99,
-			130,
-			102,
-			110,
-			2,
-			198,
-			98
-		})]
 		
 		public static bool isLegalRuleName(string name)
 		{
@@ -185,13 +111,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 			return true;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			92,
-			122,
-			144
-		})]
 		
 		public static string stripRuleName(string name)
 		{
@@ -201,63 +120,31 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 			return name;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			117,
-			130,
-			104,
-			130
-		})]
 		
 		public static bool isRuleNamePart(char c)
 		{
 			return Character.isJavaIdentifierPart(c) || (c == '!' || c == '#' || c == '%' || c == '&' || c == '(' || c == ')' || c == '+' || c == ',' || c == '-' || c == '/' || c == ':' || c == ';' || c == '=' || c == '@' || c == '[' || c == '\\' || c == ']' || c == '^' || c == '|' || c == '~');
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			169,
-			107
-		})]
 		
 		public JSGFRuleName() : this("NULL")
 		{
 		}
-
-		
 		
 		public virtual bool isLegalRuleName()
 		{
 			return JSGFRuleName.isLegalRuleName(this.fullRuleName);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			164,
-			143
-		})]
-		static JSGFRuleName()
-		{
-		}
-
 		
 		public static JSGFRuleName NULL
 		{
-			
 			get
 			{
 				return JSGFRuleName.__NULL;
 			}
 		}
-
 		
 		public static JSGFRuleName VOID
 		{
-			
 			get
 			{
 				return JSGFRuleName.__VOID;

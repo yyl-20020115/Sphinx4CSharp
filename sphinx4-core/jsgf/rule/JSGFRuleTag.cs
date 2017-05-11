@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.rule
 {
@@ -16,15 +13,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 		{
 			return this.tag;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			161,
-			104,
-			103,
-			103
-		})]
 		
 		public JSGFRuleTag(JSGFRule rule, string tag)
 		{
@@ -48,22 +36,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 				this.tag = tag;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			167,
-			135,
-			121,
-			104,
-			109,
-			104,
-			111,
-			234,
-			61,
-			230,
-			71
-		})]
 		
 		private string escapeTag(string text)
 		{
@@ -81,31 +53,12 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			156,
-			104,
-			103,
-			103
-		})]
 		
 		public JSGFRuleTag()
 		{
 			this.setRule(null);
 			this.setTag(null);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			10,
-			159,
-			17,
-			122,
-			159,
-			2
-		})]
 		
 		public override string toString()
 		{

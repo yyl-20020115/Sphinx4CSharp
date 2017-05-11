@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.rule
 {
@@ -17,15 +14,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 			return this.rule;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			165,
-			104,
-			103,
-			103
-		})]
-		
 		public JSGFRuleCount(JSGFRule rule, int count)
 		{
 			this.setRule(rule);
@@ -45,38 +33,12 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 			this.count = count;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			160,
-			104,
-			103,
-			103
-		})]
 		
 		public JSGFRuleCount()
 		{
 			this.setRule(null);
 			this.setCount(2);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			0,
-			105,
-			159,
-			10,
-			130,
-			122,
-			142,
-			191,
-			10,
-			105,
-			123,
-			105,
-			155
-		})]
 		
 		public override string toString()
 		{

@@ -15,43 +15,6 @@ namespace edu.cmu.sphinx.jsgf
 {
 	public class GrXMLGrammar : JSGFGrammar
 	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			182,
-			102,
-			108,
-			107,
-			120,
-			103,
-			103,
-			108,
-			108,
-			255,
-			26,
-			72,
-			229,
-			57,
-			98,
-			127,
-			46,
-			109,
-			98,
-			127,
-			7,
-			98,
-			178
-		})]
-		
 		protected internal virtual void loadXML()
 		{
 			SAXParseException ex2;
@@ -114,44 +77,6 @@ namespace edu.cmu.sphinx.jsgf
 		public GrXMLGrammar()
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			22,
-			104,
-			104,
-			103,
-			102,
-			167,
-			108,
-			134,
-			113,
-			108,
-			231,
-			69,
-			159,
-			9,
-			103,
-			119,
-			115,
-			139,
-			118,
-			113,
-			151,
-			119,
-			101,
-			186,
-			2,
-			98,
-			159,
-			25
-		})]
 		
 		public override void commitChanges()
 		{
@@ -200,13 +125,6 @@ namespace edu.cmu.sphinx.jsgf
 			throw new IOException(text);
 		}
 
-		
-		static GrXMLGrammar()
-		{
-			JSGFGrammar.__<clinit>();
-		}
-
-		
 		internal Map rules;
 	}
 }

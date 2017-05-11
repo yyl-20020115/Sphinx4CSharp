@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.rule
 {
@@ -11,14 +8,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 		{
 			return this.text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			159,
-			104,
-			103
-		})]
 		
 		public JSGFRuleToken(string text)
 		{
@@ -29,16 +18,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 		{
 			this.text = text;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			164,
-			107,
-			110,
-			2,
-			198
-		})]
 		
 		private bool containsWhiteSpace(string text)
 		{
@@ -51,39 +30,11 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			155,
-			104,
-			103
-		})]
 		
 		public JSGFRuleToken()
 		{
 			this.setText(null);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			181,
-			127,
-			7,
-			107,
-			140,
-			141,
-			104,
-			106,
-			234,
-			60,
-			230,
-			71,
-			106,
-			137,
-			135
-		})]
 		
 		public override string toString()
 		{

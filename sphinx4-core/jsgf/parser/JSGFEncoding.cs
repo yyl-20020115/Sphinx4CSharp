@@ -1,24 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.jsgf.parser
+﻿namespace edu.cmu.sphinx.jsgf.parser
 {
-	.
-	
 	internal sealed class JSGFEncoding : java.lang.Object
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			173,
-			104,
-			103,
-			103,
-			103
-		})]
-		
+	{		
 		internal JSGFEncoding(string text, string text2, string text3)
 		{
 			this.version = text;

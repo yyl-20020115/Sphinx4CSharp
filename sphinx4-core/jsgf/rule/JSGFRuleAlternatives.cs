@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 using java.util;
 
@@ -9,49 +6,22 @@ namespace edu.cmu.sphinx.jsgf.rule
 {
 	public class JSGFRuleAlternatives : JSGFRule
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
 		public virtual List getRules()
 		{
 			return this.rules;
 		}
 
-		
 		public virtual List getWeights()
 		{
 			return this.weights;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			161,
-			104,
-			103,
-			103
-		})]
-		
 		public JSGFRuleAlternatives(List rules)
 		{
 			this.setRules(rules);
 			this.weights = null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			174,
-			117,
-			109,
-			104,
-			118
-		})]
-		
 		public virtual void append(JSGFRule rule)
 		{
 			if (!JSGFRuleAlternatives.assertionsDisabled && rule == null)
@@ -66,34 +36,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			5,
-			107,
-			103,
-			161,
-			115,
-			176,
-			134,
-			126,
-			109,
-			112,
-			109,
-			144,
-			110,
-			176,
-			106,
-			133,
-			105,
-			176,
-			103
-		})]
-		
 		public virtual void setWeights(List newWeights)
 		{
 			if (newWeights == null || newWeights.size() == 0)
@@ -141,16 +83,6 @@ namespace edu.cmu.sphinx.jsgf.rule
 			this.weights = newWeights;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			189,
-			123,
-			135,
-			103
-		})]
-		
 		public virtual void setRules(List rules)
 		{
 			if (this.weights != null && rules.size() != this.weights.size())
@@ -160,33 +92,10 @@ namespace edu.cmu.sphinx.jsgf.rule
 			this.rules = rules;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			158,
-			102
-		})]
-		
 		public JSGFRuleAlternatives()
 		{
 		}
 
-		[Throws(new string[]
-		{
-			"java.lang.IllegalArgumentException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			167,
-			104,
-			127,
-			1,
-			103,
-			103
-		})]
-		
 		public JSGFRuleAlternatives(List rules, List weights)
 		{
 			if (!JSGFRuleAlternatives.assertionsDisabled && rules.size() != weights.size())
@@ -197,28 +106,7 @@ namespace edu.cmu.sphinx.jsgf.rule
 			this.setRules(rules);
 			this.setWeights(weights);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			38,
-			117,
-			134,
-			134,
-			115,
-			100,
-			140,
-			104,
-			159,
-			23,
-			114,
-			115,
-			158,
-			232,
-			53,
-			233,
-			78
-		})]
-		
+	
 		public override string toString()
 		{
 			if (this.rules == null || this.rules.size() == 0)
@@ -248,18 +136,10 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 			return stringBuilder.toString();
 		}
-
-		
-		static JSGFRuleAlternatives()
-		{
-		}
-
-		
+	
 		protected internal List rules;
-
 		
 		protected internal List weights;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<JSGFRuleAlternatives>.Value.desiredAssertionStatus();
 	}

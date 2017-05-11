@@ -17,28 +17,7 @@ using java.util.logging;
 namespace edu.cmu.sphinx.jsgf
 {
 	public class JSGFGrammar : Grammar
-	{
-		
-		public new static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			91,
-			107,
-			239,
-			46,
-			231,
-			85,
-			118,
-			139,
-			103,
-			103,
-			103
-		})]
-		
+	{		
 		public JSGFGrammar(URL baseURL, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.loadGrammar = true;
@@ -48,52 +27,6 @@ namespace edu.cmu.sphinx.jsgf
 			this.grammarName = grammarName;
 			this.loadGrammar = true;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			246,
-			104,
-			104,
-			103,
-			114,
-			108,
-			167,
-			107,
-			108,
-			134,
-			113,
-			108,
-			231,
-			69,
-			127,
-			9,
-			113,
-			104,
-			104,
-			110,
-			110,
-			106,
-			139,
-			119,
-			114,
-			152,
-			152,
-			101,
-			102,
-			114,
-			218,
-			2,
-			98,
-			159,
-			25
-		})]
 		
 		public virtual void commitChanges()
 		{
@@ -152,34 +85,6 @@ namespace edu.cmu.sphinx.jsgf
 			
 			throw new IOException(text2);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			79,
-			127,
-			6,
-			135,
-			103,
-			173,
-			110,
-			110,
-			103,
-			99,
-			147,
-			127,
-			7,
-			106,
-			116,
-			247,
-			55,
-			233,
-			76
-		})]
 		
 		private JSGFGrammar.GrammarGraph processRuleAlternatives(JSGFRuleAlternatives jsgfruleAlternatives)
 		{
@@ -202,28 +107,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return grammarGraph;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			46,
-			127,
-			6,
-			103,
-			103,
-			141,
-			118,
-			214,
-			136,
-			246,
-			69,
-			136,
-			150
-		})]
 		
 		private JSGFGrammar.GrammarGraph processRuleCount(JSGFRuleCount jsgfruleCount)
 		{
@@ -243,46 +126,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return grammarGraph;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			250,
-			127,
-			6,
-			146,
-			99,
-			130,
-			103,
-			146,
-			141,
-			104,
-			123,
-			173,
-			99,
-			159,
-			1,
-			154,
-			103,
-			37,
-			134,
-			99,
-			112,
-			186,
-			109,
-			99,
-			112,
-			154,
-			105,
-			101,
-			119,
-			183,
-			107
-		})]
 		
 		private JSGFGrammar.GrammarGraph processRuleName(JSGFRuleName jsgfruleName)
 		{
@@ -331,35 +174,6 @@ namespace edu.cmu.sphinx.jsgf
 			this.__ruleStack.pop();
 			return grammarGraph;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			144,
-			98,
-			98,
-			159,
-			6,
-			135,
-			162,
-			112,
-			111,
-			170,
-			100,
-			200,
-			108,
-			168,
-			101,
-			146,
-			232,
-			47,
-			235,
-			84
-		})]
 		
 		private JSGFGrammar.GrammarGraph processRuleSequence(JSGFRuleSequence jsgfruleSequence)
 		{
@@ -388,19 +202,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return new JSGFGrammar.GrammarGraph(this, grammarNode, grammarNode2);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			185,
-			127,
-			6,
-			103
-		})]
 		
 		private JSGFGrammar.GrammarGraph processRuleTag(JSGFRuleTag jsgfruleTag)
 		{
@@ -409,45 +210,11 @@ namespace edu.cmu.sphinx.jsgf
 			return this.processRule(rule);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			199,
-			109
-		})]
-		
 		private JSGFGrammar.GrammarGraph processRuleToken(JSGFRuleToken jsgfruleToken)
 		{
 			GrammarNode grammarNode = this.createGrammarNode(jsgfruleToken.getText());
 			return new JSGFGrammar.GrammarGraph(this, grammarNode, grammarNode);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			219,
-			99,
-			191,
-			6,
-			104,
-			114,
-			104,
-			114,
-			104,
-			114,
-			104,
-			111,
-			104,
-			111,
-			104,
-			143,
-			159,
-			6
-		})]
 		
 		protected internal virtual JSGFGrammar.GrammarGraph processRule(JSGFRule rule)
 		{
@@ -488,32 +255,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return result;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			110,
-			99,
-			162,
-			102,
-			127,
-			1,
-			104,
-			159,
-			6,
-			102,
-			130,
-			135,
-			109,
-			104,
-			149,
-			255,
-			15,
-			60,
-			232,
-			71
-		})]
 		
 		private List getNormalizedWeights(List list)
 		{
@@ -548,14 +289,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return linkedList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			141,
-			104,
-			107
-		})]
 		
 		public virtual JSGFRuleGrammarManager getGrammarManager()
 		{
@@ -565,53 +298,15 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return this.manager;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			76,
-			109,
-			151,
-			135
-		})]
 		
 		private JSGFRuleGrammar loadNamedGrammar(string text)
 		{
 			URL url = JSGFGrammar.grammarNameToURL(this.baseURL, text);
 			URL url2 = url;
-			JSGFRuleGrammarFactory.__<clinit>();
 			JSGFRuleGrammar jsgfruleGrammar = JSGFParser.newGrammarFromJSGF(url2, new JSGFRuleGrammarFactory(this.manager));
 			jsgfruleGrammar.setEnabled(true);
 			return jsgfruleGrammar;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			43,
-			159,
-			1,
-			103,
-			136,
-			163,
-			98,
-			37,
-			166,
-			99,
-			135,
-			98,
-			103
-		})]
 		
 		private void loadImports(JSGFRuleGrammar jsgfruleGrammar)
 		{
@@ -632,43 +327,12 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			this.loadFullQualifiedRules(jsgfruleGrammar);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			136,
-			114
-		})]
 		
 		private string getFullRuleName(string name)
 		{
 			JSGFRuleName jsgfruleName = this.ruleGrammar.resolve(new JSGFRuleName(name));
 			return jsgfruleName.getRuleName();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			142,
-			143,
-			127,
-			6,
-			127,
-			10,
-			98,
-			143,
-			143,
-			127,
-			6,
-			127,
-			5,
-			98,
-			111
-		})]
 		
 		protected internal virtual void dumpGrammar()
 		{
@@ -690,44 +354,10 @@ namespace edu.cmu.sphinx.jsgf
 			java.lang.System.@out.println("}");
 		}
 
-		
-		
 		private JSGFRuleGrammar getNamedRuleGrammar(string name)
 		{
 			return this.manager.retrieveGrammar(name);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			97,
-			127,
-			4,
-			141,
-			98,
-			108,
-			106,
-			100,
-			165,
-			111,
-			106,
-			108,
-			172,
-			105,
-			105,
-			106,
-			100,
-			138,
-			100,
-			168,
-			101,
-			101
-		})]
 		
 		private void loadFullQualifiedRules(JSGFRuleGrammar jsgfruleGrammar)
 		{
@@ -763,33 +393,6 @@ namespace edu.cmu.sphinx.jsgf
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			213,
-			108,
-			102,
-			99,
-			104,
-			114,
-			137,
-			114,
-			135,
-			130,
-			242,
-			69,
-			226,
-			60,
-			97,
-			103,
-			99,
-			172
-		})]
 		
 		private static URL grammarNameToURL(URL url, string text)
 		{
@@ -825,54 +428,15 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			return url2;
 		}
-
-		[Throws(new string[]
-		{
-			"java.net.MalformedURLException",
-			"java.lang.ClassNotFoundException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			159,
-			93,
-			75,
-			179
-		})]
 		
 		public JSGFGrammar(string location, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : this(ConfigurationManagerUtils.resourceToURL(location), grammarName, showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			102,
-			232,
-			35,
-			231,
-			95
-		})]
 		
 		public JSGFGrammar()
 		{
 			this.loadGrammar = true;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			115,
-			103,
-			108,
-			139,
-			145,
-			145,
-			103
-		})]
 		
 		public override void newProperties(PropertySheet ps)
 		{
@@ -898,21 +462,6 @@ namespace edu.cmu.sphinx.jsgf
 		{
 			return this.grammarName;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException",
-			"edu.cmu.sphinx.jsgf.JSGFGrammarException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			176,
-			103,
-			103,
-			102
-		})]
 		
 		public virtual void loadJSGF(string grammarName)
 		{
@@ -920,25 +469,6 @@ namespace edu.cmu.sphinx.jsgf
 			this.loadGrammar = true;
 			this.commitChanges();
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			189,
-			255,
-			5,
-			69,
-			226,
-			60,
-			97,
-			108,
-			97,
-			140
-		})]
 		
 		protected internal override GrammarNode createGrammar()
 		{
@@ -978,30 +508,17 @@ namespace edu.cmu.sphinx.jsgf
 		{
 			return this.firstNode;
 		}
-
-		
-		
 		
 		internal static GrammarNode access_000(JSGFGrammar jsgfgrammar, bool isFinal)
 		{
 			return jsgfgrammar.createGrammarNode(isFinal);
 		}
 
-		
-		
-		
 		internal static GrammarNode access_100(JSGFGrammar jsgfgrammar, bool isFinal)
 		{
 			return jsgfgrammar.createGrammarNode(isFinal);
 		}
-
-		
-		static JSGFGrammar()
-		{
-			Grammar.__<clinit>();
-		}
-
-		
+	
 		protected internal object ruleStack
 		{
 			
@@ -1016,15 +533,6 @@ namespace edu.cmu.sphinx.jsgf
 			}
 		}
 
-		
-		[NameSig("processRule", "(Ledu.cmu.sphinx.jsgf.rule.JSGFRule;)Ledu.cmu.sphinx.jsgf.JSGFGrammar_GrammarGraph;")]
-		protected internal object processRule(JSGFRule rule)
-		{
-			return this.processRule(rule);
-		}
-
-		
-		[NameSig("processRule", "(Ledu.cmu.sphinx.jsgf.rule.JSGFRule;)Ledu.cmu.sphinx.jsgf.JSGFGrammar_GrammarGraph;")]
 		protected internal object _0(JSGFRule rule)
 		{
 			return this.processRule(rule);
@@ -1063,23 +571,12 @@ namespace edu.cmu.sphinx.jsgf
 		protected internal GrammarNode firstNode;
 
 		protected internal new Logger logger;
-
-		
-		.
 		
 		internal sealed class GrammarGraph : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				162,
-				180,
-				111,
-				109,
-				109
-			})]
-			
+		{			
 			internal GrammarGraph(JSGFGrammar jsgfgrammar)
 			{
+				this.this_0 = jsgfgrammar;
 				this.startNode = JSGFGrammar.access_000(jsgfgrammar, false);
 				this.endNode = JSGFGrammar.access_100(jsgfgrammar, false);
 			}
@@ -1093,15 +590,6 @@ namespace edu.cmu.sphinx.jsgf
 			{
 				return this.endNode;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				174,
-				111,
-				103,
-				103
-			})]
 			
 			internal GrammarGraph(JSGFGrammar jsgfgrammar, GrammarNode grammarNode, GrammarNode grammarNode2)
 			{
@@ -1114,22 +602,11 @@ namespace edu.cmu.sphinx.jsgf
 			private GrammarNode endNode;
 
 			
-			internal JSGFGrammar this_0 = jsgfgrammar;
+			internal JSGFGrammar this_0;
 		}
 
-		
-		.
-		
 		internal sealed class RuleStack : java.lang.Object
-		{
-			[LineNumberTable(new byte[]
-			{
-				162,
-				235,
-				110,
-				146
-			})]
-			
+		{			
 			public JSGFGrammar.GrammarGraph contains(string text)
 			{
 				if (this.stack.contains(text))
@@ -1138,60 +615,29 @@ namespace edu.cmu.sphinx.jsgf
 				}
 				return null;
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				217,
-				109,
-				110
-			})]
 			
 			public void push(string text, JSGFGrammar.GrammarGraph grammarGraph)
 			{
 				this.stack.add(0, text);
 				this.map.put(text, grammarGraph);
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				223,
-				120
-			})]
 			
 			public void pop()
 			{
 				this.map.remove(this.stack.remove(0));
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				211,
-				111,
-				102
-			})]
 			
 			public RuleStack(JSGFGrammar jsgfgrammar)
 			{
+				this.this_0 = jsgfgrammar;
 				this.clear();
 			}
-
-			[LineNumberTable(new byte[]
-			{
-				162,
-				244,
-				107,
-				107
-			})]
 			
 			public void clear()
 			{
 				this.stack = new LinkedList();
 				this.map = new HashMap();
 			}
-
 			
 			private List stack;
 
@@ -1199,7 +645,7 @@ namespace edu.cmu.sphinx.jsgf
 			private HashMap map;
 
 			
-			internal JSGFGrammar this_0 = jsgfgrammar;
+			internal JSGFGrammar this_0;
 		}
 	}
 }

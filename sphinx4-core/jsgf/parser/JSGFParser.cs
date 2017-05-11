@@ -1,9 +1,7 @@
 ﻿using System;
-
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using edu.cmu.sphinx.jsgf.rule;
-using IKVM.Attributes;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -12,39 +10,10 @@ using java.util;
 
 namespace edu.cmu.sphinx.jsgf.parser
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.jsgf.parser.JSGFParserConstants"
-	})]
-	public class JSGFParser : java.lang.Object, JSGFParserConstants
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException",
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			109,
-			118,
-			103,
-			107,
-			127,
-			20,
-			143,
-			114,
-			135
-		})]
-		
+	public class JSGFParser : JSGFParserConstants
+	{		
 		public static JSGFRuleGrammar newGrammarFromJSGF(URL url, JSGFRuleGrammarFactory factory)
 		{
-			BufferedInputStream.__<clinit>();
 			BufferedInputStream bufferedInputStream = new BufferedInputStream(url.openStream(), 256);
 			JSGFEncoding jsgfencoding = JSGFParser.getJSGFEncoding(bufferedInputStream);
 			InputStreamReader i;
@@ -63,89 +32,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return JSGFParser.newGrammarFromJSGF(i, factory);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			241,
-			104
-		})]
-		
+	
 		public JSGFParser(InputStream stream) : this(stream, null)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			82,
-			98,
-			103,
-			104,
-			171,
-			108,
-			102,
-			135,
-			148,
-			98,
-			106,
-			106,
-			104,
-			108,
-			102,
-			135,
-			118,
-			140,
-			146,
-			98,
-			106,
-			104,
-			108,
-			102,
-			135,
-			108,
-			118,
-			140,
-			146,
-			98,
-			106,
-			101,
-			108,
-			102,
-			132,
-			105,
-			112,
-			255,
-			2,
-			74,
-			226,
-			58,
-			129,
-			145,
-			34,
-			129,
-			130,
-			131,
-			145,
-			34,
-			129,
-			226,
-			69,
-			106,
-			110,
-			99,
-			99,
-			99,
-			99,
-			114,
-			142,
-			145,
-			34,
-			129,
-			130,
-			114,
-			114,
-			114
-		})]
 		
 		private static JSGFEncoding getJSGFEncoding(BufferedInputStream bufferedInputStream)
 		{
@@ -320,36 +210,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return null;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			10,
-			232,
-			21,
-			237,
-			77,
-			108,
-			103,
-			231,
-			160,
-			92,
-			236,
-			111,
-			139,
-			103,
-			237,
-			159,
-			143,
-			110,
-			118,
-			107,
-			103,
-			103,
-			118,
-			127,
-			0
-		})]
 		
 		public JSGFParser(Reader stream)
 		{
@@ -362,7 +222,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_kind = -1;
 			this.jj_lasttokens = new int[100];
 			this.jj_input_stream = new JavaCharStream(stream, 1, 1);
-			JSGFParserTokenManager.__<clinit>();
 			this.token_source = new JSGFParserTokenManager(this.jj_input_stream);
 			this.token = new Token();
 			this.jj_ntk = -1;
@@ -376,40 +235,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.jj_2_rtns[i] = new JSGFParser.JJCalls();
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			152,
-			98,
-			159,
-			3,
-			102,
-			130,
-			174,
-			168,
-			191,
-			3,
-			130,
-			110,
-			130,
-			201,
-			223,
-			11,
-			130,
-			110,
-			130,
-			137,
-			104
-		})]
 		
 		public JSGFRuleGrammar GrammarUnit(JSGFRuleGrammarFactory factory)
 		{
-			if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 23)
+			if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 23)
 			{
 				this.IdentHeader();
 			}
@@ -418,14 +247,14 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.jj_la1[0] = this.jj_gen;
 			}
 			JSGFRuleGrammar jsgfruleGrammar = this.GrammarDeclaration(factory);
-			while (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 14)
+			while (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 14)
 			{
 				this.ImportDeclaration(jsgfruleGrammar);
 			}
 			this.jj_la1[1] = this.jj_gen;
 			for (;;)
 			{
-				int num = (this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk();
+				int num = (this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk();
 				if (num != 15)
 				{
 					if (num != 28)
@@ -439,32 +268,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_consume_token(0);
 			return jsgfruleGrammar;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			254,
-			104
-		})]
 		
 		public virtual void ReInit(InputStream stream)
 		{
 			this.ReInit(stream, null);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			21,
-			110,
-			113,
-			107,
-			103,
-			103,
-			118,
-			127,
-			0
-		})]
 		
 		public virtual void ReInit(Reader stream)
 		{
@@ -482,25 +290,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.jj_2_rtns[i] = new JSGFParser.JJCalls();
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			65,
-			98,
-			103,
-			141,
-			171,
-			108,
-			119,
-			97,
-			104,
-			127,
-			1
-		})]
 		
 		public static JSGFRuleGrammar newGrammarFromJSGF(Reader i, JSGFRuleGrammarFactory factory)
 		{
@@ -531,58 +320,12 @@ namespace edu.cmu.sphinx.jsgf.parser
 			JSGFGrammarParseException ex4 = new JSGFGrammarParseException(currentToken.beginLine, currentToken.beginColumn, "Grammar Error", Throwable.instancehelper_getMessage(ex3));
 			throw Throwable.__<unmap>(ex4);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			88,
-			166,
-			102,
-			255,
-			109,
-			75,
-			103,
-			168,
-			191,
-			3,
-			130,
-			110,
-			133,
-			105,
-			103,
-			202,
-			103,
-			103,
-			104,
-			173,
-			105,
-			103,
-			103,
-			104,
-			109,
-			191,
-			3,
-			130,
-			111,
-			226,
-			69,
-			111,
-			104,
-			139,
-			104,
-			105,
-			136
-		})]
 		
 		public JSGFRuleAlternatives alternatives()
 		{
 			ArrayList arrayList = new ArrayList();
 			ArrayList arrayList2 = new ArrayList();
-			switch ((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk())
+			switch ((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk())
 			{
 			case 13:
 			case 14:
@@ -597,7 +340,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				JSGFRuleSequence jsgfruleSequence = this.sequence();
 				arrayList.add(jsgfruleSequence);
-				while (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 33)
+				while (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 33)
 				{
 					this.jj_consume_token(33);
 					jsgfruleSequence = this.sequence();
@@ -620,7 +363,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					arrayList.add(jsgfruleSequence);
 					arrayList2.add(Float.valueOf(num));
 				}
-				while (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 33);
+				while (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 33);
 				this.jj_la1[9] = this.jj_gen;
 				goto IL_19E;
 			}
@@ -637,17 +380,8 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return jsgfruleAlternatives;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			115,
-			120,
-			159,
-			13
-		})]
 		
-		private int jj_ntk()
+		private int _jj_ntk()
 		{
 			Token token = this.token.next;
 			bool flag = token != null;
@@ -670,38 +404,15 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_ntk = kind;
 			return result2;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			212,
-			105,
-			105,
-			159,
-			3,
-			105,
-			159,
-			3,
-			105,
-			130,
-			174,
-			130,
-			174,
-			105
-		})]
 		
 		public void IdentHeader()
 		{
 			this.jj_consume_token(23);
 			this.jj_consume_token(27);
-			if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 23)
+			if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 23)
 			{
 				this.jj_consume_token(23);
-				if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 23)
+				if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 23)
 				{
 					this.jj_consume_token(23);
 				}
@@ -716,27 +427,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			this.jj_consume_token(26);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			195,
-			98,
-			98,
-			105,
-			103,
-			105,
-			104,
-			110,
-			127,
-			5,
-			98,
-			177
-		})]
 		
 		public JSGFRuleGrammar GrammarDeclaration(JSGFRuleGrammarFactory factory)
 		{
@@ -751,39 +441,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return jsgfruleGrammar;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			234,
-			130,
-			98,
-			105,
-			105,
-			103,
-			159,
-			3,
-			105,
-			105,
-			98,
-			130,
-			174,
-			105,
-			137,
-			126,
-			103,
-			99,
-			103,
-			115,
-			127,
-			5,
-			99,
-			211
-		})]
 		
 		public void ImportDeclaration(JSGFRuleGrammar grammar)
 		{
@@ -791,7 +448,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			Token token = this.jj_consume_token(14);
 			this.jj_consume_token(28);
 			string text = this.Name();
-			if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 29)
+			if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 29)
 			{
 				this.jj_consume_token(29);
 				this.jj_consume_token(30);
@@ -817,52 +474,12 @@ namespace edu.cmu.sphinx.jsgf.parser
 				}
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			50,
-			162,
-			98,
-			98,
-			159,
-			3,
-			105,
-			98,
-			130,
-			174,
-			105,
-			103,
-			105,
-			105,
-			104,
-			137,
-			102,
-			106,
-			99,
-			127,
-			8,
-			127,
-			6,
-			114,
-			105,
-			244,
-			69,
-			2,
-			97,
-			159,
-			5
-		})]
 		
 		public void RuleDeclaration(JSGFRuleGrammar grammar)
 		{
 			int isPublic = 0;
 			Token token = null;
-			if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 15)
+			if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 15)
 			{
 				token = this.jj_consume_token(15);
 				isPublic = 1;
@@ -906,36 +523,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			IL_101:
 			java.lang.System.@out.println(new StringBuilder().append("ERROR SETTING JSGFRule ").append(text).toString());
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			163,
-			50,
-			127,
-			3,
-			127,
-			2,
-			103,
-			113,
-			110,
-			121,
-			103,
-			110,
-			107,
-			100,
-			119,
-			235,
-			60,
-			232,
-			72,
-			135,
-			103,
-			103
-		})]
 		
 		private Token jj_consume_token(int num)
 		{
@@ -980,42 +567,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_kind = num;
 			throw Throwable.__<unmap>(this.generateParseException());
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			13,
-			102,
-			159,
-			27,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			110,
-			104,
-			139,
-			173,
-			233,
-			69,
-			105,
-			105,
-			105,
-			143
-		})]
 		
 		public string Name()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
-			int num = (this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk();
+			int num = (this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk();
 			Token token;
 			if (num == 13)
 			{
@@ -1050,20 +606,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return stringBuilder.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			202,
-			126,
-			147,
-			78,
-			8,
-			100,
-			103,
-			75,
-			34
-		})]
 		
 		private bool jj_2_1(int num)
 		{
@@ -1103,36 +645,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return result2 != 0;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			158,
-			159,
-			46,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			111,
-			104,
-			139
-		})]
 		
 		public string ruleDef()
 		{
 			Token token;
-			switch ((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk())
+			switch ((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk())
 			{
 			case 13:
 				token = this.jj_consume_token(13);
@@ -1157,22 +674,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			IL_A6:
 			return token.image;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			137,
-			98,
-			117,
-			120,
-			100,
-			103,
-			109,
-			133,
-			116,
-			100,
-			101
-		})]
 		
 		internal static void extractKeywords(JSGFRuleGrammar jsgfruleGrammar, string ruleName, string text)
 		{
@@ -1193,25 +694,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 		}
 
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			186,
-			166,
-			103,
-			104,
-			255,
-			106,
-			76,
-			133,
-			111,
-			162
-		})]
-		
 		public JSGFRuleSequence sequence()
 		{
 			ArrayList arrayList = new ArrayList();
@@ -1219,7 +701,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				JSGFRule jsgfrule = this.item();
 				arrayList.add(jsgfrule);
-				switch ((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk())
+				switch ((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk())
 				{
 				case 13:
 				case 14:
@@ -1238,32 +720,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_la1[12] = this.jj_gen;
 			return new JSGFRuleSequence(arrayList);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			216,
-			105,
-			159,
-			11,
-			105,
-			130,
-			105,
-			130,
-			111,
-			104,
-			139,
-			105
-		})]
 		
 		public float weight()
 		{
 			this.jj_consume_token(34);
-			int num = (this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk();
+			int num = (this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk();
 			Token token;
 			if (num == 16)
 			{
@@ -1283,102 +744,13 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_consume_token(34);
 			return Float.valueOf(token.image).floatValue();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			237,
-			98,
-			98,
-			255,
-			109,
-			73,
-			255,
-			66,
-			72,
-			103,
-			130,
-			103,
-			130,
-			111,
-			104,
-			139,
-			191,
-			14,
-			159,
-			11,
-			105,
-			98,
-			130,
-			105,
-			98,
-			130,
-			111,
-			104,
-			203,
-			175,
-			159,
-			3,
-			103,
-			133,
-			175,
-			133,
-			105,
-			103,
-			105,
-			191,
-			14,
-			159,
-			11,
-			105,
-			98,
-			130,
-			105,
-			98,
-			130,
-			111,
-			104,
-			203,
-			175,
-			159,
-			3,
-			103,
-			133,
-			175,
-			133,
-			105,
-			103,
-			105,
-			98,
-			159,
-			3,
-			103,
-			130,
-			175,
-			130,
-			111,
-			104,
-			139,
-			108,
-			102,
-			124,
-			108,
-			115,
-			141,
-			105,
-			130
-		})]
 		
 		public JSGFRule item()
 		{
 			ArrayList arrayList = null;
 			int num = -1;
 			JSGFRule jsgfrule;
-			switch ((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk())
+			switch ((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk())
 			{
 			case 13:
 			case 14:
@@ -1389,7 +761,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			case 23:
 			case 28:
 			{
-				switch ((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk())
+				switch ((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk())
 				{
 				case 13:
 				case 14:
@@ -1409,7 +781,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				
 				throw new ParseException();
 				IL_125:
-				int num2 = (this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk();
+				int num2 = (this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk();
 				if (num2 != 30)
 				{
 					if (num2 != 35)
@@ -1418,7 +790,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 						goto IL_1C7;
 					}
 				}
-				int num3 = (this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk();
+				int num3 = (this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk();
 				if (num3 == 30)
 				{
 					this.jj_consume_token(30);
@@ -1437,7 +809,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					num = 3;
 				}
 				IL_1C7:
-				if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 22)
+				if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 22)
 				{
 					arrayList = this.tags();
 					goto IL_37F;
@@ -1450,7 +822,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.jj_consume_token(36);
 				jsgfrule = this.alternatives();
 				this.jj_consume_token(37);
-				int num4 = (this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk();
+				int num4 = (this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk();
 				if (num4 != 30)
 				{
 					if (num4 != 35)
@@ -1459,7 +831,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 						goto IL_2C4;
 					}
 				}
-				int num5 = (this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk();
+				int num5 = (this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk();
 				if (num5 == 30)
 				{
 					this.jj_consume_token(30);
@@ -1478,7 +850,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					num = 3;
 				}
 				IL_2C4:
-				if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 22)
+				if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 22)
 				{
 					arrayList = this.tags();
 					goto IL_37F;
@@ -1491,7 +863,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				jsgfrule = this.alternatives();
 				this.jj_consume_token(39);
 				num = 2;
-				if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 22)
+				if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 22)
 				{
 					arrayList = this.tags();
 					goto IL_37F;
@@ -1524,44 +896,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return jsgfrule;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			133,
-			159,
-			46,
-			105,
-			133,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			105,
-			130,
-			111,
-			104,
-			139,
-			103,
-			127,
-			11,
-			103
-		})]
 		
 		public JSGFRule terminal()
 		{
 			Token token;
-			switch ((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk())
+			switch ((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk())
 			{
 			case 13:
 				token = this.jj_consume_token(13);
@@ -1597,20 +936,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return new JSGFRuleToken(text);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			170,
-			105,
-			103,
-			105,
-			103
-		})]
 		
 		public JSGFRuleName ruleRef()
 		{
@@ -1619,25 +944,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_consume_token(31);
 			return new JSGFRuleName(name);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			112,
-			166,
-			105,
-			109,
-			191,
-			3,
-			130,
-			111,
-			162
-		})]
 		
 		public ArrayList tags()
 		{
@@ -1647,35 +953,15 @@ namespace edu.cmu.sphinx.jsgf.parser
 				Token token = this.jj_consume_token(22);
 				arrayList.add(token.image);
 			}
-			while (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 22);
+			while (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 22);
 			this.jj_la1[23] = this.jj_gen;
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			209,
-			108,
-			108
-		})]
 		
 		private bool jj_3_1()
 		{
 			return this.jj_scan_token(29) || this.jj_scan_token(23);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			214,
-			105,
-			110,
-			123,
-			137,
-			127,
-			9
-		})]
 		
 		private void jj_save(int num, int num2)
 		{
@@ -1698,26 +984,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			jjcalls.first = this.token;
 			jjcalls.arg = num2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			76,
-			113,
-			110,
-			109,
-			159,
-			15,
-			190,
-			145,
-			104,
-			105,
-			121,
-			139,
-			112,
-			127,
-			3
-		})]
 		
 		private bool jj_scan_token(int num)
 		{
@@ -1772,37 +1038,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return false;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			243,
-			232,
-			44,
-			237,
-			77,
-			108,
-			103,
-			231,
-			160,
-			92,
-			236,
-			111,
-			139,
-			103,
-			237,
-			159,
-			120,
-			127,
-			17,
-			118,
-			107,
-			103,
-			103,
-			118,
-			127,
-			0
-		})]
 		
 		public JSGFParser(InputStream stream, string encoding)
 		{
@@ -1845,21 +1080,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			throw new RuntimeException(ex4);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			163,
-			1,
-			127,
-			17,
-			113,
-			107,
-			103,
-			103,
-			118,
-			127,
-			0
-		})]
-		
 		public virtual void ReInit(InputStream stream, string encoding)
 		{
 			UnsupportedEncodingException ex2;
@@ -1891,43 +1111,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			
 			throw new RuntimeException(ex4);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			153,
-			107,
-			104,
-			105,
-			105,
-			135,
-			106,
-			112,
-			103,
-			112,
-			132,
-			112,
-			231,
-			59,
-			6,
-			233,
-			76,
-			103,
-			101,
-			108,
-			105,
-			242,
-			60,
-			230,
-			71,
-			103,
-			102,
-			104,
-			113,
-			112,
-			52,
-			166
-		})]
 		
 		public virtual ParseException generateParseException()
 		{
@@ -1974,33 +1157,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return new ParseException(this.token, array2, JSGFParserConstants.tokenImage);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			128,
-			102,
-			107,
-			127,
-			1,
-			107,
-			113,
-			107,
-			48,
-			166,
-			119,
-			114,
-			108,
-			110,
-			112,
-			2,
-			232,
-			69,
-			114,
-			130,
-			101,
-			153
-		})]
 		
 		private void jj_add_error_token(int num, int num2)
 		{
@@ -2049,27 +1205,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			195,
-			103,
-			137,
-			137,
-			110,
-			127,
-			4,
-			107,
-			167,
-			103,
-			110,
-			227,
-			52,
-			233,
-			78,
-			103
-		})]
 		
 		private void jj_rescan_token()
 		{
@@ -2109,14 +1244,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_rescan = false;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			162,
-			231,
-			127,
-			160,
-			134
-		})]
 		private static void jj_la1_init_0()
 		{
 			JSGFParser.jj_la1_0 = new int[]
@@ -2150,13 +1277,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			};
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			162,
-			234,
-			127,
-			105
-		})]
 		private static void jj_la1_init_1()
 		{
 			JSGFParser.jj_la1_1 = new int[]
@@ -2190,59 +1310,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			};
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			191,
-			100,
-			111,
-			148,
-			104,
-			159,
-			17,
-			98,
-			107,
-			159,
-			9,
-			223,
-			21,
-			255,
-			0,
-			61,
-			98,
-			127,
-			6,
-			149,
-			119,
-			137,
-			109,
-			127,
-			21,
-			146,
-			115,
-			137,
-			223,
-			2,
-			226,
-			61,
-			97,
-			127,
-			17,
-			161,
-			111,
-			111,
-			111,
-			111,
-			161,
-			122,
-			191,
-			4,
-			2,
-			98,
-			159,
-			11
-		})]
-		
 		public static void main(string[] args)
 		{
 			if (args.Length == 0)
@@ -2361,25 +1428,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			ParseException ex10 = ex9;
 			java.lang.System.@out.println(new StringBuilder().append("JSGF Parser Version 1.0:  Encountered errors during parse.").append(Throwable.instancehelper_getMessage(ex10)).toString());
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.JSGFGrammarParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			47,
-			98,
-			103,
-			141,
-			171,
-			108,
-			119,
-			97,
-			104,
-			127,
-			1
-		})]
 		
 		public static JSGFRuleGrammar newGrammarFromJSGF(InputStream i, JSGFRuleGrammarFactory factory)
 		{
@@ -2411,21 +1459,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			throw Throwable.__<unmap>(ex4);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			122,
-			130,
-			103,
-			116,
-			107,
-			246,
-			69,
-			2,
-			97,
-			143
-		})]
-		
 		public static JSGFRule ruleForJSGF(string text)
 		{
 			JSGFRuleAlternatives result = null;
@@ -2451,36 +1484,13 @@ namespace edu.cmu.sphinx.jsgf.parser
 			java.lang.System.@out.println("JSGF Parser Version 1.0:  Encountered errors during parse.");
 			return result;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.jsgf.parser.ParseException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			181,
-			98,
-			105,
-			103,
-			159,
-			3,
-			105,
-			105,
-			98,
-			130,
-			175,
-			105,
-			126,
-			103
-		})]
 		
 		public JSGFRuleName importRef()
 		{
 			int num = 0;
 			this.jj_consume_token(28);
 			string text = this.Name();
-			if (((this.jj_ntk != -1) ? this.jj_ntk : this.jj_ntk()) == 29)
+			if (((this.jj_ntk != -1) ? this.jj_ntk : this._jj_ntk()) == 29)
 			{
 				this.jj_consume_token(29);
 				this.jj_consume_token(30);
@@ -2498,35 +1508,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return new JSGFRuleName(text);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			163,
-			30,
-			232,
-			1,
-			237,
-			77,
-			108,
-			103,
-			231,
-			160,
-			92,
-			236,
-			111,
-			139,
-			103,
-			237,
-			159,
-			163,
-			103,
-			107,
-			103,
-			103,
-			118,
-			127,
-			0
-		})]
-		
 		public JSGFParser(JSGFParserTokenManager tm)
 		{
 			this.jj_la1 = new int[26];
@@ -2550,19 +1531,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.jj_2_rtns[i] = new JSGFParser.JJCalls();
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			40,
-			103,
-			107,
-			103,
-			103,
-			118,
-			127,
-			0
-		})]
 		
 		public virtual void ReInit(JSGFParserTokenManager tm)
 		{
@@ -2580,18 +1548,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			163,
-			98,
-			127,
-			1,
-			127,
-			2,
-			103,
-			110
-		})]
-		
 		public Token getNextToken()
 		{
 			if (this.token.next != null)
@@ -2611,17 +1567,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_gen++;
 			return this.token;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			106,
-			103,
-			102,
-			113,
-			23,
-			198
-		})]
 		
 		public Token getToken(int index)
 		{
@@ -2644,7 +1589,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return token;
 		}
-
 		public void enable_tracing()
 		{
 		}
@@ -2652,17 +1596,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 		public void disable_tracing()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			186,
-			230,
-			163,
-			41,
-			101,
-			101
-		})]
 		static JSGFParser()
 		{
 			JSGFParser.jj_la1_init_0();
@@ -2690,7 +1623,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 		private int jj_la;
 
 		private int jj_gen;
-
 		
 		private int[] jj_la1;
 
@@ -2698,14 +1630,12 @@ namespace edu.cmu.sphinx.jsgf.parser
 
 		private static int[] jj_la1_1;
 
-		
 		private JSGFParser.JJCalls[] jj_2_rtns;
 
 		private bool jj_rescan;
 
 		private int jj_gc;
 
-		
 		private JSGFParser.LookaheadSuccess jj_ls;
 
 		
@@ -2719,12 +1649,8 @@ namespace edu.cmu.sphinx.jsgf.parser
 
 		private int jj_endpos;
 
-		
-		.
 		internal sealed class JJCalls : java.lang.Object
 		{
-			
-			
 			internal JJCalls()
 			{
 			}
@@ -2738,24 +1664,16 @@ namespace edu.cmu.sphinx.jsgf.parser
 			internal JSGFParser.JJCalls next;
 		}
 
-		
-		.
 		[Serializable]
 		internal sealed class LookaheadSuccess : Error
 		{
-			
-			
-			
 			internal LookaheadSuccess(JSGFParser_1 jsgfparser_) : this()
 			{
 			}
-
-			
 			
 			private LookaheadSuccess()
 			{
 			}
-
 			
 			[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 			protected LookaheadSuccess(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)

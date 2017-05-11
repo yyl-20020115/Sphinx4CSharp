@@ -1,13 +1,5 @@
-﻿using System;
-using IKVM.Attributes;
-using java.lang;
-
-namespace edu.cmu.sphinx.jsgf.parser
+﻿namespace edu.cmu.sphinx.jsgf.parser
 {
-	
-	
-	.
-	
 	internal sealed class JSGFParser_1 : java.lang.Object
 	{
 		JSGFParser_1()

@@ -1,43 +1,16 @@
-﻿using System;
-
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Security.Permissions;
-using IKVM.Attributes;
 using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.parser
 {
-	[Serializable]
+	[System.Serializable]
 	public class ParseException : Exception
-	{
-		[LineNumberTable(new byte[]
-		{
-			159,
-			173,
-			232,
-			121,
-			245,
-			8
-		})]
-		
+	{		
 		public ParseException()
 		{
 			this.eol = java.lang.System.getProperty("line.separator", "\n");
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			166,
-			240,
-			160,
-			64,
-			245,
-			1,
-			103,
-			103,
-			103
-		})]
 		
 		public ParseException(Token currentTokenVal, int[][] expectedTokenSequencesVal, string[] tokenImageVal) : base(ParseException.initialise(currentTokenVal, expectedTokenSequencesVal, tokenImageVal))
 		{
@@ -47,55 +20,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.tokenImage = tokenImageVal;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			190,
-			112,
-			102,
-			98,
-			106,
-			103,
-			133,
-			107,
-			54,
-			168,
-			108,
-			140,
-			242,
-			54,
-			233,
-			76,
-			103,
-			104,
-			107,
-			127,
-			2,
-			105,
-			123,
-			133,
-			127,
-			12,
-			125,
-			127,
-			5,
-			125,
-			233,
-			54,
-			235,
-			76,
-			127,
-			40,
-			127,
-			4,
-			101,
-			159,
-			16,
-			159,
-			14,
-			126
-		})]
-		
 		private static string initialise(Token token, int[][] array, string[] array2)
 		{
 			string property = java.lang.System.getProperty("line.separator", "\n");
@@ -149,42 +73,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return new StringBuilder().append(text).append(stringBuffer.toString()).toString();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			41,
-			134,
-			110,
-			191,
-			67,
-			133,
-			108,
-			133,
-			108,
-			133,
-			108,
-			133,
-			108,
-			133,
-			108,
-			133,
-			108,
-			133,
-			108,
-			133,
-			108,
-			133,
-			114,
-			127,
-			3,
-			127,
-			21,
-			98,
-			232,
-			30,
-			233,
-			103
-		})]
-		
 		internal static string add_escapes(string text)
 		{
 			StringBuffer stringBuffer = new StringBuffer();
@@ -239,16 +127,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return stringBuffer.toString();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			177,
-			233,
-			117,
-			245,
-			12
-		})]
 		
 		public ParseException(string message) : base(message)
 		{

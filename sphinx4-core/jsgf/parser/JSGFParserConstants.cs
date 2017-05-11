@@ -1,21 +1,7 @@
-﻿using System;
-
-using IKVM.Attributes;
-
-namespace edu.cmu.sphinx.jsgf.parser
+﻿namespace edu.cmu.sphinx.jsgf.parser
 {
-	public interface JSGFParserConstants
+	public abstract class JSGFParserConstants
 	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		
-		static JSGFParserConstants()
-		{
-		}
-
 		public const int EOF = 0;
 
 		public const int SINGLE_LINE_COMMENT = 9;

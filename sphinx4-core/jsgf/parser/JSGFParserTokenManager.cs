@@ -1,45 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.io;
+﻿using java.io;
 using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.parser
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.jsgf.parser.JSGFParserConstants"
-	})]
-	public class JSGFParserTokenManager : java.lang.Object, JSGFParserConstants
-	{
-		
-		public static void __<clinit>()
-		{
-		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			92,
-			232,
-			156,
-			75,
-			235,
-			163,
-			173,
-			109,
-			109,
-			107,
-			236,
-			160,
-			81,
-			103,
-			231,
-			159,
-			182,
-			103
-		})]
-		
+	public class JSGFParserTokenManager : JSGFParserConstants
+	{		
 		public JSGFParserTokenManager(JavaCharStream stream)
 		{
 			this.debugStream = java.lang.System.@out;
@@ -51,17 +16,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.defaultLexState = 0;
 			this.input_stream = stream;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			105,
-			114,
-			108,
-			103,
-			102
-		})]
-		
+	
 		public virtual void ReInit(JavaCharStream stream)
 		{
 			int num = 0;
@@ -72,106 +27,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.input_stream = stream;
 			this.ReInitRounds();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			177,
-			130,
-			226,
-			71,
-			252,
-			72,
-			226,
-			58,
-			129,
-			103,
-			103,
-			103,
-			130,
-			108,
-			108,
-			199,
-			191,
-			1,
-			108,
-			127,
-			5,
-			156,
-			104,
-			107,
-			103,
-			103,
-			133,
-			104,
-			103,
-			98,
-			103,
-			159,
-			2,
-			104,
-			204,
-			107,
-			103,
-			103,
-			146,
-			202,
-			107,
-			103,
-			103,
-			146,
-			200,
-			144,
-			107,
-			117,
-			159,
-			3,
-			103,
-			103,
-			111,
-			114,
-			130,
-			159,
-			6,
-			159,
-			3,
-			103,
-			99,
-			164,
-			103,
-			143,
-			169,
-			103,
-			114,
-			183,
-			102,
-			111,
-			114,
-			98,
-			139,
-			124,
-			133,
-			129,
-			109,
-			109,
-			99,
-			99,
-			255,
-			4,
-			74,
-			226,
-			55,
-			97,
-			99,
-			120,
-			116,
-			102,
-			165,
-			134,
-			100,
-			108,
-			152
-		})]
 		
 		public virtual Token getNextToken()
 		{
@@ -361,7 +216,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			throw new TokenMgrError(eofseen, lexState, errorLine, errorColumn, errorAfter, c, reason);
 		}
 
-		
 		private int jjStopStringLiteralDfa_0(int num, long num2)
 		{
 			switch (num)
@@ -451,253 +305,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				return -1;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			230,
-			98,
-			104,
-			98,
-			105,
-			166,
-			124,
-			102,
-			141,
-			174,
-			191,
-			160,
-			143,
-			144,
-			101,
-			99,
-			138,
-			106,
-			106,
-			106,
-			105,
-			106,
-			125,
-			144,
-			101,
-			99,
-			142,
-			109,
-			175,
-			109,
-			191,
-			3,
-			122,
-			167,
-			109,
-			191,
-			3,
-			109,
-			172,
-			112,
-			101,
-			101,
-			99,
-			106,
-			133,
-			115,
-			172,
-			112,
-			101,
-			101,
-			99,
-			105,
-			133,
-			109,
-			175,
-			115,
-			173,
-			117,
-			168,
-			115,
-			173,
-			115,
-			175,
-			115,
-			173,
-			115,
-			191,
-			4,
-			115,
-			173,
-			109,
-			173,
-			115,
-			173,
-			115,
-			173,
-			117,
-			168,
-			115,
-			175,
-			115,
-			173,
-			115,
-			191,
-			4,
-			115,
-			173,
-			106,
-			133,
-			115,
-			175,
-			115,
-			175,
-			115,
-			175,
-			115,
-			191,
-			4,
-			115,
-			173,
-			112,
-			101,
-			101,
-			99,
-			104,
-			133,
-			112,
-			101,
-			101,
-			99,
-			105,
-			133,
-			112,
-			101,
-			101,
-			99,
-			104,
-			133,
-			115,
-			175,
-			106,
-			101,
-			101,
-			99,
-			106,
-			133,
-			112,
-			101,
-			101,
-			99,
-			106,
-			133,
-			115,
-			173,
-			112,
-			101,
-			101,
-			99,
-			106,
-			133,
-			115,
-			175,
-			115,
-			173,
-			112,
-			101,
-			101,
-			99,
-			106,
-			130,
-			112,
-			172,
-			112,
-			170,
-			112,
-			204,
-			103,
-			101,
-			144,
-			177,
-			191,
-			160,
-			133,
-			144,
-			101,
-			99,
-			141,
-			109,
-			175,
-			103,
-			167,
-			115,
-			175,
-			123,
-			168,
-			112,
-			173,
-			109,
-			175,
-			115,
-			173,
-			112,
-			173,
-			109,
-			175,
-			115,
-			173,
-			109,
-			175,
-			115,
-			175,
-			109,
-			175,
-			115,
-			175,
-			117,
-			168,
-			112,
-			101,
-			101,
-			99,
-			104,
-			130,
-			112,
-			172,
-			112,
-			172,
-			112,
-			204,
-			103,
-			165,
-			106,
-			102,
-			109,
-			112,
-			177,
-			223,
-			45,
-			113,
-			101,
-			101,
-			99,
-			104,
-			133,
-			123,
-			167,
-			116,
-			191,
-			1,
-			113,
-			170,
-			113,
-			204,
-			135,
-			136,
-			103,
-			103,
-			134,
-			101,
-			123,
-			98,
-			124
-		})]
 		
 		private int jjMoveNfa_0(int num, int num2)
 		{
@@ -1227,7 +834,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					{
 						int[] array9 = this.jjstateSet;
 						num4 += -1;
-						object obj = array9[num4];
+						int obj = array9[num4];
 						if (obj == 1)
 						{
 							if (JSGFParserTokenManager.jjCanMove_0(num15, num16, num18, num17, num19) && num5 > 7)
@@ -1322,16 +929,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jjmatchedPos = num;
 			return num + 1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			198,
-			103,
-			103,
-			124,
-			103
-		})]
 		
 		private int jjStartNfaWithStates_0(int num, int num2, int num3)
 		{
@@ -1349,27 +946,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			IL_27:
 			return num + 1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			114,
-			220,
-			226,
-			61,
-			97,
-			105,
-			130,
-			191,
-			26,
-			108,
-			170,
-			105,
-			169,
-			142,
-			142,
-			142,
-			206
-		})]
 		
 		private int jjMoveStringLiteralDfa1_0(long num)
 		{
@@ -1420,26 +996,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jjStopStringLiteralDfa_0(0, num);
 			return 1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			80,
-			106,
-			105,
-			220,
-			226,
-			61,
-			97,
-			105,
-			130,
-			191,
-			10,
-			142,
-			142,
-			142,
-			206
-		})]
 		
 		private int jjMoveStringLiteralDfa2_0(long num, long num2)
 		{
@@ -1477,35 +1033,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jjStopStringLiteralDfa_0(1, num2);
 			return 2;
 		}
-
-		
-		
 		
 		private int jjStartNfa_0(int num, long num2)
 		{
 			return this.jjMoveNfa_0(this.jjStopStringLiteralDfa_0(num, num2), num + 1);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			104,
-			106,
-			105,
-			220,
-			226,
-			61,
-			97,
-			105,
-			130,
-			191,
-			10,
-			108,
-			170,
-			142,
-			142,
-			206
-		})]
 		
 		private int jjMoveStringLiteralDfa3_0(long num, long num2)
 		{
@@ -1549,25 +1081,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jjStopStringLiteralDfa_0(2, num2);
 			return 3;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			130,
-			106,
-			105,
-			220,
-			226,
-			61,
-			97,
-			105,
-			130,
-			191,
-			2,
-			142,
-			142,
-			206
-		})]
 		
 		private int jjMoveStringLiteralDfa4_0(long num, long num2)
 		{
@@ -1601,28 +1114,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jjStopStringLiteralDfa_0(3, num2);
 			return 4;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			152,
-			106,
-			105,
-			220,
-			226,
-			61,
-			97,
-			105,
-			130,
-			191,
-			2,
-			142,
-			108,
-			172,
-			108,
-			236,
-			69
-		})]
 		
 		private int jjMoveStringLiteralDfa5_0(long num, long num2)
 		{
@@ -1662,24 +1153,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jjStopStringLiteralDfa_0(4, num2);
 			return 5;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			178,
-			106,
-			105,
-			220,
-			226,
-			61,
-			97,
-			105,
-			130,
-			177,
-			108,
-			236,
-			69
-		})]
 		
 		private int jjMoveStringLiteralDfa6_0(long num, long num2)
 		{
@@ -1708,14 +1181,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return 6;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			163,
-			113,
-			107,
-			107,
-			111
-		})]
 		private void ReInitRounds()
 		{
 			this.jjround = -2147483647;
@@ -1732,14 +1197,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			164,
-			78,
-			144,
-			123,
-			142
-		})]
 		private void jjCheckNAdd(int num)
 		{
 			if (this.jjrounds[num] != this.jjround)
@@ -1752,14 +1209,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.jjrounds[num] = this.jjround;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			164,
-			99,
-			109,
-			105
-		})]
 		
 		private void jjCheckNAddStates(int num, int num2)
 		{
@@ -1773,14 +1222,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			while (num3 != num2);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			164,
-			87,
-			127,
-			2,
-			105
-		})]
 		private void jjAddStates(int num, int num2)
 		{
 			int num5;
@@ -1797,35 +1238,12 @@ namespace edu.cmu.sphinx.jsgf.parser
 			while (num5 != num2);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			164,
-			92,
-			103,
-			103
-		})]
-		
 		private void jjCheckNAddTwoStates(int num, int num2)
 		{
 			this.jjCheckNAdd(num);
 			this.jjCheckNAdd(num2);
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			35,
-			191,
-			12,
-			146,
-			146,
-			146,
-			146,
-			146,
-			109,
-			98
-		})]
 		private static bool jjCanMove_1(int num, int num2, int num3, long num4, long num5)
 		{
 			if (num == 0)
@@ -1851,16 +1269,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return (JSGFParserTokenManager.jjbitVec3[num2] & num4) != 0L;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			23,
-			171,
-			146,
-			109,
-			98
-		})]
 		private static bool jjCanMove_0(int num, int num2, int num3, long num4, long num5)
 		{
 			if (num == 0)
@@ -1869,20 +1277,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return (JSGFParserTokenManager.jjbitVec0[num2] & num4) != 0L;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			118,
-			188,
-			2,
-			97,
-			130,
-			177,
-			108,
-			170,
-			130
-		})]
 		
 		private int jjMoveStringLiteralDfa1_3(long num)
 		{
@@ -1904,76 +1298,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return 2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			139,
-			98,
-			103,
-			98,
-			105,
-			166,
-			124,
-			102,
-			141,
-			174,
-			191,
-			11,
-			141,
-			101,
-			99,
-			140,
-			141,
-			101,
-			131,
-			109,
-			191,
-			3,
-			109,
-			101,
-			99,
-			106,
-			133,
-			114,
-			165,
-			111,
-			165,
-			106,
-			223,
-			0,
-			103,
-			101,
-			141,
-			176,
-			221,
-			99,
-			106,
-			162,
-			100,
-			165,
-			106,
-			102,
-			109,
-			112,
-			177,
-			221,
-			113,
-			98,
-			101,
-			99,
-			106,
-			162,
-			135,
-			136,
-			103,
-			103,
-			134,
-			101,
-			122,
-			98,
-			124
-		})]
 		
 		private int jjMoveNfa_1(int num, int num2)
 		{
@@ -2062,7 +1386,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					{
 						int[] array4 = this.jjstateSet;
 						num4 += -1;
-						object obj = array4[num4];
+						int obj = array4[num4];
 						if (obj == 0)
 						{
 							goto IL_1A4;
@@ -2094,7 +1418,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					{
 						int[] array5 = this.jjstateSet;
 						num4 += -1;
-						object obj2 = array5[num4];
+						int obj2 = array5[num4];
 						if (obj2 == 0)
 						{
 							goto IL_217;
@@ -2149,20 +1473,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return num2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			0,
-			188,
-			2,
-			97,
-			130,
-			177,
-			108,
-			170,
-			130
-		})]
 		
 		private int jjMoveStringLiteralDfa1_2(long num)
 		{
@@ -2184,16 +1494,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return 2;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			126,
-			104,
-			159,
-			17,
-			103
-		})]
 		
 		public virtual void SwitchTo(int lexState)
 		{
@@ -2206,29 +1506,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			this.curLexState = lexState;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			140,
-			137,
-			104,
-			136,
-			108,
-			110,
-			209,
-			110,
-			116,
-			108,
-			109,
-			108,
-			140,
-			142,
-			104,
-			104,
-			105,
-			136
-		})]
 		
 		protected internal virtual Token jjFillToken()
 		{
@@ -2266,32 +1543,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			token.endColumn = endColumn;
 			return token;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			71,
-			191,
-			160,
-			104,
-			138,
-			138,
-			138,
-			138,
-			139,
-			104,
-			141,
-			138,
-			138,
-			138,
-			138,
-			141,
-			138,
-			138,
-			141,
-			141,
-			141,
-			138
-		})]
 		
 		private int jjMoveStringLiteralDfa0_0()
 		{
@@ -2367,21 +1618,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return this.jjMoveNfa_0(3, 0);
 		}
-
-		
 		
 		private int jjMoveStringLiteralDfa0_1()
 		{
 			return this.jjMoveNfa_1(4, 0);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			246,
-			177,
-			141
-		})]
 		
 		private int jjMoveStringLiteralDfa0_2()
 		{
@@ -2391,14 +1632,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return 1;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			108,
-			177,
-			141
-		})]
 		
 		private int jjMoveStringLiteralDfa0_3()
 		{
@@ -2408,24 +1641,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			return 1;
 		}
-
 		internal virtual void SkipLexicalActions(Token token)
 		{
 			int num = this.jjmatchedKind;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			164,
-			64,
-			127,
-			1,
-			176,
-			125,
-			103,
-			108,
-			194
-		})]
 		
 		internal virtual void MoreLexicalActions()
 		{
@@ -2441,32 +1660,15 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.input_stream.backup(1);
 			}
 		}
-
 		public virtual void setDebugStream(PrintStream ds)
 		{
 			this.debugStream = ds;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			99,
-			105,
-			103
-		})]
 		
 		public JSGFParserTokenManager(JavaCharStream stream, int lexState) : this(stream)
 		{
 			this.SwitchTo(lexState);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			120,
-			103,
-			103
-		})]
 		
 		public virtual void ReInit(JavaCharStream stream, int lexState)
 		{
@@ -2474,51 +1676,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.SwitchTo(lexState);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			204,
-			191,
-			1,
-			191,
-			0,
-			191,
-			22,
-			191,
-			7,
-			191,
-			0,
-			191,
-			4,
-			191,
-			0,
-			255,
-			7,
-			162,
-			46,
-			255,
-			160,
-			219,
-			103,
-			255,
-			160,
-			180,
-			70,
-			255,
-			12,
-			71,
-			223,
-			160,
-			108,
-			183,
-			180,
-			180
-		})]
-		static JSGFParserTokenManager()
-		{
-		}
-
-		
 		public static string[] jjstrLiteralImages
 		{
 			
@@ -2527,7 +1684,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				return JSGFParserTokenManager.__jjstrLiteralImages;
 			}
 		}
-
 		
 		public static string[] lexStateNames
 		{
@@ -2537,7 +1693,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				return JSGFParserTokenManager.__lexStateNames;
 			}
 		}
-
 		
 		public static int[] jjnewLexState
 		{
@@ -2549,7 +1704,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 		}
 
 		public PrintStream debugStream;
-
 		
 		internal static long[] jjbitVec0 = new long[]
 		{
@@ -2558,7 +1712,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			-1L,
 			-1L
 		};
-
 		
 		internal static long[] jjbitVec2 = new long[]
 		{
@@ -2567,17 +1720,15 @@ namespace edu.cmu.sphinx.jsgf.parser
 			-1L,
 			-1L
 		};
-
 		
 		internal static long[] jjbitVec3 = new long[]
 		{
 			2301339413881290750L,
 			-16384L,
-			(long)((ulong)-1),
+			unchecked((long)(unchecked((ulong)-1))),
 			432345564227567616L
 		};
 
-		
 		internal static long[] jjbitVec4 = new long[]
 		{
 			0L,
@@ -2586,7 +1737,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			-36028797027352577L
 		};
 
-		
 		internal static long[] jjbitVec5 = new long[]
 		{
 			0L,
@@ -2594,7 +1744,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			-1L,
 			-1L
 		};
-
 		
 		internal static long[] jjbitVec6 = new long[]
 		{
@@ -2604,7 +1753,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			0L
 		};
 
-		
 		internal static long[] jjbitVec7 = new long[]
 		{
 			-1L,
@@ -2612,7 +1760,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			0L,
 			0L
 		};
-
 		
 		internal static long[] jjbitVec8 = new long[]
 		{
@@ -2622,7 +1769,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			0L
 		};
 
-		
 		internal static int[] jjnextStates = new int[]
 		{
 			20,
@@ -2775,25 +1921,21 @@ namespace edu.cmu.sphinx.jsgf.parser
 			-1,
 			-1
 		};
-
 		
 		internal static long[] jjtoToken = new long[]
 		{
 			1099460632577L
 		};
 
-		
 		internal static long[] jjtoSkip = new long[]
 		{
 			(long)((ulong)3646)
 		};
-
 		
 		internal static long[] jjtoSpecial = new long[]
 		{
 			(long)((ulong)3584)
 		};
-
 		
 		internal static long[] jjtoMore = new long[]
 		{
@@ -2801,13 +1943,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 		};
 
 		protected internal JavaCharStream input_stream;
-
 		
 		private int[] jjrounds;
-
 		
 		private int[] jjstateSet;
-
 		
 		private StringBuilder jjimage;
 

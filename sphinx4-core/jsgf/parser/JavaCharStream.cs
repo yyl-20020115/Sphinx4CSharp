@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using IKVM.Runtime;
 using java.io;
 using java.lang;
 
@@ -9,14 +6,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 {
 	public class JavaCharStream : java.lang.Object
 	{
-		[LineNumberTable(new byte[]
-		{
-			161,
-			4,
-			110,
-			118,
-			115
-		})]
 		public virtual void backup(int amount)
 		{
 			this.inBuf += amount;
@@ -28,30 +17,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.bufpos += this.bufsize;
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			87,
-			109,
-			178,
-			191,
-			9,
-			107,
-			171,
-			127,
-			1,
-			129,
-			97,
-			136,
-			110,
-			201,
-			115,
-			147
-		})]
 		
 		protected internal virtual void FillBuff()
 		{
@@ -76,12 +41,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 = ex;
 				goto IL_7A;
 			}
 			return;
 			IL_7A:
-			IOException ex3 = ex2;
 			if (this.bufpos != 0)
 			{
 				this.bufpos--;
@@ -92,71 +56,8 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.bufline[this.bufpos] = this.line;
 				this.bufcolumn[this.bufpos] = this.column;
 			}
-			throw Throwable.__<unmap>(ex3);
+			throw ex2;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			141,
-			137,
-			142,
-			123,
-			135,
-			238,
-			69,
-			123,
-			134,
-			159,
-			6,
-			135,
-			195,
-			123,
-			198,
-			159,
-			3,
-			135,
-			140,
-			118,
-			159,
-			2,
-			162,
-			104,
-			241,
-			74,
-			226,
-			57,
-			161,
-			101,
-			138,
-			163,
-			103,
-			235,
-			70,
-			108,
-			144,
-			118,
-			110,
-			110,
-			143,
-			249,
-			70,
-			226,
-			60,
-			129,
-			223,
-			42,
-			101,
-			162,
-			106,
-			227,
-			69,
-			103
-		})]
 		
 		public virtual char readChar()
 		{
@@ -281,59 +182,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return (char)num5;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			120,
-			98,
-			114,
-			114,
-			210,
-			134,
-			127,
-			1,
-			127,
-			1,
-			135,
-			127,
-			1,
-			127,
-			1,
-			135,
-			127,
-			1,
-			127,
-			1,
-			135,
-			223,
-			0,
-			127,
-			1,
-			135,
-			127,
-			1,
-			135,
-			127,
-			1,
-			135,
-			255,
-			8,
-			70,
-			226,
-			61,
-			130,
-			178,
-			127,
-			3,
-			103
-		})]
-		
 		protected internal virtual void ExpandBuff(bool wrapAround)
 		{
 			char[] array = new char[this.bufsize + 2048];
 			int[] array2 = new int[this.bufsize + 2048];
 			int[] array3 = new int[this.bufsize + 2048];
-			Exception ex2;
 			try
 			{
 				if (wrapAround)
@@ -360,39 +213,18 @@ namespace edu.cmu.sphinx.jsgf.parser
 					this.bufpos -= this.tokenBegin;
 				}
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-				goto IL_1CA;
+				throw new Error(Throwable.instancehelper_getMessage(ex), ex);
 			}
 			int num = this.bufsize + 2048;
 			int num2 = num;
 			this.bufsize = num;
 			this.available = num2;
 			this.tokenBegin = 0;
-			return;
-			IL_1CA:
-			Exception ex3 = ex2;
-			string text = Throwable.instancehelper_getMessage(ex3);
-			
-			throw new Error(text);
+
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			160,
-			81,
-			142,
-			141,
-			103,
-			174,
-			137,
-			110,
-			110,
-			116,
-			137,
-			108
-		})]
 		
 		protected internal virtual void AdjustBuffSize()
 		{
@@ -421,17 +253,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.available = this.tokenBegin;
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			118,
-			123,
-			134
-		})]
 		
 		protected internal virtual char ReadByte()
 		{
@@ -445,34 +266,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return this.nextCharBuf[this.nextCharInd];
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			89,
-			162,
-			142,
-			136,
-			103,
-			155,
-			136,
-			103,
-			133,
-			169,
-			185,
-			191,
-			0,
-			103,
-			130,
-			103,
-			130,
-			110,
-			127,
-			11,
-			226,
-			69,
-			115,
-			115
-		})]
 		protected internal virtual void UpdateLineColumn(char c)
 		{
 			this.column++;
@@ -523,37 +316,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.bufline[this.bufpos] = this.line;
 			this.bufcolumn[this.bufpos] = this.column;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			138,
-			66,
-			191,
-			160,
-			136,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			130,
-			195,
-			163,
-			163,
-			163,
-			163,
-			163,
-			163
-		})]
 		
 		internal static int hexval(char c)
 		{
@@ -601,36 +363,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			
 			throw new IOException();
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			11,
-			232,
-			158,
-			193,
-			231,
-			71,
-			103,
-			135,
-			103,
-			231,
-			70,
-			103,
-			103,
-			103,
-			231,
-			161,
-			44,
-			103,
-			103,
-			137,
-			115,
-			109,
-			109,
-			109,
-			112
-		})]
 		
 		public JavaCharStream(Reader dstream, int startline, int startcolumn, int buffersize)
 		{
@@ -654,23 +386,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.nextCharBuf = new char[4096];
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			37,
-			103,
-			103,
-			137,
-			147,
-			115,
-			109,
-			109,
-			109,
-			144,
-			114,
-			125,
-			114
-		})]
 		public virtual void ReInit(Reader dstream, int startline, int startcolumn, int buffersize)
 		{
 			this.inputStream = dstream;
@@ -701,56 +416,20 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.bufpos = num;
 			this.nextCharInd = num4;
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.UnsupportedEncodingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			68,
-			125
-		})]
 		
 		public JavaCharStream(InputStream dstream, string encoding, int startline, int startcolumn, int buffersize) : this((encoding != null) ? new InputStreamReader(dstream, encoding) : new InputStreamReader(dstream), startline, startcolumn, buffersize)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			74,
-			115
-		})]
 		
 		public JavaCharStream(InputStream dstream, int startline, int startcolumn, int buffersize) : this(new InputStreamReader(dstream), startline, startcolumn, 4096)
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.UnsupportedEncodingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			102,
-			125
-		})]
 		
 		public virtual void ReInit(InputStream dstream, string encoding, int startline, int startcolumn, int buffersize)
 		{
 			this.ReInit((encoding != null) ? new InputStreamReader(dstream, encoding) : new InputStreamReader(dstream), startline, startcolumn, buffersize);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			108,
-			112
-		})]
-		
 		public virtual void ReInit(InputStream dstream, int startline, int startcolumn, int buffersize)
 		{
 			this.ReInit(new InputStreamReader(dstream), startline, startcolumn, buffersize);
@@ -766,23 +445,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return this.tabSize;
 		}
 
-		[Throws(new string[]
-		{
-			"java.io.IOException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			126,
-			137,
-			142,
-			123,
-			135,
-			108,
-			174,
-			103,
-			135
-		})]
-		
 		public virtual char BeginToken()
 		{
 			if (this.inBuf > 0)
@@ -803,216 +465,89 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return this.readChar();
 		}
 
-		[Obsolete]
-		
-		[Deprecated(new object[]
-		{
-			64,
-			"Ljava/lang/Deprecated;"
-		})]
 		public virtual int getColumn()
 		{
 			return this.bufcolumn[this.bufpos];
 		}
 
-		[Obsolete]
-		
-		[Deprecated(new object[]
-		{
-			64,
-			"Ljava/lang/Deprecated;"
-		})]
 		public virtual int getLine()
 		{
 			return this.bufline[this.bufpos];
 		}
-
 		
 		public virtual int getEndColumn()
 		{
 			return this.bufcolumn[this.bufpos];
 		}
 
-		
 		public virtual int getEndLine()
 		{
 			return this.bufline[this.bufpos];
 		}
 
-		
 		public virtual int getBeginColumn()
 		{
 			return this.bufcolumn[this.tokenBegin];
 		}
 
-		
 		public virtual int getBeginLine()
 		{
 			return this.bufline[this.tokenBegin];
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			26,
-			110
-		})]
 		
 		public JavaCharStream(Reader dstream, int startline, int startcolumn) : this(dstream, startline, startcolumn, 4096)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			31,
-			110
-		})]
 		
 		public JavaCharStream(Reader dstream) : this(dstream, 1, 1, 4096)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			57,
-			110
-		})]
 		
 		public virtual void ReInit(Reader dstream, int startline, int startcolumn)
 		{
 			this.ReInit(dstream, startline, startcolumn, 4096);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			62,
-			110
-		})]
 		
 		public virtual void ReInit(Reader dstream)
 		{
 			this.ReInit(dstream, 1, 1, 4096);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.UnsupportedEncodingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			80,
-			112
-		})]
 		
 		public JavaCharStream(InputStream dstream, string encoding, int startline, int startcolumn) : this(dstream, encoding, startline, startcolumn, 4096)
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			86,
-			110
-		})]
 		
 		public JavaCharStream(InputStream dstream, int startline, int startcolumn) : this(dstream, startline, startcolumn, 4096)
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.UnsupportedEncodingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			91,
-			111
-		})]
 		
 		public JavaCharStream(InputStream dstream, string encoding) : this(dstream, encoding, 1, 1, 4096)
 		{
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			96,
-			110
-		})]
-		
 		public JavaCharStream(InputStream dstream) : this(dstream, 1, 1, 4096)
 		{
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.UnsupportedEncodingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			113,
-			112
-		})]
 		
 		public virtual void ReInit(InputStream dstream, string encoding, int startline, int startcolumn)
 		{
 			this.ReInit(dstream, encoding, startline, startcolumn, 4096);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			118,
-			110
-		})]
 		
 		public virtual void ReInit(InputStream dstream, int startline, int startcolumn)
 		{
 			this.ReInit(dstream, startline, startcolumn, 4096);
 		}
-
-		[Throws(new string[]
-		{
-			"java.io.UnsupportedEncodingException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			122,
-			111
-		})]
 		
 		public virtual void ReInit(InputStream dstream, string encoding)
 		{
 			this.ReInit(dstream, encoding, 1, 1, 4096);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			127,
-			110
-		})]
 		
 		public virtual void ReInit(InputStream dstream)
 		{
 			this.ReInit(dstream, 1, 1, 4096);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			132,
-			110,
-			159,
-			2
-		})]
 		
 		public virtual string GetImage()
 		{
@@ -1023,18 +558,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			return new StringBuilder().append(java.lang.String.newhelper(this.buffer, this.tokenBegin, this.bufsize - this.tokenBegin)).append(java.lang.String.newhelper(this.buffer, 0, this.bufpos + 1)).toString();
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			141,
-			135,
-			107,
-			186,
-			159,
-			9,
-			191,
-			0
-		})]
 		public virtual char[] GetSuffix(int len)
 		{
 			char[] array = new char[len];
@@ -1058,34 +581,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.bufcolumn = null;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			165,
-			167,
-			142,
-			217,
-			190,
-			102,
-			133,
-			159,
-			35,
-			105,
-			119,
-			108,
-			100,
-			169,
-			135,
-			110,
-			140,
-			139,
-			127,
-			25,
-			144,
-			206,
-			110,
-			110
-		})]
 		public virtual void adjustBeginLineColumn(int newLine, int newCol)
 		{
 			int num = this.tokenBegin;
@@ -1106,7 +601,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				int[] array = this.bufline;
 				int num5 = num;
 				int num6 = this.bufsize;
-				object obj = array[num3 = ((num6 != -1) ? (num5 % num6) : 0)];
+				int obj = array[num3 = ((num6 != -1) ? (num5 % num6) : 0)];
 				int[] array2 = this.bufline;
 				num++;
 				int num7 = num;
@@ -1141,7 +636,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					int[] array4 = this.bufline;
 					int num14 = num;
 					int num15 = this.bufsize;
-					object obj2 = array4[num3 = ((num15 != -1) ? (num14 % num15) : 0)];
+					int obj2 = array4[num3 = ((num15 != -1) ? (num14 % num15) : 0)];
 					int[] array5 = this.bufline;
 					num++;
 					int num16 = num;
