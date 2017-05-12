@@ -1,6 +1,4 @@
 ﻿using System;
-
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -238,7 +236,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			java.lang.System.@out.println(new StringBuilder().append(name).append(':').toString());
 			Collection registeredProperties = propertySheet.getRegisteredProperties();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.@in));
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(java.lang.System.@in));
 			Iterator iterator = registeredProperties.iterator();
 			while (iterator.hasNext())
 			{
@@ -339,7 +337,7 @@ namespace edu.cmu.sphinx.util.props
 				propertySheet.setBoolean(propName, java.lang.Boolean.valueOf(java.lang.Boolean.parseBoolean(propValue)));
 				break;
 			case 4:
-				propertySheet.setDouble(propName, Double.parseDouble(propValue));
+				propertySheet.setDouble(propName, java.lang.Double.parseDouble(propValue));
 				break;
 			case 5:
 				propertySheet.setInt(propName, Integer.parseInt(propValue));
@@ -392,21 +390,16 @@ namespace edu.cmu.sphinx.util.props
 		public static URL getURL(File file)
 		{
 			URL result;
-			MalformedURLException ex2;
 			try
 			{
 				result = file.toURI().toURL();
 			}
 			catch (MalformedURLException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<MalformedURLException>(ex, 1);
-				goto IL_1D;
+				Throwable.instancehelper_printStackTrace(ex);
+				return null;
 			}
 			return result;
-			IL_1D:
-			MalformedURLException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
-			return null;
 		}
 		
 		internal static void applySystemProperties(Map map, Map map2)
@@ -533,8 +526,7 @@ namespace edu.cmu.sphinx.util.props
 		public static string stripGlobalSymbol(string symbol)
 		{
 			Pattern pattern = ConfigurationManagerUtils.globalSymbolPattern;
-			CharSequence charSequence;
-			charSequence.__ref = symbol;
+			CharSequence charSequence = CharSequence.Cast(symbol);
 			Matcher matcher = pattern.matcher(charSequence);
 			if (matcher.matches())
 			{
@@ -659,8 +651,7 @@ namespace edu.cmu.sphinx.util.props
 				string text = (string)entry.getKey();
 				Pattern pattern2 = pattern;
 				object _ref = text;
-				CharSequence charSequence;
-				charSequence.__ref = _ref;
+				CharSequence charSequence = CharSequence.Cast(_ref);
 				Matcher matcher = pattern2.matcher(charSequence);
 				text = ((!matcher.matches()) ? text : matcher.group(1));
 				stringBuilder.append("\n\t<property name=\"").append(text).append("\" value=\"").append((string)entry.getValue()).append("\"/>");
@@ -752,7 +743,6 @@ namespace edu.cmu.sphinx.util.props
 			return true;
 		}
 
-				
 		public static Map fixDuplicateNames(ConfigurationManager baseCM, ConfigurationManager subCM)
 		{
 			HashMap hashMap = new HashMap();
@@ -773,10 +763,9 @@ namespace edu.cmu.sphinx.util.props
 			return hashMap;
 		}
 
-				
 		public static bool isSubClass(Class aClass, Class possibleSuperclass)
 		{
-			while (aClass != null && !java.lang.Object.instancehelper_equals(aClass, ClassLiteral<Object>.Value))
+			while (aClass != null && !java.lang.Object.instancehelper_equals(aClass, ClassLiteral<java.lang.Object>.Value))
 			{
 				aClass = aClass.getSuperclass();
 				if (aClass != null && java.lang.Object.instancehelper_equals(aClass, possibleSuperclass))
@@ -816,7 +805,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return ConfigurationManagerUtils.__callerID;
 		}
-
 		
 		private static Pattern globalSymbolPattern;
 
@@ -824,9 +812,7 @@ namespace edu.cmu.sphinx.util.props
 
 		public const string CM_FILE_SUFFIX = ".sxl";
 
-		
 		internal static Pattern jarPattern;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<ConfigurationManagerUtils>.Value.desiredAssertionStatus();
 

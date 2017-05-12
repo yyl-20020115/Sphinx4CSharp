@@ -13,33 +13,12 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.util.props
 {
-	[Implements(new string[]
-	{
-		"java.lang.Cloneable"
-	})]
 	public class PropertySheet : java.lang.Object, Cloneable.__Interface
 	{
-
 		public virtual string getInstanceName()
 		{
 			return this.instanceName;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			196,
-			127,
-			12,
-			104,
-			159,
-			11,
-			167,
-			113,
-			99,
-			159,
-			2
-		})]
 		
 		public virtual Logger getLogger()
 		{
@@ -60,36 +39,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return logger;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			167,
-			109,
-			130,
-			108,
-			135,
-			142,
-			109,
-			168,
-			109,
-			116,
-			100,
-			138,
-			223,
-			29,
-			108,
-			151,
-			99,
-			110,
-			162,
-			137,
-			110
-		})]
 		
 		public virtual Configurable getComponent(string name)
 		{
@@ -130,24 +79,6 @@ namespace edu.cmu.sphinx.util.props
 			this.propValues.put(name, configurable);
 			return configurable;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			138,
-			109,
-			140,
-			110,
-			152,
-			173,
-			104,
-			137,
-			141
-		})]
 		
 		public virtual java.lang.Boolean getBoolean(string name)
 		{
@@ -169,55 +100,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return result;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.InternalConfigurationException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			29,
-			141,
-			146,
-			127,
-			16,
-			103,
-			245,
-			69,
-			99,
-			97,
-			235,
-			70,
-			134,
-			127,
-			0,
-			110,
-			130,
-			142,
-			114,
-			143,
-			135,
-			125,
-			148,
-			100,
-			108,
-			104,
-			223,
-			25,
-			133,
-			175,
-			114,
-			102,
-			125,
-			106,
-			145,
-			127,
-			9,
-			154,
-			101
-		})]
 		
 		public virtual List getComponentList(string name, Class tclass)
 		{
@@ -283,34 +165,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return arrayList;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			106,
-			109,
-			140,
-			113,
-			145,
-			104,
-			99,
-			119,
-			99,
-			151,
-			184,
-			109,
-			158,
-			104,
-			102,
-			159,
-			19,
-			122,
-			159,
-			26
-		})]
 		
 		public virtual int getInt(string name)
 		{
@@ -357,39 +211,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return integer.intValue();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			160,
-			93,
-			109,
-			140,
-			113,
-			149,
-			104,
-			99,
-			119,
-			99,
-			151,
-			184,
-			173,
-			104,
-			106,
-			104,
-			148,
-			142,
-			104,
-			102,
-			159,
-			19,
-			122,
-			159,
-			26
-		})]
 		
 		public virtual double getDouble(string name)
 		{
@@ -448,39 +269,11 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return @double.doubleValue();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		
 		
 		public virtual float getFloat(string name)
 		{
-			return Double.valueOf(this.getDouble(name)).floatValue();
+			return java.lang.Double.valueOf(this.getDouble(name)).floatValue();
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			67,
-			109,
-			140,
-			110,
-			151,
-			104,
-			99,
-			151,
-			185,
-			168,
-			109,
-			115,
-			159,
-			21
-		})]
 		
 		public virtual string getString(string name)
 		{
@@ -509,28 +302,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return text3;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			99,
-			102,
-			136,
-			102,
-			159,
-			1,
-			105,
-			212,
-			226,
-			61,
-			97,
-			255,
-			7,
-			59,
-			235,
-			74
-		})]
 		
 		public virtual List getResourceList(string name)
 		{
@@ -563,48 +334,12 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return arrayList;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.InternalConfigurationException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			10,
-			141
-		})]
 		
 		public virtual List getStringList(string name)
 		{
 			this.getProperty(name, ClassLiteral<S4StringList>.Value);
 			return ConfigurationManagerUtils.toStringList(this.propValues.get(name));
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			159,
-			187,
-			232,
-			41,
-			107,
-			235,
-			71,
-			235,
-			80,
-			103,
-			103,
-			135,
-			103,
-			167,
-			110,
-			146,
-			127,
-			6,
-			118
-		})]
 		
 		public PropertySheet(Class confClass, string name, ConfigurationManager cm, RawPropertyData rpd)
 		{
@@ -630,35 +365,11 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return this.owner != null;
 		}
-
 		
 		public virtual Class getConfigurableClass()
 		{
 			return this.ownerClass;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			139,
-			136,
-			103,
-			104,
-			103,
-			181,
-			123,
-			255,
-			11,
-			70,
-			226,
-			60,
-			97,
-			127,
-			19,
-			98,
-			191,
-			20
-		})]
 		
 		public virtual Configurable getOwner()
 		{
@@ -712,14 +423,6 @@ namespace edu.cmu.sphinx.util.props
 			
 			throw new InternalConfigurationException(ex8, text7, text8, text9);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			182,
-			114,
-			103
-		})]
 		
 		public PropertySheet(Configurable configurable, string name, RawPropertyData rpd, ConfigurationManager ConfigurationManager) : this(java.lang.Object.instancehelper_getClass(configurable), name, ConfigurationManager, rpd)
 		{
@@ -730,17 +433,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			this.cm = cm;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			228,
-			107,
-			130,
-			103,
-			125,
-			162
-		})]
 		
 		public override bool equals(object obj)
 		{
@@ -751,29 +443,6 @@ namespace edu.cmu.sphinx.util.props
 			PropertySheet propertySheet = (PropertySheet)obj;
 			return this.rawProps.keySet().equals(propertySheet.rawProps.keySet());
 		}
-
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			252,
-			140,
-			113,
-			145,
-			177,
-			127,
-			1,
-			110,
-			126,
-			142,
-			130,
-			108,
-			103,
-			140
-		})]
 		
 		protected internal virtual PropertySheet clone()
 		{
@@ -796,19 +465,6 @@ namespace edu.cmu.sphinx.util.props
 			propertySheet.instanceName = this.instanceName;
 			return propertySheet;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			163,
-			24,
-			127,
-			6,
-			109,
-			130,
-			110,
-			98,
-			130
-		})]
 		
 		public virtual bool validate()
 		{
@@ -825,66 +481,28 @@ namespace edu.cmu.sphinx.util.props
 				}
 			}
 			return true;
-		}
-
-		
-		
+		}		
 		
 		public virtual Collection getRegisteredProperties()
 		{
 			return Collections.unmodifiableCollection(this.registeredProperties.keySet());
 		}
-
-		
 		
 		public virtual object getRaw(string name)
 		{
 			return this.rawProps.get(name);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			115,
-			110,
-			110
-		})]
 		
 		internal virtual void setRaw(string text, object obj)
 		{
 			this.rawProps.put(text, obj);
 			this.propValues.put(text, null);
 		}
-
-		
 		
 		public virtual object getRawNoReplacement(string name)
 		{
 			return this.rawProps.get(name);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			149,
-			114,
-			99,
-			191,
-			18,
-			103,
-			104,
-			102,
-			104,
-			102,
-			104,
-			102,
-			104,
-			102,
-			104,
-			102,
-			104,
-			134
-		})]
 		
 		public virtual PropertyType getType(string propName)
 		{
@@ -935,24 +553,6 @@ namespace edu.cmu.sphinx.util.props
 		{
 			return this.cm;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			39,
-			110,
-			191,
-			20,
-			119,
-			104,
-			159,
-			20,
-			105
-		})]
 		
 		public virtual void setBoolean(string name, java.lang.Boolean value)
 		{
@@ -973,24 +573,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			this.applyConfigurationChange(name, value, value);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			20,
-			110,
-			191,
-			20,
-			119,
-			104,
-			159,
-			20,
-			117
-		})]
 		
 		public virtual void setDouble(string name, double value)
 		{
@@ -1011,24 +593,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			this.applyConfigurationChange(name, Double.valueOf(value), Double.valueOf(value));
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			0,
-			110,
-			191,
-			20,
-			119,
-			104,
-			159,
-			20,
-			115
-		})]
 		
 		public virtual void setInt(string name, int value)
 		{
@@ -1049,24 +613,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			this.applyConfigurationChange(name, Integer.valueOf(value), Integer.valueOf(value));
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			161,
-			236,
-			110,
-			191,
-			20,
-			119,
-			104,
-			159,
-			20,
-			105
-		})]
 		
 		public virtual void setString(string name, string value)
 		{
@@ -1087,24 +633,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			this.applyConfigurationChange(name, value, value);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			59,
-			110,
-			191,
-			20,
-			119,
-			104,
-			191,
-			20,
-			105
-		})]
 		
 		public virtual void setComponent(string name, string cmName, Configurable value)
 		{
@@ -1125,27 +653,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			this.applyConfigurationChange(name, cmName, value);
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			81,
-			110,
-			191,
-			20,
-			119,
-			104,
-			159,
-			20,
-			110,
-			142,
-			105
-		})]
 		
 		public virtual void setComponentList(string name, List valueNames, List value)
 		{
@@ -1168,30 +675,6 @@ namespace edu.cmu.sphinx.util.props
 			this.propValues.put(name, value);
 			this.applyConfigurationChange(name, valueNames, value);
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			199,
-			167,
-			104,
-			240,
-			69,
-			102,
-			108,
-			159,
-			4,
-			189,
-			191,
-			40,
-			120,
-			189,
-			2,
-			98,
-			135,
-			101
-		})]
 		
 		internal virtual void setConfigurableClass(Class @class)
 		{
@@ -1232,38 +715,6 @@ namespace edu.cmu.sphinx.util.props
 				Throwable.instancehelper_printStackTrace(ex3);
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			163,
-			42,
-			140,
-			102,
-			118,
-			137,
-			124,
-			142,
-			124,
-			108,
-			105,
-			127,
-			1,
-			127,
-			1,
-			127,
-			1,
-			159,
-			11,
-			235,
-			56,
-			235,
-			61,
-			235,
-			61,
-			235,
-			84
-		})]
 		
 		private static Map parseClass(Class @class)
 		{
@@ -1320,29 +771,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return hashMap;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			40,
-			110,
-			191,
-			23,
-			146,
-			99,
-			223,
-			18,
-			191,
-			5,
-			2,
-			97,
-			191,
-			40
-		})]
 		
 		public virtual S4PropWrapper getProperty(string name, Class propertyClass)
 		{
@@ -1385,38 +813,12 @@ namespace edu.cmu.sphinx.util.props
 			
 			throw new InternalConfigurationException(ex5, text5, name, text6);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			92,
-			109
-		})]
 		
 		private string flattenProp(string text)
 		{
 			object obj = this.propValues.get(text);
 			return (!(obj is string)) ? null : ((string)obj);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			205,
-			135,
-			117,
-			183,
-			117,
-			223,
-			18,
-			109,
-			104,
-			191,
-			24,
-			194,
-			103,
-			99,
-			183
-		})]
 		
 		private Configurable getComponentFromAnnotation(string text, S4Component s4Component)
 		{
@@ -1459,34 +861,6 @@ namespace edu.cmu.sphinx.util.props
 				return instance;
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			165,
-			102,
-			127,
-			4,
-			151,
-			99,
-			104,
-			127,
-			6,
-			104,
-			127,
-			16,
-			104,
-			127,
-			8,
-			104,
-			191,
-			10,
-			127,
-			1,
-			104,
-			101
-		})]
 		
 		public virtual Collection getUndefinedMandatoryProps()
 		{
@@ -1520,18 +894,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			19,
-			102,
-			151,
-			110,
-			142,
-			110,
-			110,
-			142
-		})]
 		
 		private void registerProperty(string text, S4PropWrapper s4PropWrapper)
 		{
@@ -1552,22 +914,6 @@ namespace edu.cmu.sphinx.util.props
 				this.rawProps.put(text, null);
 			}
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		[LineNumberTable(new byte[]
-		{
-			162,
-			97,
-			110,
-			148,
-			104,
-			146,
-			104,
-			108
-		})]
 		
 		private void applyConfigurationChange(string text, object obj, object obj2)
 		{
@@ -1582,27 +928,6 @@ namespace edu.cmu.sphinx.util.props
 				this.owner.newProperties(this);
 			}
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			238,
-			130,
-			142,
-			124,
-			215,
-			226,
-			61,
-			97,
-			115,
-			103,
-			130,
-			124,
-			103,
-			104,
-			162
-		})]
 		
 		public virtual Class getComponentClass(string propName)
 		{
@@ -1634,13 +959,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return result;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			241,
-			119
-		})]
 		
 		public override int hashCode()
 		{
@@ -1652,31 +970,11 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return 1;
 		}
-
-		
 		
 		public override string toString()
 		{
 			return new StringBuilder().append(this.getInstanceName()).append("; isInstantiated=").append(this.isInstanciated()).append("; props=").append(this.rawProps.keySet()).toString();
-		}
-
-		[Throws(new string[]
-		{
-			"java.lang.CloneNotSupportedException"
-		})]
-		
-		
-		
-		
-		protected internal virtual object <bridge>clone()
-		{
-			return this.clone();
-		}
-
-		
-		static PropertySheet()
-		{
-		}
+		}		
 
 		private static CallerID __GetCallerID()
 		{
@@ -1686,24 +984,19 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return PropertySheet.__callerID;
 		}
-
 		
 		public static implicit operator Cloneable(PropertySheet _ref)
 		{
-			Cloneable result;
-			result.__ref = _ref;
+			Cloneable result = Cloneable.Cast(_ref);
 			return result;
 		}
 
 		public const string COMP_LOG_LEVEL = "logLevel";
 
-		
 		private Map registeredProperties;
-
 		
 		private Map propValues;
 
-		
 		private Map rawProps;
 
 		private ConfigurationManager cm;
