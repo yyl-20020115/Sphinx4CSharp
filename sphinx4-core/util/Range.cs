@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.util
 {
-	public class Range : java.lang.Object
+	public class Range : Object
 	{
 		public virtual bool contains(int shift)
 		{
@@ -27,7 +27,7 @@ namespace edu.cmu.sphinx.util
 		
 		public override string toString()
 		{
-			return java.lang.String.format("[%d, %d]", new object[]
+			return String.format("[%d, %d]", new object[]
 			{
 				Integer.valueOf(this.start),
 				Integer.valueOf(this.end)

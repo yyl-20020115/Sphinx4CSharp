@@ -5,7 +5,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class RawReader : java.lang.Object
+	public class RawReader : Object
 	{
 		public RawReader()
 		{

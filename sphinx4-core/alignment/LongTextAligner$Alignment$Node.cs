@@ -29,7 +29,7 @@ namespace edu.cmu.sphinx.alignment
 
 		public bool hasMatch()
 		{
-			return java.lang.String.instancehelper_equals(this.getQueryWord(), this.getDatabaseWord());
+			return String.instancehelper_equals(this.getQueryWord(), this.getDatabaseWord());
 		}
 
 		public string getQueryWord()
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.alignment
 		{
 			if (this.isBoundary())
 			{
-				return java.lang.Math.max(this.queryIndex, this.databaseIndex);
+				return Math.max(this.queryIndex, this.databaseIndex);
 			}
 			return (!this.hasMatch()) ? 1 : 0;
 		}
@@ -98,7 +98,7 @@ namespace edu.cmu.sphinx.alignment
 
 		public override string toString()
 		{
-			return java.lang.String.format("[%d %d]", new object[]
+			return String.format("[%d %d]", new object[]
 			{
 				Integer.valueOf(this.queryIndex),
 				Integer.valueOf(this.databaseIndex)

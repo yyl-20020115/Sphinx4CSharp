@@ -48,7 +48,7 @@ namespace edu.cmu.sphinx.jsgf.rule
 		{
 			string text = JSGFRuleName.stripRuleName(ruleName);
 			this.fullRuleName = text;
-			int num = java.lang.String.instancehelper_lastIndexOf(text, 46);
+			int num = String.instancehelper_lastIndexOf(text, 46);
 			if (num < 0)
 			{
 				this.packageName = null;
@@ -57,18 +57,18 @@ namespace edu.cmu.sphinx.jsgf.rule
 			}
 			else
 			{
-				int num2 = java.lang.String.instancehelper_lastIndexOf(text, 46, num - 1);
+				int num2 = String.instancehelper_lastIndexOf(text, 46, num - 1);
 				if (num2 < 0)
 				{
 					this.packageName = null;
-					this.simpleGrammarName = java.lang.String.instancehelper_substring(text, 0, num);
-					this.simpleRuleName = java.lang.String.instancehelper_substring(text, num + 1);
+					this.simpleGrammarName = String.instancehelper_substring(text, 0, num);
+					this.simpleRuleName = String.instancehelper_substring(text, num + 1);
 				}
 				else
 				{
-					this.packageName = java.lang.String.instancehelper_substring(text, 0, num2);
-					this.simpleGrammarName = java.lang.String.instancehelper_substring(text, num2 + 1, num);
-					this.simpleRuleName = java.lang.String.instancehelper_substring(text, num + 1);
+					this.packageName = String.instancehelper_substring(text, 0, num2);
+					this.simpleGrammarName = String.instancehelper_substring(text, num2 + 1, num);
+					this.simpleRuleName = String.instancehelper_substring(text, num + 1);
 				}
 			}
 		}
@@ -80,15 +80,15 @@ namespace edu.cmu.sphinx.jsgf.rule
 				return false;
 			}
 			name = JSGFRuleName.stripRuleName(name);
-			if (java.lang.String.instancehelper_endsWith(name, ".*"))
+			if (String.instancehelper_endsWith(name, ".*"))
 			{
-				name = java.lang.String.instancehelper_substring(name, 0, java.lang.String.instancehelper_length(name) - 2);
+				name = String.instancehelper_substring(name, 0, String.instancehelper_length(name) - 2);
 			}
-			if (java.lang.String.instancehelper_length(name) == 0)
+			if (String.instancehelper_length(name) == 0)
 			{
 				return false;
 			}
-			if (java.lang.String.instancehelper_startsWith(name, ".") || java.lang.String.instancehelper_endsWith(name, ".") || java.lang.String.instancehelper_indexOf(name, "..") >= 0)
+			if (String.instancehelper_startsWith(name, ".") || String.instancehelper_endsWith(name, ".") || String.instancehelper_indexOf(name, "..") >= 0)
 			{
 				return false;
 			}
@@ -96,14 +96,14 @@ namespace edu.cmu.sphinx.jsgf.rule
 			while (stringTokenizer.hasMoreTokens())
 			{
 				string text = stringTokenizer.nextToken();
-				int num = java.lang.String.instancehelper_length(text);
+				int num = String.instancehelper_length(text);
 				if (num == 0)
 				{
 					return false;
 				}
 				for (int i = 0; i < num; i++)
 				{
-					if (!JSGFRuleName.isRuleNamePart(java.lang.String.instancehelper_charAt(text, i)))
+					if (!JSGFRuleName.isRuleNamePart(String.instancehelper_charAt(text, i)))
 					{
 						return false;
 					}
@@ -114,9 +114,9 @@ namespace edu.cmu.sphinx.jsgf.rule
 		
 		public static string stripRuleName(string name)
 		{
-			if (java.lang.String.instancehelper_startsWith(name, "<") && java.lang.String.instancehelper_endsWith(name, ">"))
+			if (String.instancehelper_startsWith(name, "<") && String.instancehelper_endsWith(name, ">"))
 			{
-				return java.lang.String.instancehelper_substring(name, 1, java.lang.String.instancehelper_length(name) - 1);
+				return String.instancehelper_substring(name, 1, String.instancehelper_length(name) - 1);
 			}
 			return name;
 		}

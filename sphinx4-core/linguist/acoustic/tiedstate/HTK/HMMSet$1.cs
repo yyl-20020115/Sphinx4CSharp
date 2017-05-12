@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	internal sealed class HMMSet_1 : java.lang.Object, Iterator
+	internal sealed class HMMSet_1 : Object, Iterator
 	{		
 		public SingleHMM next()
 		{
@@ -13,9 +14,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				int num2 = num;
 				this.cur = num + 1;
 				SingleHMM singleHMM = (SingleHMM)_hmms.get(num2);
-				if (java.lang.String.instancehelper_indexOf(singleHMM.getName(), 45) < 0)
+				if (String.instancehelper_indexOf(singleHMM.getName(), 45) < 0)
 				{
-					if (java.lang.String.instancehelper_indexOf(singleHMM.getName(), 43) < 0)
+					if (String.instancehelper_indexOf(singleHMM.getName(), 43) < 0)
 					{
 						return singleHMM;
 					}

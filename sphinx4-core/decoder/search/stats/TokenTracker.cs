@@ -158,7 +158,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 		private int utteranceSumStates;
 
-		internal sealed class TokenStats : java.lang.Object
+		internal sealed class TokenStats : Object
 		{			
 			internal TokenStats(TokenTracker tokenTracker)
 			{

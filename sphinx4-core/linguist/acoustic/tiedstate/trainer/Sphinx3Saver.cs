@@ -456,7 +456,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 					string text7 = senoneHMM.getPosition().toString();
 					printWriter.print(new StringBuilder().append(text7).append('\t').toString());
 					string text8 = (!unit.isFiller()) ? "n/a" : "filler";
-					if (!Sphinx3Saver.assertionsDisabled && !java.lang.String.instancehelper_equals(text8, "n/a"))
+					if (!Sphinx3Saver.assertionsDisabled && !String.instancehelper_equals(text8, "n/a"))
 					{
 						
 						throw new AssertionError();
@@ -578,7 +578,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			this.senonePool = loader.getSenonePool();
 			this.contextIndependentUnits = new LinkedHashMap();
 			this.checksum = "no";
-			this.doCheckSum = (this.checksum != null && java.lang.String.instancehelper_equals(this.checksum, "yes"));
+			this.doCheckSum = (this.checksum != null && String.instancehelper_equals(this.checksum, "yes"));
 			this.swap = false;
 		}
 

@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	public class ExtendedStreamTokenizer : java.lang.Object
+	public class ExtendedStreamTokenizer : Object
 	{		
 		public ExtendedStreamTokenizer(InputStream inputStream, bool eolIsSignificant) : this(new InputStreamReader(inputStream), eolIsSignificant)
 		{
@@ -31,7 +31,7 @@ namespace edu.cmu.sphinx.util
 		public virtual void expectString(string expecting)
 		{
 			string @string = this.getString();
-			if (!java.lang.String.instancehelper_equals(@string, expecting))
+			if (!String.instancehelper_equals(@string, expecting))
 			{
 				this.corrupt(new StringBuilder().append("error matching expected string '").append(expecting).append("' in line: '").append(@string).append('\'').toString());
 			}
@@ -48,7 +48,7 @@ namespace edu.cmu.sphinx.util
 			try
 			{
 				string @string = this.getString();
-				if (java.lang.String.instancehelper_equals(@string, "inf"))
+				if (String.instancehelper_equals(@string, "inf"))
 				{
 					result = float.PositiveInfinity;
 				}
@@ -174,13 +174,13 @@ namespace edu.cmu.sphinx.util
 			try
 			{
 				string @string = this.getString();
-				if (java.lang.String.instancehelper_equals(@string, "inf"))
+				if (String.instancehelper_equals(@string, "inf"))
 				{
 					result = double.PositiveInfinity;
 				}
 				else
 				{
-					result = java.lang.Double.parseDouble(@string);
+					result = Double.parseDouble(@string);
 				}
 			}
 			catch (NumberFormatException)
@@ -203,7 +203,7 @@ namespace edu.cmu.sphinx.util
 				{
 					result = defaultValue;
 				}
-				else if (java.lang.String.instancehelper_equals(@string, "inf"))
+				else if (String.instancehelper_equals(@string, "inf"))
 				{
 					result = float.PositiveInfinity;
 				}

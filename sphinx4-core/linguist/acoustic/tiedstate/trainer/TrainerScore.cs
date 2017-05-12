@@ -1,8 +1,9 @@
 ﻿using edu.cmu.sphinx.frontend;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
-	public class TrainerScore : java.lang.Object
+	public class TrainerScore : Object
 	{
 		public virtual float getScalingFactor()
 		{

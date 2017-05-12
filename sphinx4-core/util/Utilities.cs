@@ -18,18 +18,18 @@ namespace edu.cmu.sphinx.util
 				stringBuilder.append(text);
 				stringBuilder.append(' ');
 			}
-			return java.lang.String.instancehelper_trim(stringBuilder.toString());
+			return String.instancehelper_trim(stringBuilder.toString());
 		}
 
 		public static string pathJoin(string path1, string path2)
 		{
-			if (java.lang.String.instancehelper_length(path1) > 0 && java.lang.String.instancehelper_charAt(path1, java.lang.String.instancehelper_length(path1) - 1) == '/')
+			if (String.instancehelper_length(path1) > 0 && String.instancehelper_charAt(path1, String.instancehelper_length(path1) - 1) == '/')
 			{
-				path1 = java.lang.String.instancehelper_substring(path1, 0, java.lang.String.instancehelper_length(path1) - 1);
+				path1 = String.instancehelper_substring(path1, 0, String.instancehelper_length(path1) - 1);
 			}
-			if (java.lang.String.instancehelper_length(path2) > 0 && java.lang.String.instancehelper_charAt(path2, 0) == '/')
+			if (String.instancehelper_length(path2) > 0 && String.instancehelper_charAt(path2, 0) == '/')
 			{
-				path2 = java.lang.String.instancehelper_substring(path2, 1);
+				path2 = String.instancehelper_substring(path2, 1);
 			}
 			return new StringBuilder().append(path1).append("/").append(path2).toString();
 		}
@@ -45,10 +45,10 @@ namespace edu.cmu.sphinx.util
 			stringBuilder.append("E00");
 			decimalFormat.applyPattern(stringBuilder.toString());
 			string text = decimalFormat.format(number);
-			int num = java.lang.String.instancehelper_indexOf(text, 69);
-			if (java.lang.String.instancehelper_charAt(text, num + 1) != '-')
+			int num = String.instancehelper_indexOf(text, 69);
+			if (String.instancehelper_charAt(text, num + 1) != '-')
 			{
-				return new StringBuilder().append(java.lang.String.instancehelper_substring(text, 0, num + 1)).append('+').append(java.lang.String.instancehelper_substring(text, num + 1)).toString();
+				return new StringBuilder().append(String.instancehelper_substring(text, 0, num + 1)).append('+').append(String.instancehelper_substring(text, num + 1)).toString();
 			}
 			return text;
 		}
@@ -63,6 +63,7 @@ namespace edu.cmu.sphinx.util
 			FloatConverter floatConverter = new FloatConverter();
 			return FloatConverter.ToFloat(Utilities.readLittleEndianInt(dataStream), ref floatConverter);
 		}
+
 		public static void floorData(float[] data, float floor)
 		{
 			for (int i = 0; i < data.Length; i++)
@@ -119,14 +120,14 @@ namespace edu.cmu.sphinx.util
 		public static string pad(string @string, int minLength)
 		{
 			string result = @string;
-			int num = minLength - java.lang.String.instancehelper_length(@string);
+			int num = minLength - String.instancehelper_length(@string);
 			if (num > 0)
 			{
-				result = new StringBuilder().append(@string).append(Utilities.pad(minLength - java.lang.String.instancehelper_length(@string))).toString();
+				result = new StringBuilder().append(@string).append(Utilities.pad(minLength - String.instancehelper_length(@string))).toString();
 			}
 			else if (num < 0)
 			{
-				result = java.lang.String.instancehelper_substring(@string, 0, minLength);
+				result = String.instancehelper_substring(@string, 0, minLength);
 			}
 			return result;
 		}
@@ -170,18 +171,19 @@ namespace edu.cmu.sphinx.util
 			}
 			java.lang.System.@out.println(new StringBuilder().append("Memory (mb)  total: ").append(num4).append(" reclaimed: ").append(num2).append(" free: ").append(num3).append(" Max Used: ").append(Utilities.maxUsed / (long)((ulong)1048576)).append(" -- ").append(msg).toString());
 		}
+
 		private Utilities()
 		{
 		}
 
 		public static string pad(int val, int minLength)
 		{
-			return Utilities.pad(java.lang.String.valueOf(val), minLength);
+			return Utilities.pad(String.valueOf(val), minLength);
 		}
 
 		public static string pad(double val, int minLength)
 		{
-			return Utilities.pad(java.lang.String.valueOf(val), minLength);
+			return Utilities.pad(String.valueOf(val), minLength);
 		}
 
 		public static void dump(PrintWriter pw, int padding, string @string)

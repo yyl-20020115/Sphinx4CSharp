@@ -11,7 +11,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.tools.feature
 {
-	public class FeatureFileDumper : java.lang.Object
+	public class FeatureFileDumper : Object
 	{
 		private void getAllFeatures()
 		{
@@ -53,7 +53,7 @@ namespace edu.cmu.sphinx.tools.feature
 					data = this.frontEnd.getData();
 				}
 			}
-			catch (java.lang.Exception ex)
+			catch (Exception ex)
 			{
 				Throwable.instancehelper_printStackTrace(ex);
 			}
@@ -73,7 +73,7 @@ namespace edu.cmu.sphinx.tools.feature
 				this.frontEnd = (FrontEnd)cm.lookup(frontEndName);
 				this.audioSource = (StreamDataSource)cm.lookup("streamDataSource");
 			}
-			catch (java.lang.Exception ex)
+			catch (Exception ex)
 			{
 				Throwable.instancehelper_printStackTrace(ex);
 
@@ -84,11 +84,11 @@ namespace edu.cmu.sphinx.tools.feature
 		private void processFile(string inputAudioFile, string outputFile, string text)
 		{
 			this.processFile(inputAudioFile);
-			if (java.lang.String.instancehelper_equals(text, "binary"))
+			if (String.instancehelper_equals(text, "binary"))
 			{
 				this.dumpBinary(outputFile);
 			}
-			else if (java.lang.String.instancehelper_equals(text, "ascii"))
+			else if (String.instancehelper_equals(text, "ascii"))
 			{
 				this.dumpAscii(outputFile);
 			}
@@ -107,11 +107,11 @@ namespace edu.cmu.sphinx.tools.feature
 				string inputAudioFile = new StringBuilder().append(text2).append("/").append(text5).append(".wav").toString();
 				string outputFile = new StringBuilder().append(text3).append("/").append(text5).append(".mfc").toString();
 				this.processFile(inputAudioFile);
-				if (java.lang.String.instancehelper_equals(text4, "binary"))
+				if (String.instancehelper_equals(text4, "binary"))
 				{
 					this.dumpBinary(outputFile);
 				}
-				else if (java.lang.String.instancehelper_equals(text4, "ascii"))
+				else if (String.instancehelper_equals(text4, "ascii"))
 				{
 					this.dumpAscii(outputFile);
 				}
@@ -181,32 +181,32 @@ namespace edu.cmu.sphinx.tools.feature
 			string text6 = "binary";
 			for (int i = 0; i < argv.Length; i++)
 			{
-				if (java.lang.String.instancehelper_equals(argv[i], "-c"))
+				if (String.instancehelper_equals(argv[i], "-c"))
 				{
 					i++;
 					text = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-name"))
+				if (String.instancehelper_equals(argv[i], "-name"))
 				{
 					i++;
 					text2 = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-i"))
+				if (String.instancehelper_equals(argv[i], "-i"))
 				{
 					i++;
 					text3 = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-ctl"))
+				if (String.instancehelper_equals(argv[i], "-ctl"))
 				{
 					i++;
 					text4 = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-o"))
+				if (String.instancehelper_equals(argv[i], "-o"))
 				{
 					i++;
 					text5 = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-format"))
+				if (String.instancehelper_equals(argv[i], "-format"))
 				{
 					i++;
 					text6 = argv[i];

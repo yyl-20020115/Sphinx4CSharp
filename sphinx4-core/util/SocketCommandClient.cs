@@ -4,7 +4,7 @@ using java.net;
 
 namespace edu.cmu.sphinx.util
 {
-	public class SocketCommandClient : java.lang.Object
+	public class SocketCommandClient : Object
 	{		
 		public virtual bool sendCommand(string command)
 		{
@@ -37,12 +37,9 @@ namespace edu.cmu.sphinx.util
 			}
 			catch (IOException)
 			{
-				goto IL_20;
+				java.lang.System.err.println("IO error while checking response");
+				this.close();
 			}
-			return result != 0;
-			IL_20:
-			java.lang.System.err.println("IO error while checking response");
-			this.close();
 			return result != 0;
 		}
 		

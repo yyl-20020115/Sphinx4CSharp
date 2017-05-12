@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.language.ngram.large
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	internal class NGramBuffer : java.lang.Object
+	internal class NGramBuffer : Object
 	{
 		public virtual bool getUsed()
 		{

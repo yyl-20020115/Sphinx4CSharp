@@ -71,7 +71,7 @@ namespace edu.cmu.sphinx.frontend.feature
 		{
 			for (int i = 0; i < this.variances.Length; i++)
 			{
-				this.variances[i] = java.lang.Math.sqrt((double)this.numberDataCepstra / this.variances[i]);
+				this.variances[i] = Math.sqrt((double)this.numberDataCepstra / this.variances[i]);
 			}
 			Iterator iterator = this.cepstraList.iterator();
 			while (iterator.hasNext())

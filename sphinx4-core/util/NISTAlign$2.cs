@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.util
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util
 {
-	internal sealed class NISTAlign_2 : java.lang.Object, NISTAlign.StringRenderer
+	internal sealed class NISTAlign_2 : Object, NISTAlign.StringRenderer
 	{
 		internal NISTAlign_2(NISTAlign nistalign)
 		{

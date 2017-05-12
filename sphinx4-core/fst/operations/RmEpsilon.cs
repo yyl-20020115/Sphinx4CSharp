@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class RmEpsilon : java.lang.Object
+	public class RmEpsilon : Object
 	{	
 		private static Float getPathWeight(State state, State state2, HashMap[] array)
 		{

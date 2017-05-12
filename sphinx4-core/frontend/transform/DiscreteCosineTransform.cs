@@ -29,7 +29,7 @@ namespace edu.cmu.sphinx.frontend.transform
 			}
 			for (int i = 0; i < values.Length; i++)
 			{
-				values[i] = java.lang.Math.log(values[i] + 0.0001);
+				values[i] = Math.log(values[i] + 0.0001);
 			}
 			double[] values2 = this.applyMelCosine(values);
 			return new DoubleData(values2, doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
@@ -51,7 +51,7 @@ namespace edu.cmu.sphinx.frontend.transform
 				double num5 = 6.2831853071795862 * (double)i / num4;
 				for (int j = 0; j < this.numberMelFilters; j++)
 				{
-					this.melcosine[i][j] = java.lang.Math.cos(num5 * ((double)j + 0.5));
+					this.melcosine[i][j] = Math.cos(num5 * ((double)j + 0.5));
 				}
 			}
 		}

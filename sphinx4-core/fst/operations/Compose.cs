@@ -1,10 +1,11 @@
 ﻿using edu.cmu.sphinx.fst.semiring;
 using edu.cmu.sphinx.fst.utils;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class Compose : java.lang.Object
+	public class Compose : Object
 	{		
 		public static Fst getFilter(string[] syms, Semiring semiring)
 		{

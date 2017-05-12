@@ -42,7 +42,7 @@ namespace edu.cmu.sphinx.frontend
 				if (data is DataStartSignal)
 				{
 					this.sampleRate = ((DataStartSignal)data).getSampleRate();
-					this.blockSizeSamples = (int)java.lang.Math.round((double)this.sampleRate * this.blockSizeMs / 1000.0);
+					this.blockSizeSamples = (int)Math.round((double)this.sampleRate * this.blockSizeMs / 1000.0);
 					this.curInBufferSize = 0;
 					this.curFirstSamplePos = 0;
 					this.inBuffer.clear();
@@ -62,7 +62,7 @@ namespace edu.cmu.sphinx.frontend
 			{
 				DoubleData doubleData2 = (DoubleData)this.inBuffer.remove(0);
 				double[] values = doubleData2.getValues();
-				int num2 = java.lang.Math.min(this.blockSizeSamples - num, values.Length - this.curFirstSamplePos);
+				int num2 = Math.min(this.blockSizeSamples - num, values.Length - this.curFirstSamplePos);
 				ByteCodeHelper.arraycopy_primitive_8(values, this.curFirstSamplePos, array, num, num2);
 				if (num2 < values.Length - this.curFirstSamplePos)
 				{

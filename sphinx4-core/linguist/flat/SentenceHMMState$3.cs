@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	internal sealed class SentenceHMMState_3 : java.lang.Object, Comparator
+	internal sealed class SentenceHMMState_3 : Object, Comparator
 	{
 		internal SentenceHMMState_3()
 		{
@@ -20,7 +21,7 @@ namespace edu.cmu.sphinx.linguist.flat
 	
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 	}
 }

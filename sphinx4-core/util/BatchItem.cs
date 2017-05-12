@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.util
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util
 {
-	public class BatchItem : java.lang.Object
+	public class BatchItem : Object
 	{
 		public virtual string getFilename()
 		{

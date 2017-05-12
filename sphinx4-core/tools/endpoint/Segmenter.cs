@@ -9,7 +9,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.tools.endpoint
 {
-	public class Segmenter : java.lang.Object
+	public class Segmenter : Object
 	{		
 		private static void processFile(string text, string outFilePattern, ConfigurationManager configurationManager)
 		{
@@ -51,29 +51,29 @@ namespace edu.cmu.sphinx.tools.endpoint
 			int num = 0;
 			for (int i = 0; i < argv.Length; i++)
 			{
-				if (java.lang.String.instancehelper_equals(argv[i], "-c"))
+				if (String.instancehelper_equals(argv[i], "-c"))
 				{
 					i++;
 					text = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-i"))
+				if (String.instancehelper_equals(argv[i], "-i"))
 				{
 					i++;
 					text2 = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-ctl"))
+				if (String.instancehelper_equals(argv[i], "-ctl"))
 				{
 					i++;
 					text3 = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-o"))
+				if (String.instancehelper_equals(argv[i], "-o"))
 				{
 					i++;
 					text4 = argv[i];
 				}
-				if (java.lang.String.instancehelper_equals(argv[i], "-no-split"))
+				if (String.instancehelper_equals(argv[i], "-no-split"))
 				{
-					num = (java.lang.Boolean.parseBoolean(argv[i]) ? 1 : 0);
+					num = (Boolean.parseBoolean(argv[i]) ? 1 : 0);
 				}
 			}
 			if ((text2 == null && text3 == null) || text4 == null)

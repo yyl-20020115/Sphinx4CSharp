@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.util
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util
 {
-	internal sealed class HypothesisWord : java.lang.Object
+	internal sealed class HypothesisWord : Object
 	{
 		internal float getStartTime()
 		{

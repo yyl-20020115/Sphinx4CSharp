@@ -6,7 +6,7 @@ using java.net;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
-	public class BinaryLoader : java.lang.Object
+	public class BinaryLoader : Object
 	{
 		private void loadModelData(InputStream inputStream)
 		{
@@ -59,8 +59,8 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		public virtual void verifyHeader()
 		{
-			string text = this.readString(this.inStream, java.lang.String.instancehelper_length("Trie Language Model"));
-			if (!java.lang.String.instancehelper_equals(text, "Trie Language Model"))
+			string text = this.readString(this.inStream, String.instancehelper_length("Trie Language Model"));
+			if (!String.instancehelper_equals(text, "Trie Language Model"))
 			{
 				string text2 = new StringBuilder().append("Bad binary LM file header: ").append(text).toString();
 				
@@ -137,7 +137,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			{
 				if ((ushort)array2[i] == 0)
 				{
-					array[num2] = java.lang.String.newhelper(array2, num3, i - num3);
+					array[num2] = String.newhelper(array2, num3, i - num3);
 					num3 = i + 1;
 					num2++;
 				}

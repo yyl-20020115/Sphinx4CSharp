@@ -7,7 +7,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.aflat
 {
-	public class PhoneLoop : java.lang.Object
+	public class PhoneLoop : Object
 	{
 
 		public PhoneLoop(AcousticModel model, float logOutOfGrammarBranchProbability, float logPhoneInsertionProbability, SearchStateArc[] toGrammarSearchState)
@@ -239,7 +239,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 			public override int hashCode()
 			{
-				return 191 + java.lang.Object.instancehelper_hashCode(this.hmmState);
+				return 191 + Object.instancehelper_hashCode(this.hmmState);
 			}
 
 			public override bool equals(object obj)
@@ -292,7 +292,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			
 		}
 
-		internal abstract class OogSearchState : java.lang.Object, SearchState, SearchStateArc
+		internal abstract class OogSearchState : Object, SearchState, SearchStateArc
 		{
 			public override string toString()
 			{

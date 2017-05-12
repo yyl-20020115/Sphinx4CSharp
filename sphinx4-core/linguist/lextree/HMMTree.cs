@@ -9,7 +9,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	internal sealed class HMMTree : java.lang.Object
+	internal sealed class HMMTree : Object
 	{
 		internal static Set access_000(HMMTree hmmtree)
 		{
@@ -335,7 +335,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 		internal static bool assertionsDisabled = !ClassLiteral<HMMTree>.Value.desiredAssertionStatus();
 		
-		internal sealed class EntryPoint : java.lang.Object
+		internal sealed class EntryPoint : Object
 		{
 			private Collection getEntryPointRC()
 			{
@@ -534,7 +534,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal HMMTree this_0;
 		}
 		
-		internal sealed class EntryPointTable : java.lang.Object
+		internal sealed class EntryPointTable : Object
 		{
 			internal HMMTree.EntryPoint getEntryPoint(Unit unit)
 			{

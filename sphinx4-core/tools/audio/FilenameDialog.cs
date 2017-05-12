@@ -56,7 +56,7 @@ namespace edu.cmu.sphinx.tools.audio
 			java.lang.System.@out.println("Showing dialog...");
 			filenameDialog.setVisible(true);
 			string text = filenameDialog.getFilename();
-			java.lang.System.@out.println(new StringBuilder().append("Filename: ").append(text).append(" (length = ").append(java.lang.String.instancehelper_length(text)).append(')').toString());
+			java.lang.System.@out.println(new StringBuilder().append("Filename: ").append(text).append(" (length = ").append(String.instancehelper_length(text)).append(')').toString());
 			java.lang.System.exit(0);
 		}
 

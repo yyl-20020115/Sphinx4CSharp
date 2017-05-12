@@ -1,4 +1,5 @@
 ﻿using edu.cmu.sphinx.util.props;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist
 {
@@ -14,7 +15,7 @@ namespace edu.cmu.sphinx.linguist
 		void deallocate();
 	}
 
-	public abstract class LinguistBase : java.lang.Object, Linguist
+	public abstract class LinguistBase : Object, Linguist
 	{
 		[S4Double(new object[]
 {

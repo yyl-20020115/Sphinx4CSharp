@@ -5,7 +5,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class GaussianWeights : java.lang.Object
+	public class GaussianWeights : Object
 	{
 		public virtual float get(int stateId, int streamId, int gaussianId)
 		{

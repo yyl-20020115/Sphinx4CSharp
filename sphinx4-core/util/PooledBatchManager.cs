@@ -6,21 +6,21 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	public class PooledBatchManager : java.lang.Object, BatchManager
-	{	
+	public class PooledBatchManager : Object, BatchManager
+	{
 		public PooledBatchManager(string filename, int skip)
 		{
 			this.testFileFilter = new TestFileFilter();
 			this.batchFile = filename;
 			this.skip = skip;
-		}		
+		}
 		private void @lock()
 		{
 			RandomAccessFile randomAccessFile = new RandomAccessFile(PooledBatchManager.lockFile, "rw");
 			this._lock = randomAccessFile.getChannel().@lock();
 			randomAccessFile.close();
 		}
-		
+
 		private void createDirectories()
 		{
 			if (!PooledBatchManager.topDir.isDirectory())
@@ -32,7 +32,7 @@ namespace edu.cmu.sphinx.util
 				this.createInputDirectory();
 			}
 		}
-		
+
 		private void redirectStdout()
 		{
 			string myName = this.getMyName();
@@ -43,7 +43,7 @@ namespace edu.cmu.sphinx.util
 			java.lang.System.setOut(@out);
 			java.lang.System.@out.println(new StringBuilder().append("# These results collected on ").append(this.getMyName()).toString());
 		}
-		
+
 		private void unlock()
 		{
 			this._lock.release();
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.util
 		{
 			return new File(PooledBatchManager.completedDir, file.getName());
 		}
-		
+
 		private File getNextFile()
 		{
 			File[] array = PooledBatchManager.inputDir.listFiles(this.testFileFilter);
@@ -64,31 +64,31 @@ namespace edu.cmu.sphinx.util
 			}
 			return null;
 		}
-		
+
 		private File getProcessingFile(File file)
 		{
 			return new File(PooledBatchManager.inProcessDir, file.getName());
 		}
-		
+
 		private BatchItem getBatchItem(File file)
 		{
 			List lines = BatchFile.getLines(file.getPath());
 			if (lines.size() != 1)
 			{
 				string text = "Bad batch file size";
-				
+
 				throw new IOException(text);
 			}
 			string batchFileLine = (string)lines.get(0);
 			return new BatchItem(BatchFile.getFilename(batchFileLine), BatchFile.getReference(batchFileLine));
 		}
-		
+
 		private void closeStdout()
 		{
 			java.lang.System.@out.close();
 			java.lang.System.setOut(this.oldOut);
 		}
-		
+
 		private void createInputDirectory()
 		{
 			PooledBatchManager.inputDir.mkdir();
@@ -100,7 +100,7 @@ namespace edu.cmu.sphinx.util
 				this.createInputFile(PooledBatchManager.inputDir, text, text2);
 			}
 		}
-		
+
 		private void createInputFile(File file, string text, string text2)
 		{
 			File file2 = new File(file, text);
@@ -109,12 +109,12 @@ namespace edu.cmu.sphinx.util
 			printStream.println(text2);
 			printStream.close();
 		}
-		
+
 		private string getMyName()
 		{
 			return InetAddress.getLocalHost().getHostName();
 		}
-		
+
 		public virtual void start()
 		{
 			this.@lock();
@@ -128,7 +128,7 @@ namespace edu.cmu.sphinx.util
 				this.unlock();
 			}
 		}
-		
+
 		public virtual BatchItem getNextItem()
 		{
 			this.@lock();
@@ -169,7 +169,7 @@ namespace edu.cmu.sphinx.util
 			this.unlock();
 			return batchItem;
 		}
-		
+
 		public virtual void stop()
 		{
 			this.@lock();
@@ -202,7 +202,7 @@ namespace edu.cmu.sphinx.util
 		private int skip;
 
 		private File processingFile;
-		
+
 		private static File topDir = new File("tests");
 
 		private static File inputDir;
@@ -218,7 +218,7 @@ namespace edu.cmu.sphinx.util
 		private FileLock _lock;
 
 		private PrintStream oldOut;
-		
+
 		private FileFilter testFileFilter;
 	}
 }

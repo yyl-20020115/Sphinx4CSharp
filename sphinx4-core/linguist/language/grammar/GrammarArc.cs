@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.grammar
 {
-	public class GrammarArc : java.lang.Object
+	public class GrammarArc : Object
 	{
 		public virtual float getProbability()
 		{

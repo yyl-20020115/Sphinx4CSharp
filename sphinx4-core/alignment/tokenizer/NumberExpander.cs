@@ -6,55 +6,55 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 	{
 		public static void expandLetters(string letters, WordRelation wordRelation)
 		{
-			letters = java.lang.String.instancehelper_toLowerCase(letters);
-			for (int i = 0; i < java.lang.String.instancehelper_length(letters); i++)
+			letters = String.instancehelper_toLowerCase(letters);
+			for (int i = 0; i < String.instancehelper_length(letters); i++)
 			{
-				int num = (int)java.lang.String.instancehelper_charAt(letters, i);
+				int num = (int)String.instancehelper_charAt(letters, i);
 				if (Character.isDigit((char)num))
 				{
 					wordRelation.addWord(NumberExpander.digit2num[num - 48]);
 				}
-				else if (java.lang.String.instancehelper_equals(letters, "a"))
+				else if (String.instancehelper_equals(letters, "a"))
 				{
 					wordRelation.addWord("_a");
 				}
 				else
 				{
-					wordRelation.addWord(java.lang.String.valueOf((char)num));
+					wordRelation.addWord(String.valueOf((char)num));
 				}
 			}
 		}
 
 		public static void expandReal(string numberString, WordRelation wordRelation)
 		{
-			int num = java.lang.String.instancehelper_length(numberString);
+			int num = String.instancehelper_length(numberString);
 			int num2;
-			if (java.lang.String.instancehelper_charAt(numberString, 0) == '-')
+			if (String.instancehelper_charAt(numberString, 0) == '-')
 			{
 				wordRelation.addWord("minus");
-				NumberExpander.expandReal(java.lang.String.instancehelper_substring(numberString, 1, num), wordRelation);
+				NumberExpander.expandReal(String.instancehelper_substring(numberString, 1, num), wordRelation);
 			}
-			else if (java.lang.String.instancehelper_charAt(numberString, 0) == '+')
+			else if (String.instancehelper_charAt(numberString, 0) == '+')
 			{
 				wordRelation.addWord("plus");
-				NumberExpander.expandReal(java.lang.String.instancehelper_substring(numberString, 1, num), wordRelation);
+				NumberExpander.expandReal(String.instancehelper_substring(numberString, 1, num), wordRelation);
 			}
-			else if ((num2 = java.lang.String.instancehelper_indexOf(numberString, 101)) != -1 || (num2 = java.lang.String.instancehelper_indexOf(numberString, 69)) != -1)
+			else if ((num2 = String.instancehelper_indexOf(numberString, 101)) != -1 || (num2 = String.instancehelper_indexOf(numberString, 69)) != -1)
 			{
-				NumberExpander.expandReal(java.lang.String.instancehelper_substring(numberString, 0, num2), wordRelation);
+				NumberExpander.expandReal(String.instancehelper_substring(numberString, 0, num2), wordRelation);
 				wordRelation.addWord("e");
-				NumberExpander.expandReal(java.lang.String.instancehelper_substring(numberString, num2 + 1), wordRelation);
+				NumberExpander.expandReal(String.instancehelper_substring(numberString, num2 + 1), wordRelation);
 			}
-			else if ((num2 = java.lang.String.instancehelper_indexOf(numberString, 46)) != -1)
+			else if ((num2 = String.instancehelper_indexOf(numberString, 46)) != -1)
 			{
-				string text = java.lang.String.instancehelper_substring(numberString, 0, num2);
-				if (java.lang.String.instancehelper_length(text) > 0)
+				string text = String.instancehelper_substring(numberString, 0, num2);
+				if (String.instancehelper_length(text) > 0)
 				{
 					NumberExpander.expandReal(text, wordRelation);
 				}
 				wordRelation.addWord("point");
-				string text2 = java.lang.String.instancehelper_substring(numberString, num2 + 1);
-				if (java.lang.String.instancehelper_length(text2) > 0)
+				string text2 = String.instancehelper_substring(numberString, num2 + 1);
+				if (String.instancehelper_length(text2) > 0)
 				{
 					NumberExpander.expandDigits(text2, wordRelation);
 				}
@@ -67,13 +67,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		public static void expandDigits(string numberString, WordRelation wordRelation)
 		{
-			int num = java.lang.String.instancehelper_length(numberString);
+			int num = String.instancehelper_length(numberString);
 			for (int i = 0; i < num; i++)
 			{
-				int num2 = (int)java.lang.String.instancehelper_charAt(numberString, i);
+				int num2 = (int)String.instancehelper_charAt(numberString, i);
 				if (Character.isDigit((char)num2))
 				{
-					wordRelation.addWord(NumberExpander.digit2num[(int)(java.lang.String.instancehelper_charAt(numberString, i) - '0')]);
+					wordRelation.addWord(NumberExpander.digit2num[(int)(String.instancehelper_charAt(numberString, i) - '0')]);
 				}
 				else
 				{
@@ -84,7 +84,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		public static void expandNumber(string numberString, WordRelation wordRelation)
 		{
-			int num = java.lang.String.instancehelper_length(numberString);
+			int num = String.instancehelper_length(numberString);
 			if (num != 0)
 			{
 				if (num == 1)
@@ -120,25 +120,25 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		public static void expandID(string numberString, WordRelation wordRelation)
 		{
-			int num = java.lang.String.instancehelper_length(numberString);
-			if (num == 4 && java.lang.String.instancehelper_charAt(numberString, 2) == '0' && java.lang.String.instancehelper_charAt(numberString, 3) == '0')
+			int num = String.instancehelper_length(numberString);
+			if (num == 4 && String.instancehelper_charAt(numberString, 2) == '0' && String.instancehelper_charAt(numberString, 3) == '0')
 			{
-				if (java.lang.String.instancehelper_charAt(numberString, 1) == '0')
+				if (String.instancehelper_charAt(numberString, 1) == '0')
 				{
 					NumberExpander.expandNumber(numberString, wordRelation);
 				}
 				else
 				{
-					NumberExpander.expandNumber(java.lang.String.instancehelper_substring(numberString, 0, 2), wordRelation);
+					NumberExpander.expandNumber(String.instancehelper_substring(numberString, 0, 2), wordRelation);
 					wordRelation.addWord("hundred");
 				}
 			}
-			else if (num == 2 && java.lang.String.instancehelper_charAt(numberString, 0) == '0')
+			else if (num == 2 && String.instancehelper_charAt(numberString, 0) == '0')
 			{
 				wordRelation.addWord("oh");
-				NumberExpander.expandDigits(java.lang.String.instancehelper_substring(numberString, 1, 2), wordRelation);
+				NumberExpander.expandDigits(String.instancehelper_substring(numberString, 1, 2), wordRelation);
 			}
-			else if ((num == 4 && java.lang.String.instancehelper_charAt(numberString, 1) == '0') || num < 3)
+			else if ((num == 4 && String.instancehelper_charAt(numberString, 1) == '0') || num < 3)
 			{
 				NumberExpander.expandNumber(numberString, wordRelation);
 			}
@@ -148,14 +148,14 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				int num3 = 2;
 				if (((num3 != -1) ? (num2 % num3) : 0) == 1)
 				{
-					string word = NumberExpander.digit2num[(int)(java.lang.String.instancehelper_charAt(numberString, 0) - '0')];
+					string word = NumberExpander.digit2num[(int)(String.instancehelper_charAt(numberString, 0) - '0')];
 					wordRelation.addWord(word);
-					NumberExpander.expandID(java.lang.String.instancehelper_substring(numberString, 1, num), wordRelation);
+					NumberExpander.expandID(String.instancehelper_substring(numberString, 1, num), wordRelation);
 				}
 				else
 				{
-					NumberExpander.expandNumber(java.lang.String.instancehelper_substring(numberString, 0, 2), wordRelation);
-					NumberExpander.expandID(java.lang.String.instancehelper_substring(numberString, 2, num), wordRelation);
+					NumberExpander.expandNumber(String.instancehelper_substring(numberString, 0, 2), wordRelation);
+					NumberExpander.expandID(String.instancehelper_substring(numberString, 2, num), wordRelation);
 				}
 			}
 		}
@@ -169,7 +169,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			CharSequence charSequence2 = charSequence;
 			_ref = obj2;
 			charSequence = CharSequence.Cast(_ref);
-			NumberExpander.expandNumber(java.lang.String.instancehelper_replace(rawNumberString, charSequence2, charSequence), wordRelation);
+			NumberExpander.expandNumber(String.instancehelper_replace(rawNumberString, charSequence2, charSequence), wordRelation);
 			Item tail = wordRelation.getTail();
 			if (tail != null)
 			{
@@ -184,15 +184,15 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				{
 					text = NumberExpander.findMatchInArray(@string, NumberExpander.digit2enty, NumberExpander.ord2enty);
 				}
-				if (java.lang.String.instancehelper_equals(@string, "hundred"))
+				if (String.instancehelper_equals(@string, "hundred"))
 				{
 					text = "hundredth";
 				}
-				else if (java.lang.String.instancehelper_equals(@string, "thousand"))
+				else if (String.instancehelper_equals(@string, "thousand"))
 				{
 					text = "thousandth";
 				}
-				else if (java.lang.String.instancehelper_equals(@string, "billion"))
+				else if (String.instancehelper_equals(@string, "billion"))
 				{
 					text = "billionth";
 				}
@@ -205,23 +205,23 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		public static void expandNumess(string rawString, WordRelation wordRelation)
 		{
-			if (java.lang.String.instancehelper_length(rawString) == 4)
+			if (String.instancehelper_length(rawString) == 4)
 			{
-				NumberExpander.expand2DigitNumber(java.lang.String.instancehelper_substring(rawString, 0, 2), wordRelation);
-				NumberExpander.expandNumess(java.lang.String.instancehelper_substring(rawString, 2), wordRelation);
+				NumberExpander.expand2DigitNumber(String.instancehelper_substring(rawString, 0, 2), wordRelation);
+				NumberExpander.expandNumess(String.instancehelper_substring(rawString, 2), wordRelation);
 			}
 			else
 			{
-				wordRelation.addWord(NumberExpander.digit2Numness[(int)(java.lang.String.instancehelper_charAt(rawString, 0) - '0')]);
+				wordRelation.addWord(NumberExpander.digit2Numness[(int)(String.instancehelper_charAt(rawString, 0) - '0')]);
 			}
 		}
 
 		public static int expandRoman(string roman)
 		{
 			int num = 0;
-			for (int i = 0; i < java.lang.String.instancehelper_length(roman); i++)
+			for (int i = 0; i < String.instancehelper_length(roman); i++)
 			{
-				int num2 = (int)java.lang.String.instancehelper_charAt(roman, i);
+				int num2 = (int)String.instancehelper_charAt(roman, i);
 				if (num2 == 88)
 				{
 					num += 10;
@@ -232,9 +232,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				else if (num2 == 73)
 				{
-					if (i + 1 < java.lang.String.instancehelper_length(roman))
+					if (i + 1 < String.instancehelper_length(roman))
 					{
-						int num3 = (int)java.lang.String.instancehelper_charAt(roman, i + 1);
+						int num3 = (int)String.instancehelper_charAt(roman, i + 1);
 						if (num3 == 86)
 						{
 							num += 4;
@@ -261,41 +261,41 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		private static void expand2DigitNumber(string text, WordRelation wordRelation)
 		{
-			if (java.lang.String.instancehelper_charAt(text, 0) == '0')
+			if (String.instancehelper_charAt(text, 0) == '0')
 			{
-				if (java.lang.String.instancehelper_charAt(text, 1) != '0')
+				if (String.instancehelper_charAt(text, 1) != '0')
 				{
-					string word = NumberExpander.digit2num[(int)(java.lang.String.instancehelper_charAt(text, 1) - '0')];
+					string word = NumberExpander.digit2num[(int)(String.instancehelper_charAt(text, 1) - '0')];
 					wordRelation.addWord(word);
 				}
 			}
-			else if (java.lang.String.instancehelper_charAt(text, 1) == '0')
+			else if (String.instancehelper_charAt(text, 1) == '0')
 			{
-				string word = NumberExpander.digit2enty[(int)(java.lang.String.instancehelper_charAt(text, 0) - '0')];
+				string word = NumberExpander.digit2enty[(int)(String.instancehelper_charAt(text, 0) - '0')];
 				wordRelation.addWord(word);
 			}
-			else if (java.lang.String.instancehelper_charAt(text, 0) == '1')
+			else if (String.instancehelper_charAt(text, 0) == '1')
 			{
-				string word = NumberExpander.digit2teen[(int)(java.lang.String.instancehelper_charAt(text, 1) - '0')];
+				string word = NumberExpander.digit2teen[(int)(String.instancehelper_charAt(text, 1) - '0')];
 				wordRelation.addWord(word);
 			}
 			else
 			{
-				string word = NumberExpander.digit2enty[(int)(java.lang.String.instancehelper_charAt(text, 0) - '0')];
+				string word = NumberExpander.digit2enty[(int)(String.instancehelper_charAt(text, 0) - '0')];
 				wordRelation.addWord(word);
-				NumberExpander.expandDigits(java.lang.String.instancehelper_substring(text, 1, java.lang.String.instancehelper_length(text)), wordRelation);
+				NumberExpander.expandDigits(String.instancehelper_substring(text, 1, String.instancehelper_length(text)), wordRelation);
 			}
 		}
 
 		private static void expand3DigitNumber(string text, WordRelation wordRelation)
 		{
-			if (java.lang.String.instancehelper_charAt(text, 0) == '0')
+			if (String.instancehelper_charAt(text, 0) == '0')
 			{
 				NumberExpander.expandNumberAt(text, 1, wordRelation);
 			}
 			else
 			{
-				string word = NumberExpander.digit2num[(int)(java.lang.String.instancehelper_charAt(text, 0) - '0')];
+				string word = NumberExpander.digit2num[(int)(String.instancehelper_charAt(text, 0) - '0')];
 				wordRelation.addWord(word);
 				wordRelation.addWord("hundred");
 				NumberExpander.expandNumberAt(text, 1, wordRelation);
@@ -318,13 +318,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		private static void expandNumberAt(string text, int num, WordRelation wordRelation)
 		{
-			NumberExpander.expandNumber(java.lang.String.instancehelper_substring(text, num, java.lang.String.instancehelper_length(text)), wordRelation);
+			NumberExpander.expandNumber(String.instancehelper_substring(text, num, String.instancehelper_length(text)), wordRelation);
 		}
 		private static void expandLargeNumber(string text, string word, int num, WordRelation wordRelation)
 		{
-			int num2 = java.lang.String.instancehelper_length(text);
+			int num2 = String.instancehelper_length(text);
 			int num3 = num2 - num;
-			string numberString = java.lang.String.instancehelper_substring(text, 0, num3);
+			string numberString = String.instancehelper_substring(text, 0, num3);
 			Item tail = wordRelation.getTail();
 			NumberExpander.expandNumber(numberString, wordRelation);
 			if (wordRelation.getTail() != tail)
@@ -339,7 +339,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			int i = 0;
 			while (i < array.Length)
 			{
-				if (java.lang.String.instancehelper_equals(text, array[i]))
+				if (String.instancehelper_equals(text, array[i]))
 				{
 					if (i < array2.Length)
 					{

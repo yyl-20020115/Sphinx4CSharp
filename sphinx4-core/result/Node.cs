@@ -7,7 +7,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class Node : java.lang.Object
+	public class Node : Object
 	{
 		public virtual Word getWord()
 		{
@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.result
 
 		public override bool equals(object obj)
 		{
-			return obj is Node && java.lang.String.instancehelper_equals(this.id, ((Node)obj).getId());
+			return obj is Node && String.instancehelper_equals(this.id, ((Node)obj).getId());
 		}
 
 		public virtual string getId()
@@ -26,7 +26,7 @@ namespace edu.cmu.sphinx.result
 		
 		public virtual bool isEquivalent(Node other)
 		{
-			return java.lang.String.instancehelper_equals(this.word.getSpelling(), other.getWord().getSpelling()) && this.getEnteringEdges().size() == other.getEnteringEdges().size() && this.getLeavingEdges().size() == other.getLeavingEdges().size() && this.getBeginTime() == other.getBeginTime() && this.endTime == other.getEndTime();
+			return String.instancehelper_equals(this.word.getSpelling(), other.getWord().getSpelling()) && this.getEnteringEdges().size() == other.getEnteringEdges().size() && this.getLeavingEdges().size() == other.getLeavingEdges().size() && this.getBeginTime() == other.getBeginTime() && this.endTime == other.getEndTime();
 		}
 
 		public virtual void setPosterior(double posterior)
@@ -61,7 +61,7 @@ namespace edu.cmu.sphinx.result
 			string text2 = stringTokenizer.nextToken();
 			long num = Long.parseLong(stringTokenizer.nextToken());
 			long num2 = Long.parseLong(stringTokenizer.nextToken());
-			Word word = new Word(text2, new Pronunciation[0], java.lang.String.instancehelper_startsWith(text2, "<") || java.lang.String.instancehelper_startsWith(text2, "["));
+			Word word = new Word(text2, new Pronunciation[0], String.instancehelper_startsWith(text2, "<") || String.instancehelper_startsWith(text2, "["));
 			lattice.addNode(text, word, num, num2);
 		}
 
@@ -106,7 +106,7 @@ namespace edu.cmu.sphinx.result
 		
 		internal virtual void dumpAISee(FileWriter fileWriter)
 		{
-			string text = java.lang.String.valueOf(this.getPosterior());
+			string text = String.valueOf(this.getPosterior());
 			if (this.getPosterior() == -3.4028234663852886E+38)
 			{
 				text = "log zero";
@@ -116,7 +116,7 @@ namespace edu.cmu.sphinx.result
 		
 		public virtual void dumpDot(FileWriter f)
 		{
-			string text = java.lang.String.valueOf(this.getPosterior());
+			string text = String.valueOf(this.getPosterior());
 			if (this.getPosterior() == -3.4028234663852886E+38)
 			{
 				text = "log zero";
@@ -398,7 +398,7 @@ namespace edu.cmu.sphinx.result
 		
 		public override int hashCode()
 		{
-			return java.lang.String.instancehelper_hashCode(this.id);
+			return String.instancehelper_hashCode(this.id);
 		}
 		
 		protected internal virtual void cacheDescendants()

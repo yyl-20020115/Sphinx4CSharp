@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.fst
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.fst
 {
-	public class Export : java.lang.Object
+	public class Export : Object
 	{		
 		private Export()
 		{

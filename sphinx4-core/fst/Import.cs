@@ -4,7 +4,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.fst
 {
-	public class Import : java.lang.Object
+	public class Import : Object
 	{
 		private Import()
 		{
@@ -27,12 +27,9 @@ namespace edu.cmu.sphinx.fst
 			}
 			catch (IOException)
 			{
-				goto IL_66;
+				java.lang.System.err.println(new StringBuilder().append("Cannot write to file ").append(args[1]).toString());
+				java.lang.System.exit(1);
 			}
-			return;
-			IL_66:
-			java.lang.System.err.println(new StringBuilder().append("Cannot write to file ").append(args[1]).toString());
-			java.lang.System.exit(1);
 		}
 	}
 }

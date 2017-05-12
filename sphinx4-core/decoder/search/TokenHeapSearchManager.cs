@@ -70,18 +70,17 @@ namespace edu.cmu.sphinx.decoder.search
 
 		internal new Map bestTokenMap;
 		
-		internal sealed class TokenHeap : java.lang.Object
+		internal sealed class TokenHeap : Object
 		{
 			private bool tryReplace(Token token)
 			{
 				int i = 0;
 				while (i < this.curSize)
 				{
-					if (java.lang.Object.instancehelper_equals(token.getSearchState(), this.tokens[i].getSearchState()))
+					if (Object.instancehelper_equals(token.getSearchState(), this.tokens[i].getSearchState()))
 					{
 						if (!TokenHeapSearchManager.TokenHeap.assertionsDisabled && token.getScore() <= this.tokens[i].getScore())
 						{
-							
 							throw new AssertionError();
 						}
 						this.tokens[i] = token;
@@ -142,7 +141,7 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				for (int i = 0; i < this.curSize; i++)
 				{
-					if (java.lang.Object.instancehelper_equals(this.tokens[i].getSearchState(), searchState))
+					if (Object.instancehelper_equals(this.tokens[i].getSearchState(), searchState))
 					{
 						return this.tokens[i];
 					}

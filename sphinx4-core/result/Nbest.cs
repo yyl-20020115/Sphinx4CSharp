@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class Nbest : java.lang.Object
+	public class Nbest : Object
 	{
 		public Nbest(Lattice lattice)
 		{
@@ -71,11 +71,11 @@ namespace edu.cmu.sphinx.result
 
 		protected internal Lattice lattice;
 		
-		internal sealed class NBestPath : java.lang.Object, Comparable
+		internal sealed class NBestPath : Object, Comparable
 		{
 			public int compareTo(Nbest.NBestPath nbestPath)
 			{
-				return java.lang.Double.compare(this.score, nbestPath.score);
+				return Double.compare(this.score, nbestPath.score);
 			}
 			
 			public NBestPath(Nbest nbest, string text, Node node, double num, double num2)

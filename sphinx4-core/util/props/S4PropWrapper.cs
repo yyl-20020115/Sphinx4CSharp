@@ -1,8 +1,9 @@
 ﻿using java.lang.annotation;
+using java.lang;
 
 namespace edu.cmu.sphinx.util.props
 {
-	public class S4PropWrapper : java.lang.Object
+	public class S4PropWrapper : Object
 	{
 		public virtual Annotation getAnnotation()
 		{

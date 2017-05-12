@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
-	public class NgramTrie : java.lang.Object
+	public class NgramTrie : Object
 	{		
 		internal static int access_000(NgramTrie ngramTrie, int num)
 		{
@@ -219,7 +219,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal int nextOrderMemPtr;
 		}
 
-		internal abstract class NgramSet : java.lang.Object
+		internal abstract class NgramSet : Object
 		{
 			internal NgramSet(NgramTrie ngramTrie, int num, int num2, int num3)
 			{

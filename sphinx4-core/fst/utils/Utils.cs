@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.fst.utils
 {
-	public class Utils : java.lang.Object
+	public class Utils : Object
 	{		
 		public static string[] toStringArray(HashMap syms)
 		{
@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.fst.utils
 				int num3 = 1;
 				for (int i = 1; i < pattern.size(); i++)
 				{
-					if (!java.lang.String.instancehelper_equals((string)src.get(num + start + num2 + i), pattern.get(i)))
+					if (!String.instancehelper_equals((string)src.get(num + start + num2 + i), pattern.get(i)))
 					{
 						result = -1;
 						num3 = 0;
@@ -67,7 +67,7 @@ namespace edu.cmu.sphinx.fst.utils
 		{
 			for (int i = 0; i < strings.Length; i++)
 			{
-				if (java.lang.String.instancehelper_equals(java.lang.String.instancehelper_toLowerCase(@string), java.lang.String.instancehelper_toLowerCase(strings[i])))
+				if (String.instancehelper_equals(String.instancehelper_toLowerCase(@string), String.instancehelper_toLowerCase(strings[i])))
 				{
 					return i;
 				}

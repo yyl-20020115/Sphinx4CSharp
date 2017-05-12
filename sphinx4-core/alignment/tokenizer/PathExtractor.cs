@@ -45,7 +45,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			if (wantFeature)
 			{
-				int num = java.lang.String.instancehelper_lastIndexOf(pathAndFeature, ".");
+				int num = String.instancehelper_lastIndexOf(pathAndFeature, ".");
 				if (num == -1)
 				{
 					this.feature = pathAndFeature;
@@ -53,8 +53,8 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				else
 				{
-					this.feature = java.lang.String.instancehelper_substring(pathAndFeature, num + 1);
-					this.path = java.lang.String.instancehelper_substring(pathAndFeature, 0, num);
+					this.feature = String.instancehelper_substring(pathAndFeature, num + 1);
+					this.path = String.instancehelper_substring(pathAndFeature, 0, num);
 				}
 			}
 			else
@@ -170,11 +170,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		public const string LAZY_COMPILE_PROPERTY = "com.sun.speech.freetts.lazyCartCompile";
 
+		private static bool INTERPRET_PATHS = String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.interpretCartPaths", "false"), "true");
 
-		private static bool INTERPRET_PATHS = java.lang.String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.interpretCartPaths", "false"), "true");
-
-
-		private static bool LAZY_COMPILE = java.lang.String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.lazyCartCompile", "true"), "true");
+		private static bool LAZY_COMPILE = String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.lazyCartCompile", "true"), "true");
 
 		private string pathAndFeature;
 

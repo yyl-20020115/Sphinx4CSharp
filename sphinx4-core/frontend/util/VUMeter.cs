@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.frontend.util
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.frontend.util
 {
-	public class VUMeter : java.lang.Object
+	public class VUMeter : Object
 	{
 		private void calculateVULevels(double[] array)
 		{
@@ -24,7 +26,7 @@
 				double num7 = 0.9779999852180481 * num4 + -1.9560999870300293 * num5 + 0.9779999852180481 * num6 - -1.9556000232696533 * num2 - 0.95649999380111694 * num3;
 				num3 = num2;
 				num2 = num7;
-				double num8 = java.lang.Math.abs(num7);
+				double num8 = Math.abs(num7);
 				long num9 = java.lang.System.currentTimeMillis();
 				num += num8 * num8;
 				this.average += num8;
@@ -39,7 +41,7 @@
 				}
 			}
 			this.rms = num / (double)array.Length;
-			this.rms = java.lang.Math.sqrt(this.rms);
+			this.rms = Math.sqrt(this.rms);
 			this.average /= (double)array.Length;
 		}
 		
@@ -65,7 +67,7 @@
 				double num7 = (double)(0.978f * (float)num4) + -1.9560999870300293 * num5 + 0.9779999852180481 * num6 - -1.9556000232696533 * num2 - 0.95649999380111694 * num3;
 				num3 = num2;
 				num2 = num7;
-				double num8 = java.lang.Math.abs(num7);
+				double num8 = Math.abs(num7);
 				long num9 = java.lang.System.currentTimeMillis();
 				num += num8 * num8;
 				this.average += num8;
@@ -80,7 +82,7 @@
 				}
 			}
 			this.rms = num / (double)array.Length;
-			this.rms = java.lang.Math.sqrt(this.rms);
+			this.rms = Math.sqrt(this.rms);
 			this.average /= (double)array.Length;
 		}
 		
@@ -97,17 +99,17 @@
 		
 		public double getRmsDB()
 		{
-			return java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(this.rms) / VUMeter.log10);
+			return Math.max((double)0f, 20.0 * Math.log(this.rms) / VUMeter.log10);
 		}
 		
 		public double getAverageDB()
 		{
-			return java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(this.average) / VUMeter.log10);
+			return Math.max((double)0f, 20.0 * Math.log(this.average) / VUMeter.log10);
 		}
 		
 		public double getPeakDB()
 		{
-			return java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(this.peak) / VUMeter.log10);
+			return Math.max((double)0f, 20.0 * Math.log(this.peak) / VUMeter.log10);
 		}
 		public bool getIsClipping()
 		{
@@ -145,9 +147,9 @@
 
 		private double peak;
 	
-		private static double log10 = java.lang.Math.log(10.0);
+		private static double log10 = Math.log(10.0);
 		
-		private static double maxDB = java.lang.Math.max((double)0f, 20.0 * java.lang.Math.log(32767.0) / VUMeter.log10);
+		private static double maxDB = Math.max((double)0f, 20.0 * Math.log(32767.0) / VUMeter.log10);
 		
 		private int peakHoldTime;
 

@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
 			for (string text = bufferedReader.readLine(); text != null; text = bufferedReader.readLine())
 			{
-				if (!java.lang.String.instancehelper_startsWith(text, "***"))
+				if (!String.instancehelper_startsWith(text, "***"))
 				{
 					this.parseAndAdd(text);
 				}
@@ -46,7 +46,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			StringTokenizer stringTokenizer = new StringTokenizer(line, " ");
 			string text = stringTokenizer.nextToken();
-			if (java.lang.String.instancehelper_equals(text, "LEAF") || java.lang.String.instancehelper_equals(text, "NODE"))
+			if (String.instancehelper_equals(text, "LEAF") || String.instancehelper_equals(text, "NODE"))
 			{
 				this.cart[this.curNode] = this.getNode(text, stringTokenizer, this.curNode);
 				this.cart[this.curNode].setCreationLine(line);
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			else
 			{
-				if (!java.lang.String.instancehelper_equals(text, "TOTAL"))
+				if (!String.instancehelper_equals(text, "TOTAL"))
 				{
 					string text2 = new StringBuilder().append("Invalid CART type: ").append(text).toString();
 
@@ -88,21 +88,21 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		protected internal virtual DecisionTree.Node getNode(string type, StringTokenizer tokenizer, int currentNode)
 		{
-			if (java.lang.String.instancehelper_equals(type, "NODE"))
+			if (String.instancehelper_equals(type, "NODE"))
 			{
 				string text = tokenizer.nextToken();
 				string text2 = tokenizer.nextToken();
 				object obj = this.parseValue(tokenizer.nextToken());
 				int num = Integer.parseInt(tokenizer.nextToken());
-				if (java.lang.String.instancehelper_equals(text2, "MATCHES"))
+				if (String.instancehelper_equals(text2, "MATCHES"))
 				{
-					return new DecisionTree.MatchingNode(text, java.lang.Object.instancehelper_toString(obj), currentNode + 1, num);
+					return new DecisionTree.MatchingNode(text, Object.instancehelper_toString(obj), currentNode + 1, num);
 				}
 				return new DecisionTree.ComparisonNode(text, obj, text2, currentNode + 1, num);
 			}
 			else
 			{
-				if (java.lang.String.instancehelper_equals(type, "LEAF"))
+				if (String.instancehelper_equals(type, "LEAF"))
 				{
 					return new DecisionTree.LeafNode(this.parseValue(tokenizer.nextToken()));
 				}
@@ -112,22 +112,22 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		protected internal virtual object parseValue(string @string)
 		{
-			int num = java.lang.String.instancehelper_indexOf(@string, "(");
-			string text = java.lang.String.instancehelper_substring(@string, 0, num);
-			string text2 = java.lang.String.instancehelper_substring(@string, num + 1, java.lang.String.instancehelper_length(@string) - 1);
-			if (java.lang.String.instancehelper_equals(text, "java.lang.String"))
+			int num = String.instancehelper_indexOf(@string, "(");
+			string text = String.instancehelper_substring(@string, 0, num);
+			string text2 = String.instancehelper_substring(@string, num + 1, String.instancehelper_length(@string) - 1);
+			if (String.instancehelper_equals(text, "String"))
 			{
 				return text2;
 			}
-			if (java.lang.String.instancehelper_equals(text, "Float"))
+			if (String.instancehelper_equals(text, "Float"))
 			{
 				return new Float(Float.parseFloat(text2));
 			}
-			if (java.lang.String.instancehelper_equals(text, "Integer"))
+			if (String.instancehelper_equals(text, "Integer"))
 			{
 				return new Integer(Integer.parseInt(text2));
 			}
-			if (java.lang.String.instancehelper_equals(text, "List"))
+			if (String.instancehelper_equals(text, "List"))
 			{
 				StringTokenizer stringTokenizer = new StringTokenizer(text2, ",");
 				int num2 = stringTokenizer.countTokens();
@@ -135,7 +135,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				for (int i = 0; i < num2; i++)
 				{
 					float num3 = Float.parseFloat(stringTokenizer.nextToken());
-					array[i] = java.lang.Math.round(num3);
+					array[i] = Math.round(num3);
 				}
 				return array;
 			}
@@ -149,7 +149,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			for (int i = 0; i < nodes; i++)
 			{
 				string text = reader.readLine();
-				if (!java.lang.String.instancehelper_startsWith(text, "***"))
+				if (!String.instancehelper_startsWith(text, "***"))
 				{
 					this.parseAndAdd(text);
 				}
@@ -164,17 +164,17 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			for (int i = 0; i < num; i++)
 			{
 				DecisionTree.Node node = array[i];
-				@out.println(new StringBuilder().append("\t\"node").append(java.lang.Object.instancehelper_hashCode(node)).append("\" [ label=\"").append(java.lang.Object.instancehelper_toString(node)).append("\", color=").append(this.dumpDotNodeColor(node)).append(", shape=").append(this.dumpDotNodeShape(node)).append(" ]\n").toString());
+				@out.println(new StringBuilder().append("\t\"node").append(Object.instancehelper_hashCode(node)).append("\" [ label=\"").append(Object.instancehelper_toString(node)).append("\", color=").append(this.dumpDotNodeColor(node)).append(", shape=").append(this.dumpDotNodeShape(node)).append(" ]\n").toString());
 				if (node is DecisionTree.DecisionNode)
 				{
 					DecisionTree.DecisionNode decisionNode = (DecisionTree.DecisionNode)node;
 					if (decisionNode.qtrue < this.cart.Length && this.cart[decisionNode.qtrue] != null)
 					{
-						@out.write(new StringBuilder().append("\t\"node").append(java.lang.Object.instancehelper_hashCode(node)).append("\" -> \"node").append(java.lang.Object.instancehelper_hashCode(this.cart[decisionNode.qtrue])).append("\" [ label=TRUE ]\n").toString());
+						@out.write(new StringBuilder().append("\t\"node").append(Object.instancehelper_hashCode(node)).append("\" -> \"node").append(Object.instancehelper_hashCode(this.cart[decisionNode.qtrue])).append("\" [ label=TRUE ]\n").toString());
 					}
 					if (decisionNode.qfalse < this.cart.Length && this.cart[decisionNode.qfalse] != null)
 					{
-						@out.write(new StringBuilder().append("\t\"node").append(java.lang.Object.instancehelper_hashCode(node)).append("\" -> \"node").append(java.lang.Object.instancehelper_hashCode(this.cart[decisionNode.qfalse])).append("\" [ label=FALSE ]\n").toString());
+						@out.write(new StringBuilder().append("\t\"node").append(Object.instancehelper_hashCode(node)).append("\" -> \"node").append(Object.instancehelper_hashCode(this.cart[decisionNode.qfalse])).append("\" [ label=FALSE ]\n").toString());
 					}
 				}
 			}
@@ -216,7 +216,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			public ComparisonNode(string text, object obj, string text2, int num, int num2) : base(text, obj, num, num2)
 			{
-				if (!java.lang.String.instancehelper_equals(text2, "<") && !java.lang.String.instancehelper_equals(text2, "=") && !java.lang.String.instancehelper_equals(text2, ">"))
+				if (!String.instancehelper_equals(text2, "<") && !String.instancehelper_equals(text2, "=") && !String.instancehelper_equals(text2, ">"))
 				{
 					string text3 = new StringBuilder().append("Invalid comparison type: ").append(text2).toString();
 
@@ -228,7 +228,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			public override int getNextNode(object obj)
 			{
 				int num3;
-				if (java.lang.String.instancehelper_equals(this.comparisonType, "<") || java.lang.String.instancehelper_equals(this.comparisonType, ">"))
+				if (String.instancehelper_equals(this.comparisonType, "<") || String.instancehelper_equals(this.comparisonType, ">"))
 				{
 					float num;
 					if (this.value is Float)
@@ -237,7 +237,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					}
 					else
 					{
-						num = Float.parseFloat(java.lang.Object.instancehelper_toString(this.value));
+						num = Float.parseFloat(Object.instancehelper_toString(this.value));
 					}
 					float num2;
 					if (obj is Float)
@@ -246,9 +246,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					}
 					else
 					{
-						num2 = Float.parseFloat(java.lang.Object.instancehelper_toString(obj));
+						num2 = Float.parseFloat(Object.instancehelper_toString(obj));
 					}
-					if (java.lang.String.instancehelper_equals(this.comparisonType, "<"))
+					if (String.instancehelper_equals(this.comparisonType, "<"))
 					{
 						num3 = ((num2 < num) ? 1 : 0);
 					}
@@ -259,9 +259,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				else
 				{
-					string text = java.lang.Object.instancehelper_toString(obj);
-					string text2 = java.lang.Object.instancehelper_toString(this.value);
-					num3 = (java.lang.String.instancehelper_equals(text, text2) ? 1 : 0);
+					string text = Object.instancehelper_toString(obj);
+					string text2 = Object.instancehelper_toString(this.value);
+					num3 = (String.instancehelper_equals(text, text2) ? 1 : 0);
 				}
 				int num4;
 				if (num3 != 0)
@@ -370,7 +370,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			internal Pattern pattern;
 		}
 
-		public abstract class Node : java.lang.Object
+		public abstract class Node : Object
 		{
 			public Node(object obj)
 			{
@@ -390,17 +390,17 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				if (this.value is string)
 				{
-					return new StringBuilder().append("java.lang.String(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
+					return new StringBuilder().append("String(").append(Object.instancehelper_toString(this.value)).append(")").toString();
 				}
 				if (this.value is Float)
 				{
-					return new StringBuilder().append("Float(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
+					return new StringBuilder().append("Float(").append(Object.instancehelper_toString(this.value)).append(")").toString();
 				}
 				if (this.value is Integer)
 				{
-					return new StringBuilder().append("Integer(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
+					return new StringBuilder().append("Integer(").append(Object.instancehelper_toString(this.value)).append(")").toString();
 				}
-				return new StringBuilder().append(java.lang.Object.instancehelper_getClass(this.value).toString()).append("(").append(java.lang.Object.instancehelper_toString(this.value)).append(")").toString();
+				return new StringBuilder().append(Object.instancehelper_getClass(this.value).toString()).append("(").append(Object.instancehelper_toString(this.value)).append(")").toString();
 			}
 
 			public virtual void setCreationLine(string text)

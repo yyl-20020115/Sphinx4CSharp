@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.util
 {
-	public class LinguistTimer : java.lang.Object
+	public class LinguistTimer : Object
 	{
 		private void expandState(int num, List list, SearchState searchState)
 		{

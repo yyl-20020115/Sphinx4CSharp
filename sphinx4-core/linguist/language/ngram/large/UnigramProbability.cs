@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	public sealed class UnigramProbability : java.lang.Object
+	public sealed class UnigramProbability : Object
 	{
 		public void setLogProbability(float num)
 		{

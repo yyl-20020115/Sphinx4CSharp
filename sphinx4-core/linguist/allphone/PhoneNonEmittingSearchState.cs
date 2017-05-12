@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.allphone
 {
-	public class PhoneNonEmittingSearchState : java.lang.Object, SearchState, SearchStateArc
+	public class PhoneNonEmittingSearchState : Object, SearchState, SearchStateArc
 	{		
 		public PhoneNonEmittingSearchState(Unit unit, AllphoneLinguist linguist, float insertionProb, float languageProb)
 		{

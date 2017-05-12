@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	internal sealed class Probability : java.lang.Object
+	internal sealed class Probability : Object
 	{		
 		internal Probability(float num, float num2)
 		{

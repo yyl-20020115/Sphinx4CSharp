@@ -32,7 +32,7 @@ namespace edu.cmu.sphinx.frontend.util
 					array[array.Length - 1] = (char)(48 + (num - 10));
 				}
 			}
-			return new StringBuilder().append('+').append(java.lang.String.newhelper(array)).toString();
+			return new StringBuilder().append('+').append(String.newhelper(array)).toString();
 		}
 		
 		private string getPlot(int num)

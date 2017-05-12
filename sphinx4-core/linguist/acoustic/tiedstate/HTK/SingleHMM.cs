@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	public class SingleHMM : java.lang.Object
+	public class SingleHMM : Object
 	{
 		public virtual int getTransIdx()
 		{
@@ -34,38 +36,38 @@
 
 		public virtual string getBaseName()
 		{
-			int num = java.lang.String.instancehelper_indexOf(this.name, 45);
+			int num = String.instancehelper_indexOf(this.name, 45);
 			if (num < 0)
 			{
 				num = -1;
 			}
-			string text = java.lang.String.instancehelper_substring(this.name, num + 1);
-			num = java.lang.String.instancehelper_indexOf(text, 43);
+			string text = String.instancehelper_substring(this.name, num + 1);
+			num = String.instancehelper_indexOf(text, 43);
 			if (num < 0)
 			{
-				num = java.lang.String.instancehelper_length(text);
+				num = String.instancehelper_length(text);
 			}
-			return java.lang.String.instancehelper_substring(text, 0, num);
+			return String.instancehelper_substring(text, 0, num);
 		}
 		
 		public virtual string getLeft()
 		{
-			int num = java.lang.String.instancehelper_indexOf(this.name, 45);
+			int num = String.instancehelper_indexOf(this.name, 45);
 			if (num < 0)
 			{
 				return "-";
 			}
-			return java.lang.String.instancehelper_substring(this.name, 0, num);
+			return String.instancehelper_substring(this.name, 0, num);
 		}
 		
 		public virtual string getRight()
 		{
-			int num = java.lang.String.instancehelper_indexOf(this.name, 43);
+			int num = String.instancehelper_indexOf(this.name, 43);
 			if (num < 0)
 			{
 				return "-";
 			}
-			return java.lang.String.instancehelper_substring(this.name, num + 1);
+			return String.instancehelper_substring(this.name, num + 1);
 		}
 		
 		public SingleHMM(int nbStates)

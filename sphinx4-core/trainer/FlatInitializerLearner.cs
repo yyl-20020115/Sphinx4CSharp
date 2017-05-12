@@ -7,11 +7,11 @@ using java.lang;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class FlatInitializerLearner : java.lang.Object, Learner, Configurable
+	public class FlatInitializerLearner : Object, Learner, Configurable
 	{		
 		public virtual void setUtterance(Utterance utterance)
 		{
-			string text = java.lang.Object.instancehelper_toString(utterance);
+			string text = Object.instancehelper_toString(utterance);
 			FileInputStream @is = new FileInputStream(text);
 			this.dataSource.setInputStream(@is, false);
 		}

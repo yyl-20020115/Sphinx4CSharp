@@ -9,7 +9,7 @@ namespace edu.cmu.sphinx.util.props
 		{
 		}
 	
-		public PropertyException(java.lang.Exception e) : base(e)
+		public PropertyException(Exception e) : base(e)
 		{
 		}
 	

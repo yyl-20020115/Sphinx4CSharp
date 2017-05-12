@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class Downsampler : java.lang.Object
+	public class Downsampler : Object
 	{		
 		public static short[] downsample(short[] inSamples, int srIn, int srOut)
 		{

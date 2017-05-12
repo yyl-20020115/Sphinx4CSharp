@@ -26,7 +26,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			{
 				Token token = (Token)iterator.next();
 				string word = token.getWord();
-				if (word != null && java.lang.String.instancehelper_length(word) > 0)
+				if (word != null && String.instancehelper_length(word) > 0)
 				{
 					Item item = relation.appendItem();
 					FeatureSet featureSet = item.getFeatures();
@@ -34,8 +34,8 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					featureSet.setString("whitespace", token.getWhitespace());
 					featureSet.setString("prepunctuation", token.getPrepunctuation());
 					featureSet.setString("punc", token.getPostpunctuation());
-					featureSet.setString("file_pos", java.lang.String.valueOf(token.getPosition()));
-					featureSet.setString("line_number", java.lang.String.valueOf(token.getLineNumber()));
+					featureSet.setString("file_pos", String.valueOf(token.getPosition()));
+					featureSet.setString("line_number", String.valueOf(token.getLineNumber()));
 				}
 			}
 		}
@@ -125,13 +125,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		public virtual Item getItem(string relation, float time)
 		{
 			string pathAndFeature;
-			if (java.lang.String.instancehelper_equals(relation, "Word"))
+			if (String.instancehelper_equals(relation, "Word"))
 			{
 				pathAndFeature = "R:SylStructure.parent.parent.R:Word";
 			}
 			else
 			{
-				if (!java.lang.String.instancehelper_equals(relation, "Token"))
+				if (!String.instancehelper_equals(relation, "Token"))
 				{
 					string text = new StringBuilder().append("Utterance.getItem(): relation cannot be ").append(relation).toString();
 

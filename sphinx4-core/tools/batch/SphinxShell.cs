@@ -5,7 +5,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.tools.batch
 {
-	public class SphinxShell : java.lang.Object
+	public class SphinxShell : Object
 	{
 		public SphinxShell()
 		{
@@ -13,7 +13,7 @@ namespace edu.cmu.sphinx.tools.batch
 
 		public static void main(string[] args)
 		{
-			if (args.Length == 0 || (args.Length == 1 && (java.lang.String.instancehelper_startsWith(args[0], "-h") || java.lang.String.instancehelper_startsWith(args[0], "--h"))))
+			if (args.Length == 0 || (args.Length == 1 && (String.instancehelper_startsWith(args[0], "-h") || String.instancehelper_startsWith(args[0], "--h"))))
 			{
 				java.lang.System.@out.println("Usage: SphinxShell <config-xml-file> *([[<component>->]<parameter>=<value>] )");
 				java.lang.System.@out.println("Example: SphinxShell foobar.xml beamWidth=123 phoneDecoder->autoAllocate=true");
@@ -22,7 +22,7 @@ namespace edu.cmu.sphinx.tools.batch
 				java.lang.System.@out.println(" -l <config-xml-file> : Prints a list of all component properties");
 				java.lang.System.exit(-1);
 			}
-			if (args.Length == 2 && java.lang.String.instancehelper_equals(args[0], "-l"))
+			if (args.Length == 2 && String.instancehelper_equals(args[0], "-l"))
 			{
 				ConfigurationManagerUtils.dumpPropStructure(new ConfigurationManager(new File(args[1]).toURI().toURL()));
 				java.lang.System.exit(0);
@@ -37,7 +37,7 @@ namespace edu.cmu.sphinx.tools.batch
 			ConfigurationManager cm = new ConfigurationManager(file.toURI().toURL());
 			for (int i = 1; i < args.Length; i++)
 			{
-				string[] array = java.lang.String.instancehelper_split(args[i], "=");
+				string[] array = String.instancehelper_split(args[i], "=");
 				if (!SphinxShell.assertionsDisabled && array.Length != 2)
 				{
 					

@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.api;
 using java.io;
+using java.lang;
 
 namespace edu.cmu.sphinx.tools.transcriber
 {
-	public class Transcriber : java.lang.Object
+	public class Transcriber : Object
 	{
 		public Transcriber()
 		{

@@ -8,7 +8,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	public class GrammarPoint : java.lang.Object
+	public class GrammarPoint : Object
 	{
 		public GrammarPoint(GrammarNode node, int alternativeIndex, int wordIndex, int pronunciationIndex, int unitIndex)
 		{

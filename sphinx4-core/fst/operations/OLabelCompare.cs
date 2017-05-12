@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class OLabelCompare : java.lang.Object, Comparator
+	public class OLabelCompare : Object, Comparator
 	{		
 		public virtual int compare(Arc o1, Arc o2)
 		{
@@ -28,7 +29,7 @@ namespace edu.cmu.sphinx.fst.operations
 		
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 	}
 }

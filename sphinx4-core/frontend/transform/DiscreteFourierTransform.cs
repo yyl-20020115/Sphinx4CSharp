@@ -44,7 +44,7 @@ namespace edu.cmu.sphinx.frontend.transform
 			}
 			for (int i = 0; i < (num >> 1); i++)
 			{
-				this.weightFft[i] = new Complex(java.lang.Math.cos(num2 * (double)i), java.lang.Math.sin(num2 * (double)i));
+				this.weightFft[i] = new Complex(Math.cos(num2 * (double)i), Math.sin(num2 * (double)i));
 			}
 		}
 		

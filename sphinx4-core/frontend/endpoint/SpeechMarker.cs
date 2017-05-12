@@ -98,7 +98,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 					{
 						this._inSpeech = true;
 						this.outputQueue.add(new SpeechStartSignal(speechClassifiedData.getCollectTime() - (long)this.speechLeader - (long)this.startSpeechFrames));
-						this.outputQueue.addAll(this.inputQueue.subList(java.lang.Math.max(0, this.inputQueue.size() - this.startSpeechFrames - this.speechLeaderFrames), this.inputQueue.size()));
+						this.outputQueue.addAll(this.inputQueue.subList(Math.max(0, this.inputQueue.size() - this.startSpeechFrames - this.speechLeaderFrames), this.inputQueue.size()));
 						this.inputQueue.clear();
 					}
 					if (this._inSpeech && this.silenceCount == this.endSilenceFrames)

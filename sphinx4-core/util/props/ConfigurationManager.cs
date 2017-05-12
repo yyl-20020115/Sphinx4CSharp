@@ -1,5 +1,4 @@
 ﻿using ikvm.@internal;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -8,7 +7,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.util.props
 {
-	public class ConfigurationManager : java.lang.Object, Cloneable.__Interface
+	public class ConfigurationManager : Object, Cloneable.__Interface
 	{
 		public ConfigurationManager(URL url)
 		{
@@ -30,7 +29,7 @@ namespace edu.cmu.sphinx.util.props
 			string text = (string)this.globalProperties.get("showCreations");
 			if (text != null)
 			{
-				this.showCreations = java.lang.String.instancehelper_equals("true", text);
+				this.showCreations = String.instancehelper_equals("true", text);
 			}
 		}
 		
@@ -102,9 +101,6 @@ namespace edu.cmu.sphinx.util.props
 				if (rawPropertyData != null)
 				{
 					string className = rawPropertyData.getClassName();
-					ClassNotFoundException ex2;
-					System.Exception ex5;
-					ExceptionInInitializerError exceptionInInitializerError2;
 					try
 					{
 						try
@@ -117,38 +113,20 @@ namespace edu.cmu.sphinx.util.props
 							}
 							catch (ClassNotFoundException ex)
 							{
-								ex2 = ex;
-								goto IL_91;
+								java.lang.System.err.println(new StringBuilder().append("class not found !").append(ex).toString());
+								goto IL_11B;
 							}
 						}
 						catch (System.Exception ex3)
 						{
-							ex5 = ex3;
-							goto IL_95;
+							java.lang.System.err.println(new StringBuilder().append("can not cast class !").append(ex3).toString());
+							goto IL_11B;
 						}
 					}
 					catch (System.Exception ex6)
 					{
-						ExceptionInInitializerError exceptionInInitializerError = ByteCodeHelper.MapException<ExceptionInInitializerError>(ex6, 0);
-						if (exceptionInInitializerError == null)
-						{
-							throw;
-						}
-						exceptionInInitializerError2 = exceptionInInitializerError;
-						goto IL_99;
+						java.lang.System.err.println(new StringBuilder().append("couldn't load class !").append(ex6).toString());
 					}
-					goto IL_11B;
-					IL_91:
-					ClassNotFoundException ex7 = ex2;
-					java.lang.System.err.println(new StringBuilder().append("class not found !").append(ex7).toString());
-					goto IL_11B;
-					IL_95:
-					System.Exception ex8 = ex5;
-					java.lang.System.err.println(new StringBuilder().append("can not cast class !").append(ex8).toString());
-					goto IL_11B;
-					IL_99:
-					ExceptionInInitializerError exceptionInInitializerError3 = exceptionInInitializerError2;
-					java.lang.System.err.println(new StringBuilder().append("couldn't load class !").append(exceptionInInitializerError3).toString());
 				}
 			}
 			IL_11B:
@@ -184,9 +162,9 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new AssertionError();
 			}
-			while (java.lang.String.instancehelper_startsWith(propertyName, "_"))
+			while (String.instancehelper_startsWith(propertyName, "_"))
 			{
-				propertyName = java.lang.String.instancehelper_toString((string)this.globalProperties.get(ConfigurationManagerUtils.stripGlobalSymbol(propertyName)));
+				propertyName = String.instancehelper_toString((string)this.globalProperties.get(ConfigurationManagerUtils.stripGlobalSymbol(propertyName)));
 			}
 			return propertyName;
 		}
@@ -367,7 +345,7 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new IllegalArgumentException(text);
 			}
-			RawPropertyData rawPropertyData = new RawPropertyData(name, java.lang.Object.instancehelper_getClass(configurable).getName());
+			RawPropertyData rawPropertyData = new RawPropertyData(name, Object.instancehelper_getClass(configurable).getName());
 			PropertySheet propertySheet = new PropertySheet(configurable, name, rawPropertyData, this);
 			this.symbolTable.put(name, propertySheet);
 			this.rawPropertyMap.put(name, rawPropertyData);
@@ -421,7 +399,7 @@ namespace edu.cmu.sphinx.util.props
 		public virtual string getGlobalProperty(string propertyName)
 		{
 			string text = (string)this.globalProperties.get(propertyName);
-			return (text == null) ? null : java.lang.String.instancehelper_toString(text);
+			return (text == null) ? null : String.instancehelper_toString(text);
 		}
 
 		public virtual string getGloPropReference(string propertyName)

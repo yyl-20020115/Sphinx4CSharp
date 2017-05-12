@@ -14,7 +14,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.batch
 {
-	public class BatchModeRecognizer : java.lang.Object, Configurable
+	public class BatchModeRecognizer : Object, Configurable
 	{	
 		public virtual void setBatchFile(string batchFile)
 		{
@@ -45,7 +45,7 @@ namespace edu.cmu.sphinx.tools.batch
 				{
 					this.logger.info(new StringBuilder().append("Reading ").append(text).append(" as raw audio file.").toString());
 					inputStream = new FileInputStream(text);
-					if (java.lang.String.instancehelper_endsWith(java.lang.String.instancehelper_toLowerCase(text), ".sph"))
+					if (String.instancehelper_endsWith(String.instancehelper_toLowerCase(text), ".sph"))
 					{
 						this.logger.info("Skipping 1024-byte Sphere header.");
 						((FileInputStream)inputStream).skip((long)((ulong)1024));
@@ -142,7 +142,7 @@ namespace edu.cmu.sphinx.tools.batch
 
 		public BatchModeRecognizer(Recognizer recognizer, List inputDataProcessors, int skip, int utteranceId, int whichBatch, int totalBatches, bool usePooledBatchManager)
 		{
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.cm = null;
 			this.skip = skip;
 			this.utteranceId = utteranceId;
@@ -190,7 +190,7 @@ namespace edu.cmu.sphinx.tools.batch
 				BatchModeRecognizer batchModeRecognizer = (BatchModeRecognizer)configurationManager.lookup("batch");
 				if (batchModeRecognizer != null)
 				{
-					if (argv.Length >= 3 && java.lang.String.instancehelper_equals(argv[2], "-shell"))
+					if (argv.Length >= 3 && String.instancehelper_equals(argv[2], "-shell"))
 					{
 						batchModeRecognizer.shell(text2);
 					}

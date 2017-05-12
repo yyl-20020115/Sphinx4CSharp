@@ -58,9 +58,9 @@ namespace edu.cmu.sphinx.tools.audio
 						for (i = 0; i < array2.Length; i++)
 						{
 							array2[i] = values[i];
-							if (java.lang.Math.abs(array2[i]) > array[i])
+							if (Math.abs(array2[i]) > array[i])
 							{
-								array[i] = java.lang.Math.abs(array2[i]);
+								array[i] = Math.abs(array2[i]);
 							}
 						}
 						arrayList.add(array2);
@@ -72,9 +72,9 @@ namespace edu.cmu.sphinx.tools.audio
 						for (i = 0; i < array2.Length; i++)
 						{
 							array2[i] = (float)values2[i];
-							if (java.lang.Math.abs(array2[i]) > array[i])
+							if (Math.abs(array2[i]) > array[i])
 							{
-								array[i] = java.lang.Math.abs(array2[i]);
+								array[i] = Math.abs(array2[i]);
 							}
 						}
 						arrayList.add(array2);

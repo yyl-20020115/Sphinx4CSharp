@@ -9,7 +9,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class KaldiLoader : java.lang.Object, Loader, Configurable
+	public class KaldiLoader : Object, Loader, Configurable
 	{
 		public virtual void init(string location, UnitManager unitManager)
 		{
@@ -29,14 +29,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			while (null != (text = bufferedReader.readLine()))
 			{
 				int num3 = 0;
-				string[] array = java.lang.String.instancehelper_split(text, "\\s+");
+				string[] array = String.instancehelper_split(text, "\\s+");
 				int i = array.Length;
 				for (int j = 0; j < i; j++)
 				{
 					string text2 = array[j];
-					if (!java.lang.String.instancehelper_isEmpty(text2) && !java.lang.String.instancehelper_equals("[", text2))
+					if (!String.instancehelper_isEmpty(text2) && !String.instancehelper_equals("[", text2))
 					{
-						if (!java.lang.String.instancehelper_equals("]", text2))
+						if (!String.instancehelper_equals("]", text2))
 						{
 							arrayList.add(Float.valueOf(Float.parseFloat(text2)));
 							num3++;
@@ -77,7 +77,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			string text;
 			while ((text = bufferedReader.readLine()) != null)
 			{
-				string[] array = java.lang.String.instancehelper_split(text, " ");
+				string[] array = String.instancehelper_split(text, " ");
 				this.modelProperties.put(array[0], array[1]);
 			}
 		}
@@ -109,8 +109,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			string text;
 			while (null != (text = bufferedReader.readLine()))
 			{
-				string[] array = java.lang.String.instancehelper_split(text, " ");
-				if (Character.isLetter(java.lang.String.instancehelper_charAt(array[0], 0)))
+				string[] array = String.instancehelper_split(text, " ");
+				if (Character.isLetter(String.instancehelper_charAt(array[0], 0)))
 				{
 					hashMap.put(array[0], Integer.valueOf(Integer.parseInt(array[1])));
 				}
@@ -121,7 +121,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			while (iterator.hasNext())
 			{
 				string text2 = (string)iterator.next();
-				Unit unit = this.unitManager.getUnit(text2, java.lang.String.instancehelper_equals("SIL", text2));
+				Unit unit = this.unitManager.getUnit(text2, String.instancehelper_equals("SIL", text2));
 				this.contextIndependentUnits.put(unit.getName(), unit);
 				this.hmmManager.get(HMMPosition.__UNDEFINED, unit);
 			}

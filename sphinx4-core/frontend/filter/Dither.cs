@@ -32,7 +32,7 @@ namespace edu.cmu.sphinx.frontend.filter
 			for (int i = 0; i < values.Length; i++)
 			{
 				array[i] = (double)(this.r.nextFloat() * 2f) * this.ditherMax - this.ditherMax + values[i];
-				array[i] = java.lang.Math.max(java.lang.Math.min(array[i], this.maxValue), this.minValue);
+				array[i] = Math.max(Math.min(array[i], this.maxValue), this.minValue);
 			}
 			return new DoubleData(array, doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
 		}

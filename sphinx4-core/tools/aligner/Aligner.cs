@@ -8,7 +8,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.aligner
 {
-	public class Aligner : java.lang.Object
+	public class Aligner : Object
 	{
 		private static void splitStream(File file, List list)
 		{
@@ -58,17 +58,17 @@ namespace edu.cmu.sphinx.tools.aligner
 				{
 					WordResult wordResult2 = (WordResult)iterator3.next();
 					TimeFrame timeFrame = wordResult2.getTimeFrame();
-					num3 = java.lang.Math.min(num3, timeFrame.getStart());
-					num4 = java.lang.Math.max(num4, timeFrame.getEnd());
+					num3 = Math.min(num3, timeFrame.getStart());
+					num4 = Math.max(num4, timeFrame.getEnd());
 					java.lang.System.@out.print(wordResult2.getPronunciation().getWord());
 					java.lang.System.@out.print(' ');
 				}
-				string[] array = java.lang.String.instancehelper_split(file.getName(), "\\.wav_");
-				string text = java.lang.String.format("%03d0", new object[]
+				string[] array = String.instancehelper_split(file.getName(), "\\.wav_");
+				string text = String.format("%03d0", new object[]
 				{
 					Integer.valueOf(num2)
 				});
-				string text2 = java.lang.String.format("%s-%s.wav", new object[]
+				string text2 = String.format("%s-%s.wav", new object[]
 				{
 					array[0],
 					text
@@ -84,7 +84,7 @@ namespace edu.cmu.sphinx.tools.aligner
 			AudioFileFormat audioFileFormat = AudioSystem.getAudioFileFormat(file);
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 			AudioFormat format = audioFileFormat.getFormat();
-			int num3 = java.lang.Math.round((float)format.getFrameSize() * format.getFrameRate() / 1000f);
+			int num3 = Math.round((float)format.getFrameSize() * format.getFrameRate() / 1000f);
 			audioInputStream.skip(num * (long)num3);
 			AudioInputStream audioInputStream2 = new AudioInputStream(audioInputStream, format, num2 * (long)num3);
 			AudioSystem.write(audioInputStream2, audioFileFormat.getType(), new File(text));

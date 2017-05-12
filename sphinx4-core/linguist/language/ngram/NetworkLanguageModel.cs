@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.inReader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 			this.outWriter = new PrintWriter(this.socket.getOutputStream(), true);
 			string text = this.inReader.readLine();
-			if (!java.lang.String.instancehelper_equals(text, "probserver ready"))
+			if (!String.instancehelper_equals(text, "probserver ready"))
 			{
 				string text2 = "Incorrect input";
 				
@@ -101,16 +101,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			try
 			{
 				text = this.inReader.readLine();
-				if (java.lang.String.instancehelper_charAt(text, 0) == '\0')
+				if (String.instancehelper_charAt(text, 0) == '\0')
 				{
-					text = java.lang.String.instancehelper_substring(text, 1);
+					text = String.instancehelper_substring(text, 1);
 				}
 			}
 			catch (IOException ex)
 			{
 				Throwable.instancehelper_printStackTrace(ex);
 			}
-			if (!java.lang.String.instancehelper_equals(text, "-inf"))
+			if (!String.instancehelper_equals(text, "-inf"))
 			{
 				@float = Float.valueOf(this.logMath.log10ToLog(Float.parseFloat(text)));
 			}
@@ -140,9 +140,9 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 					{
 						break;
 					}
-					if (java.lang.String.instancehelper_length(text) != 0)
+					if (String.instancehelper_length(text) != 0)
 					{
-						hashSet.add(java.lang.String.instancehelper_trim(text));
+						hashSet.add(String.instancehelper_trim(text));
 					}
 				}
 				bufferedReader.close();

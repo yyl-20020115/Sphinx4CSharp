@@ -5,7 +5,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.util
 {
-	public class Timer : java.lang.Object
+	public class Timer : Object
 	{
 		public virtual void start()
 		{
@@ -71,7 +71,7 @@ namespace edu.cmu.sphinx.util
 			}
 			else
 			{
-				logger.info(new StringBuilder().append(Utilities.pad(this.name, 20)).append(' ').append(Utilities.pad(java.lang.String.valueOf(this.count), 8)).append(this.fmtTime(this.curTime)).append(this.fmtTime(this.minTime)).append(this.fmtTime(this.maxTime)).append(this.fmtTime(num)).append(this.fmtTime(this.sum / 1000.0)).toString());
+				logger.info(new StringBuilder().append(Utilities.pad(this.name, 20)).append(' ').append(Utilities.pad(String.valueOf(this.count), 8)).append(this.fmtTime(this.curTime)).append(this.fmtTime(this.minTime)).append(this.fmtTime(this.maxTime)).append(this.fmtTime(num)).append(this.fmtTime(this.sum / 1000.0)).toString());
 			}
 		}
 
@@ -79,7 +79,7 @@ namespace edu.cmu.sphinx.util
 		{
 			return Utilities.pad(new StringBuilder().append(Timer.timeFormatter.format(num)).append('s').toString(), 10);
 		}
-		
+
 		private string fmtTime(long num)
 		{
 			return this.fmtTime((double)num / 1000.0);
@@ -173,7 +173,7 @@ namespace edu.cmu.sphinx.util
 		private long maxTime;
 
 		private bool notReliable;
-		
+
 		internal static bool assertionsDisabled = !ClassLiteral<Timer>.Value.desiredAssertionStatus();
 	}
 }

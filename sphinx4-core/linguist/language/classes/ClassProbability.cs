@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.language.classes
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.language.classes
 {
-	internal sealed class ClassProbability : java.lang.Object
+	internal sealed class ClassProbability : Object
 	{
 		public string getClassName()
 		{

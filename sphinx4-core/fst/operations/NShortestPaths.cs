@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class NShortestPaths : java.lang.Object
+	public class NShortestPaths : Object
 	{		
 		public static float[] shortestDistance(Fst fst)
 		{

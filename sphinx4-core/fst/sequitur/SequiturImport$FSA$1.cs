@@ -1,9 +1,10 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.sequitur
 {
 
-	internal sealed class SequiturImport_FSA_1 : java.lang.Object, Comparator
+	internal sealed class SequiturImport_FSA_1 : Object, Comparator
 	{
 		public int compare(SequiturImport.State state, SequiturImport.State state2)
 		{
@@ -22,7 +23,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 		
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 		
 		internal SequiturImport.FSA this_0;

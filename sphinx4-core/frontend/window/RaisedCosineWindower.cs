@@ -25,7 +25,7 @@ namespace edu.cmu.sphinx.frontend.window
 				double num2 = (double)1f - this.alpha;
 				for (int i = 0; i < this.cosineWindow.Length; i++)
 				{
-					this.cosineWindow[i] = num2 - this.alpha * java.lang.Math.cos(6.2831853071795862 * (double)i / ((double)this.cosineWindow.Length - (double)1f));
+					this.cosineWindow[i] = num2 - this.alpha * Math.cos(6.2831853071795862 * (double)i / ((double)this.cosineWindow.Length - (double)1f));
 				}
 			}
 			this.overflowBuffer = new DoubleBuffer(samplesPerWindow);

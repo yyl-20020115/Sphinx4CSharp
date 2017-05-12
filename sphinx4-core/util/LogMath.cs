@@ -4,7 +4,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	public sealed class LogMath : java.lang.Object
+	public sealed class LogMath : Object
 	{
 		public static LogMath getLogMath()
 		{
@@ -23,17 +23,17 @@ namespace edu.cmu.sphinx.util
 		
 		public double logToLinear(float logValue)
 		{
-			return java.lang.Math.exp((double)this.logToLn(logValue));
+			return Math.exp((double)this.logToLn(logValue));
 		}		
 		
 		public float linearToLog(double linearValue)
 		{
-			return (float)java.lang.Math.log(linearValue) * this.inverseNaturalLogBase;
+			return (float)Math.log(linearValue) * this.inverseNaturalLogBase;
 		}
 		
 		public static float log10(float value)
 		{
-			return (float)(0.4342944819 * java.lang.Math.log((double)value));
+			return (float)(0.4342944819 * Math.log((double)value));
 		}
 		
 		public float addAsLinear(float logVal1, float logVal2)
@@ -82,11 +82,11 @@ namespace edu.cmu.sphinx.util
 		
 		private LogMath()
 		{
-			this.naturalLogBase = (float)java.lang.Math.log((double)LogMath.logBase);
+			this.naturalLogBase = (float)Math.log((double)LogMath.logBase);
 			this.inverseNaturalLogBase = 1f / this.naturalLogBase;
 			if (LogMath.useTable)
 			{
-				int num = ByteCodeHelper.d2i(-java.lang.Math.rint((double)this.linearToLog(this.logToLinear(0.5f) - (double)1f)));
+				int num = ByteCodeHelper.d2i(-Math.rint((double)this.linearToLog(this.logToLinear(0.5f) - (double)1f)));
 				if (num > 150000)
 				{
 					num = 150000;
@@ -119,8 +119,8 @@ namespace edu.cmu.sphinx.util
 		
 		public static float logToLog(float logSource, float sourceBase, float resultBase)
 		{
-			float num = (float)java.lang.Math.log((double)sourceBase);
-			float num2 = (float)java.lang.Math.log((double)resultBase);
+			float num = (float)Math.log((double)sourceBase);
+			float num2 = (float)Math.log((double)resultBase);
 			return logSource * num / num2;
 		}
 

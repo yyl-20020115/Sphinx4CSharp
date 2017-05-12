@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.flat
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.flat
 {
-	internal sealed class SentenceHMMState_2 : java.lang.Object, SentenceHMMStateVisitor
+	internal sealed class SentenceHMMState_2 : Object, SentenceHMMStateVisitor
 	{
 		internal SentenceHMMState_2(SentenceHMMState sentenceHMMState)
 		{

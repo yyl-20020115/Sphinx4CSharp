@@ -1,10 +1,11 @@
 ﻿using ikvm.@internal;
 using java.io;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.semiring
 {
 	[System.Serializable]
-	public abstract class Semiring : java.lang.Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
+	public abstract class Semiring : Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{
 		public abstract float zero();
 
@@ -36,7 +37,7 @@ namespace edu.cmu.sphinx.fst.semiring
 
 		public override string toString()
 		{
-			return java.lang.Object.instancehelper_getClass(this).toString();
+			return Object.instancehelper_getClass(this).toString();
 		}
 		
 		public static implicit operator Serializable(Semiring _ref)

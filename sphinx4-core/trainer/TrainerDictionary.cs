@@ -11,11 +11,11 @@ namespace edu.cmu.sphinx.trainer
 		{
 			Graph graph = new Graph();
 			Node node = null;
-			string text = java.lang.String.instancehelper_replaceFirst(word, "\\(.*\\)", "");
+			string text = String.instancehelper_replaceFirst(word, "\\(.*\\)", "");
 			int num;
-			if (!java.lang.String.instancehelper_equals(word, text))
+			if (!String.instancehelper_equals(word, text))
 			{
-				string text2 = java.lang.String.instancehelper_replaceFirst(java.lang.String.instancehelper_replaceFirst(word, ".*\\(", ""), "\\)", "");
+				string text2 = String.instancehelper_replaceFirst(String.instancehelper_replaceFirst(word, ".*\\(", ""), "\\)", "");
 				try
 				{
 					num = Integer.parseInt(text2);

@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.util.props
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util.props
 {
-	internal sealed class ConfigurationManagerUtils_1 : java.lang.Object
+	internal sealed class ConfigurationManagerUtils_1 : Object
 	{
 		static ConfigurationManagerUtils_1()
 		{

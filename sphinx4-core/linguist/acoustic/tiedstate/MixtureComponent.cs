@@ -8,7 +8,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
 	[System.Serializable]
-	public class MixtureComponent : java.lang.Object, Cloneable.__Interface, Serializable.__Interface, System.Runtime.Serialization.ISerializable
+	public class MixtureComponent : Object, Cloneable.__Interface, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{		
 		public virtual float getScore(float[] feature)
 		{
@@ -132,9 +132,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			double num = (double)0f;
 			for (int i = 0; i < this.variance.Length; i++)
 			{
-				num += java.lang.Math.log((double)(this.precisionTransformed[i] * -2f));
+				num += Math.log((double)(this.precisionTransformed[i] * -2f));
 			}
-			num = java.lang.Math.log(6.2831853071795862) * (double)this.variance.Length - num;
+			num = Math.log(6.2831853071795862) * (double)this.variance.Length - num;
 			return -(float)num * 0.5f;
 		}
 		

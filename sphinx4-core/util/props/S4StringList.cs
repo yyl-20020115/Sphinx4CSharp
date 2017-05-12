@@ -1,5 +1,4 @@
-﻿using IKVM.Attributes;
-using java.lang.annotation;
+﻿using java.lang.annotation;
 
 namespace edu.cmu.sphinx.util.props
 {

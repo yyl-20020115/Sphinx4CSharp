@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	public class Unit : java.lang.Object
+	public class Unit : Object
 	{
 		public virtual string getName()
 		{
@@ -60,7 +60,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			}
 			for (int i = 0; i < a.Length; i++)
 			{
-				if (!java.lang.String.instancehelper_equals(a[i].getName(), b[i].getName()))
+				if (!String.instancehelper_equals(a[i].getName(), b[i].getName()))
 				{
 					return false;
 				}
@@ -77,7 +77,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		{
 			this.name = text;
 			this.filler = flag;
-			this.silence = java.lang.String.instancehelper_equals(text, "SIL");
+			this.silence = String.instancehelper_equals(text, "SIL");
 			this.baseID = num;
 			this.baseUnit = this;
 			this.context = Context.__EMPTY_CONTEXT;
@@ -87,7 +87,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		{
 			this.name = unit.getName();
 			this.filler = flag;
-			this.silence = java.lang.String.instancehelper_equals(this.name, "SIL");
+			this.silence = String.instancehelper_equals(this.name, "SIL");
 			this.baseID = unit.getBaseID();
 			this.baseUnit = unit;
 			this.context = context;
@@ -112,19 +112,19 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			if (o is Unit)
 			{
 				Unit unit = (Unit)o;
-				return java.lang.String.instancehelper_equals(this.getKey(), unit.getKey());
+				return String.instancehelper_equals(this.getKey(), unit.getKey());
 			}
 			return false;
 		}
 		
 		public override int hashCode()
 		{
-			return java.lang.String.instancehelper_hashCode(this.getKey());
+			return String.instancehelper_hashCode(this.getKey());
 		}
 		
 		public virtual bool isPartialMatch(string name, Context context)
 		{
-			return java.lang.String.instancehelper_equals(this.getName(), name) && context.isPartialMatch(this.context);
+			return String.instancehelper_equals(this.getName(), name) && context.isPartialMatch(this.context);
 		}
 		
 		public static Unit[] getEmptyContext(int size)

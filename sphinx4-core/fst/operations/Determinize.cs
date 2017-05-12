@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class Determinize : java.lang.Object
+	public class Determinize : Object
 	{		
 		private static State getStateLabel(ArrayList arrayList, HashMap hashMap)
 		{
@@ -141,7 +141,7 @@ namespace edu.cmu.sphinx.fst.operations
 						Pair pair4 = (Pair)iterator4.next();
 						State state4 = (State)pair4.getLeft();
 						Float float4 = (Float)pair4.getRight();
-						if (!java.lang.String.instancehelper_equals(text2, ""))
+						if (!String.instancehelper_equals(text2, ""))
 						{
 							text2 = new StringBuilder().append(text2).append(",").toString();
 						}

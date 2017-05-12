@@ -117,7 +117,7 @@ namespace edu.cmu.sphinx.decoder.adaptation
 				double num2 = (double)(array[i] - array2[i]);
 				num += num2 * num2;
 			}
-			return (float)java.lang.Math.sqrt(num);
+			return (float)Math.sqrt(num);
 		}
 
 		private bool isEqual(float[] array, float[] array2)

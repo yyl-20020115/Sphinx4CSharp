@@ -6,7 +6,7 @@ using java.util.logging;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
 
-	public class Pool : java.lang.Object
+	public class Pool : Object
 	{		
 		public virtual int size()
 		{
@@ -70,7 +70,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		private Map features;
 				
 		[System.Serializable]
-		public sealed class Feature : java.lang.Enum
+		public sealed class Feature : Enum
 		{
 			private Feature(string text, int num) : base(text, num)
 			{
@@ -84,7 +84,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			
 			public static Pool.Feature valueOf(string name)
 			{
-				return (Pool.Feature)java.lang.Enum.valueOf(ClassLiteral<Pool.Feature>.Value, name);
+				return (Pool.Feature)Enum.valueOf(ClassLiteral<Pool.Feature>.Value, name);
 			}
 			
 			public static Pool.Feature NUM_SENONES

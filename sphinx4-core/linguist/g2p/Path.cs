@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.g2p
 {
-	public class Path : java.lang.Object
+	public class Path : Object
 	{
 		public virtual ArrayList getPath()
 		{
@@ -48,7 +48,7 @@ namespace edu.cmu.sphinx.linguist.g2p
 				stringBuilder.append(text);
 				stringBuilder.append(' ');
 			}
-			return java.lang.String.instancehelper_trim(stringBuilder.toString());
+			return String.instancehelper_trim(stringBuilder.toString());
 		}
 		
 		private ArrayList path;

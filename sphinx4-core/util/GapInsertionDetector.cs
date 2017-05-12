@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	public class GapInsertionDetector : java.lang.Object
+	public class GapInsertionDetector : Object
 	{
 		public GapInsertionDetector(string referenceFile, string hypothesisFile, bool showGapInsertions)
 		{

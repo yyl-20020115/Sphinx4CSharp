@@ -1,8 +1,9 @@
 ﻿using edu.cmu.sphinx.fst.semiring;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class Reverse : java.lang.Object
+	public class Reverse : Object
 	{		
 		public static Fst get(Fst fst)
 		{

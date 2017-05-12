@@ -281,7 +281,7 @@ namespace edu.cmu.sphinx.decoder.search
 			t = t.getPredecessor();
 			while (t != null && !t.isEmitting())
 			{
-				if (java.lang.Object.instancehelper_equals(searchState, t.getSearchState()))
+				if (Object.instancehelper_equals(searchState, t.getSearchState()))
 				{
 					java.lang.System.@out.println(new StringBuilder().append("CS ").append(searchState).append(" match ").append(t.getSearchState()).toString());
 					return true;
@@ -299,7 +299,7 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			if (fromState.getOrder() > toState.getOrder())
 			{
-				string text = new StringBuilder().append("IllegalState order: from ").append(java.lang.Object.instancehelper_getClass(fromState).getName()).append(' ').append(fromState.toPrettyString()).append(" order: ").append(fromState.getOrder()).append(" to ").append(java.lang.Object.instancehelper_getClass(toState).getName()).append(' ').append(toState.toPrettyString()).append(" order: ").append(toState.getOrder()).toString();
+				string text = new StringBuilder().append("IllegalState order: from ").append(Object.instancehelper_getClass(fromState).getName()).append(' ').append(fromState.toPrettyString()).append(" order: ").append(fromState.getOrder()).append(" to ").append(Object.instancehelper_getClass(toState).getName()).append(' ').append(toState.toPrettyString()).append(" order: ").append(toState.getOrder()).toString();
 				
 				throw new Error(text);
 			}
@@ -323,7 +323,7 @@ namespace edu.cmu.sphinx.decoder.search
 		public WordPruningBreadthFirstSearchManager(Linguist linguist, Pruner pruner, AcousticScorer scorer, ActiveListManager activeListManager, bool showTokenCount, double relativeWordBeamWidth, int growSkipInterval, bool checkStateOrder, bool buildWordLattice, int maxLatticeEdges, float acousticLookaheadFrames, bool keepAllTokens)
 		{
 			this.maxLatticeEdges = 100;
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.logMath = LogMath.getLogMath();
 			this.linguist = linguist;
 			this.pruner = pruner;

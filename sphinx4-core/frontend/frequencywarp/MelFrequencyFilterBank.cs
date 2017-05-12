@@ -15,7 +15,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 		
 		private double linToMelFreq(double num)
 		{
-			return 2595.0 * (java.lang.Math.log((double)1f + num / 700.0) / java.lang.Math.log(10.0));
+			return 2595.0 * (Math.log((double)1f + num / 700.0) / Math.log(10.0));
 		}
 		
 		private double setToNearestFrequencyBin(double num, double num2)
@@ -26,12 +26,12 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				
 				throw new IllegalArgumentException(text);
 			}
-			return num2 * (double)java.lang.Math.round(num / num2);
+			return num2 * (double)Math.round(num / num2);
 		}
 		
 		private double melToLinFreq(double num)
 		{
-			return 700.0 * (java.lang.Math.pow(10.0, num / 2595.0) - (double)1f);
+			return 700.0 * (Math.pow(10.0, num / 2595.0) - (double)1f);
 		}
 		
 		private void buildFilterbank(int num, int num2, double num3, double num4)

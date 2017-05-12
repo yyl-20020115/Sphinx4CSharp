@@ -76,7 +76,7 @@ namespace edu.cmu.sphinx.decoder.scorer
 				int num = scoreableList.size();
 				int num2 = num + this.numThreads - 1;
 				int num3 = this.numThreads;
-				int num4 = java.lang.Math.max((num3 != -1) ? (num2 / num3) : (-num2), this.minScoreablesPerThread);
+				int num4 = Math.max((num3 != -1) ? (num2 / num3) : (-num2), this.minScoreablesPerThread);
 				if (num4 < num)
 				{
 					ArrayList arrayList = new ArrayList();
@@ -84,7 +84,7 @@ namespace edu.cmu.sphinx.decoder.scorer
 					int num5 = num4;
 					while (i < num)
 					{
-						List list = scoreableList.subList(i, java.lang.Math.min(num5, num));
+						List list = scoreableList.subList(i, Math.min(num5, num));
 						arrayList.add(new ThreadedAcousticScorer_1(this, list, data));
 						i = num5;
 						num5 += num4;

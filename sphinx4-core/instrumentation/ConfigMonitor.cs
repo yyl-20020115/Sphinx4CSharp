@@ -6,7 +6,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.instrumentation
 {
-	public class ConfigMonitor : java.lang.Object, Configurable, Runnable, Monitor
+	public class ConfigMonitor : Object, Configurable, Runnable, Monitor
 	{
 		public ConfigMonitor()
 		{

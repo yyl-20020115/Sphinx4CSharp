@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	public class GMMDiag : java.lang.Object
+	public class GMMDiag : Object
 	{
 		public virtual int getNgauss()
 		{
@@ -165,7 +165,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		
 		private bool isDiff(float num, float num2)
 		{
-			return (double)java.lang.Math.abs(1f - num2 / num) > 0.01;
+			return (double)Math.abs(1f - num2 / num) > 0.01;
 		}
 		
 		public GMMDiag()
@@ -207,28 +207,28 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			{
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(name));
 				string text = bufferedReader.readLine();
-				string[] array = java.lang.String.instancehelper_split(text, " ");
+				string[] array = String.instancehelper_split(text, " ");
 				this.ngauss = Integer.parseInt(array[0]);
 				this.ncoefs = Integer.parseInt(array[1]);
 				this.allocate();
 				for (int i = 0; i < this.ngauss; i++)
 				{
 					text = bufferedReader.readLine();
-					array = java.lang.String.instancehelper_split(text, " ");
-					if (!java.lang.String.instancehelper_equals(array[0], "gauss") || Integer.parseInt(array[1]) != i)
+					array = String.instancehelper_split(text, " ");
+					if (!String.instancehelper_equals(array[0], "gauss") || Integer.parseInt(array[1]) != i)
 					{
 						java.lang.System.err.println(new StringBuilder().append("Error loading GMM ").append(text).append(' ').append(i).toString());
 						java.lang.System.exit(1);
 					}
 					this.setWeight(i, Float.parseFloat(array[2]));
 					text = bufferedReader.readLine();
-					array = java.lang.String.instancehelper_split(text, " ");
+					array = String.instancehelper_split(text, " ");
 					for (int j = 0; j < this.ncoefs; j++)
 					{
 						this.setMean(i, j, Float.parseFloat(array[j]));
 					}
 					text = bufferedReader.readLine();
-					array = java.lang.String.instancehelper_split(text, " ");
+					array = String.instancehelper_split(text, " ");
 					for (int j = 0; j < this.ncoefs; j++)
 					{
 						this.setVar(i, j, Float.parseFloat(array[j]));
@@ -341,7 +341,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					string text2 = text;
 					object _ref = "<MEAN>";
 					charSequence = CharSequence.Cast(_ref);
-					if (java.lang.String.instancehelper_contains(text2, charSequence))
+					if (String.instancehelper_contains(text2, charSequence))
 					{
 						this.ngauss++;
 						if (this.ncoefs == 0)
@@ -366,7 +366,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					string text3 = text;
 					object _ref = "<MEAN>";
 					charSequence =CharSequence.Cast( _ref);
-					if (java.lang.String.instancehelper_contains(text3, charSequence))
+					if (String.instancehelper_contains(text3, charSequence))
 					{
 						text = bufferedReader.readLine();
 						StringTokenizer stringTokenizer = new StringTokenizer(text);
@@ -381,7 +381,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						string text5 = text;
 						_ref = "<VARIANCE>";
 						charSequence = CharSequence.Cast(_ref);
-						if (!java.lang.String.instancehelper_contains(text5, charSequence))
+						if (!String.instancehelper_contains(text5, charSequence))
 						{
 							goto Block_8;
 						}
@@ -427,7 +427,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				bufferedReader.close();
 				bufferedReader = new BufferedReader(new FileReader(nom));
 				string text = bufferedReader.readLine();
-				string[] array = java.lang.String.instancehelper_split(text, " ");
+				string[] array = String.instancehelper_split(text, " ");
 				this.ncoefs = array.Length - 1;
 				bufferedReader.close();
 				bufferedReader = new BufferedReader(new FileReader(nom));
@@ -436,7 +436,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				for (int i = 0; i < this.ngauss; i++)
 				{
 					text = bufferedReader.readLine();
-					array = java.lang.String.instancehelper_split(text, " ");
+					array = String.instancehelper_split(text, " ");
 					this.weights[i] = Float.parseFloat(array[0]);
 					this.nT = ByteCodeHelper.f2i((float)this.nT + this.weights[i]);
 					for (int j = 0; j < this.ncoefs; j++)
@@ -444,7 +444,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						this.setMean(i, j, Float.parseFloat(array[j + 1]));
 					}
 					text = bufferedReader.readLine();
-					array = java.lang.String.instancehelper_split(text, " ");
+					array = String.instancehelper_split(text, " ");
 					for (int j = 0; j < this.ncoefs; j++)
 					{
 						this.setVar(i, j, Float.parseFloat(array[j]));

@@ -1,10 +1,11 @@
 ﻿using java.util;
 using javax.sound.sampled;
 using javax.swing.@event;
+using java.lang;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class AudioData : java.lang.Object
+	public class AudioData : Object
 	{		
 		protected internal virtual void fireStateChanged()
 		{

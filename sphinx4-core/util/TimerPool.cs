@@ -5,7 +5,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.util
 {
-	public class TimerPool : java.lang.Object
+	public class TimerPool : Object
 	{
 		public static Timer getTimer(object owner, string timerName)
 		{
@@ -20,7 +20,7 @@ namespace edu.cmu.sphinx.util
 				while (iterator.hasNext())
 				{
 					Timer timer = (Timer)iterator.next();
-					if (java.lang.String.instancehelper_equals(timer.getName(), timerName))
+					if (String.instancehelper_equals(timer.getName(), timerName))
 					{
 						return timer;
 					}
@@ -85,7 +85,7 @@ namespace edu.cmu.sphinx.util
 				}
 			}
 		}
-				
+
 		private static Map weakRefTimerPool = new WeakHashMap();
 	}
 }

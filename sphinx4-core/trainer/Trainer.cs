@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class Trainer : java.lang.Object, Configurable
+	public class Trainer : Object, Configurable
 	{
 		private void addStage(Stage stage)
 		{
@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.trainer
 			while (iterator.hasNext())
 			{
 				Stage stage = (Stage)iterator.next();
-				if (!this.isStageActive && java.lang.String.instancehelper_equals(this.initialStage, stage.toString()))
+				if (!this.isStageActive && String.instancehelper_equals(this.initialStage, stage.toString()))
 				{
 					this.isStageActive = true;
 				}
@@ -74,7 +74,7 @@ namespace edu.cmu.sphinx.trainer
 					{
 						throw new Error(new StringBuilder().append("IOE: Can't finish trainer ").append(ex).toString(), ex);
 					}
-					if (java.lang.String.instancehelper_equals(this.finalStage, stage.toString()))
+					if (String.instancehelper_equals(this.finalStage, stage.toString()))
 					{
 						this.isStageActive = false;
 					}

@@ -103,14 +103,14 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			}
 			this.cepstrumOrder = ceporder;
 			this.cepstra = new double[this.cepstrumOrder];
-			this.cepstra[0] = java.lang.Math.log(this.alpha);
+			this.cepstra[0] = Math.log(this.alpha);
 			if (this.cepstrumOrder == 1)
 			{
 				return this.cepstra;
 			}
 			this.cepstra[1] = -this.ARParameters[1];
 			int i;
-			for (i = 2; i < java.lang.Math.min(this.cepstrumOrder, this.order + 1); i++)
+			for (i = 2; i < Math.min(this.cepstrumOrder, this.order + 1); i++)
 			{
 				double num = (double)i * this.ARParameters[i];
 				for (int j = 1; j < i; j++)

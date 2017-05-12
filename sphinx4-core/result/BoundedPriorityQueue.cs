@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class BoundedPriorityQueue : java.lang.Object, Iterable, System.Collections.IEnumerable
+	public class BoundedPriorityQueue : Object, Iterable, System.Collections.IEnumerable
 	{
 		public BoundedPriorityQueue(int maxSize)
 		{

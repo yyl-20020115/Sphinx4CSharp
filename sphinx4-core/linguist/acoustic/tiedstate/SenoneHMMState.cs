@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class SenoneHMMState : java.lang.Object, HMMState
+	public class SenoneHMMState : Object, HMMState
 	{		
 		internal SenoneHMMState(SenoneHMM senoneHMM, int num)
 		{

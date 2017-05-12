@@ -112,13 +112,13 @@ namespace edu.cmu.sphinx.api
 			while (iterator.hasNext())
 			{
 				string text = (string)iterator.next();
-				string[] array = java.lang.String.instancehelper_split(text, "\\s+");
+				string[] array = String.instancehelper_split(text, "\\s+");
 				string[] array2 = array;
 				int num = array2.Length;
 				for (int i = 0; i < num; i++)
 				{
 					string text2 = array2[i];
-					if (java.lang.String.instancehelper_length(text2) > 0)
+					if (String.instancehelper_length(text2) > 0)
 					{
 						arrayList.add(text2);
 					}
@@ -152,7 +152,7 @@ namespace edu.cmu.sphinx.api
 			{
 				num2 += list.size() - num4;
 			}
-			this.logger.info(java.lang.String.format("Size %d deletions %d insertions %d error rate %.2f", new object[]
+			this.logger.info(String.format("Size %d deletions %d insertions %d error rate %.2f", new object[]
 			{
 				Integer.valueOf(num3),
 				Integer.valueOf(num),
@@ -187,7 +187,7 @@ namespace edu.cmu.sphinx.api
 			double num5 = (double)(num4 - num3) / (double)(num2 - num);
 			if (num5 < 10.0 && num2 - num > 3)
 			{
-				this.logger.info(new StringBuilder().append("Skipping text range due to a high density ").append(java.lang.Object.instancehelper_toString(list.subList(num, num2))).toString());
+				this.logger.info(new StringBuilder().append("Skipping text range due to a high density ").append(Object.instancehelper_toString(list.subList(num, num2))).toString());
 				return;
 			}
 			queue.offer(list.subList(num, num2));
@@ -197,7 +197,7 @@ namespace edu.cmu.sphinx.api
 
 		public SpeechAligner(string amPath, string dictPath, string g2pPath)
 		{
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getSimpleName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getSimpleName());
 			Configuration configuration = new Configuration();
 			configuration.setAcousticModelPath(amPath);
 			configuration.setDictionaryPath(dictPath);
@@ -227,7 +227,7 @@ namespace edu.cmu.sphinx.api
 			{
 				if (alignment[i] == -1)
 				{
-					this.logger.info(java.lang.String.format("+ %s", new object[]
+					this.logger.info(String.format("+ %s", new object[]
 					{
 						results.get(i)
 					}));
@@ -240,7 +240,7 @@ namespace edu.cmu.sphinx.api
 						while (iterator.hasNext())
 						{
 							string text = (string)iterator.next();
-							this.logger.info(java.lang.String.format("- %-25s", new object[]
+							this.logger.info(String.format("- %-25s", new object[]
 							{
 								text
 							}));
@@ -248,7 +248,7 @@ namespace edu.cmu.sphinx.api
 					}
 					else
 					{
-						this.logger.info(java.lang.String.format("  %-25s", new object[]
+						this.logger.info(String.format("  %-25s", new object[]
 						{
 							transcript.get(alignment[i])
 						}));
@@ -262,7 +262,7 @@ namespace edu.cmu.sphinx.api
 				while (iterator2.hasNext())
 				{
 					string text2 = (string)iterator2.next();
-					this.logger.info(java.lang.String.format("- %-25s", new object[]
+					this.logger.info(String.format("- %-25s", new object[]
 					{
 						text2
 					}));

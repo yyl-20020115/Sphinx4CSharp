@@ -9,7 +9,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.tools.bandwidth
 {
-	public class BandDetector : java.lang.Object
+	public class BandDetector : Object
 	{		
 		public BandDetector()
 		{
@@ -39,13 +39,13 @@ namespace edu.cmu.sphinx.tools.bandwidth
 					double[] values = ((DoubleData)data).getValues();
 					for (int i = 0; i < 40; i++)
 					{
-						num = java.lang.Math.max(num, values[i]);
+						num = Math.max(num, values[i]);
 					}
 					if (num > 100000.0)
 					{
 						for (int i = 0; i < 40; i++)
 						{
-							array[i] = java.lang.Math.max(values[i] / num, array[i]);
+							array[i] = Math.max(values[i] / num, array[i]);
 						}
 					}
 				}
@@ -60,7 +60,7 @@ namespace edu.cmu.sphinx.tools.bandwidth
 			double num3 = (double)0f;
 			for (int i = num; i <= num2; i++)
 			{
-				num3 = java.lang.Math.max(num3, array[i]);
+				num3 = Math.max(num3, array[i]);
 			}
 			return num3;
 		}
@@ -72,7 +72,7 @@ namespace edu.cmu.sphinx.tools.bandwidth
 				java.lang.System.@out.println("Usage: Detector <filename.wav> or Detector <filelist>");
 				return;
 			}
-			if (java.lang.String.instancehelper_endsWith(args[0], ".wav"))
+			if (String.instancehelper_endsWith(args[0], ".wav"))
 			{
 				BandDetector bandDetector = new BandDetector();
 				java.lang.System.@out.println(new StringBuilder().append("Bandwidth for ").append(args[0]).append(" is ").append(bandDetector.bandwidth(args[0])).toString());
@@ -83,7 +83,7 @@ namespace edu.cmu.sphinx.tools.bandwidth
 				Scanner scanner = new Scanner(new File(args[0]));
 				while (scanner.hasNextLine())
 				{
-					string text = java.lang.String.instancehelper_trim(scanner.nextLine());
+					string text = String.instancehelper_trim(scanner.nextLine());
 					if (bandDetector.bandwidth(text))
 					{
 						java.lang.System.@out.println(new StringBuilder().append("Bandwidth for ").append(text).append(" is low").toString());

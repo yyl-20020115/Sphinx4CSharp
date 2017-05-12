@@ -1,4 +1,5 @@
-﻿using edu.cmu.sphinx.util.props;
+﻿using java.lang;
+using edu.cmu.sphinx.util.props;
 
 namespace edu.cmu.sphinx.trainer
 {
@@ -16,7 +17,7 @@ namespace edu.cmu.sphinx.trainer
 
 	}
 
-	public abstract class TrainManagerBase : java.lang.Object, TrainManager
+	public abstract class TrainManagerBase : Object, TrainManager
 	{
 
 		[S4Double(new object[]

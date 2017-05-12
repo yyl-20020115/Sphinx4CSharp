@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		public override void startElement(string uri, string localName, string qName, Attributes attributes)
 		{
-			if (java.lang.String.instancehelper_equals(qName, "config"))
+			if (String.instancehelper_equals(qName, "config"))
 			{
 				string value = attributes.getValue("extends");
 				if (value != null)
@@ -58,17 +58,17 @@ namespace edu.cmu.sphinx.util.props
 					this.replaceDuplicates = true;
 				}
 			}
-			else if (java.lang.String.instancehelper_equals(qName, "include"))
+			else if (String.instancehelper_equals(qName, "include"))
 			{
 				string value = attributes.getValue("file");
 				this.mergeConfigs(value, false);
 			}
-			else if (java.lang.String.instancehelper_equals(qName, "extendwith"))
+			else if (String.instancehelper_equals(qName, "extendwith"))
 			{
 				string value = attributes.getValue("file");
 				this.mergeConfigs(value, true);
 			}
-			else if (java.lang.String.instancehelper_equals(qName, "component"))
+			else if (String.instancehelper_equals(qName, "component"))
 			{
 				string value = attributes.getValue("name");
 				string value2 = attributes.getValue("type");
@@ -81,7 +81,7 @@ namespace edu.cmu.sphinx.util.props
 				}
 				this.rpd = new RawPropertyData(value, value2);
 			}
-			else if (java.lang.String.instancehelper_equals(qName, "property"))
+			else if (String.instancehelper_equals(qName, "property"))
 			{
 				string value = attributes.getValue("name");
 				string value2 = attributes.getValue("value");
@@ -108,7 +108,7 @@ namespace edu.cmu.sphinx.util.props
 					this.rpd.add(value, value2);
 				}
 			}
-			else if (java.lang.String.instancehelper_equals(qName, "propertylist"))
+			else if (String.instancehelper_equals(qName, "propertylist"))
 			{
 				this.itemListName = attributes.getValue("name");
 				if (attributes.getLength() != 1 || this.itemListName == null)
@@ -122,7 +122,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			else
 			{
-				if (!java.lang.String.instancehelper_equals(qName, "item"))
+				if (!String.instancehelper_equals(qName, "item"))
 				{
 					string text5 = new StringBuilder().append("Unknown element '").append(qName).append('\'').toString();
 					Locator locator5 = this.locator;
@@ -150,14 +150,14 @@ namespace edu.cmu.sphinx.util.props
 		
 		public override void endElement(string uri, string localName, string qName)
 		{
-			if (java.lang.String.instancehelper_equals(qName, "component"))
+			if (String.instancehelper_equals(qName, "component"))
 			{
 				this.__rpdMap.put(this.rpd.getName(), this.rpd);
 				this.rpd = null;
 			}
-			else if (!java.lang.String.instancehelper_equals(qName, "property"))
+			else if (!String.instancehelper_equals(qName, "property"))
 			{
-				if (java.lang.String.instancehelper_equals(qName, "propertylist"))
+				if (String.instancehelper_equals(qName, "propertylist"))
 				{
 					if (this.rpd.contains(this.itemListName))
 					{
@@ -169,9 +169,9 @@ namespace edu.cmu.sphinx.util.props
 					this.rpd.add(this.itemListName, this.itemList);
 					this.itemList = null;
 				}
-				else if (java.lang.String.instancehelper_equals(qName, "item"))
+				else if (String.instancehelper_equals(qName, "item"))
 				{
-					this.itemList.add(java.lang.String.instancehelper_trim(this.curItem.toString()));
+					this.itemList.add(String.instancehelper_trim(this.curItem.toString()));
 					this.curItem = null;
 				}
 			}

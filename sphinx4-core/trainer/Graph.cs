@@ -4,8 +4,8 @@ using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class Graph : java.lang.Object
-	{				
+	public class Graph : Object
+	{
 		public virtual bool validate()
 		{
 			int num = 1;
@@ -47,18 +47,18 @@ namespace edu.cmu.sphinx.trainer
 			}
 			return num != 0;
 		}
-		
+
 		public Graph()
 		{
 			this.edges = new ArrayList();
 			this.nodes = new ArrayList();
 		}
-		
+
 		public virtual void addNode(Node node)
 		{
 			this.nodes.add(node);
 		}
-		
+
 		public virtual void setInitialNode(Node node)
 		{
 			if (this.isNodeInGraph(node))
@@ -67,10 +67,10 @@ namespace edu.cmu.sphinx.trainer
 				return;
 			}
 			string text = "Initial node not in graph";
-			
+
 			throw new IllegalArgumentException(text);
 		}
-		
+
 		public virtual Edge linkNodes(Node sourceNode, Node destinationNode)
 		{
 			Edge edge = new Edge(sourceNode, destinationNode);
@@ -87,7 +87,7 @@ namespace edu.cmu.sphinx.trainer
 			this.addEdge(edge);
 			return edge;
 		}
-		
+
 		public virtual void setFinalNode(Node node)
 		{
 			if (this.isNodeInGraph(node))
@@ -96,15 +96,15 @@ namespace edu.cmu.sphinx.trainer
 				return;
 			}
 			string text = "Final node not in graph";
-			
+
 			throw new IllegalArgumentException(text);
 		}
-		
+
 		public virtual void copyGraph(Graph graph)
 		{
 			if (!Graph.assertionsDisabled && (!this.nodes.isEmpty() || !this.edges.isEmpty()))
 			{
-				
+
 				throw new AssertionError();
 			}
 			graph.startNodeIterator();
@@ -120,29 +120,29 @@ namespace edu.cmu.sphinx.trainer
 			this.setInitialNode(graph.getInitialNode());
 			this.setFinalNode(graph.getFinalNode());
 		}
-		
+
 		public virtual Node[] nodeToArray()
 		{
 			return (Node[])this.nodes.toArray(new Node[this.nodes.size()]);
 		}
-		
+
 		public virtual void insertGraph(Graph graph, Node node)
 		{
 			if (!Graph.assertionsDisabled && !this.isNodeInGraph(node))
 			{
 				object obj = "Node not in graph";
-				
+
 				throw new AssertionError(obj);
 			}
 			if (!Graph.assertionsDisabled && graph == null)
 			{
 				object obj2 = "Graph not defined";
-				
+
 				throw new AssertionError(obj2);
 			}
 			if (!Graph.assertionsDisabled && (this.isFinalNode(node) || this.isInitialNode(node)))
 			{
-				
+
 				throw new AssertionError();
 			}
 			int num = this.nodes.indexOf(node);
@@ -186,12 +186,12 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return this.nodes.contains(node);
 		}
-		
+
 		public virtual void addEdge(Edge edge)
 		{
 			this.edges.add(edge);
 		}
-		
+
 		public virtual void startNodeIterator()
 		{
 			this.nodeIterator = this.nodes.iterator();
@@ -206,7 +206,7 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return (Node)this.nodeIterator.next();
 		}
-		
+
 		public virtual void startEdgeIterator()
 		{
 			this.edgeIterator = this.edges.iterator();
@@ -241,7 +241,7 @@ namespace edu.cmu.sphinx.trainer
 		{
 			return node == this.initialNode;
 		}
-		
+
 		public virtual int size()
 		{
 			return this.nodes.size();
@@ -282,19 +282,19 @@ namespace edu.cmu.sphinx.trainer
 				edge.print();
 			}
 		}
-	
+
 		private ArrayList edges;
-		
+
 		private ArrayList nodes;
-		
+
 		private Iterator edgeIterator;
-		
+
 		private Iterator nodeIterator;
 
 		private Node initialNode;
 
 		private Node finalNode;
-		
+
 		internal static bool assertionsDisabled = !ClassLiteral<Graph>.Value.desiredAssertionStatus();
 	}
 }

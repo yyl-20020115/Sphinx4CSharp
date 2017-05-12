@@ -8,7 +8,7 @@ using javax.xml.bind.annotation;
 
 namespace edu.cmu.sphinx.fst.sequitur
 {
-	public class SequiturImport : java.lang.Object
+	public class SequiturImport : Object
 	{
 		public SequiturImport()
 		{
@@ -28,7 +28,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			java.lang.System.@out.println(new StringBuilder().append("The Sequitur G2P XML-formatted FST ").append(args[0]).append(" has been converted to Sphinx' OpenFst binary format in the file ").append(args[1]).toString());
 		}
 
-		public class Alphabet : java.lang.Object
+		public class Alphabet : Object
 		{
 			public Alphabet()
 			{
@@ -39,7 +39,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 				Iterator iterator = this.symbols.iterator();
 				while (iterator.hasNext())
 				{
-					if (java.lang.String.instancehelper_matches(((SequiturImport.Symbol)iterator.next()).content, "__\\d+__"))
+					if (String.instancehelper_matches(((SequiturImport.Symbol)iterator.next()).content, "__\\d+__"))
 					{
 						iterator.remove();
 					}
@@ -86,7 +86,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			internal static bool assertionsDisabled = !ClassLiteral<SequiturImport>.Value.desiredAssertionStatus();
 		}
 
-		public class Arc : java.lang.Object
+		public class Arc : Object
 		{
 			public Arc()
 			{
@@ -138,7 +138,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			"name",
 			"fsa"
 		})]
-		public class FSA : java.lang.Object
+		public class FSA : Object
 		{			
 			public virtual Fst toFst()
 			{
@@ -176,7 +176,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			
 			public virtual void afterUnmarshal(Unmarshaller unmarshaller, object parent)
 			{
-				if (!SequiturImport.FSA.assertionsDisabled && !java.lang.String.instancehelper_equals("tropical", this.semiring))
+				if (!SequiturImport.FSA.assertionsDisabled && !String.instancehelper_equals("tropical", this.semiring))
 				{
 					
 					throw new AssertionError();
@@ -244,7 +244,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			internal static bool assertionsDisabled = !ClassLiteral<SequiturImport>.Value.desiredAssertionStatus();
 		}
 
-		public class State : java.lang.Object
+		public class State : Object
 		{
 			public State()
 			{
@@ -306,7 +306,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			})]
 			internal List arcs;
 		}
-		public class Symbol : java.lang.Object
+		public class Symbol : Object
 		{						
 			public Symbol()
 			{
@@ -327,11 +327,11 @@ namespace edu.cmu.sphinx.fst.sequitur
 					throw new AssertionError(obj2);
 				}
 				this.content = (string)this.contentList.get(0);
-				if (java.lang.String.instancehelper_equals(this.content, "__term__"))
+				if (String.instancehelper_equals(this.content, "__term__"))
 				{
 					this.content = "</s>";
 				}
-				else if (java.lang.String.instancehelper_matches(this.content, "__.+__"))
+				else if (String.instancehelper_matches(this.content, "__.+__"))
 				{
 					this.content = "<eps>";
 				}

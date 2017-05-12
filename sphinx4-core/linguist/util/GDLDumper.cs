@@ -99,8 +99,8 @@ namespace edu.cmu.sphinx.linguist.util
 				return "0";
 			}
 			int num2 = 5;
-			string text = java.lang.String.valueOf(num);
-			if (java.lang.String.instancehelper_length(text) > num2)
+			string text = String.valueOf(num);
+			if (String.instancehelper_length(text) > num2)
 			{
 				text = Utilities.doubleToScientificString(num, 3);
 			}

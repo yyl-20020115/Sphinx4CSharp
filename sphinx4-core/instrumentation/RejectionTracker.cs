@@ -7,7 +7,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.instrumentation
 {
-	public class RejectionTracker : java.lang.Object, ResultListener, EventListener, Configurable, Resetable, Monitor, StateListener
+	public class RejectionTracker : Object, ResultListener, EventListener, Configurable, Resetable, Monitor, StateListener
 	{		
 		private void initRecognizer(Recognizer recognizer)
 		{
@@ -80,10 +80,10 @@ namespace edu.cmu.sphinx.instrumentation
 			{
 				this.numUtterances++;
 				string bestResultNoFiller = result.getBestResultNoFiller();
-				if (java.lang.String.instancehelper_equals(referenceText, "<unk>"))
+				if (String.instancehelper_equals(referenceText, "<unk>"))
 				{
 					this.numOutOfGrammarUtterances++;
-					if (java.lang.String.instancehelper_equals(bestResultNoFiller, "<unk>"))
+					if (String.instancehelper_equals(bestResultNoFiller, "<unk>"))
 					{
 						this.numCorrectOutOfGrammarUtterances++;
 					}
@@ -92,7 +92,7 @@ namespace edu.cmu.sphinx.instrumentation
 						this.numFalseInGrammarUtterances++;
 					}
 				}
-				else if (java.lang.String.instancehelper_equals(bestResultNoFiller, "<unk>"))
+				else if (String.instancehelper_equals(bestResultNoFiller, "<unk>"))
 				{
 					this.numFalseOutOfGrammarUtterances++;
 				}

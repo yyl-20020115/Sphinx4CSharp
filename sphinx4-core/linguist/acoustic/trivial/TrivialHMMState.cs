@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.trivial
 {
-	internal sealed class TrivialHMMState : java.lang.Object, HMMState
+	internal sealed class TrivialHMMState : Object, HMMState
 	{
 		internal TrivialHMMState(HMM hmm, int num, bool flag)
 		{

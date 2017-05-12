@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.jsgf.parser
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.jsgf.parser
 {
-	internal sealed class JSGFParser_1 : java.lang.Object
+	internal sealed class JSGFParser_1 : Object
 	{
 		JSGFParser_1()
 		{

@@ -36,7 +36,7 @@ namespace edu.cmu.sphinx.frontend.transform
 			this.lifterWeights = new double[this.cepstrumSize];
 			for (int i = 0; i < this.cepstrumSize; i++)
 			{
-				this.lifterWeights[i] = (double)1f + (double)(this.lifterValue / 2) * java.lang.Math.sin((double)i * 3.1415926535897931 / (double)this.lifterValue);
+				this.lifterWeights[i] = (double)1f + (double)(this.lifterValue / 2) * Math.sin((double)i * 3.1415926535897931 / (double)this.lifterValue);
 			}
 		}
 		

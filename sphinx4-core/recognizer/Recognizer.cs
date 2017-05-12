@@ -8,7 +8,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.recognizer
 {
-	public class Recognizer : java.lang.Object, Configurable, ResultProducer
+	public class Recognizer : Object, Configurable, ResultProducer
 	{		
 		public virtual Result recognize()
 		{
@@ -174,7 +174,7 @@ namespace edu.cmu.sphinx.recognizer
 		private List monitors;
 
 		[System.Serializable]
-		public sealed class State : java.lang.Enum
+		public sealed class State : Enum
 		{			
 			private State(string text, int num) : base(text, num)
 			{
@@ -188,7 +188,7 @@ namespace edu.cmu.sphinx.recognizer
 			
 			public static Recognizer.State valueOf(string name)
 			{
-				return (Recognizer.State)java.lang.Enum.valueOf(ClassLiteral<Recognizer.State>.Value, name);
+				return (Recognizer.State)Enum.valueOf(ClassLiteral<Recognizer.State>.Value, name);
 			}
 			
 			public static Recognizer.State DEALLOCATED

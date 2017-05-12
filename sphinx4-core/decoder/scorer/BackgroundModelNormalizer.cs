@@ -22,7 +22,7 @@ namespace edu.cmu.sphinx.decoder.scorer
 		public BackgroundModelNormalizer(SimpleBreadthFirstSearchManager activeListProvider)
 		{
 			this.activeListProvider = activeListProvider;
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.logger.warning("no active list set.");
 		}
 	

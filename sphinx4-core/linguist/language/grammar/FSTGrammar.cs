@@ -21,7 +21,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				{
 					break;
 				}
-				if (java.lang.String.instancehelper_equals(@string, "T"))
+				if (String.instancehelper_equals(@string, "T"))
 				{
 					extendedStreamTokenizer.getInt("src id");
 					int @int = extendedStreamTokenizer.getInt("dest id");
@@ -37,7 +37,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 						GrammarNode grammarNode = (GrammarNode)this.nodes.get(text2);
 						if (grammarNode == null)
 						{
-							if (java.lang.String.instancehelper_equals(string2, ","))
+							if (String.instancehelper_equals(string2, ","))
 							{
 								grammarNode = this.createGrammarNode(@int, false);
 							}
@@ -47,7 +47,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 							}
 							this.nodes.put(text2, grammarNode);
 						}
-						else if (!java.lang.String.instancehelper_equals(string2, ",") && !FSTGrammar.assertionsDisabled && !java.lang.String.instancehelper_equals(string2, this.getWord(grammarNode)))
+						else if (!String.instancehelper_equals(string2, ",") && !FSTGrammar.assertionsDisabled && !String.instancehelper_equals(string2, this.getWord(grammarNode)))
 						{
 							
 							throw new AssertionError();
@@ -187,7 +187,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				{
 					break;
 				}
-				if (java.lang.String.instancehelper_equals(@string, "I"))
+				if (String.instancehelper_equals(@string, "I"))
 				{
 					if (!FSTGrammar.assertionsDisabled && grammarNode != null)
 					{
@@ -206,7 +206,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 						grammarNode3.add(grammarNode, 0f);
 					}
 				}
-				else if (java.lang.String.instancehelper_equals(@string, "T"))
+				else if (String.instancehelper_equals(@string, "T"))
 				{
 					int @int = extendedStreamTokenizer.getInt("this id");
 					int int2 = extendedStreamTokenizer.getInt("next id");
@@ -218,9 +218,9 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 					}
 					float num2 = 0f;
 					string string2 = extendedStreamTokenizer.getString();
-					if (string2 == null || java.lang.String.instancehelper_equals(string2, ","))
+					if (string2 == null || String.instancehelper_equals(string2, ","))
 					{
-						if (string2 != null && java.lang.String.instancehelper_equals(string2, ","))
+						if (string2 != null && String.instancehelper_equals(string2, ","))
 						{
 							extendedStreamTokenizer.getString();
 							num2 = extendedStreamTokenizer.getFloat("probability");
@@ -234,7 +234,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 					{
 						string string3 = extendedStreamTokenizer.getString();
 						num2 = extendedStreamTokenizer.getFloat("probability");
-						if (java.lang.String.instancehelper_equals(string3, "<unknown>"))
+						if (String.instancehelper_equals(string3, "<unknown>"))
 						{
 							continue;
 						}
@@ -246,7 +246,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 					}
 					grammarNode3.add(grammarNode4, this.convertProbability(num2));
 				}
-				else if (java.lang.String.instancehelper_equals(@string, "F"))
+				else if (String.instancehelper_equals(@string, "F"))
 				{
 					int @int = extendedStreamTokenizer.getInt("this id");
 					float @float = extendedStreamTokenizer.getFloat("probability");

@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.util
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util
 {
-	internal sealed class SocketCommandClient_2 : java.lang.Object, CommandInterface
+	internal sealed class SocketCommandClient_2 : Object, CommandInterface
 	{
 		internal SocketCommandClient_2(SocketCommandClient socketCommandClient)
 		{

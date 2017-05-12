@@ -22,7 +22,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				double num5 = 6.2831853071795862 * (double)i / num4;
 				for (int j = 0; j < this.numberPLPFilters; j++)
 				{
-					this.cosine[i][j] = java.lang.Math.cos(num5 * ((double)j + 0.5));
+					this.cosine[i][j] = Math.cos(num5 * ((double)j + 0.5));
 				}
 			}
 		}
@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			double[] array2 = new double[array.Length];
 			for (int i = 0; i < array.Length; i++)
 			{
-				array2[i] = java.lang.Math.pow(array[i], 0.33333333333333331);
+				array2[i] = Math.pow(array[i], 0.33333333333333331);
 			}
 			return array2;
 		}

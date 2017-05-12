@@ -1,5 +1,6 @@
 ﻿using edu.cmu.sphinx.util.props;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search
 {
@@ -19,7 +20,7 @@ namespace edu.cmu.sphinx.decoder.search
 
 	}
 
-	public abstract class ActiveListManagerBase : java.lang.Object, ActiveListManager
+	public abstract class ActiveListManagerBase : Object, ActiveListManager
 	{
 		[S4Integer(new object[]
 		{

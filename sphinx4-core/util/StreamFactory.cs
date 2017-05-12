@@ -5,7 +5,7 @@ using java.util.zip;
 
 namespace edu.cmu.sphinx.util
 {
-	public class StreamFactory : java.lang.Object
+	public class StreamFactory : Object
 	{
 		public static InputStream getInputStream(string location, string file)
 		{
@@ -27,7 +27,7 @@ namespace edu.cmu.sphinx.util
 
 		public static string resolve(string sourceName)
 		{
-			if (java.lang.String.instancehelper_endsWith(sourceName, ".jar") || java.lang.String.instancehelper_endsWith(sourceName, ".zip"))
+			if (String.instancehelper_endsWith(sourceName, ".jar") || String.instancehelper_endsWith(sourceName, ".zip"))
 			{
 				return "ZIP_FILE";
 			}
@@ -58,7 +58,7 @@ namespace edu.cmu.sphinx.util
 					text = new StringBuilder().append(scheme).append(':').append(uri2.getSchemeSpecificPart()).toString();
 				}
 			}
-			if (java.lang.String.instancehelper_equals(format, "ZIP_FILE"))
+			if (String.instancehelper_equals(format, "ZIP_FILE"))
 			{
 				try
 				{
@@ -78,7 +78,7 @@ namespace edu.cmu.sphinx.util
 				}
 				return result;
 			}
-			if (java.lang.String.instancehelper_equals(format, "DIRECTORY"))
+			if (String.instancehelper_equals(format, "DIRECTORY"))
 			{
 				if (text != null)
 				{
@@ -95,7 +95,7 @@ namespace edu.cmu.sphinx.util
 		public static OutputStream getOutputStream(string format, string location, string file, bool append)
 		{
 			OutputStream outputStream;
-			if (java.lang.String.instancehelper_equals(format, "ZIP_FILE"))
+			if (String.instancehelper_equals(format, "ZIP_FILE"))
 			{
 				try
 				{
@@ -118,7 +118,7 @@ namespace edu.cmu.sphinx.util
 				}
 				return outputStream;
 			}
-			if (!java.lang.String.instancehelper_equals(format, "DIRECTORY"))
+			if (!String.instancehelper_equals(format, "DIRECTORY"))
 			{
 				string text2 = "Format not supported for writing";
 				throw new IOException(text2);
@@ -148,12 +148,12 @@ namespace edu.cmu.sphinx.util
 		
 		public static OutputStream getOutputStream(string format, string location, string file)
 		{
-			if (java.lang.String.instancehelper_equals(format, "ZIP_FILE"))
+			if (String.instancehelper_equals(format, "ZIP_FILE"))
 			{
 				java.lang.System.@out.println("WARNING: overwriting ZIP or JAR file!");
 				return StreamFactory.getOutputStream(StreamFactory.resolve(location), location, file, false);
 			}
-			if (java.lang.String.instancehelper_equals(format, "DIRECTORY"))
+			if (String.instancehelper_equals(format, "DIRECTORY"))
 			{
 				return StreamFactory.getOutputStream("DIRECTORY", location, file, false);
 			}

@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	internal sealed class AudioTool_3 : java.lang.Object, ActionListener, EventListener
+	internal sealed class AudioTool_3 : Object, ActionListener, EventListener
 	{
 		internal AudioTool_3()
 		{
@@ -14,7 +14,7 @@ namespace edu.cmu.sphinx.tools.audio
 		public void actionPerformed(ActionEvent actionEvent)
 		{
 			AudioTool.getFilename("Save As...", 1);
-			if (AudioTool.filename == null || java.lang.String.instancehelper_isEmpty(AudioTool.filename))
+			if (AudioTool.filename == null || String.instancehelper_isEmpty(AudioTool.filename))
 			{
 				return;
 			}

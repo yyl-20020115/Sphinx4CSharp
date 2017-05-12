@@ -6,8 +6,8 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	public class NISTAlign : java.lang.Object
-	{	
+	public class NISTAlign : Object
+	{
 		public NISTAlign(bool showResults, bool showAlignedResults)
 		{
 			this.showResults = showResults;
@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.util
 			this.totalInsertions = 0;
 			this.totalDeletions = 0;
 		}
-		
+
 		public virtual void printSentenceSummary()
 		{
 			if (this.showResults)
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.util
 				java.lang.System.@out.println(new StringBuilder().append("ALIGN_HYP: ").append(this.toString(this.alignedHypothesisWords)).toString());
 			}
 		}
-		
+
 		public virtual void printTotalSummary()
 		{
 			if (this.totalSentences > 0)
@@ -65,26 +65,26 @@ namespace edu.cmu.sphinx.util
 				java.lang.System.@out.println(new StringBuilder().append("   Sentences: ").append(this.totalSentences).append("   Matches: ").append(this.totalSentences - this.totalSentencesWithErrors).append("   SentenceAcc: ").append(this.toPercentage("##0.000%", this.getTotalSentenceAccuracy())).toString());
 			}
 		}
-		
+
 		public virtual bool align(string reference, string hypothesis)
 		{
 			this.rawReference = reference;
 			this.rawHypothesis = hypothesis;
-			int num = java.lang.String.instancehelper_indexOf(this.rawReference, 40);
+			int num = String.instancehelper_indexOf(this.rawReference, 40);
 			if (num != -1)
 			{
-				this.referenceAnnotation = java.lang.String.instancehelper_substring(this.rawReference, num);
-				this.referenceItems = this.toList(java.lang.String.instancehelper_substring(this.rawReference, 0, num));
+				this.referenceAnnotation = String.instancehelper_substring(this.rawReference, num);
+				this.referenceItems = this.toList(String.instancehelper_substring(this.rawReference, 0, num));
 			}
 			else
 			{
 				this.referenceAnnotation = null;
 				this.referenceItems = this.toList(this.rawReference);
 			}
-			num = java.lang.String.instancehelper_indexOf(this.rawHypothesis, 40);
+			num = String.instancehelper_indexOf(this.rawHypothesis, 40);
 			if (num != -1)
 			{
-				this.hypothesisItems = this.toList(java.lang.String.instancehelper_substring(this.rawHypothesis, 0, num));
+				this.hypothesisItems = this.toList(String.instancehelper_substring(this.rawHypothesis, 0, num));
 			}
 			else
 			{
@@ -98,11 +98,11 @@ namespace edu.cmu.sphinx.util
 			this.updateTotals();
 			return this.insertions + this.deletions + this.substitutions == 0;
 		}
-		
+
 		internal virtual LinkedList toList(string text)
 		{
 			LinkedList linkedList = new LinkedList();
-			StringTokenizer stringTokenizer = new StringTokenizer(java.lang.String.instancehelper_trim(text));
+			StringTokenizer stringTokenizer = new StringTokenizer(String.instancehelper_trim(text));
 			while (stringTokenizer.hasMoreTokens())
 			{
 				string text2 = stringTokenizer.nextToken();
@@ -110,7 +110,7 @@ namespace edu.cmu.sphinx.util
 			}
 			return linkedList;
 		}
-		
+
 		internal virtual int[][] createBacktraceTable(LinkedList linkedList, LinkedList linkedList2, NISTAlign.Comparator comparator)
 		{
 			int num = linkedList.size() + 1;
@@ -183,7 +183,7 @@ namespace edu.cmu.sphinx.util
 			}
 			return array3;
 		}
-		
+
 		internal virtual LinkedList backtrace(int[][] array)
 		{
 			LinkedList linkedList = new LinkedList();
@@ -194,28 +194,28 @@ namespace edu.cmu.sphinx.util
 				linkedList.add(Integer.valueOf(array[num][num2]));
 				switch (array[num][num2])
 				{
-				case 0:
-					num --;
-					num2 --;
-					break;
-				case 1:
-					num --;
-					num2 --;
-					this.substitutions++;
-					break;
-				case 2:
-					num2 --;
-					this.insertions++;
-					break;
-				case 3:
-					num --;
-					this.deletions++;
-					break;
+					case 0:
+						num--;
+						num2--;
+						break;
+					case 1:
+						num--;
+						num2--;
+						this.substitutions++;
+						break;
+					case 2:
+						num2--;
+						this.insertions++;
+						break;
+					case 3:
+						num--;
+						this.deletions++;
+						break;
 				}
 			}
 			return linkedList;
 		}
-		
+
 		internal virtual void alignWords(LinkedList linkedList, NISTAlign.StringRenderer stringRenderer)
 		{
 			ListIterator listIterator = this.referenceItems.listIterator();
@@ -224,7 +224,7 @@ namespace edu.cmu.sphinx.util
 			object obj2 = null;
 			this.alignedReferenceWords = new LinkedList();
 			this.alignedHypothesisWords = new LinkedList();
-			for (int i = linkedList.size() - 2; i >= 0; i --)
+			for (int i = linkedList.size() - 2; i >= 0; i--)
 			{
 				int num = ((Integer)linkedList.get(i)).intValue();
 				string text;
@@ -249,38 +249,38 @@ namespace edu.cmu.sphinx.util
 				}
 				switch (num)
 				{
-				case 1:
-					text = java.lang.String.instancehelper_toUpperCase(text);
-					text2 = java.lang.String.instancehelper_toUpperCase(text2);
-					break;
-				case 2:
-					text2 = java.lang.String.instancehelper_toUpperCase(text2);
-					break;
-				case 3:
-					text = java.lang.String.instancehelper_toUpperCase(text);
-					break;
+					case 1:
+						text = String.instancehelper_toUpperCase(text);
+						text2 = String.instancehelper_toUpperCase(text2);
+						break;
+					case 2:
+						text2 = String.instancehelper_toUpperCase(text2);
+						break;
+					case 3:
+						text = String.instancehelper_toUpperCase(text);
+						break;
 				}
 				if (text == null)
 				{
-					text = java.lang.String.instancehelper_substring("********************************************", 0, java.lang.String.instancehelper_length(text2));
+					text = String.instancehelper_substring("********************************************", 0, String.instancehelper_length(text2));
 				}
 				if (text2 == null)
 				{
-					text2 = java.lang.String.instancehelper_substring("********************************************", 0, java.lang.String.instancehelper_length(text));
+					text2 = String.instancehelper_substring("********************************************", 0, String.instancehelper_length(text));
 				}
-				if (java.lang.String.instancehelper_length(text) > java.lang.String.instancehelper_length(text2))
+				if (String.instancehelper_length(text) > String.instancehelper_length(text2))
 				{
-					text2 = java.lang.String.instancehelper_concat(text2, java.lang.String.instancehelper_substring("                                            ", 0, java.lang.String.instancehelper_length(text) - java.lang.String.instancehelper_length(text2)));
+					text2 = String.instancehelper_concat(text2, String.instancehelper_substring("                                            ", 0, String.instancehelper_length(text) - String.instancehelper_length(text2)));
 				}
-				else if (java.lang.String.instancehelper_length(text) < java.lang.String.instancehelper_length(text2))
+				else if (String.instancehelper_length(text) < String.instancehelper_length(text2))
 				{
-					text = java.lang.String.instancehelper_concat(text, java.lang.String.instancehelper_substring("                                            ", 0, java.lang.String.instancehelper_length(text2) - java.lang.String.instancehelper_length(text)));
+					text = String.instancehelper_concat(text, String.instancehelper_substring("                                            ", 0, String.instancehelper_length(text2) - String.instancehelper_length(text)));
 				}
 				this.alignedReferenceWords.add(text);
 				this.alignedHypothesisWords.add(text2);
 			}
 		}
-		
+
 		internal virtual void updateTotals()
 		{
 			this.totalSentences++;
@@ -308,7 +308,7 @@ namespace edu.cmu.sphinx.util
 			this.totalInsertions += this.insertions;
 			this.totalDeletions += this.deletions;
 		}
-		
+
 		private string toString(LinkedList linkedList)
 		{
 			if (linkedList == null || linkedList.isEmpty())
@@ -338,13 +338,13 @@ namespace edu.cmu.sphinx.util
 			}
 			return (float)this.totalWordsCorrect / (float)this.totalReferenceWords;
 		}
-		
+
 		internal virtual string toPercentage(string text, float num)
 		{
 			NISTAlign.percentageFormat.applyPattern(text);
 			return NISTAlign.percentageFormat.format((double)num);
 		}
-		
+
 		public virtual float getTotalWordErrorRate()
 		{
 			if (this.totalReferenceWords == 0)
@@ -363,28 +363,28 @@ namespace edu.cmu.sphinx.util
 			}
 			return (float)num / (float)this.totalSentences;
 		}
-		
+
 		internal virtual string toPercentage(string text, int num, int num2)
 		{
 			NISTAlign.percentageFormat.applyPattern(text);
 			return this.padLeft(6, NISTAlign.percentageFormat.format((double)num / (double)num2));
 		}
-		
+
 		internal virtual string padLeft(int num, int num2)
 		{
 			return this.padLeft(num, Integer.toString(num2));
 		}
-		
+
 		internal virtual string padLeft(int num, string text)
 		{
-			int num2 = java.lang.String.instancehelper_length(text);
+			int num2 = String.instancehelper_length(text);
 			if (num2 < num)
 			{
-				return java.lang.String.instancehelper_concat(java.lang.String.instancehelper_substring("                                            ", 0, num - num2), text);
+				return String.instancehelper_concat(String.instancehelper_substring("                                            ", 0, num - num2), text);
 			}
 			return text;
 		}
-		
+
 		public virtual void printNISTSentenceSummary()
 		{
 			int num = this.substitutions + this.insertions + this.deletions;
@@ -415,7 +415,7 @@ namespace edu.cmu.sphinx.util
 			java.lang.System.@out.println();
 			java.lang.System.@out.println("============================================================================");
 		}
-		
+
 		public virtual void printNISTTotalSummary()
 		{
 			int num = this.totalSentences - this.totalSentencesWithErrors;
@@ -451,16 +451,17 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.toString(this.referenceItems);
 		}
+
 		public virtual string getHypothesis()
 		{
 			return this.toString(this.hypothesisItems);
 		}
-		
+
 		public virtual string getAlignedReference()
 		{
 			return this.toString(this.alignedReferenceWords);
 		}
-		
+
 		public virtual string getAlignedHypothesis()
 		{
 			return this.toString(this.alignedHypothesisWords);
@@ -496,7 +497,6 @@ namespace edu.cmu.sphinx.util
 			return this.totalSentencesWithDeletions;
 		}
 
-		
 		public static void main(string[] args)
 		{
 			NISTAlign nistalign = new NISTAlign(true, true);
@@ -623,7 +623,7 @@ namespace edu.cmu.sphinx.util
 		private string rawHypothesis;
 
 		private LinkedList hypothesisItems;
-		
+
 		private LinkedList alignedHypothesisWords;
 
 		internal static DecimalFormat percentageFormat = new DecimalFormat("##0.0%");

@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.language.ngram.large
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	internal sealed class NGramProbability : java.lang.Object
+	internal sealed class NGramProbability : Object
 	{
 		public int getProbabilityID()
 		{

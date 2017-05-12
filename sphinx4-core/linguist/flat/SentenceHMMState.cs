@@ -7,7 +7,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.flat
 {
 	[System.Serializable]
-	public abstract class SentenceHMMState : java.lang.Object, Serializable.__Interface, SearchState, System.Runtime.Serialization.ISerializable
+	public abstract class SentenceHMMState : Object, Serializable.__Interface, SearchState, System.Runtime.Serialization.ISerializable
 	{		
 		private void dump()
 		{
@@ -476,7 +476,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		internal static bool assertionsDisabled = !ClassLiteral<SentenceHMMState>.Value.desiredAssertionStatus();
 
 		[System.Serializable]
-		public sealed class Color : java.lang.Enum
+		public sealed class Color : Enum
 		{
 			private Color(string text, int num) : base(text, num)
 			{
@@ -490,7 +490,7 @@ namespace edu.cmu.sphinx.linguist.flat
 		
 			public static SentenceHMMState.Color valueOf(string name)
 			{
-				return (SentenceHMMState.Color)java.lang.Enum.valueOf(ClassLiteral<SentenceHMMState.Color>.Value, name);
+				return (SentenceHMMState.Color)Enum.valueOf(ClassLiteral<SentenceHMMState.Color>.Value, name);
 			}
 			
 			public static SentenceHMMState.Color RED

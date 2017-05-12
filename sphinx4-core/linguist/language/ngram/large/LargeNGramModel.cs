@@ -347,7 +347,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				CharSequence charSequence2 = charSequence;
 				_ref = obj2;
 				charSequence = CharSequence.Cast(_ref);
-				printWriter.println(stringBuilder.append(java.lang.String.instancehelper_replace(text2, charSequence2, charSequence)).append(" : ").append(Float.toString(@float.floatValue())).toString());
+				printWriter.println(stringBuilder.append(String.instancehelper_replace(text2, charSequence2, charSequence)).append(" : ").append(Float.toString(@float.floatValue())).toString());
 			}
 			return @float.floatValue();
 		}
@@ -503,7 +503,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		
 		public LargeNGramModel(string format, URL location, string ngramLogFile, int maxNGramCacheSize, bool clearCacheAfterUtterance, int maxDepth, dictionary.Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight, bool fullSmear)
 		{
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.format = format;
 			this.location = location;
 			this.ngramLogFile = ngramLogFile;
@@ -549,7 +549,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			}
 			if (this.location.getProtocol() != null)
 			{
-				if (!java.lang.String.instancehelper_equals(this.location.getProtocol(), "file"))
+				if (!String.instancehelper_equals(this.location.getProtocol(), "file"))
 				{
 					this.loader = new BinaryStreamLoader(this.location, this.format, this.applyLanguageWeightAndWip, this.languageWeight, this.wip, this.unigramWeight);
 					goto IL_15B;

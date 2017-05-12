@@ -2,10 +2,11 @@
 using java.awt;
 using java.util;
 using javax.swing.@event;
+using java.lang;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	internal sealed class AudioPanel_1 : java.lang.Object, ChangeListener, EventListener
+	internal sealed class AudioPanel_1 : Object, ChangeListener, EventListener
 	{
 		internal AudioPanel_1(AudioPanel audioPanel)
 		{

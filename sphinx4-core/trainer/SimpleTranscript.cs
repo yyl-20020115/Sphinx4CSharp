@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class SimpleTranscript : java.lang.Object, Transcript
+	public class SimpleTranscript : Object, Transcript
 	{
 		public virtual void initialize(linguist.dictionary.Dictionary dictionary, bool isExact)
 		{

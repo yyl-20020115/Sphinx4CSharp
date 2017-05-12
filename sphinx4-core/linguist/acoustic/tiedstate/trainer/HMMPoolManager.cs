@@ -8,7 +8,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
-	internal class HMMPoolManager : java.lang.Object
+	internal class HMMPoolManager : Object
 	{
 		protected internal void createBuffers()
 		{

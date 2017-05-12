@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	public class SimpleBatchManager : java.lang.Object, BatchManager
+	public class SimpleBatchManager : Object, BatchManager
 	{	
 		public SimpleBatchManager(string filename, int skip, int whichBatch, int totalBatches)
 		{

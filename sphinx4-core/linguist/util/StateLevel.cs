@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.util
 {
-	internal sealed class StateLevel : java.lang.Object
+	internal sealed class StateLevel : Object
 	{		
 		internal StateLevel(SearchState searchState, int num)
 		{
@@ -39,7 +39,7 @@ namespace edu.cmu.sphinx.linguist.util
 		
 		public override string toString()
 		{
-			return new StringBuilder().append(java.lang.String.valueOf(this.level)).append(' ').append(this.state.getSignature()).append(" 1 ").append(this.getTypeLabel(this.state)).toString();
+			return new StringBuilder().append(String.valueOf(this.level)).append(' ').append(this.state.getSignature()).append(" 1 ").append(this.getTypeLabel(this.state)).toString();
 		}
 
 		private int level;

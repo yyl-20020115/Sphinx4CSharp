@@ -21,9 +21,9 @@ namespace edu.cmu.sphinx.jsgf.rule
 		
 		private bool containsWhiteSpace(string text)
 		{
-			for (int i = 0; i < java.lang.String.instancehelper_length(text); i++)
+			for (int i = 0; i < String.instancehelper_length(text); i++)
 			{
-				if (Character.isWhitespace(java.lang.String.instancehelper_charAt(text, i)))
+				if (Character.isWhitespace(String.instancehelper_charAt(text, i)))
 				{
 					return true;
 				}
@@ -38,7 +38,7 @@ namespace edu.cmu.sphinx.jsgf.rule
 		
 		public override string toString()
 		{
-			if (this.containsWhiteSpace(this.text) || java.lang.String.instancehelper_indexOf(this.text, 92) >= 0 || java.lang.String.instancehelper_indexOf(this.text, 34) >= 0)
+			if (this.containsWhiteSpace(this.text) || String.instancehelper_indexOf(this.text, 92) >= 0 || String.instancehelper_indexOf(this.text, 34) >= 0)
 			{
 				StringBuilder stringBuilder = new StringBuilder(this.text);
 				for (int i = stringBuilder.length() - 1; i >= 0; i --)

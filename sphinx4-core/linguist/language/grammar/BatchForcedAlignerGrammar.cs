@@ -44,19 +44,19 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 						{
 							break;
 						}
-						if (java.lang.String.instancehelper_isEmpty(text))
+						if (String.instancehelper_isEmpty(text))
 						{
 							break;
 						}
-						int num = java.lang.String.instancehelper_indexOf(text, 40) + 1;
-						int num2 = java.lang.String.instancehelper_indexOf(text, 41);
+						int num = String.instancehelper_indexOf(text, 40) + 1;
+						int num2 = String.instancehelper_indexOf(text, 41);
 						if (num >= 0)
 						{
 							if (num <= num2)
 							{
-								string text2 = java.lang.String.instancehelper_substring(text, num, num2);
-								string text3 = java.lang.String.instancehelper_trim(java.lang.String.instancehelper_substring(text, 0, num - 1));
-								if (!java.lang.String.instancehelper_isEmpty(text3))
+								string text2 = String.instancehelper_substring(text, num, num2);
+								string text3 = String.instancehelper_trim(String.instancehelper_substring(text, 0, num - 1));
+								if (!String.instancehelper_isEmpty(text3))
 								{
 									this.initialNode = this.createGrammarNode("<sil>");
 									this.createForcedAlignerGrammar(this.initialNode, this.finalNode, text3);

@@ -28,7 +28,7 @@ namespace edu.cmu.sphinx.fst.semiring
 			{
 				return w1;
 			}
-			return (float)(-(float)java.lang.Math.log(java.lang.Math.exp((double)(-(double)w1)) + java.lang.Math.exp((double)(-(double)w2))));
+			return (float)(-(float)Math.log(Math.exp((double)(-(double)w1)) + Math.exp((double)(-(double)w2))));
 		}
 		
 		public override float times(float w1, float w2)

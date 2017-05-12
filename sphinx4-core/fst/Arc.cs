@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.fst
 {
-	public class Arc : java.lang.Object
+	public class Arc : Object
 	{		
 		public Arc()
 		{

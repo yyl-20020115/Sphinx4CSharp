@@ -12,7 +12,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class HTKLoader : java.lang.Object, Loader, Configurable
+	public class HTKLoader : Object, Loader, Configurable
 	{		
 		internal static float access_000(HTKLoader htkloader)
 		{
@@ -36,7 +36,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				this.properties = new Properties();
 				try
 				{
-					URL resource = java.lang.Object.instancehelper_getClass(this).getResource(this.propsFile);
+					URL resource = Object.instancehelper_getClass(this).getResource(this.propsFile);
 					if (resource != null)
 					{
 						this.properties.load(resource.openStream());
@@ -126,7 +126,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					}
 					string baseName = singleHMM.getName();
 					string text;
-					if (java.lang.String.instancehelper_equals(baseName, "sil") || java.lang.String.instancehelper_equals(baseName, "sp") || java.lang.String.instancehelper_equals(baseName, "bb") || java.lang.String.instancehelper_equals(baseName, "xx") || java.lang.String.instancehelper_equals(baseName, "hh"))
+					if (String.instancehelper_equals(baseName, "sil") || String.instancehelper_equals(baseName, "sp") || String.instancehelper_equals(baseName, "bb") || String.instancehelper_equals(baseName, "xx") || String.instancehelper_equals(baseName, "hh"))
 					{
 						text = "filler";
 					}
@@ -147,13 +147,13 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 							num++;
 						}
 					}
-					Unit unit = this.unitManager.getUnit(baseName, java.lang.String.instancehelper_equals(text, "filler"));
+					Unit unit = this.unitManager.getUnit(baseName, String.instancehelper_equals(text, "filler"));
 					this.contextIndependentUnits.put(unit.getName(), unit);
 					if (this.logger.isLoggable(Level.FINE))
 					{
 						this.logger.fine(new StringBuilder().append("Loaded ").append(unit).toString());
 					}
-					if (unit.isFiller() && java.lang.String.instancehelper_equals(unit.getName(), "SIL"))
+					if (unit.isFiller() && String.instancehelper_equals(unit.getName(), "SIL"))
 					{
 						unit = UnitManager.__SILENCE;
 					}
@@ -176,7 +176,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					if (!this.contextIndependentUnits.containsKey(baseName))
 					{
 						string text;
-						if (java.lang.String.instancehelper_equals(baseName, "SIL") || java.lang.String.instancehelper_equals(baseName, "SP") || java.lang.String.instancehelper_equals(baseName, "BB") || java.lang.String.instancehelper_equals(baseName, "XX") || java.lang.String.instancehelper_equals(baseName, "HH"))
+						if (String.instancehelper_equals(baseName, "SIL") || String.instancehelper_equals(baseName, "SP") || String.instancehelper_equals(baseName, "BB") || String.instancehelper_equals(baseName, "XX") || String.instancehelper_equals(baseName, "HH"))
 						{
 							text = "filler";
 						}
@@ -197,13 +197,13 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 								num++;
 							}
 						}
-						Unit unit = this.unitManager.getUnit(baseName, java.lang.String.instancehelper_equals(text, "filler"));
+						Unit unit = this.unitManager.getUnit(baseName, String.instancehelper_equals(text, "filler"));
 						this.contextIndependentUnits.put(unit.getName(), unit);
 						if (this.logger.isLoggable(Level.FINE))
 						{
 							this.logger.fine(new StringBuilder().append("Loaded ").append(unit).toString());
 						}
-						if (unit.isFiller() && java.lang.String.instancehelper_equals(unit.getName(), "SIL"))
+						if (unit.isFiller() && String.instancehelper_equals(unit.getName(), "SIL"))
 						{
 							unit = UnitManager.__SILENCE;
 						}
@@ -230,11 +230,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				string baseName2 = singleHMM2.getBaseName();
 				string text3 = singleHMM2.getLeft();
 				string text4 = singleHMM2.getRight();
-				if (java.lang.String.instancehelper_equals(text3, "-"))
+				if (String.instancehelper_equals(text3, "-"))
 				{
 					text3 = "SIL";
 				}
-				if (java.lang.String.instancehelper_equals(text4, "-"))
+				if (String.instancehelper_equals(text4, "-"))
 				{
 					text4 = "SIL";
 				}
@@ -260,7 +260,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					{
 						string text6 = new StringBuilder().append(baseName2).append(' ').append(text3).append(' ').append(text4).toString();
 						Unit unit3;
-						if (java.lang.String.instancehelper_equals(text6, text2))
+						if (String.instancehelper_equals(text6, text2))
 						{
 							unit3 = unit2;
 						}
@@ -343,7 +343,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		
 		public HTKLoader(string propsFile, UnitManager unitManager, bool isBinary, int vectorLength, string model, bool tie1ph, float distFloor, float mixtureWeightFloor, float varianceFloor)
 		{
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.propsFile = propsFile;
 			this.loadProperties();
 			this.logMath = LogMath.getLogMath();
@@ -714,7 +714,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		
 		internal static bool assertionsDisabled = !ClassLiteral<HTKLoader>.Value.desiredAssertionStatus();
 		
-		public sealed class HTKStruct : java.lang.Object
+		public sealed class HTKStruct : Object
 		{
 						
 			internal int getNumStates()

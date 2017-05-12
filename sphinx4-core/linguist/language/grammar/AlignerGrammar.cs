@@ -12,7 +12,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			while (iterator.hasNext())
 			{
 				string text = (string)iterator.next();
-				if (!java.lang.String.instancehelper_isEmpty(text))
+				if (!String.instancehelper_isEmpty(text))
 				{
 					this.tokens.add(text);
 				}
@@ -57,7 +57,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 		
 		public virtual void setText(string text)
 		{
-			this.setWords(Arrays.asList(java.lang.String.instancehelper_split(text, " ")));
+			this.setWords(Arrays.asList(String.instancehelper_split(text, " ")));
 		}
 		
 		protected internal GrammarNode finalNode;

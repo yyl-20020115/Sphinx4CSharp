@@ -56,7 +56,7 @@ namespace edu.cmu.sphinx.tools.audio
 						double[] array = new double[values.Length];
 						for (i = 0; i < array.Length; i++)
 						{
-							array[i] = java.lang.Math.max(java.lang.Math.log(values[i]), (double)0f);
+							array[i] = Math.max(Math.log(values[i]), (double)0f);
 							if (array[i] > num)
 							{
 								num = array[i];
@@ -82,7 +82,7 @@ namespace edu.cmu.sphinx.tools.audio
 					for (int k = i; k >= 0; k --)
 					{
 						int num5 = ByteCodeHelper.d2i(array2[k] * num4 - this.offsetFactor);
-						num5 = java.lang.Math.max(num5, 0);
+						num5 = Math.max(num5, 0);
 						num5 = 255 - num5;
 						int num6 = (num5 << 16 & 16711680) | (num5 << 8 & 65280) | (num5 & 255);
 						this.spectrogram.setRGB(j, i - k, num6);

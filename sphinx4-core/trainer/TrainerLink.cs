@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.trainer
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.trainer
 {
-	public class TrainerLink : java.lang.Object
+	public class TrainerLink : Object
 	{
 		public TrainerLink(Edge transition, TrainerToken source, TrainerToken destination)
 		{

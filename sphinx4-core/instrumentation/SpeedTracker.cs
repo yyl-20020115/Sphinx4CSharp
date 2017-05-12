@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.instrumentation
 		private long getTime()
 		{
 			return java.lang.System.currentTimeMillis();
-		}		
+		}
 
 		protected internal virtual void showAudioUsage()
 		{

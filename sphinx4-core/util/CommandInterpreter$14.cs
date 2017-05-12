@@ -4,7 +4,7 @@ using java.util;
 namespace edu.cmu.sphinx.util
 {
 
-	internal sealed class CommandInterpreter_14 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_14 : Object, CommandInterface
 	{		
 		internal CommandInterpreter_14(CommandInterpreter commandInterpreter)
 		{

@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.util
 {
-	public class Complex : java.lang.Object
+	public class Complex : Object
 	{		
 		public Complex()
 		{

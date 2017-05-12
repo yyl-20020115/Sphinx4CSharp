@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	internal sealed class Triple : java.lang.Object
+	internal sealed class Triple : Object
 	{		
 		public Triple(int num, int num2, int num3)
 		{
@@ -27,7 +27,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 		
 		public override string toString()
 		{
-			return java.lang.String.format("Triple {%d, %d, %d}", new object[]
+			return String.format("Triple {%d, %d, %d}", new object[]
 			{
 				Integer.valueOf(this.phone),
 				Integer.valueOf(this.hmmState),

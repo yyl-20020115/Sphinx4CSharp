@@ -1,5 +1,6 @@
 ﻿using edu.cmu.sphinx.util.props;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
@@ -20,7 +21,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		void onUtteranceEnd();
 	}
 
-	public abstract class LanguageModelBase : java.lang.Object, LanguageModel
+	public abstract class LanguageModelBase : Object, LanguageModel
 	{
 		[S4String(new object[]
 {

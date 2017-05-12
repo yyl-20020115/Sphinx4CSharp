@@ -116,15 +116,15 @@ namespace edu.cmu.sphinx.trainer
 			this.logger.fine("processing ext utterance");
 			string text = new StringBuilder().append((string)this.audioFileIterator.next()).append(".mfc").toString();
 			SimpleUtterance simpleUtterance = new SimpleUtterance(text);
-			string text2 = java.lang.String.instancehelper_replaceFirst(java.lang.String.instancehelper_replaceFirst(text, "^.*/", ""), "\\..*_", "");
+			string text2 = String.instancehelper_replaceFirst(String.instancehelper_replaceFirst(text, "^.*/", ""), "\\..*_", "");
 			string text3 = (string)this.transcriptFileIterator.next();
-			if (!SimpleControlFile.assertionsDisabled && !java.lang.String.instancehelper_matches(text3, new StringBuilder().append(".*[ \t]\\(").append(text2).append("\\)_").toString()))
+			if (!SimpleControlFile.assertionsDisabled && !String.instancehelper_matches(text3, new StringBuilder().append(".*[ \t]\\(").append(text2).append("\\)_").toString()))
 			{
 				object obj = new StringBuilder().append("File name in transcript \"").append(text3).append("\" and control file \"").append(text2).append("\" have to match.").toString();
 				
 				throw new AssertionError(obj);
 			}
-			string str = java.lang.String.instancehelper_replaceFirst(text3, "[ \t]\\(.*\\)_", "");
+			string str = String.instancehelper_replaceFirst(text3, "[ \t]\\(.*\\)_", "");
 			((Utterance)simpleUtterance).add(str, this.dictionary, false, this.wordSeparator);
 			return simpleUtterance;
 		}

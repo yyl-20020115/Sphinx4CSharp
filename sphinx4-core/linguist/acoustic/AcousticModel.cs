@@ -1,5 +1,6 @@
 ﻿using edu.cmu.sphinx.util.props;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
@@ -25,7 +26,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 
 	}
 
-	public abstract class AcousticModelBase : java.lang.Object, AcousticModel
+	public abstract class AcousticModelBase : Object, AcousticModel
 	{
 		[S4String(new object[]
 		{

@@ -4,7 +4,7 @@ using java.util.concurrent.atomic;
 
 namespace edu.cmu.sphinx.util
 {
-	public class CustomThreadFactory : java.lang.Object, ThreadFactory
+	public class CustomThreadFactory : Object, ThreadFactory
 	{
 		public CustomThreadFactory(string namePrefix, bool daemon, int priority)
 		{

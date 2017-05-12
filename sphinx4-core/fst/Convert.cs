@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.fst
 {
-	public class Convert : java.lang.Object
+	public class Convert : Object
 	{		
 		private static void exportSymbols(string[] array, string text)
 		{
@@ -71,7 +71,7 @@ namespace edu.cmu.sphinx.fst
 			string text2;
 			while ((text2 = bufferedReader.readLine()) != null)
 			{
-				string[] array = java.lang.String.instancehelper_split(text2, "\\t");
+				string[] array = String.instancehelper_split(text2, "\\t");
 				string text3 = array[0];
 				Integer integer = Integer.valueOf(Integer.parseInt(array[1]));
 				hashMap.put(text3, integer);
@@ -115,7 +115,7 @@ namespace edu.cmu.sphinx.fst
 			string text;
 			while ((text = bufferedReader.readLine()) != null)
 			{
-				string[] array = java.lang.String.instancehelper_split(text, "\\t");
+				string[] array = String.instancehelper_split(text, "\\t");
 				Integer integer;
 				if (hashMap3 == null)
 				{

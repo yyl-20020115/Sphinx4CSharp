@@ -174,7 +174,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 		{
 			this.wantUnigramSmear = true;
 			this.unigramSmearWeight = 1f;
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.acousticModel = acousticModel;
 			this.logMath = LogMath.getLogMath();
 			this.unitManager = unitManager;
@@ -680,7 +680,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 					if (this._parentNode != null)
 					{
 						this._hashCode *= 377;
-						this._hashCode += java.lang.Object.instancehelper_hashCode(this._parentNode);
+						this._hashCode += Object.instancehelper_hashCode(this._parentNode);
 					}
 				}
 				return this._hashCode;
@@ -842,7 +842,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 		}
 
-		internal sealed class LexTreeSearchGraph : java.lang.Object, SearchGraph
+		internal sealed class LexTreeSearchGraph : Object, SearchGraph
 		{
 			internal LexTreeSearchGraph(LexTreeLinguist lexTreeLinguist, SearchState searchState)
 			{
@@ -870,7 +870,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal LexTreeLinguist this_0;
 		}
 
-		internal abstract class LexTreeState : java.lang.Object, SearchState, SearchStateArc
+		internal abstract class LexTreeState : Object, SearchState, SearchStateArc
 		{
 			public virtual float getLanguageProbability()
 			{
@@ -1033,13 +1033,13 @@ namespace edu.cmu.sphinx.linguist.lextree
 		
 			public virtual string getSignature()
 			{
-				return new StringBuilder().append("lts-").append(java.lang.Object.instancehelper_hashCode(this.node)).append("-ws-").append(this.wordSequence).toString();
+				return new StringBuilder().append("lts-").append(Object.instancehelper_hashCode(this.node)).append("-ws-").append(this.wordSequence).toString();
 			}
 			
 			public override int hashCode()
 			{
 				int num = this.wordSequence.hashCode() * 37;
-				return num + java.lang.Object.instancehelper_hashCode(this.node);
+				return num + Object.instancehelper_hashCode(this.node);
 			}
 			
 			public override bool equals(object obj)
@@ -1149,7 +1149,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 					if (this._parentNode != null)
 					{
 						this._hashCode *= 432;
-						this._hashCode += java.lang.Object.instancehelper_hashCode(this._parentNode);
+						this._hashCode += Object.instancehelper_hashCode(this._parentNode);
 					}
 				}
 				return this._hashCode;
@@ -1276,12 +1276,12 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			public override int hashCode()
 			{
-				return base.hashCode() * 41 + java.lang.Object.instancehelper_hashCode(this.lastNode);
+				return base.hashCode() * 41 + Object.instancehelper_hashCode(this.lastNode);
 			}
 
 			public override string getSignature()
 			{
-				return new StringBuilder().append(base.getSignature()).append("-ln-").append(java.lang.Object.instancehelper_hashCode(this.lastNode)).toString();
+				return new StringBuilder().append(base.getSignature()).append("-ln-").append(Object.instancehelper_hashCode(this.lastNode)).toString();
 			}
 			
 			public override bool equals(object o)

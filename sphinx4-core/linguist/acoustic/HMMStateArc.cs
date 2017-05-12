@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	public class HMMStateArc : java.lang.Object
+	public class HMMStateArc : Object
 	{		
 		public HMMStateArc(HMMState hmmState, float probability)
 		{

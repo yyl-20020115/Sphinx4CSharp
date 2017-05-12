@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.acoustic.trivial
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.acoustic.trivial
 {
-	internal sealed class TrivialHMM : java.lang.Object, HMM
+	internal sealed class TrivialHMM : Object, HMM
 	{		
 		internal TrivialHMM(Unit unit, HMMPosition hmmposition)
 		{

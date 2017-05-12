@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class Edge : java.lang.Object
+	public class Edge : Object
 	{
 		public virtual double getLMScore()
 		{
@@ -43,8 +43,8 @@ namespace edu.cmu.sphinx.result
 		{
 			string text = stringTokenizer.nextToken();
 			string text2 = stringTokenizer.nextToken();
-			double num = java.lang.Double.parseDouble(stringTokenizer.nextToken());
-			double num2 = java.lang.Double.parseDouble(stringTokenizer.nextToken());
+			double num = Double.parseDouble(stringTokenizer.nextToken());
+			double num2 = Double.parseDouble(stringTokenizer.nextToken());
 			Node node = lattice.getNode(text);
 			if (node == null)
 			{
@@ -90,8 +90,8 @@ namespace edu.cmu.sphinx.result
 
 		public virtual bool isEquivalent(Edge other)
 		{
-			double num = java.lang.Math.abs(this.acousticScore) * 1E-05;
-			return java.lang.Math.abs(this.acousticScore - other.getAcousticScore()) <= num && this.lmScore == other.getLMScore() && this.__fromNode.isEquivalent(other.getFromNode()) && this.__toNode.isEquivalent(other.getToNode());
+			double num = Math.abs(this.acousticScore) * 1E-05;
+			return Math.abs(this.acousticScore - other.getAcousticScore()) <= num && this.lmScore == other.getLMScore() && this.__fromNode.isEquivalent(other.getFromNode()) && this.__toNode.isEquivalent(other.getToNode());
 		}
 		
 		protected internal Node fromNode

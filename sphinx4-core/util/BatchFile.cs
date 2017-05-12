@@ -1,20 +1,21 @@
 ﻿using java.io;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	public class BatchFile : java.lang.Object
+	public class BatchFile : Object
 	{		
 		public static string getReference(string batchFileLine)
 		{
-			int num = java.lang.String.instancehelper_indexOf(batchFileLine, 32);
-			return java.lang.String.instancehelper_trim(java.lang.String.instancehelper_substring(batchFileLine, num + 1));
+			int num = String.instancehelper_indexOf(batchFileLine, 32);
+			return String.instancehelper_trim(String.instancehelper_substring(batchFileLine, num + 1));
 		}
 		
 		public static string getFilename(string batchFileLine)
 		{
-			int num = java.lang.String.instancehelper_indexOf(batchFileLine, 32);
-			return java.lang.String.instancehelper_trim(java.lang.String.instancehelper_substring(batchFileLine, 0, num));
+			int num = String.instancehelper_indexOf(batchFileLine, 32);
+			return String.instancehelper_trim(String.instancehelper_substring(batchFileLine, 0, num));
 		}
 		
 		public static List getLines(string batchFile, int skip)
@@ -25,7 +26,7 @@ namespace edu.cmu.sphinx.util
 			string text;
 			while ((text = bufferedReader.readLine()) != null)
 			{
-				if (!java.lang.String.instancehelper_isEmpty(text))
+				if (!String.instancehelper_isEmpty(text))
 				{
 					num++;
 					if (num >= skip)

@@ -121,7 +121,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			this.counterForMemoryLogging = 0L;
 			this.EMPTY_ARCS = new SearchStateArc[0];
 			this.successorCache = new HashMap();
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.acousticModel = acousticModel;
 			this.grammar = grammar;
 			this.unitManager = unitManager;
@@ -425,7 +425,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 		
 		internal Map successorCache;
 	
-		internal sealed class DynamicFlatSearchGraph : java.lang.Object, SearchGraph
+		internal sealed class DynamicFlatSearchGraph : Object, SearchGraph
 		{
 			internal DynamicFlatSearchGraph(AFlatLinguist aflatLinguist)
 			{
@@ -452,7 +452,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			internal AFlatLinguist this_0;
 		}
 
-		internal abstract class FlatSearchState : java.lang.Object, SearchState, SearchStateArc
+		internal abstract class FlatSearchState : Object, SearchState, SearchStateArc
 		{
 			public override string toString()
 			{
@@ -602,7 +602,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 			public override int hashCode()
 			{
-				return java.lang.Object.instancehelper_hashCode(this.pState.getGrammarState().getGrammarNode()) * 29 + java.lang.Object.instancehelper_hashCode(this.pState.getPronunciation()) * 19 + this.index * 7 + 43 * this.lc + this.rc;
+				return Object.instancehelper_hashCode(this.pState.getGrammarState().getGrammarNode()) * 29 + Object.instancehelper_hashCode(this.pState.getPronunciation()) * 19 + this.index * 7 + 43 * this.lc + this.rc;
 			}
 			
 			public override bool equals(object obj)
@@ -757,7 +757,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 			public override int hashCode()
 			{
-				return java.lang.Object.instancehelper_hashCode(this.node) * 17 + this.lc * 7 + this.nextBaseID;
+				return Object.instancehelper_hashCode(this.node) * 17 + this.lc * 7 + this.nextBaseID;
 			}
 
 			public override bool equals(object o)
@@ -927,7 +927,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 			public override int hashCode()
 			{
-				return 7 * this.fullHMMSearchState.hashCode() + java.lang.Object.instancehelper_hashCode(this.hmmState);
+				return 7 * this.fullHMMSearchState.hashCode() + Object.instancehelper_hashCode(this.hmmState);
 			}
 			
 			public override bool equals(object obj)
@@ -939,7 +939,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				if (obj is AFlatLinguist.HMMStateSearchState)
 				{
 					AFlatLinguist.HMMStateSearchState hmmstateSearchState = (AFlatLinguist.HMMStateSearchState)obj;
-					return hmmstateSearchState.fullHMMSearchState.equals(this.fullHMMSearchState) && java.lang.Object.instancehelper_equals(hmmstateSearchState.hmmState, this.hmmState);
+					return hmmstateSearchState.fullHMMSearchState.equals(this.fullHMMSearchState) && Object.instancehelper_equals(hmmstateSearchState.hmmState, this.hmmState);
 				}
 				return false;
 			}
@@ -1101,7 +1101,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 			public override int hashCode()
 			{
-				return 13 * this.gs.hashCode() + java.lang.Object.instancehelper_hashCode(this.pronunciation);
+				return 13 * this.gs.hashCode() + Object.instancehelper_hashCode(this.pronunciation);
 			}
 			
 			public override bool equals(object obj)
@@ -1113,7 +1113,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				if (obj is AFlatLinguist.PronunciationState)
 				{
 					AFlatLinguist.PronunciationState pronunciationState = (AFlatLinguist.PronunciationState)obj;
-					return pronunciationState.gs.equals(this.gs) && java.lang.Object.instancehelper_equals(pronunciationState.pronunciation, this.pronunciation);
+					return pronunciationState.gs.equals(this.gs) && Object.instancehelper_equals(pronunciationState.pronunciation, this.pronunciation);
 				}
 				return false;
 			}

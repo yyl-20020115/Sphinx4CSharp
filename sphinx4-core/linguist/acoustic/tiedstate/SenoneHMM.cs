@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class SenoneHMM : java.lang.Object, HMM
+	public class SenoneHMM : Object, HMM
 	{		
 		public SenoneHMM(Unit unit, SenoneSequence senoneSequence, float[][] transitionMatrix, HMMPosition position)
 		{

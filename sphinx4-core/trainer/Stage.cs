@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.trainer
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.trainer
 {
-	public class Stage : java.lang.Object
+	public class Stage : Object
 	{
 		public override string toString()
 		{
@@ -14,12 +16,12 @@
 
 		public virtual bool equals(Stage stage)
 		{
-			return stage != null && java.lang.String.instancehelper_equals(this.toString(), stage.toString());
+			return stage != null && String.instancehelper_equals(this.toString(), stage.toString());
 		}
 
 		public virtual bool equals(string stage)
 		{
-			return stage != null && java.lang.String.instancehelper_equals(this.toString(), stage);
+			return stage != null && String.instancehelper_equals(this.toString(), stage);
 		}
 		
 		public static Stage _00_INITIALIZATION

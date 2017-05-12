@@ -44,8 +44,8 @@ namespace edu.cmu.sphinx.frontend.endpoint
 				double num3 = samples[i];
 				num += num3 * num3;
 			}
-			double num4 = java.lang.Math.sqrt(num / (double)samples.Length);
-			num4 = java.lang.Math.max(num4, (double)1f);
+			double num4 = Math.sqrt(num / (double)samples.Length);
+			num4 = Math.max(num4, (double)1f);
 			return (double)(LogMath.log10((float)num4) * 20f);
 		}
 

@@ -9,7 +9,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.language.grammar
 {
-	public abstract class Grammar : java.lang.Object, Configurable, GrammarInterface
+	public abstract class Grammar : Object, Configurable, GrammarInterface
 	{	
 		protected internal virtual void newGrammar()
 		{
@@ -122,7 +122,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 				}
 				grammarNode = this.selectRandomSuccessor(grammarNode);
 			}
-			return java.lang.String.instancehelper_trim(stringBuilder.toString());
+			return String.instancehelper_trim(stringBuilder.toString());
 		}
 
 		public virtual GrammarNode getInitialNode()
@@ -251,7 +251,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 		public Grammar(bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, dictionary.Dictionary dictionary)
 		{
 			this.randomizer = new java.util.Random((long)((ulong)56));
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this._optimizeGrammar = optimizeGrammar;
 			this._addSilenceWords = addSilenceWords;
 			this._addFillerWords = addFillerWords;

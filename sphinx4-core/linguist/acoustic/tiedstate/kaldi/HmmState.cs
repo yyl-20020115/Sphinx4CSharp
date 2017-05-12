@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	internal sealed class HmmState : java.lang.Object
+	internal sealed class HmmState : Object
 	{		
 		public HmmState(int num, int num2, Collection collection)
 		{
@@ -34,7 +34,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 		
 		public override string toString()
 		{
-			return java.lang.String.format("HmmSate {%d, %d, %s}", new object[]
+			return String.format("HmmSate {%d, %d, %s}", new object[]
 			{
 				Integer.valueOf(this.id),
 				Integer.valueOf(this.pdfClass),

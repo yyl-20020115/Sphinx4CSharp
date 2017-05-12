@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.util.props
 {
-	public class RawPropertyData : java.lang.Object
+	public class RawPropertyData : Object
 	{		
 		public RawPropertyData(string name, string className) : this(name, className, new HashMap())
 		{
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.util.props
 			{
 				Map.Entry entry = (Map.Entry)iterator.next();
 				object obj = entry.getValue();
-				if (obj is string && java.lang.String.instancehelper_startsWith((string)obj, "_{"))
+				if (obj is string && String.instancehelper_startsWith((string)obj, "_{"))
 				{
 					obj = cm.getGloPropReference(ConfigurationManagerUtils.stripGlobalSymbol((string)obj));
 				}
@@ -70,7 +70,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		public virtual string getGlobalProperty(string key, Map globalProperties)
 		{
-			if (!java.lang.String.instancehelper_startsWith(key, "_{"))
+			if (!String.instancehelper_startsWith(key, "_{"))
 			{
 				return key;
 			}
@@ -78,7 +78,7 @@ namespace edu.cmu.sphinx.util.props
 			{
 				key = (string)globalProperties.get(key);
 			}
-			while (key != null && java.lang.String.instancehelper_startsWith(key, "_{") && java.lang.String.instancehelper_endsWith(key, "}"));
+			while (key != null && String.instancehelper_startsWith(key, "_{") && String.instancehelper_endsWith(key, "}"));
 			return key;
 		}
 		

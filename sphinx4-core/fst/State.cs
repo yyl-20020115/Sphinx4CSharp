@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.fst
 {
-	public class State : java.lang.Object
+	public class State : Object
 	{
 		public virtual int getId()
 		{

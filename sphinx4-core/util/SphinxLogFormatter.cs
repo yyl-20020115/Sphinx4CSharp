@@ -35,7 +35,7 @@ namespace edu.cmu.sphinx.util
 			string text2;
 			if (loggerName != null)
 			{
-				string[] array = java.lang.String.instancehelper_split(loggerName, "[.]");
+				string[] array = String.instancehelper_split(loggerName, "[.]");
 				text2 = array[array.Length - 1];
 			}
 			else

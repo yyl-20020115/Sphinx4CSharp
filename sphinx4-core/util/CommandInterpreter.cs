@@ -12,12 +12,12 @@ namespace edu.cmu.sphinx.util
 		{
 			this.commandList.put(name, command);
 		}
-	
+
 		public virtual void addAlias(string command, string alias)
 		{
 			this.commandList.put(alias, this.commandList.get(command));
 		}
-	
+
 		public CommandInterpreter()
 		{
 			this.history = new CommandInterpreter.CommandHistory(this);
@@ -30,7 +30,7 @@ namespace edu.cmu.sphinx.util
 		{
 			this.prompt = prompt;
 		}
-		
+
 		public override void run()
 		{
 			while (!this.done)
@@ -57,8 +57,8 @@ namespace edu.cmu.sphinx.util
 						java.lang.System.@out.println("\n----------");
 						java.lang.System.@out.println(new StringBuilder().append("In : ").append(text).toString());
 					}
-					text = java.lang.String.instancehelper_trim(text);
-					if (!java.lang.String.instancehelper_isEmpty(text))
+					text = String.instancehelper_trim(text);
+					if (!String.instancehelper_isEmpty(text))
 					{
 						this.putResponse(this.execute(text));
 					}
@@ -71,10 +71,10 @@ namespace edu.cmu.sphinx.util
 			}
 			this.onExit();
 		}
-		
+
 		public virtual void putResponse(string response)
 		{
-			if (response != null && !java.lang.String.instancehelper_isEmpty(response))
+			if (response != null && !String.instancehelper_isEmpty(response))
 			{
 				this.@out.println(response);
 				this.@out.flush();
@@ -84,12 +84,12 @@ namespace edu.cmu.sphinx.util
 				}
 			}
 		}
-		
+
 		internal static void access_000(CommandInterpreter commandInterpreter)
 		{
 			commandInterpreter.dumpCommands();
 		}
-		
+
 		protected internal virtual string execute(string[] args)
 		{
 			string result = "";
@@ -108,7 +108,7 @@ namespace edu.cmu.sphinx.util
 			}
 			return result;
 		}
-		
+
 		public virtual bool load(string filename)
 		{
 			int result;
@@ -120,7 +120,7 @@ namespace edu.cmu.sphinx.util
 				while ((cmdString = bufferedReader.readLine()) != null)
 				{
 					string text = this.execute(cmdString);
-					if (!java.lang.String.instancehelper_equals(text, "OK"))
+					if (!String.instancehelper_equals(text, "OK"))
 					{
 						this.putResponse(text);
 					}
@@ -133,18 +133,18 @@ namespace edu.cmu.sphinx.util
 				return false;
 			}
 			return result != 0;
-		}		
-		
+		}
+
 		internal static CommandInterpreter.CommandHistory access_100(CommandInterpreter commandInterpreter)
 		{
 			return commandInterpreter.history;
 		}
-		
+
 		internal static int access_200(CommandInterpreter commandInterpreter)
 		{
 			return commandInterpreter.totalCommands;
-		}		
-		
+		}
+
 		internal static bool access_302(CommandInterpreter commandInterpreter, bool result)
 		{
 			commandInterpreter.done = result;
@@ -191,6 +191,7 @@ namespace edu.cmu.sphinx.util
 			this.@in = @in;
 			this.@out = @out;
 		}
+
 		public virtual string execute(string cmdString)
 		{
 			if (this.trace)
@@ -198,7 +199,8 @@ namespace edu.cmu.sphinx.util
 				java.lang.System.@out.println(new StringBuilder().append("Execute: ").append(cmdString).toString());
 			}
 			return this.execute(this.parseMessage(cmdString));
-		}	
+		}
+
 		protected internal virtual string[] parseMessage(string message)
 		{
 			ArrayList arrayList = new ArrayList(20);
@@ -237,7 +239,7 @@ namespace edu.cmu.sphinx.util
 				}
 			}
 			return (string[])arrayList.toArray(new string[arrayList.size()]);
-		}		
+		}
 		private void printPrompt()
 		{
 			if (this.prompt != null)
@@ -246,7 +248,7 @@ namespace edu.cmu.sphinx.util
 				this.@out.flush();
 			}
 		}
-	
+
 		private string getInputLine()
 		{
 			string text = this.@in.readLine();
@@ -267,7 +269,7 @@ namespace edu.cmu.sphinx.util
 				num2 = 1;
 				text = matcher.group(1);
 			}
-			if (java.lang.String.instancehelper_startsWith(text, "^"))
+			if (String.instancehelper_startsWith(text, "^"))
 			{
 				Pattern pattern2 = CommandInterpreter.editPattern;
 				_ref = text;
@@ -324,21 +326,21 @@ namespace edu.cmu.sphinx.util
 					text = matcher.replaceAll(this.history.getLast(0));
 					num2 = 1;
 				}
-				else if (java.lang.String.instancehelper_startsWith(text, "!"))
+				else if (String.instancehelper_startsWith(text, "!"))
 				{
-					if (java.lang.String.instancehelper_matches(text, "!\\d+"))
+					if (String.instancehelper_matches(text, "!\\d+"))
 					{
-						int num4 = Integer.parseInt(java.lang.String.instancehelper_substring(text, 1));
+						int num4 = Integer.parseInt(String.instancehelper_substring(text, 1));
 						text = this.history.get(num4);
 					}
-					else if (java.lang.String.instancehelper_matches(text, "!-\\d+"))
+					else if (String.instancehelper_matches(text, "!-\\d+"))
 					{
-						int num4 = Integer.parseInt(java.lang.String.instancehelper_substring(text, 2));
+						int num4 = Integer.parseInt(String.instancehelper_substring(text, 2));
 						text = this.history.getLast(num4 - 1);
 					}
 					else
 					{
-						text = this.history.findLast(java.lang.String.instancehelper_substring(text, 1));
+						text = this.history.findLast(String.instancehelper_substring(text, 1));
 					}
 					num2 = 1;
 				}
@@ -347,7 +349,7 @@ namespace edu.cmu.sphinx.util
 			{
 				return "";
 			}
-			if (!java.lang.String.instancehelper_isEmpty(text))
+			if (!String.instancehelper_isEmpty(text))
 			{
 				this.history.add(text);
 			}
@@ -357,12 +359,13 @@ namespace edu.cmu.sphinx.util
 			}
 			return (num == 0) ? text : "";
 		}
+
 		protected internal virtual void onExit()
 		{
 			this.execute("on_exit");
 			java.lang.System.@out.println("----------\n");
 		}
-		
+
 		public CommandInterpreter(BufferedReader @in, PrintWriter @out)
 		{
 			this.history = new CommandInterpreter.CommandHistory(this);
@@ -383,7 +386,7 @@ namespace edu.cmu.sphinx.util
 		{
 			this.socket = skt;
 		}
-		
+
 		public virtual void add(Map newCommands)
 		{
 			this.commandList.putAll(newCommands);
@@ -403,7 +406,7 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.@out;
 		}
-		
+
 		public static void main(string[] args)
 		{
 			CommandInterpreter commandInterpreter = new CommandInterpreter();
@@ -444,15 +447,15 @@ namespace edu.cmu.sphinx.util
 		private CommandInterpreter.CommandHistory history;
 
 		private Socket socket;
-		
+
 		private static Pattern historyPush;
-		
+
 		private static Pattern editPattern;
-		
+
 		private static Pattern bbPattern;
-		
-		internal sealed class CommandHistory : java.lang.Object
-		{			
+
+		internal sealed class CommandHistory : Object
+		{
 			public void dump()
 			{
 				for (int i = 0; i < this.history.size(); i++)
@@ -461,7 +464,7 @@ namespace edu.cmu.sphinx.util
 					this.this_0.putResponse(new StringBuilder().append(i).append(" ").append(text).toString());
 				}
 			}
-			
+
 			public string get(int num)
 			{
 				if (this.history.size() > num)
@@ -471,18 +474,18 @@ namespace edu.cmu.sphinx.util
 				this.this_0.putResponse("command not found");
 				return "";
 			}
-			
+
 			internal CommandHistory(CommandInterpreter commandInterpreter)
 			{
 				this_0 = commandInterpreter;
 				this.history = new ArrayList(100);
 			}
-			
+
 			public void add(string text)
 			{
 				this.history.add(text);
 			}
-			
+
 			public string getLast(int num)
 			{
 				if (this.history.size() > num)
@@ -492,13 +495,13 @@ namespace edu.cmu.sphinx.util
 				this.this_0.putResponse("command not found");
 				return "";
 			}
-			
+
 			public string findLast(string text)
 			{
-				for (int i = this.history.size() - 1; i >= 0; i --)
+				for (int i = this.history.size() - 1; i >= 0; i--)
 				{
 					string text2 = this.get(i);
-					if (java.lang.String.instancehelper_startsWith(text2, text))
+					if (String.instancehelper_startsWith(text2, text))
 					{
 						return text2;
 					}
@@ -506,10 +509,10 @@ namespace edu.cmu.sphinx.util
 				this.this_0.putResponse("command not found");
 				return "";
 			}
-			
+
 			private List history;
 
-			
+
 			internal CommandInterpreter this_0;
 		}
 	}

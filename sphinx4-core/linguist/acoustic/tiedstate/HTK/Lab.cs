@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	public class Lab : java.lang.Object
+	public class Lab : Object
 	{	
 		public Lab(string s, int n)
 		{
@@ -17,9 +17,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		{
 			if (l.getState() != -1 && this.getState() != -1)
 			{
-				return java.lang.String.instancehelper_equals(l.getName(), this.getName()) && l.getState() == this.getState();
+				return String.instancehelper_equals(l.getName(), this.getName()) && l.getState() == this.getState();
 			}
-			return java.lang.String.instancehelper_equals(l.getName(), this.getName());
+			return String.instancehelper_equals(l.getName(), this.getName());
 		}
 		public virtual string getName()
 		{

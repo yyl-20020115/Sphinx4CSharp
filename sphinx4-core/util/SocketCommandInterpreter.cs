@@ -114,7 +114,6 @@ namespace edu.cmu.sphinx.util
 			socketCommandInterpreter.start();
 		}
 
-
 		private int port;
 
 		private Map commandList;
@@ -123,7 +122,7 @@ namespace edu.cmu.sphinx.util
 
 		private bool acceptConnections;
 
-		internal sealed class SocketCommandInterpreter_1 : java.lang.Object, CommandInterface
+		internal sealed class SocketCommandInterpreter_1 : Object, CommandInterface
 		{
 
 			internal SocketCommandInterpreter_1()
@@ -140,7 +139,7 @@ namespace edu.cmu.sphinx.util
 				return "a test command";
 			}
 		}
-		internal sealed class SocketCommandInterpreter_2 : java.lang.Object, CommandInterface
+		internal sealed class SocketCommandInterpreter_2 : Object, CommandInterface
 		{
 
 

@@ -5,7 +5,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	public class UnitManager : java.lang.Object, Configurable
+	public class UnitManager : Object, Configurable
 	{		
 		public virtual Unit getUnit(string name, bool filler, Context context)
 		{
@@ -37,7 +37,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			this.ciMap = new HashMap();
 			this.ciMap.put("SIL", UnitManager.__SILENCE);
 			this.nextID = 2;
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 		}
 		
 		public virtual void newProperties(PropertySheet ps)

@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.alignment
 
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 
 		internal LongTextAligner val_this_0;

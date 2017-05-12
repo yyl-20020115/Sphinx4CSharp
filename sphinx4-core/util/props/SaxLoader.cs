@@ -7,7 +7,7 @@ using org.xml.sax;
 
 namespace edu.cmu.sphinx.util.props
 {
-	public class SaxLoader : java.lang.Object
+	public class SaxLoader : Object
 	{		
 		public SaxLoader(URL url, Map globalProperties, Map initRPD, bool replaceDuplicates)
 		{

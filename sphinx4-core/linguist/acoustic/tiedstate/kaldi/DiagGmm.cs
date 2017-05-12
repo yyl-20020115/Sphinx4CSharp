@@ -17,7 +17,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			if (values.Length != num3)
 			{
 				string text = "feature vector must be of length %d, got %d";
-				string text2 = java.lang.String.format(text, new object[]
+				string text2 = String.format(text, new object[]
 				{
 					Integer.valueOf(num3),
 					Integer.valueOf(values.Length)

@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.api
 
 		public virtual void setGrammar(string path, string name)
 		{
-			if (java.lang.String.instancehelper_endsWith(name, ".grxml"))
+			if (String.instancehelper_endsWith(name, ".grxml"))
 			{
 				this.setLocalProperty("grXmlGrammar->grammarLocation", new StringBuilder().append(path).append(name).toString());
 				this.setLocalProperty("flatLinguist->grammar", "grXmlGrammar");
@@ -70,19 +70,19 @@ namespace edu.cmu.sphinx.api
 
 		public virtual void setLanguageModel(string path)
 		{
-			if (java.lang.String.instancehelper_endsWith(path, ".lm"))
+			if (String.instancehelper_endsWith(path, ".lm"))
 			{
 				this.setLocalProperty("simpleNGramModel->location", path);
 				this.setLocalProperty("lexTreeLinguist->languageModel", "simpleNGramModel");
 			}
-			else if (java.lang.String.instancehelper_endsWith(path, ".dmp"))
+			else if (String.instancehelper_endsWith(path, ".dmp"))
 			{
 				this.setLocalProperty("largeTrigramModel->location", path);
 				this.setLocalProperty("lexTreeLinguist->languageModel", "largeTrigramModel");
 			}
 			else
 			{
-				if (!java.lang.String.instancehelper_endsWith(path, ".bin"))
+				if (!String.instancehelper_endsWith(path, ".bin"))
 				{
 					string text = new StringBuilder().append("Unknown format extension: ").append(path).toString();
 
@@ -100,7 +100,7 @@ namespace edu.cmu.sphinx.api
 
 		public virtual void setLocalProperty(string name, object value)
 		{
-			ConfigurationManagerUtils.setProperty(this.configurationManager, name, java.lang.Object.instancehelper_toString(value));
+			ConfigurationManagerUtils.setProperty(this.configurationManager, name, Object.instancehelper_toString(value));
 		}
 
 		public virtual void setSpeechSource(InputStream stream, TimeFrame timeFrame)
@@ -117,7 +117,7 @@ namespace edu.cmu.sphinx.api
 
 		public virtual void setGlobalProperty(string name, object value)
 		{
-			this.configurationManager.setGlobalProperty(name, java.lang.Object.instancehelper_toString(value));
+			this.configurationManager.setGlobalProperty(name, Object.instancehelper_toString(value));
 		}
 
 		private ConfigurationManager configurationManager;

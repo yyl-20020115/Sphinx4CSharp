@@ -1,10 +1,11 @@
 ﻿using ikvm.@internal;
 using java.io;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
 	[System.Serializable]
-	public class Context : java.lang.Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
+	public class Context : Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{
 		public override string toString()
 		{
@@ -29,14 +30,14 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			if (o is Context)
 			{
 				Context context = (Context)o;
-				return java.lang.String.instancehelper_equals(this.toString(), context.toString());
+				return String.instancehelper_equals(this.toString(), context.toString());
 			}
 			return false;
 		}
 		
 		public override int hashCode()
 		{
-			return java.lang.String.instancehelper_hashCode(this.toString());
+			return String.instancehelper_hashCode(this.toString());
 		}
 		
 		public static implicit operator Serializable(Context _ref)

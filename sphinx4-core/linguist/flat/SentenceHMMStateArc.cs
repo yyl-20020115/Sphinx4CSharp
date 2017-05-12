@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	public class SentenceHMMStateArc : java.lang.Object, SearchStateArc
+	public class SentenceHMMStateArc : Object, SearchStateArc
 	{
 		public virtual SearchState getState()
 		{
@@ -14,7 +14,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.nextState = nextState;
 			this.logLanguageProbability = logLanguageProbability;
 			this.logInsertionProbability = logInsertionProbability;
-			this._hashCode = 111 + java.lang.Object.instancehelper_hashCode(nextState) + 17 * Float.floatToIntBits(logLanguageProbability) + 23 * Float.floatToIntBits(logInsertionProbability);
+			this._hashCode = 111 + Object.instancehelper_hashCode(nextState) + 17 * Float.floatToIntBits(logLanguageProbability) + 23 * Float.floatToIntBits(logInsertionProbability);
 		}
 
 		public override bool equals(object o)

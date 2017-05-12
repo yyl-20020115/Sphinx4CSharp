@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	public class StatisticsVariable : java.lang.Object
+	public class StatisticsVariable : Object
 	{
 		public static StatisticsVariable getStatisticsVariable(string statName)
 		{
@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.util
 		{
 			return this.enabled;
 		}
-		
+
 		public static void dumpAll()
 		{
 			java.lang.System.@out.println(" ========= statistics  =======");
@@ -119,11 +119,11 @@ namespace edu.cmu.sphinx.util
 			StatisticsVariable.resetAll();
 			StatisticsVariable.dumpAll();
 		}
-		
+
 		private static Map pool = new HashMap();
 
 		public double value;
-		
+
 		private string name;
 
 		private bool enabled;

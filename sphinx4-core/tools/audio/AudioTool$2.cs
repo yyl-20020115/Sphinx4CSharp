@@ -5,8 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-
-	internal sealed class AudioTool_2 : java.lang.Object, ActionListener, EventListener
+	internal sealed class AudioTool_2 : Object, ActionListener, EventListener
 	{
 		internal AudioTool_2()
 		{
@@ -14,7 +13,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			if (AudioTool.filename != null && !java.lang.String.instancehelper_isEmpty(AudioTool.filename))
+			if (AudioTool.filename != null && !String.instancehelper_isEmpty(AudioTool.filename))
 			{
 				try
 				{

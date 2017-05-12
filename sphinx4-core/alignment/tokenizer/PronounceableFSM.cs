@@ -10,18 +10,18 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		public virtual bool accept(string inputString)
 		{
 			int num = this.transition(0, 35);
-			int num2 = java.lang.String.instancehelper_length(inputString) - 1;
+			int num2 = String.instancehelper_length(inputString) - 1;
 			int num3 = (!this.scanFromFront) ? num2 : 0;
 			int num4 = num3;
 			while (0 <= num4 && num4 <= num2)
 			{
-				int num5 = (int)java.lang.String.instancehelper_charAt(inputString, num4);
+				int num5 = (int)String.instancehelper_charAt(inputString, num4);
 				int num6;
 				if (num5 == 110 || num5 == 109)
 				{
 					num6 = 78;
 				}
-				else if (java.lang.String.instancehelper_indexOf("aeiouy", num5) != -1)
+				else if (String.instancehelper_indexOf("aeiouy", num5) != -1)
 				{
 					num6 = 86;
 				}
@@ -56,25 +56,25 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			string text;
 			while ((text = bufferedReader.readLine()) != null)
 			{
-				if (!java.lang.String.instancehelper_startsWith(text, "***"))
+				if (!String.instancehelper_startsWith(text, "***"))
 				{
-					if (java.lang.String.instancehelper_startsWith(text, "VOCAB_SIZE"))
+					if (String.instancehelper_startsWith(text, "VOCAB_SIZE"))
 					{
 						this.vocabularySize = this.parseLastInt(text);
 					}
-					else if (java.lang.String.instancehelper_startsWith(text, "NUM_OF_TRANSITIONS"))
+					else if (String.instancehelper_startsWith(text, "NUM_OF_TRANSITIONS"))
 					{
 						int num = this.parseLastInt(text);
 						this.transitions = new int[num];
 					}
-					else if (java.lang.String.instancehelper_startsWith(text, "TRANSITIONS"))
+					else if (String.instancehelper_startsWith(text, "TRANSITIONS"))
 					{
 						StringTokenizer stringTokenizer = new StringTokenizer(text);
 						stringTokenizer.nextToken();
 						int num2 = 0;
 						while (stringTokenizer.hasMoreTokens() && num2 < this.transitions.Length)
 						{
-							string text2 = java.lang.String.instancehelper_trim(stringTokenizer.nextToken());
+							string text2 = String.instancehelper_trim(stringTokenizer.nextToken());
 							int[] array = this.transitions;
 							int num3 = num2;
 							num2++;
@@ -88,8 +88,8 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		private int parseLastInt(string text)
 		{
-			string text2 = java.lang.String.instancehelper_substring(java.lang.String.instancehelper_trim(text), java.lang.String.instancehelper_lastIndexOf(text, " "));
-			return Integer.parseInt(java.lang.String.instancehelper_trim(text2));
+			string text2 = String.instancehelper_substring(String.instancehelper_trim(text), String.instancehelper_lastIndexOf(text, " "));
+			return Integer.parseInt(String.instancehelper_trim(text2));
 		}
 		private int transition(int num, int num2)
 		{

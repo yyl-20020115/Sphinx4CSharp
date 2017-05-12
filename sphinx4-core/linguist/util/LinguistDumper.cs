@@ -134,7 +134,7 @@ namespace edu.cmu.sphinx.linguist.util
 				this.eqSigs.put(searchState.getSignature(), searchState);
 				searchState3 = searchState;
 			}
-			if (!java.lang.String.instancehelper_equals(searchState2.getSignature(), searchState.getSignature()))
+			if (!String.instancehelper_equals(searchState2.getSignature(), searchState.getSignature()))
 			{
 				java.lang.System.@out.println("Sigs mismatch for: ");
 				java.lang.System.@out.println(new StringBuilder().append("  state sig: ").append(searchState.getSignature()).toString());
@@ -142,7 +142,7 @@ namespace edu.cmu.sphinx.linguist.util
 				java.lang.System.@out.println(new StringBuilder().append("  state val: ").append(searchState).toString());
 				java.lang.System.@out.println(new StringBuilder().append("  eqSig val: ").append(searchState3).toString());
 			}
-			if (!java.lang.Object.instancehelper_equals(searchState2, searchState))
+			if (!Object.instancehelper_equals(searchState2, searchState))
 			{
 				java.lang.System.@out.println("obj mismatch for: ");
 				java.lang.System.@out.println(new StringBuilder().append("  state sig: ").append(searchState.getSignature()).toString());

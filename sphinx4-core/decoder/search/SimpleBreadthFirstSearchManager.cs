@@ -257,7 +257,7 @@ namespace edu.cmu.sphinx.decoder.search
 			predecessor = predecessor.getPredecessor();
 			while (predecessor != null && !predecessor.isEmitting())
 			{
-				if (java.lang.Object.instancehelper_equals(searchState, predecessor.getSearchState()))
+				if (Object.instancehelper_equals(searchState, predecessor.getSearchState()))
 				{
 					return true;
 				}
@@ -287,7 +287,7 @@ namespace edu.cmu.sphinx.decoder.search
 		
 		public SimpleBreadthFirstSearchManager(Linguist linguist, Pruner pruner, AcousticScorer scorer, ActiveListFactory activeListFactory, bool showTokenCount, double relativeWordBeamWidth, int growSkipInterval, bool wantEntryPruning)
 		{
-			this.name = java.lang.Object.instancehelper_getClass(this).getName();
+			this.name = Object.instancehelper_getClass(this).getName();
 			this.logger = Logger.getLogger(this.name);
 			this.logMath = LogMath.getLogMath();
 			this.linguist = linguist;

@@ -25,12 +25,12 @@ namespace edu.cmu.sphinx.frontend.util
 		public override Data getData()
 		{
 			object obj = this.getPredecessor().getData();
-			if (((Data)obj) is DoubleData && java.lang.String.instancehelper_equals(this.convMode, "d2f"))
+			if (((Data)obj) is DoubleData && String.instancehelper_equals(this.convMode, "d2f"))
 			{
 				DoubleData doubleData = (DoubleData)((Data)obj);
 				obj = new FloatData(MatrixUtils.double2float(doubleData.getValues()), doubleData.getSampleRate(), doubleData.getFirstSampleNumber());
 			}
-			else if (((Data)obj) is FloatData && java.lang.String.instancehelper_equals(this.convMode, "f2d"))
+			else if (((Data)obj) is FloatData && String.instancehelper_equals(this.convMode, "f2d"))
 			{
 				FloatData floatData = (FloatData)((Data)obj);
 				obj = new DoubleData(MatrixUtils.float2double(floatData.getValues()), floatData.getSampleRate(), floatData.getFirstSampleNumber());

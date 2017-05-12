@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class Edge : java.lang.Object
+	public class Edge : Object
 	{
 		public virtual Node getDestination()
 		{

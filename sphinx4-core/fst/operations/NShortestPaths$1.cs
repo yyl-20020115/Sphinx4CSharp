@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	internal sealed class NShortestPaths_1 : java.lang.Object, Comparator
+	internal sealed class NShortestPaths_1 : Object, Comparator
 	{		
 		public int compare(Pair pair, Pair pair2)
 		{
@@ -39,7 +39,7 @@ namespace edu.cmu.sphinx.fst.operations
 		
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 
 		internal float[] val_d;

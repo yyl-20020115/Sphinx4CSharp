@@ -1,8 +1,9 @@
 ﻿using IKVM.Runtime;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 {
-	public class MixtureComponentSetScores : java.lang.Object
+	public class MixtureComponentSetScores : Object
 	{
 		public virtual long getFrameStartSample()
 		{

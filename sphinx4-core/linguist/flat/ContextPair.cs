@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	internal sealed class ContextPair : java.lang.Object
+	internal sealed class ContextPair : Object
 	{
 		private ContextPair(UnitContext unitContext, UnitContext unitContext2)
 		{

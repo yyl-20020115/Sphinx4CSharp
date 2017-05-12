@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class LatticeOptimizer : java.lang.Object
+	public class LatticeOptimizer : Object
 	{
 		public LatticeOptimizer(Lattice lattice)
 		{
@@ -169,12 +169,12 @@ namespace edu.cmu.sphinx.result
 		
 		private double mergeAcousticScores(double num, double num2)
 		{
-			return java.lang.Math.max(num, num2);
+			return Math.max(num, num2);
 		}
 		
 		private double mergeLanguageScores(double num, double num2)
 		{
-			return java.lang.Math.max(num, num2);
+			return Math.max(num, num2);
 		}
 		
 		protected internal virtual bool optimizeNodeBackward(Node n)

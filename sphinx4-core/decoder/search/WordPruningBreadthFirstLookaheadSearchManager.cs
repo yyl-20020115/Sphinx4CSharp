@@ -427,7 +427,7 @@ namespace edu.cmu.sphinx.decoder.search
 
 		private bool fastmatchStreamEnd;
 		
-		internal sealed class FrameCiScores : java.lang.Object
+		internal sealed class FrameCiScores : Object
 		{			
 			public FrameCiScores(WordPruningBreadthFirstLookaheadSearchManager wordPruningBreadthFirstLookaheadSearchManager, float[] array, float num)
 			{

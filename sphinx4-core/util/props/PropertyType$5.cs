@@ -13,11 +13,11 @@ namespace edu.cmu.sphinx.util.props
 	
 		protected internal override bool validateString(string text)
 		{
-			if (java.lang.String.instancehelper_startsWith(java.lang.String.instancehelper_toLowerCase(text), "resource:/"))
+			if (String.instancehelper_startsWith(String.instancehelper_toLowerCase(text), "resource:/"))
 			{
 				return true;
 			}
-			if (java.lang.String.instancehelper_indexOf(text, 58) == -1)
+			if (String.instancehelper_indexOf(text, 58) == -1)
 			{
 				text = new StringBuilder().append("file:").append(text).toString();
 			}

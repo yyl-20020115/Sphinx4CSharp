@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.util
 {
-	public class TimeFrame : java.lang.Object
+	public class TimeFrame : Object
 	{
 		public virtual long getEnd()
 		{
@@ -31,7 +31,7 @@ namespace edu.cmu.sphinx.util
 
 		public override string toString()
 		{
-			return java.lang.String.format("%d:%d", new object[]
+			return String.format("%d:%d", new object[]
 			{
 				Long.valueOf(this.start),
 				Long.valueOf(this.end)

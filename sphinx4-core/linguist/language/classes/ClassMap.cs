@@ -9,7 +9,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.language.classes
 {
-	public class ClassMap : java.lang.Object, Configurable
+	public class ClassMap : Object, Configurable
 	{		
 		public virtual void allocate()
 		{
@@ -116,7 +116,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			while (iterator.hasNext())
 			{
 				Map.Entry entry = (Map.Entry)iterator.next();
-				if (java.lang.Math.abs((double)1f - (double)((Float)entry.getValue()).floatValue()) > 0.001)
+				if (Math.abs((double)1f - (double)((Float)entry.getValue()).floatValue()) > 0.001)
 				{
 					this.logger.warning(new StringBuilder().append("Word probabilities for class ").append((string)entry.getKey()).append(" sum to ").append(entry.getValue()).toString());
 				}
@@ -128,7 +128,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.classVocabulary = new HashMap();
 			this.wordToClassProbabilities = new HashMap();
 			this.classToWord = new HashMap();
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.classDefsLocation = classDefsLocation;
 			this.logMath = LogMath.getLogMath();
 		}

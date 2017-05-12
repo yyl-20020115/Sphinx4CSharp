@@ -3,10 +3,11 @@ using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.result
 {
-	public class Result : java.lang.Object
+	public class Result : Object
 	{
 		public virtual List getTimedBestResult(bool withFillers)
 		{
@@ -134,12 +135,12 @@ namespace edu.cmu.sphinx.result
 		public virtual List findPartialMatchingTokens(string text)
 		{
 			ArrayList arrayList = new ArrayList();
-			text = java.lang.String.instancehelper_trim(text);
+			text = String.instancehelper_trim(text);
 			Iterator iterator = this.activeList.iterator();
 			while (iterator.hasNext())
 			{
 				Token token = (Token)iterator.next();
-				if (java.lang.String.instancehelper_startsWith(text, token.getWordPathNoFiller()))
+				if (String.instancehelper_startsWith(text, token.getWordPathNoFiller()))
 				{
 					arrayList.add(token);
 				}
@@ -220,12 +221,12 @@ namespace edu.cmu.sphinx.result
 		
 		public virtual Token findToken(string text)
 		{
-			text = java.lang.String.instancehelper_trim(text);
+			text = String.instancehelper_trim(text);
 			Iterator iterator = this.resultList.iterator();
 			while (iterator.hasNext())
 			{
 				Token token = (Token)iterator.next();
-				if (java.lang.String.instancehelper_equals(text, token.getWordPathNoFiller()))
+				if (String.instancehelper_equals(text, token.getWordPathNoFiller()))
 				{
 					return token;
 				}

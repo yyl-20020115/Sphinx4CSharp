@@ -1,9 +1,10 @@
 ﻿using java.io;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	internal sealed class HypothesisFile : java.lang.Object
+	internal sealed class HypothesisFile : Object
 	{		
 		internal HypothesisFile(string text)
 		{

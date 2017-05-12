@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class Node : java.lang.Object
+	public class Node : Object
 	{
 		public virtual void startOutgoingEdgeIterator()
 		{
@@ -21,7 +21,7 @@ namespace edu.cmu.sphinx.trainer
 
 		public virtual bool isType(string type)
 		{
-			return java.lang.String.instancehelper_equals(type, this.nodeType.toString());
+			return String.instancehelper_equals(type, this.nodeType.toString());
 		}
 
 		public virtual object getObject()

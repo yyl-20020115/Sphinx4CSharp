@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class ArcSort : java.lang.Object
+	public class ArcSort : Object
 	{
 		private ArcSort()
 		{

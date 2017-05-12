@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	public abstract class EventMapWithKey : java.lang.Object, EventMap
+	public abstract class EventMapWithKey : Object, EventMap
 	{		
 		protected internal EventMapWithKey(int key)
 		{

@@ -1,8 +1,10 @@
 ﻿using java.util;
+using java.lang;
+
 
 namespace edu.cmu.sphinx.linguist.g2p
 {
-	public class PathComparator : java.lang.Object, Comparator
+	public class PathComparator : Object, Comparator
 	{
 		public PathComparator()
 		{
@@ -28,7 +30,7 @@ namespace edu.cmu.sphinx.linguist.g2p
 		
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 	}
 }

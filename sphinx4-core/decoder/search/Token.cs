@@ -161,7 +161,7 @@ namespace edu.cmu.sphinx.decoder.search
 					}
 				}
 			}
-			return java.lang.String.instancehelper_trim(stringBuilder.toString());
+			return String.instancehelper_trim(stringBuilder.toString());
 		}
 
 		public override float calculateScore(Data feature)
@@ -223,7 +223,7 @@ namespace edu.cmu.sphinx.decoder.search
 					stringBuilder.insert(0, new StringBuilder().append(' ').append(unit.getName()).toString());
 				}
 			}
-			return java.lang.String.instancehelper_trim(stringBuilder.toString());
+			return String.instancehelper_trim(stringBuilder.toString());
 		}
 
 		public virtual Word getWord()

@@ -10,7 +10,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
-	public class ModelInitializerLoader : java.lang.Object, Loader, Configurable
+	public class ModelInitializerLoader : Object, Loader, Configurable
 	{	
 		private Pool createDummyMatrixPool(string text)
 		{
@@ -75,14 +75,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			extendedStreamTokenizer.expectString("version");
 			extendedStreamTokenizer.expectString(expecting);
 			extendedStreamTokenizer.expectString("same_sized_models");
-			int num5 = java.lang.String.instancehelper_equals(extendedStreamTokenizer.getString(), "yes") ? 1 : 0;
+			int num5 = String.instancehelper_equals(extendedStreamTokenizer.getString(), "yes") ? 1 : 0;
 			if (num5 != 0)
 			{
 				extendedStreamTokenizer.expectString("n_state");
 				num = extendedStreamTokenizer.getInt("numBase");
 			}
 			extendedStreamTokenizer.expectString("tmat_skip");
-			int num6 = java.lang.String.instancehelper_equals(extendedStreamTokenizer.getString(), "yes") ? 1 : 0;
+			int num6 = String.instancehelper_equals(extendedStreamTokenizer.getString(), "yes") ? 1 : 0;
 			int num7 = 0;
 			int num8 = 0;
 			for (;;)
@@ -108,7 +108,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 					i++;
 					num7++;
 				}
-				Unit unit = this.unitManager.getUnit(@string, java.lang.String.instancehelper_equals(@string, "SIL"));
+				Unit unit = this.unitManager.getUnit(@string, String.instancehelper_equals(@string, "SIL"));
 				this.contextIndependentUnits.put(unit.getName(), unit);
 				if (this.logger.isLoggable(Level.FINE))
 				{

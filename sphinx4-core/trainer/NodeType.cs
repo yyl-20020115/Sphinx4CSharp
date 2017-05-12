@@ -1,10 +1,12 @@
-﻿namespace edu.cmu.sphinx.trainer
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.trainer
 {
-	public class NodeType : java.lang.Object
+	public class NodeType : Object
 	{	
 		public virtual bool equals(NodeType nodeType)
 		{
-			return nodeType != null && java.lang.String.instancehelper_equals(this.toString(), nodeType.toString());
+			return nodeType != null && String.instancehelper_equals(this.toString(), nodeType.toString());
 		}
 
 		public override string toString()

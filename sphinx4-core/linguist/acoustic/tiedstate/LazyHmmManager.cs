@@ -22,19 +22,19 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		private EventMap parseEventMap(KaldiTextParser kaldiTextParser)
 		{
 			string token = kaldiTextParser.getToken();
-			if (java.lang.String.instancehelper_equals("CE", token))
+			if (String.instancehelper_equals("CE", token))
 			{
 				return new ConstantEventMap(kaldiTextParser.getInt());
 			}
-			if (java.lang.String.instancehelper_equals("SE", token))
+			if (String.instancehelper_equals("SE", token))
 			{
 				return this.parseSplitEventMap(kaldiTextParser);
 			}
-			if (java.lang.String.instancehelper_equals("TE", token))
+			if (String.instancehelper_equals("TE", token))
 			{
 				return this.parseTableEventMap(kaldiTextParser);
 			}
-			if (java.lang.String.instancehelper_equals("NULL", token))
+			if (String.instancehelper_equals("NULL", token))
 			{
 				return null;
 			}

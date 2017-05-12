@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.jsgf
 		public JSGFGrammar(URL baseURL, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, linguist.dictionary.Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.loadGrammar = true;
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.logMath = LogMath.getLogMath();
 			this.baseURL = baseURL;
 			this.grammarName = grammarName;
@@ -354,15 +354,15 @@ namespace edu.cmu.sphinx.jsgf
 				string ruleName = (string)iterator.next();
 				string text = jsgfruleGrammar.getRule(ruleName).toString();
 				int i = 0;
-				while (i < java.lang.String.instancehelper_length(text))
+				while (i < String.instancehelper_length(text))
 				{
-					i = java.lang.String.instancehelper_indexOf(text, 60, i);
+					i = String.instancehelper_indexOf(text, 60, i);
 					if (i < 0)
 					{
 						break;
 					}
-					JSGFRuleName jsgfruleName = new JSGFRuleName(java.lang.String.instancehelper_trim(java.lang.String.instancehelper_substring(text, i + 1, java.lang.String.instancehelper_indexOf(text, 62, i + 1))));
-					i = java.lang.String.instancehelper_indexOf(text, 62, i) + 1;
+					JSGFRuleName jsgfruleName = new JSGFRuleName(String.instancehelper_trim(String.instancehelper_substring(text, i + 1, String.instancehelper_indexOf(text, 62, i + 1))));
+					i = String.instancehelper_indexOf(text, 62, i) + 1;
 					if (jsgfruleName.getFullGrammarName() != null)
 					{
 						string fullGrammarName = jsgfruleName.getFullGrammarName();
@@ -382,7 +382,7 @@ namespace edu.cmu.sphinx.jsgf
 		
 		private static URL grammarNameToURL(URL url, string text)
 		{
-			text = java.lang.String.instancehelper_replace(text, '.', '/');
+			text = String.instancehelper_replace(text, '.', '/');
 			StringBuilder stringBuilder = new StringBuilder();
 			if (url != null)
 			{
@@ -539,7 +539,7 @@ namespace edu.cmu.sphinx.jsgf
 
 		protected internal new Logger logger;
 		
-		public sealed class GrammarGraph : java.lang.Object
+		public sealed class GrammarGraph : Object
 		{			
 			internal GrammarGraph(JSGFGrammar jsgfgrammar)
 			{
@@ -571,7 +571,7 @@ namespace edu.cmu.sphinx.jsgf
 			internal JSGFGrammar this_0;
 		}
 
-		internal sealed class RuleStack : java.lang.Object
+		internal sealed class RuleStack : Object
 		{			
 			public JSGFGrammar.GrammarGraph contains(string text)
 			{

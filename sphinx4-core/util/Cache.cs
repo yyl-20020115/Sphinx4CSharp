@@ -1,9 +1,10 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
 
-	public class Cache : java.lang.Object
+	public class Cache : Object
 	{
 		public virtual object cache(object @object)
 		{

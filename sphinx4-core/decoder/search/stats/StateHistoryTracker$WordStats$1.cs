@@ -29,7 +29,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 	}
 }

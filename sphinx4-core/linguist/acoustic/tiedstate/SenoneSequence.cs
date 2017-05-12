@@ -6,7 +6,7 @@ using java.util;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
 	[System.Serializable]
-	public class SenoneSequence : java.lang.Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
+	public class SenoneSequence : Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{		
 		public SenoneSequence(Senone[] sequence)
 		{
@@ -26,7 +26,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			for (int i = 0; i < num2; i++)
 			{
 				Senone senone = array[i];
-				num = num * 91 + java.lang.Object.instancehelper_hashCode(senone);
+				num = num * 91 + Object.instancehelper_hashCode(senone);
 			}
 			return num;
 		}
@@ -48,7 +48,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			for (int i = 0; i < this.senones.Length; i++)
 			{
-				if (!java.lang.Object.instancehelper_equals(this.senones[i], senoneSequence.senones[i]))
+				if (!Object.instancehelper_equals(this.senones[i], senoneSequence.senones[i]))
 				{
 					return false;
 				}

@@ -10,7 +10,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.tools.live
 {
-	public class LiveModeRecognizer : java.lang.Object, Configurable
+	public class LiveModeRecognizer : Object, Configurable
 	{
 		private void alignResults(List list, List list2)
 		{

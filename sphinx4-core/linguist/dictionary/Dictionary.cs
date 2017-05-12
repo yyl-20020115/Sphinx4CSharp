@@ -1,4 +1,5 @@
 ﻿using edu.cmu.sphinx.util.props;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
@@ -21,7 +22,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 
 	}
 
-	public abstract class DictionaryBase : java.lang.Object, Dictionary
+	public abstract class DictionaryBase : Object, Dictionary
 	{
 		public const string SENTENCE_START_SPELLING = "<s>";
 

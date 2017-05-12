@@ -129,11 +129,11 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			DataUtil.format.applyPattern(stringBuilder.toString());
 			string text = DataUtil.format.format(number);
-			int num = java.lang.String.instancehelper_indexOf(text, 46);
+			int num = String.instancehelper_indexOf(text, 46);
 			if (num == -1)
 			{
 				text = new StringBuilder().append(text).append(".").toString();
-				num = java.lang.String.instancehelper_length(text) - 1;
+				num = String.instancehelper_length(text) - 1;
 			}
 			StringBuilder stringBuilder2 = new StringBuilder();
 			for (int j = num; j < integerDigits; j++)
@@ -304,15 +304,15 @@ namespace edu.cmu.sphinx.frontend.util
 			DataUtil.format = new DecimalFormat();
 			DataUtil.dumpFormat = 2;
 			string property = java.lang.System.getProperty("frontend.util.dumpformat", "SCIENTIFIC");
-			if (java.lang.String.instancehelper_compareToIgnoreCase(property, "DECIMAL") == 0)
+			if (String.instancehelper_compareToIgnoreCase(property, "DECIMAL") == 0)
 			{
 				DataUtil.dumpFormat = 3;
 			}
-			else if (java.lang.String.instancehelper_compareToIgnoreCase(property, "HEXADECIMAL") == 0)
+			else if (String.instancehelper_compareToIgnoreCase(property, "HEXADECIMAL") == 0)
 			{
 				DataUtil.dumpFormat = 1;
 			}
-			else if (java.lang.String.instancehelper_compareToIgnoreCase(property, "SCIENTIFIC") == 0)
+			else if (String.instancehelper_compareToIgnoreCase(property, "SCIENTIFIC") == 0)
 			{
 				DataUtil.dumpFormat = 2;
 			}

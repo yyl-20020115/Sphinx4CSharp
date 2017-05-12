@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.fst.operations
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.fst.operations
 {
-	public class Project : java.lang.Object
+	public class Project : Object
 	{		
 		private Project()
 		{

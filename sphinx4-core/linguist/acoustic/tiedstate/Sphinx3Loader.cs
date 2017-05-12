@@ -12,7 +12,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class Sphinx3Loader : java.lang.Object, Loader, Configurable
+	public class Sphinx3Loader : Object, Loader, Configurable
 	{
 		public virtual int[] getVectorLength()
 		{
@@ -42,7 +42,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public virtual bool hasTiedMixtures()
 		{
 			string property = this.modelProps.getProperty("-model", "cont");
-			return java.lang.String.instancehelper_equals(property, "ptm");
+			return String.instancehelper_equals(property, "ptm");
 		}
 
 		public virtual int[] getSenone2Ci()
@@ -131,14 +131,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			int num = 0;
 			DataInputStream dataInputStream = this.readS3BinaryHeader(path, properties);
 			string property = properties.getProperty("version");
-			if (property == null || !java.lang.String.instancehelper_equals(property, "1.0"))
+			if (property == null || !String.instancehelper_equals(property, "1.0"))
 			{
 				string text = new StringBuilder().append("Unsupported version in ").append(path).toString();
 				
 				throw new IOException(text);
 			}
 			string property2 = properties.getProperty("chksum0");
-			int num2 = (property2 == null || !java.lang.String.instancehelper_equals(property2, "yes")) ? 0 : 1;
+			int num2 = (property2 == null || !String.instancehelper_equals(property2, "yes")) ? 0 : 1;
 			this.resetChecksum();
 			int num3 = this.readInt(dataInputStream);
 			int num4 = this.readInt(dataInputStream);
@@ -195,14 +195,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			Properties properties = new Properties();
 			DataInputStream dataInputStream = this.readS3BinaryHeader(path, properties);
 			string property = properties.getProperty("version");
-			if (property == null || !java.lang.String.instancehelper_equals(property, "1.0"))
+			if (property == null || !String.instancehelper_equals(property, "1.0"))
 			{
 				string text = new StringBuilder().append("Unsupported version in ").append(path).toString();
 				
 				throw new IOException(text);
 			}
 			string property2 = properties.getProperty("chksum0");
-			int num = (property2 == null || !java.lang.String.instancehelper_equals(property2, "yes")) ? 0 : 1;
+			int num = (property2 == null || !String.instancehelper_equals(property2, "yes")) ? 0 : 1;
 			this.resetChecksum();
 			int num2 = this.readInt(dataInputStream);
 			int num3 = this.readInt(dataInputStream);
@@ -239,14 +239,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			Properties properties = new Properties();
 			DataInputStream dataInputStream = this.readS3BinaryHeader(path, properties);
 			string property = properties.getProperty("version");
-			if (property == null || !java.lang.String.instancehelper_equals(property, "1.0"))
+			if (property == null || !String.instancehelper_equals(property, "1.0"))
 			{
 				string text = new StringBuilder().append("Unsupported version in ").append(path).toString();
 				
 				throw new IOException(text);
 			}
 			string property2 = properties.getProperty("chksum0");
-			int num = (property2 == null || !java.lang.String.instancehelper_equals(property2, "yes")) ? 0 : 1;
+			int num = (property2 == null || !String.instancehelper_equals(property2, "yes")) ? 0 : 1;
 			this.resetChecksum();
 			Pool pool = new Pool(path);
 			int num2 = this.readInt(dataInputStream);
@@ -298,14 +298,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				return (float[][])null;
 			}
 			string property = properties.getProperty("version");
-			if (property == null || !java.lang.String.instancehelper_equals(property, "0.1"))
+			if (property == null || !String.instancehelper_equals(property, "0.1"))
 			{
 				string text = new StringBuilder().append("Unsupported version in ").append(path).toString();
 				
 				throw new IOException(text);
 			}
 			string property2 = properties.getProperty("chksum0");
-			int num = (property2 == null || !java.lang.String.instancehelper_equals(property2, "yes")) ? 0 : 1;
+			int num = (property2 == null || !String.instancehelper_equals(property2, "yes")) ? 0 : 1;
 			this.resetChecksum();
 			this.readInt(dataInputStream);
 			int num2 = this.readInt(dataInputStream);
@@ -333,7 +333,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			string text;
 			while ((text = bufferedReader.readLine()) != null)
 			{
-				string[] array = java.lang.String.instancehelper_split(text, " ");
+				string[] array = String.instancehelper_split(text, " ");
 				properties.put(array[0], array[1]);
 			}
 			return properties;
@@ -558,17 +558,17 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					}
 				}
 				extendedStreamTokenizer.expectString("N");
-				if (!Sphinx3Loader.assertionsDisabled && !java.lang.String.instancehelper_equals(string2, "-"))
+				if (!Sphinx3Loader.assertionsDisabled && !String.instancehelper_equals(string2, "-"))
 				{
 					
 					throw new AssertionError();
 				}
-				if (!Sphinx3Loader.assertionsDisabled && !java.lang.String.instancehelper_equals(string3, "-"))
+				if (!Sphinx3Loader.assertionsDisabled && !String.instancehelper_equals(string3, "-"))
 				{
 					
 					throw new AssertionError();
 				}
-				if (!Sphinx3Loader.assertionsDisabled && !java.lang.String.instancehelper_equals(string4, "-"))
+				if (!Sphinx3Loader.assertionsDisabled && !String.instancehelper_equals(string4, "-"))
 				{
 					
 					throw new AssertionError();
@@ -578,13 +578,13 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					
 					throw new AssertionError();
 				}
-				Unit unit = this.unitManager.getUnit(@string, java.lang.String.instancehelper_equals(string5, "filler"));
+				Unit unit = this.unitManager.getUnit(@string, String.instancehelper_equals(string5, "filler"));
 				this.contextIndependentUnits.put(unit.getName(), unit);
 				if (this.logger.isLoggable(Level.FINE))
 				{
 					this.logger.fine(new StringBuilder().append("Loaded ").append(unit).toString());
 				}
-				if (unit.isFiller() && java.lang.String.instancehelper_equals(unit.getName(), "SIL"))
+				if (unit.isFiller() && String.instancehelper_equals(unit.getName(), "SIL"))
 				{
 					unit = UnitManager.__SILENCE;
 				}
@@ -622,22 +622,22 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					}
 				}
 				extendedStreamTokenizer.expectString("N");
-				if (!Sphinx3Loader.assertionsDisabled && java.lang.String.instancehelper_equals(string6, "-"))
+				if (!Sphinx3Loader.assertionsDisabled && String.instancehelper_equals(string6, "-"))
 				{
 					
 					throw new AssertionError();
 				}
-				if (!Sphinx3Loader.assertionsDisabled && java.lang.String.instancehelper_equals(string7, "-"))
+				if (!Sphinx3Loader.assertionsDisabled && String.instancehelper_equals(string7, "-"))
 				{
 					
 					throw new AssertionError();
 				}
-				if (!Sphinx3Loader.assertionsDisabled && java.lang.String.instancehelper_equals(string8, "-"))
+				if (!Sphinx3Loader.assertionsDisabled && String.instancehelper_equals(string8, "-"))
 				{
 					
 					throw new AssertionError();
 				}
-				if (!Sphinx3Loader.assertionsDisabled && !java.lang.String.instancehelper_equals(string9, "n/a"))
+				if (!Sphinx3Loader.assertionsDisabled && !String.instancehelper_equals(string9, "n/a"))
 				{
 					
 					throw new AssertionError();
@@ -651,7 +651,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				{
 					string text3 = new StringBuilder().append(string5).append(' ').append(string6).append(' ').append(string7).toString();
 					Unit unit3;
-					if (java.lang.String.instancehelper_equals(text3, text2))
+					if (String.instancehelper_equals(text3, text2))
 					{
 						unit3 = unit2;
 					}
@@ -698,14 +698,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 			DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(dataStream));
 			string text2 = this.readWord(dataInputStream);
-			if (!java.lang.String.instancehelper_equals(text2, "s3"))
+			if (!String.instancehelper_equals(text2, "s3"))
 			{
 				string text3 = new StringBuilder().append("Not proper s3 binary file ").append(path).toString();
 				
 				throw new IOException(text3);
 			}
 			string text4;
-			while ((text4 = this.readWord(dataInputStream)) != null && !java.lang.String.instancehelper_equals(text4, "endhdr"))
+			while ((text4 = this.readWord(dataInputStream)) != null && !String.instancehelper_equals(text4, "endhdr"))
 			{
 				string text5 = this.readWord(dataInputStream);
 				props.setProperty(text4, text5);
@@ -844,13 +844,13 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		public Sphinx3Loader(URL location, UnitManager unitManager, float distFloor, float mixtureWeightFloor, float varianceFloor, int topGauNum, bool useCDUnits)
 		{
 			this.calculatedCheckSum = 0L;
-			this.init(location, unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName()));
+			this.init(location, unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(Object.instancehelper_getClass(this).getName()));
 		}
 		
 		public Sphinx3Loader(string location, UnitManager unitManager, float distFloor, float mixtureWeightFloor, float varianceFloor, int topGauNum, bool useCDUnits)
 		{
 			this.calculatedCheckSum = 0L;
-			this.init(ConfigurationManagerUtils.resourceToURL(location), unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName()));
+			this.init(ConfigurationManagerUtils.resourceToURL(location), unitManager, distFloor, mixtureWeightFloor, varianceFloor, topGauNum, useCDUnits, Logger.getLogger(Object.instancehelper_getClass(this).getName()));
 		}
 		
 		public Sphinx3Loader()

@@ -1,4 +1,6 @@
-﻿namespace edu.cmu.sphinx.util.props
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util.props
 {
 	[System.Serializable]
 	internal sealed class PropertyType_4 : PropertyType
@@ -10,7 +12,7 @@
 
 		protected internal override bool validateString(string text)
 		{
-			java.lang.Double.parseDouble(text);
+			Double.parseDouble(text);
 			return true;
 		}
 	}

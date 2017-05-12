@@ -1,9 +1,10 @@
 ﻿using ikvm.@internal;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
 	[System.Serializable]
-	public sealed class HMMPosition : java.lang.Enum
+	public sealed class HMMPosition : Enum
 	{
 		public static HMMPosition[] values()
 		{
@@ -12,18 +13,18 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		
 		private HMMPosition(string text, int num, char c) : base(text, num)
 		{
-			this.rep = java.lang.String.valueOf(c);
+			this.rep = String.valueOf(c);
 			System.GC.KeepAlive(this);
 		}
 		
 		public static HMMPosition valueOf(string name)
 		{
-			return (HMMPosition)java.lang.Enum.valueOf(ClassLiteral<HMMPosition>.Value, name);
+			return (HMMPosition)Enum.valueOf(ClassLiteral<HMMPosition>.Value, name);
 		}
 
 		public static HMMPosition lookup(string rep)
 		{
-			return (rep != null && !java.lang.String.instancehelper_isEmpty(rep)) ? HMMPosition.posByRep[(int)java.lang.String.instancehelper_charAt(rep, 0)] : null;
+			return (rep != null && !String.instancehelper_isEmpty(rep)) ? HMMPosition.posByRep[(int)String.instancehelper_charAt(rep, 0)] : null;
 		}
 		public bool isWordEnd()
 		{
@@ -48,9 +49,9 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			for (int i = 0; i < num2; i++)
 			{
 				HMMPosition hmmposition = array[i];
-				if ((int)java.lang.String.instancehelper_charAt(hmmposition.rep, 0) > num)
+				if ((int)String.instancehelper_charAt(hmmposition.rep, 0) > num)
 				{
-					num = (int)java.lang.String.instancehelper_charAt(hmmposition.rep, 0);
+					num = (int)String.instancehelper_charAt(hmmposition.rep, 0);
 				}
 			}
 			HMMPosition.posByRep = new HMMPosition[num + 1];
@@ -59,7 +60,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			for (int i = 0; i < num2; i++)
 			{
 				HMMPosition hmmposition = array[i];
-				HMMPosition.posByRep[(int)java.lang.String.instancehelper_charAt(hmmposition.rep, 0)] = hmmposition;
+				HMMPosition.posByRep[(int)String.instancehelper_charAt(hmmposition.rep, 0)] = hmmposition;
 			}
 		}
 

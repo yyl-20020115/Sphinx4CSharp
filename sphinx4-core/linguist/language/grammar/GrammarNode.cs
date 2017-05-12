@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.grammar
 {
-	public class GrammarNode : java.lang.Object
+	public class GrammarNode : Object
 	{
 		public virtual GrammarArc[] getSuccessors()
 		{

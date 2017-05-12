@@ -1,10 +1,11 @@
 ﻿using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.util;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.result
 {
-	public class WordResult : java.lang.Object
+	public class WordResult : Object
 	{
 		public virtual TimeFrame getTimeFrame()
 		{
@@ -31,7 +32,7 @@ namespace edu.cmu.sphinx.result
 
 		public virtual double getConfidence()
 		{
-			return java.lang.Math.min(this.confidence, (double)0f);
+			return Math.min(this.confidence, (double)0f);
 		}
 
 		public virtual double getScore()
@@ -46,15 +47,15 @@ namespace edu.cmu.sphinx.result
 		
 		public virtual bool isFiller()
 		{
-			return this.word.isFiller() || java.lang.String.instancehelper_equals(this.word.toString(), "<skip>");
+			return this.word.isFiller() || String.instancehelper_equals(this.word.toString(), "<skip>");
 		}
 
 		public override string toString()
 		{
-			return java.lang.String.format(Locale.US, "{%s, %.3f, [%s]}", new object[]
+			return String.format(Locale.US, "{%s, %.3f, [%s]}", new object[]
 			{
 				this.word,
-				java.lang.Double.valueOf(LogMath.getLogMath().logToLinear((float)this.getConfidence())),
+				Double.valueOf(LogMath.getLogMath().logToLinear((float)this.getConfidence())),
 				this.timeFrame
 			});
 		}

@@ -6,7 +6,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class RawRecorder : java.lang.Object
+	public class RawRecorder : Object
 	{		
 		public RawRecorder(AudioFormat audioFormat)
 		{
@@ -114,7 +114,7 @@ namespace edu.cmu.sphinx.tools.audio
 
 		internal bool downsample;
 		
-		internal sealed class RecordThread : java.lang.Thread
+		internal sealed class RecordThread : Thread
 		{			
 			internal RecordThread(RawRecorder rawRecorder)
 			{
@@ -132,7 +132,7 @@ namespace edu.cmu.sphinx.tools.audio
 					try
 					{
 						this.done = true;
-						java.lang.Object.instancehelper_wait(this.@lock);
+						Object.instancehelper_wait(this.@lock);
 						System.Threading.Monitor.Exit(obj);
 					}
 					catch (System.Exception ex)
@@ -194,7 +194,7 @@ namespace edu.cmu.sphinx.tools.audio
 				IL_A8:
 				lock (this.@lock)
 				{
-					java.lang.Object.instancehelper_notify(this.@lock);
+					Object.instancehelper_notify(this.@lock);
 				}
 			}
 

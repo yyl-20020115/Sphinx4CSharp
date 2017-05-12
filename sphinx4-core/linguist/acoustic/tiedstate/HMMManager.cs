@@ -6,7 +6,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class HMMManager : java.lang.Object, Iterable, System.Collections.IEnumerable
+	public class HMMManager : Object, Iterable, System.Collections.IEnumerable
 	{		
 		private int getNumHMMs()
 		{

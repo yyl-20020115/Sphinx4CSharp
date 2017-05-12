@@ -26,7 +26,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				}
 				else if (num <= -0.5)
 				{
-					this.filterCoefficients[i] = java.lang.Math.pow(10.0, num + 0.5);
+					this.filterCoefficients[i] = Math.pow(10.0, num + 0.5);
 				}
 				else if (num <= 0.5)
 				{
@@ -34,7 +34,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				}
 				else if (num <= 1.3)
 				{
-					this.filterCoefficients[i] = java.lang.Math.pow(10.0, -2.5 * (num - 0.5));
+					this.filterCoefficients[i] = Math.pow(10.0, -2.5 * (num - 0.5));
 				}
 				else
 				{

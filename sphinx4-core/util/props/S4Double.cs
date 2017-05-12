@@ -27,7 +27,7 @@ namespace edu.cmu.sphinx.util.props
 
 	}
 
-	public abstract class S4DoubleBase : java.lang.Object, S4Double
+	public abstract class S4DoubleBase : Object, S4Double
 	{
 		public const double NOT_DEFINED = -918273645.12345;
 

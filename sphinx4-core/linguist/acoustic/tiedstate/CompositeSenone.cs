@@ -55,7 +55,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			for (int i = 0; i < num2; i++)
 			{
 				Senone senone = array[i];
-				num = java.lang.Math.max(num, senone.getScore(feature));
+				num = Math.max(num, senone.getScore(feature));
 			}
 			return num + this.weight;
 		}

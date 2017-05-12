@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.fst.semiring;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class ExtendFinal : java.lang.Object
+	public class ExtendFinal : Object
 	{		
 		private ExtendFinal()
 		{

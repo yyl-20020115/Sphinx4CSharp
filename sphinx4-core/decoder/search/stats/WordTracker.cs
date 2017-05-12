@@ -68,7 +68,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 		internal int maxWordHistories;
 
-		internal sealed class WordStats : java.lang.Object
+		internal sealed class WordStats : Object
 		{
 			internal static float access_000(WordTracker.WordStats wordStats)
 			{

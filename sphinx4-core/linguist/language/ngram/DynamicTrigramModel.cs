@@ -84,7 +84,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			while (iterator.hasNext())
 			{
 				string text = (string)iterator.next();
-				string[] array = java.lang.String.instancehelper_split(text, "\\s+");
+				string[] array = String.instancehelper_split(text, "\\s+");
 				ArrayList arrayList = new ArrayList();
 				arrayList.add(this.dictionary.getSentenceStartWord());
 				string[] array2 = array;
@@ -92,7 +92,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				for (int i = 0; i < num2; i++)
 				{
 					string text2 = array2[i];
-					if (java.lang.String.instancehelper_length(text2) != 0)
+					if (String.instancehelper_length(text2) != 0)
 					{
 						this.vocabulary.add(text2);
 						Word word = this.dictionary.getWord(text2);

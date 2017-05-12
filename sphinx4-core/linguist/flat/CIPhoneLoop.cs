@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.linguist.acoustic;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	public class CIPhoneLoop : java.lang.Object
+	public class CIPhoneLoop : Object
 	{
 		internal static float access_000(CIPhoneLoop ciphoneLoop)
 		{
@@ -56,7 +57,7 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		internal float __logOne;
 
-		public class PhoneLoopSearchGraph : java.lang.Object, SearchGraph
+		public class PhoneLoopSearchGraph : Object, SearchGraph
 		{			
 			protected internal virtual void attachState(SentenceHMMState prevState, SentenceHMMState nextState, float logLanguageProbability, float logInsertionProbability)
 			{

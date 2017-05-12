@@ -3,7 +3,7 @@
 namespace edu.cmu.sphinx.fst.utils
 {
 
-	public class Pair : java.lang.Object
+	public class Pair : Object
 	{
 		public Pair(object left, object right)
 		{
@@ -34,8 +34,8 @@ namespace edu.cmu.sphinx.fst.utils
 		public override int hashCode()
 		{
 			int num = 1;
-			num = 31 * num + java.lang.Object.instancehelper_hashCode(this.left);
-			return 31 * num + java.lang.Object.instancehelper_hashCode(this.right);
+			num = 31 * num + Object.instancehelper_hashCode(this.left);
+			return 31 * num + Object.instancehelper_hashCode(this.right);
 		}
 		
 		public override bool equals(object obj)
@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.fst.utils
 				return false;
 			}
 			Pair pair = (Pair)obj;
-			return java.lang.Object.instancehelper_equals(this.left, pair.left) && java.lang.Object.instancehelper_equals(this.right, pair.right);
+			return Object.instancehelper_equals(this.left, pair.left) && Object.instancehelper_equals(this.right, pair.right);
 		}		
 		
 		public override string toString()

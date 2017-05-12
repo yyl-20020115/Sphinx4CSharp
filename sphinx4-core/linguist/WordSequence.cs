@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist
 {
-	public sealed class WordSequence : java.lang.Object, java.lang.Comparable
+	public sealed class WordSequence : Object, Comparable
 	{		
 		public WordSequence(List list)
 		{
@@ -28,7 +28,7 @@ namespace edu.cmu.sphinx.linguist
 		
 		public int compareTo(WordSequence other)
 		{
-			int num = java.lang.Math.min(this.words.Length, other.words.Length);
+			int num = Math.min(this.words.Length, other.words.Length);
 			for (int i = 0; i < num; i++)
 			{
 				if (!this.words[i].equals(other.words[i]))

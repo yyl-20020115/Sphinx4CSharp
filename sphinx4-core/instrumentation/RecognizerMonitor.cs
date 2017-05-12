@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.instrumentation
 {
-	public class RecognizerMonitor : java.lang.Object, StateListener, EventListener, Configurable, Monitor
+	public class RecognizerMonitor : Object, StateListener, EventListener, Configurable, Monitor
 	{	
 		private void initRecognizer(Recognizer recognizer)
 		{

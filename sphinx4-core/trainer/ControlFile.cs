@@ -1,4 +1,5 @@
 ﻿using edu.cmu.sphinx.util.props;
+using java.lang;
 
 namespace edu.cmu.sphinx.trainer
 {
@@ -11,7 +12,7 @@ namespace edu.cmu.sphinx.trainer
 		Utterance nextUtterance();
 	}
 
-	public abstract class ControlFileBase: java.lang.Object, ControlFile
+	public abstract class ControlFileBase: Object, ControlFile
 	{
 		[S4String(new object[]
 {

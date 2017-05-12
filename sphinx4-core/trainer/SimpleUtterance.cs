@@ -4,7 +4,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class SimpleUtterance : java.lang.Object, Utterance
+	public class SimpleUtterance : Object, Utterance
 	{
 		public SimpleUtterance(string utteranceID)
 		{

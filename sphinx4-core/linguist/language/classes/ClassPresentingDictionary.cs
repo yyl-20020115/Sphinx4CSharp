@@ -68,7 +68,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 		
 		public override string toString()
 		{
-			return new StringBuilder().append("Word dictionary:\n").append(java.lang.Object.instancehelper_toString(this.wordDictionary)).append("Classes:\n").append(java.lang.Object.instancehelper_toString(this.classMap)).toString();
+			return new StringBuilder().append("Word dictionary:\n").append(Object.instancehelper_toString(this.wordDictionary)).append("Classes:\n").append(Object.instancehelper_toString(this.classMap)).toString();
 		}
 
 		[S4Component(new object[]

@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	public class Connect : java.lang.Object
+	public class Connect : Object
 	{
 		private static void calcCoAccessible(Fst fst, State state, ArrayList arrayList, HashSet hashSet)
 		{

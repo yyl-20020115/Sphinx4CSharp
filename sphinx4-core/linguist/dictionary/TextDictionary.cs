@@ -15,7 +15,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		public TextDictionary(URL wordDictionaryFile, URL fillerDictionaryFile, List addendaUrlList, string wordReplacement, UnitManager unitManager)
 		{
 			this.g2pMaxPron = 0;
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.wordDictionaryFile = wordDictionaryFile;
 			this.fillerDictionaryFile = fillerDictionaryFile;
 			this.addendaUrlList = addendaUrlList;
@@ -30,8 +30,8 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			string text;
 			while ((text = bufferedReader.readLine()) != null)
 			{
-				text = java.lang.String.instancehelper_trim(text);
-				if (!java.lang.String.instancehelper_isEmpty(text))
+				text = String.instancehelper_trim(text);
+				if (!String.instancehelper_isEmpty(text))
 				{
 					int spaceIndex = this.getSpaceIndex(text);
 					if (spaceIndex < 0)
@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 						
 						throw new Error(text2);
 					}
-					string text3 = java.lang.String.instancehelper_substring(text, 0, spaceIndex);
+					string text3 = String.instancehelper_substring(text, 0, spaceIndex);
 					if (this.dictionary.containsKey(text3))
 					{
 						int num = 2;
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 							int num3 = num;
 							num++;
 							array[num2] = Integer.valueOf(num3);
-							text5 = java.lang.String.format(text4, array);
+							text5 = String.format(text4, array);
 						}
 						while (this.dictionary.containsKey(text5));
 						text3 = text5;
@@ -91,9 +91,9 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		
 		private int getSpaceIndex(string text)
 		{
-			for (int i = 0; i < java.lang.String.instancehelper_length(text); i++)
+			for (int i = 0; i < String.instancehelper_length(text); i++)
 			{
-				if (java.lang.String.instancehelper_charAt(text, i) == ' ' || java.lang.String.instancehelper_charAt(text, i) == '\t')
+				if (String.instancehelper_charAt(text, i) == ' ' || String.instancehelper_charAt(text, i) == '\t')
 				{
 					return i;
 				}
@@ -115,7 +115,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 				{
 					word = this.getWord(this.wordReplacement);
 				}
-				else if (this.g2pModelFile != null && !java.lang.String.instancehelper_equals(this.g2pModelFile.getPath(), ""))
+				else if (this.g2pModelFile != null && !String.instancehelper_equals(this.g2pModelFile.getPath(), ""))
 				{
 					this.logger.info(new StringBuilder().append("Generating phonetic transcription(s) for the word '").append(text).append("' using g2p model").toString());
 					word = this.extractPronunciation(text);
@@ -184,7 +184,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 				{
 					StringTokenizer stringTokenizer = new StringTokenizer(text3);
 					string text4 = stringTokenizer.nextToken();
-					num2 = (java.lang.String.instancehelper_startsWith(text4, "-F-") ? 1 : 0);
+					num2 = (String.instancehelper_startsWith(text4, "-F-") ? 1 : 0);
 					num3 = stringTokenizer.countTokens();
 					ArrayList arrayList = new ArrayList(num3);
 					for (int i = 0; i < num3; i++)
@@ -286,7 +286,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 				this.loadCustomDictionaries(this.addendaUrlList);
 				this.logger.info(new StringBuilder().append("Loading filler dictionary from: ").append(this.fillerDictionaryFile).toString());
 				this.loadDictionary(this.fillerDictionaryFile.openStream(), true);
-				if (this.g2pModelFile != null && !java.lang.String.instancehelper_equals(this.g2pModelFile.getPath(), ""))
+				if (this.g2pModelFile != null && !String.instancehelper_equals(this.g2pModelFile.getPath(), ""))
 				{
 					this.g2pDecoder = new G2PConverter(this.g2pModelFile);
 				}

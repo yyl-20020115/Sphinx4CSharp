@@ -1,8 +1,9 @@
 ﻿using edu.cmu.sphinx.linguist.acoustic;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.allphone
 {
-	public class AllphoneSearchGraph : java.lang.Object, SearchGraph
+	public class AllphoneSearchGraph : Object, SearchGraph
 	{		
 		public AllphoneSearchGraph(AllphoneLinguist linguist)
 		{

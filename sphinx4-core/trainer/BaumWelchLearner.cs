@@ -1,5 +1,4 @@
-﻿
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
@@ -14,11 +13,11 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class BaumWelchLearner : java.lang.Object, Learner, Configurable
+	public class BaumWelchLearner : Object, Learner, Configurable
 	{
 		public virtual void setUtterance(Utterance utterance)
 		{
-			string text = java.lang.Object.instancehelper_toString(utterance);
+			string text = Object.instancehelper_toString(utterance);
 			FileInputStream @is = new FileInputStream(text);
 			this.dataSource.setInputStream(@is, false);
 		}
@@ -463,7 +462,7 @@ namespace edu.cmu.sphinx.trainer
 				TrainerScore.setLogLikelihood(num);
 				this.totalLogScore = num;
 			}
-			else if (java.lang.Math.abs(this.totalLogScore - num) > java.lang.Math.abs(this.totalLogScore))
+			else if (Math.abs(this.totalLogScore - num) > Math.abs(this.totalLogScore))
 			{
 				java.lang.System.@out.println(new StringBuilder().append("WARNING: log probabilities differ: ").append(this.totalLogScore).append(" and ").append(num).toString());
 			}

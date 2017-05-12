@@ -1,11 +1,12 @@
 ﻿using edu.cmu.sphinx.frontend;
 using ikvm.@internal;
 using java.io;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
 	[System.Serializable]
-	public abstract class ScoreCachingSenone : java.lang.Object, Senone, Serializable.__Interface, System.Runtime.Serialization.ISerializable
+	public abstract class ScoreCachingSenone : Object, Senone, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{
 		protected internal abstract float calculateScore(Data d);
 
@@ -58,7 +59,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		private volatile ScoreCachingSenone.ScoreCache scoreCache;
 		
-		internal sealed class ScoreCache : java.lang.Object
+		internal sealed class ScoreCache : Object
 		{			
 			public ScoreCache(ScoreCachingSenone scoreCachingSenone, Data data, float num)
 			{

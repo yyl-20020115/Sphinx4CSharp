@@ -45,7 +45,7 @@ namespace edu.cmu.sphinx.decoder.search
 		
 		public SimpleActiveListManager(List activeListFactories, bool checkPriorLists)
 		{
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.activeListFactories = activeListFactories;
 			this.checkPriorLists = checkPriorLists;
 		}
@@ -83,7 +83,7 @@ namespace edu.cmu.sphinx.decoder.search
 			ActiveList activeList = this.findListFor(token);
 			if (activeList == null)
 			{
-				string text = new StringBuilder().append("Cannot find ActiveList for ").append(java.lang.Object.instancehelper_getClass(token.getSearchState())).toString();
+				string text = new StringBuilder().append("Cannot find ActiveList for ").append(Object.instancehelper_getClass(token.getSearchState())).toString();
 				
 				throw new Error(text);
 			}
@@ -148,7 +148,7 @@ namespace edu.cmu.sphinx.decoder.search
 
 		private ActiveList[] currentActiveLists;
 
-		internal sealed class NonEmittingListIterator : java.lang.Object, Iterator
+		internal sealed class NonEmittingListIterator : Object, Iterator
 		{			
 			private void checkPriorLists()
 			{

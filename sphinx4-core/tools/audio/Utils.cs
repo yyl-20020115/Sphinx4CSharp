@@ -4,7 +4,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class Utils : java.lang.Object
+	public class Utils : Object
 	{
 		public static short[] toSignedPCM(AudioInputStream ais)
 		{

@@ -4,39 +4,39 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	public class NamesConversion : java.lang.Object
+	public class NamesConversion : Object
 	{		
 		internal virtual void split3ph(string text)
 		{
-			int num = java.lang.String.instancehelper_indexOf(text, 45);
+			int num = String.instancehelper_indexOf(text, 45);
 			if (num >= 0)
 			{
-				this.left = java.lang.String.instancehelper_substring(text, 0, num);
+				this.left = String.instancehelper_substring(text, 0, num);
 			}
 			else
 			{
 				this.left = null;
 				num = -1;
 			}
-			string text2 = java.lang.String.instancehelper_substring(text, num + 1);
-			num = java.lang.String.instancehelper_indexOf(text2, 43);
+			string text2 = String.instancehelper_substring(text, num + 1);
+			num = String.instancehelper_indexOf(text2, 43);
 			if (num >= 0)
 			{
-				this.right = java.lang.String.instancehelper_substring(text2, num + 1);
+				this.right = String.instancehelper_substring(text2, num + 1);
 			}
 			else
 			{
 				this.right = null;
-				num = java.lang.String.instancehelper_length(text2);
+				num = String.instancehelper_length(text2);
 			}
-			this.@base = java.lang.String.instancehelper_substring(text2, 0, num);
+			this.@base = String.instancehelper_substring(text2, 0, num);
 		}
 		
 		internal virtual void addInConv(string text, HashMap hashMap)
 		{
 			if (!hashMap.containsKey(text))
 			{
-				string text2 = java.lang.String.instancehelper_toUpperCase(text);
+				string text2 = String.instancehelper_toUpperCase(text);
 				while (hashMap.containsValue(text2))
 				{
 					text2 = new StringBuilder().append(text2).append("_X").toString();
@@ -66,7 +66,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			{
 				text = new StringBuilder().append(text).append('+').append(this.conv1ph(this.right)).toString();
 			}
-			if (java.lang.String.instancehelper_equals(text, "null"))
+			if (String.instancehelper_equals(text, "null"))
 			{
 				java.lang.System.err.println(new StringBuilder().append("detson error ").append(this.left).append(' ').append(this.@base).append(' ').append(this.right).toString());
 				java.lang.System.exit(1);
@@ -93,12 +93,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					{
 						break;
 					}
-					int num = java.lang.String.instancehelper_indexOf(text2, "~h");
+					int num = String.instancehelper_indexOf(text2, "~h");
 					if (num >= 0)
 					{
-						num = java.lang.String.instancehelper_indexOf(text2, 34);
-						int num2 = java.lang.String.instancehelper_lastIndexOf(text2, 34);
-						string text3 = java.lang.String.instancehelper_substring(text2, num + 1, num2);
+						num = String.instancehelper_indexOf(text2, 34);
+						int num2 = String.instancehelper_lastIndexOf(text2, 34);
+						string text3 = String.instancehelper_substring(text2, num + 1, num2);
 						this.split3ph(text3);
 						if (this.left != null)
 						{
@@ -174,12 +174,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					{
 						break;
 					}
-					int num = java.lang.String.instancehelper_indexOf(text2, "~h");
+					int num = String.instancehelper_indexOf(text2, "~h");
 					if (num >= 0)
 					{
-						num = java.lang.String.instancehelper_indexOf(text2, 34);
-						int num2 = java.lang.String.instancehelper_lastIndexOf(text2, 34);
-						string text3 = java.lang.String.instancehelper_substring(text2, num + 1, num2);
+						num = String.instancehelper_indexOf(text2, 34);
+						int num2 = String.instancehelper_lastIndexOf(text2, 34);
+						string text3 = String.instancehelper_substring(text2, num + 1, num2);
 						this.split3ph(text3);
 						string text4 = this.conv3ph();
 						printWriter.println(new StringBuilder().append("~h \"").append(text4).append('"').toString());
@@ -232,9 +232,9 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 							while (stringTokenizer.hasMoreTokens())
 							{
 								string text5 = stringTokenizer.nextToken();
-								if (java.lang.String.instancehelper_charAt(text5, 0) == '[')
+								if (String.instancehelper_charAt(text5, 0) == '[')
 								{
-									while (!java.lang.String.instancehelper_endsWith(text5, "]"))
+									while (!String.instancehelper_endsWith(text5, "]"))
 									{
 										text5 = stringTokenizer.nextToken();
 									}
@@ -276,7 +276,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						break;
 					}
 					printWriter.println(text2);
-					if (java.lang.String.instancehelper_indexOf(text2, "\\data\\") == 0)
+					if (String.instancehelper_indexOf(text2, "\\data\\") == 0)
 					{
 						goto Block_3;
 					}
@@ -293,7 +293,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						break;
 					}
 					printWriter.println(text2);
-					if (java.lang.String.instancehelper_indexOf(text2, "\\1-grams:") == 0)
+					if (String.instancehelper_indexOf(text2, "\\1-grams:") == 0)
 					{
 						goto Block_5;
 					}
@@ -312,12 +312,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						bufferedReader.close();
 						return;
 					}
-					if (java.lang.String.instancehelper_indexOf(text2, "\\2-grams:") == 0)
+					if (String.instancehelper_indexOf(text2, "\\2-grams:") == 0)
 					{
 						printWriter.println(text2);
 						break;
 					}
-					if (java.lang.String.instancehelper_indexOf(text2, "\\end\\") == 0)
+					if (String.instancehelper_indexOf(text2, "\\end\\") == 0)
 					{
 						num = 1;
 						printWriter.println(text2);
@@ -355,12 +355,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						bufferedReader.close();
 						return;
 					}
-					if (java.lang.String.instancehelper_indexOf(text2, "\\3-grams:") == 0)
+					if (String.instancehelper_indexOf(text2, "\\3-grams:") == 0)
 					{
 						printWriter.println(text2);
 						break;
 					}
-					if (java.lang.String.instancehelper_indexOf(text2, "\\end\\") == 0)
+					if (String.instancehelper_indexOf(text2, "\\end\\") == 0)
 					{
 						num = 1;
 						printWriter.println(text2);
@@ -406,7 +406,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 						bufferedReader.close();
 						return;
 					}
-					if (java.lang.String.instancehelper_indexOf(text2, "\\end\\") == 0)
+					if (String.instancehelper_indexOf(text2, "\\end\\") == 0)
 					{
 						printWriter.println(text2);
 						break;
@@ -470,22 +470,22 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			string text4 = null;
 			for (int i = 0; i < args.Length; i++)
 			{
-				if (java.lang.String.instancehelper_equals(args[i], "-lex"))
+				if (String.instancehelper_equals(args[i], "-lex"))
 				{
 					i++;
 					text2 = args[i];
 				}
-				else if (java.lang.String.instancehelper_equals(args[i], "-gram"))
+				else if (String.instancehelper_equals(args[i], "-gram"))
 				{
 					i++;
 					text4 = args[i];
 				}
-				else if (java.lang.String.instancehelper_equals(args[i], "-mmf"))
+				else if (String.instancehelper_equals(args[i], "-mmf"))
 				{
 					i++;
 					text = args[i];
 				}
-				else if (java.lang.String.instancehelper_equals(args[i], "-filler"))
+				else if (String.instancehelper_equals(args[i], "-filler"))
 				{
 					i++;
 					text3 = args[i];

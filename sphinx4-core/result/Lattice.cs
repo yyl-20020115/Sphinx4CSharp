@@ -9,7 +9,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class Lattice : java.lang.Object
+	public class Lattice : Object
 	{	
 		public Lattice(Result result) : this()
 		{
@@ -124,7 +124,7 @@ namespace edu.cmu.sphinx.result
 		
 		private string getNodeID(Token token)
 		{
-			return Integer.toString(java.lang.Object.instancehelper_hashCode(token));
+			return Integer.toString(Object.instancehelper_hashCode(token));
 		}
 		
 		protected internal virtual void addNode(Node n)
@@ -291,7 +291,7 @@ namespace edu.cmu.sphinx.result
 				string text2 = text;
 				object obj = "Node definitions";
 				CharSequence charSequence = CharSequence.Cast(obj);
-				if (java.lang.String.instancehelper_contains(text2, charSequence))
+				if (String.instancehelper_contains(text2, charSequence))
 				{
 					num2 = 0;
 					num = 1;
@@ -301,76 +301,76 @@ namespace edu.cmu.sphinx.result
 					string text3 = text;
 					obj = "Link definitions";
 					charSequence = CharSequence.Cast(obj);
-					if (java.lang.String.instancehelper_contains(text3, charSequence))
+					if (String.instancehelper_contains(text3, charSequence))
 					{
 						num2 = 1;
 						num = 0;
 					}
-					else if (!java.lang.String.instancehelper_startsWith(text, "#"))
+					else if (!String.instancehelper_startsWith(text, "#"))
 					{
 						if (num != 0)
 						{
-							string[] array = java.lang.String.instancehelper_split(text, "\\s+");
-							if (array.Length != 3 || !java.lang.String.instancehelper_startsWith(array[0], "I=") || !java.lang.String.instancehelper_startsWith(array[1], "t=") || !java.lang.String.instancehelper_startsWith(array[2], "W="))
+							string[] array = String.instancehelper_split(text, "\\s+");
+							if (array.Length != 3 || !String.instancehelper_startsWith(array[0], "I=") || !String.instancehelper_startsWith(array[1], "t=") || !String.instancehelper_startsWith(array[2], "W="))
 							{
 								lineNumberReader.close();
 								string text4 = new StringBuilder().append("Unknown node definition: ").append(text).toString();
 								
 								throw new IOException(text4);
 							}
-							int num6 = Integer.parseInt(java.lang.String.instancehelper_substring(array[0], 2));
-							long beginTime = ByteCodeHelper.d2l(java.lang.Double.parseDouble(java.lang.String.instancehelper_substring(array[1], 2)) * 1000.0);
-							string text5 = java.lang.String.instancehelper_substring(array[2], 2);
+							int num6 = Integer.parseInt(String.instancehelper_substring(array[0], 2));
+							long beginTime = ByteCodeHelper.d2l(Double.parseDouble(String.instancehelper_substring(array[1], 2)) * 1000.0);
+							string text5 = String.instancehelper_substring(array[2], 2);
 							int isFiller = 0;
-							if (num6 == num3 || java.lang.String.instancehelper_equals(text5, "!ENTER"))
+							if (num6 == num3 || String.instancehelper_equals(text5, "!ENTER"))
 							{
 								text5 = "<s>";
 								isFiller = 1;
 							}
-							if (num6 == num4 || java.lang.String.instancehelper_equals(text5, "!EXIT"))
+							if (num6 == num4 || String.instancehelper_equals(text5, "!EXIT"))
 							{
 								text5 = "</s>";
 								isFiller = 1;
 							}
-							if (java.lang.String.instancehelper_equals(text5, "!NULL"))
+							if (String.instancehelper_equals(text5, "!NULL"))
 							{
 								text5 = "<sil>";
 								isFiller = 1;
 							}
-							if (java.lang.String.instancehelper_startsWith(text5, "["))
+							if (String.instancehelper_startsWith(text5, "["))
 							{
 								isFiller = 1;
 							}
 							Word word = new Word(text5, new Pronunciation[0], isFiller != 0);
 							Node node = lattice.addNode(Integer.toString(num6), word, beginTime, -1L);
-							if (java.lang.String.instancehelper_equals(text5, "<s>"))
+							if (String.instancehelper_equals(text5, "<s>"))
 							{
 								lattice.setInitialNode(node);
 							}
-							if (java.lang.String.instancehelper_equals(text5, "</s>"))
+							if (String.instancehelper_equals(text5, "</s>"))
 							{
 								lattice.setTerminalNode(node);
 							}
 						}
 						else if (num2 != 0)
 						{
-							string[] array = java.lang.String.instancehelper_split(text, "\\s+");
-							if (array.Length != 5 || !java.lang.String.instancehelper_startsWith(array[1], "S=") || !java.lang.String.instancehelper_startsWith(array[2], "E=") || !java.lang.String.instancehelper_startsWith(array[3], "a=") || !java.lang.String.instancehelper_startsWith(array[4], "l="))
+							string[] array = String.instancehelper_split(text, "\\s+");
+							if (array.Length != 5 || !String.instancehelper_startsWith(array[1], "S=") || !String.instancehelper_startsWith(array[2], "E=") || !String.instancehelper_startsWith(array[3], "a=") || !String.instancehelper_startsWith(array[4], "l="))
 							{
 								lineNumberReader.close();
 								string text6 = new StringBuilder().append("Unknown edge definition: ").append(text).toString();
 								
 								throw new IOException(text6);
 							}
-							string text7 = java.lang.String.instancehelper_substring(array[1], 2);
-							string text8 = java.lang.String.instancehelper_substring(array[2], 2);
-							double acousticScore = java.lang.Double.parseDouble(java.lang.String.instancehelper_substring(array[3], 2));
-							double lmScore = java.lang.Double.parseDouble(java.lang.String.instancehelper_substring(array[4], 2)) * num5;
+							string text7 = String.instancehelper_substring(array[1], 2);
+							string text8 = String.instancehelper_substring(array[2], 2);
+							double acousticScore = Double.parseDouble(String.instancehelper_substring(array[3], 2));
+							double lmScore = Double.parseDouble(String.instancehelper_substring(array[4], 2)) * num5;
 							lattice.addEdge((Node)lattice.nodes.get(text7), (Node)lattice.nodes.get(text8), acousticScore, lmScore);
 						}
 						else
 						{
-							if (java.lang.String.instancehelper_startsWith(text, "start="))
+							if (String.instancehelper_startsWith(text, "start="))
 							{
 								string text9 = text;
 								object obj2 = "start=";
@@ -380,9 +380,9 @@ namespace edu.cmu.sphinx.result
 								CharSequence charSequence2 = charSequence;
 								obj3 = obj;
 								charSequence = CharSequence.Cast(obj3);
-								num3 = Integer.parseInt(java.lang.String.instancehelper_replace(text9, charSequence2, charSequence));
+								num3 = Integer.parseInt(String.instancehelper_replace(text9, charSequence2, charSequence));
 							}
-							if (java.lang.String.instancehelper_startsWith(text, "end="))
+							if (String.instancehelper_startsWith(text, "end="))
 							{
 								string text10 = text;
 								object obj4 = "end=";
@@ -392,9 +392,9 @@ namespace edu.cmu.sphinx.result
 								CharSequence charSequence3 = charSequence;
 								obj = obj3;
 								charSequence = CharSequence.Cast(obj);
-								num4 = Integer.parseInt(java.lang.String.instancehelper_replace(text10, charSequence3, charSequence));
+								num4 = Integer.parseInt(String.instancehelper_replace(text10, charSequence3, charSequence));
 							}
-							if (java.lang.String.instancehelper_startsWith(text, "lmscale="))
+							if (String.instancehelper_startsWith(text, "lmscale="))
 							{
 								string text11 = text;
 								object obj5 = "lmscale=";
@@ -404,7 +404,7 @@ namespace edu.cmu.sphinx.result
 								CharSequence charSequence4 = charSequence;
 								obj3 = obj;
 								charSequence = CharSequence.Cast(obj3);
-								num5 = java.lang.Double.parseDouble(java.lang.String.instancehelper_replace(text11, charSequence4, charSequence));
+								num5 = Double.parseDouble(String.instancehelper_replace(text11, charSequence4, charSequence));
 							}
 						}
 					}
@@ -420,7 +420,7 @@ namespace edu.cmu.sphinx.result
 					Edge edge = (Edge)iterator2.next();
 					if (node2.getEndTime() < 0L || node2.getEndTime() > edge.getToNode().getBeginTime())
 					{
-						node2.setEndTime(java.lang.Math.max(edge.getToNode().getBeginTime(), node2.getBeginTime()));
+						node2.setEndTime(Math.max(edge.getToNode().getBeginTime(), node2.getBeginTime()));
 					}
 				}
 			}
@@ -690,7 +690,6 @@ namespace edu.cmu.sphinx.result
 		{
 			if (!Lattice.assertionsDisabled && (node == null || node2 == null))
 			{
-				
 				throw new AssertionError();
 			}
 			int num = node.isEquivalent(node2) ? 1 : 0;
@@ -742,32 +741,32 @@ namespace edu.cmu.sphinx.result
 					if (stringTokenizer.hasMoreTokens())
 					{
 						string text2 = stringTokenizer.nextToken();
-						if (java.lang.String.instancehelper_equals(text2, "edge:"))
+						if (String.instancehelper_equals(text2, "edge:"))
 						{
 							Edge.load(this, stringTokenizer);
 						}
-						else if (java.lang.String.instancehelper_equals(text2, "node:"))
+						else if (String.instancehelper_equals(text2, "node:"))
 						{
 							Node.load(this, stringTokenizer);
 						}
-						else if (java.lang.String.instancehelper_equals(text2, "initialNode:"))
+						else if (String.instancehelper_equals(text2, "initialNode:"))
 						{
 							this.setInitialNode(this.getNode(stringTokenizer.nextToken()));
 						}
-						else if (java.lang.String.instancehelper_equals(text2, "terminalNode:"))
+						else if (String.instancehelper_equals(text2, "terminalNode:"))
 						{
 							this.setTerminalNode(this.getNode(stringTokenizer.nextToken()));
 						}
 						else
 						{
-							if (!java.lang.String.instancehelper_equals(text2, "logBase:"))
+							if (!String.instancehelper_equals(text2, "logBase:"))
 							{
 								lineNumberReader.close();
 								string text3 = new StringBuilder().append("SYNTAX ERROR: ").append(fileName).append('[').append(lineNumberReader.getLineNumber()).append("] ").append(text).toString();
 								
 								throw new Error(text3);
 							}
-							this.logBase = java.lang.Double.parseDouble(stringTokenizer.nextToken());
+							this.logBase = Double.parseDouble(stringTokenizer.nextToken());
 						}
 					}
 				}
@@ -870,7 +869,6 @@ namespace edu.cmu.sphinx.result
 			{
 				throw new Error(Throwable.instancehelper_toString(ex));
 			}
-
 		}
 		
 		public virtual void dumpSlf(Writer w)
@@ -904,7 +902,7 @@ namespace edu.cmu.sphinx.result
 				}
 				w.write(new StringBuilder().append("    t=").append((double)node.getBeginTime() * (double)1f / 1000.0).toString());
 				string text = node.getWord().getSpelling();
-				if (java.lang.String.instancehelper_startsWith(text, "<"))
+				if (String.instancehelper_startsWith(text, "<"))
 				{
 					text = "!NULL";
 				}
@@ -957,7 +955,6 @@ namespace edu.cmu.sphinx.result
 			this.removeNodeAndEdges(n);
 			if (!Lattice.assertionsDisabled && !this.checkConsistency())
 			{
-				
 				throw new AssertionError();
 			}
 		}

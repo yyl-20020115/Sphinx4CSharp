@@ -8,7 +8,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.util.props
 {
-	public class PropertySheet : java.lang.Object, Cloneable.__Interface
+	public class PropertySheet : Object, Cloneable.__Interface
 	{
 		public virtual string getInstanceName()
 		{
@@ -75,23 +75,23 @@ namespace edu.cmu.sphinx.util.props
 			return configurable;
 		}
 		
-		public virtual java.lang.Boolean getBoolean(string name)
+		public virtual Boolean getBoolean(string name)
 		{
 			S4PropWrapper property = this.getProperty(name, ClassLiteral<S4Boolean>.Value);
 			S4Boolean s4Boolean = (S4Boolean)property.getAnnotation();
 			if (this.propValues.get(name) == null)
 			{
-				this.propValues.put(name, java.lang.Boolean.valueOf(s4Boolean.defaultValue()));
+				this.propValues.put(name, Boolean.valueOf(s4Boolean.defaultValue()));
 			}
 			object obj = this.propValues.get(name);
-			java.lang.Boolean result;
-			if (obj is java.lang.Boolean)
+			Boolean result;
+			if (obj is Boolean)
 			{
-				result = (java.lang.Boolean)obj;
+				result = (Boolean)obj;
 			}
 			else
 			{
-				result = java.lang.Boolean.valueOf(this.flattenProp(name));
+				result = Boolean.valueOf(this.flattenProp(name));
 			}
 			return result;
 		}
@@ -152,7 +152,7 @@ namespace edu.cmu.sphinx.util.props
 				if (!tclass.isInstance(obj2))
 				{
 					string text3 = this.getInstanceName();
-					string text4 = new StringBuilder().append("Not all elements have required type ").append(tclass).append(" Found one of type ").append(java.lang.Object.instancehelper_getClass(obj2)).toString();
+					string text4 = new StringBuilder().append("Not all elements have required type ").append(tclass).append(" Found one of type ").append(Object.instancehelper_getClass(obj2)).toString();
 					
 					throw new InternalConfigurationException(text3, name, text4);
 				}
@@ -231,21 +231,21 @@ namespace edu.cmu.sphinx.util.props
 					
 					throw new InternalConfigurationException(text3, name, text4);
 				}
-				this.propValues.put(name, java.lang.Double.valueOf(s4Double.defaultValue()));
+				this.propValues.put(name, Double.valueOf(s4Double.defaultValue()));
 			}
 			object obj = this.propValues.get(name);
-			java.lang.Double @double;
-			if (obj is java.lang.Double)
+			Double @double;
+			if (obj is Double)
 			{
-				@double = (java.lang.Double)obj;
+				@double = (Double)obj;
 			}
 			else if (obj is Number)
 			{
-				@double = java.lang.Double.valueOf(((Number)obj).doubleValue());
+				@double = Double.valueOf(((Number)obj).doubleValue());
 			}
 			else
 			{
-				@double = java.lang.Double.valueOf(this.flattenProp(name));
+				@double = Double.valueOf(this.flattenProp(name));
 			}
 			double[] array = s4Double.range();
 			if (array.Length != 2)
@@ -267,7 +267,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		public virtual float getFloat(string name)
 		{
-			return java.lang.Double.valueOf(this.getDouble(name)).floatValue();
+			return Double.valueOf(this.getDouble(name)).floatValue();
 		}
 		
 		public virtual string getString(string name)
@@ -276,7 +276,7 @@ namespace edu.cmu.sphinx.util.props
 			S4String s4String = (S4String)property.getAnnotation();
 			if (this.propValues.get(name) == null)
 			{
-				int num = java.lang.String.instancehelper_equals(s4String.defaultValue(), "nullnullnull") ? 0 : 1;
+				int num = String.instancehelper_equals(s4String.defaultValue(), "nullnullnull") ? 0 : 1;
 				if (s4String.mandatory() && num == 0)
 				{
 					string text = this.getInstanceName();
@@ -304,7 +304,7 @@ namespace edu.cmu.sphinx.util.props
 			string @string = this.getString(name);
 			if (@string != null)
 			{
-				string[] array = java.lang.String.instancehelper_split(@string, ";");
+				string[] array = String.instancehelper_split(@string, ";");
 				int num = array.Length;
 				int i = 0;
 				while (i < num)
@@ -378,7 +378,7 @@ namespace edu.cmu.sphinx.util.props
 						if (!undefinedMandatoryProps.isEmpty())
 						{
 							string text = this.getInstanceName();
-							string text2 = java.lang.Object.instancehelper_toString(undefinedMandatoryProps);
+							string text2 = Object.instancehelper_toString(undefinedMandatoryProps);
 							string text3 = "not all mandatory properties are defined";
 							
 							throw new InternalConfigurationException(text, text2, text3);
@@ -400,7 +400,7 @@ namespace edu.cmu.sphinx.util.props
 			
 		}
 		
-		public PropertySheet(Configurable configurable, string name, RawPropertyData rpd, ConfigurationManager ConfigurationManager) : this(java.lang.Object.instancehelper_getClass(configurable), name, ConfigurationManager, rpd)
+		public PropertySheet(Configurable configurable, string name, RawPropertyData rpd, ConfigurationManager ConfigurationManager) : this(Object.instancehelper_getClass(configurable), name, ConfigurationManager, rpd)
 		{
 			this.owner = configurable;
 		}
@@ -448,7 +448,7 @@ namespace edu.cmu.sphinx.util.props
 			while (iterator.hasNext())
 			{
 				string text = (string)iterator.next();
-				if (!java.lang.String.instancehelper_equals(text, "logLevel"))
+				if (!String.instancehelper_equals(text, "logLevel"))
 				{
 					if (!this.registeredProperties.containsKey(text))
 					{
@@ -530,7 +530,7 @@ namespace edu.cmu.sphinx.util.props
 			return this.cm;
 		}
 		
-		public virtual void setBoolean(string name, java.lang.Boolean value)
+		public virtual void setBoolean(string name, Boolean value)
 		{
 			if (!this.registeredProperties.containsKey(name))
 			{
@@ -567,7 +567,7 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new InternalConfigurationException(text3, name, text4);
 			}
-			this.applyConfigurationChange(name, java.lang.Double.valueOf(value), java.lang.Double.valueOf(value));
+			this.applyConfigurationChange(name, Double.valueOf(value), Double.valueOf(value));
 		}
 		
 		public virtual void setInt(string name, int value)
@@ -676,7 +676,7 @@ namespace edu.cmu.sphinx.util.props
 						
 						throw new AssertionError(obj);
 					}
-					this.registerProperty(text2, new S4PropWrapper((Annotation)entry.getValue()));
+					this.registerProperty(text2, new S4PropWrapper((java.lang.annotation.Annotation)entry.getValue()));
 					hashSet.add(text2);
 				}
 				catch (IllegalAccessException ex)
@@ -729,9 +729,9 @@ namespace edu.cmu.sphinx.util.props
 								
 								throw new AssertionError(obj3);
 							}
-							if (!PropertySheet.assertionsDisabled && !java.lang.Object.instancehelper_equals(field.getType(), ClassLiteral<string>.Value))
+							if (!PropertySheet.assertionsDisabled && !Object.instancehelper_equals(field.getType(), ClassLiteral<string>.Value))
 							{
-								object obj4 = "properties fields are assumed to be instances of java.lang.String";
+								object obj4 = "properties fields are assumed to be instances of String";
 								
 								throw new AssertionError(obj4);
 							}
@@ -781,7 +781,7 @@ namespace edu.cmu.sphinx.util.props
 		private Configurable getComponentFromAnnotation(string text, S4Component s4Component)
 		{
 			Class @class = s4Component.defaultClass();
-			if (java.lang.Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value) && s4Component.mandatory())
+			if (Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value) && s4Component.mandatory())
 			{
 				string text2 = this.getInstanceName();
 				string text3 = "mandatory property is not set!";
@@ -795,7 +795,7 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new InternalConfigurationException(text4, text, text5);
 			}
-			if (java.lang.Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value))
+			if (Object.instancehelper_equals(@class, ClassLiteral<Configurable>.Value))
 			{
 				if (s4Component.mandatory())
 				{
@@ -835,7 +835,7 @@ namespace edu.cmu.sphinx.util.props
 				}
 				else if (annotation is S4String)
 				{
-					num = ((!((S4String)annotation).mandatory() || !java.lang.String.instancehelper_equals(((S4String)annotation).defaultValue(), "nullnullnull")) ? 0 : 1);
+					num = ((!((S4String)annotation).mandatory() || !String.instancehelper_equals(((S4String)annotation).defaultValue(), "nullnullnull")) ? 0 : 1);
 				}
 				else if (annotation is S4Integer)
 				{
@@ -966,7 +966,6 @@ namespace edu.cmu.sphinx.util.props
 
 		private string instanceName;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<PropertySheet>.Value.desiredAssertionStatus();
 
 		private static CallerID __callerID;

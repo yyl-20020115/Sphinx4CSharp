@@ -6,7 +6,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	public class HMMPool : java.lang.Object
+	public class HMMPool : Object
 	{
 		public virtual int getID(Unit unit)
 		{
@@ -268,7 +268,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			{
 				for (int i = 0; i < this.unitTable.Length; i++)
 				{
-					this.logger.finer(new StringBuilder().append(java.lang.String.valueOf(i)).append(' ').append(this.unitTable[i]).toString());
+					this.logger.finer(new StringBuilder().append(String.valueOf(i)).append(' ').append(this.unitTable[i]).toString());
 				}
 			}
 		}

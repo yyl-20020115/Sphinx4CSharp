@@ -1,9 +1,10 @@
 ﻿using java.io;
 using javax.sound.sampled;
+using java.lang;
 
 namespace edu.cmu.sphinx.frontend.util
 {
-	public class Utterance : java.lang.Object
+	public class Utterance : Object
 	{		
 		public Utterance(string name, AudioFormat format)
 		{

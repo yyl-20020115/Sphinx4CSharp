@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.jsgf
 			JSGFRule jsgfrule = null;
 			JSGFRule jsgfrule2 = null;
 			this.logger.fine(new StringBuilder().append("Starting element ").append(qName).toString());
-			if (java.lang.String.instancehelper_equals(qName, "rule"))
+			if (String.instancehelper_equals(qName, "rule"))
 			{
 				string value = attributes.getValue("id");
 				if (value != null)
@@ -59,7 +59,7 @@ namespace edu.cmu.sphinx.jsgf
 					jsgfrule2 = (JSGFRuleSequence)jsgfrule;
 				}
 			}
-			if (java.lang.String.instancehelper_equals(qName, "item"))
+			if (String.instancehelper_equals(qName, "item"))
 			{
 				string value = attributes.getValue("repeat");
 				if (value != null)
@@ -74,7 +74,7 @@ namespace edu.cmu.sphinx.jsgf
 					jsgfrule2 = (JSGFRuleSequence)jsgfrule;
 				}
 			}
-			if (java.lang.String.instancehelper_equals(qName, "one-of"))
+			if (String.instancehelper_equals(qName, "one-of"))
 			{
 				jsgfrule = new JSGFRuleAlternatives(new ArrayList());
 				jsgfrule2 = (JSGFRuleAlternatives)jsgfrule;
@@ -84,8 +84,8 @@ namespace edu.cmu.sphinx.jsgf
 		
 		public override void characters(char[] buf, int offset, int len)
 		{
-			string text = java.lang.String.instancehelper_trim(java.lang.String.newhelper(buf, offset, len));
-			if (java.lang.String.instancehelper_length(text) == 0)
+			string text = String.instancehelper_trim(String.newhelper(buf, offset, len));
+			if (String.instancehelper_length(text) == 0)
 			{
 				return;
 			}
@@ -98,7 +98,7 @@ namespace edu.cmu.sphinx.jsgf
 		public override void endElement(string uri, string localName, string qName)
 		{
 			this.logger.fine(new StringBuilder().append("Ending element ").append(qName).toString());
-			if (java.lang.String.instancehelper_equals(qName, "item") || java.lang.String.instancehelper_equals(qName, "one-of") || java.lang.String.instancehelper_equals(qName, "rule"))
+			if (String.instancehelper_equals(qName, "item") || String.instancehelper_equals(qName, "one-of") || String.instancehelper_equals(qName, "rule"))
 			{
 				this.currentRule = this.currentRule.parent;
 			}

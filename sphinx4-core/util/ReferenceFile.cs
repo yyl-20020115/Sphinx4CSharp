@@ -1,8 +1,9 @@
 ﻿using java.io;
+using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	internal sealed class ReferenceFile : java.lang.Object
+	internal sealed class ReferenceFile : Object
 	{		
 		internal ReferenceFile(string text)
 		{

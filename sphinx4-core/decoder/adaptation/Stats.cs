@@ -132,7 +132,7 @@ namespace edu.cmu.sphinx.decoder.adaptation
 			{
 				string text = "Best token not found!";
 				
-				throw new java.lang.Exception(text);
+				throw new Exception(text);
 			}
 			do
 			{

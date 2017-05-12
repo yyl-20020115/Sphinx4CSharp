@@ -1,9 +1,10 @@
 ﻿using IKVM.Runtime;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 {
-	internal sealed class MixtureComponentSet_1 : java.lang.Object, Comparator
+	internal sealed class MixtureComponentSet_1 : Object, Comparator
 	{
 		public int compare(PrunableMixtureComponent prunableMixtureComponent, PrunableMixtureComponent prunableMixtureComponent2)
 		{
@@ -23,7 +24,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 		
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 
 		

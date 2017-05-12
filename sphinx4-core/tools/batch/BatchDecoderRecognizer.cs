@@ -8,7 +8,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.tools.batch
 {
-	public class BatchDecoderRecognizer : java.lang.Object
+	public class BatchDecoderRecognizer : Object
 	{
 		private void init()
 		{
@@ -34,37 +34,37 @@ namespace edu.cmu.sphinx.tools.batch
 		{
 			for (int i = 0; i < array.Length; i++)
 			{
-				if (java.lang.String.instancehelper_equals(array[i], "-ctl"))
+				if (String.instancehelper_equals(array[i], "-ctl"))
 				{
 					i++;
 					this.ctl = array[i];
 				}
-				if (java.lang.String.instancehelper_equals(array[i], "-config"))
+				if (String.instancehelper_equals(array[i], "-config"))
 				{
 					i++;
 					this.config = array[i];
 				}
-				if (java.lang.String.instancehelper_equals(array[i], "-hmm"))
+				if (String.instancehelper_equals(array[i], "-hmm"))
 				{
 					i++;
 					this.hmm = array[i];
 				}
-				if (java.lang.String.instancehelper_equals(array[i], "-ctloffset"))
+				if (String.instancehelper_equals(array[i], "-ctloffset"))
 				{
 					i++;
 					this.ctlOffset = Integer.parseInt(array[i]);
 				}
-				if (java.lang.String.instancehelper_equals(array[i], "-ctlcount"))
+				if (String.instancehelper_equals(array[i], "-ctlcount"))
 				{
 					i++;
 					this.ctlCount = Integer.parseInt(array[i]);
 				}
-				if (java.lang.String.instancehelper_equals(array[i], "-hyp"))
+				if (String.instancehelper_equals(array[i], "-hyp"))
 				{
 					i++;
 					this.hyp = array[i];
 				}
-				if (java.lang.String.instancehelper_equals(array[i], "-feat"))
+				if (String.instancehelper_equals(array[i], "-feat"))
 				{
 					i++;
 					this.featDir = array[i];

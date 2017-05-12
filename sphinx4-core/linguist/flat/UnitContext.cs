@@ -4,7 +4,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	internal sealed class UnitContext : java.lang.Object
+	internal sealed class UnitContext : Object
 	{
 		public override int hashCode()
 		{
@@ -59,7 +59,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			this._hashCode = 12;
 			for (int i = 0; i < array.Length; i++)
 			{
-				this._hashCode += java.lang.String.instancehelper_hashCode(array[i].getName()) * ((i + 1) * 34);
+				this._hashCode += String.instancehelper_hashCode(array[i].getName()) * ((i + 1) * 34);
 			}
 		}
 		

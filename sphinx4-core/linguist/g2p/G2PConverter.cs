@@ -10,7 +10,7 @@ using java.util.regex;
 
 namespace edu.cmu.sphinx.linguist.g2p
 {
-	public class G2PConverter : java.lang.Object
+	public class G2PConverter : Object
 	{		
 		public G2PConverter(URL g2pModelUrl)
 		{
@@ -34,10 +34,10 @@ namespace edu.cmu.sphinx.linguist.g2p
 
 		public virtual ArrayList phoneticize(string word, int nbest)
 		{
-			ArrayList arrayList = new ArrayList(java.lang.String.instancehelper_length(word));
-			for (int i = 0; i < java.lang.String.instancehelper_length(word); i++)
+			ArrayList arrayList = new ArrayList(String.instancehelper_length(word));
+			for (int i = 0; i < String.instancehelper_length(word); i++)
 			{
-				string text = java.lang.String.instancehelper_substring(word, i, i + 1);
+				string text = String.instancehelper_substring(word, i, i + 1);
 				if (Utils.getIndex(this.g2pmodel.getIsyms(), text) >= 0)
 				{
 					arrayList.add(text);
@@ -74,9 +74,9 @@ namespace edu.cmu.sphinx.linguist.g2p
 				string text2 = text;
 				object _ref = this.tie;
 				CharSequence charSequence = CharSequence.Cast(_ref);
-				if (java.lang.String.instancehelper_contains(text2, charSequence))
+				if (String.instancehelper_contains(text2, charSequence))
 				{
-					string[] array2 = java.lang.String.instancehelper_split(text, Pattern.quote(this.tie));
+					string[] array2 = String.instancehelper_split(text, Pattern.quote(this.tie));
 					ArrayList arrayList = new ArrayList(Arrays.asList(array2));
 					this.clusters[i] = arrayList;
 				}
@@ -177,7 +177,7 @@ namespace edu.cmu.sphinx.linguist.g2p
 					path.setCost(path4.getCost());
 					path.setPath((ArrayList)path4.getPath().clone());
 					string text3 = osyms[arc.getOlabel()];
-					foreach (string text4 in java.lang.String.instancehelper_split(text3, new StringBuilder().append("\\").append(text).toString()))
+					foreach (string text4 in String.instancehelper_split(text3, new StringBuilder().append("\\").append(text).toString()))
 					{
 						if (!hashSet.contains(text4))
 						{

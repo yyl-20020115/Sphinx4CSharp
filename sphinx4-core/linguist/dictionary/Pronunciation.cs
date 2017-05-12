@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
-	public class Pronunciation : java.lang.Object
+	public class Pronunciation : Object
 	{
 		public virtual Word getWord()
 		{

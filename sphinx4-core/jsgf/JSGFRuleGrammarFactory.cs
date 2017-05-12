@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.jsgf
 {
-	public class JSGFRuleGrammarFactory : java.lang.Object
+	public class JSGFRuleGrammarFactory : Object
 	{
 		public JSGFRuleGrammarFactory(JSGFRuleGrammarManager manager)
 		{

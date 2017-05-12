@@ -137,7 +137,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			int num2 = array.Length;
 			double[] array2 = new double[(num != -1) ? (num2 / num) : (-num2)];
-			if (java.lang.String.instancehelper_equals(this.stereoToMono, "average"))
+			if (String.instancehelper_equals(this.stereoToMono, "average"))
 			{
 				int i = 0;
 				int num3 = 0;
@@ -159,7 +159,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			else
 			{
-				if (!java.lang.String.instancehelper_equals(this.stereoToMono, "selectChannel"))
+				if (!String.instancehelper_equals(this.stereoToMono, "selectChannel"))
 				{
 					string text = new StringBuilder().append("Unsupported stereo to mono conversion: ").append(this.stereoToMono).toString();
 					
@@ -179,12 +179,12 @@ namespace edu.cmu.sphinx.frontend.util
 
 		private Mixer getSelectedMixer()
 		{
-			if (java.lang.String.instancehelper_equals(this.selectedMixerIndex, "default"))
+			if (String.instancehelper_equals(this.selectedMixerIndex, "default"))
 			{
 				return null;
 			}
 			Mixer.Info[] mixerInfo = AudioSystem.getMixerInfo();
-			if (java.lang.String.instancehelper_equals(this.selectedMixerIndex, "last"))
+			if (String.instancehelper_equals(this.selectedMixerIndex, "last"))
 			{
 				return AudioSystem.getMixer(mixerInfo[mixerInfo.Length - 1]);
 			}
@@ -586,7 +586,7 @@ namespace edu.cmu.sphinx.frontend.util
 		
 		internal static bool assertionsDisabled = !ClassLiteral<Microphone>.Value.desiredAssertionStatus();
 		
-		internal sealed class RecordingThread : java.lang.Thread
+		internal sealed class RecordingThread : Thread
 		{
 			private void waitForStart()
 			{
@@ -594,7 +594,7 @@ namespace edu.cmu.sphinx.frontend.util
 				{
 					while (!this.started)
 					{
-						java.lang.Object.instancehelper_wait(this);
+						Object.instancehelper_wait(this);
 					}
 				}
 				catch (InterruptedException)
@@ -620,7 +620,7 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						this.started = true;
 						System.Threading.Thread.MemoryBarrier();
-						java.lang.Object.instancehelper_notifyAll(this);
+						Object.instancehelper_notifyAll(this);
 					}
 				}
 				if (Microphone.access_1500(this.this_0).isLoggable(Level.FINE))
@@ -695,7 +695,7 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						while (!this.done)
 						{
-							java.lang.Object.instancehelper_wait(this.@lock);
+							Object.instancehelper_wait(this.@lock);
 						}
 						System.Threading.Monitor.Exit(obj);
 					}
@@ -783,7 +783,7 @@ namespace edu.cmu.sphinx.frontend.util
 				Microphone.access_1200(this.this_0).info("stopped recording");
 				lock (this.@lock)
 				{
-					java.lang.Object.instancehelper_notify(this.@lock);
+					Object.instancehelper_notify(this.@lock);
 				}
 			}
 

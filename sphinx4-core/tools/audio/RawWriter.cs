@@ -4,7 +4,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class RawWriter : java.lang.Object
+	public class RawWriter : Object
 	{
 		public RawWriter(OutputStream outputStream, AudioFormat audioFormat)
 		{

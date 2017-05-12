@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 		
 		private double linearToMel(double num)
 		{
-			return 1127.0 * java.lang.Math.log1p(num / 700.0);
+			return 1127.0 * Math.log1p(num / 700.0);
 		}
 		
 		private void buildFilterbank(int num, int num2, double num3, double num4)

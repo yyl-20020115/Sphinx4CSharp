@@ -1,10 +1,11 @@
 ﻿using ikvm.@internal;
 using java.io;
+using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.parser
 {
 	[System.Serializable]
-	public class Token : java.lang.Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
+	public class Token : Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{		
 		public Token()
 		{

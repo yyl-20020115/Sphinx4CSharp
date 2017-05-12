@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.jsgf.rule
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.jsgf.rule
 {
-	public class JSGFRule : java.lang.Object
+	public class JSGFRule : Object
 	{
 		public override string toString()
 		{

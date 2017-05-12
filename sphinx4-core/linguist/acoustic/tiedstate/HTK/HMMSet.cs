@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 {
-	public class HMMSet : java.lang.Object
+	public class HMMSet : Object
 	{	
 		public HMMSet()
 		{
@@ -28,26 +28,26 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					{
 						break;
 					}
-					if (java.lang.String.instancehelper_startsWith(text, "~s"))
+					if (String.instancehelper_startsWith(text, "~s"))
 					{
-						string text2 = java.lang.String.instancehelper_substring(text, java.lang.String.instancehelper_indexOf(text, 34) + 1, java.lang.String.instancehelper_lastIndexOf(text, 34));
+						string text2 = String.instancehelper_substring(text, String.instancehelper_indexOf(text, 34) + 1, String.instancehelper_lastIndexOf(text, 34));
 						this.loadState(bufferedReader, text2, null);
 					}
-					else if (!java.lang.String.instancehelper_startsWith(text, "~v"))
+					else if (!String.instancehelper_startsWith(text, "~v"))
 					{
-						if (java.lang.String.instancehelper_startsWith(text, "~t"))
+						if (String.instancehelper_startsWith(text, "~t"))
 						{
-							string text2 = java.lang.String.instancehelper_substring(text, java.lang.String.instancehelper_indexOf(text, 34) + 1, java.lang.String.instancehelper_lastIndexOf(text, 34));
+							string text2 = String.instancehelper_substring(text, String.instancehelper_indexOf(text, 34) + 1, String.instancehelper_lastIndexOf(text, 34));
 							this.loadTrans(bufferedReader, text2, null);
 						}
-						else if (java.lang.String.instancehelper_startsWith(text, "~h"))
+						else if (String.instancehelper_startsWith(text, "~h"))
 						{
-							string text2 = java.lang.String.instancehelper_substring(text, java.lang.String.instancehelper_indexOf(text, 34) + 1, java.lang.String.instancehelper_lastIndexOf(text, 34));
-							if (java.lang.String.instancehelper_equals(java.lang.String.instancehelper_toUpperCase(text2), text2))
+							string text2 = String.instancehelper_substring(text, String.instancehelper_indexOf(text, 34) + 1, String.instancehelper_lastIndexOf(text, 34));
+							if (String.instancehelper_equals(String.instancehelper_toUpperCase(text2), text2))
 							{
 								java.lang.System.@out.println("WARNING: HMM is in lowercase, converting to upper");
 							}
-							this.__hmms.add(this.loadHMM(bufferedReader, java.lang.String.instancehelper_toUpperCase(text2), this.__gmms));
+							this.__hmms.add(this.loadHMM(bufferedReader, String.instancehelper_toUpperCase(text2), this.__gmms));
 						}
 					}
 				}
@@ -100,15 +100,15 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			else
 			{
-				text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+				text2 = String.instancehelper_trim(bufferedReader.readLine());
 			}
-			if (java.lang.String.instancehelper_startsWith(text2, "<NUMMIXES>"))
+			if (String.instancehelper_startsWith(text2, "<NUMMIXES>"))
 			{
-				this.nGaussians = Integer.parseInt(java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 32) + 1));
-				text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+				this.nGaussians = Integer.parseInt(String.instancehelper_substring(text2, String.instancehelper_indexOf(text2, 32) + 1));
+				text2 = String.instancehelper_trim(bufferedReader.readLine());
 			}
 			this.g = null;
-			if (!java.lang.String.instancehelper_startsWith(text2, "<MIXTURE>"))
+			if (!String.instancehelper_startsWith(text2, "<MIXTURE>"))
 			{
 				if (this.nGaussians != 1)
 				{
@@ -124,13 +124,13 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				{
 					if (i > 0)
 					{
-						text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+						text2 = String.instancehelper_trim(bufferedReader.readLine());
 					}
-					if (java.lang.String.instancehelper_startsWith(text2, "<GCONST>"))
+					if (String.instancehelper_startsWith(text2, "<GCONST>"))
 					{
-						text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+						text2 = String.instancehelper_trim(bufferedReader.readLine());
 					}
-					string[] array = java.lang.String.instancehelper_split(text2, " ");
+					string[] array = String.instancehelper_split(text2, " ");
 					if (Integer.parseInt(array[1]) != i + 1)
 					{
 						java.lang.System.err.println(new StringBuilder().append("Error reading model: mixture conflict ").append(i).append(' ').append(text2).toString());
@@ -155,11 +155,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			else
 			{
-				text3 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+				text3 = String.instancehelper_trim(bufferedReader.readLine());
 			}
-			if (java.lang.String.instancehelper_startsWith(text3, "<TRANSP>"))
+			if (String.instancehelper_startsWith(text3, "<TRANSP>"))
 			{
-				num = Integer.parseInt(java.lang.String.instancehelper_substring(text3, java.lang.String.instancehelper_indexOf(text3, 32) + 1));
+				num = Integer.parseInt(String.instancehelper_substring(text3, String.instancehelper_indexOf(text3, 32) + 1));
 				num --;
 			}
 			else
@@ -178,8 +178,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			bufferedReader.readLine();
 			for (int i = 0; i < num; i++)
 			{
-				text3 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
-				string[] array2 = java.lang.String.instancehelper_split(text3, " ");
+				text3 = String.instancehelper_trim(bufferedReader.readLine());
+				string[] array2 = String.instancehelper_split(text3, " ");
 				for (int j = 0; j < num; j++)
 				{
 					this.trans[i][j] = Float.parseFloat(array2[j + 1]);
@@ -199,33 +199,33 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		{
 			GMMDiag gmmdiag = null;
 			string text2 = "";
-			while (!java.lang.String.instancehelper_startsWith(text2, "<NUMSTATES>"))
+			while (!String.instancehelper_startsWith(text2, "<NUMSTATES>"))
 			{
 				text2 = bufferedReader.readLine();
 			}
-			int num = Integer.parseInt(java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 32) + 1));
+			int num = Integer.parseInt(String.instancehelper_substring(text2, String.instancehelper_indexOf(text2, 32) + 1));
 			num --;
 			SingleHMM singleHMM = new SingleHMM(num);
 			singleHMM.setName(text);
 			singleHMM.hmmset = this;
-			while (!java.lang.String.instancehelper_startsWith(text2, "<STATE>"))
+			while (!String.instancehelper_startsWith(text2, "<STATE>"))
 			{
 				text2 = bufferedReader.readLine();
 			}
-			while (java.lang.String.instancehelper_startsWith(text2, "<STATE>"))
+			while (String.instancehelper_startsWith(text2, "<STATE>"))
 			{
-				int num2 = Integer.parseInt(java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 32) + 1));
+				int num2 = Integer.parseInt(String.instancehelper_substring(text2, String.instancehelper_indexOf(text2, 32) + 1));
 				num2 --;
 				text2 = bufferedReader.readLine();
 				int gmmidx;
-				if (java.lang.String.instancehelper_startsWith(text2, "~s"))
+				if (String.instancehelper_startsWith(text2, "~s"))
 				{
-					string text3 = java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 34) + 1, java.lang.String.instancehelper_lastIndexOf(text2, 34));
+					string text3 = String.instancehelper_substring(text2, String.instancehelper_indexOf(text2, 34) + 1, String.instancehelper_lastIndexOf(text2, 34));
 					int i;
 					for (i = 0; i < list.size(); i++)
 					{
 						gmmdiag = (GMMDiag)list.get(i);
-						if (java.lang.String.instancehelper_equals(gmmdiag.nom, text3))
+						if (String.instancehelper_equals(gmmdiag.nom, text3))
 						{
 							break;
 						}
@@ -248,20 +248,20 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				this.__states.add(hmmstate);
 				singleHMM.setState(num2 - 1, hmmstate);
 				text2 = bufferedReader.readLine();
-				if (java.lang.String.instancehelper_startsWith(text2, "<GCONST>"))
+				if (String.instancehelper_startsWith(text2, "<GCONST>"))
 				{
 					text2 = bufferedReader.readLine();
 				}
 			}
-			if (java.lang.String.instancehelper_startsWith(text2, "~t"))
+			if (String.instancehelper_startsWith(text2, "~t"))
 			{
-				string text4 = java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 34) + 1, java.lang.String.instancehelper_lastIndexOf(text2, 34));
+				string text4 = String.instancehelper_substring(text2, String.instancehelper_indexOf(text2, 34) + 1, String.instancehelper_lastIndexOf(text2, 34));
 				int num3 = this.getTrans(text4);
 				singleHMM.setTrans(num3);
 			}
 			else
 			{
-				if (!java.lang.String.instancehelper_startsWith(text2, "<TRANSP>"))
+				if (!String.instancehelper_startsWith(text2, "<TRANSP>"))
 				{
 					java.lang.System.err.println(new StringBuilder().append("Error reading model: missing transitions.").append(text2).toString());
 					java.lang.System.exit(1);
@@ -270,7 +270,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				singleHMM.setTrans(this.trans);
 			}
 			text2 = bufferedReader.readLine();
-			if (!java.lang.String.instancehelper_startsWith(text2, "<ENDHMM>"))
+			if (!String.instancehelper_startsWith(text2, "<ENDHMM>"))
 			{
 				java.lang.System.err.println(new StringBuilder().append("Error reading model: missing ENDHMM.").append(text2).toString());
 				java.lang.System.exit(1);
@@ -292,28 +292,28 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			}
 			else
 			{
-				text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+				text2 = String.instancehelper_trim(bufferedReader.readLine());
 			}
-			if (java.lang.String.instancehelper_startsWith(text2, "<GCONST>"))
+			if (String.instancehelper_startsWith(text2, "<GCONST>"))
 			{
-				text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+				text2 = String.instancehelper_trim(bufferedReader.readLine());
 			}
-			if (java.lang.String.instancehelper_startsWith(text2, "<RCLASS>"))
+			if (String.instancehelper_startsWith(text2, "<RCLASS>"))
 			{
-				text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
+				text2 = String.instancehelper_trim(bufferedReader.readLine());
 			}
-			if (!java.lang.String.instancehelper_startsWith(text2, "<MEAN>"))
+			if (!String.instancehelper_startsWith(text2, "<MEAN>"))
 			{
 				java.lang.System.err.println(new StringBuilder().append("Error loading model: can't find <MEAN> ! ").append(text2).toString());
 				java.lang.System.exit(1);
 			}
-			int num = Integer.parseInt(java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 32) + 1));
+			int num = Integer.parseInt(String.instancehelper_substring(text2, String.instancehelper_indexOf(text2, 32) + 1));
 			if (this.g == null)
 			{
 				this.g = new GMMDiag(this.nGaussians, num);
 			}
-			text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
-			string[] array = java.lang.String.instancehelper_split(text2, " ");
+			text2 = String.instancehelper_trim(bufferedReader.readLine());
+			string[] array = String.instancehelper_split(text2, " ");
 			if (array.Length != num)
 			{
 				java.lang.System.err.println(new StringBuilder().append("Error loading model: incorrect number of coefficients ").append(num).append(' ').append(text2).append(' ').append(array[0]).append(' ').append(array[39]).toString());
@@ -323,14 +323,14 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			{
 				this.g.setMean(i, j, Float.parseFloat(array[j]));
 			}
-			text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
-			if (!java.lang.String.instancehelper_startsWith(text2, "<VARIANCE>"))
+			text2 = String.instancehelper_trim(bufferedReader.readLine());
+			if (!String.instancehelper_startsWith(text2, "<VARIANCE>"))
 			{
 				java.lang.System.err.println(new StringBuilder().append("Error loading model: missing <VARIANCE> ! ").append(text2).toString());
 				java.lang.System.exit(1);
 			}
-			text2 = java.lang.String.instancehelper_trim(bufferedReader.readLine());
-			array = java.lang.String.instancehelper_split(text2, " ");
+			text2 = String.instancehelper_trim(bufferedReader.readLine());
+			array = String.instancehelper_split(text2, " ");
 			if (array.Length != num)
 			{
 				java.lang.System.err.println(new StringBuilder().append("Error loading model: incorrect number of coefficients ").append(num).append(' ').append(text2).toString());
@@ -373,7 +373,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			while (iterator.hasNext())
 			{
 				SingleHMM singleHMM = (SingleHMM)iterator.next();
-				if (java.lang.String.instancehelper_indexOf(singleHMM.getName(), 45) < 0 && java.lang.String.instancehelper_indexOf(singleHMM.getName(), 43) < 0)
+				if (String.instancehelper_indexOf(singleHMM.getName(), 45) < 0 && String.instancehelper_indexOf(singleHMM.getName(), 43) < 0)
 				{
 					num++;
 				}
@@ -388,7 +388,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			while (iterator.hasNext())
 			{
 				SingleHMM singleHMM = (SingleHMM)iterator.next();
-				if (java.lang.String.instancehelper_indexOf(singleHMM.getName(), 45) >= 0 || java.lang.String.instancehelper_indexOf(singleHMM.getName(), 43) >= 0)
+				if (String.instancehelper_indexOf(singleHMM.getName(), 45) >= 0 || String.instancehelper_indexOf(singleHMM.getName(), 43) >= 0)
 				{
 					num++;
 				}
@@ -433,7 +433,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			{
 				SingleHMM singleHMM2 = (SingleHMM)iterator.next();
 				singleHMM = singleHMM2;
-				if (java.lang.String.instancehelper_equals(singleHMM.getName(), nom))
+				if (String.instancehelper_equals(singleHMM.getName(), nom))
 				{
 					break;
 				}
@@ -454,7 +454,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					{
 						break;
 					}
-					string[] array = java.lang.String.instancehelper_split(text, " ");
+					string[] array = String.instancehelper_split(text, " ");
 					if (array.Length >= 2)
 					{
 						num++;
@@ -478,7 +478,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 					{
 						break;
 					}
-					string[] array = java.lang.String.instancehelper_split(text, " ");
+					string[] array = String.instancehelper_split(text, " ");
 					if (array.Length >= 2)
 					{
 						this.tiedHMMs[num5][0] = array[0];
@@ -521,7 +521,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				}
 				for (i = 0; i < this.tiedHMMs.Length; i++)
 				{
-					if (java.lang.String.instancehelper_equals(this.tiedHMMs[i][0], l.getName()))
+					if (String.instancehelper_equals(this.tiedHMMs[i][0], l.getName()))
 					{
 						break;
 					}

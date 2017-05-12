@@ -1,8 +1,9 @@
 ﻿using edu.cmu.sphinx.linguist.acoustic;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
-	internal sealed class TokenTypeTracker_1 : java.lang.Object
+	internal sealed class TokenTypeTracker_1 : Object
 	{
 		static TokenTypeTracker_1()
 		{

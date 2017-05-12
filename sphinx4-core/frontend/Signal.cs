@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.frontend
 {
-	public class Signal : java.lang.Object, Data
+	public class Signal : Object, Data
 	{		
 		protected internal Signal(long time)
 		{

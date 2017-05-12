@@ -18,7 +18,7 @@ namespace edu.cmu.sphinx.fst.operations
 
 		public static ProjectType valueOf(string name)
 		{
-			return (ProjectType)java.lang.Enum.valueOf(ClassLiteral<ProjectType>.Value, name);
+			return (ProjectType)Enum.valueOf(ClassLiteral<ProjectType>.Value, name);
 		}
 
 		public static ProjectType INPUT

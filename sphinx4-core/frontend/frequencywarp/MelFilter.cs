@@ -12,13 +12,13 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				
 				throw new IllegalArgumentException(text);
 			}
-			if (java.lang.Math.round(rightEdge - leftEdge) == 0L || java.lang.Math.round(centerFreq - leftEdge) == 0L || java.lang.Math.round(rightEdge - centerFreq) == 0L)
+			if (Math.round(rightEdge - leftEdge) == 0L || Math.round(centerFreq - leftEdge) == 0L || Math.round(rightEdge - centerFreq) == 0L)
 			{
 				string text2 = "Filter boundaries too close";
 				
 				throw new IllegalArgumentException(text2);
 			}
-			int num = (int)java.lang.Math.round((rightEdge - leftEdge) / deltaFreq + (double)1f);
+			int num = (int)Math.round((rightEdge - leftEdge) / deltaFreq + (double)1f);
 			if (num == 0)
 			{
 				string text3 = "Number of elements in mel is zero.";
@@ -44,7 +44,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				num5 += deltaFreq;
 				num6++;
 			}
-			this.initialFreqIndex = (int)java.lang.Math.round(initialFreq / deltaFreq);
+			this.initialFreqIndex = (int)Math.round(initialFreq / deltaFreq);
 		}
 
 		public virtual double filterOutput(double[] spectrum)

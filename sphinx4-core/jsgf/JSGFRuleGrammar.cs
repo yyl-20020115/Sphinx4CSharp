@@ -7,7 +7,7 @@ using java.util.regex;
 
 namespace edu.cmu.sphinx.jsgf
 {
-	public class JSGFRuleGrammar : java.lang.Object
+	public class JSGFRuleGrammar : Object
 	{
 		public virtual JSGFRuleName resolve(JSGFRuleName ruleName)
 		{
@@ -22,11 +22,11 @@ namespace edu.cmu.sphinx.jsgf
 				
 				throw new JSGFGrammarException(message);
 			}
-			if (java.lang.String.instancehelper_equals(ruleName.getSimpleRuleName(), "NULL"))
+			if (String.instancehelper_equals(ruleName.getSimpleRuleName(), "NULL"))
 			{
 				return JSGFRuleName.__NULL;
 			}
-			if (java.lang.String.instancehelper_equals(ruleName.getSimpleRuleName(), "VOID"))
+			if (String.instancehelper_equals(ruleName.getSimpleRuleName(), "VOID"))
 			{
 				return JSGFRuleName.__VOID;
 			}
@@ -64,13 +64,13 @@ namespace edu.cmu.sphinx.jsgf
 				{
 					java.lang.System.@out.println(new StringBuilder().append("Warning: import of unknown grammar ").append(ruleName).append(" in ").append(this.name).toString());
 				}
-				else if (!java.lang.String.instancehelper_equals(simpleRuleName2, "*") && jsgfruleGrammar2.getRule(simpleRuleName2) == null)
+				else if (!String.instancehelper_equals(simpleRuleName2, "*") && jsgfruleGrammar2.getRule(simpleRuleName2) == null)
 				{
 					java.lang.System.@out.println(new StringBuilder().append("Warning: import of undefined rule ").append(ruleName).append(" in ").append(this.name).toString());
 				}
-				else if (java.lang.String.instancehelper_equals(fullGrammarName2, fullGrammarName) || java.lang.String.instancehelper_equals(simpleGrammarName2, fullGrammarName))
+				else if (String.instancehelper_equals(fullGrammarName2, fullGrammarName) || String.instancehelper_equals(simpleGrammarName2, fullGrammarName))
 				{
-					if (java.lang.String.instancehelper_equals(simpleRuleName2, "*"))
+					if (String.instancehelper_equals(simpleRuleName2, "*"))
 					{
 						if (jsgfruleGrammar2.getRule(simpleRuleName) != null)
 						{
@@ -78,7 +78,7 @@ namespace edu.cmu.sphinx.jsgf
 							list2.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
 						}
 					}
-					else if (java.lang.String.instancehelper_equals(simpleRuleName2, simpleRuleName))
+					else if (String.instancehelper_equals(simpleRuleName2, simpleRuleName))
 					{
 						List list3 = arrayList;
 						list3.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
@@ -86,7 +86,7 @@ namespace edu.cmu.sphinx.jsgf
 				}
 				else if (fullGrammarName == null)
 				{
-					if (java.lang.String.instancehelper_equals(simpleRuleName2, "*"))
+					if (String.instancehelper_equals(simpleRuleName2, "*"))
 					{
 						if (jsgfruleGrammar2.getRule(simpleRuleName) != null)
 						{
@@ -94,7 +94,7 @@ namespace edu.cmu.sphinx.jsgf
 							list4.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
 						}
 					}
-					else if (java.lang.String.instancehelper_equals(simpleRuleName2, simpleRuleName))
+					else if (String.instancehelper_equals(simpleRuleName2, simpleRuleName))
 					{
 						List list5 = arrayList;
 						list5.add(new JSGFRuleName(new StringBuilder().append(fullGrammarName2).append('.').append(simpleRuleName).toString()));
@@ -260,7 +260,7 @@ namespace edu.cmu.sphinx.jsgf
 			CharSequence charSequence = CharSequence.Cast(text);
 			if (pattern.matcher(charSequence).find())
 			{
-				string[] array = java.lang.String.instancehelper_split(text, new StringBuilder().append('[').append(JSGFRuleGrammar.LINE_SEPARATOR).append("]+").toString());
+				string[] array = String.instancehelper_split(text, new StringBuilder().append('[').append(JSGFRuleGrammar.LINE_SEPARATOR).append("]+").toString());
 				stringBuilder.append("/**").append(JSGFRuleGrammar.LINE_SEPARATOR);
 				stringBuilder.append("  *").append(array[0]).append(JSGFRuleGrammar.LINE_SEPARATOR);
 				for (int i = 1; i < array.Length; i++)
@@ -541,7 +541,7 @@ namespace edu.cmu.sphinx.jsgf
 
 		internal string grammarDocComment;
 		
-		internal sealed class JSGFRuleState : java.lang.Object
+		internal sealed class JSGFRuleState : Object
 		{			
 			public JSGFRuleState(JSGFRuleGrammar jsgfruleGrammar, JSGFRule jsgfrule, bool flag, bool flag2)
 			{

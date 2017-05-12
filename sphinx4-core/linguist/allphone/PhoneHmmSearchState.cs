@@ -7,7 +7,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.allphone
 {
-	public class PhoneHmmSearchState : java.lang.Object, SearchState, SearchStateArc, ScoreProvider
+	public class PhoneHmmSearchState : Object, SearchState, SearchStateArc, ScoreProvider
 	{
 		public virtual int getBaseId()
 		{
@@ -76,7 +76,7 @@ namespace edu.cmu.sphinx.linguist.allphone
 		
 		public virtual string toPrettyString()
 		{
-			return new StringBuilder().append("HMM ").append(java.lang.Object.instancehelper_toString(this.state)).toString();
+			return new StringBuilder().append("HMM ").append(Object.instancehelper_toString(this.state)).toString();
 		}
 
 		public virtual string getSignature()

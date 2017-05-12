@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class LatticeRescorer : java.lang.Object
+	public class LatticeRescorer : Object
 	{	
 		protected internal virtual List allPathsTo(string path, Edge edge, int currentDepth)
 		{
@@ -53,7 +53,7 @@ namespace edu.cmu.sphinx.result
 					{
 						string text = (string)iterator2.next();
 						LinkedList linkedList = new LinkedList();
-						string[] array = java.lang.String.instancehelper_split(text, " ");
+						string[] array = String.instancehelper_split(text, " ");
 						int num2 = array.Length;
 						for (int i = 0; i < num2; i++)
 						{

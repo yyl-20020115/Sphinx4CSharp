@@ -1,9 +1,10 @@
 ﻿using java.io;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	public class FileReferenceSource : java.lang.Object, ReferenceSource
+	public class FileReferenceSource : Object, ReferenceSource
 	{	
 		public FileReferenceSource(string file)
 		{
@@ -12,7 +13,7 @@ namespace edu.cmu.sphinx.util
 			string text;
 			while ((text = bufferedReader.readLine()) != null)
 			{
-				if (!java.lang.String.instancehelper_startsWith(text, ";;"))
+				if (!String.instancehelper_startsWith(text, ";;"))
 				{
 					int num = 0;
 					int num2 = 0;
@@ -20,18 +21,18 @@ namespace edu.cmu.sphinx.util
 					{
 						if (i == 2)
 						{
-							string text2 = java.lang.String.instancehelper_substring(text, num);
-							if (java.lang.String.instancehelper_startsWith(text2, "inter_segment_gap"))
+							string text2 = String.instancehelper_substring(text, num);
+							if (String.instancehelper_startsWith(text2, "inter_segment_gap"))
 							{
 								num2 = 1;
 								break;
 							}
 						}
-						num = java.lang.String.instancehelper_indexOf(text, 32, num) + 1;
+						num = String.instancehelper_indexOf(text, 32, num) + 1;
 					}
 					if (num2 == 0)
 					{
-						string text3 = java.lang.String.instancehelper_trim(java.lang.String.instancehelper_substring(text, num));
+						string text3 = String.instancehelper_trim(String.instancehelper_substring(text, num));
 						this.references.add(text3);
 					}
 				}

@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.frontend.window
 {
-	internal sealed class DoubleBuffer : java.lang.Object
+	internal sealed class DoubleBuffer : Object
 	{		
 		public int append(double[] array, int num, int num2)
 		{

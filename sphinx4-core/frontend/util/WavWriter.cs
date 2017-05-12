@@ -28,7 +28,7 @@ namespace edu.cmu.sphinx.frontend.util
 			for (;;)
 			{
 				string text2 = Integer.toString(num);
-				text3 = new StringBuilder().append(java.lang.String.instancehelper_substring(text, 0, java.lang.Math.max(0, java.lang.String.instancehelper_length(text) - java.lang.String.instancehelper_length(text2)))).append(text2).append(".wav").toString();
+				text3 = new StringBuilder().append(String.instancehelper_substring(text, 0, Math.max(0, String.instancehelper_length(text) - String.instancehelper_length(text2)))).append(text2).append(".wav").toString();
 				if (!new File(text3).isFile())
 				{
 					break;
@@ -71,7 +71,7 @@ namespace edu.cmu.sphinx.frontend.util
 			for (int i = 0; i < num; i++)
 			{
 				AudioFileFormat.Type type = array[i];
-				if (java.lang.String.instancehelper_equals(type.getExtension(), text))
+				if (String.instancehelper_equals(type.getExtension(), text))
 				{
 					return type;
 				}

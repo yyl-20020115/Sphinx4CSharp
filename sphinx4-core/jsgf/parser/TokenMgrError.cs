@@ -17,9 +17,9 @@ namespace edu.cmu.sphinx.jsgf.parser
 		protected internal static string addEscapes(string str)
 		{
 			StringBuffer stringBuffer = new StringBuffer();
-			for (int i = 0; i < java.lang.String.instancehelper_length(str); i++)
+			for (int i = 0; i < String.instancehelper_length(str); i++)
 			{
-				char c = java.lang.String.instancehelper_charAt(str, i);
+				char c = String.instancehelper_charAt(str, i);
 				if (c != '\0')
 				{
 					int num;
@@ -55,10 +55,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 					{
 						stringBuffer.append("\\\\");
 					}
-					else if ((num = (int)java.lang.String.instancehelper_charAt(str, i)) < 32 || num > 126)
+					else if ((num = (int)String.instancehelper_charAt(str, i)) < 32 || num > 126)
 					{
 						string text = new StringBuilder().append("0000").append(Integer.toString(num, 16)).toString();
-						stringBuffer.append(new StringBuilder().append("\\u").append(java.lang.String.instancehelper_substring(text, java.lang.String.instancehelper_length(text) - 4, java.lang.String.instancehelper_length(text))).toString());
+						stringBuffer.append(new StringBuilder().append("\\u").append(String.instancehelper_substring(text, String.instancehelper_length(text) - 4, String.instancehelper_length(text))).toString());
 					}
 					else
 					{
@@ -71,7 +71,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 		
 		protected internal static string LexicalError(bool EOFSeen, int lexState, int errorLine, int errorColumn, string errorAfter, char curChar)
 		{
-			return new StringBuilder().append("Lexical error at line ").append(errorLine).append(", column ").append(errorColumn).append(".  Encountered: ").append((!EOFSeen) ? new StringBuilder().append("\"").append(TokenMgrError.addEscapes(java.lang.String.valueOf(curChar))).append("\"").append(" (").append((int)curChar).append("), ").toString() : "<EOF> ").append("after : \"").append(TokenMgrError.addEscapes(errorAfter)).append("\"").toString();
+			return new StringBuilder().append("Lexical error at line ").append(errorLine).append(", column ").append(errorColumn).append(".  Encountered: ").append((!EOFSeen) ? new StringBuilder().append("\"").append(TokenMgrError.addEscapes(String.valueOf(curChar))).append("\"").append(" (").append((int)curChar).append("), ").toString() : "<EOF> ").append("after : \"").append(TokenMgrError.addEscapes(errorAfter)).append("\"").toString();
 		}
 		
 		public override string getMessage()

@@ -17,7 +17,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 				if (num3 < melPoints[i] && melPoints[i] <= center)
 				{
 					array[i] = (melPoints[i] - num3) / (center - num3);
-					num2 = java.lang.Math.min(i, num2);
+					num2 = Math.min(i, num2);
 					num = i;
 				}
 				if (center < melPoints[i] && melPoints[i] < num4)

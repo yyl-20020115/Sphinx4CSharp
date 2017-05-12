@@ -9,7 +9,7 @@ using java.util.regex;
 
 namespace edu.cmu.sphinx.util.props
 {
-	public sealed class ConfigurationManagerUtils : java.lang.Object
+	public sealed class ConfigurationManagerUtils : Object
 	{
 		public static URL resourceToURL(string location)
 		{
@@ -22,18 +22,18 @@ namespace edu.cmu.sphinx.util.props
 				string text = matcher.group(1);
 				return ClassLiteral<ConfigurationManagerUtils>.Value.getResource(text);
 			}
-			if (java.lang.String.instancehelper_indexOf(location, 58) == -1)
+			if (String.instancehelper_indexOf(location, 58) == -1)
 			{
 				location = new StringBuilder().append("file:").append(location).toString();
 			}
 			return new URL(location);
 		}
-		
+
 		public static void setProperty(ConfigurationManager cm, string propName, string propValue)
 		{
 			if (!ConfigurationManagerUtils.assertionsDisabled && propValue == null)
 			{
-				
+
 				throw new AssertionError();
 			}
 			Map map = ConfigurationManagerUtils.listAllsPropNames(cm);
@@ -45,10 +45,10 @@ namespace edu.cmu.sphinx.util.props
 				string text = propName;
 				_ref = "->";
 				charSequence = CharSequence.Cast(_ref);
-				if (!java.lang.String.instancehelper_contains(text, charSequence) && !componentNames.contains(propName))
+				if (!String.instancehelper_contains(text, charSequence) && !componentNames.contains(propName))
 				{
 					string text2 = new StringBuilder().append("No property or configurable '").append(propName).append("' in configuration '").append(cm.getConfigURL()).append("'!").toString();
-					
+
 					throw new RuntimeException(text2);
 				}
 			}
@@ -68,19 +68,19 @@ namespace edu.cmu.sphinx.util.props
 			string text3 = propName;
 			_ref = "->";
 			charSequence = CharSequence.Cast(_ref);
-			if (!java.lang.String.instancehelper_contains(text3, charSequence) && ((List)map.get(propName)).size() > 1)
+			if (!String.instancehelper_contains(text3, charSequence) && ((List)map.get(propName)).size() > 1)
 			{
 				string text4 = new StringBuilder().append("Property-name '").append(propName).append("' is ambiguous with respect to configuration '").append(cm.getConfigURL()).append("'. Use 'componentName->propName' to disambiguate your request.").toString();
-				
+
 				throw new RuntimeException(text4);
 			}
 			string text5 = propName;
 			_ref = "->";
 			charSequence = CharSequence.Cast(_ref);
 			string componentName;
-			if (java.lang.String.instancehelper_contains(text5, charSequence))
+			if (String.instancehelper_contains(text5, charSequence))
 			{
-				string[] array = java.lang.String.instancehelper_split(propName, "->");
+				string[] array = String.instancehelper_split(propName, "->");
 				componentName = array[0];
 				propName = array[1];
 			}
@@ -90,12 +90,12 @@ namespace edu.cmu.sphinx.util.props
 			}
 			ConfigurationManagerUtils.setProperty(cm, componentName, propName, propValue);
 		}
-		
+
 		public static ConfigurationManager getPropertyManager(PropertySheet ps)
 		{
 			return ps.getPropertyManager();
 		}
-		
+
 		public static void showConfig(ConfigurationManager cm)
 		{
 			java.lang.System.@out.println(" ============ config ============= ");
@@ -106,16 +106,16 @@ namespace edu.cmu.sphinx.util.props
 				ConfigurationManagerUtils.showConfig(cm, name);
 			}
 		}
-		
+
 		public static void save(ConfigurationManager cm, File cmLocation)
 		{
-			if (!java.lang.String.instancehelper_endsWith(cmLocation.getName(), ".sxl"))
+			if (!String.instancehelper_endsWith(cmLocation.getName(), ".sxl"))
 			{
 				java.lang.System.err.println("WARNING: Serialized s4-configuration should have the suffix '.sxl'");
 			}
 			if (!ConfigurationManagerUtils.assertionsDisabled && cm == null)
 			{
-				
+
 				throw new AssertionError();
 			}
 			try
@@ -131,7 +131,7 @@ namespace edu.cmu.sphinx.util.props
 				Throwable.instancehelper_printStackTrace(ex);
 			}
 		}
-		
+
 		public static URL getResource(string name, PropertySheet ps)
 		{
 			string @string = ps.getString(name);
@@ -139,7 +139,7 @@ namespace edu.cmu.sphinx.util.props
 			{
 				string instanceName = ps.getInstanceName();
 				string text = new StringBuilder().append("Required resource property '").append(name).append("' not set").toString();
-				
+
 				throw new InternalConfigurationException(instanceName, name, text);
 			}
 			URL result;
@@ -154,7 +154,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return result;
 		}
-		
+
 		public static void showConfig(ConfigurationManager cm, string name)
 		{
 			if (!cm.getComponentNames().contains(name))
@@ -239,13 +239,13 @@ namespace edu.cmu.sphinx.util.props
 					{
 						java.lang.System.@out.print(new StringBuilder().append("  ").append(text).append(" [").append(text2).append("]: ").toString());
 						string text3 = bufferedReader.readLine();
-						if (java.lang.String.instancehelper_isEmpty(text3))
+						if (String.instancehelper_isEmpty(text3))
 						{
 							num = 1;
 						}
 						else
 						{
-							if (java.lang.String.instancehelper_equals(text3, "."))
+							if (String.instancehelper_equals(text3, "."))
 							{
 								return;
 							}
@@ -265,59 +265,59 @@ namespace edu.cmu.sphinx.util.props
 				return;
 			}
 		}
-		
+
 		public static void setProperty(ConfigurationManager cm, string componentName, string propName, string propValue)
 		{
 			PropertySheet propertySheet = cm.getPropertySheet(componentName);
 			if (propertySheet == null)
 			{
 				string text = new StringBuilder().append("Component '").append(propName).append("' is not registered to this system configuration '").toString();
-				
+
 				throw new RuntimeException(text);
 			}
-			if (java.lang.String.instancehelper_equals(propValue, "null"))
+			if (String.instancehelper_equals(propValue, "null"))
 			{
 				propValue = null;
 			}
 			switch (ConfigurationManagerUtils_1._SwitchMap_edu_cmu_sphinx_util_props_PropertyType[propertySheet.getType(propName).ordinal()])
 			{
-			case 1:
-			{
-				ArrayList arrayList = new ArrayList();
-				string[] array = java.lang.String.instancehelper_split(propValue, ";");
-				int num = array.Length;
-				for (int i = 0; i < num; i++)
-				{
-					string text2 = array[i];
-					arrayList.add(java.lang.String.instancehelper_trim(text2));
-				}
-				propertySheet.setComponentList(propName, arrayList, null);
-				break;
-			}
-			case 2:
-				propertySheet.setComponent(propName, propValue, null);
-				break;
-			case 3:
-				propertySheet.setBoolean(propName, java.lang.Boolean.valueOf(java.lang.Boolean.parseBoolean(propValue)));
-				break;
-			case 4:
-				propertySheet.setDouble(propName, java.lang.Double.parseDouble(propValue));
-				break;
-			case 5:
-				propertySheet.setInt(propName, Integer.parseInt(propValue));
-				break;
-			case 6:
-				propertySheet.setString(propName, propValue);
-				break;
-			default:
-			{
-				string text3 = "unknown property-type";
-				
-				throw new RuntimeException(text3);
-			}
+				case 1:
+					{
+						ArrayList arrayList = new ArrayList();
+						string[] array = String.instancehelper_split(propValue, ";");
+						int num = array.Length;
+						for (int i = 0; i < num; i++)
+						{
+							string text2 = array[i];
+							arrayList.add(String.instancehelper_trim(text2));
+						}
+						propertySheet.setComponentList(propName, arrayList, null);
+						break;
+					}
+				case 2:
+					propertySheet.setComponent(propName, propValue, null);
+					break;
+				case 3:
+					propertySheet.setBoolean(propName, Boolean.valueOf(Boolean.parseBoolean(propValue)));
+					break;
+				case 4:
+					propertySheet.setDouble(propName, Double.parseDouble(propValue));
+					break;
+				case 5:
+					propertySheet.setInt(propName, Integer.parseInt(propValue));
+					break;
+				case 6:
+					propertySheet.setString(propName, propValue);
+					break;
+				default:
+					{
+						string text3 = "unknown property-type";
+
+						throw new RuntimeException(text3);
+					}
 			}
 		}
-		
+
 		public static void dumpPropStructure(ConfigurationManager cm)
 		{
 			Map map = ConfigurationManagerUtils.listAllsPropNames(cm);
@@ -350,7 +350,7 @@ namespace edu.cmu.sphinx.util.props
 				}
 			}
 		}
-		
+
 		public static URL getURL(File file)
 		{
 			URL result;
@@ -365,7 +365,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return result;
 		}
-		
+
 		internal static void applySystemProperties(Map map, Map map2)
 		{
 			Properties properties = java.lang.System.getProperties();
@@ -374,38 +374,39 @@ namespace edu.cmu.sphinx.util.props
 			{
 				string text = (string)enumeration.nextElement();
 				string property = properties.getProperty(text);
-				int num = java.lang.String.instancehelper_indexOf(text, 91);
-				int num2 = java.lang.String.instancehelper_indexOf(text, 93);
+				int num = String.instancehelper_indexOf(text, 91);
+				int num2 = String.instancehelper_indexOf(text, 93);
 				if (num > 0 && num2 > num)
 				{
-					string text2 = java.lang.String.instancehelper_substring(text, 0, num);
-					string propName = java.lang.String.instancehelper_substring(text, num + 1, num2);
+					string text2 = String.instancehelper_substring(text, 0, num);
+					string propName = String.instancehelper_substring(text, num + 1, num2);
 					RawPropertyData rawPropertyData = (RawPropertyData)map.get(text2);
 					if (rawPropertyData == null)
 					{
 						string text3 = text2;
 						string text4 = text;
 						string text5 = new StringBuilder().append("System property attempting to set parameter  for unknown component ").append(text2).append(" (").append(text).append(')').toString();
-						
+
 						throw new InternalConfigurationException(text3, text4, text5);
 					}
 					rawPropertyData.add(propName, property);
 				}
-				else if (java.lang.String.instancehelper_indexOf(text, 46) == -1)
+				else if (String.instancehelper_indexOf(text, 46) == -1)
 				{
 					map2.put(text, property);
 				}
 			}
 		}
-		
+
 		public static void configureLogger(ConfigurationManager cm)
 		{
-			if (java.lang.System.getProperty("java.util.logging.config.class") != null || java.lang.System.getProperty("java.util.logging.config.file") != null)
+			if (java.lang.System.getProperty("java.util.logging.config.class") != null
+				|| java.lang.System.getProperty("java.util.logging.config.file") != null)
 			{
 				return;
 			}
 			string logPrefix = ConfigurationManagerUtils.getLogPrefix(cm);
-			Logger logger = Logger.getLogger(java.lang.String.instancehelper_substring(logPrefix, 0, java.lang.String.instancehelper_length(logPrefix) - 1));
+			Logger logger = Logger.getLogger(String.instancehelper_substring(logPrefix, 0, String.instancehelper_length(logPrefix) - 1));
 			Level level = Logger.getLogger("").getLevel();
 			ConfigurationManagerUtils.configureLogger(logger);
 			string text = cm.getGlobalProperty("logLevel");
@@ -426,18 +427,18 @@ namespace edu.cmu.sphinx.util.props
 		{
 			if (!ConfigurationManagerUtils.assertionsDisabled && configurationManager == null)
 			{
-				
+
 				throw new AssertionError();
 			}
 			if (!ConfigurationManagerUtils.assertionsDisabled && (text == null || text2 == null))
 			{
-				
+
 				throw new AssertionError();
 			}
 			if (configurationManager.getPropertySheet(text) == null)
 			{
 				string text3 = new StringBuilder().append("no configurable (to be renamed) named ").append(text).append(" is contained in the CM").toString();
-				
+
 				throw new RuntimeException(text3);
 			}
 			Iterator iterator = configurationManager.getComponentNames().iterator();
@@ -458,7 +459,7 @@ namespace edu.cmu.sphinx.util.props
 							for (int i = 0; i < list.size(); i++)
 							{
 								string text5 = (string)list.get(i);
-								if (java.lang.String.instancehelper_equals(text5, text))
+								if (String.instancehelper_equals(text5, text))
 								{
 									list.set(i, text2);
 								}
@@ -466,7 +467,7 @@ namespace edu.cmu.sphinx.util.props
 						}
 						else if (num == 2)
 						{
-							if (java.lang.Object.instancehelper_equals(propertySheet.getRawNoReplacement(text4), text))
+							if (Object.instancehelper_equals(propertySheet.getRawNoReplacement(text4), text))
 							{
 								propertySheet.setRaw(text4, text2);
 							}
@@ -480,7 +481,7 @@ namespace edu.cmu.sphinx.util.props
 			while (iterator3.hasNext())
 			{
 				Map.Entry entry = (Map.Entry)iterator3.next();
-				if (java.lang.String.instancehelper_equals((string)entry.getValue(), text))
+				if (String.instancehelper_equals((string)entry.getValue(), text))
 				{
 					configurationManager.setGlobalProperty((string)entry.getKey(), text2);
 				}
@@ -498,7 +499,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return symbol;
 		}
-		
+
 		public static string getLogPrefix(ConfigurationManager cm)
 		{
 			if (cm.getConfigURL() != null)
@@ -512,7 +513,7 @@ namespace edu.cmu.sphinx.util.props
 				CharSequence charSequence2 = charSequence;
 				obj3 = obj2;
 				charSequence = CharSequence.Cast(obj3);
-				string text = java.lang.String.instancehelper_replace(name, charSequence2, charSequence);
+				string text = String.instancehelper_replace(name, charSequence2, charSequence);
 				object obj4 = ".xml";
 				obj3 = "";
 				obj2 = obj4;
@@ -520,11 +521,11 @@ namespace edu.cmu.sphinx.util.props
 				CharSequence charSequence3 = charSequence;
 				obj2 = obj3;
 				charSequence = CharSequence.Cast(obj2);
-				return stringBuilder.append(java.lang.String.instancehelper_replace(text, charSequence3, charSequence)).append('.').toString();
+				return stringBuilder.append(String.instancehelper_replace(text, charSequence3, charSequence)).append('.').toString();
 			}
 			return "S4CM.";
 		}
-		
+
 		public static void configureLogger(Logger logger)
 		{
 			logger.setUseParentHandlers(false);
@@ -547,7 +548,7 @@ namespace edu.cmu.sphinx.util.props
 				logger.addHandler(consoleHandler);
 			}
 		}
-		
+
 		private static string propSheet2XML(string text, PropertySheet propertySheet)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -580,7 +581,7 @@ namespace edu.cmu.sphinx.util.props
 			stringBuilder.append("\n\t</component>\n\n");
 			return stringBuilder.toString();
 		}
-		
+
 		public static List toStringList(object obj)
 		{
 			ArrayList arrayList = new ArrayList();
@@ -599,7 +600,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return arrayList;
 		}
-		
+
 		public static string toXML(ConfigurationManager cm)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -634,7 +635,7 @@ namespace edu.cmu.sphinx.util.props
 		{
 			if (!ConfigurationManagerUtils.assertionsDisabled && !interfaceClass.isInterface())
 			{
-				
+
 				throw new AssertionError();
 			}
 			Class superclass = aClass.getSuperclass();
@@ -647,14 +648,14 @@ namespace edu.cmu.sphinx.util.props
 			for (int i = 0; i < num; i++)
 			{
 				Class @class = interfaces[i];
-				if (java.lang.Object.instancehelper_equals(@class, interfaceClass) || ConfigurationManagerUtils.isImplementingInterface(@class, interfaceClass))
+				if (Object.instancehelper_equals(@class, interfaceClass) || ConfigurationManagerUtils.isImplementingInterface(@class, interfaceClass))
 				{
 					return true;
 				}
 			}
 			return false;
 		}
-	
+
 		public static Map listAllsPropNames(ConfigurationManager cm)
 		{
 			HashMap hashMap = new HashMap();
@@ -664,7 +665,7 @@ namespace edu.cmu.sphinx.util.props
 				string instanceName = (string)iterator.next();
 				PropertySheet propertySheet = cm.getPropertySheet(instanceName);
 				Iterator iterator2 = propertySheet.getRegisteredProperties().iterator();
-		
+
 				while (iterator2.hasNext())
 				{
 					string text = (string)iterator2.next();
@@ -677,22 +678,22 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return hashMap;
 		}
-		
+
 		public static void setClass(PropertySheet ps, Class confClass)
 		{
 			if (ps.isInstanciated())
 			{
 				string text = new StringBuilder().append("configurable ").append(ps.getInstanceName()).append("has already been instantiated").toString();
-				
+
 				throw new RuntimeException(text);
 			}
 			ps.setConfigurableClass(confClass);
 		}
-		
+
 		private ConfigurationManagerUtils()
 		{
 		}
-		
+
 		public bool validateConfiguration(ConfigurationManager cm)
 		{
 			Iterator iterator = cm.getComponentNames().iterator();
@@ -716,7 +717,7 @@ namespace edu.cmu.sphinx.util.props
 				string text = (string)iterator.next();
 				string text2 = text;
 				int num = 0;
-				while (baseCM.getComponentNames().contains(text2) || (subCM.getComponentNames().contains(text2) && !java.lang.String.instancehelper_equals(text2, text)))
+				while (baseCM.getComponentNames().contains(text2) || (subCM.getComponentNames().contains(text2) && !String.instancehelper_equals(text2, text)))
 				{
 					num++;
 					text2 = new StringBuilder().append(text).append(num).toString();
@@ -729,17 +730,17 @@ namespace edu.cmu.sphinx.util.props
 
 		public static bool isSubClass(Class aClass, Class possibleSuperclass)
 		{
-			while (aClass != null && !java.lang.Object.instancehelper_equals(aClass, ClassLiteral<java.lang.Object>.Value))
+			while (aClass != null && !Object.instancehelper_equals(aClass, ClassLiteral<Object>.Value))
 			{
 				aClass = aClass.getSuperclass();
-				if (aClass != null && java.lang.Object.instancehelper_equals(aClass, possibleSuperclass))
+				if (aClass != null && Object.instancehelper_equals(aClass, possibleSuperclass))
 				{
 					return true;
 				}
 			}
 			return false;
 		}
-		
+
 		public static Collection getNonInstaniatedComps(ConfigurationManager cm)
 		{
 			ArrayList arrayList = new ArrayList();
@@ -769,7 +770,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return ConfigurationManagerUtils.__callerID;
 		}
-		
+
 		private static Pattern globalSymbolPattern;
 
 		public const string GLOBAL_COMMON_LOGLEVEL = "logLevel";
@@ -777,7 +778,7 @@ namespace edu.cmu.sphinx.util.props
 		public const string CM_FILE_SUFFIX = ".sxl";
 
 		internal static Pattern jarPattern;
-		
+
 		internal static bool assertionsDisabled = !ClassLiteral<ConfigurationManagerUtils>.Value.desiredAssertionStatus();
 
 		private static CallerID __callerID;

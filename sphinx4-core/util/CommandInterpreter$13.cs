@@ -1,8 +1,10 @@
 ﻿using java.util;
+using java.lang;
+
 
 namespace edu.cmu.sphinx.util
 {
-	internal sealed class CommandInterpreter_13 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_13 : Object, CommandInterface
 	{
 		internal CommandInterpreter_13(CommandInterpreter commandInterpreter)
 		{
@@ -18,7 +20,7 @@ namespace edu.cmu.sphinx.util
 				int num = 0;
 				for (int i = 1; i < array.Length; i++)
 				{
-					if (java.lang.String.instancehelper_equals(array[i], ";"))
+					if (String.instancehelper_equals(array[i], ";"))
 					{
 						if (num > 0)
 						{

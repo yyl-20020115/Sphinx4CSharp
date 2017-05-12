@@ -28,7 +28,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		public virtual object findFeature(string pathAndFeature)
 		{
 			object obj = null;
-			int num = java.lang.String.instancehelper_lastIndexOf(pathAndFeature, ".");
+			int num = String.instancehelper_lastIndexOf(pathAndFeature, ".");
 			string name;
 			string path;
 			if (num == -1)
@@ -38,8 +38,8 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			else
 			{
-				name = java.lang.String.instancehelper_substring(pathAndFeature, num + 1);
-				path = java.lang.String.instancehelper_substring(pathAndFeature, 0, num);
+				name = String.instancehelper_substring(pathAndFeature, num + 1);
+				path = String.instancehelper_substring(pathAndFeature, 0, num);
 			}
 			Item item = this.findItem(path);
 			if (item != null)
@@ -158,15 +158,15 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			while (item != null && stringTokenizer.hasMoreTokens())
 			{
 				string text = stringTokenizer.nextToken();
-				if (java.lang.String.instancehelper_equals(text, "n"))
+				if (String.instancehelper_equals(text, "n"))
 				{
 					item = item.getNext();
 				}
-				else if (java.lang.String.instancehelper_equals(text, "p"))
+				else if (String.instancehelper_equals(text, "p"))
 				{
 					item = item.getPrevious();
 				}
-				else if (java.lang.String.instancehelper_equals(text, "nn"))
+				else if (String.instancehelper_equals(text, "nn"))
 				{
 					item = item.getNext();
 					if (item != null)
@@ -174,7 +174,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 						item = item.getNext();
 					}
 				}
-				else if (java.lang.String.instancehelper_equals(text, "pp"))
+				else if (String.instancehelper_equals(text, "pp"))
 				{
 					item = item.getPrevious();
 					if (item != null)
@@ -182,19 +182,19 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 						item = item.getPrevious();
 					}
 				}
-				else if (java.lang.String.instancehelper_equals(text, "parent"))
+				else if (String.instancehelper_equals(text, "parent"))
 				{
 					item = item.getParent();
 				}
-				else if (java.lang.String.instancehelper_equals(text, "daughter") || java.lang.String.instancehelper_equals(text, "daughter1"))
+				else if (String.instancehelper_equals(text, "daughter") || String.instancehelper_equals(text, "daughter1"))
 				{
 					item = item.getDaughter();
 				}
-				else if (java.lang.String.instancehelper_equals(text, "daughtern"))
+				else if (String.instancehelper_equals(text, "daughtern"))
 				{
 					item = item.getLastDaughter();
 				}
-				else if (java.lang.String.instancehelper_equals(text, "R"))
+				else if (String.instancehelper_equals(text, "R"))
 				{
 					string relationName = stringTokenizer.nextToken();
 					item = item.getSharedContents().getItemRelation(relationName);
@@ -296,7 +296,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		public virtual bool equalsShared(Item otherItem)
 		{
-			return otherItem != null && java.lang.Object.instancehelper_equals(this.getSharedContents(), otherItem.getSharedContents());
+			return otherItem != null && Object.instancehelper_equals(this.getSharedContents(), otherItem.getSharedContents());
 		}
 
 		private Relation ownerRelation;

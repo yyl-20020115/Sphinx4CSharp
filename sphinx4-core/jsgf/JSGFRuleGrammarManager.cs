@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.jsgf
 {
-	public class JSGFRuleGrammarManager : java.lang.Object
+	public class JSGFRuleGrammarManager : Object
 	{		
 		public JSGFRuleGrammarManager()
 		{

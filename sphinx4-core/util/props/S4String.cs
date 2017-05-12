@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.util.props
 		string[] range();
 	}
 	
-	public abstract class S4StringBase : java.lang.Object, S4String
+	public abstract class S4StringBase : Object, S4String
 	{
 		public const string NOT_DEFINED = "nullnullnull";
 

@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.frontend
 {
-	public class FloatData : java.lang.Object, Data, Cloneable.__Interface
+	public class FloatData : Object, Data, Cloneable.__Interface
 	{
 		public static FloatData toFloatData(Data data)
 		{
@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.frontend
 			{
 				if (!(data is DoubleData))
 				{
-					string text = new StringBuilder().append("data type '").append(java.lang.Object.instancehelper_getClass(data)).append("' is not supported").toString();
+					string text = new StringBuilder().append("data type '").append(Object.instancehelper_getClass(data)).append("' is not supported").toString();
 					
 					throw new IllegalArgumentException(text);
 				}

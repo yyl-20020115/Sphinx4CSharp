@@ -5,7 +5,7 @@ using java.util;
 namespace edu.cmu.sphinx.util.props
 {
 	[System.Serializable]
-	public class PropertyType : java.lang.Enum
+	public class PropertyType : Enum
 	{
 		public static PropertyType[] values()
 		{
@@ -32,7 +32,7 @@ namespace edu.cmu.sphinx.util.props
 	
 		public static PropertyType valueOf(string name)
 		{
-			return (PropertyType)java.lang.Enum.valueOf(ClassLiteral<PropertyType>.Value, name);
+			return (PropertyType)Enum.valueOf(ClassLiteral<PropertyType>.Value, name);
 		}
 
 		public override string toString()
@@ -160,7 +160,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		internal static PropertyType __COMPONENT_LIST = new PropertyType("COMPONENT_LIST", 5, "ComponentList", ClassLiteral<List>.Value);
 		
-		internal static PropertyType __STRING = new PropertyType("STRING", 6, "java.lang.String", ClassLiteral<string>.Value);
+		internal static PropertyType __STRING = new PropertyType("STRING", 6, "String", ClassLiteral<string>.Value);
 
 		internal static PropertyType __RESOURCE = new PropertyType_5("RESOURCE", 7, "Resource");
 		

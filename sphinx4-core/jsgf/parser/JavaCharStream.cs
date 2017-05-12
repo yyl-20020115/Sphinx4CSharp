@@ -4,7 +4,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.jsgf.parser
 {
-	public class JavaCharStream : java.lang.Object
+	public class JavaCharStream : Object
 	{
 		public virtual void backup(int amount)
 		{
@@ -553,9 +553,9 @@ namespace edu.cmu.sphinx.jsgf.parser
 		{
 			if (this.bufpos >= this.tokenBegin)
 			{
-				return java.lang.String.newhelper(this.buffer, this.tokenBegin, this.bufpos - this.tokenBegin + 1);
+				return String.newhelper(this.buffer, this.tokenBegin, this.bufpos - this.tokenBegin + 1);
 			}
-			return new StringBuilder().append(java.lang.String.newhelper(this.buffer, this.tokenBegin, this.bufsize - this.tokenBegin)).append(java.lang.String.newhelper(this.buffer, 0, this.bufpos + 1)).toString();
+			return new StringBuilder().append(String.newhelper(this.buffer, this.tokenBegin, this.bufsize - this.tokenBegin)).append(String.newhelper(this.buffer, 0, this.bufpos + 1)).toString();
 		}
 
 		public virtual char[] GetSuffix(int len)

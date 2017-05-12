@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.language.ngram.trie
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
-	public class NgramTrieBitarr : java.lang.Object
+	public class NgramTrieBitarr : Object
 	{
 		public virtual int readInt(int memPtr, int bitOffset, int mask)
 		{

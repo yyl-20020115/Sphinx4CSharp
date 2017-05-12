@@ -15,7 +15,7 @@ using javax.swing;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class AudioTool : java.lang.Object
+	public class AudioTool : Object
 	{
 		public static void getFilename(string title, int type)
 		{
@@ -41,7 +41,7 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public static void getAudioFromFile(string filename)
 		{
-			if (java.lang.String.instancehelper_endsWith(filename, ".align"))
+			if (String.instancehelper_endsWith(filename, ".align"))
 			{
 				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(filename)));
 				AudioTool.populateAudio(bufferedReader.readLine());
@@ -328,7 +328,7 @@ namespace edu.cmu.sphinx.tools.audio
 			AudioTool.prefs = Preferences.userRoot().node("/edu/cmu/sphinx/tools/audio/AudioTool");
 			AudioTool.filename = AudioTool.prefs.get("filename", "untitled.raw");
 			AudioTool.file = new File(AudioTool.filename);
-			if (args.Length == 1 && java.lang.String.instancehelper_equals(args[0], "-dumpMixers"))
+			if (args.Length == 1 && String.instancehelper_equals(args[0], "-dumpMixers"))
 			{
 				AudioTool.dumpMixers();
 				java.lang.System.exit(0);

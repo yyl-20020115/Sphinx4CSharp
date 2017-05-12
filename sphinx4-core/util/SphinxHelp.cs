@@ -1,11 +1,13 @@
-﻿namespace edu.cmu.sphinx.util
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util
 {
-	public class SphinxHelp : java.lang.Object
+	public class SphinxHelp : Object
 	{
 		public SphinxHelp()
 		{
 		}
-		
+
 		public static void main(string[] args)
 		{
 			java.lang.System.@out.println();

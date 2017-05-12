@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	public class TransitionModel : java.lang.Object
+	public class TransitionModel : Object
 	{		
 		public TransitionModel(KaldiTextParser parser)
 		{
@@ -75,25 +75,25 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			kaldiTextParser.expectToken("<Topology>");
 			this.phoneStates = new HashMap();
 			string token;
-			while (java.lang.String.instancehelper_equals("<TopologyEntry>", token = kaldiTextParser.getToken()))
+			while (String.instancehelper_equals("<TopologyEntry>", token = kaldiTextParser.getToken()))
 			{
 				kaldiTextParser.assertToken("<TopologyEntry>", token);
 				kaldiTextParser.expectToken("<ForPhones>");
 				ArrayList arrayList = new ArrayList();
-				while (!java.lang.String.instancehelper_equals("</ForPhones>", token = kaldiTextParser.getToken()))
+				while (!String.instancehelper_equals("</ForPhones>", token = kaldiTextParser.getToken()))
 				{
 					arrayList.add(Integer.valueOf(Integer.parseInt(token)));
 				}
 				ArrayList arrayList2 = new ArrayList(3);
-				while (java.lang.String.instancehelper_equals("<State>", kaldiTextParser.getToken()))
+				while (String.instancehelper_equals("<State>", kaldiTextParser.getToken()))
 				{
 					int @int = kaldiTextParser.getInt();
 					token = kaldiTextParser.getToken();
-					if (java.lang.String.instancehelper_equals("<PdfClass>", token))
+					if (String.instancehelper_equals("<PdfClass>", token))
 					{
 						int int2 = kaldiTextParser.getInt();
 						ArrayList arrayList3 = new ArrayList();
-						while (java.lang.String.instancehelper_equals("<Transition>", token = kaldiTextParser.getToken()))
+						while (String.instancehelper_equals("<Transition>", token = kaldiTextParser.getToken()))
 						{
 							arrayList3.add(Integer.valueOf(kaldiTextParser.getInt()));
 							kaldiTextParser.getToken();

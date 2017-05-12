@@ -1,13 +1,12 @@
 ﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.linguist;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class TokenGraphDumper : java.lang.Object
+	public class TokenGraphDumper : Object
 	{		
 		public virtual string dumpGDL(string title)
 		{

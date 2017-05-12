@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.linguist.language.ngram.trie
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
-	internal sealed class NgramTrieQuant_1 : java.lang.Object
+	internal sealed class NgramTrieQuant_1 : Object
 	{	
 		static NgramTrieQuant_1()
 		{

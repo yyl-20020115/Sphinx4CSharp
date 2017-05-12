@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.acoustic;
+using java.lang;
 
 namespace edu.cmu.sphinx.result
 {
-	public abstract class FrameStatistics : java.lang.Object
+	public abstract class FrameStatistics : Object
 	{
 		public FrameStatistics()
 		{

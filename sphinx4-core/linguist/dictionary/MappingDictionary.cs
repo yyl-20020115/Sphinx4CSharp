@@ -3,6 +3,7 @@ using edu.cmu.sphinx.util.props;
 using java.io;
 using java.net;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
@@ -49,7 +50,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		public override void allocate()
 		{
 			base.allocate();
-			if (!java.lang.String.instancehelper_equals(this.mappingFile.getFile(), ""))
+			if (!String.instancehelper_equals(this.mappingFile.getFile(), ""))
 			{
 				this.loadMapping(this.mappingFile.openStream());
 			}

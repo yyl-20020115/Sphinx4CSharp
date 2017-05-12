@@ -5,7 +5,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.tools.batch
 {
-	internal sealed class BatchModeRecognizer_6 : java.lang.Object, CommandInterface
+	internal sealed class BatchModeRecognizer_6 : Object, CommandInterface
 	{
 		internal BatchModeRecognizer_6(BatchModeRecognizer batchModeRecognizer)
 		{

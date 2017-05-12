@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist
 {
-	public class LinguistProcessor : java.lang.Object, Configurable, Runnable
+	public class LinguistProcessor : Object, Configurable, Runnable
 	{		
 		public LinguistProcessor(Linguist linguist)
 		{

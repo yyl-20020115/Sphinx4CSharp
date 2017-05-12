@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 {
-	public class KaldiTextParser : java.lang.Object
+	public class KaldiTextParser : Object
 	{		
 		public KaldiTextParser(string path)
 		{
@@ -72,7 +72,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 			this.expectToken(openToken);
 			ArrayList arrayList = new ArrayList();
 			string text;
-			while (!java.lang.String.instancehelper_equals(closeToken, text = this.scanner.next()))
+			while (!String.instancehelper_equals(closeToken, text = this.scanner.next()))
 			{
 				arrayList.add(text);
 			}
@@ -81,11 +81,11 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.kaldi
 		
 		public virtual void assertToken(string expected, string actual)
 		{
-			if (java.lang.String.instancehelper_equals(actual, expected))
+			if (String.instancehelper_equals(actual, expected))
 			{
 				return;
 			}
-			string text = java.lang.String.format("'%s' expected, '%s' got", new object[]
+			string text = String.format("'%s' expected, '%s' got", new object[]
 			{
 				expected,
 				actual

@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.alignment
 			while (iterator.hasNext())
 			{
 				LongTextAligner_Alignment_Node longTextAligner_Alignment_Node = (LongTextAligner_Alignment_Node)iterator.next();
-				for (i = java.lang.Math.max(i, longTextAligner_Alignment_Node.getQueryIndex()); i < longTextAligner_Alignment_Node.getQueryIndex() + this.tupleSize; i++)
+				for (i = Math.max(i, longTextAligner_Alignment_Node.getQueryIndex()); i < longTextAligner_Alignment_Node.getQueryIndex() + this.tupleSize; i++)
 				{
 					array[i] = longTextAligner_Alignment_Node.getDatabaseIndex() + i - longTextAligner_Alignment_Node.getQueryIndex();
 				}
@@ -85,13 +85,13 @@ namespace edu.cmu.sphinx.alignment
 					int num6 = array2[j - 1][k - 1];
 					string text = (string)list.get(j - 1);
 					string text2 = (string)list2.get(k - 1);
-					if (!java.lang.String.instancehelper_equals(text, text2))
+					if (!String.instancehelper_equals(text, text2))
 					{
 						num6++;
 					}
 					int num7 = array2[j][k - 1] + 1;
 					int num8 = array2[j - 1][k] + 1;
-					array2[j][k] = java.lang.Math.min(num6, java.lang.Math.min(num7, num8));
+					array2[j][k] = Math.min(num6, Math.min(num7, num8));
 				}
 			}
 			num2 --;
@@ -108,7 +108,7 @@ namespace edu.cmu.sphinx.alignment
 				{
 					string text3 = (string)list.get(num2 - 1);
 					string text4 = (string)list2.get(i - 1);
-					if (array2[num2 - 1][i - 1] <= array2[num2 - 1][i - 1] && array2[num2 - 1][i - 1] <= array2[num2][i - 1] && java.lang.String.instancehelper_equals(text3, text4))
+					if (array2[num2 - 1][i - 1] <= array2[num2 - 1][i - 1] && array2[num2 - 1][i - 1] <= array2[num2][i - 1] && String.instancehelper_equals(text3, text4))
 					{
 						int[] array4 = array3;
 						i --;
@@ -178,7 +178,7 @@ namespace edu.cmu.sphinx.alignment
 
 		internal static bool assertionsDisabled = !ClassLiteral<LongTextAligner>.Value.desiredAssertionStatus();
 
-		internal sealed class Alignment : java.lang.Object
+		internal sealed class Alignment : Object
 		{
 			internal static List access_000(LongTextAligner.Alignment alignment)
 			{
@@ -252,7 +252,7 @@ namespace edu.cmu.sphinx.alignment
 							LongTextAligner_Alignment_Node longTextAligner_Alignment_Node3 = (LongTextAligner_Alignment_Node)iterator2.next();
 							if (!hashSet.contains(longTextAligner_Alignment_Node3))
 							{
-								int num = java.lang.Math.abs(this.indices.size() - this.shifts.size() - LongTextAligner_Alignment_Node.access_600(longTextAligner_Alignment_Node2) + LongTextAligner_Alignment_Node.access_700(longTextAligner_Alignment_Node2)) - java.lang.Math.abs(this.indices.size() - this.shifts.size() - LongTextAligner_Alignment_Node.access_600(longTextAligner_Alignment_Node3) + LongTextAligner_Alignment_Node.access_700(longTextAligner_Alignment_Node3));
+								int num = Math.abs(this.indices.size() - this.shifts.size() - LongTextAligner_Alignment_Node.access_600(longTextAligner_Alignment_Node2) + LongTextAligner_Alignment_Node.access_700(longTextAligner_Alignment_Node2)) - Math.abs(this.indices.size() - this.shifts.size() - LongTextAligner_Alignment_Node.access_600(longTextAligner_Alignment_Node3) + LongTextAligner_Alignment_Node.access_700(longTextAligner_Alignment_Node3));
 								Integer integer2 = (Integer)hashMap.get(longTextAligner_Alignment_Node3);
 								Integer integer3 = (Integer)hashMap.get(longTextAligner_Alignment_Node2);
 								if (integer2 == null)

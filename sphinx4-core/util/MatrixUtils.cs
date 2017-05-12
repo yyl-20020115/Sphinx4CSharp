@@ -4,7 +4,7 @@ using java.text;
 
 namespace edu.cmu.sphinx.util
 {
-	public class MatrixUtils : java.lang.Object
+	public class MatrixUtils : Object
 	{
 		public static float[] double2float(double[] values)
 		{

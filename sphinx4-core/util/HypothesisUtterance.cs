@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	internal sealed class HypothesisUtterance : java.lang.Object
+	internal sealed class HypothesisUtterance : Object
 	{
 		internal List getWords()
 		{

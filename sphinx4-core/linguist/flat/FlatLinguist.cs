@@ -450,7 +450,7 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		protected internal SearchGraph searchGraph;
 
-		public class FlatSearchGraph : java.lang.Object, SearchGraph
+		public class FlatSearchGraph : Object, SearchGraph
 		{			
 			public FlatSearchGraph(FlatLinguist this_0, SearchState initialState)
 			{
@@ -479,7 +479,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			internal FlatLinguist this_0;
 		}
 
-		public class GState : java.lang.Object
+		public class GState : Object
 		{			
 			public virtual void collectContexts()
 			{
@@ -544,7 +544,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				{
 					GrammarArc grammarArc = successors[i];
 					FlatLinguist.GState gstate = this.this_0.getGState(grammarArc.getGrammarNode());
-					if (gstate.getNode().isEmpty() || !java.lang.String.instancehelper_equals(gstate.getNode().getWord().getSpelling(), "<s>"))
+					if (gstate.getNode().isEmpty() || !String.instancehelper_equals(gstate.getNode().getWord().getSpelling(), "<s>"))
 					{
 						float num2 = grammarArc.getProbability();
 						if (FlatLinguist.access_800(this.this_0) && !gstate.getNode().isEmpty())
@@ -928,7 +928,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			{
 				Unit[] units = unitContext.getUnits();
 				int num2 = units.Length + num;
-				int num3 = java.lang.Math.min(num2, this.getLeftContextSize(array[num]));
+				int num3 = Math.min(num2, this.getLeftContextSize(array[num]));
 				int num4 = num - num3;
 				Unit[] array2 = new Unit[num3];
 				for (int i = 0; i < array2.Length; i++)
@@ -951,7 +951,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				Unit[] units = unitContext.getUnits();
 				int num2 = num + 1;
 				int num3 = array.Length - num2 + units.Length;
-				int num4 = java.lang.Math.min(num3, this.getRightContextSize(array[num]));
+				int num4 = Math.min(num3, this.getRightContextSize(array[num]));
 				Unit[] array2 = new Unit[num4];
 				for (int i = 0; i < array2.Length; i++)
 				{
@@ -1005,7 +1005,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			internal virtual UnitContext generateNextLeftContext(UnitContext unitContext, Unit unit)
 			{
 				Unit[] units = unitContext.getUnits();
-				int num = java.lang.Math.min(units.Length, this.getLeftContextSize());
+				int num = Math.min(units.Length, this.getLeftContextSize());
 				if (num == 0)
 				{
 					return UnitContext.EMPTY;

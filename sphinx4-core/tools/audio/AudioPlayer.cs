@@ -4,7 +4,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	public class AudioPlayer : java.lang.Thread
+	public class AudioPlayer : Thread
 	{		
 		public AudioPlayer(AudioData audio)
 		{
@@ -19,7 +19,7 @@ namespace edu.cmu.sphinx.tools.audio
 			{
 				this.selectionStart = selectionStart;
 				this.selectionEnd = selectionEnd;
-				java.lang.Object.instancehelper_notify(this.audio);
+				Object.instancehelper_notify(this.audio);
 			}
 		}
 		
@@ -33,10 +33,10 @@ namespace edu.cmu.sphinx.tools.audio
 					System.Threading.Monitor.Enter(obj);
 					try
 					{
-						java.lang.Object.instancehelper_wait(this.audio);
+						Object.instancehelper_wait(this.audio);
 						AudioFormat audioFormat = this.audio.getAudioFormat();
 						short[] audioData = this.audio.getAudioData();
-						int num = java.lang.Math.max(0, this.selectionStart);
+						int num = Math.max(0, this.selectionStart);
 						int num2 = this.selectionEnd;
 						if (num2 == -1)
 						{

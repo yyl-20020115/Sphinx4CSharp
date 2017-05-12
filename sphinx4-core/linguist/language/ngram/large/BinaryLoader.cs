@@ -6,7 +6,7 @@ using java.util.regex;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	public class BinaryLoader : java.lang.Object
+	public class BinaryLoader : Object
 	{		
 		public BinaryLoader(string format, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight)
 		{
@@ -134,10 +134,10 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		private void readHeader(DataInputStream dataInputStream)
 		{
 			int num = this.readInt(dataInputStream, this.bigEndian);
-			if (num != java.lang.String.instancehelper_length("Darpa Trigram LM") + 1 && num != java.lang.String.instancehelper_length("Darpa Quadrigram LM") + 1 && num != java.lang.String.instancehelper_length("Darpa \\d-gram LM") - 1)
+			if (num != String.instancehelper_length("Darpa Trigram LM") + 1 && num != String.instancehelper_length("Darpa Quadrigram LM") + 1 && num != String.instancehelper_length("Darpa \\d-gram LM") - 1)
 			{
 				num = Utilities.swapInteger(num);
-				if (num != java.lang.String.instancehelper_length("Darpa Trigram LM") + 1 && num != java.lang.String.instancehelper_length("Darpa Quadrigram LM") + 1 && num != java.lang.String.instancehelper_length("Darpa \\d-gram LM") - 1)
+				if (num != String.instancehelper_length("Darpa Trigram LM") + 1 && num != String.instancehelper_length("Darpa Quadrigram LM") + 1 && num != String.instancehelper_length("Darpa \\d-gram LM") - 1)
 				{
 					string text = new StringBuilder().append("Bad binary LM file magic number: ").append(num).append(", not an LM dumpfile?").toString();
 					
@@ -149,7 +149,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			sbyte b = (sbyte)dataInputStream.readByte();
 			this.bytesRead += 1L;
 			CharSequence charSequence;
-			if (!java.lang.String.instancehelper_equals(text2, "Darpa Trigram LM") && !java.lang.String.instancehelper_equals(text2, "Darpa Quadrigram LM"))
+			if (!String.instancehelper_equals(text2, "Darpa Trigram LM") && !String.instancehelper_equals(text2, "Darpa Quadrigram LM"))
 			{
 				string text3 = "Darpa \\d-gram LM";
 				object _ref = text2;
@@ -161,11 +161,11 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 					throw new Error(text4);
 				}
 			}
-			if (java.lang.String.instancehelper_equals(text2, "Darpa Trigram LM"))
+			if (String.instancehelper_equals(text2, "Darpa Trigram LM"))
 			{
 				this.maxNGram = 3;
 			}
-			else if (java.lang.String.instancehelper_equals(text2, "Darpa Quadrigram LM"))
+			else if (String.instancehelper_equals(text2, "Darpa Quadrigram LM"))
 			{
 				this.maxNGram = 4;
 			}
@@ -234,7 +234,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				array2[num6] = num5;
 				if (num7 < 0)
 				{
-					string text7 = new StringBuilder().append("Bad number of ").append(java.lang.String.valueOf(i)).append("-grams: ").append(this.numberNGrams[i]).toString();
+					string text7 = new StringBuilder().append("Bad number of ").append(String.valueOf(i)).append("-grams: ").append(this.numberNGrams[i]).toString();
 					
 					throw new Error(text7);
 				}
@@ -345,13 +345,13 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 				this.bytesRead += 1L;
 				if (num5 == 0)
 				{
-					array[num3] = java.lang.String.newhelper(array2, num4, i - num4);
+					array[num3] = String.newhelper(array2, num4, i - num4);
 					num4 = i + 1;
-					if (java.lang.String.instancehelper_equals(array[num3], "<s>"))
+					if (String.instancehelper_equals(array[num3], "<s>"))
 					{
 						this.startWordID = num3;
 					}
-					else if (java.lang.String.instancehelper_equals(array[num3], "</s>"))
+					else if (String.instancehelper_equals(array[num3], "</s>"))
 					{
 						this.endWordID = num3;
 					}

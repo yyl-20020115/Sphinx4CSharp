@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	internal sealed class ReferenceUtterance : java.lang.Object
+	internal sealed class ReferenceUtterance : Object
 	{
 		internal float getEndTime()
 		{
@@ -26,7 +26,7 @@ namespace edu.cmu.sphinx.util
 			stringTokenizer.nextToken();
 			stringTokenizer.nextToken();
 			string text2 = stringTokenizer.nextToken();
-			if (java.lang.String.instancehelper_equals(text2, "inter_segment_gap"))
+			if (String.instancehelper_equals(text2, "inter_segment_gap"))
 			{
 				this._isSilenceGap = true;
 			}

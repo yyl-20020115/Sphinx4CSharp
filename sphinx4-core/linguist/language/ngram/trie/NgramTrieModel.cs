@@ -138,7 +138,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		public NgramTrieModel(string format, URL location, string ngramLogFile, int maxNGramCacheSize, bool clearCacheAfterUtterance, int maxDepth, dictionary.Dictionary dictionary, bool applyLanguageWeightAndWip, float languageWeight, double wip, float unigramWeight)
 		{
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.format = format;
 			this.location = location;
 			this.ngramLogFile = ngramLogFile;
@@ -184,7 +184,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			BinaryLoader binaryLoader;
 			if (this.location.getProtocol() != null)
 			{
-				if (!java.lang.String.instancehelper_equals(this.location.getProtocol(), "file"))
+				if (!String.instancehelper_equals(this.location.getProtocol(), "file"))
 				{
 					binaryLoader = new BinaryLoader(this.location);
 					goto IL_EC;
@@ -266,7 +266,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				CharSequence charSequence2 = charSequence;
 				_ref = obj2;
 				charSequence = CharSequence.Cast(_ref);
-				printWriter.println(stringBuilder.append(java.lang.String.instancehelper_replace(text2, charSequence2, charSequence)).append(" : ").append(Float.toString(num2)).toString());
+				printWriter.println(stringBuilder.append(String.instancehelper_replace(text2, charSequence2, charSequence)).append(" : ").append(Float.toString(num2)).toString());
 			}
 			return num2;
 		}
@@ -409,7 +409,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		
 		private LRUCache ngramProbCache;
 
-		public class TrieRange : java.lang.Object
+		public class TrieRange : Object
 		{
 			internal virtual void setFound(bool flag)
 			{
@@ -445,7 +445,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			internal bool found;
 		}
 
-		public class TrieUnigram : java.lang.Object
+		public class TrieUnigram : Object
 		{
 			public TrieUnigram()
 			{

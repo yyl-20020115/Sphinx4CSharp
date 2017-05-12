@@ -266,7 +266,7 @@ namespace edu.cmu.sphinx.frontend.util
 
 		private string batchFile;
 
-		internal sealed class InputStreamEnumeration : java.lang.Object, Enumeration
+		internal sealed class InputStreamEnumeration : Object, Enumeration
 		{
 			private int getSilenceCount()
 			{

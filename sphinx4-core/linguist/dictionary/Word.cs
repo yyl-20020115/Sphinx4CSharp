@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
-	public class Word : java.lang.Object, Comparable
+	public class Word : Object, Comparable
 	{
 		public virtual string getSpelling()
 		{
@@ -16,17 +16,17 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		
 		public override int hashCode()
 		{
-			return java.lang.String.instancehelper_hashCode(this.spelling);
+			return String.instancehelper_hashCode(this.spelling);
 		}
 		
 		public override bool equals(object obj)
 		{
-			return obj is Word && java.lang.String.instancehelper_equals(this.spelling, ((Word)obj).spelling);
+			return obj is Word && String.instancehelper_equals(this.spelling, ((Word)obj).spelling);
 		}
 		
 		public virtual int compareTo(Word other)
 		{
-			return java.lang.String.instancehelper_compareTo(this.getSpelling(), other.getSpelling());
+			return String.instancehelper_compareTo(this.getSpelling(), other.getSpelling());
 		}
 
 		public virtual Pronunciation[] getPronunciations()
@@ -48,12 +48,12 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		
 		public virtual bool isSentenceEndWord()
 		{
-			return java.lang.String.instancehelper_equals("</s>", this.spelling);
+			return String.instancehelper_equals("</s>", this.spelling);
 		}
 		
 		public virtual bool isSentenceStartWord()
 		{
-			return java.lang.String.instancehelper_equals("<s>", this.spelling);
+			return String.instancehelper_equals("<s>", this.spelling);
 		}
 		
 		public virtual Pronunciation getMostLikelyPronunciation()

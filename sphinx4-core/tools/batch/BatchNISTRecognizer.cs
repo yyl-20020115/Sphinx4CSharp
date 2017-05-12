@@ -56,12 +56,12 @@ namespace edu.cmu.sphinx.tools.batch
 				WordSearchState wordSearchState = (WordSearchState)token.getSearchState();
 				Word word = wordSearchState.getPronunciation().getWord();
 				string spelling = word.getSpelling();
-				if (!java.lang.String.instancehelper_startsWith(spelling, "<"))
+				if (!String.instancehelper_startsWith(spelling, "<"))
 				{
-					string[] array = java.lang.String.instancehelper_split(ctlutterance.name, "_");
-					dataOutputStream.write(java.lang.String.instancehelper_getBytes(new StringBuilder().append(array[0]).append('_').append(array[1]).append('_').append(array[2]).append(" 1 ").append((double)((long)ctlutterance.startOffset + num) / 100.0).append(' ').append((double)(collectTime - num) / 100.0).append(' ').toString()));
+					string[] array = String.instancehelper_split(ctlutterance.name, "_");
+					dataOutputStream.write(String.instancehelper_getBytes(new StringBuilder().append(array[0]).append('_').append(array[1]).append('_').append(array[2]).append(" 1 ").append((double)((long)ctlutterance.startOffset + num) / 100.0).append(' ').append((double)(collectTime - num) / 100.0).append(' ').toString()));
 					dataOutputStream.write(BatchNISTRecognizer.hex2Binary(spelling));
-					dataOutputStream.write(java.lang.String.instancehelper_getBytes(" 0.700000\n"));
+					dataOutputStream.write(String.instancehelper_getBytes(" 0.700000\n"));
 				}
 				return collectTime;
 			}
@@ -70,11 +70,11 @@ namespace edu.cmu.sphinx.tools.batch
 
 		public static byte[] hex2Binary(string spelling)
 		{
-			byte[] array = new byte[java.lang.String.instancehelper_length(spelling) / 2];
-			for (int i = 0; i < java.lang.String.instancehelper_length(spelling); i += 2)
+			byte[] array = new byte[String.instancehelper_length(spelling) / 2];
+			for (int i = 0; i < String.instancehelper_length(spelling); i += 2)
 			{
-				int num = BatchNISTRecognizer.hexToByte(java.lang.String.instancehelper_charAt(spelling, i));
-				int num2 = BatchNISTRecognizer.hexToByte(java.lang.String.instancehelper_charAt(spelling, i + 1));
+				int num = BatchNISTRecognizer.hexToByte(String.instancehelper_charAt(spelling, i));
+				int num2 = BatchNISTRecognizer.hexToByte(String.instancehelper_charAt(spelling, i + 1));
 				array[i / 2] = (byte)((sbyte)(num2 + 16 * num));
 			}
 			return array;
@@ -154,7 +154,7 @@ namespace edu.cmu.sphinx.tools.batch
 		
 		public BatchNISTRecognizer(Recognizer recognizer, List inputDataProcessors, string ctlFile, string dataDir, string refFile, string ctmFile, int bitsPerSample, int samplesPerSecond, int framesPerSecond, int channelCount)
 		{
-			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
+			this.logger = Logger.getLogger(Object.instancehelper_getClass(this).getName());
 			this.recognizer = recognizer;
 			this.inputDataProcessors = inputDataProcessors;
 			this.dataDir = dataDir;
@@ -336,7 +336,7 @@ namespace edu.cmu.sphinx.tools.batch
 			internal BatchNISTRecognizer this_0;
 		}
 
-		public class CTLIterator : java.lang.Object, Iterator
+		public class CTLIterator : Object, Iterator
 		{			
 			public CTLIterator(BatchNISTRecognizer this_0)
 			{
@@ -397,7 +397,7 @@ namespace edu.cmu.sphinx.tools.batch
 			internal BatchNISTRecognizer this_0;
 		}
 
-		public class CTLUtterance : java.lang.Object
+		public class CTLUtterance : Object
 		{
 			public virtual InputStream getInputStream()
 			{
@@ -418,7 +418,7 @@ namespace edu.cmu.sphinx.tools.batch
 			{
 				this_0 = batchNISTRecognizer;
 				this.@ref = text2;
-				string[] array = java.lang.String.instancehelper_split(text, " ");
+				string[] array = String.instancehelper_split(text, " ");
 				if (array.Length != 4)
 				{
 					string text3 = new StringBuilder().append("CTL Syntax Error: ").append(text).toString();
@@ -429,11 +429,11 @@ namespace edu.cmu.sphinx.tools.batch
 				this.endOffset = Integer.parseInt(array[2]);
 				this.name = array[3];
 				this.data = new byte[(this.endOffset - this.startOffset) * batchNISTRecognizer.bytesPerFrame];
-				int num = java.lang.String.instancehelper_indexOf(array[0], 46);
+				int num = String.instancehelper_indexOf(array[0], 46);
 				this.file = array[0];
 				if (num >= 0)
 				{
-					this.file = java.lang.String.instancehelper_substring(this.file, 0, num);
+					this.file = String.instancehelper_substring(this.file, 0, num);
 				}
 				this.file = new StringBuilder().append(batchNISTRecognizer.dataDir).append('/').append(this.file).append(".raw").toString();
 				try

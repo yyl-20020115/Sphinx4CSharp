@@ -7,12 +7,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 	{		
 		public ParseException()
 		{
-			this.eol = java.lang.System.getProperty("line.separator", "\n");
 		}
 		
 		public ParseException(Token currentTokenVal, int[][] expectedTokenSequencesVal, string[] tokenImageVal) : base(ParseException.initialise(currentTokenVal, expectedTokenSequencesVal, tokenImageVal))
 		{
-			this.eol = java.lang.System.getProperty("line.separator", "\n");
 			this.currentToken = currentTokenVal;
 			this.expectedTokenSequences = expectedTokenSequencesVal;
 			this.tokenImage = tokenImageVal;
@@ -74,9 +72,9 @@ namespace edu.cmu.sphinx.jsgf.parser
 		internal static string add_escapes(string text)
 		{
 			StringBuffer stringBuffer = new StringBuffer();
-			for (int i = 0; i < java.lang.String.instancehelper_length(text); i++)
+			for (int i = 0; i < String.instancehelper_length(text); i++)
 			{
-				char c = java.lang.String.instancehelper_charAt(text, i);
+				char c = String.instancehelper_charAt(text, i);
 				if (c != '\0')
 				{
 					int num;
@@ -112,10 +110,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 					{
 						stringBuffer.append("\\\\");
 					}
-					else if ((num = (int)java.lang.String.instancehelper_charAt(text, i)) < 32 || num > 126)
+					else if ((num = (int)String.instancehelper_charAt(text, i)) < 32 || num > 126)
 					{
 						string text2 = new StringBuilder().append("0000").append(Integer.toString(num, 16)).toString();
-						stringBuffer.append(new StringBuilder().append("\\u").append(java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_length(text2) - 4, java.lang.String.instancehelper_length(text2))).toString());
+						stringBuffer.append(new StringBuilder().append("\\u").append(String.instancehelper_substring(text2, String.instancehelper_length(text2) - 4, String.instancehelper_length(text2))).toString());
 					}
 					else
 					{
@@ -128,9 +126,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 		
 		public ParseException(string message) : base(message)
 		{
-			this.eol = java.lang.System.getProperty("line.separator", "\n");
 		}
-
 		
 		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
 		protected ParseException(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) : base(serializationInfo, streamingContext)
@@ -145,6 +141,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 
 		public string[] tokenImage;
 
-		protected internal string eol;
+		protected internal string eol = java.lang.System.getProperty("line.separator", "\n");
 	}
 }

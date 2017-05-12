@@ -26,7 +26,7 @@ namespace edu.cmu.sphinx.util.props
 		int[] range();
 	}
 
-	public abstract class S4IntegerBase : java.lang.Object, S4Integer
+	public abstract class S4IntegerBase : Object, S4Integer
 	{
 		public const int NOT_DEFINED = -918273645;
 

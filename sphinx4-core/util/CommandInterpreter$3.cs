@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.util
 {
-	internal sealed class CommandInterpreter_3 : java.lang.Object, CommandInterface
+	internal sealed class CommandInterpreter_3 : Object, CommandInterface
 	{
 		internal CommandInterpreter_3(CommandInterpreter commandInterpreter)
 		{

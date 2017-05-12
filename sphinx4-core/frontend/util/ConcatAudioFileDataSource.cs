@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.frontend.util
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 				arrayList = new ArrayList();
 				string text2;
-				while ((text2 = bufferedReader.readLine()) != null && java.lang.String.instancehelper_length(java.lang.String.instancehelper_trim(text2)) != 0)
+				while ((text2 = bufferedReader.readLine()) != null && String.instancehelper_length(String.instancehelper_trim(text2)) != 0)
 				{
 					File file2 = new File(text2);
 					arrayList.add(file2.toURI().toURL());
@@ -160,7 +160,7 @@ namespace edu.cmu.sphinx.frontend.util
 		
 		internal new static bool assertionsDisabled;
 		
-		internal sealed class InputStreamEnumeration : java.lang.Object, Enumeration
+		internal sealed class InputStreamEnumeration : Object, Enumeration
 		{
 			public URL readNext()
 			{

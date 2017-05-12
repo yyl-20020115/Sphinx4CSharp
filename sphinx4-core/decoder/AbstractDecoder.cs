@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.decoder
 		public AbstractDecoder(SearchManager searchManager, bool fireNonFinalResults, bool autoAllocate, List resultListeners)
 		{
 			this.__resultListeners = new ArrayList();
-			string text = java.lang.Object.instancehelper_getClass(this).getName();
+			string text = Object.instancehelper_getClass(this).getName();
 			this.init(text, Logger.getLogger(text), searchManager, fireNonFinalResults, autoAllocate, resultListeners);
 		}
 

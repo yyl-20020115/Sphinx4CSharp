@@ -162,7 +162,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				}
 				return null;
 			}
-			string text = java.lang.String.newhelper(array2, 0, i);
+			string text = String.newhelper(array2, 0, i);
 			StringTokenizer stringTokenizer = new StringTokenizer(text, " \t\n\r\f;");
 			string text2 = null;
 			string text3 = null;
@@ -172,7 +172,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				text2 = stringTokenizer.nextToken();
 			}
-			if (!java.lang.String.instancehelper_equals(text2, "#JSGF"))
+			if (!String.instancehelper_equals(text2, "#JSGF"))
 			{
 				try
 				{
@@ -423,7 +423,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			string name = this.Name();
 			this.jj_consume_token(26);
 			JSGFRuleGrammar jsgfruleGrammar = factory.newGrammar(name);
-			if (jsgfruleGrammar != null && token != null && token.specialToken != null && token.specialToken.image != null && java.lang.String.instancehelper_startsWith(token.specialToken.image, "/**"))
+			if (jsgfruleGrammar != null && token != null && token.specialToken != null && token.specialToken.image != null && String.instancehelper_startsWith(token.specialToken.image, "/**"))
 			{
 				JSGFRuleGrammar jsgfruleGrammar2 = jsgfruleGrammar;
 				jsgfruleGrammar2.addGrammarDocComment(token.specialToken.image);
@@ -457,7 +457,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			if (grammar != null)
 			{
 				grammar.addImport(jsgfruleName);
-				if (grammar is JSGFRuleGrammar && token != null && token.specialToken != null && token.specialToken.image != null && java.lang.String.instancehelper_startsWith(token.specialToken.image, "/**"))
+				if (grammar is JSGFRuleGrammar && token != null && token.specialToken != null && token.specialToken.image != null && String.instancehelper_startsWith(token.specialToken.image, "/**"))
 				{
 					grammar.addImportDocComment(jsgfruleName, token.specialToken.image);
 				}
@@ -497,7 +497,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					{
 						text2 = token2.specialToken.image;
 					}
-					if (text2 != null && java.lang.String.instancehelper_startsWith(text2, "/**"))
+					if (text2 != null && String.instancehelper_startsWith(text2, "/**"))
 					{
 						JSGFParser.extractKeywords(grammar, text, text2);
 						grammar.addRuleDocComment(text, text2);
@@ -506,11 +506,8 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			catch (IllegalArgumentException)
 			{
-				goto IL_101;
+				java.lang.System.@out.println(new StringBuilder().append("ERROR SETTING JSGFRule ").append(text).toString());
 			}
-			return;
-			IL_101:
-			java.lang.System.@out.println(new StringBuilder().append("ERROR SETTING JSGFRule ").append(text).toString());
 		}
 		
 		private Token jj_consume_token(int num)
@@ -667,18 +664,18 @@ namespace edu.cmu.sphinx.jsgf.parser
 		internal static void extractKeywords(JSGFRuleGrammar jsgfruleGrammar, string ruleName, string text)
 		{
 			int num = 0;
-			while ((num = java.lang.String.instancehelper_indexOf(text, "@example ", num) + 9) > 9)
+			while ((num = String.instancehelper_indexOf(text, "@example ", num) + 9) > 9)
 			{
-				int num2 = java.lang.Math.max(java.lang.String.instancehelper_indexOf(text, 13, num), java.lang.String.instancehelper_indexOf(text, 10, num));
+				int num2 = Math.max(String.instancehelper_indexOf(text, 13, num), String.instancehelper_indexOf(text, 10, num));
 				if (num2 < 0)
 				{
-					num2 = java.lang.String.instancehelper_length(text);
-					if (java.lang.String.instancehelper_endsWith(text, "*/"))
+					num2 = String.instancehelper_length(text);
+					if (String.instancehelper_endsWith(text, "*/"))
 					{
 						num2 += -2;
 					}
 				}
-				jsgfruleGrammar.addSampleSentence(ruleName, java.lang.String.instancehelper_trim(java.lang.String.instancehelper_substring(text, num, num2)));
+				jsgfruleGrammar.addSampleSentence(ruleName, String.instancehelper_trim(String.instancehelper_substring(text, num, num2)));
 				num = num2 + 1;
 			}
 		}
@@ -875,10 +872,10 @@ namespace edu.cmu.sphinx.jsgf.parser
 				while (iterator.hasNext())
 				{
 					string text = (string)iterator.next();
-					if (java.lang.String.instancehelper_charAt(text, 0) == '{')
+					if (String.instancehelper_charAt(text, 0) == '{')
 					{
-						text = java.lang.String.instancehelper_substring(text, 1, java.lang.String.instancehelper_length(text) - 1);
-						text = java.lang.String.instancehelper_replace(text, '\\', ' ');
+						text = String.instancehelper_substring(text, 1, String.instancehelper_length(text) - 1);
+						text = String.instancehelper_replace(text, '\\', ' ');
 					}
 					jsgfrule = new JSGFRuleTag(jsgfrule, text);
 				}
@@ -919,9 +916,9 @@ namespace edu.cmu.sphinx.jsgf.parser
 			throw new ParseException();
 			IL_BF:
 			string text = token.image;
-			if (java.lang.String.instancehelper_startsWith(text, "\"") && java.lang.String.instancehelper_endsWith(text, "\""))
+			if (String.instancehelper_startsWith(text, "\"") && String.instancehelper_endsWith(text, "\""))
 			{
-				text = java.lang.String.instancehelper_substring(text, 1, java.lang.String.instancehelper_length(text) - 1);
+				text = String.instancehelper_substring(text, 1, String.instancehelper_length(text) - 1);
 			}
 			return new JSGFRuleToken(text);
 		}
@@ -1418,11 +1415,8 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			catch (ParseException)
 			{
-				goto IL_3B;
+				java.lang.System.@out.println("JSGF Parser Version 1.0:  Encountered errors during parse.");
 			}
-			return result;
-			IL_3B:
-			java.lang.System.@out.println("JSGF Parser Version 1.0:  Encountered errors during parse.");
 			return result;
 		}
 		
@@ -1578,7 +1572,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 		private int jj_gc;
 
 		private JSGFParser.LookaheadSuccess jj_ls;
-
 		
 		private List jj_expentries;
 
@@ -1590,7 +1583,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 
 		private int jj_endpos;
 
-		internal sealed class JJCalls : java.lang.Object
+		internal sealed class JJCalls : Object
 		{
 			internal JJCalls()
 			{

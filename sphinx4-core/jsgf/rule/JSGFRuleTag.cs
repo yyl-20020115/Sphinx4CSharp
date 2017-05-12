@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.jsgf.rule
 		private string escapeTag(string text)
 		{
 			StringBuilder stringBuilder = new StringBuilder(text);
-			if (java.lang.String.instancehelper_indexOf(text, 125) >= 0 || java.lang.String.instancehelper_indexOf(text, 92) >= 0 || java.lang.String.instancehelper_indexOf(text, 123) >= 0)
+			if (String.instancehelper_indexOf(text, 125) >= 0 || String.instancehelper_indexOf(text, 92) >= 0 || String.instancehelper_indexOf(text, 123) >= 0)
 			{
 				for (int i = stringBuilder.length() - 1; i >= 0; i --)
 				{

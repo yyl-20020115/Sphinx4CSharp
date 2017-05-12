@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.linguist
 {
-	internal sealed class WordSequence_1 : java.lang.Object, Comparator
+	internal sealed class WordSequence_1 : Object, Comparator
 	{
 		public int compare(WordSequence wordSequence, WordSequence wordSequence2)
 		{
@@ -20,7 +21,7 @@ namespace edu.cmu.sphinx.linguist
 		
 		bool Comparator.equals(object obj)
 		{
-			return java.lang.Object.instancehelper_equals(this, obj);
+			return Object.instancehelper_equals(this, obj);
 		}
 	}
 }

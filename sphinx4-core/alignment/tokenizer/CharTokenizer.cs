@@ -74,9 +74,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			else if (this.inputText != null)
 			{
-				if (this.currentPosition < java.lang.String.instancehelper_length(this.inputText))
+				if (this.currentPosition < String.instancehelper_length(this.inputText))
 				{
-					this.currentChar = (int)java.lang.String.instancehelper_charAt(this.inputText, this.currentPosition);
+					this.currentChar = (int)String.instancehelper_charAt(this.inputText, this.currentPosition);
 				}
 				else
 				{
@@ -111,16 +111,16 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				return;
 			}
 			string word = this.token.getWord();
-			int num = java.lang.String.instancehelper_length(word);
+			int num = String.instancehelper_length(word);
 			int num2 = num - 1;
-			while (num2 > 0 && java.lang.String.instancehelper_indexOf(this.postpunctuationSymbols, (int)java.lang.String.instancehelper_charAt(word, num2)) != -1)
+			while (num2 > 0 && String.instancehelper_indexOf(this.postpunctuationSymbols, (int)String.instancehelper_charAt(word, num2)) != -1)
 			{
 				num2 --;
 			}
 			if (num - 1 != num2)
 			{
-				this.token.setPostpunctuation(java.lang.String.instancehelper_substring(word, num2 + 1));
-				this.token.setWord(java.lang.String.instancehelper_substring(word, 0, num2 + 1));
+				this.token.setPostpunctuation(String.instancehelper_substring(word, num2 + 1));
+				this.token.setWord(String.instancehelper_substring(word, 0, num2 + 1));
 			}
 			else
 			{
@@ -131,7 +131,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		private string getTokenByCharClass(string text, bool flag)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
-			while (java.lang.String.instancehelper_indexOf(text, this.currentChar) != -1 == flag && java.lang.String.instancehelper_indexOf(this.singleCharSymbols, this.currentChar) == -1 && this.currentChar != -1)
+			while (String.instancehelper_indexOf(text, this.currentChar) != -1 == flag && String.instancehelper_indexOf(this.singleCharSymbols, this.currentChar) == -1 && this.currentChar != -1)
 			{
 				stringBuilder.append((char)this.currentChar);
 				this.getNextChar();
@@ -145,9 +145,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.token = new Token();
 			this.token.setWhitespace(this.getTokenOfCharClass(this.whitespaceSymbols));
 			this.token.setPrepunctuation(this.getTokenOfCharClass(this.prepunctuationSymbols));
-			if (java.lang.String.instancehelper_indexOf(this.singleCharSymbols, this.currentChar) != -1)
+			if (String.instancehelper_indexOf(this.singleCharSymbols, this.currentChar) != -1)
 			{
-				this.token.setWord(java.lang.String.valueOf((char)this.currentChar));
+				this.token.setWord(String.valueOf((char)this.currentChar));
 				this.getNextChar();
 			}
 			else
@@ -212,21 +212,21 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			{
 				return false;
 			}
-			if (java.lang.String.instancehelper_indexOf(whitespace, 10) != java.lang.String.instancehelper_lastIndexOf(whitespace, 10))
+			if (String.instancehelper_indexOf(whitespace, 10) != String.instancehelper_lastIndexOf(whitespace, 10))
 			{
 				return true;
 			}
-			if (java.lang.String.instancehelper_indexOf(text, 58) != -1 || java.lang.String.instancehelper_indexOf(text, 63) != -1 || java.lang.String.instancehelper_indexOf(text, 33) != -1)
+			if (String.instancehelper_indexOf(text, 58) != -1 || String.instancehelper_indexOf(text, 63) != -1 || String.instancehelper_indexOf(text, 33) != -1)
 			{
 				return true;
 			}
-			if (java.lang.String.instancehelper_indexOf(text, 46) != -1 && java.lang.String.instancehelper_length(whitespace) > 1 && Character.isUpperCase(java.lang.String.instancehelper_charAt(this.token.getWord(), 0)))
+			if (String.instancehelper_indexOf(text, 46) != -1 && String.instancehelper_length(whitespace) > 1 && Character.isUpperCase(String.instancehelper_charAt(this.token.getWord(), 0)))
 			{
 				return true;
 			}
 			string word = this.lastToken.getWord();
-			int num = java.lang.String.instancehelper_length(word);
-			return java.lang.String.instancehelper_indexOf(text, 46) != -1 && Character.isUpperCase(java.lang.String.instancehelper_charAt(this.token.getWord(), 0)) && !Character.isUpperCase(java.lang.String.instancehelper_charAt(word, num - 1)) && (num >= 4 || !Character.isUpperCase(java.lang.String.instancehelper_charAt(word, 0)));
+			int num = String.instancehelper_length(word);
+			return String.instancehelper_indexOf(text, 46) != -1 && Character.isUpperCase(String.instancehelper_charAt(this.token.getWord(), 0)) && !Character.isUpperCase(String.instancehelper_charAt(word, num - 1)) && (num >= 4 || !Character.isUpperCase(String.instancehelper_charAt(word, 0)));
 		}
 
 		object Iterator.next()

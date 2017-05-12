@@ -32,7 +32,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			string text;
 			while ((text = this.readLine()) != null)
 			{
-				if (java.lang.String.instancehelper_startsWith(text, "ngram"))
+				if (String.instancehelper_startsWith(text, "ngram"))
 				{
 					StringTokenizer stringTokenizer = new StringTokenizer(text, " \t\n\r\f=");
 					if (stringTokenizer.countTokens() != 3)
@@ -43,9 +43,9 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 					int num4 = Integer.parseInt(stringTokenizer.nextToken());
 					int i = Integer.parseInt(stringTokenizer.nextToken());
 					arrayList.add(num4 - 1, Integer.valueOf(i));
-					this.maxNGram = java.lang.Math.max(num4, this.maxNGram);
+					this.maxNGram = Math.max(num4, this.maxNGram);
 				}
-				else if (java.lang.String.instancehelper_equals(text, "\\1-grams:"))
+				else if (String.instancehelper_equals(text, "\\1-grams:"))
 				{
 					break;
 				}
@@ -152,7 +152,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 			try
 			{
-				while (!java.lang.String.instancehelper_equals(this.readLine(), text))
+				while (!String.instancehelper_equals(this.readLine(), text))
 				{
 				}
 			}
@@ -173,7 +173,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			{
 				this.corrupt("Premature EOF");
 			}
-			return java.lang.String.instancehelper_trim(text);
+			return String.instancehelper_trim(text);
 		}
 		
 		private void corrupt(string text)

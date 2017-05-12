@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.util
 {
-	internal sealed class TestFileFilter : java.lang.Object, FileFilter
+	internal sealed class TestFileFilter : Object, FileFilter
 	{
 		internal TestFileFilter()
 		{

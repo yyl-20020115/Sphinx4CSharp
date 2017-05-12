@@ -3,7 +3,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
-	public class NgramTrieQuant : java.lang.Object
+	public class NgramTrieQuant : Object
 	{		
 		public NgramTrieQuant(int order, NgramTrieQuant.QuantType quantType)
 		{
@@ -135,7 +135,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		private NgramTrieQuant.QuantType quantType;
 		
 		[System.Serializable]
-		public sealed class QuantType : java.lang.Enum
+		public sealed class QuantType : Enum
 		{			
 			public static NgramTrieQuant.QuantType[] values()
 			{
@@ -149,7 +149,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			
 			public static NgramTrieQuant.QuantType valueOf(string name)
 			{
-				return (NgramTrieQuant.QuantType)java.lang.Enum.valueOf(ClassLiteral<NgramTrieQuant.QuantType>.Value, name);
+				return (NgramTrieQuant.QuantType)Enum.valueOf(ClassLiteral<NgramTrieQuant.QuantType>.Value, name);
 			}
 			
 			public static NgramTrieQuant.QuantType NO_QUANT

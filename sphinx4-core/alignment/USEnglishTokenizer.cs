@@ -10,16 +10,16 @@ namespace edu.cmu.sphinx.alignment
 	{
 		private string simplifyChars(string text)
 		{
-			text = java.lang.String.instancehelper_replace(text, '’', '\'');
-			text = java.lang.String.instancehelper_replace(text, '‘', '\'');
-			text = java.lang.String.instancehelper_replace(text, '”', '"');
-			text = java.lang.String.instancehelper_replace(text, '“', '"');
-			text = java.lang.String.instancehelper_replace(text, '»', '"');
-			text = java.lang.String.instancehelper_replace(text, '«', '"');
-			text = java.lang.String.instancehelper_replace(text, '–', '-');
-			text = java.lang.String.instancehelper_replace(text, '—', ' ');
-			text = java.lang.String.instancehelper_replace(text, '…', ' ');
-			text = java.lang.String.instancehelper_replace(text, '\f', ' ');
+			text = String.instancehelper_replace(text, '’', '\'');
+			text = String.instancehelper_replace(text, '‘', '\'');
+			text = String.instancehelper_replace(text, '”', '"');
+			text = String.instancehelper_replace(text, '“', '"');
+			text = String.instancehelper_replace(text, '»', '"');
+			text = String.instancehelper_replace(text, '«', '"');
+			text = String.instancehelper_replace(text, '–', '-');
+			text = String.instancehelper_replace(text, '—', ' ');
+			text = String.instancehelper_replace(text, '…', ' ');
+			text = String.instancehelper_replace(text, '\f', ' ');
 			return text;
 		}
 
@@ -27,12 +27,12 @@ namespace edu.cmu.sphinx.alignment
 		{
 			FeatureSet features = this.tokenItem.getFeatures();
 			string @string = features.getString("name");
-			int num = java.lang.String.instancehelper_length(text);
+			int num = String.instancehelper_length(text);
 			if (features.isPresent("phones"))
 			{
 				this.wordRelation.addWord(text);
 			}
-			else if ((java.lang.String.instancehelper_equals(text, "a") || java.lang.String.instancehelper_equals(text, "A")) && (this.tokenItem.getNext() == null || !java.lang.String.instancehelper_equals(text, @string) || !java.lang.String.instancehelper_equals((string)this.tokenItem.findFeature("punc"), "")))
+			else if ((String.instancehelper_equals(text, "a") || String.instancehelper_equals(text, "A")) && (this.tokenItem.getNext() == null || !String.instancehelper_equals(text, @string) || !String.instancehelper_equals((string)this.tokenItem.findFeature("punc"), "")))
 			{
 				this.wordRelation.addWord("_a");
 			}
@@ -51,21 +51,21 @@ namespace edu.cmu.sphinx.alignment
 				{
 					this.drStToWords(text);
 				}
-				else if (java.lang.String.instancehelper_equals(text, "Mr"))
+				else if (String.instancehelper_equals(text, "Mr"))
 				{
 					this.tokenItem.getFeatures().setString("punc", "");
 					this.wordRelation.addWord("mister");
 				}
-				else if (java.lang.String.instancehelper_equals(text, "Mrs"))
+				else if (String.instancehelper_equals(text, "Mrs"))
 				{
 					this.tokenItem.getFeatures().setString("punc", "");
 					this.wordRelation.addWord("missus");
 				}
-				else if (num == 1 && Character.isUpperCase(java.lang.String.instancehelper_charAt(text, 0)) && java.lang.String.instancehelper_equals((string)this.tokenItem.findFeature("n.whitespace"), " ") && Character.isUpperCase(java.lang.String.instancehelper_charAt((string)this.tokenItem.findFeature("n.name"), 0)))
+				else if (num == 1 && Character.isUpperCase(String.instancehelper_charAt(text, 0)) && String.instancehelper_equals((string)this.tokenItem.findFeature("n.whitespace"), " ") && Character.isUpperCase(String.instancehelper_charAt((string)this.tokenItem.findFeature("n.name"), 0)))
 				{
 					features.setString("punc", "");
-					string text2 = java.lang.String.instancehelper_toLowerCase(text);
-					if (java.lang.String.instancehelper_equals(text2, "a"))
+					string text2 = String.instancehelper_toLowerCase(text);
+					if (String.instancehelper_equals(text2, "a"))
 					{
 						this.wordRelation.addWord("_a");
 					}
@@ -82,7 +82,7 @@ namespace edu.cmu.sphinx.alignment
 					}
 					else
 					{
-						this.wordRelation.addWord(java.lang.String.instancehelper_toLowerCase(text));
+						this.wordRelation.addWord(String.instancehelper_toLowerCase(text));
 					}
 				}
 			}
@@ -95,7 +95,7 @@ namespace edu.cmu.sphinx.alignment
 
 				CharSequence charSequence2 = CharSequence.Cast(obj2);
 
-				NumberExpander.expandLetters(java.lang.String.instancehelper_replace(text, charSequence2, charSequence), this.wordRelation);
+				NumberExpander.expandLetters(String.instancehelper_replace(text, charSequence2, charSequence), this.wordRelation);
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.commaIntPattern, text))
 			{
@@ -104,19 +104,19 @@ namespace edu.cmu.sphinx.alignment
 				object obj2 = obj4;
 				CharSequence charSequence = CharSequence.Cast(obj4);
 				CharSequence charSequence3 = CharSequence.Cast(obj3);
-				string text3 = java.lang.String.instancehelper_replace(text, charSequence3, charSequence);
+				string text3 = String.instancehelper_replace(text, charSequence3, charSequence);
 				object obj5 = "'";
 				obj2 = "";
 				charSequence = CharSequence.Cast(obj5);
 				CharSequence charSequence4 = charSequence;
 				charSequence = CharSequence.Cast(obj2);
-				NumberExpander.expandReal(java.lang.String.instancehelper_replace(text3, charSequence4, charSequence), this.wordRelation);
+				NumberExpander.expandReal(String.instancehelper_replace(text3, charSequence4, charSequence), this.wordRelation);
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.sevenPhoneNumberPattern, text))
 			{
-				int num2 = java.lang.String.instancehelper_indexOf(text, 45);
-				string numberString = java.lang.String.instancehelper_substring(text, 0, num2);
-				string text4 = java.lang.String.instancehelper_substring(text, num2 + 1);
+				int num2 = String.instancehelper_indexOf(text, 45);
+				string numberString = String.instancehelper_substring(text, 0, num2);
+				string text4 = String.instancehelper_substring(text, num2 + 1);
 				NumberExpander.expandDigits(numberString, this.wordRelation);
 				this.wordRelation.addBreak();
 				NumberExpander.expandDigits(text4, this.wordRelation);
@@ -124,7 +124,7 @@ namespace edu.cmu.sphinx.alignment
 			else if (this.matchesPartPhoneNumber(text))
 			{
 				string text2 = (string)this.tokenItem.findFeature("punc");
-				if (java.lang.String.instancehelper_equals(text2, ""))
+				if (String.instancehelper_equals(text2, ""))
 				{
 					this.tokenItem.getFeatures().setString("punc", ",");
 				}
@@ -133,11 +133,11 @@ namespace edu.cmu.sphinx.alignment
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.numberTimePattern, text))
 			{
-				int num2 = java.lang.String.instancehelper_indexOf(text, 58);
-				string numberString = java.lang.String.instancehelper_substring(text, 0, num2);
-				string text4 = java.lang.String.instancehelper_substring(text, num2 + 1);
+				int num2 = String.instancehelper_indexOf(text, 58);
+				string numberString = String.instancehelper_substring(text, 0, num2);
+				string text4 = String.instancehelper_substring(text, num2 + 1);
 				NumberExpander.expandNumber(numberString, this.wordRelation);
-				if (!java.lang.String.instancehelper_equals(text4, "00"))
+				if (!String.instancehelper_equals(text4, "00"))
 				{
 					NumberExpander.expandID(text4, this.wordRelation);
 				}
@@ -150,11 +150,11 @@ namespace edu.cmu.sphinx.alignment
 			{
 				this.digitsToWords(text);
 			}
-			else if (num == 1 && Character.isUpperCase(java.lang.String.instancehelper_charAt(text, 0)) && java.lang.String.instancehelper_equals((string)this.tokenItem.findFeature("n.whitespace"), " ") && Character.isUpperCase(java.lang.String.instancehelper_charAt((string)this.tokenItem.findFeature("n.name"), 0)))
+			else if (num == 1 && Character.isUpperCase(String.instancehelper_charAt(text, 0)) && String.instancehelper_equals((string)this.tokenItem.findFeature("n.whitespace"), " ") && Character.isUpperCase(String.instancehelper_charAt((string)this.tokenItem.findFeature("n.name"), 0)))
 			{
 				features.setString("punc", "");
-				string text2 = java.lang.String.instancehelper_toLowerCase(text);
-				if (java.lang.String.instancehelper_equals(text2, "a"))
+				string text2 = String.instancehelper_toLowerCase(text);
+				if (String.instancehelper_equals(text2, "a"))
 				{
 					this.wordRelation.addWord("_a");
 				}
@@ -169,27 +169,27 @@ namespace edu.cmu.sphinx.alignment
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.ordinalPattern, text))
 			{
-				string text2 = java.lang.String.instancehelper_substring(text, 0, num - 2);
+				string text2 = String.instancehelper_substring(text, 0, num - 2);
 				NumberExpander.expandOrdinal(text2, this.wordRelation);
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.usMoneyPattern, text))
 			{
 				this.usMoneyToWords(text);
 			}
-			else if (num > 0 && java.lang.String.instancehelper_charAt(text, num - 1) == '%')
+			else if (num > 0 && String.instancehelper_charAt(text, num - 1) == '%')
 			{
-				this.tokenToWords(java.lang.String.instancehelper_substring(text, 0, num - 1));
+				this.tokenToWords(String.instancehelper_substring(text, 0, num - 1));
 				this.wordRelation.addWord("percent");
 			}
 			else if (USEnglishTokenizer.matches(USEnglishTokenizer.numessPattern, text))
 			{
-				NumberExpander.expandNumess(java.lang.String.instancehelper_substring(text, 0, num - 1), this.wordRelation);
+				NumberExpander.expandNumess(String.instancehelper_substring(text, 0, num - 1), this.wordRelation);
 			}
-			else if (USEnglishTokenizer.matches(USEnglishTokenizer.digitsSlashDigitsPattern, text) && java.lang.String.instancehelper_equals(text, @string))
+			else if (USEnglishTokenizer.matches(USEnglishTokenizer.digitsSlashDigitsPattern, text) && String.instancehelper_equals(text, @string))
 			{
 				this.digitsSlashDigitsToWords(text);
 			}
-			else if (java.lang.String.instancehelper_indexOf(text, 45) != -1)
+			else if (String.instancehelper_indexOf(text, 45) != -1)
 			{
 				this.dashToWords(text);
 			}
@@ -197,13 +197,13 @@ namespace edu.cmu.sphinx.alignment
 			{
 				this.notJustAlphasToWords(text);
 			}
-			else if (java.lang.String.instancehelper_equals(text, "&"))
+			else if (String.instancehelper_equals(text, "&"))
 			{
 				this.wordRelation.addWord("and");
 			}
-			else if (!java.lang.String.instancehelper_equals(text, "-"))
+			else if (!String.instancehelper_equals(text, "-"))
 			{
-				this.wordRelation.addWord(java.lang.String.instancehelper_toLowerCase(text));
+				this.wordRelation.addWord(String.instancehelper_toLowerCase(text));
 			}
 		}
 
@@ -217,9 +217,9 @@ namespace edu.cmu.sphinx.alignment
 		private void romanToWords(string text)
 		{
 			string text2 = (string)this.tokenItem.findFeature("p.punc");
-			if (java.lang.String.instancehelper_equals(text2, ""))
+			if (String.instancehelper_equals(text2, ""))
 			{
-				string text3 = java.lang.String.valueOf(NumberExpander.expandRoman(text));
+				string text3 = String.valueOf(NumberExpander.expandRoman(text));
 				if (USEnglishTokenizer.kingLike(this.tokenItem))
 				{
 					this.wordRelation.addWord("the");
@@ -242,7 +242,7 @@ namespace edu.cmu.sphinx.alignment
 
 		private void drStToWords(string text)
 		{
-			int num = (int)java.lang.String.instancehelper_charAt(text, 0);
+			int num = (int)String.instancehelper_charAt(text, 0);
 			string word;
 			string word2;
 			if (num == 115 || num == 83)
@@ -258,11 +258,11 @@ namespace edu.cmu.sphinx.alignment
 			FeatureSet features = this.tokenItem.getFeatures();
 			string @string = features.getString("punc");
 			string text2 = (string)this.tokenItem.findFeature("punc");
-			if (this.tokenItem.getNext() == null || java.lang.String.instancehelper_indexOf(@string, 44) != -1)
+			if (this.tokenItem.getNext() == null || String.instancehelper_indexOf(@string, 44) != -1)
 			{
 				this.wordRelation.addWord(word);
 			}
-			else if (java.lang.String.instancehelper_equals(text2, ","))
+			else if (String.instancehelper_equals(text2, ","))
 			{
 				this.wordRelation.addWord(word2);
 			}
@@ -270,8 +270,8 @@ namespace edu.cmu.sphinx.alignment
 			{
 				string text3 = (string)this.tokenItem.findFeature("p.name");
 				string text4 = (string)this.tokenItem.findFeature("n.name");
-				int num2 = (int)java.lang.String.instancehelper_charAt(text3, 0);
-				int num3 = (int)java.lang.String.instancehelper_charAt(text4, 0);
+				int num2 = (int)String.instancehelper_charAt(text3, 0);
+				int num3 = (int)String.instancehelper_charAt(text4, 0);
 				if (Character.isUpperCase((char)num2) && Character.isLowerCase((char)num3))
 				{
 					this.wordRelation.addWord(word);
@@ -287,7 +287,7 @@ namespace edu.cmu.sphinx.alignment
 				else
 				{
 					string text5 = (string)this.tokenItem.findFeature("n.whitespace");
-					if (java.lang.String.instancehelper_equals(text5, " "))
+					if (String.instancehelper_equals(text5, " "))
 					{
 						this.wordRelation.addWord(word2);
 					}
@@ -297,7 +297,7 @@ namespace edu.cmu.sphinx.alignment
 					}
 				}
 			}
-			if (@string != null && java.lang.String.instancehelper_equals(@string, "."))
+			if (@string != null && String.instancehelper_equals(@string, "."))
 			{
 				features.setString("punc", "");
 			}
@@ -309,14 +309,14 @@ namespace edu.cmu.sphinx.alignment
 			if (array != null)
 			{
 				int num4;
-				if (java.lang.String.instancehelper_equals(array[1], "ambiguous"))
+				if (String.instancehelper_equals(array[1], "ambiguous"))
 				{
 					string text2 = (string)this.tokenItem.findFeature("p.name");
 					string text3 = (string)this.tokenItem.findFeature("n.name");
-					int num = java.lang.String.instancehelper_length(text3);
+					int num = String.instancehelper_length(text3);
 					FeatureSet features = this.tokenItem.getFeatures();
-					int num2 = (!Character.isUpperCase(java.lang.String.instancehelper_charAt(text2, 0)) || java.lang.String.instancehelper_length(text2) <= 2 || !USEnglishTokenizer.matches(USEnglishTokenizer.alphabetPattern, text2) || !java.lang.Object.instancehelper_equals(this.tokenItem.findFeature("p.punc"), ",")) ? 0 : 1;
-					int num3 = (!Character.isLowerCase(java.lang.String.instancehelper_charAt(text3, 0)) && this.tokenItem.getNext() != null && !java.lang.String.instancehelper_equals(features.getString("punc"), ".") && ((num != 5 && num != 10) || !USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text3))) ? 0 : 1;
+					int num2 = (!Character.isUpperCase(String.instancehelper_charAt(text2, 0)) || String.instancehelper_length(text2) <= 2 || !USEnglishTokenizer.matches(USEnglishTokenizer.alphabetPattern, text2) || !Object.instancehelper_equals(this.tokenItem.findFeature("p.punc"), ",")) ? 0 : 1;
+					int num3 = (!Character.isLowerCase(String.instancehelper_charAt(text3, 0)) && this.tokenItem.getNext() != null && !String.instancehelper_equals(features.getString("punc"), ".") && ((num != 5 && num != 10) || !USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text3))) ? 0 : 1;
 					if (num2 != 0 && num3 != 0)
 					{
 						num4 = 1;
@@ -347,7 +347,7 @@ namespace edu.cmu.sphinx.alignment
 
 		public virtual bool isPronounceable(string word)
 		{
-			string inputString = java.lang.String.instancehelper_toLowerCase(word);
+			string inputString = String.instancehelper_toLowerCase(word);
 			return this.prefixFSM.accept(inputString) && this.suffixFSM.accept(inputString);
 		}
 		private bool matchesPartPhoneNumber(string text)
@@ -362,13 +362,13 @@ namespace edu.cmu.sphinx.alignment
 
 		private void digitsDashToWords(string text)
 		{
-			int num = java.lang.String.instancehelper_length(text);
+			int num = String.instancehelper_length(text);
 			int num2 = 0;
 			for (int i = 0; i <= num; i++)
 			{
-				if (i == num || java.lang.String.instancehelper_charAt(text, i) == '-')
+				if (i == num || String.instancehelper_charAt(text, i) == '-')
 				{
-					string numberString = java.lang.String.instancehelper_substring(text, num2, i);
+					string numberString = String.instancehelper_substring(text, num2, i);
 					NumberExpander.expandDigits(numberString, this.wordRelation);
 					this.wordRelation.addBreak();
 					num2 = i + 1;
@@ -384,7 +384,7 @@ namespace edu.cmu.sphinx.alignment
 			{
 				text2 = features.getString("nsw");
 			}
-			if (java.lang.String.instancehelper_equals(text2, "nide"))
+			if (String.instancehelper_equals(text2, "nide"))
 			{
 				NumberExpander.expandID(text, this.wordRelation);
 			}
@@ -392,7 +392,7 @@ namespace edu.cmu.sphinx.alignment
 			{
 				string @string = features.getString("name");
 				string text3;
-				if (java.lang.String.instancehelper_equals(text, @string))
+				if (String.instancehelper_equals(text, @string))
 				{
 					text3 = (string)this.cart.interpret(this.tokenItem);
 				}
@@ -402,15 +402,15 @@ namespace edu.cmu.sphinx.alignment
 					text3 = (string)this.cart.interpret(this.tokenItem);
 					features.setString("name", @string);
 				}
-				if (java.lang.String.instancehelper_equals(text3, "ordinal"))
+				if (String.instancehelper_equals(text3, "ordinal"))
 				{
 					NumberExpander.expandOrdinal(text, this.wordRelation);
 				}
-				else if (java.lang.String.instancehelper_equals(text3, "digits"))
+				else if (String.instancehelper_equals(text3, "digits"))
 				{
 					NumberExpander.expandDigits(text, this.wordRelation);
 				}
-				else if (java.lang.String.instancehelper_equals(text3, "year"))
+				else if (String.instancehelper_equals(text3, "year"))
 				{
 					NumberExpander.expandID(text, this.wordRelation);
 				}
@@ -423,16 +423,16 @@ namespace edu.cmu.sphinx.alignment
 
 		private void usMoneyToWords(string text)
 		{
-			int num = java.lang.String.instancehelper_indexOf(text, 46);
+			int num = String.instancehelper_indexOf(text, 46);
 			if (USEnglishTokenizer.matches(USEnglishTokenizer.illionPattern, (string)this.tokenItem.findFeature("n.name")))
 			{
-				NumberExpander.expandReal(java.lang.String.instancehelper_substring(text, 1), this.wordRelation);
+				NumberExpander.expandReal(String.instancehelper_substring(text, 1), this.wordRelation);
 			}
 			else if (num == -1)
 			{
-				string text2 = java.lang.String.instancehelper_substring(text, 1);
+				string text2 = String.instancehelper_substring(text, 1);
 				this.tokenToWords(text2);
-				if (java.lang.String.instancehelper_equals(text2, "1"))
+				if (String.instancehelper_equals(text2, "1"))
 				{
 					this.wordRelation.addWord("dollar");
 				}
@@ -441,22 +441,22 @@ namespace edu.cmu.sphinx.alignment
 					this.wordRelation.addWord("dollars");
 				}
 			}
-			else if (num == java.lang.String.instancehelper_length(text) - 1 || java.lang.String.instancehelper_length(text) - num > 3)
+			else if (num == String.instancehelper_length(text) - 1 || String.instancehelper_length(text) - num > 3)
 			{
-				NumberExpander.expandReal(java.lang.String.instancehelper_substring(text, 1), this.wordRelation);
+				NumberExpander.expandReal(String.instancehelper_substring(text, 1), this.wordRelation);
 				this.wordRelation.addWord("dollars");
 			}
 			else
 			{
-				string text3 = java.lang.String.instancehelper_substring(text, 1, num);
+				string text3 = String.instancehelper_substring(text, 1, num);
 				object obj = ",";
 				object obj2 = "";
 				CharSequence charSequence = CharSequence.Cast(obj);
 				CharSequence charSequence2 = CharSequence.Cast(obj2);
-				string text2 = java.lang.String.instancehelper_replace(text3, charSequence2, charSequence);
-				string text4 = java.lang.String.instancehelper_substring(text, num + 1);
+				string text2 = String.instancehelper_replace(text3, charSequence2, charSequence);
+				string text4 = String.instancehelper_substring(text, num + 1);
 				NumberExpander.expandNumber(text2, this.wordRelation);
-				if (java.lang.String.instancehelper_equals(text2, "1"))
+				if (String.instancehelper_equals(text2, "1"))
 				{
 					this.wordRelation.addWord("dollar");
 				}
@@ -464,10 +464,10 @@ namespace edu.cmu.sphinx.alignment
 				{
 					this.wordRelation.addWord("dollars");
 				}
-				if (!java.lang.String.instancehelper_equals(text4, "00"))
+				if (!String.instancehelper_equals(text4, "00"))
 				{
 					NumberExpander.expandNumber(text4, this.wordRelation);
-					if (java.lang.String.instancehelper_equals(text4, "01"))
+					if (String.instancehelper_equals(text4, "01"))
 					{
 						this.wordRelation.addWord("cent");
 					}
@@ -481,15 +481,15 @@ namespace edu.cmu.sphinx.alignment
 
 		private void digitsSlashDigitsToWords(string text)
 		{
-			int num = java.lang.String.instancehelper_indexOf(text, 47);
-			string text2 = java.lang.String.instancehelper_substring(text, 0, num);
-			string text3 = java.lang.String.instancehelper_substring(text, num + 1);
+			int num = String.instancehelper_indexOf(text, 47);
+			string text2 = String.instancehelper_substring(text, 0, num);
+			string text3 = String.instancehelper_substring(text, num + 1);
 			if (USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, (string)this.tokenItem.findFeature("p.name")) && this.tokenItem.getPrevious() != null)
 			{
 				this.wordRelation.addWord("and");
 			}
 			int num2;
-			if (java.lang.String.instancehelper_equals(text2, "1") && java.lang.String.instancehelper_equals(text3, "2"))
+			if (String.instancehelper_equals(text2, "1") && String.instancehelper_equals(text3, "2"))
 			{
 				this.wordRelation.addWord("a");
 				this.wordRelation.addWord("half");
@@ -513,9 +513,9 @@ namespace edu.cmu.sphinx.alignment
 
 		private void dashToWords(string text)
 		{
-			int num = java.lang.String.instancehelper_indexOf(text, 45);
-			string text2 = java.lang.String.instancehelper_substring(text, 0, num);
-			string text3 = java.lang.String.instancehelper_substring(text, num + 1, java.lang.String.instancehelper_length(text));
+			int num = String.instancehelper_indexOf(text, 45);
+			string text2 = String.instancehelper_substring(text, 0, num);
+			string text3 = String.instancehelper_substring(text, num + 1, String.instancehelper_length(text));
 			if (USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text2) && USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text3))
 			{
 				FeatureSet features = this.tokenItem.getFeatures();
@@ -536,7 +536,7 @@ namespace edu.cmu.sphinx.alignment
 		private void notJustAlphasToWords(string text)
 		{
 			int i = 0;
-			int num = java.lang.String.instancehelper_length(text);
+			int num = String.instancehelper_length(text);
 			while (i < num - 1)
 			{
 				if (USEnglishTokenizer.isTextSplitable(text, i))
@@ -547,11 +547,11 @@ namespace edu.cmu.sphinx.alignment
 			}
 			if (i == num - 1)
 			{
-				this.wordRelation.addWord(java.lang.String.instancehelper_toLowerCase(text));
+				this.wordRelation.addWord(String.instancehelper_toLowerCase(text));
 				return;
 			}
-			string text2 = java.lang.String.instancehelper_substring(text, 0, i + 1);
-			string text3 = java.lang.String.instancehelper_substring(text, i + 1, num);
+			string text2 = String.instancehelper_substring(text, 0, i + 1);
+			string text3 = String.instancehelper_substring(text, i + 1, num);
 			FeatureSet features = this.tokenItem.getFeatures();
 			features.setString("nsw", "nide");
 			this.tokenToWords(text2);
@@ -560,29 +560,29 @@ namespace edu.cmu.sphinx.alignment
 
 		public static bool kingLike(Item tokenItem)
 		{
-			string text = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.name"));
+			string text = String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.name"));
 			if (USEnglishTokenizer.inKingSectionLikeMap(text, "kingNames"))
 			{
 				return true;
 			}
-			string text2 = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.p.name"));
+			string text2 = String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.p.name"));
 			return USEnglishTokenizer.inKingSectionLikeMap(text2, "kingTitles");
 		}
 
 		public static bool sectionLike(Item tokenItem)
 		{
-			string text = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.name"));
+			string text = String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.name"));
 			return USEnglishTokenizer.inKingSectionLikeMap(text, "sectionTypes");
 		}
 
 		private static bool inKingSectionLikeMap(string text, string text2)
 		{
-			return USEnglishTokenizer.kingSectionLikeMap.containsKey(text) && java.lang.String.instancehelper_equals((string)USEnglishTokenizer.kingSectionLikeMap.get(text), text2);
+			return USEnglishTokenizer.kingSectionLikeMap.containsKey(text) && String.instancehelper_equals((string)USEnglishTokenizer.kingSectionLikeMap.get(text), text2);
 		}
 		private static bool isTextSplitable(string text, int num)
 		{
-			int num2 = (int)java.lang.String.instancehelper_charAt(text, num);
-			int num3 = (int)java.lang.String.instancehelper_charAt(text, num + 1);
+			int num2 = (int)String.instancehelper_charAt(text, num);
+			int num3 = (int)String.instancehelper_charAt(text, num + 1);
 			return (!Character.isLetter((char)num2) || !Character.isLetter((char)num3)) && (!Character.isDigit((char)num2) || !Character.isDigit((char)num3)) && num2 != 39 && !Character.isLetter((char)num3) && num3 != 39 && !Character.isLetter((char)num2);
 		}
 
@@ -592,9 +592,9 @@ namespace edu.cmu.sphinx.alignment
 			this.suffixFSM = null;
 			try
 			{
-				this.cart = new DecisionTree(java.lang.Object.instancehelper_getClass(this).getResource("nums_cart.txt"));
-				this.prefixFSM = new PrefixFSM(java.lang.Object.instancehelper_getClass(this).getResource("prefix_fsm.txt"));
-				this.suffixFSM = new SuffixFSM(java.lang.Object.instancehelper_getClass(this).getResource("suffix_fsm.txt"));
+				this.cart = new DecisionTree(Object.instancehelper_getClass(this).getResource("nums_cart.txt"));
+				this.prefixFSM = new PrefixFSM(Object.instancehelper_getClass(this).getResource("prefix_fsm.txt"));
+				this.suffixFSM = new SuffixFSM(Object.instancehelper_getClass(this).getResource("suffix_fsm.txt"));
 			}
 			catch (IOException ex)
 			{
@@ -636,12 +636,12 @@ namespace edu.cmu.sphinx.alignment
 			ArrayList arrayList = new ArrayList();
 			for (Item item = utterance.getRelation("Word").getHead(); item != null; item = item.getNext())
 			{
-				if (!java.lang.String.instancehelper_isEmpty(item.toString()))
+				if (!String.instancehelper_isEmpty(item.toString()))
 				{
 					string text3 = item.toString();
 					object _ref = "#";
 					CharSequence charSequence = CharSequence.Cast(_ref);
-					if (!java.lang.String.instancehelper_contains(text3, charSequence))
+					if (!String.instancehelper_contains(text3, charSequence))
 					{
 						arrayList.add(item.toString());
 					}

@@ -1,4 +1,6 @@
-﻿namespace edu.cmu.sphinx.util.props
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.util.props
 {
 	[System.Serializable]
 	internal sealed class PropertyType_2 : PropertyType
@@ -10,8 +12,8 @@
 	
 		protected internal override bool validateString(string text)
 		{
-			text = java.lang.String.instancehelper_toLowerCase(text);
-			return java.lang.String.instancehelper_equals("true", text) || java.lang.String.instancehelper_equals("false", text);
+			text = String.instancehelper_toLowerCase(text);
+			return String.instancehelper_equals("true", text) || String.instancehelper_equals("false", text);
 		}
 	}
 }
