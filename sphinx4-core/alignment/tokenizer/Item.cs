@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class Item : java.lang.Object
+	public class Item : Object
 	{
 		public virtual FeatureSet getFeatures()
 		{
@@ -102,7 +102,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			return this.ownerRelation;
 		}
-	
+
 		public Item(Relation relation, ItemContents sharedContents)
 		{
 			this.ownerRelation = relation;
@@ -120,7 +120,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.prev = null;
 			this.getSharedContents().addItemRelation(relation.getName(), this);
 		}
-	
+
 		public virtual Item addDaughter(Item item)
 		{
 			Item lastDaughter = this.getLastDaughter();
@@ -146,7 +146,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return item2;
 		}
-		
+
 		public virtual Item findItem(string path)
 		{
 			Item item = this;
@@ -226,7 +226,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.next = item;
 			item.prev = this;
 		}
-	
+
 		public virtual Item getItemAs(string relationName)
 		{
 			return this.getSharedContents().getItemRelation(relationName);
@@ -252,16 +252,16 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				item = item.next;
 			}
 			return item;
-		}	
+		}
 		public virtual Item createDaughter()
 		{
 			return this.addDaughter(null);
 		}
-		
+
 		public virtual Utterance getUtterance()
 		{
 			return this.getOwnerRelation().getUtterance();
-		}		
+		}
 		public virtual Item prependItem(Item originalItem)
 		{
 			ItemContents sharedContents;
@@ -293,7 +293,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return item;
 		}
-		
+
 		public virtual bool equalsShared(Item otherItem)
 		{
 			return otherItem != null && java.lang.Object.instancehelper_equals(this.getSharedContents(), otherItem.getSharedContents());

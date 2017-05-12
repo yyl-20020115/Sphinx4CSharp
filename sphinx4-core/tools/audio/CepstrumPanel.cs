@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using IKVM.Runtime;
 using java.awt;
@@ -12,7 +9,7 @@ using javax.swing;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	[Serializable]
+	[System.Serializable]
 	public class CepstrumPanel : JPanel
 	{	
 		protected internal virtual void zoomSet(float zoom)
@@ -96,7 +93,7 @@ namespace edu.cmu.sphinx.tools.audio
 				for (int j = 0; j < num; j++)
 				{
 					float[] array3 = (float[])arrayList.get(j);
-					for (int k = num2 - 1; k >= 0; k += -1)
+					for (int k = num2 - 1; k >= 0; k --)
 					{
 						int num3 = 127 - ByteCodeHelper.f2i(array3[k] / array[k] * 127f);
 						int num4 = (num3 << 16 & 16711680) | (num3 << 8 & 65280) | (num3 & 255);
@@ -139,8 +136,8 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 		}
 		
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected CepstrumPanel(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		protected CepstrumPanel(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
 		}
 

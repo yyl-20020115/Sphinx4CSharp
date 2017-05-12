@@ -3,8 +3,8 @@ using java.util;
 
 namespace edu.cmu.sphinx.alignment
 {
-	public sealed class LongTextAligner_Alignment_Node : java.lang.Object
-	{	
+	public sealed class LongTextAligner_Alignment_Node : Object
+	{
 		private LongTextAligner_Alignment_Node(LongTextAligner.Alignment alignment, int num, int num2)
 		{
 			this_1 = alignment;
@@ -16,7 +16,7 @@ namespace edu.cmu.sphinx.alignment
 		{
 			return ((Integer)LongTextAligner.Alignment.access_100(this.this_1).get(this.queryIndex - 1)).intValue();
 		}
-		
+
 		public int getDatabaseIndex()
 		{
 			return ((Integer)LongTextAligner.Alignment.access_000(this.this_1).get(this.databaseIndex - 1)).intValue();
@@ -40,7 +40,7 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return null;
 		}
-	
+
 		public string getDatabaseWord()
 		{
 			if (this.databaseIndex > 0)
@@ -49,7 +49,7 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return null;
 		}
-	
+
 		public int getValue()
 		{
 			if (this.isBoundary())
@@ -58,12 +58,12 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return (!this.hasMatch()) ? 1 : 0;
 		}
-	
+
 		public bool isTarget()
 		{
 			return this.queryIndex == LongTextAligner.Alignment.access_100(this.this_1).size() && this.databaseIndex == LongTextAligner.Alignment.access_000(this.this_1).size();
 		}
-	
+
 		public List adjacent()
 		{
 			ArrayList arrayList = new ArrayList(3);
@@ -94,8 +94,8 @@ namespace edu.cmu.sphinx.alignment
 		public override int hashCode()
 		{
 			return 31 * (31 * this.queryIndex + this.databaseIndex);
-		}	
-		
+		}
+
 		public override string toString()
 		{
 			return java.lang.String.format("[%d %d]", new object[]
@@ -104,25 +104,25 @@ namespace edu.cmu.sphinx.alignment
 				Integer.valueOf(this.databaseIndex)
 			});
 		}
-		
+
 		internal LongTextAligner_Alignment_Node(LongTextAligner.Alignment alignment, int num, int num2, LongTextAligner_1 longTextAligner_) : this(alignment, num, num2)
 		{
 		}
-		
+
 		internal static int access_600(LongTextAligner_Alignment_Node longTextAligner_Alignment_Node)
 		{
 			return longTextAligner_Alignment_Node.queryIndex;
 		}
-		
+
 		internal static int access_700(LongTextAligner_Alignment_Node longTextAligner_Alignment_Node)
 		{
 			return longTextAligner_Alignment_Node.databaseIndex;
 		}
-		
+
 		private int databaseIndex;
 
 		private int queryIndex;
-		
+
 		internal LongTextAligner.Alignment this_1;
 	}
 }

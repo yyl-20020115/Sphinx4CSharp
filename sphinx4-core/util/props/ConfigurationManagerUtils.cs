@@ -1,6 +1,4 @@
-﻿using System;
-using ikvm.@internal;
-using IKVM.Runtime;
+﻿using ikvm.@internal;
 using java.io;
 using java.lang;
 using java.net;

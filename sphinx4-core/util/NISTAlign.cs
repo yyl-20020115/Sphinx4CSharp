@@ -195,20 +195,20 @@ namespace edu.cmu.sphinx.util
 				switch (array[num][num2])
 				{
 				case 0:
-					num += -1;
-					num2 += -1;
+					num --;
+					num2 --;
 					break;
 				case 1:
-					num += -1;
-					num2 += -1;
+					num --;
+					num2 --;
 					this.substitutions++;
 					break;
 				case 2:
-					num2 += -1;
+					num2 --;
 					this.insertions++;
 					break;
 				case 3:
-					num += -1;
+					num --;
 					this.deletions++;
 					break;
 				}
@@ -224,7 +224,7 @@ namespace edu.cmu.sphinx.util
 			object obj2 = null;
 			this.alignedReferenceWords = new LinkedList();
 			this.alignedHypothesisWords = new LinkedList();
-			for (int i = linkedList.size() - 2; i >= 0; i += -1)
+			for (int i = linkedList.size() - 2; i >= 0; i --)
 			{
 				int num = ((Integer)linkedList.get(i)).intValue();
 				string text;

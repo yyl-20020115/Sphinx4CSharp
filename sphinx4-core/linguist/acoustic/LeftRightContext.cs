@@ -1,11 +1,8 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	[Serializable]
+	[System.Serializable]
 	public class LeftRightContext : Context
 	{		
 		public static LeftRightContext get(Unit[] leftContext, Unit[] rightContext)
@@ -67,8 +64,8 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			return context == Context.__EMPTY_CONTEXT && this.leftContext == null && this.rightContext == null;
 		}
 		
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected LeftRightContext(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		protected LeftRightContext(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
 		}
 

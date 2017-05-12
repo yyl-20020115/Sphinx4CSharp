@@ -2,10 +2,11 @@
 using edu.cmu.sphinx.util.props;
 using java.util;
 using java.util.logging;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
-	public class BackgroundModelNormalizer : java.lang.Object, ScoreNormalizer, Configurable
+	public class BackgroundModelNormalizer : Object, ScoreNormalizer, Configurable
 	{
 		public BackgroundModelNormalizer()
 		{

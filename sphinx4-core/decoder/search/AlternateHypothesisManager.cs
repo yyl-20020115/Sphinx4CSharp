@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	public class AlternateHypothesisManager : java.lang.Object
+	public class AlternateHypothesisManager : Object
 	{
 		public AlternateHypothesisManager(int maxEdges)
 		{

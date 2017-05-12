@@ -1,10 +1,11 @@
 ﻿using edu.cmu.sphinx.result;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.api
 {
-	public sealed class SpeechResult : java.lang.Object
-	{		
+	public sealed class SpeechResult : Object
+	{
 		public SpeechResult(Result result)
 		{
 			this.result = result;
@@ -19,17 +20,17 @@ namespace edu.cmu.sphinx.api
 				this.lattice = null;
 			}
 		}
-		
+
 		public List getWords()
 		{
 			return (this.lattice == null) ? this.result.getTimedBestResult(false) : this.lattice.getWordResultPath();
 		}
-		
+
 		public string getHypothesis()
 		{
 			return this.result.getBestResultNoFiller();
 		}
-		
+
 		public Collection getNbest(int n)
 		{
 			if (this.lattice == null)
@@ -47,9 +48,9 @@ namespace edu.cmu.sphinx.api
 		{
 			return this.result;
 		}
-		
+
 		private Result result;
-		
+
 		private Lattice lattice;
 	}
 }

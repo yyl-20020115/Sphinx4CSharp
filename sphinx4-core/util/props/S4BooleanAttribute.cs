@@ -1,9 +1,8 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 
 namespace edu.cmu.sphinx.util.props
 {
-	[AttributeUsage(AttributeTargets.Field)]
+	[System.AttributeUsage(System.AttributeTargets.Field)]
 	public sealed class S4BooleanAttribute : AnnotationAttributeBase, S4Boolean
 	{
 		public S4BooleanAttribute(object[] definition) : this()

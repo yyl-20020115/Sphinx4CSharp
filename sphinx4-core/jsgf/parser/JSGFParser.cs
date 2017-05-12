@@ -1,8 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using edu.cmu.sphinx.jsgf.rule;
-using IKVM.Runtime;
+﻿using edu.cmu.sphinx.jsgf.rule;
 using java.io;
 using java.lang;
 using java.net;
@@ -1609,7 +1605,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			internal JSGFParser.JJCalls next;
 		}
 
-		[Serializable]
+		[System.Serializable]
 		internal class LookaheadSuccess : Error
 		{
 			internal LookaheadSuccess(JSGFParser_1 jsgfparser_) : this()
@@ -1620,8 +1616,8 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 			}
 			
-			[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-			protected LookaheadSuccess(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+			[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+			protected LookaheadSuccess(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 			{
 			}
 		}

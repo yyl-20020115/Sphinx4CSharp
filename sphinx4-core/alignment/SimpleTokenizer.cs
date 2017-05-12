@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.alignment
 {
-	public class SimpleTokenizer : java.lang.Object, TextTokenizer
+	public class SimpleTokenizer : Object, TextTokenizer
 	{
 		public SimpleTokenizer()
 		{

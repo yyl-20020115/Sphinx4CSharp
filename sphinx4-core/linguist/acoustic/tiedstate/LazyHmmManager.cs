@@ -72,7 +72,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			{
 				int num2 = 0;
 				int num3 = num;
-				num += -1;
+				num --;
 				if (num2 >= num3)
 				{
 					break;

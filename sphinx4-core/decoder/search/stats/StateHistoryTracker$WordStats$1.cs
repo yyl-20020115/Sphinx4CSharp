@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
-	internal sealed class StateHistoryTracker_WordStats_1 : java.lang.Object, Comparator
+	internal sealed class StateHistoryTracker_WordStats_1 : Object, Comparator
 	{
 		public int compare(StateHistoryTracker.WordStats wordStats, StateHistoryTracker.WordStats wordStats2)
 		{

@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.language.grammar;
 using edu.cmu.sphinx.util;
@@ -432,12 +431,12 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		protected internal StatisticsVariable actualArcs;
 
-		[NonSerialized]
+		[System.NonSerialized]
 		private int totalStateCounter;
 
 		private const bool tracing = false;
 		
-		[NonSerialized]
+		[System.NonSerialized]
 		private Collection stateSet;
 
 		private string name;

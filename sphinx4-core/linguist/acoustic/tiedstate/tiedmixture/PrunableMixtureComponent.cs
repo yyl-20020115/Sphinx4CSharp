@@ -1,12 +1,9 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 {
-	[Serializable]
+	[System.Serializable]
 	public class PrunableMixtureComponent : MixtureComponent
 	{	
 		public PrunableMixtureComponent(float[] mean, float[][] meanTransformationMatrix, float[] meanTransformationVector, float[] variance, float[][] varianceTransformationMatrix, float[] varianceTransformationVector, float distFloor, float varianceFloor, int id) : base(mean, meanTransformationMatrix, meanTransformationVector, variance, varianceTransformationMatrix, varianceTransformationVector, distFloor, varianceFloor)
@@ -75,8 +72,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			return num;
 		}
 		
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected PrunableMixtureComponent(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		protected PrunableMixtureComponent(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
 		}
 

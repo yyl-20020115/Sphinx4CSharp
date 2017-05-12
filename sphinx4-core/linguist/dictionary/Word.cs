@@ -1,5 +1,4 @@
-﻿using System;
-using java.lang;
+﻿using java.lang;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
@@ -74,7 +73,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 			return result;
 		}		
-		int IComparable.CompareTo(object obj)
+		int System.IComparable.CompareTo(object obj)
 		{
 			return this.compareTo((Word)obj);
 		}

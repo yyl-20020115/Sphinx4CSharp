@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.decoder.scorer;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	public class Partitioner : java.lang.Object
+	public class Partitioner : Object
 	{		
 		public Partitioner()
 		{
@@ -38,7 +39,7 @@ namespace edu.cmu.sphinx.decoder.search
 				{
 					while (num4 > num3 && array[num4].getScore() < score)
 					{
-						num4 += -1;
+						num4 --;
 					}
 					if (num4 <= num3)
 					{

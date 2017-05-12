@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.frontend.util
 {
-	public class FrontEndUtils : java.lang.Object
+	public class FrontEndUtils : Object
 	{		
 		public FrontEndUtils()
 		{

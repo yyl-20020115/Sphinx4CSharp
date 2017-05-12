@@ -42,7 +42,7 @@ namespace edu.cmu.sphinx.jsgf.rule
 			StringBuilder stringBuilder = new StringBuilder(text);
 			if (java.lang.String.instancehelper_indexOf(text, 125) >= 0 || java.lang.String.instancehelper_indexOf(text, 92) >= 0 || java.lang.String.instancehelper_indexOf(text, 123) >= 0)
 			{
-				for (int i = stringBuilder.length() - 1; i >= 0; i += -1)
+				for (int i = stringBuilder.length() - 1; i >= 0; i --)
 				{
 					int num = (int)stringBuilder.charAt(i);
 					if (num == 92 || num == 125 || num == 123)

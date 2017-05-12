@@ -122,7 +122,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				array2[j] = num2;
 				num2 += array[j];
 			}
-			for (int j = counts.Length - 1; j >= 2; j += -1)
+			for (int j = counts.Length - 1; j >= 2; j --)
 			{
 				this.middles[j - 2] = new NgramTrie.MiddleNgramSet(this, array2[j - 2], quantProbBoLen, counts[j - 1], counts[0], counts[j]);
 			}

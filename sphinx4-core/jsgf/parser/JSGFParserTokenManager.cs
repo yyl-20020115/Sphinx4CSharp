@@ -328,7 +328,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					do
 					{
 						int[] array = this.jjstateSet;
-						num4 += -1;
+						num4 --;
 						switch (array[num4])
 						{
 						case 0:
@@ -690,7 +690,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					do
 					{
 						int[] array8 = this.jjstateSet;
-						num4 += -1;
+						num4 --;
 						switch (array8[num4])
 						{
 						case 1:
@@ -833,7 +833,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					do
 					{
 						int[] array9 = this.jjstateSet;
-						num4 += -1;
+						num4 --;
 						int obj = array9[num4];
 						if (obj == 1)
 						{
@@ -1188,7 +1188,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			for (;;)
 			{
 				int num2 = num;
-				num += -1;
+				num --;
 				if (num2 <= 0)
 				{
 					break;
@@ -1321,7 +1321,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					do
 					{
 						int[] array = this.jjstateSet;
-						num4 += -1;
+						num4 --;
 						switch (array[num4])
 						{
 						case 0:
@@ -1385,7 +1385,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					for (;;)
 					{
 						int[] array4 = this.jjstateSet;
-						num4 += -1;
+						num4 --;
 						int obj = array4[num4];
 						if (obj == 0)
 						{
@@ -1417,7 +1417,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					for (;;)
 					{
 						int[] array5 = this.jjstateSet;
-						num4 += -1;
+						num4 --;
 						int obj2 = array5[num4];
 						if (obj2 == 0)
 						{

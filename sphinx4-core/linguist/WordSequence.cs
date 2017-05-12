@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;
@@ -7,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist
 {
-	public sealed class WordSequence : java.lang.Object, Comparable
+	public sealed class WordSequence : java.lang.Object, java.lang.Comparable
 	{		
 		public WordSequence(List list)
 		{
@@ -112,16 +111,16 @@ namespace edu.cmu.sphinx.linguist
 			int num3 = this.size() - 1;
 			Word[] array = wordSequence.words;
 			int num4 = num2;
-			num2 += -1;
+			num2 --;
 			array[num4] = word;
 			while (num2 >= 0 && num3 >= 0)
 			{
 				Word[] array2 = wordSequence.words;
 				int num5 = num2;
-				num2 += -1;
+				num2 --;
 				Word[] array3 = this.words;
 				int num6 = num3;
-				num3 += -1;
+				num3 --;
 				array2[num5] = array3[num6];
 			}
 			wordSequence.check();
@@ -160,10 +159,10 @@ namespace edu.cmu.sphinx.linguist
 			{
 				Word[] array = wordSequence.words;
 				int num3 = num2;
-				num2 += -1;
+				num2 --;
 				Word[] array2 = this.words;
 				int num4 = num;
-				num += -1;
+				num --;
 				array[num3] = array2[num4];
 			}
 			return wordSequence;
@@ -217,7 +216,7 @@ namespace edu.cmu.sphinx.linguist
 			WordSequence.__EMPTY = new WordSequence(0);
 		}
 
-		int IComparable.CompareTo(object obj)
+		int System.IComparable.CompareTo(object obj)
 		{
 			return this.compareTo(obj);
 		}
@@ -246,7 +245,7 @@ namespace edu.cmu.sphinx.linguist
 		
 		private Word[] words;
 
-		[NonSerialized]
+		[System.NonSerialized]
 		private int _hashCode;
 		
 		internal static bool assertionsDisabled = !ClassLiteral<WordSequence>.Value.desiredAssertionStatus();

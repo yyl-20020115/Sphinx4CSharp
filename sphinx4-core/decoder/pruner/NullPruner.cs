@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.decoder.search;
 using edu.cmu.sphinx.util.props;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.pruner
 {
-	public class NullPruner : java.lang.Object, Pruner, Configurable
+	public class NullPruner : Object, Pruner, Configurable
 	{
 		public virtual void newProperties(PropertySheet ps)
 		{

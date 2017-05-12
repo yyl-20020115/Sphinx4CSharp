@@ -160,7 +160,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			if (java.lang.String.instancehelper_startsWith(text3, "<TRANSP>"))
 			{
 				num = Integer.parseInt(java.lang.String.instancehelper_substring(text3, java.lang.String.instancehelper_indexOf(text3, 32) + 1));
-				num += -1;
+				num --;
 			}
 			else
 			{
@@ -204,7 +204,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				text2 = bufferedReader.readLine();
 			}
 			int num = Integer.parseInt(java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 32) + 1));
-			num += -1;
+			num --;
 			SingleHMM singleHMM = new SingleHMM(num);
 			singleHMM.setName(text);
 			singleHMM.hmmset = this;
@@ -215,7 +215,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 			while (java.lang.String.instancehelper_startsWith(text2, "<STATE>"))
 			{
 				int num2 = Integer.parseInt(java.lang.String.instancehelper_substring(text2, java.lang.String.instancehelper_indexOf(text2, 32) + 1));
-				num2 += -1;
+				num2 --;
 				text2 = bufferedReader.readLine();
 				int gmmidx;
 				if (java.lang.String.instancehelper_startsWith(text2, "~s"))

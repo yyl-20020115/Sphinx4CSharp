@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -434,7 +433,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		private Properties properties;
 
-		[NonSerialized]
+		[System.NonSerialized]
 		private Map compositeSenoneSequenceCache;
 
 		private bool allocated;

@@ -1,9 +1,8 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	[Serializable]
+	[System.Serializable]
 	public sealed class HMMPosition : java.lang.Enum
 	{
 		public static HMMPosition[] values()
@@ -14,7 +13,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		private HMMPosition(string text, int num, char c) : base(text, num)
 		{
 			this.rep = java.lang.String.valueOf(c);
-			GC.KeepAlive(this);
+			System.GC.KeepAlive(this);
 		}
 		
 		public static HMMPosition valueOf(string name)
@@ -133,7 +132,7 @@ namespace edu.cmu.sphinx.linguist.acoustic
 		};
 
 		
-		[Serializable]
+		[System.Serializable]
 		public enum __Enum
 		{
 			BEGIN,

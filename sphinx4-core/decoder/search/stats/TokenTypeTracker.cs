@@ -4,7 +4,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
-	public class TokenTypeTracker : java.lang.Object
+	public class TokenTypeTracker : Object
 	{
 		private string pc(int num)
 		{

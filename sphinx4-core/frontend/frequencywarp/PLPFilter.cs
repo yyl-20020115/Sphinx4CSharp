@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
-	public class PLPFilter : java.lang.Object
+	public class PLPFilter : Object
 	{
 		public PLPFilter(double[] DFTFrequenciesInHz, double centerFreqInHz)
 		{

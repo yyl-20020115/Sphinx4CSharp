@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
-	public class MelFilter : java.lang.Object
+	public class MelFilter : Object
 	{		
 		public MelFilter(double leftEdge, double centerFreq, double rightEdge, double initialFreq, double deltaFreq)
 		{

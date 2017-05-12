@@ -3,10 +3,11 @@ using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using edu.cmu.sphinx.recognizer;
 using edu.cmu.sphinx.result;
 using ikvm.@internal;
+using java.lang;
 
 namespace edu.cmu.sphinx.api
 {
-	public class AbstractSpeechRecognizer : java.lang.Object
+	public class AbstractSpeechRecognizer : Object
 	{	
 		protected internal AbstractSpeechRecognizer(Context context)
 		{

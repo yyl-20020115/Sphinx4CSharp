@@ -1,14 +1,10 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security;
-using System.Security.Permissions;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.io;
 
 namespace edu.cmu.sphinx.linguist.acoustic
 {
-	[Serializable]
-	public class Context : java.lang.Object, Serializable.__Interface, ISerializable
+	[System.Serializable]
+	public class Context : java.lang.Object, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{
 		public override string toString()
 		{
@@ -49,15 +45,15 @@ namespace edu.cmu.sphinx.linguist.acoustic
 			return result;
 		}
 
-		[SecurityCritical]
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		public virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		[System.Security.SecurityCritical]
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		public virtual void GetObjectData(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
 		{
 			Serialization.writeObject(this, serializationInfo);
 		}
 		
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected Context(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		protected Context(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
 		{
 			Serialization.readObject(this, serializationInfo);
 		}

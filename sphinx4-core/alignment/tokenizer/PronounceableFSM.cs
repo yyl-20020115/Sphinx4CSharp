@@ -5,8 +5,8 @@ using java.util;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class PronounceableFSM : java.lang.Object
-	{	
+	public class PronounceableFSM : Object
+	{
 		public virtual bool accept(string inputString)
 		{
 			int num = this.transition(0, 35);
@@ -44,12 +44,12 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				else
 				{
-					num4 += -1;
+					num4 --;
 				}
 			}
 			return false;
 		}
-	
+
 		private void loadText(InputStream inputStream)
 		{
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -85,7 +85,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			bufferedReader.close();
 		}
-	
+
 		private int parseLastInt(string text)
 		{
 			string text2 = java.lang.String.instancehelper_substring(java.lang.String.instancehelper_trim(text), java.lang.String.instancehelper_lastIndexOf(text, " "));
@@ -106,7 +106,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return -1;
 		}
-		
+
 		public PronounceableFSM(URL url, bool scanFromFront)
 		{
 			this.scanFromFront = scanFromFront;
@@ -114,7 +114,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.loadText(inputStream);
 			inputStream.close();
 		}
-		
+
 		public PronounceableFSM(int vocabularySize, int[] transitions, bool scanFromFront)
 		{
 			this.vocabularySize = vocabularySize;

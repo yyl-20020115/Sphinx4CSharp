@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	public abstract class TokenSearchManager : java.lang.Object, SearchManager, Configurable
+	public abstract class TokenSearchManager : Object, SearchManager, Configurable
 	{
 		public TokenSearchManager()
 		{

@@ -2,8 +2,8 @@
 
 namespace edu.cmu.sphinx.alignment
 {
-	public class Token : java.lang.Object
-	{	
+	public class Token : Object
+	{
 		public Token()
 		{
 			this.token = null;
@@ -73,7 +73,7 @@ namespace edu.cmu.sphinx.alignment
 		{
 			this.token = word;
 		}
-	
+
 		public override string toString()
 		{
 			StringBuffer stringBuffer = new StringBuffer();

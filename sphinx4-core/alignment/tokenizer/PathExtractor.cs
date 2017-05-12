@@ -1,17 +1,16 @@
-﻿using ikvm.@internal;
-using java.lang;
+﻿using java.lang;
 using java.util;
 using java.util.logging;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class PathExtractor : java.lang.Object
+	public class PathExtractor : Object
 	{
 		public override string toString()
 		{
 			return this.pathAndFeature;
 		}
-	
+
 		public virtual object findFeature(Item item)
 		{
 			if (PathExtractor.INTERPRET_PATHS)
@@ -35,7 +34,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return obj;
 		}
-	
+
 		public PathExtractor(string pathAndFeature, bool wantFeature)
 		{
 			this.pathAndFeature = pathAndFeature;
@@ -67,7 +66,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				this.compiledPath = this.compile(this.path);
 			}
 		}
-	
+
 		private object[] compile(string text)
 		{
 			if (text == null)
@@ -83,7 +82,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				if (instance == null)
 				{
 					string text3 = new StringBuilder().append("Bad path compiled ").append(text).toString();
-					
+
 					throw new Error(text3);
 				}
 				arrayList.add(instance);
@@ -94,7 +93,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return arrayList.toArray();
 		}
-		
+
 		public virtual Item findItem(Item item)
 		{
 			if (PathExtractor.INTERPRET_PATHS)
@@ -165,16 +164,16 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return item2;
 		}
 
-		private static Logger LOGGER = Logger.getLogger(ClassLiteral<PathExtractor>.Value.getName());
+		private static Logger LOGGER = Logger.getLogger(ikvm.@internal.ClassLiteral<PathExtractor>.Value.getName());
 
 		public const string INTERPRET_PATHS_PROPERTY = "com.sun.speech.freetts.interpretCartPaths";
 
 		public const string LAZY_COMPILE_PROPERTY = "com.sun.speech.freetts.lazyCartCompile";
 
-		
+
 		private static bool INTERPRET_PATHS = java.lang.String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.interpretCartPaths", "false"), "true");
 
-		
+
 		private static bool LAZY_COMPILE = java.lang.String.instancehelper_equals(java.lang.System.getProperty("com.sun.speech.freetts.lazyCartCompile", "true"), "true");
 
 		private string pathAndFeature;

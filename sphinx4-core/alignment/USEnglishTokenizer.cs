@@ -1,8 +1,4 @@
-﻿using System;
-
-using edu.cmu.sphinx.alignment.tokenizer;
-using IKVM.Attributes;
-using IKVM.Runtime;
+﻿using edu.cmu.sphinx.alignment.tokenizer;
 using java.io;
 using java.lang;
 using java.util;
@@ -10,7 +6,7 @@ using java.util.regex;
 
 namespace edu.cmu.sphinx.alignment
 {
-	public class USEnglishTokenizer : java.lang.Object, TextTokenizer
+	public class USEnglishTokenizer : Object, TextTokenizer
 	{
 		private string simplifyChars(string text)
 		{
@@ -26,7 +22,7 @@ namespace edu.cmu.sphinx.alignment
 			text = java.lang.String.instancehelper_replace(text, '\f', ' ');
 			return text;
 		}
-	
+
 		private void tokenToWords(string text)
 		{
 			FeatureSet features = this.tokenItem.getFeatures();
@@ -94,7 +90,7 @@ namespace edu.cmu.sphinx.alignment
 			{
 				object obj = ".";
 				object obj2 = "";
-				
+
 				CharSequence charSequence = CharSequence.Cast(obj);
 
 				CharSequence charSequence2 = CharSequence.Cast(obj2);
@@ -210,7 +206,7 @@ namespace edu.cmu.sphinx.alignment
 				this.wordRelation.addWord(java.lang.String.instancehelper_toLowerCase(text));
 			}
 		}
-		
+
 		private static bool matches(Pattern pattern, string _ref)
 		{
 			CharSequence charSequence = CharSequence.Cast(_ref);
@@ -243,7 +239,7 @@ namespace edu.cmu.sphinx.alignment
 				NumberExpander.expandLetters(text, this.wordRelation);
 			}
 		}
-	
+
 		private void drStToWords(string text)
 		{
 			int num = (int)java.lang.String.instancehelper_charAt(text, 0);
@@ -306,7 +302,7 @@ namespace edu.cmu.sphinx.alignment
 				features.setString("punc", "");
 			}
 		}
-		
+
 		private bool isStateName(string text)
 		{
 			string[] array = (string[])((string[])USEnglishTokenizer.usStatesMap.get(text));
@@ -348,12 +344,12 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return false;
 		}
-		
+
 		public virtual bool isPronounceable(string word)
 		{
 			string inputString = java.lang.String.instancehelper_toLowerCase(word);
 			return this.prefixFSM.accept(inputString) && this.suffixFSM.accept(inputString);
-		}		
+		}
 		private bool matchesPartPhoneNumber(string text)
 		{
 			string text2 = (string)this.tokenItem.findFeature("n.name");
@@ -363,7 +359,7 @@ namespace edu.cmu.sphinx.alignment
 			int num = USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text4) ? 1 : 0;
 			return (USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text) && ((!USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text4) && USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text2) && USEnglishTokenizer.matches(USEnglishTokenizer.fourDigitsPattern, text3)) || USEnglishTokenizer.matches(USEnglishTokenizer.sevenPhoneNumberPattern, text2) || (!USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text5) && num != 0 && USEnglishTokenizer.matches(USEnglishTokenizer.fourDigitsPattern, text2)))) || (USEnglishTokenizer.matches(USEnglishTokenizer.fourDigitsPattern, text) && !USEnglishTokenizer.matches(USEnglishTokenizer.digitsPattern, text2) && num != 0 && USEnglishTokenizer.matches(USEnglishTokenizer.threeDigitsPattern, text5));
 		}
-	
+
 		private void digitsDashToWords(string text)
 		{
 			int num = java.lang.String.instancehelper_length(text);
@@ -379,7 +375,7 @@ namespace edu.cmu.sphinx.alignment
 				}
 			}
 		}
-	
+
 		private void digitsToWords(string text)
 		{
 			FeatureSet features = this.tokenItem.getFeatures();
@@ -424,7 +420,7 @@ namespace edu.cmu.sphinx.alignment
 				}
 			}
 		}
-		
+
 		private void usMoneyToWords(string text)
 		{
 			int num = java.lang.String.instancehelper_indexOf(text, 46);
@@ -482,7 +478,7 @@ namespace edu.cmu.sphinx.alignment
 				}
 			}
 		}
-	
+
 		private void digitsSlashDigitsToWords(string text)
 		{
 			int num = java.lang.String.instancehelper_indexOf(text, 47);
@@ -514,7 +510,7 @@ namespace edu.cmu.sphinx.alignment
 				NumberExpander.expandNumber(text3, this.wordRelation);
 			}
 		}
-		
+
 		private void dashToWords(string text)
 		{
 			int num = java.lang.String.instancehelper_indexOf(text, 45);
@@ -536,7 +532,7 @@ namespace edu.cmu.sphinx.alignment
 				this.tokenToWords(text3);
 			}
 		}
-	
+
 		private void notJustAlphasToWords(string text)
 		{
 			int i = 0;
@@ -561,7 +557,7 @@ namespace edu.cmu.sphinx.alignment
 			this.tokenToWords(text2);
 			this.tokenToWords(text3);
 		}
-		
+
 		public static bool kingLike(Item tokenItem)
 		{
 			string text = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.name"));
@@ -572,24 +568,24 @@ namespace edu.cmu.sphinx.alignment
 			string text2 = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.p.name"));
 			return USEnglishTokenizer.inKingSectionLikeMap(text2, "kingTitles");
 		}
-		
+
 		public static bool sectionLike(Item tokenItem)
 		{
 			string text = java.lang.String.instancehelper_toLowerCase((string)tokenItem.findFeature("p.name"));
 			return USEnglishTokenizer.inKingSectionLikeMap(text, "sectionTypes");
 		}
-	
+
 		private static bool inKingSectionLikeMap(string text, string text2)
 		{
 			return USEnglishTokenizer.kingSectionLikeMap.containsKey(text) && java.lang.String.instancehelper_equals((string)USEnglishTokenizer.kingSectionLikeMap.get(text), text2);
-		}		
+		}
 		private static bool isTextSplitable(string text, int num)
 		{
 			int num2 = (int)java.lang.String.instancehelper_charAt(text, num);
 			int num3 = (int)java.lang.String.instancehelper_charAt(text, num + 1);
 			return (!Character.isLetter((char)num2) || !Character.isLetter((char)num3)) && (!Character.isDigit((char)num2) || !Character.isDigit((char)num3)) && num2 != 39 && !Character.isLetter((char)num3) && num3 != 39 && !Character.isLetter((char)num2);
 		}
-		
+
 		public USEnglishTokenizer()
 		{
 			this.prefixFSM = null;
@@ -625,7 +621,7 @@ namespace edu.cmu.sphinx.alignment
 			if ((relation = utterance.getRelation("Token")) == null)
 			{
 				string text2 = "token relation does not exist";
-				
+
 				throw new IllegalStateException(text2);
 			}
 			this.wordRelation = WordRelation.createWordRelation(utterance, this);
@@ -1364,67 +1360,67 @@ namespace edu.cmu.sphinx.alignment
 			}
 		}
 
-		
+
 		private static Pattern alphabetPattern = Pattern.compile(UsEnglish.RX_ALPHABET);
 
-		
+
 		private static Pattern commaIntPattern = Pattern.compile(UsEnglish.RX_COMMAINT);
 
-		
+
 		private static Pattern digits2DashPattern = Pattern.compile("[0-9]+(-[0-9]+)(-[0-9]+)+");
 
-		
+
 		private static Pattern digitsPattern = Pattern.compile(UsEnglish.RX_DIGITS);
 
-		
+
 		private static Pattern digitsSlashDigitsPattern = Pattern.compile("[0-9]+/[0-9]+");
 
-		
+
 		private static Pattern dottedAbbrevPattern = Pattern.compile(UsEnglish.RX_DOTTED_ABBREV);
 
-		
+
 		private static Pattern doublePattern = Pattern.compile(UsEnglish.RX_DOUBLE);
 
-		
+
 		private static Pattern drStPattern = Pattern.compile("([dD][Rr]|[Ss][Tt])");
 
-		
+
 		private static Pattern fourDigitsPattern = Pattern.compile("[0-9][0-9][0-9][0-9]");
 
-		
+
 		private static Pattern illionPattern;
 
-		
+
 		private static Pattern numberTimePattern;
 
-		
+
 		private static Pattern numessPattern;
 
-		
+
 		private static Pattern ordinalPattern;
 
-		
+
 		private static Pattern romanNumbersPattern;
 
-		
+
 		private static Pattern sevenPhoneNumberPattern;
 
-		
+
 		private static Pattern threeDigitsPattern;
 
-		
+
 		private static Pattern usMoneyPattern;
 
-		
+
 		private static string[] kingNames;
 
-		
+
 		private static string[] kingTitles;
 
-		
+
 		private static string[] sectionTypes;
 
-		
+
 		private static Map kingSectionLikeMap;
 
 		private const string KING_NAMES = "kingNames";
@@ -1437,10 +1433,10 @@ namespace edu.cmu.sphinx.alignment
 
 		private PronounceableFSM suffixFSM;
 
-		
+
 		private static string[][] usStates;
 
-		
+
 		private static Map usStatesMap;
 
 		private WordRelation wordRelation;

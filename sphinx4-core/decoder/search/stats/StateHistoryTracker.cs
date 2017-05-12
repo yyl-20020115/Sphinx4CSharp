@@ -4,7 +4,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
-	public class StateHistoryTracker : java.lang.Object
+	public class StateHistoryTracker : Object
 	{
 		private WordSequence getWordSequence(Token token)
 		{

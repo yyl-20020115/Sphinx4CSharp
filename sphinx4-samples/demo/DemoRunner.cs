@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.demo.aligner;
+﻿using edu.cmu.sphinx.demo.aligner;
 using edu.cmu.sphinx.demo.dialog;
 //using edu.cmu.sphinx.demo.speakerid;
 using edu.cmu.sphinx.demo.transcriber;
@@ -29,7 +28,7 @@ namespace edu.cmu.sphinx.demo
 			}
 			catch (InvocationTargetException ex)
 			{
-				Console.WriteLine(ex.getMessage());
+				System.Console.WriteLine(ex.getMessage());
 			}
 			return;
 		}

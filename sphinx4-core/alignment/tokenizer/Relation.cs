@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.alignment.tokenizer
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class Relation : java.lang.Object
+	public class Relation : Object
 	{
 		public virtual Item getHead()
 		{
@@ -55,14 +57,14 @@
 			this.tail = item;
 			return item;
 		}
-		
+
 		internal Relation(string text, Utterance utterance)
 		{
 			this.name = text;
 			this.owner = utterance;
 			this.head = null;
 			this.tail = null;
-		}	
+		}
 		public virtual Item appendItem()
 		{
 			return this.appendItem(null);

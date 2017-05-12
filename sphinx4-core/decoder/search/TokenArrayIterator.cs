@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	internal sealed class TokenArrayIterator : java.lang.Object, Iterator
+	internal sealed class TokenArrayIterator : Object, Iterator
 	{
 		internal TokenArrayIterator(Token[] array, int num)
 		{

@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;

@@ -1,9 +1,8 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 
 namespace edu.cmu.sphinx.util.props
 {
-	[AttributeUsage(AttributeTargets.Field)]
+	[System.AttributeUsage(System.AttributeTargets.Field)]
 	public sealed class S4StringListAttribute : AnnotationAttributeBase, S4StringList
 	{
 		public S4StringListAttribute(object[] definition) : this()

@@ -14,7 +14,7 @@ namespace edu.cmu.sphinx.fst.operations
 				int num = arrayList3.lastIndexOf(state);
 				if (num != -1 && (state.getFinalWeight() != fst.getSemiring().zero() || hashSet.contains(state)))
 				{
-					for (int i = num; i > -1; i += -1)
+					for (int i = num; i > -1; i --)
 					{
 						if (!hashSet.contains(arrayList3.get(i)))
 						{

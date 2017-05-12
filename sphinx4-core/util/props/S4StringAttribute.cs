@@ -1,9 +1,8 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 
 namespace edu.cmu.sphinx.util.props
 {
-	[AttributeUsage(AttributeTargets.Field)]
+	[System.AttributeUsage(System.AttributeTargets.Field)]
 	public sealed class S4StringAttribute : AnnotationAttributeBase, S4String
 	{
 		public S4StringAttribute(object[] definition) : this()
@@ -25,7 +24,7 @@ namespace edu.cmu.sphinx.util.props
 			
 			get
 			{
-				throw new NotImplementedException();
+				throw new System.NotImplementedException();
 			}
 			
 			set
@@ -44,7 +43,7 @@ namespace edu.cmu.sphinx.util.props
 			
 			get
 			{
-				throw new NotImplementedException();
+				throw new System.NotImplementedException();
 			}
 			
 			set
@@ -63,7 +62,7 @@ namespace edu.cmu.sphinx.util.props
 			
 			get
 			{
-				throw new NotImplementedException();
+				throw new System.NotImplementedException();
 			}
 			
 			set

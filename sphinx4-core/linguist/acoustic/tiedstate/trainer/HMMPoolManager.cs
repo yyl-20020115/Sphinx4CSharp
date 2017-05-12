@@ -1,8 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.util;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;

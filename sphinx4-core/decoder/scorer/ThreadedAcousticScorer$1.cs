@@ -1,10 +1,11 @@
 ﻿using edu.cmu.sphinx.frontend;
 using java.util;
 using java.util.concurrent;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
-	internal sealed class ThreadedAcousticScorer_1 : java.lang.Object, Callable
+	internal sealed class ThreadedAcousticScorer_1 : Object, Callable
 	{
 		public Scoreable call()
 		{

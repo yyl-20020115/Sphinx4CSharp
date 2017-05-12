@@ -8,7 +8,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.decoder
 {
-	public abstract class AbstractDecoder : java.lang.Object, ResultProducer, Configurable
+	public abstract class AbstractDecoder : Object, ResultProducer, Configurable
 	{
 		private void init(string text, Logger logger, SearchManager searchManager, bool flag, bool flag2, List list)
 		{

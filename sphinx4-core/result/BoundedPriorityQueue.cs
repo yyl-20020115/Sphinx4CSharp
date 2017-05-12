@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using ikvm.lang;
+﻿using ikvm.lang;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.result
 {
-	public class BoundedPriorityQueue : java.lang.Object, Iterable, IEnumerable
+	public class BoundedPriorityQueue : java.lang.Object, Iterable, System.Collections.IEnumerable
 	{
 		public BoundedPriorityQueue(int maxSize)
 		{
@@ -36,8 +35,8 @@ namespace edu.cmu.sphinx.result
 		{
 			return this.items.iterator();
 		}
-		
-		IEnumerator IEnumerable.GetEnumerator()
+
+		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
 		{
 			return new IterableEnumerator(this);
 		}

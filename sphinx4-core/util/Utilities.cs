@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.util
 {
-	public class Utilities : java.lang.Object
+	public class Utilities : Object
 	{
 		public static string join(List tokens)
 		{

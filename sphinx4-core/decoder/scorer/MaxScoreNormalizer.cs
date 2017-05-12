@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.util.props;
+using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
-	public class MaxScoreNormalizer : java.lang.Object, ScoreNormalizer, Configurable
+	public class MaxScoreNormalizer : Object, ScoreNormalizer, Configurable
 	{
 		public virtual void newProperties(PropertySheet ps)
 		{

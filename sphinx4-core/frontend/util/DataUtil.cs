@@ -8,7 +8,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.frontend.util
 {
-	public class DataUtil : java.lang.Object
+	public class DataUtil : Object
 	{	
 		public static FloatData DoubleData2FloatData(DoubleData data)
 		{
@@ -76,7 +76,7 @@ namespace edu.cmu.sphinx.frontend.util
 			for (int i = 0; i < array.Length; i++)
 			{
 				int num2 = num;
-				num += -1;
+				num --;
 				int num3 = (int)data[num2];
 				if (!signedData)
 				{
@@ -85,7 +85,7 @@ namespace edu.cmu.sphinx.frontend.util
 				for (int j = 1; j < bytesPerValue; j++)
 				{
 					int num4 = num;
-					num += -1;
+					num --;
 					int num5 = (int)data[num4];
 					num3 = (num3 << 8) + num5;
 				}

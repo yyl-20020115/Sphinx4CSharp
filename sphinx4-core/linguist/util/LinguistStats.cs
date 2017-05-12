@@ -52,7 +52,7 @@ namespace edu.cmu.sphinx.linguist.util
 					this.incrementStateTypeCount(searchState);
 					hashSet.add(searchState);
 					SearchStateArc[] successors = searchState.getSuccessors();
-					for (int i = successors.Length - 1; i >= 0; i += -1)
+					for (int i = successors.Length - 1; i >= 0; i --)
 					{
 						SearchState state = successors[i].getState();
 						linkedList.add(state);

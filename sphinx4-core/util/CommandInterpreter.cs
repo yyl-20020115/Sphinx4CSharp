@@ -495,7 +495,7 @@ namespace edu.cmu.sphinx.util
 			
 			public string findLast(string text)
 			{
-				for (int i = this.history.size() - 1; i >= 0; i += -1)
+				for (int i = this.history.size() - 1; i >= 0; i --)
 				{
 					string text2 = this.get(i);
 					if (java.lang.String.instancehelper_startsWith(text2, text))

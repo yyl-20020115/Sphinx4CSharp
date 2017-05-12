@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	public abstract class ActiveListFactory : java.lang.Object, Configurable
+	public abstract class ActiveListFactory : Object, Configurable
 	{
 		public ActiveListFactory(int absoluteBeamWidth, double relativeBeamWidth)
 		{

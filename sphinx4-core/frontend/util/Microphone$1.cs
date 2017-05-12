@@ -4,7 +4,7 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.frontend.util
 {
-	internal sealed class Microphone_1 : java.lang.Object, LineListener, EventListener
+	internal sealed class Microphone_1 : Object, LineListener, EventListener
 	{
 		internal Microphone_1(Microphone microphone)
 		{

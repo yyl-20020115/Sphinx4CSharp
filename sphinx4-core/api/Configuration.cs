@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.api
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.api
 {
-	public class Configuration : java.lang.Object
+	public class Configuration : Object
 	{		
 		public Configuration()
 		{

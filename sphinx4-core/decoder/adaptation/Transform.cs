@@ -12,7 +12,7 @@ using org.apache.commons.math3.linear;
 #endif
 namespace edu.cmu.sphinx.decoder.adaptation
 {
-	public class Transform : java.lang.Object
+	public class Transform : Object
 	{
 		public Transform(Sphinx3Loader loader, int nrOfClusters)
 		{

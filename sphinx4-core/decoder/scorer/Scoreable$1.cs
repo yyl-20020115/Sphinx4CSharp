@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
-	internal sealed class Scoreable_1 : java.lang.Object, Comparator
+	internal sealed class Scoreable_1 : Object, Comparator
 	{	
 		public int compare(Scoreable scoreable, Scoreable scoreable2)
 		{

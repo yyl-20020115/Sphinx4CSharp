@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.linguist.acoustic;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 using ikvm.@internal;
 using java.lang;
 using java.util;

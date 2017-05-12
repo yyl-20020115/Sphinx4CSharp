@@ -2,8 +2,8 @@
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class NumberExpander : java.lang.Object
-	{		
+	public class NumberExpander : Object
+	{
 		public static void expandLetters(string letters, WordRelation wordRelation)
 		{
 			letters = java.lang.String.instancehelper_toLowerCase(letters);
@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-		
+
 		public static void expandReal(string numberString, WordRelation wordRelation)
 		{
 			int num = java.lang.String.instancehelper_length(numberString);
@@ -64,7 +64,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				NumberExpander.expandNumber(numberString, wordRelation);
 			}
 		}
-		
+
 		public static void expandDigits(string numberString, WordRelation wordRelation)
 		{
 			int num = java.lang.String.instancehelper_length(numberString);
@@ -81,7 +81,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-	
+
 		public static void expandNumber(string numberString, WordRelation wordRelation)
 		{
 			int num = java.lang.String.instancehelper_length(numberString);
@@ -117,7 +117,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-	
+
 		public static void expandID(string numberString, WordRelation wordRelation)
 		{
 			int num = java.lang.String.instancehelper_length(numberString);
@@ -159,7 +159,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-	
+
 		public static void expandOrdinal(string rawNumberString, WordRelation wordRelation)
 		{
 			object obj = ",";
@@ -202,7 +202,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-	
+
 		public static void expandNumess(string rawString, WordRelation wordRelation)
 		{
 			if (java.lang.String.instancehelper_length(rawString) == 4)
@@ -215,7 +215,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				wordRelation.addWord(NumberExpander.digit2Numness[(int)(java.lang.String.instancehelper_charAt(rawString, 0) - '0')]);
 			}
 		}
-		
+
 		public static int expandRoman(string roman)
 		{
 			int num = 0;
@@ -258,7 +258,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return num;
 		}
-		
+
 		private static void expand2DigitNumber(string text, WordRelation wordRelation)
 		{
 			if (java.lang.String.instancehelper_charAt(text, 0) == '0')
@@ -286,7 +286,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				NumberExpander.expandDigits(java.lang.String.instancehelper_substring(text, 1, java.lang.String.instancehelper_length(text)), wordRelation);
 			}
 		}
-		
+
 		private static void expand3DigitNumber(string text, WordRelation wordRelation)
 		{
 			if (java.lang.String.instancehelper_charAt(text, 0) == '0')
@@ -301,25 +301,25 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				NumberExpander.expandNumberAt(text, 1, wordRelation);
 			}
 		}
-		
+
 		private static void expandBelow7DigitNumber(string text, WordRelation wordRelation)
 		{
 			NumberExpander.expandLargeNumber(text, "thousand", 3, wordRelation);
 		}
-		
+
 		private static void expandBelow10DigitNumber(string text, WordRelation wordRelation)
 		{
 			NumberExpander.expandLargeNumber(text, "million", 6, wordRelation);
-		}		
+		}
 		private static void expandBelow13DigitNumber(string text, WordRelation wordRelation)
 		{
 			NumberExpander.expandLargeNumber(text, "billion", 9, wordRelation);
 		}
-	
+
 		private static void expandNumberAt(string text, int num, WordRelation wordRelation)
 		{
 			NumberExpander.expandNumber(java.lang.String.instancehelper_substring(text, num, java.lang.String.instancehelper_length(text)), wordRelation);
-		}		
+		}
 		private static void expandLargeNumber(string text, string word, int num, WordRelation wordRelation)
 		{
 			int num2 = java.lang.String.instancehelper_length(text);
@@ -333,7 +333,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			NumberExpander.expandNumberAt(text, num3, wordRelation);
 		}
-	
+
 		private static string findMatchInArray(string text, string[] array, string[] array2)
 		{
 			int i = 0;
@@ -355,12 +355,12 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return null;
 		}
 
-		
-		
+
+
 		private NumberExpander()
 		{
 		}
-		
+
 		private static string[] digit2num = new string[]
 		{
 			"zero",
@@ -375,7 +375,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			"nine"
 		};
 
-		
+
 		private static string[] digit2teen = new string[]
 		{
 			"ten",
@@ -390,7 +390,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			"nineteen"
 		};
 
-		
+
 		private static string[] digit2enty = new string[]
 		{
 			"zero",
@@ -405,7 +405,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			"ninety"
 		};
 
-		
+
 		private static string[] ord2num = new string[]
 		{
 			"zeroth",
@@ -420,7 +420,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			"ninth"
 		};
 
-		
+
 		private static string[] ord2teen = new string[]
 		{
 			"tenth",
@@ -435,7 +435,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			"nineteenth"
 		};
 
-		
+
 		private static string[] ord2enty = new string[]
 		{
 			"zeroth",

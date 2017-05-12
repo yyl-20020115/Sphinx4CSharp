@@ -1,10 +1,11 @@
 ﻿using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using IKVM.Runtime;
+using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.adaptation
 {
-	public class ClusteredDensityFileData : java.lang.Object
+	public class ClusteredDensityFileData : Object
 	{		
 		public ClusteredDensityFileData(Loader loader, int numberOfClusters)
 		{
@@ -104,7 +105,7 @@ namespace edu.cmu.sphinx.decoder.adaptation
 				{
 					num7 = ((num7 == 0 || !this.isEqual((float[])arrayList2.get(i), (float[])arrayList.get(i))) ? 0 : 1);
 				}
-				num3 += -1;
+				num3 --;
 			}
 		}
 	

@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.fst.semiring;
+﻿using edu.cmu.sphinx.fst.semiring;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -236,10 +235,10 @@ namespace edu.cmu.sphinx.fst.sequitur
 			})]
 			internal List states;
 
-			[NonSerialized]
+			[System.NonSerialized]
 			internal List openFstStates;
 
-			[NonSerialized]
+			[System.NonSerialized]
 			internal Semiring ring;
 			
 			internal static bool assertionsDisabled = !ClassLiteral<SequiturImport>.Value.desiredAssertionStatus();
@@ -352,7 +351,7 @@ namespace edu.cmu.sphinx.fst.sequitur
 			})]
 			internal List contentList;
 
-			[NonSerialized]
+			[System.NonSerialized]
 			internal string content;
 			
 			internal static bool assertionsDisabled = !ClassLiteral<SequiturImport>.Value.desiredAssertionStatus();

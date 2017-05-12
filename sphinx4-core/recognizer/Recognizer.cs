@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.decoder;
+﻿using edu.cmu.sphinx.decoder;
 using edu.cmu.sphinx.instrumentation;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util.props;
@@ -174,12 +173,12 @@ namespace edu.cmu.sphinx.recognizer
 		
 		private List monitors;
 
-		[Serializable]
+		[System.Serializable]
 		public sealed class State : java.lang.Enum
 		{			
 			private State(string text, int num) : base(text, num)
 			{
-				GC.KeepAlive(this);
+				System.GC.KeepAlive(this);
 			}
 			
 			public static Recognizer.State[] values()
@@ -280,7 +279,7 @@ namespace edu.cmu.sphinx.recognizer
 				Recognizer.State.__ERROR
 			};
 
-			[Serializable]
+			[System.Serializable]
 			public enum __Enum
 			{
 				DEALLOCATED,

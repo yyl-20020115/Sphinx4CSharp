@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using edu.cmu.sphinx.util.props;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
@@ -691,14 +690,14 @@ namespace edu.cmu.sphinx.frontend.util
 				InterruptedException ex4;
 				try
 				{
-					Monitor.Enter(obj = this.@lock);
+					System.Threading.Monitor.Enter(obj = this.@lock);
 					try
 					{
 						while (!this.done)
 						{
 							java.lang.Object.instancehelper_wait(this.@lock);
 						}
-						Monitor.Exit(obj);
+						System.Threading.Monitor.Exit(obj);
 					}
 					catch (System.Exception ex)
 					{
@@ -716,7 +715,7 @@ namespace edu.cmu.sphinx.frontend.util
 				InterruptedException ex8;
 				try
 				{
-					Monitor.Exit(obj);
+					System.Threading.Monitor.Exit(obj);
 					throw ex2;
 				}
 				catch (InterruptedException ex7)

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security;
-using System.Security.Permissions;
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using ikvm.@internal;
 using java.io;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	[Serializable]
-	public abstract class ScoreCachingSenone : java.lang.Object, Senone, Serializable.__Interface, ISerializable
+	[System.Serializable]
+	public abstract class ScoreCachingSenone : java.lang.Object, Senone, Serializable.__Interface, System.Runtime.Serialization.ISerializable
 	{
 		protected internal abstract float calculateScore(Data d);
 
@@ -47,15 +43,15 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return result;
 		}
 
-		[SecurityCritical]
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		public virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		[System.Security.SecurityCritical]
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		public virtual void GetObjectData(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
 		{
 			Serialization.writeObject(this, serializationInfo);
 		}
 		
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected ScoreCachingSenone(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		protected ScoreCachingSenone(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
 		{
 			Serialization.readObject(this, serializationInfo);
 		}

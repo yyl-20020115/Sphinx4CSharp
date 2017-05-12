@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
@@ -47,7 +46,7 @@ namespace edu.cmu.sphinx.tools.audio
 		public virtual short[] stop()
 		{
 			object obj;
-			Monitor.Enter(obj = this.@lock);
+			System.Threading.Monitor.Enter(obj = this.@lock);
 			short[] array3;
 			IOException ex2;
 			try
@@ -74,16 +73,16 @@ namespace edu.cmu.sphinx.tools.audio
 						goto IL_CA;
 					}
 					short[] result = array3;
-					Monitor.Exit(obj);
+					System.Threading.Monitor.Exit(obj);
 					return result;
 				}
 				short[] array4 = new short[0];
-				Monitor.Exit(obj);
+				System.Threading.Monitor.Exit(obj);
 				array3 = array4;
 			}
 			catch
 			{
-				Monitor.Exit(obj);
+				System.Threading.Monitor.Exit(obj);
 				throw;
 			}
 			return array3;
@@ -98,7 +97,7 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 			finally
 			{
-				Monitor.Exit(obj);
+				System.Threading.Monitor.Exit(obj);
 			}
 			return result2;
 		}
@@ -129,12 +128,12 @@ namespace edu.cmu.sphinx.tools.audio
 				System.Exception ex2;
 				try
 				{
-					Monitor.Enter(obj = this.@lock);
+					System.Threading.Monitor.Enter(obj = this.@lock);
 					try
 					{
 						this.done = true;
 						java.lang.Object.instancehelper_wait(this.@lock);
-						Monitor.Exit(obj);
+						System.Threading.Monitor.Exit(obj);
 					}
 					catch (System.Exception ex)
 					{
@@ -151,7 +150,7 @@ namespace edu.cmu.sphinx.tools.audio
 				System.Exception ex4 = ex2;
 				try
 				{
-					Monitor.Exit(obj);
+					System.Threading.Monitor.Exit(obj);
 					throw ex4;
 				}
 				catch (InterruptedException)

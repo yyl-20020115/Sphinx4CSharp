@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.linguist.util
 					hashSet.add(state.getSignature());
 					this.startDumpNode(@out, state, level);
 					SearchStateArc[] successors = state.getSuccessors();
-					for (int i = successors.Length - 1; i >= 0; i += -1)
+					for (int i = successors.Length - 1; i >= 0; i --)
 					{
 						SearchState state2 = successors[i].getState();
 						this.dumpArc(@out, state, successors[i], level);

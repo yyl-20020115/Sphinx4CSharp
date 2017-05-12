@@ -1,7 +1,6 @@
 ﻿using edu.cmu.sphinx.util.props;
 using ikvm.lang;
 using java.util;
-using System.Collections;
 
 namespace edu.cmu.sphinx.decoder.search
 {
@@ -25,7 +24,7 @@ namespace edu.cmu.sphinx.decoder.search
 			base.newProperties(ps);
 		}
 		
-		internal sealed class PartitionActiveList : ActiveListBase, IEnumerable
+		internal sealed class PartitionActiveList : ActiveListBase, System.Collections.IEnumerable
 		{			
 			private void doubleCapacity()
 			{
@@ -117,8 +116,8 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				return this.this_0.newInstance();
 			}
-			
-			IEnumerator IEnumerable.GetEnumerator()
+
+			System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
 			{
 				return new IterableEnumerator(this);
 			}

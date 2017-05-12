@@ -1,8 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security;
-using System.Security.Permissions;
-using edu.cmu.sphinx.linguist.dictionary;
+﻿using edu.cmu.sphinx.linguist.dictionary;
 using ikvm.@internal;
 using java.io;
 using java.lang;
@@ -10,8 +6,8 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	[Serializable]
-	public abstract class SentenceHMMState : java.lang.Object, Serializable.__Interface, SearchState, ISerializable
+	[System.Serializable]
+	public abstract class SentenceHMMState : java.lang.Object, Serializable.__Interface, SearchState, System.Runtime.Serialization.ISerializable
 	{		
 		private void dump()
 		{
@@ -425,15 +421,15 @@ namespace edu.cmu.sphinx.linguist.flat
 			return this.getLexState();
 		}
 
-		[SecurityCritical]
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		public virtual void GetObjectData(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		[System.Security.SecurityCritical]
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		public virtual void GetObjectData(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
 		{
 			Serialization.writeObject(this, serializationInfo);
 		}
 		
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected SentenceHMMState(SerializationInfo serializationInfo, StreamingContext streamingContext)
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		protected SentenceHMMState(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
 		{
 			Serialization.readObject(this, serializationInfo);
 		}
@@ -479,12 +475,12 @@ namespace edu.cmu.sphinx.linguist.flat
 
 		internal static bool assertionsDisabled = !ClassLiteral<SentenceHMMState>.Value.desiredAssertionStatus();
 
-		[Serializable]
+		[System.Serializable]
 		public sealed class Color : java.lang.Enum
 		{
 			private Color(string text, int num) : base(text, num)
 			{
-				GC.KeepAlive(this);
+				System.GC.KeepAlive(this);
 			}
 
 			public static SentenceHMMState.Color[] values()
@@ -525,7 +521,7 @@ namespace edu.cmu.sphinx.linguist.flat
 				SentenceHMMState.Color.__GREEN
 			};
 			
-			[Serializable]
+			[System.Serializable]
 			public enum __Enum
 			{
 				RED,

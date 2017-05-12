@@ -41,7 +41,7 @@ namespace edu.cmu.sphinx.jsgf.rule
 			if (this.containsWhiteSpace(this.text) || java.lang.String.instancehelper_indexOf(this.text, 92) >= 0 || java.lang.String.instancehelper_indexOf(this.text, 34) >= 0)
 			{
 				StringBuilder stringBuilder = new StringBuilder(this.text);
-				for (int i = stringBuilder.length() - 1; i >= 0; i += -1)
+				for (int i = stringBuilder.length() - 1; i >= 0; i --)
 				{
 					int num = (int)stringBuilder.charAt(i);
 					if (num == 34 || num == 92)

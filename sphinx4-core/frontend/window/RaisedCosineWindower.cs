@@ -261,7 +261,7 @@ namespace edu.cmu.sphinx.frontend.window
 				{
 					break;
 				}
-				num3 += -1;
+				num3 --;
 			}
 			return (long)(samplesPerShift * (num3 + 1) + samplesPerWindow);
 		}

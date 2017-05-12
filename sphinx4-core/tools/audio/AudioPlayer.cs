@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-using ikvm.@internal;
-using IKVM.Runtime;
+﻿using ikvm.@internal;
 using java.lang;
 using javax.sound.sampled;
 
@@ -33,7 +30,7 @@ namespace edu.cmu.sphinx.tools.audio
 			{
 				try
 				{
-					Monitor.Enter(obj);
+					System.Threading.Monitor.Enter(obj);
 					try
 					{
 						java.lang.Object.instancehelper_wait(this.audio);
@@ -60,7 +57,7 @@ namespace edu.cmu.sphinx.tools.audio
 						this.line.drain();
 						this.line.close();
 						this.line = null;
-						Monitor.Exit(obj);
+						System.Threading.Monitor.Exit(obj);
 					}
 					catch (System.Exception ex)
 					{
@@ -78,7 +75,7 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 			try
 			{
-				Monitor.Exit(obj);
+				System.Threading.Monitor.Exit(obj);
 			}
 			catch (System.Exception ex8)
 			{

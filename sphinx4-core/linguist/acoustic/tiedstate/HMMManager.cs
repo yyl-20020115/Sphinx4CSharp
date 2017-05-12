@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using ikvm.lang;
 using java.lang;
 using java.util;
@@ -7,7 +6,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class HMMManager : java.lang.Object, Iterable, IEnumerable
+	public class HMMManager : java.lang.Object, Iterable, System.Collections.IEnumerable
 	{		
 		private int getNumHMMs()
 		{
@@ -57,8 +56,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		{
 			logger.info(new StringBuilder().append("HMM Manager: ").append(this.getNumHMMs()).append(" hmms").toString());
 		}
-		
-		IEnumerator IEnumerable.GetEnumerator()
+
+		System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
 		{
 			return new IterableEnumerator(this);
 		}

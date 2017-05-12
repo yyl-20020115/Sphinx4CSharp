@@ -1,5 +1,4 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
@@ -135,7 +134,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 
 		private NgramTrieQuant.QuantType quantType;
 		
-		[Serializable]
+		[System.Serializable]
 		public sealed class QuantType : java.lang.Enum
 		{			
 			public static NgramTrieQuant.QuantType[] values()
@@ -145,7 +144,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			
 			private QuantType(string text, int num) : base(text, num)
 			{
-				GC.KeepAlive(this);
+				System.GC.KeepAlive(this);
 			}
 			
 			public static NgramTrieQuant.QuantType valueOf(string name)
@@ -181,7 +180,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				NgramTrieQuant.QuantType.__QUANT_16
 			};
 
-			[Serializable]
+			[System.Serializable]
 			public enum __Enum
 			{
 				NO_QUANT,

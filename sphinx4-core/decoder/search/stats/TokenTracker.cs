@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
-	public class TokenTracker : java.lang.Object
+	public class TokenTracker : Object
 	{	
 		public virtual void dumpSummary()
 		{

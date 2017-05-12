@@ -1,10 +1,9 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 
 namespace edu.cmu.sphinx.util.props
 {
-	[AttributeUsage(AttributeTargets.Field)]
+	[System.AttributeUsage(System.AttributeTargets.Field)]
 	public sealed class S4ComponentAttribute : AnnotationAttributeBase, S4Component
 	{
 		public S4ComponentAttribute(object[] definition) : this()
@@ -16,7 +15,7 @@ namespace edu.cmu.sphinx.util.props
 		{
 		}
 
-		public S4ComponentAttribute(Type type) : this()
+		public S4ComponentAttribute(System.Type type) : this()
 		{
 			base.setValue("type", type);
 		}
@@ -31,12 +30,12 @@ namespace edu.cmu.sphinx.util.props
 			return (Class)base.getValue("defaultClass");
 		}
 
-		public Type defaultClass
+		public System.Type defaultClass
 		{
 			
 			get
 			{
-				throw new NotImplementedException();
+				throw new System.NotImplementedException();
 			}
 			
 			set
@@ -55,7 +54,7 @@ namespace edu.cmu.sphinx.util.props
 			
 			get
 			{
-				throw new NotImplementedException();
+				throw new System.NotImplementedException();
 			}
 			
 			set

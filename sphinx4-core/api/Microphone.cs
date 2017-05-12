@@ -4,21 +4,21 @@ using javax.sound.sampled;
 
 namespace edu.cmu.sphinx.api
 {
-	public class Microphone : java.lang.Object
+	public class Microphone : Object
 	{
 		public virtual InputStream getStream()
 		{
 			return this.inputStream;
-		}		
+		}
 		public virtual void startRecording()
 		{
 			this.line.start();
 		}
-		
+
 		public virtual void stopRecording()
 		{
 			this.line.stop();
-		}		
+		}
 		public Microphone(float sampleRate, int sampleSize, bool signed, bool bigEndian)
 		{
 			AudioFormat audioFormat = new AudioFormat(sampleRate, sampleSize, 1, signed, bigEndian);
@@ -30,7 +30,7 @@ namespace edu.cmu.sphinx.api
 			catch (LineUnavailableException ex)
 			{
 
-			throw new IllegalStateException(ex);
+				throw new IllegalStateException(ex);
 			}
 			this.inputStream = new AudioInputStream(this.line);
 			return;

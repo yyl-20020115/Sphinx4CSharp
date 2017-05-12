@@ -1,7 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.linguist.acoustic;
-using IKVM.Runtime;
-using java.lang;
+﻿using edu.cmu.sphinx.linguist.acoustic;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {

@@ -1,11 +1,10 @@
 ﻿using java.lang;
-using java.text;
 using java.util;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class FeatureSet : java.lang.Object
-	{		
+	public class FeatureSet : Object
+	{
 		public virtual string getString(string name)
 		{
 			return (string)this.getObject(name);

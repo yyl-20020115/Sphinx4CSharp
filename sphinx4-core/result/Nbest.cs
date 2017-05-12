@@ -1,5 +1,4 @@
-﻿using System;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.result
@@ -98,7 +97,7 @@ namespace edu.cmu.sphinx.result
 				return this.compareTo((Nbest.NBestPath)obj);
 			}
 			
-			int IComparable.CompareTo(object obj)
+			int System.IComparable.CompareTo(object obj)
 			{
 				return this.compareTo(obj);
 			}

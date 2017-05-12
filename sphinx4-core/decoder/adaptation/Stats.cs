@@ -5,10 +5,11 @@ using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using edu.cmu.sphinx.util;
 using IKVM.Runtime;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.adaptation
 {
-	public class Stats : java.lang.Object
+	public class Stats : Object
 	{	
 		public Stats(Loader loader, ClusteredDensityFileData means)
 		{

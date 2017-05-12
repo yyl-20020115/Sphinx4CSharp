@@ -119,7 +119,7 @@ namespace edu.cmu.sphinx.decoder.search
 				arrayList.add(token);
 				token = token.getPredecessor();
 			}
-			for (int i = arrayList.size() - 1; i >= 0; i += -1)
+			for (int i = arrayList.size() - 1; i >= 0; i --)
 			{
 				token = (Token)arrayList.get(i);
 				if (includeHMMStates || !(token.getSearchState() is HMMSearchState))
@@ -146,7 +146,7 @@ namespace edu.cmu.sphinx.decoder.search
 						{
 							stringBuilder.insert(0, ']');
 							Unit[] units = pronunciation.getUnits();
-							for (int i = units.Length - 1; i >= 0; i += -1)
+							for (int i = units.Length - 1; i >= 0; i --)
 							{
 								if (i < units.Length - 1)
 								{

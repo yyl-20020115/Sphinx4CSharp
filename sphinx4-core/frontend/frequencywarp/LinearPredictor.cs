@@ -1,9 +1,10 @@
 ﻿using IKVM.Runtime;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
-	public class LinearPredictor : java.lang.Object
+	public class LinearPredictor : Object
 	{
 		public LinearPredictor(int order)
 		{
@@ -147,7 +148,7 @@ namespace edu.cmu.sphinx.frontend.frequencywarp
 			{
 				array2[i][this.cepstrumOrder - 1] = (double)0f;
 			}
-			for (int i = this.cepstrumOrder - 2; i >= 0; i += -1)
+			for (int i = this.cepstrumOrder - 2; i >= 0; i --)
 			{
 				array2[0][i] = warp * array2[0][i + 1] + array3[i];
 				array2[1][i] = ((double)1f - warp * warp) * array2[0][i + 1] + warp * array2[1][i + 1];

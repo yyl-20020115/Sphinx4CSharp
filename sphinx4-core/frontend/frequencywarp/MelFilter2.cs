@@ -1,8 +1,9 @@
 ﻿using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.frontend.frequencywarp
 {
-	public class MelFilter2 : java.lang.Object
+	public class MelFilter2 : Object
 	{		
 		public MelFilter2(double center, double delta, double[] melPoints)
 		{

@@ -1,5 +1,4 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
 using java.lang;
 using java.util;
 using java.util.logging;
@@ -70,12 +69,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 		
 		private Map features;
 				
-		[Serializable]
+		[System.Serializable]
 		public sealed class Feature : java.lang.Enum
 		{
 			private Feature(string text, int num) : base(text, num)
 			{
-				GC.KeepAlive(this);
+				System.GC.KeepAlive(this);
 			}
 			
 			public static Pool.Feature[] values()
@@ -129,7 +128,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			};
 
 			
-			[Serializable]
+			[System.Serializable]
 			public enum __Enum
 			{
 				NUM_SENONES,

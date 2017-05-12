@@ -13,7 +13,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.api
 {
-	public class SpeechAligner : java.lang.Object
+	public class SpeechAligner : Object
 	{
 		public virtual void setTokenizer(TextTokenizer wordExpander)
 		{
@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.api
 		{
 			return this.tokenizer;
 		}
-	
+
 		public virtual List align(URL audioUrl, List sentenceTranscript)
 		{
 			List list = this.sentenceToWords(sentenceTranscript);
@@ -49,12 +49,12 @@ namespace edu.cmu.sphinx.api
 				{
 					if (!SpeechAligner.assertionsDisabled && arrayDeque.size() != linkedList.size())
 					{
-						
+
 						throw new AssertionError();
 					}
 					if (!SpeechAligner.assertionsDisabled && arrayDeque.size() != arrayDeque2.size())
 					{
-						
+
 						throw new AssertionError();
 					}
 					List list2 = (List)arrayDeque.poll();
@@ -104,7 +104,7 @@ namespace edu.cmu.sphinx.api
 			}
 			return new ArrayList(treeMap.values());
 		}
-		
+
 		public virtual List sentenceToWords(List sentenceTranscript)
 		{
 			ArrayList arrayList = new ArrayList();
@@ -126,7 +126,7 @@ namespace edu.cmu.sphinx.api
 			}
 			return arrayList;
 		}
-	
+
 		private void dumpAlignmentStats(List list, int[] array, List list2)
 		{
 			int num = 0;
@@ -160,7 +160,7 @@ namespace edu.cmu.sphinx.api
 				Float.valueOf((float)(num + num2) / (float)num3 * 100f)
 			}));
 		}
-		
+
 		private void scheduleNextAlignment(List list, Map map, Queue queue, Queue queue2, Queue queue3, long num)
 		{
 			int num2 = 0;
@@ -181,7 +181,7 @@ namespace edu.cmu.sphinx.api
 				this.checkedOffer(list, queue2, queue3, queue, num2, list.size(), num3, num);
 			}
 		}
-	
+
 		private void checkedOffer(List list, Queue queue, Queue queue2, Queue queue3, int num, int num2, long num3, long num4)
 		{
 			double num5 = (double)(num4 - num3) / (double)(num2 - num);
@@ -194,7 +194,7 @@ namespace edu.cmu.sphinx.api
 			queue2.offer(new TimeFrame(num3, num4));
 			queue3.offer(new Range(num, num2 - 1));
 		}
-	
+
 		public SpeechAligner(string amPath, string dictPath, string g2pPath)
 		{
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getSimpleName());
@@ -212,13 +212,13 @@ namespace edu.cmu.sphinx.api
 			this.grammar = (AlignerGrammar)this.context.getInstance(ClassLiteral<AlignerGrammar>.Value);
 			this.languageModel = (DynamicTrigramModel)this.context.getInstance(ClassLiteral<DynamicTrigramModel>.Value);
 			this.setTokenizer(new SimpleTokenizer());
-		}		
-		
+		}
+
 		public virtual List align(URL audioUrl, string transcript)
 		{
 			return this.align(audioUrl, this.getTokenizer().expand(transcript));
 		}
-		
+
 		public virtual void dumpAlignment(List transcript, int[] alignment, List results)
 		{
 			this.logger.info("Alignment");
@@ -268,8 +268,8 @@ namespace edu.cmu.sphinx.api
 					}));
 				}
 			}
-		}		
-		
+		}
+
 		private Logger logger;
 
 		private const int TUPLE_SIZE = 3;
@@ -277,13 +277,13 @@ namespace edu.cmu.sphinx.api
 		private Context context;
 
 		private Recognizer recognizer;
-		
+
 		private AlignerGrammar grammar;
 
 		private DynamicTrigramModel languageModel;
 
 		private TextTokenizer tokenizer;
-		
+
 		internal static bool assertionsDisabled = !ClassLiteral<SpeechAligner>.Value.desiredAssertionStatus();
 	}
 }

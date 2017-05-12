@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.decoder.search.stats
 {
-	public class WordTracker : java.lang.Object
+	public class WordTracker : Object
 	{		
 		private WordSequence getWordSequence(Token predecessor)
 		{

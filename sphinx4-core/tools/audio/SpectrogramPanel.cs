@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.frontend.util;
 using IKVM.Runtime;
 using java.awt;
@@ -12,7 +9,7 @@ using javax.swing;
 
 namespace edu.cmu.sphinx.tools.audio
 {
-	[Serializable]
+	[System.Serializable]
 	public class SpectrogramPanel : JPanel
 	{	
 		protected internal virtual void zoomSet(float zoom)
@@ -82,7 +79,7 @@ namespace edu.cmu.sphinx.tools.audio
 				for (int j = 0; j < num2; j++)
 				{
 					double[] array2 = (double[])arrayList.get(j);
-					for (int k = i; k >= 0; k += -1)
+					for (int k = i; k >= 0; k --)
 					{
 						int num5 = ByteCodeHelper.d2i(array2[k] * num4 - this.offsetFactor);
 						num5 = java.lang.Math.max(num5, 0);
@@ -125,8 +122,8 @@ namespace edu.cmu.sphinx.tools.audio
 			}
 		}
 
-		[PermissionSet(SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
-		protected SpectrogramPanel(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+		[System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, XML = "<PermissionSet class=\"System.Security.PermissionSet\"\nversion=\"1\">\n<IPermission class=\"System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\"\nversion=\"1\"\nFlags=\"SerializationFormatter\"/>\n</PermissionSet>\n")]
+		protected SpectrogramPanel(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) : base(serializationInfo, streamingContext)
 		{
 		}
 

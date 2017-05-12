@@ -1,10 +1,7 @@
-﻿using System;
-
-using edu.cmu.sphinx.decoder.scorer;
+﻿using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist.acoustic;
 using edu.cmu.sphinx.linguist.dictionary;
-using IKVM.Attributes;
 using java.lang;
 using java.util;
 

@@ -6,13 +6,13 @@ using java.util;
 
 namespace edu.cmu.sphinx.alignment
 {
-	public class LongTextAligner : java.lang.Object
+	public class LongTextAligner : Object
 	{
 		internal static List access_300(LongTextAligner longTextAligner)
 		{
 			return longTextAligner.reftup;
 		}
-		
+
 		internal static HashMap access_400(LongTextAligner longTextAligner)
 		{
 			return longTextAligner.tupleIndex;
@@ -35,7 +35,7 @@ namespace edu.cmu.sphinx.alignment
 			}
 			return arrayList;
 		}
-	
+
 		public virtual int[] align(List words, Range range)
 		{
 			if (range.upperEndpoint() - range.lowerEndpoint() < this.tupleSize || words.size() < this.tupleSize)
@@ -94,15 +94,15 @@ namespace edu.cmu.sphinx.alignment
 					array2[j][k] = java.lang.Math.min(num6, java.lang.Math.min(num7, num8));
 				}
 			}
-			num2 += -1;
-			i += -1;
+			num2 --;
+			i --;
 			int[] array3 = new int[i];
 			Arrays.fill(array3, -1);
 			while (i > 0)
 			{
 				if (num2 == 0)
 				{
-					i += -1;
+					i --;
 				}
 				else
 				{
@@ -111,34 +111,34 @@ namespace edu.cmu.sphinx.alignment
 					if (array2[num2 - 1][i - 1] <= array2[num2 - 1][i - 1] && array2[num2 - 1][i - 1] <= array2[num2][i - 1] && java.lang.String.instancehelper_equals(text3, text4))
 					{
 						int[] array4 = array3;
-						i += -1;
+						i --;
 						int num9 = i;
-						num2 += -1;
+						num2 --;
 						array4[num9] = num2 + num;
 					}
 					else if (array2[num2 - 1][i] < array2[num2][i - 1])
 					{
-						num2 += -1;
+						num2 --;
 					}
 					else
 					{
-						i += -1;
+						i --;
 					}
 				}
 			}
 			return array3;
 		}
-	
+
 		public LongTextAligner(List words, int tupleSize)
 		{
 			if (!LongTextAligner.assertionsDisabled && words == null)
 			{
-				
+
 				throw new AssertionError();
 			}
 			if (!LongTextAligner.assertionsDisabled && tupleSize <= 0)
 			{
-				
+
 				throw new AssertionError();
 			}
 			this.tupleSize = tupleSize;
@@ -161,17 +161,17 @@ namespace edu.cmu.sphinx.alignment
 				num++;
 				arrayList2.add(Integer.valueOf(num2));
 			}
-		}	
-		
+		}
+
 		public virtual int[] align(List query)
 		{
 			return this.align(query, new Range(0, this.refWords.size()));
 		}
-		
+
 		private int tupleSize;
-		
+
 		private List reftup;
-		
+
 		private HashMap tupleIndex;
 
 		private List refWords;
@@ -179,22 +179,22 @@ namespace edu.cmu.sphinx.alignment
 		internal static bool assertionsDisabled = !ClassLiteral<LongTextAligner>.Value.desiredAssertionStatus();
 
 		internal sealed class Alignment : java.lang.Object
-		{			
+		{
 			internal static List access_000(LongTextAligner.Alignment alignment)
 			{
 				return alignment.shifts;
 			}
-		
+
 			internal static List access_100(LongTextAligner.Alignment alignment)
 			{
 				return alignment.indices;
 			}
-		
+
 			internal static List access_200(LongTextAligner.Alignment alignment)
 			{
 				return alignment.query;
 			}
-			
+
 			public Alignment(LongTextAligner longTextAligner, List list, Range range)
 			{
 				this_0 = longTextAligner;
@@ -276,7 +276,7 @@ namespace edu.cmu.sphinx.alignment
 				}
 				this.alignment = Collections.emptyList();
 			}
-	
+
 			public List getIndices()
 			{
 				return this.alignment;
@@ -285,9 +285,9 @@ namespace edu.cmu.sphinx.alignment
 			private List shifts;
 
 			private List query;
-			
+
 			private List indices;
-			
+
 			private List alignment;
 
 			internal LongTextAligner this_0;

@@ -1,14 +1,10 @@
-﻿using System;
-
-using IKVM.Attributes;
-using ikvm.@internal;
-using IKVM.Runtime;
+﻿using ikvm.@internal;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.util.props
 {
-	[Serializable]
+	[System.Serializable]
 	public class PropertyType : java.lang.Enum
 	{
 		public static PropertyType[] values()
@@ -19,7 +15,7 @@ namespace edu.cmu.sphinx.util.props
 		private PropertyType(string text, int num, string text2) : base(text, num)
 		{
 			this.displayName = text2;
-			GC.KeepAlive(this);
+			System.GC.KeepAlive(this);
 		}
 
 		protected internal virtual bool validateString(string obj)
@@ -31,7 +27,7 @@ namespace edu.cmu.sphinx.util.props
 		{
 			this.displayName = text2;
 			this.checkClass = @class;
-			GC.KeepAlive(this);
+			System.GC.KeepAlive(this);
 		}
 	
 		public static PropertyType valueOf(string name)
@@ -68,7 +64,7 @@ namespace edu.cmu.sphinx.util.props
 		
 		internal PropertyType(string text, int num, string text2, PropertyType_1 propertyType_) : this(text, num, text2)
 		{
-			GC.KeepAlive(this);
+			System.GC.KeepAlive(this);
 		}
 		
 		public static PropertyType INT
@@ -188,7 +184,7 @@ namespace edu.cmu.sphinx.util.props
 		};
 
 		
-		[Serializable]
+		[System.Serializable]
 		public enum __Enum
 		{
 			INT,

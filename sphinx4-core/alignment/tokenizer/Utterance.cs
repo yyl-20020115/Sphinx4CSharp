@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class Utterance : java.lang.Object
+	public class Utterance : Object
 	{
 		public Utterance(CharTokenizer tokenizer)
 		{
@@ -12,13 +12,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.setTokenList(tokenizer);
 		}
 
-		
-		
+
+
 		public virtual Relation getRelation(string name)
 		{
 			return (Relation)this.relations.getObject(name);
 		}
-	
+
 		private void setTokenList(Iterator iterator)
 		{
 			Relation relation = this.createRelation("Token");
@@ -39,7 +39,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 			}
 		}
-	
+
 		private static Item getItem(Relation relation, float num)
 		{
 			Item tail = relation.getTail();
@@ -54,13 +54,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return Utterance.findFromEnd(relation, num);
 		}
-		
+
 		private static float getSegmentEnd(Item item)
 		{
 			FeatureSet featureSet = item.getFeatures();
 			return featureSet.getFloat("end");
 		}
-	
+
 		private static Item findFromFront(Relation relation, float num)
 		{
 			Item item = relation.getHead();
@@ -70,7 +70,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return item;
 		}
-		
+
 		private static Item findFromEnd(Relation relation, float num)
 		{
 			Item item = relation.getTail();
@@ -84,44 +84,44 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return item;
 		}
-		
+
 		public virtual Relation createRelation(string name)
 		{
 			Relation relation = new Relation(name, this);
 			this.relations.setObject(name, relation);
 			return relation;
 		}
-	
+
 		public virtual bool hasRelation(string name)
 		{
 			return this.relations.isPresent(name);
 		}
-		
+
 		public virtual void remove(string name)
 		{
 			this.features.remove(name);
 		}
-		
+
 		public virtual void setInt(string name, int value)
 		{
 			this.features.setInt(name, value);
 		}
-	
+
 		public virtual void setFloat(string name, float value)
 		{
 			this.features.setFloat(name, value);
 		}
-		
+
 		public virtual void setString(string name, string value)
 		{
 			this.features.setString(name, value);
 		}
-		
+
 		public virtual void setObject(string name, object value)
 		{
 			this.features.setObject(name, value);
 		}
-		
+
 		public virtual Item getItem(string relation, float time)
 		{
 			string pathAndFeature;
@@ -134,7 +134,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				if (!java.lang.String.instancehelper_equals(relation, "Token"))
 				{
 					string text = new StringBuilder().append("Utterance.getItem(): relation cannot be ").append(relation).toString();
-					
+
 					throw new IllegalArgumentException(text);
 				}
 				pathAndFeature = "R:SylStructure.parent.parent.R:Token.parent";

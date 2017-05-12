@@ -1,14 +1,14 @@
-﻿using System;
-using ikvm.@internal;
+﻿using ikvm.@internal;
+using java.lang;
 
 namespace edu.cmu.sphinx.fst.operations
 {
-	[Serializable]
-	public sealed class ProjectType : java.lang.Enum
+	[System.Serializable]
+	public sealed class ProjectType : Enum
 	{
 		private ProjectType(string text, int num) : base(text, num)
 		{
-			GC.KeepAlive(this);
+			System.GC.KeepAlive(this);
 		}
 
 		public static ProjectType[] values()
@@ -47,7 +47,7 @@ namespace edu.cmu.sphinx.fst.operations
 			ProjectType.__OUTPUT
 		};
 		
-		[Serializable]
+		[System.Serializable]
 		public enum __Enum
 		{
 			INPUT,

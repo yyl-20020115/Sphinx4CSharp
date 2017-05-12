@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.alignment
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.alignment
 {
-	internal sealed class UsEnglish : java.lang.Object
+	internal sealed class UsEnglish : Object
 	{
 		private UsEnglish()
 		{

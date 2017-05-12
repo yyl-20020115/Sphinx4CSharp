@@ -348,7 +348,7 @@ namespace edu.cmu.sphinx.trainer
 					this.probCurrentFrame[j] = float.MinValue;
 				}
 				IL_2DE:
-				j += -1;
+				j --;
 				continue;
 				IL_21A:
 				this.probCurrentFrame[j] = float.MinValue;

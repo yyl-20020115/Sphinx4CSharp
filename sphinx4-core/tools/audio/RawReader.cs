@@ -70,7 +70,7 @@ namespace edu.cmu.sphinx.tools.audio
 						{
 							num6 &= 255;
 						}
-						for (int j = num2 - 2; j >= 0; j += -1)
+						for (int j = num2 - 2; j >= 0; j --)
 						{
 							int num7 = (int)array[j];
 							num6 = (num6 << 8) + num7;

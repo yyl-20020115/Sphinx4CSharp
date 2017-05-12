@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using edu.cmu.sphinx.decoder.scorer;
+﻿using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.util.props;
 using ikvm.lang;
-using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.decoder.search
@@ -27,7 +25,7 @@ namespace edu.cmu.sphinx.decoder.search
 			base.newProperties(ps);
 		}
 		
-		internal sealed class SimpleActiveList : ActiveListBase, IEnumerable
+		internal sealed class SimpleActiveList : ActiveListBase, System.Collections.IEnumerable
 		{			
 			public override void add(Token token)
 			{
@@ -108,8 +106,8 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				return this.this_0.newInstance();
 			}
-		
-			IEnumerator IEnumerable.GetEnumerator()
+
+			System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
 			{
 				return new IterableEnumerator(this);
 			}

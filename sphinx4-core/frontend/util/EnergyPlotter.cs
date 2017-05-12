@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.frontend.util
 {
-	public class EnergyPlotter : java.lang.Object, Configurable
+	public class EnergyPlotter : Object, Configurable
 	{		
 		private void buildPlots(int num)
 		{

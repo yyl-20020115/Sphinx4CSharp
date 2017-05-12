@@ -45,7 +45,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			{
 				return num;
 			}
-			for (int i = wordSequence.size() - 2; i >= 0; i += -1)
+			for (int i = wordSequence.size() - 2; i >= 0; i --)
 			{
 				int num2 = wordSequence.size() - 2 - i;
 				if (num2 + 1 == this.maxDepth)
@@ -93,7 +93,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 				{
 					break;
 				}
-				i += -1;
+				i --;
 				num4++;
 			}
 			return num;

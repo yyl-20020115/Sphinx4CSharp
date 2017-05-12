@@ -1,11 +1,10 @@
-﻿using System;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class CharTokenizer : java.lang.Object, Iterator
+	public class CharTokenizer : Object, Iterator
 	{
 		public CharTokenizer()
 		{
@@ -44,12 +43,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				this.getNextChar();
 			}
 		}
+
 		public virtual void setInputReader(Reader reader)
 		{
 			this.reader = reader;
 			this.getNextChar();
 		}
-	
+
 		private int getNextChar()
 		{
 			if (this.reader != null)
@@ -57,9 +57,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				try
 				{
 					int num = this.reader.read();
-					if (num == -1)
+					if (num == EOF)
 					{
-						this.currentChar = -1;
+						this.currentChar = EOF;
 					}
 					else
 					{
@@ -68,7 +68,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				catch (IOException ex)
 				{
-					this.currentChar = -1;
+					this.currentChar = EOF;
 					this.errorDescription = Throwable.instancehelper_getMessage(ex);
 				}
 			}
@@ -80,10 +80,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				}
 				else
 				{
-					this.currentChar = -1;
+					this.currentChar = EOF;
 				}
 			}
-			if (this.currentChar != -1)
+			if (this.currentChar != EOF)
 			{
 				this.currentPosition++;
 			}
@@ -94,21 +94,16 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return this.currentChar;
 		}
 
-		
-		
 		private string getTokenOfCharClass(string text)
 		{
 			return this.getTokenByCharClass(text, true);
 		}
 
-		
-		
 		private string getTokenNotOfCharClass(string text)
 		{
 			return this.getTokenByCharClass(text, false);
 		}
 
-	
 		private void removeTokenPostpunctuation()
 		{
 			if (this.token == null)
@@ -120,7 +115,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			int num2 = num - 1;
 			while (num2 > 0 && java.lang.String.instancehelper_indexOf(this.postpunctuationSymbols, (int)java.lang.String.instancehelper_charAt(word, num2)) != -1)
 			{
-				num2 += -1;
+				num2 --;
 			}
 			if (num - 1 != num2)
 			{
@@ -143,7 +138,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			return stringBuilder.toString();
 		}
-		
+
 		public virtual Token next()
 		{
 			this.lastToken = this.token;
@@ -164,7 +159,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.removeTokenPostpunctuation();
 			return this.token;
 		}
-		
+
 		public CharTokenizer(string @string)
 		{
 			this.whitespaceSymbols = " \t\n\r";
@@ -173,7 +168,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.postpunctuationSymbols = "\"'`.,:;!?(){}[]";
 			this.setInputText(@string);
 		}
-	
+
 		public CharTokenizer(Reader file)
 		{
 			this.whitespaceSymbols = " \t\n\r";
@@ -189,11 +184,9 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return num != -1;
 		}
 
-		
-		
 		public virtual void remove()
 		{
-			
+
 			throw new UnsupportedOperationException();
 		}
 
@@ -206,7 +199,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			return this.errorDescription;
 		}
-		
+
 		public virtual bool isSentenceSeparator()
 		{
 			string whitespace = this.token.getWhitespace();
@@ -236,9 +229,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return java.lang.String.instancehelper_indexOf(text, 46) != -1 && Character.isUpperCase(java.lang.String.instancehelper_charAt(this.token.getWord(), 0)) && !Character.isUpperCase(java.lang.String.instancehelper_charAt(word, num - 1)) && (num >= 4 || !Character.isUpperCase(java.lang.String.instancehelper_charAt(word, 0)));
 		}
 
-		
-		
-		
 		object Iterator.next()
 		{
 			return this.next();

@@ -1,5 +1,4 @@
-﻿using System;
-using IKVM.Attributes;
+﻿using IKVM.Attributes;
 using java.lang;
 using java.lang.annotation;
 

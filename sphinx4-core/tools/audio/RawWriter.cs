@@ -36,7 +36,7 @@ namespace edu.cmu.sphinx.tools.audio
 			{
 				this.outputStream.write(sample >> (this.bytesPerSample - 1) * 8 & 255);
 			}
-			for (int i = this.bytesPerSample - 2; i >= 0; i += -1)
+			for (int i = this.bytesPerSample - 2; i >= 0; i --)
 			{
 				this.outputStream.write(sample >> i * 8 & 255);
 			}

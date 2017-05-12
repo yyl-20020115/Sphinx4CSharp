@@ -2,7 +2,7 @@
 
 namespace edu.cmu.sphinx.frontend.endpoint
 {
-	public class SpeechClassifiedData : java.lang.Object, Data
+	public class SpeechClassifiedData : Object, Data
 	{
 		public SpeechClassifiedData(DoubleData doubleData, bool isSpeech)
 		{

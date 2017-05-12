@@ -1,9 +1,10 @@
 ﻿using edu.cmu.sphinx.frontend;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.decoder.scorer
 {
-	public abstract class Scoreable : java.lang.Object, Data
+	public abstract class Scoreable : Object, Data
 	{
 		public abstract float normalizeScore(float f);
 

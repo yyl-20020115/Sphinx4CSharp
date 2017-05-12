@@ -1,6 +1,8 @@
-﻿namespace edu.cmu.sphinx.frontend.frequencywarp
+﻿using java.lang;
+
+namespace edu.cmu.sphinx.frontend.frequencywarp
 {
-	public class FrequencyWarper : java.lang.Object
+	public class FrequencyWarper : Object
 	{		
 		public FrequencyWarper()
 		{

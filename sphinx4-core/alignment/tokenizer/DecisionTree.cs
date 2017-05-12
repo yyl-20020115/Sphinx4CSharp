@@ -1,6 +1,4 @@
-﻿using System;
-using ikvm.@internal;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 using java.util;
@@ -9,7 +7,7 @@ using java.util.regex;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
-	public class DecisionTree : java.lang.Object
+	public class DecisionTree : Object
 	{
 		public DecisionTree(URL url)
 		{
@@ -25,7 +23,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			}
 			bufferedReader.close();
 		}
-		
+
 		public virtual object interpret(Item item)
 		{
 			int num = 0;
@@ -38,12 +36,12 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			return ((DecisionTree.LeafNode)this.cart[num]).getValue();
 		}
 
-		
+
 		internal static Logger access_000()
 		{
 			return DecisionTree.logger;
 		}
-		
+
 		protected internal virtual void parseAndAdd(string line)
 		{
 			StringTokenizer stringTokenizer = new StringTokenizer(line, " ");
@@ -59,14 +57,14 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				if (!java.lang.String.instancehelper_equals(text, "TOTAL"))
 				{
 					string text2 = new StringBuilder().append("Invalid CART type: ").append(text).toString();
-					
+
 					throw new Error(text2);
 				}
 				this.cart = new DecisionTree.Node[Integer.parseInt(stringTokenizer.nextToken())];
 				this.curNode = 0;
 			}
 		}
-	
+
 		private DecisionTree(int num)
 		{
 			this.cart = null;
@@ -74,7 +72,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			this.cart = new DecisionTree.Node[num];
 		}
 
-		private  string dumpDotNodeColor(DecisionTree.Node n)
+		private string dumpDotNodeColor(DecisionTree.Node n)
 		{
 			if (n is DecisionTree.LeafNode)
 			{
@@ -87,7 +85,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			return "box";
 		}
-		
+
 		protected internal virtual DecisionTree.Node getNode(string type, StringTokenizer tokenizer, int currentNode)
 		{
 			if (java.lang.String.instancehelper_equals(type, "NODE"))
@@ -111,7 +109,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				return null;
 			}
 		}
-		
+
 		protected internal virtual object parseValue(string @string)
 		{
 			int num = java.lang.String.instancehelper_indexOf(@string, "(");
@@ -142,10 +140,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				return array;
 			}
 			string text3 = new StringBuilder().append("Unknown type: ").append(text).toString();
-			
+
 			throw new Error(text3);
 		}
-		
+
 		public DecisionTree(BufferedReader reader, int nodes) : this(nodes)
 		{
 			for (int i = 0; i < nodes; i++)
@@ -156,7 +154,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					this.parseAndAdd(text);
 				}
 			}
-		}		
+		}
 		public virtual void dumpDot(PrintWriter @out)
 		{
 			@out.write("digraph \"CART Tree\" {\n");
@@ -188,13 +186,13 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			return this.dumpDotNodeColor((DecisionTree.Node)obj);
 		}
-		
+
 		protected internal string dumpDotNodeShape(object obj)
 		{
 			return this.dumpDotNodeShape((DecisionTree.Node)obj);
 		}
-	
-		private static Logger logger = Logger.getLogger(ClassLiteral<DecisionTree>.Value.getSimpleName());
+
+		private static Logger logger = Logger.getLogger(ikvm.@internal.ClassLiteral<DecisionTree>.Value.getSimpleName());
 
 		internal const string TOTAL = "TOTAL";
 
@@ -206,27 +204,27 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 		internal DecisionTree.Node[] cart;
 
-		[NonSerialized]
+		[System.NonSerialized]
 		internal int curNode;
 
-				
+
 		internal sealed class ComparisonNode : DecisionTree.DecisionNode
-		{			
+		{
 			private string trace(object obj, bool flag, int num)
 			{
 				return new StringBuilder().append("NODE ").append(this.getFeature()).append(" [").append(obj).append("] ").append(this.comparisonType).append(" [").append(this.getValue()).append("] ").append((!flag) ? "No" : "Yes").append(" next ").append(num).toString();
-			}			
+			}
 			public ComparisonNode(string text, object obj, string text2, int num, int num2) : base(text, obj, num, num2)
 			{
 				if (!java.lang.String.instancehelper_equals(text2, "<") && !java.lang.String.instancehelper_equals(text2, "=") && !java.lang.String.instancehelper_equals(text2, ">"))
 				{
 					string text3 = new StringBuilder().append("Invalid comparison type: ").append(text2).toString();
-					
+
 					throw new Error(text3);
 				}
 				this.comparisonType = text2;
 			}
-			
+
 			public override int getNextNode(object obj)
 			{
 				int num3;
@@ -277,7 +275,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				DecisionTree.access_000().fine(this.trace(obj, num3 != 0, num4));
 				return num4;
 			}
-			
+
 			public override string toString()
 			{
 				return new StringBuilder().append("NODE ").append(this.getFeature()).append(" ").append(this.comparisonType).append(" ").append(this.getValueString()).append(" ").append(Integer.toString(this.qtrue)).append(" ").append(Integer.toString(this.qfalse)).toString();
@@ -301,20 +299,20 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 
 			public abstract int getNextNode(object o);
 
-			
-			
+
+
 			public virtual string getFeature()
 			{
 				return this.path.toString();
 			}
 
-			
-			
+
+
 			public int getNextNode(Item item)
 			{
 				return this.getNextNode(this.findFeature(item));
 			}
-			
+
 			public DecisionNode(string pathAndFeature, object obj, int num, int num2) : base(obj)
 			{
 				this.path = new PathExtractor(pathAndFeature, true);
@@ -329,28 +327,28 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			protected internal int qtrue;
 		}
 
-	
+
 		internal sealed class LeafNode : DecisionTree.Node
-		{			
+		{
 			public LeafNode(object obj) : base(obj)
 			{
 			}
-			
+
 			public override string toString()
 			{
 				return new StringBuilder().append("LEAF ").append(this.getValueString()).toString();
 			}
 		}
-	
+
 		internal sealed class MatchingNode : DecisionTree.DecisionNode
-		{			
+		{
 			public MatchingNode(string text, string text2, int num, int num2) : base(text, text2, num, num2)
 			{
 				this.pattern = Pattern.compile(text2);
 			}
 
-			
-			
+
+
 			public override int getNextNode(object obj)
 			{
 				Pattern pattern = this.pattern;
@@ -359,7 +357,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 				return (!pattern.matcher(charSequence).matches()) ? this.qfalse : this.qtrue;
 			}
 
-		
+
 			public override string toString()
 			{
 				StringBuffer stringBuffer = new StringBuffer(new StringBuilder().append("NODE ").append(this.getFeature()).append(" ").append("MATCHES").toString());
@@ -373,7 +371,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		}
 
 		public abstract class Node : java.lang.Object
-		{			
+		{
 			public Node(object obj)
 			{
 				this.value = obj;
@@ -383,7 +381,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			{
 				return this.value;
 			}
-			
+
 			public virtual string getValueString()
 			{
 				if (this.value == null)
