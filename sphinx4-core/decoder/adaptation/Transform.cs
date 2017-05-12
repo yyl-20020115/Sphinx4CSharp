@@ -127,9 +127,9 @@ namespace edu.cmu.sphinx.decoder.adaptation
 
 						Matrix solved = lu.Solve(rv);
 
-						for (int l = 0; l < len; l++)
+						for (int k = 0; k < len; k++)
 						{
-							this.As[c][i][j][l] = (float)solved[l, 0];
+							this.As[c][i][j][k] = (float)solved[k, 0];
 						}
 						//TODO: there may be a problem of index out of range?
 						//(index == len)?
