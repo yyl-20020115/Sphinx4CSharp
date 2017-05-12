@@ -131,7 +131,8 @@ namespace edu.cmu.sphinx.decoder.adaptation
 						{
 							this.As[c][i][j][l] = (float)solved[l, 0];
 						}
-
+						//TODO: there may be a problem of index out of range?
+						//(index == len)?
 						this.Bs[c][i][j] = (float)solved[len,0];
 
 #else
