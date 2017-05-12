@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="commons-math3-3.6.1">
-      <HintPath>.\commons-math3-3.6.1.dll</HintPath>
-    </Reference>
     <Reference Include="IKVM.AWT.WinForms, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
       <HintPath>..\packages\IKVM.7.2.4630.5\lib\IKVM.AWT.WinForms.dll</HintPath>
     </Reference>
@@ -689,6 +686,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mapack\Mapack.csproj">
+      <Project>{c38e0a85-1d89-48c6-a3c6-5a94de6b4b8d}</Project>
+      <Name>Mapack</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

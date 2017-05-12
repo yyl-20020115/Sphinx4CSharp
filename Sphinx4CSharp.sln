@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sphinx4-core", "sphinx4-core\sphinx4-core.csproj", "{2B726D13-4B2A-4FEC-9BA0-F763CF8726E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sphinx4-samples", "sphinx4-samples\sphinx4-samples.csproj", "{2B726D13-4B2A-4FEC-9BA0-F763CF8726E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapack", "Mapack\Mapack.csproj", "{C38E0A85-1D89-48C6-A3C6-5A94DE6B4B8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2B726D13-4B2A-4FEC-9BA0-F763CF8726E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B726D13-4B2A-4FEC-9BA0-F763CF8726E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B726D13-4B2A-4FEC-9BA0-F763CF8726E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C38E0A85-1D89-48C6-A3C6-5A94DE6B4B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C38E0A85-1D89-48C6-A3C6-5A94DE6B4B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C38E0A85-1D89-48C6-A3C6-5A94DE6B4B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C38E0A85-1D89-48C6-A3C6-5A94DE6B4B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

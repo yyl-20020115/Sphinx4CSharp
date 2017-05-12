@@ -1,10 +1,13 @@
-﻿using edu.cmu.sphinx.linguist.acoustic.tiedstate;
+﻿#define USE_MAPACK
+using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
-#if DEF_MATH
+#if USE_MAPACK
+using Mapack;
+#else
 using org.apache.commons.math3.linear;
 #endif
 namespace edu.cmu.sphinx.decoder.adaptation
@@ -86,38 +89,64 @@ namespace edu.cmu.sphinx.decoder.adaptation
 	
 		private void computeMllrTransforms(double[][][][][] array, double[][][][] array2)
 		{
-			for (int i = 0; i < this.nrOfClusters; i++)
+			for (int c = 0; c < this.nrOfClusters; c++)
 			{
-				this.As[i] = new float[this.loader.getNumStreams()][][];
-				this.Bs[i] = new float[this.loader.getNumStreams()][];
-				for (int j = 0; j < this.loader.getNumStreams(); j++)
+				this.As[c] = new float[this.loader.getNumStreams()][][];
+				this.Bs[c] = new float[this.loader.getNumStreams()][];
+				for (int i = 0; i < this.loader.getNumStreams(); i++)
 				{
-					int num = this.loader.getVectorLength()[j];
-					float[][][] array3 = this.As[i];
-					int num2 = j;
-					int num3 = num;
-					int num4 = num;
+					int len = this.loader.getVectorLength()[i];
+					float[][][] array3 = this.As[c];
+					int num2 = i;
+					int num3 = len;
+					int num4 = len;
 					int[] array4 = new int[2];
 					int num5 = num4;
 					array4[1] = num5;
 					num5 = num3;
 					array4[0] = num5;
 					array3[num2] = (float[][])ByteCodeHelper.multianewarray(typeof(float[][]).TypeHandle, array4);
-					this.Bs[i][j] = new float[num];
-#if DEF_MATH
-					for (int k = 0; k < num; k++)
+					this.Bs[c][i] = new float[len];
+
+					for (int j = 0; j < len; j++)
 					{
-						Array2DRowRealMatrix matrix = new Array2DRowRealMatrix(array[i][j][k], false);
-						DecompositionSolver solver = new LUDecomposition(matrix).getSolver();
-						ArrayRealVector rv = new ArrayRealVector(array2[i][j][k], false);
-						RealVector realVector = solver.solve(rv);
-						for (int l = 0; l < num; l++)
+#if USE_MAPACK
+						//TODO: need to check if the math is correct
+						Matrix matrix = new Matrix(array[c][i][j]);
+
+						LuDecomposition lu = new LuDecomposition(matrix);
+
+						int rs = array2[c][i][j].Length;
+
+						Matrix rv = new Matrix(rs, 1);
+
+						for (int r = 0; r < rs; r++)
 						{
-							this.As[i][j][k][l] = (float)realVector.getEntry(l);
+							rv[r,0] = array2[c][i][j][r];
 						}
-						this.Bs[i][j][k] = (float)realVector.getEntry(num);
-					}
+
+						Matrix solved = lu.Solve(rv);
+
+						for (int l = 0; l < len; l++)
+						{
+							this.As[c][i][j][l] = (float)solved[l, 0];
+						}
+
+						this.Bs[c][i][j] = (float)solved[len,0];
+
+#else
+						Array2DRowRealMatrix matrix = new Array2DRowRealMatrix(array[c][i][j], false);
+						DecompositionSolver solver = new LUDecomposition(matrix).getSolver();
+						ArrayRealVector rv = new ArrayRealVector(array2[c][i][j], false);
+						RealVector realVector = solver.solve(rv);
+						for (int k = 0; k < len; k++)
+						{
+							this.As[c][i][j][k] = (float)realVector.getEntry(k);
+						}
+						this.Bs[c][i][j] = (float)realVector.getEntry(len);
 #endif
+
+					}
 				}
 			}
 		}
