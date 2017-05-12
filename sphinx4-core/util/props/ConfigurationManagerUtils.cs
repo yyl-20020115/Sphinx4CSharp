@@ -181,42 +181,12 @@ namespace edu.cmu.sphinx.util.props
 			return result;
 			IL_8A:
 			MalformedURLException ex3 = ex2;
-			Exception ex4 = ex3;
+			System.Exception ex4 = ex3;
 			string instanceName3 = ps.getInstanceName();
 			string text3 = new StringBuilder().append("Bad URL ").append(@string).append(Throwable.instancehelper_getMessage(ex3)).toString();
 			
 			throw new InternalConfigurationException(ex4, instanceName3, name, text3);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			206,
-			110,
-			127,
-			5,
-			129,
-			159,
-			2,
-			136,
-			127,
-			4,
-			159,
-			15,
-			104,
-			104,
-			112,
-			104,
-			104,
-			114,
-			113,
-			105,
-			177,
-			106,
-			98,
-			143,
-			101
-		})]
 		
 		public static void showConfig(ConfigurationManager cm, string name)
 		{
@@ -258,46 +228,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			25,
-			168,
-			99,
-			127,
-			5,
-			129,
-			159,
-			2,
-			103,
-			144,
-			159,
-			0,
-			170,
-			123,
-			98,
-			105,
-			139,
-			135,
-			131,
-			103,
-			127,
-			33,
-			104,
-			105,
-			101,
-			110,
-			162,
-			112,
-			131,
-			207,
-			226,
-			61,
-			97,
-			111,
-			129,
-			101
-		})]
-		
 		public static void editConfig(ConfigurationManager cm, string name)
 		{
 			PropertySheet propertySheet = cm.getPropertySheet(name);
@@ -373,37 +303,6 @@ namespace edu.cmu.sphinx.util.props
 				return;
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			24,
-			104,
-			99,
-			191,
-			16,
-			109,
-			131,
-			159,
-			23,
-			114,
-			133,
-			109,
-			133,
-			109,
-			133,
-			104,
-			133,
-			105,
-			133,
-			102,
-			125,
-			46,
-			200,
-			105,
-			130,
-			144
-		})]
 		
 		public static void setProperty(ConfigurationManager cm, string componentName, string propName, string propValue)
 		{
@@ -456,36 +355,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			161,
-			199,
-			135,
-			191,
-			20,
-			111,
-			127,
-			1,
-			115,
-			127,
-			15,
-			162,
-			111,
-			127,
-			4,
-			115,
-			130,
-			127,
-			12,
-			127,
-			7,
-			127,
-			11,
-			98,
-			106,
-			101
-		})]
 		
 		public static void dumpPropStructure(ConfigurationManager cm)
 		{
@@ -519,16 +388,6 @@ namespace edu.cmu.sphinx.util.props
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			162,
-			63,
-			127,
-			2,
-			97,
-			166
-		})]
 		
 		public static URL getURL(File file)
 		{
@@ -549,37 +408,6 @@ namespace edu.cmu.sphinx.util.props
 			Throwable.instancehelper_printStackTrace(ex3);
 			return null;
 		}
-
-		[Throws(new string[]
-		{
-			"edu.cmu.sphinx.util.props.PropertyException"
-		})]
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			248,
-			102,
-			114,
-			108,
-			200,
-			106,
-			138,
-			113,
-			107,
-			110,
-			111,
-			100,
-			140,
-			255,
-			33,
-			69,
-			226,
-			69,
-			107,
-			137,
-			101
-		})]
 		
 		internal static void applySystemProperties(Map map, Map map2)
 		{
@@ -612,27 +440,10 @@ namespace edu.cmu.sphinx.util.props
 				}
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			87,
-			113,
-			103,
-			193,
-			103,
-			181,
-			144,
-			134,
-			108,
-			99,
-			139,
-			172,
-			112
-		})]
 		
 		public static void configureLogger(ConfigurationManager cm)
 		{
-			if (System.getProperty("java.util.logging.config.class") != null || java.lang.System.getProperty("java.util.logging.config.file") != null)
+			if (java.lang.System.getProperty("java.util.logging.config.class") != null || java.lang.System.getProperty("java.util.logging.config.file") != null)
 			{
 				return;
 			}
@@ -649,55 +460,11 @@ namespace edu.cmu.sphinx.util.props
 			Logger.getLogger("").setLevel(level);
 		}
 
-		
-		
-		
 		public static bool isDerivedClass(Class derived, Class parent)
 		{
 			return parent.isAssignableFrom(derived);
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			161,
-			32,
-			117,
-			120,
-			105,
-			223,
-			16,
-			127,
-			4,
-			136,
-			127,
-			5,
-			106,
-			130,
-			191,
-			8,
-			111,
-			110,
-			112,
-			106,
-			235,
-			61,
-			232,
-			71,
-			130,
-			112,
-			233,
-			69,
-			101,
-			133,
-			105,
-			168,
-			127,
-			10,
-			116,
-			115,
-			98
-		})]
-		
 		internal static void renameComponent(ConfigurationManager configurationManager, string text, string text2)
 		{
 			if (!ConfigurationManagerUtils.assertionsDisabled && configurationManager == null)
@@ -763,14 +530,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			15,
-			124,
-			104,
-			136
-		})]
-		
 		public static string stripGlobalSymbol(string symbol)
 		{
 			Pattern pattern = ConfigurationManagerUtils.globalSymbolPattern;
@@ -783,60 +542,32 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return symbol;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			74,
-			107,
-			159,
-			116
-		})]
 		
 		public static string getLogPrefix(ConfigurationManager cm)
 		{
 			if (cm.getConfigURL() != null)
 			{
 				StringBuilder stringBuilder = new StringBuilder();
-				File.__<clinit>();
 				string name = new File(cm.getConfigURL().getFile()).getName();
 				object obj = ".sxl";
 				object obj2 = "";
 				object obj3 = obj;
-				CharSequence charSequence;
-				charSequence.__ref = obj3;
+				CharSequence charSequence = CharSequence.Cast(obj3);
 				CharSequence charSequence2 = charSequence;
 				obj3 = obj2;
-				charSequence.__ref = obj3;
+				charSequence = CharSequence.Cast(obj3);
 				string text = java.lang.String.instancehelper_replace(name, charSequence2, charSequence);
 				object obj4 = ".xml";
 				obj3 = "";
 				obj2 = obj4;
-				charSequence.__ref = obj2;
+				charSequence = CharSequence.Cast(obj2);
 				CharSequence charSequence3 = charSequence;
 				obj2 = obj3;
-				charSequence.__ref = obj2;
+				charSequence = CharSequence.Cast(obj2);
 				return stringBuilder.append(java.lang.String.instancehelper_replace(text, charSequence3, charSequence)).append('.').toString();
 			}
 			return "S4CM.";
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			118,
-			135,
-			130,
-			117,
-			110,
-			98,
-			226,
-			61,
-			230,
-			71,
-			99,
-			103,
-			108,
-			136
-		})]
 		
 		public static void configureLogger(Logger logger)
 		{
@@ -860,35 +591,6 @@ namespace edu.cmu.sphinx.util.props
 				logger.addHandler(consoleHandler);
 			}
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			141,
-			102,
-			159,
-			23,
-			127,
-			4,
-			127,
-			6,
-			105,
-			130,
-			191,
-			0,
-			124,
-			110,
-			127,
-			1,
-			127,
-			0,
-			108,
-			130,
-			159,
-			9,
-			133,
-			108
-		})]
 		
 		private static string propSheet2XML(string text, PropertySheet propertySheet)
 		{
@@ -922,20 +624,6 @@ namespace edu.cmu.sphinx.util.props
 			stringBuilder.append("\n\t</component>\n\n");
 			return stringBuilder.toString();
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			98,
-			102,
-			104,
-			98,
-			123,
-			104,
-			141,
-			98
-		})]
 		
 		public static List toStringList(object obj)
 		{
@@ -955,31 +643,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return arrayList;
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			160,
-			114,
-			102,
-			108,
-			140,
-			140,
-			139,
-			103,
-			127,
-			5,
-			142,
-			124,
-			151,
-			127,
-			25,
-			133,
-			127,
-			2,
-			159,
-			3,
-			108
-		})]
 		
 		public static string toXML(ConfigurationManager cm)
 		{
@@ -1012,22 +675,6 @@ namespace edu.cmu.sphinx.util.props
 			return stringBuilder.toString();
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			135,
-			154,
-			103,
-			108,
-			130,
-			117,
-			116,
-			2,
-			230,
-			69
-		})]
-		
 		public static bool isImplementingInterface(Class aClass, Class interfaceClass)
 		{
 			if (!ConfigurationManagerUtils.assertionsDisabled && !interfaceClass.isInterface())
@@ -1052,25 +699,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return false;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			181,
-			134,
-			127,
-			4,
-			136,
-			127,
-			5,
-			106,
-			142,
-			116,
-			98,
-			133
-		})]
-		
+	
 		public static Map listAllsPropNames(ConfigurationManager cm)
 		{
 			HashMap hashMap = new HashMap();
@@ -1080,6 +709,7 @@ namespace edu.cmu.sphinx.util.props
 				string instanceName = (string)iterator.next();
 				PropertySheet propertySheet = cm.getPropertySheet(instanceName);
 				Iterator iterator2 = propertySheet.getRegisteredProperties().iterator();
+		
 				while (iterator2.hasNext())
 				{
 					string text = (string)iterator2.next();
@@ -1092,17 +722,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return hashMap;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			90,
-			104,
-			159,
-			21,
-			103
-		})]
 		
 		public static void setClass(PropertySheet ps, Class confClass)
 		{
@@ -1114,28 +733,10 @@ namespace edu.cmu.sphinx.util.props
 			}
 			ps.setConfigurableClass(confClass);
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			179,
-			102
-		})]
 		
 		private ConfigurationManagerUtils()
 		{
 		}
-
-		[LineNumberTable(new byte[]
-		{
-			159,
-			191,
-			127,
-			1,
-			110,
-			98,
-			130
-		})]
 		
 		public bool validateConfiguration(ConfigurationManager cm)
 		{
@@ -1151,25 +752,7 @@ namespace edu.cmu.sphinx.util.props
 			return true;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			160,
-			84,
-			134,
-			127,
-			4,
-			130,
-			131,
-			111,
-			150,
-			102,
-			186,
-			104,
-			105,
-			133
-		})]
-		
+				
 		public static Map fixDuplicateNames(ConfigurationManager baseCM, ConfigurationManager subCM)
 		{
 			HashMap hashMap = new HashMap();
@@ -1190,17 +773,7 @@ namespace edu.cmu.sphinx.util.props
 			return hashMap;
 		}
 
-		
-		[LineNumberTable(new byte[]
-		{
-			161,
-			151,
-			112,
-			136,
-			108,
-			162
-		})]
-		
+				
 		public static bool isSubClass(Class aClass, Class possibleSuperclass)
 		{
 			while (aClass != null && !java.lang.Object.instancehelper_equals(aClass, ClassLiteral<Object>.Value))
@@ -1213,19 +786,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			return false;
 		}
-
-		
-		[LineNumberTable(new byte[]
-		{
-			162,
-			79,
-			134,
-			127,
-			1,
-			110,
-			104,
-			98
-		})]
 		
 		public static Collection getNonInstaniatedComps(ConfigurationManager cm)
 		{
@@ -1242,15 +802,6 @@ namespace edu.cmu.sphinx.util.props
 			return arrayList;
 		}
 
-		[LineNumberTable(new byte[]
-		{
-			159,
-			161,
-			181,
-			239,
-			161,
-			199
-		})]
 		static ConfigurationManagerUtils()
 		{
 			ConfigurationManagerUtils.globalSymbolPattern = Pattern.compile("\\_\\{(\\w+)\\}");
