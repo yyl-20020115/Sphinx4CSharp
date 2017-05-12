@@ -52,20 +52,14 @@ namespace edu.cmu.sphinx.frontend.util
 			File file = new File(wavName);
 			if (AudioSystem.isFileTypeSupported(targetType, audioInputStream))
 			{
-				IOException ex2;
 				try
 				{
 					AudioSystem.write(audioInputStream, targetType, file);
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_81;
+					Throwable.instancehelper_printStackTrace(ex);
 				}
-				return;
-				IL_81:
-				IOException ex3 = ex2;
-				Throwable.instancehelper_printStackTrace(ex3);
 			}
 		}
 		

@@ -71,7 +71,6 @@ namespace edu.cmu.sphinx.fst.operations
 			float[] array = NShortestPaths.shortestDistance(fst2);
 			ExtendFinal.apply(fst2);
 			int[] array2 = new int[fst2.getNumStates()];
-			PriorityQueue.__<clinit>();
 			PriorityQueue priorityQueue = new PriorityQueue(10, new NShortestPaths_1(array, semiring));
 			HashMap hashMap = new HashMap(fst.getNumStates());
 			HashMap hashMap2 = new HashMap(fst.getNumStates());

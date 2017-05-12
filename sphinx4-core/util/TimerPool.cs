@@ -29,8 +29,6 @@ namespace edu.cmu.sphinx.util
 				list.add(timer2);
 				return timer2;
 			}
-			Timer result;
-			return result;
 		}
 
 		public static void dumpAll(Logger logger)

@@ -338,7 +338,7 @@ namespace edu.cmu.sphinx.util.props
 			this.globalProperties = new HashMap();
 		}
 		
-		public virtual ConfigurationManager clone()
+		public new virtual ConfigurationManager clone()
 		{
 			ConfigurationManager configurationManager = (ConfigurationManager)base.clone();
 			configurationManager.changeListeners = new ArrayList();

@@ -63,6 +63,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		
 		private Map featureMap;
 
-		internal static DecimalFormat formatter;
+		//internal static DecimalFormat formatter;
 	}
 }

@@ -10,7 +10,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.trie
 {
-	public class NgramTrieModel : java.lang.Object, LanguageModel, Configurable
+	public class NgramTrieModel : LanguageModelBase
 	{		
 		private void buildUnigramIDMap()
 		{
@@ -157,7 +157,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.logMath = LogMath.getLogMath();
@@ -173,7 +173,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			this.unigramWeight = ps.getFloat("unigramWeight");
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			TimerPool.getTimer(this, "Load LM").start();
 			this.logger.info(new StringBuilder().append("Loading n-gram language model from: ").append(this.location).toString());
@@ -194,7 +194,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			{
 				binaryLoader = new BinaryLoader(new File(this.location.toURI()));
 			}
-			catch (System.Exception ex)
+			catch (System.Exception)
 			{
 				binaryLoader = new BinaryLoader(new File(this.location.getPath()));
 			}
@@ -222,7 +222,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			TimerPool.getTimer(this, "Load LM").stop();
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			if (this.logFile != null)
 			{
@@ -230,7 +230,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			}
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			int num = wordSequence.size();
 			if (num > this.maxDepth)
@@ -271,12 +271,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			return num2;
 		}
 
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			return 0f;
 		}
 
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			HashSet hashSet = new HashSet(Arrays.asList(this.words));
 			return Collections.unmodifiableSet(hashSet);
@@ -292,12 +292,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.trie
 			return this.ngramHits;
 		}
 
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			return this.maxDepth;
 		}
 		
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 			this.clearCache();
 			if (this.logFile != null)

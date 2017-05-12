@@ -61,7 +61,7 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+					ex2 = ex;
 					goto IL_22;
 				}
 				goto IL_2E;
@@ -91,13 +91,13 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				catch (UnsupportedAudioFileException ex4)
 				{
-					ex5 = ByteCodeHelper.MapException<UnsupportedAudioFileException>(ex4, 1);
+					ex5 = ex4;
 					goto IL_77;
 				}
 			}
 			catch (IOException ex6)
 			{
-				ex7 = ByteCodeHelper.MapException<IOException>(ex6, 1);
+				ex7 = ex6;
 				goto IL_7A;
 			}
 			goto IL_B9;
@@ -179,7 +179,6 @@ namespace edu.cmu.sphinx.frontend.util
 			byte[] array = new byte[this.bytesPerRead];
 			long firstSampleNumber = this.totalValuesRead;
 			Data result;
-			IOException ex2;
 			try
 			{
 				int num3;
@@ -215,8 +214,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_BB;
+				throw new DataProcessingException("Error reading data", ex);
 			}
 			return result;
 			IL_B9:
@@ -229,13 +227,7 @@ namespace edu.cmu.sphinx.frontend.util
 			{
 				values = DataUtil.littleEndianBytesToValues(array, 0, num, this.bytesPerValue, this.signedData);
 			}
-			return new DoubleData(values, this.sampleRate, firstSampleNumber);
-			IL_BB:
-			IOException ex3 = ex2;
-			string message = "Error reading data";
-			Exception cause = ex3;
-			
-			throw new DataProcessingException(message, cause);
+			return new DoubleData(values, this.sampleRate, firstSampleNumber);			
 		}
 		private long getDuration()
 		{
@@ -272,20 +264,14 @@ namespace edu.cmu.sphinx.frontend.util
 		
 		public virtual void setAudioFile(File audioFile, string streamName)
 		{
-			MalformedURLException ex2;
 			try
 			{
 				this.setAudioFile(audioFile.toURI().toURL(), streamName);
 			}
 			catch (MalformedURLException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<MalformedURLException>(ex, 1);
-				goto IL_21;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_21:
-			MalformedURLException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
 		
 		public override Data getData()

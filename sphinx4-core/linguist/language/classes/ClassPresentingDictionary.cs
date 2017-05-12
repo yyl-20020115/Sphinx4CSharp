@@ -4,7 +4,7 @@ using java.lang;
 
 namespace edu.cmu.sphinx.linguist.language.classes
 {
-	public class ClassPresentingDictionary : java.lang.Object, Dictionary, Configurable
+	public class ClassPresentingDictionary : DictionaryBase
 	{		
 		public ClassPresentingDictionary(ClassMap classMap, Dictionary wordDictionary)
 		{
@@ -18,13 +18,13 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.allocated = false;
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.classMap = (ClassMap)ps.getComponent("classMap");
 			this.wordDictionary = (Dictionary)ps.getComponent("wordDictionary");
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			if (!this.allocated)
 			{
@@ -34,34 +34,34 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			}
 		}
 
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			this.allocated = false;
 			this.wordDictionary = null;
 		}
 		
-		public virtual Word getWord(string text)
+		public override Word getWord(string text)
 		{
 			Word classAsWord = this.classMap.getClassAsWord(text);
 			return (classAsWord == null) ? this.wordDictionary.getWord(text) : classAsWord;
 		}
 		
-		public virtual Word getSentenceStartWord()
+		public override Word getSentenceStartWord()
 		{
 			return this.wordDictionary.getSentenceStartWord();
 		}
 		
-		public virtual Word getSentenceEndWord()
+		public override Word getSentenceEndWord()
 		{
 			return this.wordDictionary.getSentenceEndWord();
 		}
 		
-		public virtual Word getSilenceWord()
+		public override Word getSilenceWord()
 		{
 			return this.wordDictionary.getSilenceWord();
 		}
 		
-		public virtual Word[] getFillerWords()
+		public override Word[] getFillerWords()
 		{
 			return this.wordDictionary.getFillerWords();
 		}

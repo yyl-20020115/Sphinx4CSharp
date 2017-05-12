@@ -18,7 +18,7 @@ namespace edu.cmu.sphinx.util
 				Integer.parseInt(name);
 				result = 1;
 			}
-			catch (NumberFormatException ex)
+			catch (NumberFormatException)
 			{
 				return false;
 			}

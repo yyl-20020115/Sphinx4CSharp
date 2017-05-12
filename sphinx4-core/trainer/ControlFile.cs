@@ -9,14 +9,17 @@ namespace edu.cmu.sphinx.trainer
 		bool hasMoreUtterances();
 
 		Utterance nextUtterance();
+	}
 
+	public abstract class ControlFileBase: java.lang.Object, ControlFile
+	{
 		[S4String(new object[]
-		{
+{
 			64,
 			"Ledu/cmu/sphinx/util/props/S4String;",
 			"defaultValue",
 			"an4_train.fileids"
-		})]
+})]
 		public const string PROP_AUDIO_FILE = "audioFile";
 
 		[S4String(new object[]
@@ -46,7 +49,11 @@ namespace edu.cmu.sphinx.trainer
 		})]
 		public const string PROP_TOTAL_BATCHES = "totalBatches";
 
-		
+		public abstract bool hasMoreUtterances();
+		public abstract void newProperties(PropertySheet ps);
+		public abstract Utterance nextUtterance();
+		public abstract void startUtteranceIterator();
+
 		public static class __Fields
 		{
 			public const string PROP_AUDIO_FILE = "audioFile";

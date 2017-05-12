@@ -1,4 +1,5 @@
 ﻿using IKVM.Attributes;
+using java.lang;
 using java.lang.annotation;
 
 namespace edu.cmu.sphinx.util.props
@@ -24,12 +25,21 @@ namespace edu.cmu.sphinx.util.props
 		})]
 		double[] range();
 
+	}
+
+	public abstract class S4DoubleBase : java.lang.Object, S4Double
+	{
 		public const double NOT_DEFINED = -918273645.12345;
 
-		
+		public abstract Class annotationType();
+		public abstract double defaultValue();
+		public abstract bool mandatory();
+		public abstract double[] range();
+
 		public static class __Fields
 		{
 			public const double NOT_DEFINED = -918273645.12345;
 		}
+
 	}
 }

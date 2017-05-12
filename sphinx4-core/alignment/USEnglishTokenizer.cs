@@ -594,7 +594,6 @@ namespace edu.cmu.sphinx.alignment
 		{
 			this.prefixFSM = null;
 			this.suffixFSM = null;
-			IOException ex2;
 			try
 			{
 				this.cart = new DecisionTree(java.lang.Object.instancehelper_getClass(this).getResource("nums_cart.txt"));

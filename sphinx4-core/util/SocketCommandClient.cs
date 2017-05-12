@@ -35,7 +35,7 @@ namespace edu.cmu.sphinx.util
 			{
 				result = (this.inReader.ready() ? 1 : 0);
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_20;
 			}
@@ -57,7 +57,7 @@ namespace edu.cmu.sphinx.util
 			{
 				result = this.inReader.readLine();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_20;
 			}
@@ -101,7 +101,7 @@ namespace edu.cmu.sphinx.util
 					this.open();
 				}
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_16;
 			}
@@ -126,7 +126,7 @@ namespace edu.cmu.sphinx.util
 					java.lang.System.err.println("SocketCommandClient.close(): socket is null");
 				}
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_2C;
 			}

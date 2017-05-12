@@ -1,4 +1,5 @@
 ﻿using IKVM.Attributes;
+using java.lang;
 using java.lang.annotation;
 
 namespace edu.cmu.sphinx.util.props
@@ -23,10 +24,17 @@ namespace edu.cmu.sphinx.util.props
 			2147483647
 		})]
 		int[] range();
+	}
 
+	public abstract class S4IntegerBase : java.lang.Object, S4Integer
+	{
 		public const int NOT_DEFINED = -918273645;
 
-		
+		public abstract Class annotationType();
+		public abstract int defaultValue();
+		public abstract bool mandatory();
+		public abstract int[] range();
+
 		public static class __Fields
 		{
 			public const int NOT_DEFINED = -918273645;

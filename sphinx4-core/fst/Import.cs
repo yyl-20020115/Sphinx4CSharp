@@ -25,7 +25,7 @@ namespace edu.cmu.sphinx.fst
 			{
 				fst.saveModel(args[1]);
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_66;
 			}

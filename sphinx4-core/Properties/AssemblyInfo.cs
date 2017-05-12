@@ -1,13 +1,9 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Reflection;
-
 using IKVM.Attributes;
 
 [assembly: AssemblyVersion("0.0.0.0")]
 [assembly: Debuggable(true, false)]
-[assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
-[module: SourceFile(null)]
 [module: JavaModule(Jars = new string[]
 {
 	"sphinx4-core-5prealpha-SNAPSHOT.jar"

@@ -14,6 +14,11 @@ namespace edu.cmu.sphinx.trainer
 
 		void trainContextIndependentModels(string str);
 
+	}
+
+	public abstract class TrainManagerBase : java.lang.Object, TrainManager
+	{
+
 		[S4Double(new object[]
 		{
 			64,
@@ -32,7 +37,13 @@ namespace edu.cmu.sphinx.trainer
 		})]
 		public const string PROP_MAXIMUM_ITERATION = "maximumIteration";
 
-		
+		public abstract void copyModels(string str);
+		public abstract void initializeModels(string str);
+		public abstract void newProperties(PropertySheet ps);
+		public abstract void saveModels(string str);
+		public abstract void train();
+		public abstract void trainContextIndependentModels(string str);
+
 		public static class __Fields
 		{
 			public const string PROP_MINIMUM_IMPROVEMENT = "minimumImprovement";

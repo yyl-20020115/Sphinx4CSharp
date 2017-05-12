@@ -39,7 +39,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				{
 					this.curChar = this.input_stream.BeginToken();
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
 					break;
 				}
@@ -59,7 +59,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 								this.curChar = this.input_stream.BeginToken();
 							}
 						}
-						catch (IOException ex2)
+						catch (IOException)
 						{
 							goto IL_C2;
 						}
@@ -123,7 +123,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					{
 						this.curChar = this.input_stream.readChar();
 					}
-					catch (IOException ex3)
+					catch (IOException)
 					{
 						goto IL_314;
 					}
@@ -182,7 +182,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				this.input_stream.readChar();
 				this.input_stream.backup(1);
 			}
-			catch (IOException ex4)
+			catch (IOException)
 			{
 				goto IL_35D;
 			}
@@ -915,7 +915,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				{
 					this.curChar = this.input_stream.readChar();
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
 					return num2;
 				}
@@ -938,7 +938,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_27;
 			}
@@ -953,7 +953,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_19;
 			}
@@ -1007,7 +1007,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_2C;
 			}
@@ -1049,7 +1049,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_2C;
 			}
@@ -1092,7 +1092,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_2C;
 			}
@@ -1125,7 +1125,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_2C;
 			}
@@ -1164,7 +1164,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_2C;
 			}
@@ -1284,7 +1284,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				return 1;
 			}
@@ -1466,7 +1466,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				{
 					this.curChar = this.input_stream.readChar();
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
 					return num2;
 				}
@@ -1480,7 +1480,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.curChar = this.input_stream.readChar();
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				return 1;
 			}

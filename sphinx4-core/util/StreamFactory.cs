@@ -60,7 +60,6 @@ namespace edu.cmu.sphinx.util
 			}
 			if (java.lang.String.instancehelper_equals(format, "ZIP_FILE"))
 			{
-				URISyntaxException ex2;
 				try
 				{
 					URI uri = new URI(text);
@@ -98,7 +97,6 @@ namespace edu.cmu.sphinx.util
 			OutputStream outputStream;
 			if (java.lang.String.instancehelper_equals(format, "ZIP_FILE"))
 			{
-				URISyntaxException ex2;
 				try
 				{
 					java.lang.System.@out.println("WARNING: ZIP not yet fully supported.!");

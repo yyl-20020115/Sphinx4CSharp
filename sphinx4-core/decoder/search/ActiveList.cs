@@ -7,7 +7,9 @@ namespace edu.cmu.sphinx.decoder.search
 	public interface ActiveList : Iterable
 	{
 		ActiveList purge();
+
 		Token getBestToken();
+
 		void add(Token t);
 
 		int size();
@@ -22,13 +24,18 @@ namespace edu.cmu.sphinx.decoder.search
 
 		ActiveList newInstance();
 
+
+	}
+
+	public abstract class ActiveListBase : ActiveList
+	{
 		[S4Integer(new object[]
-		{
+{
 			64,
 			"Ledu/cmu/sphinx/util/props/S4Integer;",
 			"defaultValue",
 			2000
-		})]
+})]
 		public const string PROP_ABSOLUTE_BEAM_WIDTH = "absoluteBeamWidth";
 
 		[S4Double(new object[]
@@ -49,7 +56,17 @@ namespace edu.cmu.sphinx.decoder.search
 		})]
 		public const string PROP_STRICT_PRUNING = "strictPruning";
 
-		
+		public abstract void add(Token t);
+		public abstract float getBeamThreshold();
+		public abstract float getBestScore();
+		public abstract Token getBestToken();
+		public abstract List getTokens();
+		public abstract Iterator iterator();
+		public abstract ActiveList newInstance();
+		public abstract ActiveList purge();
+		public abstract void setBestToken(Token t);
+		public abstract int size();
+
 		public static class __Fields
 		{
 			public const string PROP_ABSOLUTE_BEAM_WIDTH = "absoluteBeamWidth";

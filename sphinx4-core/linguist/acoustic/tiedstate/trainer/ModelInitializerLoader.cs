@@ -364,7 +364,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 				{
 					this.loadPhoneList(ps, num != 0, StreamFactory.getInputStream(string2, string3), new StringBuilder().append(string2).append(File.separator).append(string3).toString());
 				}
-				catch (StreamCorruptedException ex)
+				catch (StreamCorruptedException)
 				{
 					this.printPhoneListHelp();
 					return;

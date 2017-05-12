@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>edu.cmu.sphinx</RootNamespace>
-    <AssemblyName>sphinx4-core-5prealpha-SNAPSHOT</AssemblyName>
+    <AssemblyName>sphinx4-core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>CS0618;CS0649;CS0414;</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="commons-math3-3.6.1, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="commons-math3-3.6.1">
       <HintPath>.\commons-math3-3.6.1.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.AWT.WinForms, Version=7.2.4630.5, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
@@ -510,10 +510,6 @@
     <Compile Include="result\Result.cs" />
     <Compile Include="result\TokenGraphDumper.cs" />
     <Compile Include="result\WordResult.cs" />
-    <Compile Include="speakerid\Segment.cs" />
-    <Compile Include="speakerid\SpeakerCluster.cs" />
-    <Compile Include="speakerid\SpeakerIdentification.cs" />
-    <Compile Include="speakerid\Tester.cs" />
     <Compile Include="tools\aligner\Aligner.cs" />
     <Compile Include="tools\audio\AudioData.cs" />
     <Compile Include="tools\audio\AudioDataInputStream.cs" />

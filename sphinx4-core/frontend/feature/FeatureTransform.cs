@@ -92,8 +92,8 @@ namespace edu.cmu.sphinx.frontend.feature
 
 		protected internal Loader loader;
 
-		internal int rows;
+		//internal int rows;
 
-		internal int values;
+		//internal int values;
 	}
 }

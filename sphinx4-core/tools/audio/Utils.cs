@@ -66,7 +66,7 @@ namespace edu.cmu.sphinx.tools.audio
 				bufferedInputStream.close();
 				result = audioData;
 			}
-			catch (UnsupportedAudioFileException ex)
+			catch (UnsupportedAudioFileException)
 			{
 				goto IL_31;
 			}

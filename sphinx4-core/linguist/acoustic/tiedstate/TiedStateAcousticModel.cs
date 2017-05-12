@@ -8,7 +8,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 {
-	public class TiedStateAcousticModel : java.lang.Object, AcousticModel, Configurable
+	public class TiedStateAcousticModel : AcousticModelBase
 	{		
 		protected internal virtual void logInfo()
 		{
@@ -96,7 +96,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return senoneSequence;
 		}
 		
-		public virtual HMM lookupNearestHMM(Unit unit, HMMPosition position, bool exactMatch)
+		public override HMM lookupNearestHMM(Unit unit, HMMPosition position, bool exactMatch)
 		{
 			if (exactMatch)
 			{
@@ -269,7 +269,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return (Unit)this.loader.getContextIndependentUnits().get(text);
 		}
 		
-		public virtual Iterator getHMMIterator()
+		public override Iterator getHMMIterator()
 		{
 			return this.loader.getHMMManager().iterator();
 		}
@@ -323,7 +323,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.compositeSenoneSequenceCache = new HashMap();
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.loader = (Loader)ps.getComponent("loader");
 			this.unitManager = (UnitManager)ps.getComponent("unitManager");
@@ -331,7 +331,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			this.logger = ps.getLogger();
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			if (!this.allocated)
 			{
@@ -341,26 +341,26 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			}
 		}
 
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 		}
 
-		public virtual string getName()
+		public override string getName()
 		{
 			return this.name;
 		}
 		
-		public virtual Iterator getContextIndependentUnitIterator()
+		public override Iterator getContextIndependentUnitIterator()
 		{
 			return this.loader.getContextIndependentUnits().values().iterator();
 		}
 		
-		public virtual int getLeftContextSize()
+		public override int getLeftContextSize()
 		{
 			return this.loader.getLeftContextSize();
 		}
 
-		public virtual int getRightContextSize()
+		public override int getRightContextSize()
 		{
 			return this.loader.getRightContextSize();
 		}
@@ -370,7 +370,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return (Senone)this.loader.getSenonePool().get((int)id);
 		}
 		
-		public virtual Properties getProperties()
+		public override Properties getProperties()
 		{
 			if (this.properties == null)
 			{
@@ -439,7 +439,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 
 		private bool allocated;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<TiedStateAcousticModel>.Value.desiredAssertionStatus();
 	}
 }

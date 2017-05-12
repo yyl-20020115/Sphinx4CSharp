@@ -45,9 +45,10 @@ namespace edu.cmu.sphinx.util
 						break;
 					}
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
-					goto IL_27;
+					java.lang.System.@out.println("Exception: CommandInterpreter.run()");
+					break;
 				}
 				try
 				{
@@ -62,18 +63,11 @@ namespace edu.cmu.sphinx.util
 						this.putResponse(this.execute(text));
 					}
 				}
-				catch (IOException ex2)
+				catch (IOException)
 				{
-					goto IL_91;
+					java.lang.System.@out.println("Exception: CommandInterpreter.run()");
+					break;
 				}
-				continue;
-				IL_91:
-				goto IL_99;
-				break;
-				IL_27:
-				IL_99:
-				java.lang.System.@out.println("Exception: CommandInterpreter.run()");
-				break;
 			}
 			this.onExit();
 		}
@@ -134,7 +128,7 @@ namespace edu.cmu.sphinx.util
 				fileReader.close();
 				result = 1;
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				return false;
 			}
@@ -237,7 +231,7 @@ namespace edu.cmu.sphinx.util
 						java.lang.System.@out.println("Unexpected numeric token!");
 					}
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
 					break;
 				}

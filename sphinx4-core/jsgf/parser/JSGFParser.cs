@@ -149,7 +149,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				bufferedInputStream.reset();
 				result = null;
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_17F;
 			}
@@ -161,7 +161,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				{
 					bufferedInputStream.reset();
 				}
-				catch (IOException ex2)
+				catch (IOException)
 				{
 				}
 				return null;
@@ -182,7 +182,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				{
 					bufferedInputStream.reset();
 				}
-				catch (IOException ex3)
+				catch (IOException)
 				{
 				}
 				return null;
@@ -205,7 +205,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				bufferedInputStream.reset();
 			}
-			catch (IOException ex4)
+			catch (IOException)
 			{
 			}
 			return null;
@@ -302,7 +302,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				JSGFParser.parser.ReInit(i);
 			}
 			JSGFRuleGrammar result;
-			ParseException ex2;
 			try
 			{
 				JSGFRuleGrammar jsgfruleGrammar = JSGFParser.parser.GrammarUnit(factory);
@@ -310,15 +309,9 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			catch (ParseException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<ParseException>(ex, 1);
-				goto IL_40;
+				throw new JSGFGrammarParseException(ex.currentToken.beginLine, ex.currentToken.beginColumn, "Grammar Error", Throwable.instancehelper_getMessage(ex));
 			}
 			return result;
-			IL_40:
-			ParseException ex3 = ex2;
-			Token currentToken = ex3.currentToken;
-			JSGFGrammarParseException ex4 = new JSGFGrammarParseException(currentToken.beginLine, currentToken.beginColumn, "Grammar Error", Throwable.instancehelper_getMessage(ex3));
-			throw Throwable.__<unmap>(ex4);
 		}
 		
 		public JSGFRuleAlternatives alternatives()
@@ -515,7 +508,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					}
 				}
 			}
-			catch (IllegalArgumentException ex)
+			catch (IllegalArgumentException)
 			{
 				goto IL_101;
 			}
@@ -565,7 +558,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			this.token = token;
 			this.jj_kind = num;
-			throw Throwable.__<unmap>(this.generateParseException());
+			throw (this.generateParseException());
 		}
 		
 		public string Name()
@@ -621,7 +614,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				{
 					result = (this.jj_3_1() ? 0 : 1);
 				}
-				catch (JSGFParser.LookaheadSuccess lookaheadSuccess)
+				catch (JSGFParser.LookaheadSuccess)
 				{
 					goto IL_3C;
 				}
@@ -1034,7 +1027,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			if (this.jj_la == 0 && this.jj_scanpos == this.jj_lastpos)
 			{
-				throw Throwable.__<unmap>(this.jj_ls);
+				throw this.jj_ls;
 			}
 			return false;
 		}
@@ -1049,17 +1042,14 @@ namespace edu.cmu.sphinx.jsgf.parser
 			this.jj_expentries = new ArrayList();
 			this.jj_kind = -1;
 			this.jj_lasttokens = new int[100];
-			UnsupportedEncodingException ex2;
 			try
 			{
 				this.jj_input_stream = new JavaCharStream(stream, encoding, 1, 1);
 			}
 			catch (UnsupportedEncodingException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<UnsupportedEncodingException>(ex, 1);
-				goto IL_78;
+				throw new RuntimeException(ex);
 			}
-			JSGFParserTokenManager.__<clinit>();
 			this.token_source = new JSGFParserTokenManager(this.jj_input_stream);
 			this.token = new Token();
 			this.jj_ntk = -1;
@@ -1072,25 +1062,17 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.jj_2_rtns[i] = new JSGFParser.JJCalls();
 			}
-			return;
-			IL_78:
-			UnsupportedEncodingException ex3 = ex2;
-			Exception ex4 = ex3;
-			
-			throw new RuntimeException(ex4);
 		}
 
 		public virtual void ReInit(InputStream stream, string encoding)
 		{
-			UnsupportedEncodingException ex2;
 			try
 			{
 				this.jj_input_stream.ReInit(stream, encoding, 1, 1);
 			}
 			catch (UnsupportedEncodingException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<UnsupportedEncodingException>(ex, 1);
-				goto IL_1E;
+				throw new RuntimeException(ex);
 			}
 			this.token_source.ReInit(this.jj_input_stream);
 			this.token = new Token();
@@ -1104,12 +1086,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 			{
 				this.jj_2_rtns[i] = new JSGFParser.JJCalls();
 			}
-			return;
-			IL_1E:
-			UnsupportedEncodingException ex3 = ex2;
-			Exception ex4 = ex3;
-			
-			throw new RuntimeException(ex4);
 		}
 		
 		public virtual ParseException generateParseException()
@@ -1233,13 +1209,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 					}
 					while (jjcalls != null);
 				}
-				catch (JSGFParser.LookaheadSuccess lookaheadSuccess)
+				catch (JSGFParser.LookaheadSuccess)
 				{
 				}
-				IL_74:
 				i++;
 				continue;
-				goto IL_74;
 			}
 			this.jj_rescan = false;
 		}
@@ -1315,12 +1289,13 @@ namespace edu.cmu.sphinx.jsgf.parser
 			if (args.Length == 0)
 			{
 				java.lang.System.@out.println("JSGF Parser Version 1.0:  Reading from standard input . . .");
-				JSGFParser.parser = new JSGFParser(System.@in);
+				JSGFParser.parser = new JSGFParser(java.lang.System.@in);
 			}
 			else
 			{
 				if (args.Length > 0)
 				{
+					URL url = null;
 					java.lang.System.@out.println(new StringBuilder().append("JSGF Parser Version 1.0:  Reading from file ").append(args[0]).append(" . . .").toString());
 					MalformedURLException ex2;
 					try
@@ -1329,22 +1304,17 @@ namespace edu.cmu.sphinx.jsgf.parser
 						string text = new StringBuilder().append(file.getAbsolutePath()).append("/").append(args[0]).toString();
 						try
 						{
-							URL.__<clinit>();
-							URL url = new URL(new StringBuilder().append("file:").append(text).toString());
+							url = new URL(new StringBuilder().append("file:").append(text).toString());
 						}
 						catch (MalformedURLException ex)
 						{
-							ex2 = ByteCodeHelper.MapException<MalformedURLException>(ex, 1);
+							ex2 = ex;
 							goto IL_D8;
 						}
 						goto IL_DB;
 					}
-					catch (Exception ex3)
+					catch (System.Exception)
 					{
-						if (ByteCodeHelper.MapException<Exception>(ex3, 2) == null)
-						{
-							throw;
-						}
 						goto IL_DD;
 					}
 					IL_D8:
@@ -1354,12 +1324,8 @@ namespace edu.cmu.sphinx.jsgf.parser
 						MalformedURLException ex5 = ex4;
 						java.lang.System.@out.println(new StringBuilder().append("Could not get URL for current directory ").append(ex5).toString());
 					}
-					catch (Exception ex6)
+					catch (System.Exception)
 					{
-						if (ByteCodeHelper.MapException<Exception>(ex6, 2) == null)
-						{
-							throw;
-						}
 						goto IL_11D;
 					}
 					return;
@@ -1368,8 +1334,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 					IL_DB:
 					try
 					{
-						BufferedInputStream.__<clinit>();
-						URL url;
 						BufferedInputStream bufferedInputStream = new BufferedInputStream(url.openStream(), 256);
 						JSGFEncoding jsgfencoding = JSGFParser.getJSGFEncoding(bufferedInputStream);
 						InputStreamReader stream;
@@ -1388,15 +1352,11 @@ namespace edu.cmu.sphinx.jsgf.parser
 						}
 						JSGFParser.parser = new JSGFParser(stream);
 					}
-					catch (Exception ex7)
+					catch (System.Exception)
 					{
-						if (ByteCodeHelper.MapException<Exception>(ex7, 2) == null)
-						{
-							throw;
-						}
 						goto IL_1D0;
 					}
-					goto IL_244;
+					return;
 					IL_1D0:
 					IL_DD:
 					IL_1D5:
@@ -1409,24 +1369,16 @@ namespace edu.cmu.sphinx.jsgf.parser
 				java.lang.System.@out.println("         java JSGFParser inputfile");
 				return;
 			}
-			ParseException ex9;
 			try
 			{
-				IL_244:
 				JSGFParser jsgfparser = JSGFParser.parser;
-				JSGFRuleGrammarFactory.__<clinit>();
 				jsgfparser.GrammarUnit(new JSGFRuleGrammarFactory(new JSGFRuleGrammarManager()));
 				java.lang.System.@out.println("JSGF Parser Version 1.0:  JSGF Grammar parsed successfully.");
 			}
 			catch (ParseException ex8)
 			{
-				ex9 = ByteCodeHelper.MapException<ParseException>(ex8, 1);
-				goto IL_27D;
+				java.lang.System.@out.println(new StringBuilder().append("JSGF Parser Version 1.0:  Encountered errors during parse.").append(Throwable.instancehelper_getMessage(ex8)).toString());
 			}
-			return;
-			IL_27D:
-			ParseException ex10 = ex9;
-			java.lang.System.@out.println(new StringBuilder().append("JSGF Parser Version 1.0:  Encountered errors during parse.").append(Throwable.instancehelper_getMessage(ex10)).toString());
 		}
 		
 		public static JSGFRuleGrammar newGrammarFromJSGF(InputStream i, JSGFRuleGrammarFactory factory)
@@ -1440,7 +1392,6 @@ namespace edu.cmu.sphinx.jsgf.parser
 				JSGFParser.parser.ReInit(i);
 			}
 			JSGFRuleGrammar result;
-			ParseException ex2;
 			try
 			{
 				JSGFRuleGrammar jsgfruleGrammar = JSGFParser.parser.GrammarUnit(factory);
@@ -1448,15 +1399,9 @@ namespace edu.cmu.sphinx.jsgf.parser
 			}
 			catch (ParseException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<ParseException>(ex, 1);
-				goto IL_40;
+				throw new JSGFGrammarParseException(ex.currentToken.beginLine, ex.currentToken.beginColumn, "Grammar Error", Throwable.instancehelper_getMessage(ex));
 			}
 			return result;
-			IL_40:
-			ParseException ex3 = ex2;
-			Token currentToken = ex3.currentToken;
-			JSGFGrammarParseException ex4 = new JSGFGrammarParseException(currentToken.beginLine, currentToken.beginColumn, "Grammar Error", Throwable.instancehelper_getMessage(ex3));
-			throw Throwable.__<unmap>(ex4);
 		}
 
 		public static JSGFRule ruleForJSGF(string text)
@@ -1475,7 +1420,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 				}
 				result = JSGFParser.parser.alternatives();
 			}
-			catch (ParseException ex)
+			catch (ParseException)
 			{
 				goto IL_3B;
 			}
@@ -1665,7 +1610,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 		}
 
 		[Serializable]
-		internal sealed class LookaheadSuccess : Error
+		internal class LookaheadSuccess : Error
 		{
 			internal LookaheadSuccess(JSGFParser_1 jsgfparser_) : this()
 			{

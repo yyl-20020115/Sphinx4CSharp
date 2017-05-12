@@ -1,5 +1,4 @@
-﻿using edu.cmu.sphinx.linguist.dictionary;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.grammar
@@ -46,7 +45,7 @@ namespace edu.cmu.sphinx.linguist.language.grammar
 			return this.initialNode;
 		}
 		
-		public AlignerGrammar(bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
+		public AlignerGrammar(bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, dictionary.Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.tokens = new ArrayList();
 		}

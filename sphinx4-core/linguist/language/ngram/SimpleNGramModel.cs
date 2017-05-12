@@ -8,7 +8,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	public class SimpleNGramModel : java.lang.Object, LanguageModel, Configurable
+	public class SimpleNGramModel : LanguageModelBase
 	{		
 		public SimpleNGramModel(URL urlLocation, dictionary.Dictionary dictionary, float unigramWeight, int desiredMaxDepth)
 		{
@@ -119,7 +119,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			return result;
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			Probability prob = this.getProb(wordSequence);
 			float result;
@@ -156,7 +156,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 				{
 				}
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 				goto IL_16;
 			}
@@ -203,7 +203,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logMath = LogMath.getLogMath();
 			if (this.allocated)
@@ -221,7 +221,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.tokens = new LinkedList();
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.allocated = true;
 			this.load(this.urlLocation, this.unigramWeight, this.dictionary);
@@ -231,7 +231,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			this.allocated = false;
 		}
@@ -241,22 +241,22 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			return this.name;
 		}
 
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			return 0f;
 		}
 
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			return this.maxNGram;
 		}
 		
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			return Collections.unmodifiableSet(this.vocabulary);
 		}
 
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 		}
 		

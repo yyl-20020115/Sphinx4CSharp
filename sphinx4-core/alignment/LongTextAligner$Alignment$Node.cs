@@ -1,7 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
 
 namespace edu.cmu.sphinx.alignment
@@ -10,6 +7,7 @@ namespace edu.cmu.sphinx.alignment
 	{	
 		private LongTextAligner_Alignment_Node(LongTextAligner.Alignment alignment, int num, int num2)
 		{
+			this_1 = alignment;
 			this.databaseIndex = num2;
 			this.queryIndex = num;
 		}
@@ -33,6 +31,7 @@ namespace edu.cmu.sphinx.alignment
 		{
 			return java.lang.String.instancehelper_equals(this.getQueryWord(), this.getDatabaseWord());
 		}
+
 		public string getQueryWord()
 		{
 			if (this.queryIndex > 0)
@@ -64,7 +63,6 @@ namespace edu.cmu.sphinx.alignment
 		{
 			return this.queryIndex == LongTextAligner.Alignment.access_100(this.this_1).size() && this.databaseIndex == LongTextAligner.Alignment.access_000(this.this_1).size();
 		}
-
 	
 		public List adjacent()
 		{
@@ -125,6 +123,6 @@ namespace edu.cmu.sphinx.alignment
 
 		private int queryIndex;
 		
-		internal LongTextAligner.Alignment this_1 = alignment;
+		internal LongTextAligner.Alignment this_1;
 	}
 }

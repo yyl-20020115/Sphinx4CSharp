@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using edu.cmu.sphinx.util.props;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.lang;
-using java.lang;
 using java.util;
-using java.util.function;
+using System.Collections;
 
 namespace edu.cmu.sphinx.decoder.search
 {
@@ -28,14 +25,14 @@ namespace edu.cmu.sphinx.decoder.search
 			base.newProperties(ps);
 		}
 		
-		internal sealed class PartitionActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
+		internal sealed class PartitionActiveList : ActiveListBase, IEnumerable
 		{			
 			private void doubleCapacity()
 			{
 				this.tokenList = (Token[])Arrays.copyOf(this.tokenList, this.tokenList.Length * 2);
 			}
-			
-			public void add(Token token)
+
+			public override void add(Token token)
 			{
 				if (this._size < this.tokenList.Length)
 				{
@@ -52,8 +49,8 @@ namespace edu.cmu.sphinx.decoder.search
 					this.bestToken = token;
 				}
 			}
-			
-			public float getBestScore()
+
+			public override float getBestScore()
 			{
 				float result = float.MinValue;
 				if (this.bestToken != null)
@@ -65,6 +62,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public PartitionActiveList(PartitionActiveListFactory partitionActiveListFactory, int num, float num2)
 			{
+				this_0 = partitionActiveListFactory;
 				this.partitioner = new Partitioner();
 				this.absoluteBeamWidth = num;
 				this.logRelativeBeamWidth = num2;
@@ -75,47 +73,47 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				this.tokenList = new Token[num3];
 			}
-			
-			public ActiveList purge()
+
+			public override ActiveList purge()
 			{
 				if (this.absoluteBeamWidth > 0 && this._size > this.absoluteBeamWidth)
 				{
 					this._size = this.partitioner.partition(this.tokenList, this._size, this.absoluteBeamWidth) + 1;
 				}
 				return this;
-			}			
-			
-			public float getBeamThreshold()
+			}
+
+			public override float getBeamThreshold()
 			{
 				return this.getBestScore() + this.logRelativeBeamWidth;
 			}
 
-			public void setBestToken(Token token)
+			public override void setBestToken(Token token)
 			{
 				this.bestToken = token;
 			}
 
-			public Token getBestToken()
+			public override Token getBestToken()
 			{
 				return this.bestToken;
 			}
-			
-			public Iterator iterator()
+
+			public override Iterator iterator()
 			{
 				return new TokenArrayIterator(this.tokenList, this._size);
 			}
-			
-			public List getTokens()
+
+			public override List getTokens()
 			{
 				return Arrays.asList(this.tokenList).subList(0, this._size);
 			}
 
-			public int size()
+			public override int size()
 			{
 				return this._size;
 			}
-			
-			public ActiveList newInstance()
+
+			public override ActiveList newInstance()
 			{
 				return this.this_0.newInstance();
 			}
@@ -123,26 +121,6 @@ namespace edu.cmu.sphinx.decoder.search
 			IEnumerator IEnumerable.GetEnumerator()
 			{
 				return new IterableEnumerator(this);
-			}
-
-			public void forEach(Consumer action)
-			{
-				throw new NotImplementedException();
-			}
-
-			public void <default>forEach(Iterable value1, Consumer value2)
-			{
-				throw new NotImplementedException();
-			}
-
-			public Spliterator spliterator()
-			{
-				throw new NotImplementedException();
-			}
-
-			public Spliterator <default>spliterator(Iterable value)
-			{
-				throw new NotImplementedException();
 			}
 
 			private int _size;
@@ -157,7 +135,7 @@ namespace edu.cmu.sphinx.decoder.search
 
 			private Partitioner partitioner;
 			
-			internal PartitionActiveListFactory this_0 = partitionActiveListFactory;
+			internal PartitionActiveListFactory this_0;
 		}
 	}
 }

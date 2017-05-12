@@ -12,7 +12,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	public class LexTreeLinguist : java.lang.Object, Linguist, Configurable
+	public class LexTreeLinguist : LinguistBase
 	{			
 		internal static float access_000(LexTreeLinguist lexTreeLinguist)
 		{
@@ -203,7 +203,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			this.unigramSmearWeight = 1f;
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.logMath = LogMath.getLogMath();
@@ -228,7 +228,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.dictionary.allocate();
 			this.acousticModel.allocate();
@@ -236,7 +236,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			this.compileGrammar();
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			if (this.acousticModel != null)
 			{
@@ -253,16 +253,16 @@ namespace edu.cmu.sphinx.linguist.lextree
 			this.__hmmTree = null;
 		}
 
-		public virtual SearchGraph getSearchGraph()
+		public override SearchGraph getSearchGraph()
 		{
 			return this.searchGraph;
 		}
 
-		public virtual void startRecognition()
+		public override void startRecognition()
 		{
 		}
 		
-		public virtual void stopRecognition()
+		public override void stopRecognition()
 		{
 			this.languageModel.onUtteranceEnd();
 		}
@@ -479,7 +479,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 		private int cacheHits;
 
-		public class LexTreeEndUnitState : LexTreeLinguist.LexTreeState, UnitSearchState, SearchState
+		internal class LexTreeEndUnitState : LexTreeState, UnitSearchState, SearchState
 		{	
 			internal LexTreeEndUnitState(LexTreeLinguist lexTreeLinguist, EndNode endNode, WordSequence wordSequence, float num, float num2, float num3, float num4) : base(lexTreeLinguist, endNode, wordSequence, num, num2)
 			{
@@ -578,7 +578,12 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				return base.getLexState();
 			}
-			
+
+			object SearchState.getLexState()
+			{
+				return this.getLexState();
+			}
+
 			public override bool isFinal()
 			{
 				return base.isFinal();
@@ -619,7 +624,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal float logInsertionProbability;
 		}
 
-		public class LexTreeEndWordState : LexTreeLinguist.LexTreeWordState, WordSearchState, SearchState
+		internal class LexTreeEndWordState : LexTreeWordState, WordSearchState, SearchState
 		{			
 			internal LexTreeEndWordState(LexTreeLinguist lexTreeLinguist, WordNode wordNode, HMMNode hmmnode, WordSequence wordSequence, float num, float num2, float num3) : base(lexTreeLinguist, wordNode, hmmnode, wordSequence, num, num2, num3)
 			{
@@ -631,11 +636,11 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 		}
 
-		public class LexTreeHMMState : LexTreeLinguist.LexTreeState, HMMSearchState, SearchState, ScoreProvider
+		internal class LexTreeHMMState : LexTreeState, HMMSearchState, SearchState, ScoreProvider
 		{
 			public virtual HMMState getHMMState()
 			{
-				return this.hmmState;
+				return this._hmmState;
 			}
 		
 			internal LexTreeHMMState(LexTreeLinguist lexTreeLinguist, HMMNode hmmnode, WordSequence wordSequence, float num, float num2, HMMState hmmstate, float num3, float num4, Node node) : base(lexTreeLinguist, hmmnode, wordSequence, num, num2)
@@ -664,7 +669,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			
 			public override string getSignature()
 			{
-				return new StringBuilder().append(base.getSignature()).append("-HMM-").append(this.hmmState.getState()).toString();
+				return new StringBuilder().append(base.getSignature()).append("-HMM-").append(this._hmmState.getState()).toString();
 			}
 			
 			public override int hashCode()
@@ -678,7 +683,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 						this._hashCode += java.lang.Object.instancehelper_hashCode(this._parentNode);
 					}
 				}
-				return this.hashCode;
+				return this._hashCode;
 			}
 			
 			public override bool equals(object o)
@@ -690,7 +695,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 				if (o is LexTreeLinguist.LexTreeHMMState)
 				{
 					LexTreeLinguist.LexTreeHMMState lexTreeHMMState = (LexTreeLinguist.LexTreeHMMState)o;
-					return this._hmmState == lexTreeHMMState._hmmState && this.parentNode == lexTreeHMMState.parentNode && base.equals(o);
+					return this._hmmState == lexTreeHMMState._hmmState && this._parentNode == lexTreeHMMState._parentNode && base.equals(o);
 				}
 				return false;
 			}
@@ -730,18 +735,18 @@ namespace edu.cmu.sphinx.linguist.lextree
 							HMMStateArc hmmstateArc = successors[i];
 							if (hmmstateArc.getHMMState().isEmitting())
 							{
-								if (hmmstateArc.getHMMState() == this.hmmState && this.logInsertionProbability == hmmstateArc.getLogProbability())
+								if (hmmstateArc.getHMMState() == this._hmmState && this._logInsertionProbability == hmmstateArc.getLogProbability())
 								{
 									array[i] = this;
 								}
 								else
 								{
-									array[i] = new LexTreeLinguist.LexTreeHMMState(this.this_0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), LexTreeLinguist.access_000(this.this_0), hmmstateArc.getLogProbability(), this.parentNode);
+									array[i] = new LexTreeLinguist.LexTreeHMMState(this.this_0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), LexTreeLinguist.access_000(this.this_0), hmmstateArc.getLogProbability(), this._parentNode);
 								}
 							}
 							else
 							{
-								array[i] = new LexTreeLinguist.LexTreeNonEmittingHMMState(this.this_0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), hmmstateArc.getLogProbability(), this.parentNode);
+								array[i] = new LexTreeLinguist.LexTreeNonEmittingHMMState(this.this_0, (HMMNode)this.getNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmmstateArc.getHMMState(), hmmstateArc.getLogProbability(), this._parentNode);
 							}
 						}
 					}
@@ -757,7 +762,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 						
 			public override string toString()
 			{
-				return new StringBuilder().append(base.toString()).append(" hmm:").append(this.hmmState).toString();
+				return new StringBuilder().append(base.toString()).append(" hmm:").append(this._hmmState).toString();
 			}
 
 			public override int getOrder()
@@ -825,7 +830,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal int _hashCode;			
 		}
 
-		public class LexTreeNonEmittingHMMState : LexTreeLinguist.LexTreeHMMState
+		internal class LexTreeNonEmittingHMMState : LexTreeLinguist.LexTreeHMMState
 		{			
 			internal LexTreeNonEmittingHMMState(LexTreeLinguist lexTreeLinguist, HMMNode hmmnode, WordSequence wordSequence, float num, float num2, HMMState hmmstate, float num3, Node node) : base(lexTreeLinguist, hmmnode, wordSequence, num, num2, hmmstate, LexTreeLinguist.access_000(lexTreeLinguist), num3, node)
 			{
@@ -837,7 +842,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 		}
 
-		public sealed class LexTreeSearchGraph : java.lang.Object, SearchGraph
+		internal sealed class LexTreeSearchGraph : java.lang.Object, SearchGraph
 		{
 			internal LexTreeSearchGraph(LexTreeLinguist lexTreeLinguist, SearchState searchState)
 			{
@@ -865,7 +870,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			internal LexTreeLinguist this_0;
 		}
 
-		public abstract class LexTreeState : java.lang.Object, SearchState, SearchStateArc
+		internal abstract class LexTreeState : java.lang.Object, SearchState, SearchStateArc
 		{
 			public virtual float getLanguageProbability()
 			{
@@ -1012,7 +1017,11 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				return this.node;
 			}
-			
+			object SearchState.getLexState()
+			{
+				return this.getLexState();
+			}
+
 			internal LexTreeState(LexTreeLinguist lexTreeLinguist, Node node, WordSequence wordSequence, float num, float num2)
 			{
 				this.this_0 = lexTreeLinguist;
@@ -1081,18 +1090,19 @@ namespace edu.cmu.sphinx.linguist.lextree
 			public abstract int getOrder();
 			
 			private Node node;
+
+			protected HMMNode lastNode;
 			
 			private WordSequence wordSequence;
 			
 			internal float currentSmearTerm;
 			
 			internal float currentSmearProb;
-
 			
 			internal LexTreeLinguist this_0;
 		}
 
-		public class LexTreeUnitState : LexTreeLinguist.LexTreeState, UnitSearchState, SearchState
+		internal class LexTreeUnitState : LexTreeState, UnitSearchState, SearchState
 		{
 			internal LexTreeUnitState(LexTreeLinguist lexTreeLinguist, HMMNode hmmnode, WordSequence wordSequence, float num, float num2, float num3, float num4) : this(lexTreeLinguist, hmmnode, wordSequence, num, num2, num3, num4, null)
 			{
@@ -1139,7 +1149,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 					if (this._parentNode != null)
 					{
 						this._hashCode *= 432;
-						this._hashCode += java.lang.Object.instancehelper_hashCode(this.parentNode);
+						this._hashCode += java.lang.Object.instancehelper_hashCode(this._parentNode);
 					}
 				}
 				return this._hashCode;
@@ -1163,7 +1173,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				SearchStateArc[] array = new SearchStateArc[1];
 				HMM hmm = this.getHMMNode().getHMM();
-				array[0] = new LexTreeLinguist.LexTreeHMMState(this.this_0, this.getHMMNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmm.getInitialState(), LexTreeLinguist.access_000(this.this_0), LexTreeLinguist.access_000(this.this_0), this.parentNode);
+				array[0] = new LexTreeLinguist.LexTreeHMMState(this.this_0, this.getHMMNode(), this.getWordHistory(), this.getSmearTerm(), this.getSmearProb(), hmm.getInitialState(), LexTreeLinguist.access_000(this.this_0), LexTreeLinguist.access_000(this.this_0), this._parentNode);
 				return array;
 			}
 			
@@ -1243,10 +1253,10 @@ namespace edu.cmu.sphinx.linguist.lextree
 
 			private Node _parentNode;
 
-			private new int _hashCode;
+			private int _hashCode;
 		}
 
-		public class LexTreeWordState : LexTreeLinguist.LexTreeState, WordSearchState, SearchState
+		internal class LexTreeWordState : LexTreeState, WordSearchState, SearchState
 		{
 			internal LexTreeWordState(LexTreeLinguist lexTreeLinguist, WordNode wordNode, HMMNode hmmnode, WordSequence wordSequence, float num, float num2, float num3) : base(lexTreeLinguist, wordNode, wordSequence, num, num2)
 			{
@@ -1364,7 +1374,11 @@ namespace edu.cmu.sphinx.linguist.lextree
 			{
 				return base.getLexState();
 			}
-			
+
+			object SearchState.getLexState()
+			{
+				return this.getLexState();
+			}
 			public override WordSequence getWordHistory()
 			{
 				return base.getWordHistory();

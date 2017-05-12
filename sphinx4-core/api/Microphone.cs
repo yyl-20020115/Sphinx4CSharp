@@ -22,7 +22,6 @@ namespace edu.cmu.sphinx.api
 		public Microphone(float sampleRate, int sampleSize, bool signed, bool bigEndian)
 		{
 			AudioFormat audioFormat = new AudioFormat(sampleRate, sampleSize, 1, signed, bigEndian);
-			LineUnavailableException ex2;
 			try
 			{
 				this.line = AudioSystem.getTargetDataLine(audioFormat);

@@ -10,7 +10,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			return this.baseUnit;
 		}
 
-		internal Integer getKey()
+		internal Integer getKeyInteger()
 		{
 			return this.key;
 		}
@@ -40,6 +40,11 @@ namespace edu.cmu.sphinx.linguist.lextree
 		internal override void freeze()
 		{
 			base.freeze();
+		}
+
+		internal override object getKey()
+		{
+			return this.getKeyInteger();
 		}
 
 		internal Unit baseUnit;

@@ -165,11 +165,10 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			object obj = ",";
 			object obj2 = "";
 			object _ref = obj;
-			CharSequence charSequence = new CharSequence();
-			charSequence.__ref = _ref;
+			CharSequence charSequence = CharSequence.Cast(_ref);
 			CharSequence charSequence2 = charSequence;
 			_ref = obj2;
-			charSequence.__ref = _ref;
+			charSequence = CharSequence.Cast(_ref);
 			NumberExpander.expandNumber(java.lang.String.instancehelper_replace(rawNumberString, charSequence2, charSequence), wordRelation);
 			Item tail = wordRelation.getTail();
 			if (tail != null)

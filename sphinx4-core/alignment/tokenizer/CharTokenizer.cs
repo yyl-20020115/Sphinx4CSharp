@@ -1,9 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using java.io;
 using java.lang;
 using java.util;
-using java.util.function;
 
 namespace edu.cmu.sphinx.alignment.tokenizer
 {
@@ -56,7 +54,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		{
 			if (this.reader != null)
 			{
-				IOException ex2;
 				try
 				{
 					int num = this.reader.read();
@@ -86,7 +83,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 					this.currentChar = -1;
 				}
 			}
-			IL_8E:
 			if (this.currentChar != -1)
 			{
 				this.currentPosition++;
@@ -246,21 +242,6 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 		object Iterator.next()
 		{
 			return this.next();
-		}
-
-		public void remove(Iterator value)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void forEachRemaining(Consumer action)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void forEachRemaining(Iterator value1, Consumer value2)
-		{
-			throw new NotImplementedException();
 		}
 
 		public const int EOF = -1;

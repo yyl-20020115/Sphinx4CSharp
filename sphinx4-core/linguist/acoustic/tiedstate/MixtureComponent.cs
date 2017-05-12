@@ -142,7 +142,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 			return -(float)num * 0.5f;
 		}
 		
-		public virtual MixtureComponent clone()
+		public new virtual MixtureComponent clone()
 		{
 			MixtureComponent mixtureComponent = (MixtureComponent)base.clone();
 			mixtureComponent.distFloor = this.distFloor;

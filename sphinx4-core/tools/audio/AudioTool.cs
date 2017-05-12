@@ -195,7 +195,7 @@ namespace edu.cmu.sphinx.tools.audio
 				AudioTool.zoomReset();
 				AudioTool.audio.setAudioData(audioData.getAudioData());
 			}
-			catch (IOException ex)
+			catch (IOException)
 			{
 			}
 		}

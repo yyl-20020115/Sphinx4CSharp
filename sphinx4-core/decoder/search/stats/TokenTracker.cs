@@ -162,10 +162,12 @@ namespace edu.cmu.sphinx.decoder.search.stats
 		{			
 			internal TokenStats(TokenTracker tokenTracker)
 			{
+				this_0 = tokenTracker;
 				this.count = 0;
 				this.maxScore = float.MinValue;
 				this.minScore = float.Epsilon;
 			}
+
 			public void update(Token token)
 			{
 				this.count++;
@@ -188,8 +190,7 @@ namespace edu.cmu.sphinx.decoder.search.stats
 
 			internal bool isHMM;
 
-			
-			internal TokenTracker this_0 = tokenTracker;
+			internal TokenTracker this_0;
 		}
 	}
 }

@@ -9,7 +9,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.flat
 {
-	public class FlatLinguist : java.lang.Object, Linguist, Configurable
+	public class FlatLinguist : LinguistBase
 	{
 		private void T(string text)
 		{
@@ -136,7 +136,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			FlatLinguist.GState.access_000(gstate, UnitContext.SILENCE);
 		}
 
-		public virtual SearchGraph getSearchGraph()
+		public override SearchGraph getSearchGraph()
 		{
 			return this.searchGraph;
 		}
@@ -171,7 +171,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.showCompilationProgress = true;
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logMath = LogMath.getLogMath();
 			this.acousticModel = (AcousticModel)ps.getComponent("acousticModel");
@@ -195,7 +195,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.name = ps.getInstanceName();
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.allocateAcousticModel();
 			this.grammar.allocate();
@@ -206,7 +206,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.totalStates.value = (double)this.stateSet.size();
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			if (this.acousticModel != null)
 			{
@@ -215,7 +215,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			this.grammar.deallocate();
 		}
 
-		public virtual void startRecognition()
+		public override void startRecognition()
 		{
 			if (this.grammarHasChanged())
 			{
@@ -224,7 +224,7 @@ namespace edu.cmu.sphinx.linguist.flat
 			}
 		}
 
-		public virtual void stopRecognition()
+		public override void stopRecognition()
 		{
 		}
 

@@ -1,7 +1,5 @@
-﻿using System;
-using edu.cmu.sphinx.util;
+﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Runtime;
 using java.lang;
 
 namespace edu.cmu.sphinx.tools.batch
@@ -21,27 +19,15 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			else
 			{
-				Exception ex3;
 				try
 				{
 					ConfigurationManagerUtils.editConfig(this.this_0.cm, array[1]);
 				}
-				catch (Exception ex)
+				catch (System.Exception ex)
 				{
-					Exception ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
-					if (ex2 == null)
-					{
-						throw;
-					}
-					ex3 = ex2;
-					goto IL_39;
+					commandInterpreter.putResponse(new StringBuilder().append("Failed to save ").append(ex).toString());
 				}
-				goto IL_5F;
-				IL_39:
-				Exception ex4 = ex3;
-				commandInterpreter.putResponse(new StringBuilder().append("Failed to save ").append(ex4).toString());
 			}
-			IL_5F:
 			return "";
 		}
 

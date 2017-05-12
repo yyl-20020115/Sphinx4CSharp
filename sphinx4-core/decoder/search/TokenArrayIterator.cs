@@ -1,9 +1,5 @@
-﻿using System;
-
-using IKVM.Attributes;
-using java.lang;
+﻿using java.lang;
 using java.util;
-using java.util.function;
 
 namespace edu.cmu.sphinx.decoder.search
 {
@@ -34,7 +30,6 @@ namespace edu.cmu.sphinx.decoder.search
 		{
 			return this.pos < this.size;
 		}
-
 	
 		public void remove()
 		{
@@ -46,21 +41,6 @@ namespace edu.cmu.sphinx.decoder.search
 		object Iterator.next()
 		{
 			return this.next();
-		}
-
-		public void remove(Iterator value)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void forEachRemaining(Consumer action)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void forEachRemaining(Iterator value1, Consumer value2)
-		{
-			throw new NotImplementedException();
 		}
 
 		private Token[] tokenArray;

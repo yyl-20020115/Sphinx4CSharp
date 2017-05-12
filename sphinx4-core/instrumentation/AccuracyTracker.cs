@@ -156,7 +156,7 @@ namespace edu.cmu.sphinx.instrumentation
 		})]
 		public const string PROP_SHOW_RAW_RESULTS = "showRawResults";
 
-		private string name;
+		private string name = string.Empty;
 
 		private Recognizer recognizer;
 

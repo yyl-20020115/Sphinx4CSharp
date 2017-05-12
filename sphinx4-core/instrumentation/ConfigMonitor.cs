@@ -45,7 +45,6 @@ namespace edu.cmu.sphinx.instrumentation
 			}
 			if (this.showHTML)
 			{
-				IOException ex2;
 				try
 				{
 					HTMLDumper.showConfigAsHTML(this.cm, "foo.html");
@@ -55,10 +54,8 @@ namespace edu.cmu.sphinx.instrumentation
 					this.logger.warning(new StringBuilder().append("Can't open ").append(this.htmlPath).append(' ').append(ex).toString());
 				}
 			}
-			IL_77:
 			if (this.showGDL)
 			{
-				IOException ex5;
 				try
 				{
 					GDLDumper.showConfigAsGDL(this.cm, this.gdlPath);
@@ -68,7 +65,6 @@ namespace edu.cmu.sphinx.instrumentation
 					this.logger.warning(new StringBuilder().append("Can't open ").append(this.gdlPath).append(' ').append(ex4).toString());
 				}
 			}
-			IL_DC:
 			if (this.saveXML)
 			{
 				ConfigurationManager configurationManager = this.cm;

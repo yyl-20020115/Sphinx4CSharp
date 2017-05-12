@@ -57,7 +57,7 @@ namespace edu.cmu.sphinx.util.props
 				{
 					result = (this.validateString((string)obj) ? 1 : 0);
 				}
-				catch (System.Exception ex)
+				catch (System.Exception)
 				{
 					return false;
 				}

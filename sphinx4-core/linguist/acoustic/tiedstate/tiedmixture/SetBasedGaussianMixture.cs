@@ -13,7 +13,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.tiedmixture
 			this.mixtureComponentSet = mixtureComponentSet;
 		}
 		
-		public override float calculateScore(Data feature)
+		protected internal override float calculateScore(Data feature)
 		{
 			this.mixtureComponentSet.updateTopScores(feature);
 			float num = 0f;

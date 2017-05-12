@@ -127,7 +127,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 							break;
 						}
 					}
-					catch (IOException ex)
+					catch (IOException)
 					{
 						goto IL_121;
 					}
@@ -139,7 +139,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					this.backup(num8);
 					num = 92;
 				}
-				catch (IOException ex2)
+				catch (IOException)
 				{
 					goto IL_13B;
 				}
@@ -156,7 +156,7 @@ namespace edu.cmu.sphinx.jsgf.parser
 					num5 = (int)(this.buffer[this.bufpos] = (char)(JavaCharStream.hexval((char)num5) << 12 | JavaCharStream.hexval(this.ReadByte()) << 8 | JavaCharStream.hexval(this.ReadByte()) << 4 | JavaCharStream.hexval(this.ReadByte())));
 					this.column += 4;
 				}
-				catch (IOException ex3)
+				catch (IOException)
 				{
 					goto IL_1D9;
 				}

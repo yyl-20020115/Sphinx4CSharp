@@ -1,13 +1,8 @@
-﻿using System;
-
-using edu.cmu.sphinx.jsgf.parser;
+﻿using edu.cmu.sphinx.jsgf.parser;
 using edu.cmu.sphinx.jsgf.rule;
-using edu.cmu.sphinx.linguist.dictionary;
 using edu.cmu.sphinx.linguist.language.grammar;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -18,7 +13,7 @@ namespace edu.cmu.sphinx.jsgf
 {
 	public class JSGFGrammar : Grammar
 	{		
-		public JSGFGrammar(URL baseURL, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
+		public JSGFGrammar(URL baseURL, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, linguist.dictionary.Dictionary dictionary) : base(showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 			this.loadGrammar = true;
 			this.logger = Logger.getLogger(java.lang.Object.instancehelper_getClass(this).getName());
@@ -30,7 +25,6 @@ namespace edu.cmu.sphinx.jsgf
 		
 		public virtual void commitChanges()
 		{
-			MalformedURLException ex2;
 			try
 			{
 				if (this.loadGrammar)
@@ -75,15 +69,8 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			catch (MalformedURLException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<MalformedURLException>(ex, 1);
-				goto IL_183;
-			}
-			return;
-			IL_183:
-			MalformedURLException ex3 = ex2;
-			string text2 = new StringBuilder().append("bad base grammar URL ").append(this.baseURL).append(' ').append(ex3).toString();
-			
-			throw new IOException(text2);
+				throw new IOException(new StringBuilder().append("bad base grammar URL ").append(this.baseURL).append(' ').append(ex).toString(),ex);
+			}			
 		}
 		
 		private JSGFGrammar.GrammarGraph processRuleAlternatives(JSGFRuleAlternatives jsgfruleAlternatives)
@@ -374,7 +361,6 @@ namespace edu.cmu.sphinx.jsgf
 					{
 						break;
 					}
-					JSGFRuleName.__<clinit>();
 					JSGFRuleName jsgfruleName = new JSGFRuleName(java.lang.String.instancehelper_trim(java.lang.String.instancehelper_substring(text, i + 1, java.lang.String.instancehelper_indexOf(text, 62, i + 1))));
 					i = java.lang.String.instancehelper_indexOf(text, 62, i) + 1;
 					if (jsgfruleName.getFullGrammarName() != null)
@@ -413,7 +399,7 @@ namespace edu.cmu.sphinx.jsgf
 			{
 				url2 = new URL(text2);
 			}
-			catch (MalformedURLException ex)
+			catch (MalformedURLException)
 			{
 				goto IL_62;
 			}
@@ -429,7 +415,7 @@ namespace edu.cmu.sphinx.jsgf
 			return url2;
 		}
 		
-		public JSGFGrammar(string location, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, Dictionary dictionary) : this(ConfigurationManagerUtils.resourceToURL(location), grammarName, showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
+		public JSGFGrammar(string location, string grammarName, bool showGrammar, bool optimizeGrammar, bool addSilenceWords, bool addFillerWords, linguist.dictionary.Dictionary dictionary) : this(ConfigurationManagerUtils.resourceToURL(location), grammarName, showGrammar, optimizeGrammar, addSilenceWords, addFillerWords, dictionary)
 		{
 		}
 		
@@ -472,8 +458,6 @@ namespace edu.cmu.sphinx.jsgf
 		
 		protected internal override GrammarNode createGrammar()
 		{
-			JSGFGrammarException ex2;
-			JSGFGrammarParseException ex4;
 			try
 			{
 				try
@@ -482,26 +466,14 @@ namespace edu.cmu.sphinx.jsgf
 				}
 				catch (JSGFGrammarException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<JSGFGrammarException>(ex, 1);
-					goto IL_1E;
+					throw new IOException(ex);
 				}
 			}
 			catch (JSGFGrammarParseException ex3)
 			{
-				ex4 = ByteCodeHelper.MapException<JSGFGrammarParseException>(ex3, 1);
-				goto IL_21;
+				throw new IOException(ex3);
 			}
 			return this.firstNode;
-			IL_1E:
-			JSGFGrammarException ex5 = ex2;
-			Exception ex6 = ex5;
-			
-			throw new IOException(ex6);
-			IL_21:
-			JSGFGrammarParseException ex7 = ex4;
-			Exception ex8 = ex7;
-			
-			throw new IOException(ex8);
 		}
 
 		public override GrammarNode getInitialNode()
@@ -531,11 +503,6 @@ namespace edu.cmu.sphinx.jsgf
 			{
 				this.__ruleStack = (JSGFGrammar.RuleStack)value;
 			}
-		}
-
-		protected internal object _0(JSGFRule rule)
-		{
-			return this.processRule(rule);
 		}
 
 		[S4String(new object[]
@@ -572,7 +539,7 @@ namespace edu.cmu.sphinx.jsgf
 
 		protected internal new Logger logger;
 		
-		internal sealed class GrammarGraph : java.lang.Object
+		public sealed class GrammarGraph : java.lang.Object
 		{			
 			internal GrammarGraph(JSGFGrammar jsgfgrammar)
 			{
@@ -601,7 +568,6 @@ namespace edu.cmu.sphinx.jsgf
 
 			private GrammarNode endNode;
 
-			
 			internal JSGFGrammar this_0;
 		}
 
@@ -641,10 +607,8 @@ namespace edu.cmu.sphinx.jsgf
 			
 			private List stack;
 
-			
 			private HashMap map;
 
-			
 			internal JSGFGrammar this_0;
 		}
 	}

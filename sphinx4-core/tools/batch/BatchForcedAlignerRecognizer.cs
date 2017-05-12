@@ -58,9 +58,9 @@ namespace edu.cmu.sphinx.tools.batch
 			BatchNISTRecognizer.main(argv);
 		}
 
-		internal string segFile;
+		//internal string segFile;
 
-		internal ForcedAlignerGrammar forcedAlignerGrammar;
+		//internal ForcedAlignerGrammar forcedAlignerGrammar;
 
 		public BatchForcedAlignerGrammar bfaGrammar;
 	}

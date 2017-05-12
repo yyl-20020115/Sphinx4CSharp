@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.linguist.dictionary;
@@ -7,7 +6,6 @@ using edu.cmu.sphinx.util.props;
 using ikvm.lang;
 using java.lang;
 using java.util;
-using java.util.function;
 
 namespace edu.cmu.sphinx.decoder.search
 {
@@ -67,11 +65,9 @@ namespace edu.cmu.sphinx.decoder.search
 
 		private int maxFiller;
 
-
-		
-		internal sealed class WordActiveList : java.lang.Object, ActiveList, Iterable, IEnumerable
-		{			
-			public void add(Token token)
+		internal sealed class WordActiveList : ActiveListBase, IEnumerable
+		{
+			public override void add(Token token)
 			{
 				this.tokenList.add(token);
 				if (this.bestToken == null || token.getScore() > this.bestToken.getScore())
@@ -79,8 +75,8 @@ namespace edu.cmu.sphinx.decoder.search
 					this.bestToken = token;
 				}
 			}
-			
-			public float getBestScore()
+
+			public override float getBestScore()
 			{
 				float result = float.MinValue;
 				if (this.bestToken != null)
@@ -92,6 +88,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			internal WordActiveList(WordActiveListFactory wordActiveListFactory)
 			{
+				this_0 = wordActiveListFactory;
 				this.tokenList = new LinkedList();
 			}
 			
@@ -103,8 +100,8 @@ namespace edu.cmu.sphinx.decoder.search
 					this.tokenList.remove(token);
 				}
 			}
-			
-			public ActiveList purge()
+
+			public override ActiveList purge()
 			{
 				int num = 0;
 				HashMap hashMap = new HashMap();
@@ -144,38 +141,38 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 				return this;
 			}
-			
-			public Iterator iterator()
+
+			public override Iterator iterator()
 			{
 				return this.tokenList.iterator();
 			}
-			
-			public List getTokens()
+
+			public override List getTokens()
 			{
 				return this.tokenList;
 			}
-			
-			public int size()
+
+			public override int size()
 			{
 				return this.tokenList.size();
 			}
-		
-			public float getBeamThreshold()
+
+			public override float getBeamThreshold()
 			{
 				return this.getBestScore() + this.this_0.logRelativeBeamWidth;
 			}
 
-			public void setBestToken(Token token)
+			public override void setBestToken(Token token)
 			{
 				this.bestToken = token;
 			}
 
-			public Token getBestToken()
+			public override Token getBestToken()
 			{
 				return this.bestToken;
 			}
-			
-			public ActiveList newInstance()
+
+			public override ActiveList newInstance()
 			{
 				return this.this_0.newInstance();
 			}
@@ -185,31 +182,11 @@ namespace edu.cmu.sphinx.decoder.search
 				return new IterableEnumerator(this);
 			}
 
-			public void forEach(Consumer action)
-			{
-				throw new NotImplementedException();
-			}
-
-			public void forEach(Iterable value1, Consumer value2)
-			{
-				throw new NotImplementedException();
-			}
-
-			public Spliterator spliterator()
-			{
-				throw new NotImplementedException();
-			}
-
-			public Spliterator spliterator(Iterable value)
-			{
-				throw new NotImplementedException();
-			}
-
 			private Token bestToken;
 			
 			private List tokenList;
 			
-			internal WordActiveListFactory this_0 = wordActiveListFactory;
+			internal WordActiveListFactory this_0;
 		}
 	}
 }

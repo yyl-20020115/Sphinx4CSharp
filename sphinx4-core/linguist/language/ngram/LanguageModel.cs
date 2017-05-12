@@ -18,14 +18,17 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		int getMaxDepth();
 
 		void onUtteranceEnd();
+	}
 
+	public abstract class LanguageModelBase : java.lang.Object, LanguageModel
+	{
 		[S4String(new object[]
-		{
+{
 			64,
 			"Ledu/cmu/sphinx/util/props/S4String;",
 			"defaultValue",
 			"."
-		})]
+})]
 		public const string PROP_LOCATION = "location";
 
 		[S4Double(new object[]
@@ -58,7 +61,16 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		})]
 		public const string PROP_DICTIONARY = "dictionary";
-		
+
+		public abstract void allocate();
+		public abstract void deallocate();
+		public abstract int getMaxDepth();
+		public abstract float getProbability(WordSequence ws);
+		public abstract float getSmear(WordSequence ws);
+		public abstract Set getVocabulary();
+		public abstract void newProperties(PropertySheet ps);
+		public abstract void onUtteranceEnd();
+
 		public static class __Fields
 		{
 			public const string PROP_LOCATION = "location";

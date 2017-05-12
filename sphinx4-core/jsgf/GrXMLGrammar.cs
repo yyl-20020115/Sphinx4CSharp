@@ -1,9 +1,5 @@
-﻿using System;
-
-using edu.cmu.sphinx.jsgf.rule;
+﻿using edu.cmu.sphinx.jsgf.rule;
 using edu.cmu.sphinx.linguist.language.grammar;
-using IKVM.Attributes;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.net;
@@ -17,9 +13,6 @@ namespace edu.cmu.sphinx.jsgf
 	{
 		protected internal virtual void loadXML()
 		{
-			SAXParseException ex2;
-			SAXException ex4;
-			ParserConfigurationException ex6;
 			try
 			{
 				try
@@ -38,49 +31,26 @@ namespace edu.cmu.sphinx.jsgf
 					}
 					catch (SAXParseException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<SAXParseException>(ex, 1);
-						goto IL_85;
+						throw new IOException(new StringBuilder().append("Error while parsing line ").append(ex.getLineNumber()).append(" of ").append(this.baseURL).append(": ").append(ex.getMessage()).toString());
 					}
 				}
 				catch (SAXException ex3)
 				{
-					ex4 = ByteCodeHelper.MapException<SAXException>(ex3, 1);
-					goto IL_89;
+					throw new IOException(new StringBuilder().append("Problem with XML: ").append(ex3).toString());
 				}
 			}
 			catch (ParserConfigurationException ex5)
 			{
-				ex6 = ByteCodeHelper.MapException<ParserConfigurationException>(ex5, 1);
-				goto IL_8D;
+				throw new IOException(Throwable.instancehelper_getMessage(ex5));
 			}
-			return;
-			IL_85:
-			SAXParseException ex7 = ex2;
-			string text = new StringBuilder().append("Error while parsing line ").append(ex7.getLineNumber()).append(" of ").append(this.baseURL).append(": ").append(ex7.getMessage()).toString();
-			string text2 = text;
-			
-			throw new IOException(text2);
-			IL_89:
-			SAXException ex8 = ex4;
-			string text3 = new StringBuilder().append("Problem with XML: ").append(ex8).toString();
-			
-			throw new IOException(text3);
-			IL_8D:
-			ParserConfigurationException ex9 = ex6;
-			string text4 = Throwable.instancehelper_getMessage(ex9);
-			
-			throw new IOException(text4);
 		}
 
-		
-		
 		public GrXMLGrammar()
 		{
 		}
 		
 		public override void commitChanges()
 		{
-			MalformedURLException ex2;
 			try
 			{
 				if (this.loadGrammar)
@@ -114,15 +84,8 @@ namespace edu.cmu.sphinx.jsgf
 			}
 			catch (MalformedURLException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<MalformedURLException>(ex, 1);
-				goto IL_12E;
+				throw new IOException(new StringBuilder().append("bad base grammar URL ").append(this.baseURL).append(' ').append(ex).toString());
 			}
-			return;
-			IL_12E:
-			MalformedURLException ex3 = ex2;
-			string text = new StringBuilder().append("bad base grammar URL ").append(this.baseURL).append(' ').append(ex3).toString();
-			
-			throw new IOException(text);
 		}
 
 		internal Map rules;

@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	public class DynamicTrigramModel : java.lang.Object, LanguageModel, Configurable
+	public class DynamicTrigramModel : LanguageModelBase
 	{
 		public virtual void setText(List sentences)
 		{
@@ -33,7 +33,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			float result;
 			if (this.logProbs.containsKey(wordSequence))
@@ -64,14 +64,14 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.dictionary = dictionary;
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.dictionary = (dictionary.Dictionary)ps.getComponent("dictionary");
 			this.maxDepth = ps.getInt("maxDepth");
 			this.unigramWeight = ps.getFloat("unigramWeight");
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.vocabulary.clear();
 			this.logProbs.clear();
@@ -236,26 +236,26 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 		}
 
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			return 0f;
 		}
 		
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			return this.vocabulary;
 		}
 
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			return this.maxDepth;
 		}
 
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 		}
 

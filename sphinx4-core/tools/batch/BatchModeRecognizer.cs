@@ -41,11 +41,16 @@ namespace edu.cmu.sphinx.tools.batch
 					this.logger.info(AudioSystem.getAudioFileFormat(file).toString());
 					inputStream = AudioSystem.getAudioInputStream(file);
 				}
-				catch (UnsupportedAudioFileException ex)
+				catch (UnsupportedAudioFileException)
 				{
-					goto IL_4F;
+					this.logger.info(new StringBuilder().append("Reading ").append(text).append(" as raw audio file.").toString());
+					inputStream = new FileInputStream(text);
+					if (java.lang.String.instancehelper_endsWith(java.lang.String.instancehelper_toLowerCase(text), ".sph"))
+					{
+						this.logger.info("Skipping 1024-byte Sphere header.");
+						((FileInputStream)inputStream).skip((long)((ulong)1024));
+					}
 				}
-				IL_BF:
 				if (dataProcessor is StreamDataSource)
 				{
 					((StreamDataSource)dataProcessor).setInputStream(inputStream);
@@ -61,18 +66,6 @@ namespace edu.cmu.sphinx.tools.batch
 					StreamHTKCepstrum streamHTKCepstrum = (StreamHTKCepstrum)dataProcessor;
 					streamHTKCepstrum.setInputStream(inputStream);
 				}
-				continue;
-				goto IL_BF;
-				IL_4F:
-				this.logger.info(new StringBuilder().append("Reading ").append(text).append(" as raw audio file.").toString());
-				inputStream = new FileInputStream(text);
-				if (java.lang.String.instancehelper_endsWith(java.lang.String.instancehelper_toLowerCase(text), ".sph"))
-				{
-					this.logger.info("Skipping 1024-byte Sphere header.");
-					((FileInputStream)inputStream).skip((long)((ulong)1024));
-					goto IL_BF;
-				}
-				goto IL_BF;
 			}
 		}
 

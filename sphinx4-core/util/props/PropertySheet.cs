@@ -1,9 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-using IKVM.Attributes;
-using ikvm.@internal;
-using IKVM.Runtime;
+﻿using ikvm.@internal;
 using java.lang;
 using java.lang.annotation;
 using java.lang.reflect;
@@ -236,21 +231,21 @@ namespace edu.cmu.sphinx.util.props
 					
 					throw new InternalConfigurationException(text3, name, text4);
 				}
-				this.propValues.put(name, Double.valueOf(s4Double.defaultValue()));
+				this.propValues.put(name, java.lang.Double.valueOf(s4Double.defaultValue()));
 			}
 			object obj = this.propValues.get(name);
-			Double @double;
-			if (obj is Double)
+			java.lang.Double @double;
+			if (obj is java.lang.Double)
 			{
-				@double = (Double)obj;
+				@double = (java.lang.Double)obj;
 			}
 			else if (obj is Number)
 			{
-				@double = Double.valueOf(((Number)obj).doubleValue());
+				@double = java.lang.Double.valueOf(((Number)obj).doubleValue());
 			}
 			else
 			{
-				@double = Double.valueOf(this.flattenProp(name));
+				@double = java.lang.Double.valueOf(this.flattenProp(name));
 			}
 			double[] array = s4Double.range();
 			if (array.Length != 2)
@@ -320,7 +315,7 @@ namespace edu.cmu.sphinx.util.props
 						URL url = new URL(text);
 						arrayList.add(url);
 					}
-					catch (MalformedURLException ex)
+					catch (MalformedURLException)
 					{
 						goto IL_4E;
 					}
@@ -373,8 +368,6 @@ namespace edu.cmu.sphinx.util.props
 		
 		public virtual Configurable getOwner()
 		{
-			IllegalAccessException ex2;
-			InstantiationException ex4;
 			try
 			{
 				try
@@ -396,32 +389,15 @@ namespace edu.cmu.sphinx.util.props
 				}
 				catch (IllegalAccessException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IllegalAccessException>(ex, 1);
-					goto IL_72;
+					throw new InternalConfigurationException(ex, this.getInstanceName(), null, new StringBuilder().append("Can't access class ").append(this.ownerClass).toString());
 				}
 			}
 			catch (InstantiationException ex3)
 			{
-				ex4 = ByteCodeHelper.MapException<InstantiationException>(ex3, 1);
-				goto IL_75;
+				throw new InternalConfigurationException(ex3, this.getInstanceName(), null, new StringBuilder().append("Can't instantiate class ").append(this.ownerClass).toString());
 			}
 			return this.owner;
-			IL_72:
-			IllegalAccessException ex5 = ex2;
-			Exception ex6 = ex5;
-			string text4 = this.getInstanceName();
-			string text5 = null;
-			string text6 = new StringBuilder().append("Can't access class ").append(this.ownerClass).toString();
 			
-			throw new InternalConfigurationException(ex6, text4, text5, text6);
-			IL_75:
-			InstantiationException ex7 = ex4;
-			Exception ex8 = ex7;
-			string text7 = this.getInstanceName();
-			string text8 = null;
-			string text9 = new StringBuilder().append("Can't instantiate class ").append(this.ownerClass).toString();
-			
-			throw new InternalConfigurationException(ex8, text7, text8, text9);
 		}
 		
 		public PropertySheet(Configurable configurable, string name, RawPropertyData rpd, ConfigurationManager ConfigurationManager) : this(java.lang.Object.instancehelper_getClass(configurable), name, ConfigurationManager, rpd)
@@ -444,7 +420,7 @@ namespace edu.cmu.sphinx.util.props
 			return this.rawProps.keySet().equals(propertySheet.rawProps.keySet());
 		}
 		
-		protected internal virtual PropertySheet clone()
+		protected internal new virtual PropertySheet clone()
 		{
 			PropertySheet propertySheet = (PropertySheet)base.clone();
 			propertySheet.registeredProperties = new HashMap(this.registeredProperties);
@@ -591,7 +567,7 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new InternalConfigurationException(text3, name, text4);
 			}
-			this.applyConfigurationChange(name, Double.valueOf(value), Double.valueOf(value));
+			this.applyConfigurationChange(name, java.lang.Double.valueOf(value), java.lang.Double.valueOf(value));
 		}
 		
 		public virtual void setInt(string name, int value)
@@ -691,7 +667,6 @@ namespace edu.cmu.sphinx.util.props
 			while (iterator.hasNext())
 			{
 				Map.Entry entry = (Map.Entry)iterator.next();
-				IllegalAccessException ex2;
 				try
 				{
 					string text2 = (string)((Field)entry.getKey()).get(null, PropertySheet.__GetCallerID());
@@ -706,13 +681,9 @@ namespace edu.cmu.sphinx.util.props
 				}
 				catch (IllegalAccessException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IllegalAccessException>(ex, 1);
-					goto IL_E9;
+					Throwable.instancehelper_printStackTrace(ex);
 				}
 				continue;
-				IL_E9:
-				IllegalAccessException ex3 = ex2;
-				Throwable.instancehelper_printStackTrace(ex3);
 			}
 		}
 		
@@ -758,7 +729,7 @@ namespace edu.cmu.sphinx.util.props
 								
 								throw new AssertionError(obj3);
 							}
-							if (!PropertySheet.assertionsDisabled && !java.lang.Object.instancehelper_equals(field.getType(), ClassLiteral<java.lang.String>.Value))
+							if (!PropertySheet.assertionsDisabled && !java.lang.Object.instancehelper_equals(field.getType(), ClassLiteral<string>.Value))
 							{
 								object obj4 = "properties fields are assumed to be instances of java.lang.String";
 								
@@ -789,29 +760,16 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new InternalConfigurationException(text3, name, text4);
 			}
-			ClassCastException ex3;
 			try
 			{
 				propertyClass.cast(s4PropWrapper.getAnnotation());
 			}
-			catch (Exception ex)
+			catch (System.Exception ex)
 			{
-				ClassCastException ex2 = ByteCodeHelper.MapException<ClassCastException>(ex, 0);
-				if (ex2 == null)
-				{
-					throw;
-				}
-				ex3 = ex2;
-				goto IL_AB;
+				throw new InternalConfigurationException(ex, this.getInstanceName(), name, new StringBuilder().append("Property annotation ").append(s4PropWrapper.getAnnotation()).append(" doesn't match the required type ").append(propertyClass.getName()).toString());
+
 			}
 			return s4PropWrapper;
-			IL_AB:
-			ClassCastException ex4 = ex3;
-			Exception ex5 = ex4;
-			string text5 = this.getInstanceName();
-			string text6 = new StringBuilder().append("Property annotation ").append(s4PropWrapper.getAnnotation()).append(" doesn't match the required type ").append(propertyClass.getName()).toString();
-			
-			throw new InternalConfigurationException(ex5, text5, name, text6);
 		}
 		
 		private string flattenProp(string text)
@@ -939,7 +897,7 @@ namespace edu.cmu.sphinx.util.props
 					Class @class = Class.forName((string)this.propValues.get(propName), PropertySheet.__GetCallerID());
 					result = @class.asSubclass(ClassLiteral<Configurable>.Value);
 				}
-				catch (ClassNotFoundException ex)
+				catch (ClassNotFoundException)
 				{
 					goto IL_40;
 				}

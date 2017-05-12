@@ -11,7 +11,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.aflat
 {
-	public class AFlatLinguist : java.lang.Object, Linguist, Configurable
+	public class AFlatLinguist : LinguistBase
 	{		
 		internal static Grammar access_1500(AFlatLinguist aflatLinguist)
 		{
@@ -148,7 +148,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			this.successorCache = new HashMap();
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.acousticModel = (AcousticModel)ps.getComponent("acousticModel");
@@ -169,7 +169,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			}
 		}
 
-		public virtual SearchGraph getSearchGraph()
+		public override SearchGraph getSearchGraph()
 		{
 			this.logger.info("Generated Search Graph");
 			this.logger.info(new StringBuilder().append("Total Memory= ").append(this.runtime.totalMemory() / (long)((ulong)1048576)).append(" MB").toString());
@@ -182,7 +182,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			this.acousticModel = (AcousticModel)ps.getComponent("acousticModel");
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.logger.info("Allocating DFLAT");
 			this.allocateAcousticModel();
@@ -197,7 +197,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			this.logger.info("Done allocating  DFLAT");
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			if (this.acousticModel != null)
 			{
@@ -211,11 +211,11 @@ namespace edu.cmu.sphinx.linguist.aflat
 			return this.logSilenceInsertionProbability;
 		}
 
-		public virtual void startRecognition()
+		public override void startRecognition()
 		{
 		}
 
-		public virtual void stopRecognition()
+		public override void stopRecognition()
 		{
 		}
 		
@@ -411,7 +411,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 
 		private HMMPool hmmPool;
 
-		internal SearchStateArc outOfGrammarGraph;
+		//internal SearchStateArc outOfGrammarGraph = null;
 
 		public Runtime runtime;
 
@@ -687,7 +687,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			{
 				return this.node;
 			}
-			
+
 			internal virtual SearchStateArc[] getNextGrammarStates(int num, int num2)
 			{
 				GrammarArc[] array = this.node.getSuccessors();
@@ -712,7 +712,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				this.node = grammarNode;
 				this.languageProbability = num;
 			}
-			
+
 			public override bool isFinal()
 			{
 				return this.node.isFinalNode();
@@ -722,7 +722,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 			{
 				return result;
 			}
-			
+
 			internal virtual GrammarArc[] filter(GrammarArc[] array, int num)
 			{
 				if (num != 0)
@@ -743,18 +743,18 @@ namespace edu.cmu.sphinx.linguist.aflat
 				}
 				return array;
 			}
-			
+
 			private bool hasEntryContext(GrammarNode grammarNode, int unitID)
 			{
 				Set set = (Set)AFlatLinguist.access_900(this.this_0).get(grammarNode);
 				return set.contains(AFlatLinguist.access_800(this.this_0).getUnit(unitID));
 			}
-			
+
 			public override float getLanguageProbability()
 			{
 				return this.languageProbability * AFlatLinguist.access_000(this.this_0);
 			}
-			
+
 			public override int hashCode()
 			{
 				return java.lang.Object.instancehelper_hashCode(this.node) * 17 + this.lc * 7 + this.nextBaseID;
@@ -773,7 +773,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				}
 				return false;
 			}
-			
+
 			public override SearchStateArc[] getSuccessors()
 			{
 				AFlatLinguist.access_108(this.this_0);
@@ -818,7 +818,6 @@ namespace edu.cmu.sphinx.linguist.aflat
 						};
 						if (AFlatLinguist.access_400(this.this_0))
 						{
-							PhoneLoop.__<clinit>();
 							PhoneLoop phoneLoop = new PhoneLoop(AFlatLinguist.access_500(this.this_0), AFlatLinguist.access_600(this.this_0), AFlatLinguist.access_700(this.this_0), toGrammarSearchState);
 							array3[array2.Length] = phoneLoop.getPhoneLoop();
 						}
@@ -828,7 +827,7 @@ namespace edu.cmu.sphinx.linguist.aflat
 				}
 				return array;
 			}
-			
+
 			public override string getSignature()
 			{
 				return new StringBuilder().append("GS ").append(this.node).append("-lc-").append(AFlatLinguist.access_800(this.this_0).getUnit(this.lc)).append("-rc-").append(AFlatLinguist.access_800(this.this_0).getUnit(this.nextBaseID)).toString();
@@ -848,60 +847,60 @@ namespace edu.cmu.sphinx.linguist.aflat
 			{
 				return this.nextBaseID;
 			}
-			
+
 			internal virtual int[] getNextUnits()
 			{
 				return (int[])AFlatLinguist.access_1000(this.this_0).get(this.node);
 			}
-			
+
 			public override string toString()
 			{
 				return new StringBuilder().append(this.node).append("[").append(AFlatLinguist.access_800(this.this_0).getUnit(this.lc)).append(',').append(AFlatLinguist.access_800(this.this_0).getUnit(this.nextBaseID)).append(']').toString();
-			}			
-			
+			}
+
 			public override float getInsertionProbability()
 			{
 				return base.getInsertionProbability();
-			}			
-			
+			}
+
 			public override float getProbability()
 			{
 				return base.getProbability();
-			}			
-			
+			}
+
 			public override SearchState getState()
 			{
 				return base.getState();
-			}			
-					
+			}
+
 			public override WordSequence getWordHistory()
 			{
 				return base.getWordHistory();
 			}
-			
+
 			public override string toPrettyString()
 			{
 				return base.toPrettyString();
 			}
-						
+
 			public override object getLexState()
 			{
 				return base.getLexState();
 			}
-			
+
 			public override bool isEmitting()
 			{
 				return base.isEmitting();
 			}
-			
+
 			private GrammarNode node;
-			
+
 			private int lc;
-			
+
 			private int nextBaseID;
-			
+
 			private float languageProbability;
-					}
+		}
 		
 		internal sealed class HMMStateSearchState : AFlatLinguist.FlatSearchState, HMMSearchState, SearchState, ScoreProvider
 		{			

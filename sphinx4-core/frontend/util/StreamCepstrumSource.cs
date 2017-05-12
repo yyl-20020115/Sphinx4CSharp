@@ -123,7 +123,6 @@ namespace edu.cmu.sphinx.frontend.util
 					int i = 0;
 					while (i < this.cepstrumLength)
 					{
-						IOException ex5;
 						try
 						{
 							if (this.binary)

@@ -220,8 +220,6 @@ namespace edu.cmu.sphinx.tools.feature
 			FeatureFileDumper.logger.info(new StringBuilder().append("Input file: ").append(text3).toString());
 			FeatureFileDumper.logger.info(new StringBuilder().append("Output file: ").append(text5).toString());
 			FeatureFileDumper.logger.info(new StringBuilder().append("Format: ").append(text6).toString());
-			IOException ex2;
-			PropertyException ex4;
 			try
 			{
 				try

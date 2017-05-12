@@ -72,7 +72,6 @@ namespace edu.cmu.sphinx.decoder.search
 		
 		internal sealed class TokenHeap : java.lang.Object
 		{
-			
 			private bool tryReplace(Token token)
 			{
 				int i = 0;
@@ -103,6 +102,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			internal TokenHeap(TokenHeapSearchManager tokenHeapSearchManager, int num)
 			{
+				this_0 = tokenHeapSearchManager;
 				this.tokens = new Token[num];
 			}
 			
@@ -138,7 +138,6 @@ namespace edu.cmu.sphinx.decoder.search
 				return this.curSize == this.tokens.Length;
 			}
 
-
 			internal Token get(SearchState searchState)
 			{
 				for (int i = 0; i < this.curSize; i++)
@@ -154,12 +153,10 @@ namespace edu.cmu.sphinx.decoder.search
 			internal Token[] tokens;
 
 			internal int curSize;
-
 			
 			internal static bool assertionsDisabled = !ClassLiteral<TokenHeapSearchManager>.Value.desiredAssertionStatus();
 
-			
-			internal TokenHeapSearchManager this_0 = tokenHeapSearchManager;
+			internal TokenHeapSearchManager this_0 ;
 		}
 	}
 }

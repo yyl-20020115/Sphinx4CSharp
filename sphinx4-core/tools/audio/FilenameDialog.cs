@@ -68,8 +68,6 @@ namespace edu.cmu.sphinx.tools.audio
 		{
 		}
 
-		internal string action;
-
 		internal JTextField filename;
 	}
 }

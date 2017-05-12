@@ -3,7 +3,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.acoustic.trivial
 {
-	public class TrivialAcousticModel : java.lang.Object, AcousticModel, Configurable
+	public class TrivialAcousticModel : AcousticModelBase
 	{
 		private void init(int num, int num2)
 		{
@@ -71,22 +71,22 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 			this.hmmMap = new HashMap();
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.init(ps.getInt("leftContextSize"), ps.getInt("leftContextSize"));
 		}
 
-		public virtual string getName()
+		public override string getName()
 		{
 			return this.name;
 		}		
 		
-		public virtual Properties getProperties()
+		public override Properties getProperties()
 		{
 			return new Properties();
 		}
 
-		public virtual HMM lookupNearestHMM(Unit unit, HMMPosition position, bool exactMatch)
+		public override HMM lookupNearestHMM(Unit unit, HMMPosition position, bool exactMatch)
 		{
 			HMM result = null;
 			if (!exactMatch || position == HMMPosition.__UNDEFINED)
@@ -97,31 +97,31 @@ namespace edu.cmu.sphinx.linguist.acoustic.trivial
 			return result;
 		}
 		
-		public virtual Iterator getHMMIterator()
+		public override Iterator getHMMIterator()
 		{
 			return this.hmmMap.values().iterator();
 		}
 		
-		public virtual Iterator getContextIndependentUnitIterator()
+		public override Iterator getContextIndependentUnitIterator()
 		{
 			return this.hmmMap.keySet().iterator();
 		}
 
-		public virtual int getLeftContextSize()
+		public override int getLeftContextSize()
 		{
 			return this.leftContextSize;
 		}
 
-		public virtual int getRightContextSize()
+		public override int getRightContextSize()
 		{
 			return this.rightContextSize;
 		}
 
-		public virtual void allocate()
+		public override void allocate()
 		{
 		}
 
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 		}
 

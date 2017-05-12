@@ -11,7 +11,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
-	internal sealed class HMMPoolManager : java.lang.Object
+	internal class HMMPoolManager : java.lang.Object
 	{
 		protected internal void createBuffers()
 		{

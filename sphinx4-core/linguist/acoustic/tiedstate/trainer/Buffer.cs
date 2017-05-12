@@ -5,7 +5,7 @@ using java.lang;
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
 
-	internal sealed class Buffer : java.lang.Object
+	internal class Buffer : java.lang.Object
 	{
 		internal Buffer(int num, bool flag, int num2)
 		{

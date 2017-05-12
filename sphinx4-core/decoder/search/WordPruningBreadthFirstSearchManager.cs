@@ -1,12 +1,10 @@
-﻿using System;
-using edu.cmu.sphinx.decoder.pruner;
+﻿using edu.cmu.sphinx.decoder.pruner;
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
@@ -231,7 +229,7 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				SearchStateArc searchStateArc = array[i];
 				SearchState state = searchStateArc.getState();
-				if (this.checkStateOrder)
+				if (this._checkStateOrder)
 				{
 					this.checkStateOrder(searchState, state);
 				}
@@ -239,7 +237,6 @@ namespace edu.cmu.sphinx.decoder.search
 				Token bestToken = this.getBestToken(state);
 				if (bestToken == null)
 				{
-					Token.__<clinit>();
 					Token token2 = new Token(resultListPredecessor, state, num2, searchStateArc.getInsertionProbability(), searchStateArc.getLanguageProbability(), this.currentCollectTime);
 					StatisticsVariable statisticsVariable = this.tokensCreated;
 					statisticsVariable.value += (double)1f;
@@ -332,9 +329,9 @@ namespace edu.cmu.sphinx.decoder.search
 			this.pruner = pruner;
 			this.scorer = scorer;
 			this.activeListManager = activeListManager;
-			this.showTokenCount = showTokenCount;
+			this._showTokenCount = showTokenCount;
 			this.growSkipInterval = growSkipInterval;
-			this.checkStateOrder = checkStateOrder;
+			this._checkStateOrder = checkStateOrder;
 			this.buildWordLattice = buildWordLattice;
 			this.maxLatticeEdges = maxLatticeEdges;
 			this.acousticLookaheadFrames = acousticLookaheadFrames;
@@ -356,9 +353,9 @@ namespace edu.cmu.sphinx.decoder.search
 			this.pruner = (Pruner)ps.getComponent("pruner");
 			this.scorer = (AcousticScorer)ps.getComponent("scorer");
 			this.activeListManager = (ActiveListManager)ps.getComponent("activeListManager");
-			this.showTokenCount = ps.getBoolean("showTokenCount").booleanValue();
+			this._showTokenCount = ps.getBoolean("showTokenCount").booleanValue();
 			this.growSkipInterval = ps.getInt("growSkipInterval");
-			this.checkStateOrder = ps.getBoolean("checkStateOrder").booleanValue();
+			this._checkStateOrder = ps.getBoolean("checkStateOrder").booleanValue();
 			this.maxLatticeEdges = ps.getInt("maxLatticeEdges");
 			this.acousticLookaheadFrames = ps.getFloat("acousticLookaheadFrames");
 			this.relativeBeamWidth = this.logMath.linearToLog(ps.getDouble("relativeBeamWidth"));
@@ -372,7 +369,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.totalTokensScored = StatisticsVariable.getStatisticsVariable("totalTokensScored");
 			this.curTokensScored = StatisticsVariable.getStatisticsVariable("curTokensScored");
 			this.tokensCreated = StatisticsVariable.getStatisticsVariable("tokensCreated");
-			IOException ex2;
 			try
 			{
 				this.linguist.allocate();
@@ -381,21 +377,12 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_93;
+				throw new RuntimeException("Allocation of search manager resources failed", ex);
 			}
-			return;
-			IL_93:
-			IOException ex3 = ex2;
-			string text = "Allocation of search manager resources failed";
-			Exception ex4 = ex3;
-			
-			throw new RuntimeException(text, ex4);
 		}
 		
 		public override void deallocate()
 		{
-			IOException ex2;
 			try
 			{
 				this.scorer.deallocate();
@@ -404,16 +391,8 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_30;
+				throw new RuntimeException("Deallocation of search manager resources failed", ex);
 			}
-			return;
-			IL_30:
-			IOException ex3 = ex2;
-			string text = "Deallocation of search manager resources failed";
-			Exception ex4 = ex3;
-			
-			throw new RuntimeException(text, ex4);
 		}
 		
 		public override void startRecognition()
@@ -439,7 +418,7 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				result = new Result(this.loserManager, this.activeList, this.resultList, this.currentCollectTime, num != 0, this.linguist.getSearchGraph().getWordTokenFirst(), true);
 			}
-			if (this.showTokenCount)
+			if (this._showTokenCount)
 			{
 				this.showTokenCount();
 			}
@@ -611,9 +590,9 @@ namespace edu.cmu.sphinx.decoder.search
 
 		protected internal Logger logger;
 
-		protected internal bool showTokenCount;
+		protected internal bool _showTokenCount;
 
-		protected internal bool checkStateOrder;
+		protected internal bool _checkStateOrder;
 
 		private int growSkipInterval;
 
@@ -645,9 +624,7 @@ namespace edu.cmu.sphinx.decoder.search
 
 		protected internal ActiveList activeList;
 
-		
 		protected internal List resultList;
-
 		
 		protected internal Map bestTokenMap;
 

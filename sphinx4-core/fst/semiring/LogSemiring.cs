@@ -49,13 +49,13 @@ namespace edu.cmu.sphinx.fst.semiring
 			{
 				return float.NegativeInfinity;
 			}
-			if (w2 == LogSemiring.zero)
+			if (w2 == LogSemiring._zero)
 			{
 				return float.NegativeInfinity;
 			}
-			if (w1 == LogSemiring.zero)
+			if (w1 == LogSemiring._zero)
 			{
-				return LogSemiring.zero;
+				return LogSemiring._zero;
 			}
 			return w1 - w2;
 		}

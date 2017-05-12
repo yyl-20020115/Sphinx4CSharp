@@ -20,22 +20,15 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			else
 			{
-				IOException ex2;
 				try
 				{
 					this.this_0.setBatchFile(array[1]);
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_2F;
+					commandInterpreter.putResponse(new StringBuilder().append("Can't load ").append(array[1]).append(' ').append(ex).toString());
 				}
-				goto IL_64;
-				IL_2F:
-				IOException ex3 = ex2;
-				commandInterpreter.putResponse(new StringBuilder().append("Can't load ").append(array[1]).append(' ').append(ex3).toString());
 			}
-			IL_64:
 			return "";
 		}
 

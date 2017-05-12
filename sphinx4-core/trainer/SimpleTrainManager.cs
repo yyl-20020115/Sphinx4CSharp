@@ -8,7 +8,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class SimpleTrainManager : java.lang.Object, TrainManager, Configurable
+	public class SimpleTrainManager : TrainManagerBase
 	{
 		private void loadModels(string text)
 		{
@@ -22,7 +22,7 @@ namespace edu.cmu.sphinx.trainer
 			this.dumpMemoryInfo("acoustic model");
 		}
 		
-		public virtual void saveModels(string context)
+		public override void saveModels(string context)
 		{
 			if (1 == this.acousticModels.size())
 			{
@@ -55,7 +55,7 @@ namespace edu.cmu.sphinx.trainer
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this._dumpMemoryInfo = ps.getBoolean("dumpMemoryInfo").booleanValue();
 			this.learner = (Learner)ps.getComponent("learner");
@@ -67,7 +67,7 @@ namespace edu.cmu.sphinx.trainer
 			this.unitManager = (UnitManager)ps.getComponent("unitManager");
 		}
 		
-		public virtual void train()
+		public override void train()
 		{
 			if (!SimpleTrainManager.assertionsDisabled && this.controlFile == null)
 			{
@@ -86,13 +86,13 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 		
-		public virtual void copyModels(string context)
+		public override void copyModels(string context)
 		{
 			this.loadModels(context);
 			this.saveModels(context);
 		}
 		
-		public virtual void initializeModels(string context)
+		public override void initializeModels(string context)
 		{
 			this.dumpMemoryInfo("TrainManager start");
 			Iterator iterator = this.acousticModels.iterator();
@@ -120,7 +120,7 @@ namespace edu.cmu.sphinx.trainer
 			this.dumpMemoryInfo("acoustic model");
 		}
 		
-		public virtual void trainContextIndependentModels(string context)
+		public override void trainContextIndependentModels(string context)
 		{
 			if (this.learner == null)
 			{

@@ -1,6 +1,5 @@
 ﻿using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
@@ -13,34 +12,34 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return concatFileDataSource.silenceFileName;
 		}
-		
+
 		internal static int access_102(ConcatFileDataSource concatFileDataSource, int result)
 		{
 			concatFileDataSource.silenceCount = result;
 			return result;
 		}
-		
+
 		internal static string access_200(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.nextFile;
 		}
-		
+
 		internal static string access_202(ConcatFileDataSource concatFileDataSource, string result)
 		{
 			concatFileDataSource.nextFile = result;
 			return result;
 		}
-		
+
 		internal static FileWriter access_300(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.transcript;
 		}
-		
+
 		internal static int access_100(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.silenceCount;
 		}
-		
+
 		internal static int access_110(ConcatFileDataSource concatFileDataSource)
 		{
 			int num = concatFileDataSource.silenceCount;
@@ -48,48 +47,48 @@ namespace edu.cmu.sphinx.frontend.util
 			concatFileDataSource.silenceCount = num - 1;
 			return result;
 		}
-	
+
 		internal static List access_400(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.referenceList;
 		}
-		
+
 		internal static int access_500(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.skip;
 		}
-		
+
 		internal static int access_600(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.maxSilence;
 		}
-		
+
 		internal static long access_700(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.totalBytes;
-		}		
-		
+		}
+
 		internal static float access_800(ConcatFileDataSource concatFileDataSource, long num)
 		{
 			return concatFileDataSource.getSeconds(num);
 		}
-		
+
 		internal static long access_702(ConcatFileDataSource concatFileDataSource, long result)
 		{
 			concatFileDataSource.totalBytes = result;
 			return result;
 		}
-		
+
 		internal static string access_900(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.context;
-		}	
-		
+		}
+
 		internal static long access_1000(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.silenceFileLength;
 		}
-		
+
 		internal static bool access_1100(ConcatFileDataSource concatFileDataSource)
 		{
 			return concatFileDataSource.addRandomSilence;
@@ -99,7 +98,7 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return (float)num / (float)this.bytesPerSecond;
 		}
-		
+
 		public ConcatFileDataSource(int sampleRate, int bytesPerRead, int bitsPerSample, bool bigEndian, bool signedData, bool addRandomSilence, int maxSilence, int skip, string silenceFileName, int startFile, int totalFiles, string transcriptFile, string batchFile) : base(sampleRate, bytesPerRead, bitsPerSample, bigEndian, signedData)
 		{
 			this.bytesPerSecond = sampleRate * (bitsPerSample / 8);
@@ -112,11 +111,11 @@ namespace edu.cmu.sphinx.frontend.util
 			this.transcriptFile = transcriptFile;
 			this.batchFile = batchFile;
 		}
-		
+
 		public ConcatFileDataSource()
 		{
 		}
-		
+
 		public override void newProperties(PropertySheet ps)
 		{
 			base.newProperties(ps);
@@ -130,7 +129,7 @@ namespace edu.cmu.sphinx.frontend.util
 			this.transcriptFile = ps.getString("transcriptFile");
 			this.batchFile = ps.getString("batchFile");
 		}
-		
+
 		public override void initialize()
 		{
 			base.initialize();
@@ -145,7 +144,7 @@ namespace edu.cmu.sphinx.frontend.util
 				if (this.batchFile == null)
 				{
 					string text = "BatchFile cannot be null!";
-					
+
 					throw new Error(text);
 				}
 				this.setInputStream(new SequenceInputStream(new ConcatFileDataSource.InputStreamEnumeration(this, this.batchFile, this.startFile, this.totalFiles)));
@@ -156,7 +155,7 @@ namespace edu.cmu.sphinx.frontend.util
 				Throwable.instancehelper_printStackTrace(ex);
 			}
 		}
-	
+
 		public virtual List getReferences()
 		{
 			return this.referenceList;
@@ -257,7 +256,6 @@ namespace edu.cmu.sphinx.frontend.util
 
 		private string transcriptFile;
 
-		
 		private List referenceList;
 
 		private FileWriter transcript;
@@ -269,7 +267,7 @@ namespace edu.cmu.sphinx.frontend.util
 		private string batchFile;
 
 		internal sealed class InputStreamEnumeration : java.lang.Object, Enumeration
-		{			
+		{
 			private int getSilenceCount()
 			{
 				if (ConcatFileDataSource.access_1100(this.this_0))
@@ -301,11 +299,10 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				return result;
 			}
-			
+
 			private string readNextDataFile()
 			{
 				string result;
-				IOException ex2;
 				try
 				{
 					if (0 > this.totalFiles || this.totalFiles > ConcatFileDataSource.access_400(this.this_0).size())
@@ -336,16 +333,12 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_DB;
+					Throwable.instancehelper_printStackTrace(ex);
+
+					throw new Error("Problem reading from batch file");
+
 				}
 				return result;
-				IL_DB:
-				IOException ex3 = ex2;
-				Throwable.instancehelper_printStackTrace(ex3);
-				string text2 = "Problem reading from batch file";
-				
-				throw new Error(text2);
 			}
 
 			private void writeSilenceToTranscript()
@@ -363,7 +356,7 @@ namespace edu.cmu.sphinx.frontend.util
 					Throwable.instancehelper_printStackTrace(ex);
 				}
 			}
-			
+
 			private void writeTranscript(string text, string text2)
 			{
 				try
@@ -380,7 +373,7 @@ namespace edu.cmu.sphinx.frontend.util
 					Throwable.instancehelper_printStackTrace(ex);
 				}
 			}
-			
+
 			public InputStream nextElement()
 			{
 				FileInputStream fileInputStream = null;
@@ -390,7 +383,6 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				if (ConcatFileDataSource.access_200(this.this_0) != null)
 				{
-					IOException ex2;
 					try
 					{
 						fileInputStream = new FileInputStream(ConcatFileDataSource.access_200(this.this_0));
@@ -398,46 +390,36 @@ namespace edu.cmu.sphinx.frontend.util
 					}
 					catch (IOException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-						goto IL_63;
+						Throwable.instancehelper_printStackTrace(ex);
+
+						throw new Error(new StringBuilder().append("Cannot convert ").append(ConcatFileDataSource.access_200(this.this_0)).append(" to a FileInputStream").toString());
+
 					}
-					goto IL_A8;
-					IL_63:
-					IOException ex3 = ex2;
-					Throwable.instancehelper_printStackTrace(ex3);
-					string text = new StringBuilder().append("Cannot convert ").append(ConcatFileDataSource.access_200(this.this_0)).append(" to a FileInputStream").toString();
-					
-					throw new Error(text);
 				}
-				IL_A8:
 				if (fileInputStream == null && ConcatFileDataSource.access_300(this.this_0) != null)
 				{
-					IOException ex5;
 					try
 					{
 						ConcatFileDataSource.access_300(this.this_0).close();
 					}
 					catch (IOException ex4)
 					{
-						ex5 = ByteCodeHelper.MapException<IOException>(ex4, 1);
-						goto IL_D7;
+						Throwable.instancehelper_printStackTrace(ex4);
 					}
 					return fileInputStream;
-					IL_D7:
-					IOException ex3 = ex5;
-					Throwable.instancehelper_printStackTrace(ex3);
 				}
 				return fileInputStream;
 			}
-			
+
 			internal InputStreamEnumeration(ConcatFileDataSource concatFileDataSource, string text, int num, int num2)
 			{
+				this_0 = concatFileDataSource;
 				this.totalFiles = num2;
 				this.reader = new BufferedReader(new FileReader(text));
 				if (ConcatFileDataSource.access_000(concatFileDataSource) != null)
 				{
 					this.inSilence = true;
-					this.silenceRandom = new java.util.Random(System.currentTimeMillis());
+					this.silenceRandom = new java.util.Random(java.lang.System.currentTimeMillis());
 					ConcatFileDataSource.access_102(concatFileDataSource, this.getSilenceCount());
 				}
 				for (int i = 1; i < num; i++)
@@ -445,7 +427,7 @@ namespace edu.cmu.sphinx.frontend.util
 					this.reader.readLine();
 				}
 			}
-			
+
 			public bool hasMoreElements()
 			{
 				if (ConcatFileDataSource.access_200(this.this_0) == null)
@@ -454,13 +436,12 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				return ConcatFileDataSource.access_200(this.this_0) != null;
 			}
-			
+
 			object Enumeration.nextElement()
 			{
 				return this.nextElement();
 			}
 
-			
 			private int totalFiles;
 
 			private bool inSilence;
@@ -469,7 +450,7 @@ namespace edu.cmu.sphinx.frontend.util
 
 			private BufferedReader reader;
 
-			internal ConcatFileDataSource this_0 = concatFileDataSource;
+			internal ConcatFileDataSource this_0;
 		}
 	}
 }

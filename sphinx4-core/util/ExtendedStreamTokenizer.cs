@@ -18,7 +18,7 @@ namespace edu.cmu.sphinx.util
 				string @string = this.getString();
 				result = Integer.parseInt(@string);
 			}
-			catch (NumberFormatException ex)
+			catch (NumberFormatException)
 			{
 				goto IL_18;
 			}
@@ -57,7 +57,7 @@ namespace edu.cmu.sphinx.util
 					result = Float.parseFloat(@string);
 				}
 			}
-			catch (NumberFormatException ex)
+			catch (NumberFormatException)
 			{
 				goto IL_31;
 			}
@@ -183,7 +183,7 @@ namespace edu.cmu.sphinx.util
 					result = java.lang.Double.parseDouble(@string);
 				}
 			}
-			catch (NumberFormatException ex)
+			catch (NumberFormatException)
 			{
 				goto IL_36;
 			}
@@ -212,7 +212,7 @@ namespace edu.cmu.sphinx.util
 					result = Float.parseFloat(@string);
 				}
 			}
-			catch (NumberFormatException ex)
+			catch (NumberFormatException)
 			{
 				goto IL_39;
 			}

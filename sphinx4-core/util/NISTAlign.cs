@@ -523,7 +523,7 @@ namespace edu.cmu.sphinx.util
 						nistalign.printNISTSentenceSummary();
 					}
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
 				}
 			}

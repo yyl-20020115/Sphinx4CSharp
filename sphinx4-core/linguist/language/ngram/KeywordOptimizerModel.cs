@@ -5,7 +5,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	public class KeywordOptimizerModel : java.lang.Object, LanguageModel, Configurable
+	public class KeywordOptimizerModel : LanguageModelBase
 	{		
 		public KeywordOptimizerModel(LanguageModel parent)
 		{
@@ -16,22 +16,22 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.parent = (LanguageModel)ps.getComponent("parent");
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.parent.allocate();
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			this.parent.deallocate();
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			float num = this.parent.getProbability(wordSequence);
 			if (this.keywordProbs == null)
@@ -52,22 +52,22 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			return num;
 		}
 		
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			return this.parent.getSmear(wordSequence);
 		}
 				
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			return this.parent.getMaxDepth();
 		}		
 		
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			return this.parent.getVocabulary();
 		}
 
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 		}
 

@@ -1,14 +1,12 @@
-﻿using System;
-using edu.cmu.sphinx.util.props;
+﻿using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using java.lang;
 using java.util;
 using java.util.logging;
-using java.util.function;
 
 namespace edu.cmu.sphinx.decoder.search
 {
-	public class SimpleActiveListManager : java.lang.Object, ActiveListManager, Configurable
+	public class SimpleActiveListManager : ActiveListManagerBase
 	{		
 		internal static ActiveList[] access_000(SimpleActiveListManager simpleActiveListManager)
 		{
@@ -56,14 +54,14 @@ namespace edu.cmu.sphinx.decoder.search
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.activeListFactories = ps.getComponentList("activeListFactories", ClassLiteral<ActiveListFactory>.Value);
 			this.checkPriorLists = ps.getBoolean("checkPriorListsEmpty").booleanValue();
 		}
 		
-		public virtual void setNumStateOrder(int numStateOrder)
+		public override void setNumStateOrder(int numStateOrder)
 		{
 			this.currentActiveLists = new ActiveList[numStateOrder];
 			if (this.activeListFactories.isEmpty())
@@ -80,7 +78,7 @@ namespace edu.cmu.sphinx.decoder.search
 			this.createActiveLists();
 		}
 		
-		public virtual void add(Token token)
+		public override void add(Token token)
 		{
 			ActiveList activeList = this.findListFor(token);
 			if (activeList == null)
@@ -91,23 +89,24 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			activeList.add(token);
 		}
-		public virtual ActiveList getEmittingList()
+
+		public override ActiveList getEmittingList()
 		{
 			return this.currentActiveLists[this.currentActiveLists.Length - 1];
 		}
 		
-		public virtual void clearEmittingList()
+		public override void clearEmittingList()
 		{
 			ActiveList activeList = this.currentActiveLists[this.currentActiveLists.Length - 1];
 			this.currentActiveLists[this.currentActiveLists.Length - 1] = activeList.newInstance();
 		}
 		
-		public virtual Iterator getNonEmittingListIterator()
+		public override Iterator getNonEmittingListIterator()
 		{
 			return new SimpleActiveListManager.NonEmittingListIterator(this);
 		}
 		
-		public virtual void dump()
+		public override void dump()
 		{
 			java.lang.System.@out.println("--------------------");
 			ActiveList[] array = this.currentActiveLists;
@@ -144,7 +143,6 @@ namespace edu.cmu.sphinx.decoder.search
 		private Logger logger;
 
 		private bool checkPriorLists;
-
 		
 		private List activeListFactories;
 
@@ -183,8 +181,10 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public NonEmittingListIterator(SimpleActiveListManager simpleActiveListManager)
 			{
+				this_0 = simpleActiveListManager;
 				this.listPtr = -1;
 			}
+
 			public bool hasNext()
 			{
 				return this.listPtr + 1 < SimpleActiveListManager.access_000(this.this_0).Length - 1;
@@ -200,24 +200,9 @@ namespace edu.cmu.sphinx.decoder.search
 				return this.next();
 			}
 
-			public void remove(Iterator value)
-			{
-				throw new NotImplementedException();
-			}
-
-			public void forEachRemaining(Consumer action)
-			{
-				throw new NotImplementedException();
-			}
-
-			public void forEachRemaining(Iterator value1, Consumer value2)
-			{
-				throw new NotImplementedException();
-			}
-
 			private int listPtr;
 			
-			internal SimpleActiveListManager this_0 = simpleActiveListManager;
+			internal SimpleActiveListManager this_0;
 		}
 	}
 }

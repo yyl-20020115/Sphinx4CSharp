@@ -91,7 +91,7 @@ namespace edu.cmu.sphinx.frontend.util
 					this.thread.join();
 					num = 1;
 				}
-				catch (InterruptedException ex)
+				catch (InterruptedException)
 				{
 				}
 			}
@@ -159,7 +159,7 @@ namespace edu.cmu.sphinx.frontend.util
 					{
 						Thread.sleep((long)((ulong)10));
 					}
-					catch (InterruptedException ex)
+					catch (InterruptedException)
 					{
 					}
 				}

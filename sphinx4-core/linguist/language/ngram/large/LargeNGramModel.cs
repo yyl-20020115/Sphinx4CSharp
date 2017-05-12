@@ -10,7 +10,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.language.ngram.large
 {
-	public class LargeNGramModel : java.lang.Object, LanguageModel, Configurable
+	public class LargeNGramModel : LanguageModelBase
 	{		
 		private void buildUnigramIDMap(dictionary.Dictionary dictionary)
 		{
@@ -310,7 +310,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			return (UnigramProbability)this.unigramIDMap.get(word);
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			int num = wordSequence.size();
 			if (num > this.maxDepth)
@@ -523,7 +523,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.location = ConfigurationManagerUtils.getResource("location", ps);
@@ -539,7 +539,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			this.fullSmear = ps.getBoolean("fullSmear").booleanValue();
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			TimerPool.getTimer(this, "Load LM").start();
 			this.logger.info(new StringBuilder().append("Loading n-gram language model from: ").append(this.location).toString());
@@ -559,7 +559,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			{
 				this.loader = new BinaryLoader(new File(this.location.toURI()), this.format, this.applyLanguageWeightAndWip, this.languageWeight, this.wip, this.unigramWeight);
 			}
-			catch (System.Exception ex)
+			catch (System.Exception)
 			{
 				this.loader = new BinaryLoader(new File(this.location.getPath()), this.format, this.applyLanguageWeightAndWip, this.languageWeight, this.wip, this.unigramWeight);
 			}
@@ -604,7 +604,6 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			if (this.fullSmear)
 			{
 				java.lang.System.@out.println("Full Smear");
-				IOException ex3;
 				try
 				{
 					java.lang.System.@out.println("... Reading ...");
@@ -620,16 +619,15 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 					java.lang.System.@out.println("... Done");
 				}
 			}
-			IL_3B0:
 			TimerPool.getTimer(this, "Load LM").stop();
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			this.loader.deallocate();
 		}
 		
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 			this.clearCache();
 			if (this.logFile != null)
@@ -664,7 +662,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			return num;
 		}
 		
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			float num = 0f;
 			if (this.fullSmear)
@@ -706,12 +704,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram.large
 			return num;
 		}
 
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			return this.maxDepth;
 		}
 		
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			HashSet hashSet = new HashSet(Arrays.asList(this.loader.getWords()));
 			return Collections.unmodifiableSet(hashSet);

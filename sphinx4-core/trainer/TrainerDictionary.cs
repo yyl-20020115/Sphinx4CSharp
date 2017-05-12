@@ -16,7 +16,6 @@ namespace edu.cmu.sphinx.trainer
 			if (!java.lang.String.instancehelper_equals(word, text))
 			{
 				string text2 = java.lang.String.instancehelper_replaceFirst(java.lang.String.instancehelper_replaceFirst(word, ".*\\(", ""), "\\)", "");
-				NumberFormatException ex2;
 				try
 				{
 					num = Integer.parseInt(text2);

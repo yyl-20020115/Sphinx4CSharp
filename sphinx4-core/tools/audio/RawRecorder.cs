@@ -143,7 +143,7 @@ namespace edu.cmu.sphinx.tools.audio
 					}
 					goto IL_3D;
 				}
-				catch (InterruptedException ex3)
+				catch (InterruptedException)
 				{
 					goto IL_3F;
 				}
@@ -154,7 +154,7 @@ namespace edu.cmu.sphinx.tools.audio
 					Monitor.Exit(obj);
 					throw ex4;
 				}
-				catch (InterruptedException ex6)
+				catch (InterruptedException)
 				{
 				}
 				IL_3D:

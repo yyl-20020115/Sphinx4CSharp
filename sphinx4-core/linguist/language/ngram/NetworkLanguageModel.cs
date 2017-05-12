@@ -9,7 +9,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	public class NetworkLanguageModel : java.lang.Object, LanguageModel, Configurable
+	public class NetworkLanguageModel : LanguageModelBase
 	{		
 		public NetworkLanguageModel(string host, int port, URL location, int maxDepth)
 		{
@@ -24,7 +24,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			if (this.allocated)
 			{
@@ -42,7 +42,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.allocated = true;
 			this.socket = new Socket(this.host, this.port);
@@ -58,7 +58,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.cache = new LRUCache(1000);
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			this.allocated = false;
 			try
@@ -71,12 +71,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			return this.maxDepth;
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			Float @float = (Float)this.cache.get(wordSequence);
 			if (@float != null)
@@ -122,12 +122,12 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			return @float.floatValue();
 		}
 
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			return 0f;
 		}
 		
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			HashSet hashSet = new HashSet();
 			try
@@ -154,7 +154,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			return hashSet;
 		}
 
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 		}
 

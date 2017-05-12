@@ -1,5 +1,4 @@
-﻿using System;
-using edu.cmu.sphinx.frontend;
+﻿using edu.cmu.sphinx.frontend;
 using java.util;
 using java.util.concurrent;
 
@@ -19,6 +18,7 @@ namespace edu.cmu.sphinx.decoder.scorer
 
 		internal ThreadedAcousticScorer_1(ThreadedAcousticScorer threadedAcousticScorer, List list, Data data)
 		{
+			this_0 = threadedAcousticScorer;
 			this.val_scoringJob = list;
 			this.val_data = data;
 		}
@@ -27,6 +27,6 @@ namespace edu.cmu.sphinx.decoder.scorer
 		
 		internal Data val_data;
 		
-		internal ThreadedAcousticScorer this_0 = threadedAcousticScorer;
+		internal ThreadedAcousticScorer this_0;
 	}
 }

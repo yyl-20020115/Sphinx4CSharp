@@ -293,7 +293,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 					throw new RuntimeException(ex);
 				}
 			}
-			catch (IOException ex3)
+			catch (IOException)
 			{
 				return (float[][])null;
 			}
@@ -880,7 +880,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate
 				this.varianceTransformationMatrixPool = null;
 				this.varianceTransformationVectorPool = null;
 				this.transformMatrix = (float[][])null;
-				URISyntaxException ex2;
 				try
 				{
 					this.loadModelFiles();

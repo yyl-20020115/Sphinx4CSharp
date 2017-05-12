@@ -7,7 +7,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.lextree
 {
-	internal class Node : java.lang.Object
+	public class Node : java.lang.Object
 	{
 		public virtual Map getSuccessorMap()
 		{

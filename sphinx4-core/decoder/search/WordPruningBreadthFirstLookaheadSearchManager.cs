@@ -118,7 +118,6 @@ namespace edu.cmu.sphinx.decoder.search
 				Token resultListPredecessor = this.getResultListPredecessor(token);
 				if (!state.isEmitting())
 				{
-					Token.__<clinit>();
 					Token token2 = new Token(resultListPredecessor, state, num2, searchStateArc.getInsertionProbability(), searchStateArc.getLanguageProbability(), (long)this.currentFastMatchFrameNumber);
 					StatisticsVariable tokensCreated = this.tokensCreated;
 					tokensCreated.value += (double)1f;
@@ -132,7 +131,6 @@ namespace edu.cmu.sphinx.decoder.search
 					Token token2 = this.getFastMatchBestToken(state);
 					if (token2 == null)
 					{
-						Token.__<clinit>();
 						Token token3 = new Token(resultListPredecessor, state, num2, searchStateArc.getInsertionProbability(), searchStateArc.getLanguageProbability(), (long)this.currentFastMatchFrameNumber);
 						StatisticsVariable tokensCreated2 = this.tokensCreated;
 						tokensCreated2.value += (double)1f;
@@ -248,7 +246,7 @@ namespace edu.cmu.sphinx.decoder.search
 			{
 				result = new Result(this.loserManager, this.activeList, this.resultList, this.currentCollectTime, num != 0, this.linguist.getSearchGraph().getWordTokenFirst(), true);
 			}
-			if (this.showTokenCount)
+			if (this._showTokenCount)
 			{
 				this.showTokenCount();
 			}
@@ -316,7 +314,7 @@ namespace edu.cmu.sphinx.decoder.search
 				i++;
 				continue;
 				IL_110:
-				if (this.checkStateOrder)
+				if (this._checkStateOrder)
 				{
 					this.checkStateOrder(searchState, state);
 				}
@@ -324,7 +322,6 @@ namespace edu.cmu.sphinx.decoder.search
 				Token bestToken = this.getBestToken(state);
 				if (bestToken == null)
 				{
-					Token.__<clinit>();
 					Token token2 = new Token(resultListPredecessor, state, num3, searchStateArc.getInsertionProbability(), searchStateArc.getLanguageProbability(), this.currentCollectTime);
 					StatisticsVariable tokensCreated = this.tokensCreated;
 					tokensCreated.value += (double)1f;
@@ -417,10 +414,8 @@ namespace edu.cmu.sphinx.decoder.search
 		private int lookaheadWindow;
 
 		private float lookaheadWeight;
-
 		
 		private HashMap penalties;
-
 		
 		private LinkedList ciScores;
 
@@ -428,7 +423,6 @@ namespace edu.cmu.sphinx.decoder.search
 
 		protected internal ActiveList fastmatchActiveList;
 
-		
 		protected internal Map fastMatchBestTokenMap;
 
 		private bool fastmatchStreamEnd;
@@ -437,6 +431,7 @@ namespace edu.cmu.sphinx.decoder.search
 		{			
 			public FrameCiScores(WordPruningBreadthFirstLookaheadSearchManager wordPruningBreadthFirstLookaheadSearchManager, float[] array, float num)
 			{
+				this_0 = wordPruningBreadthFirstLookaheadSearchManager;
 				this.scores = array;
 				this.maxScore = num;
 			}
@@ -445,7 +440,7 @@ namespace edu.cmu.sphinx.decoder.search
 			
 			public float maxScore;
 			
-			internal WordPruningBreadthFirstLookaheadSearchManager this_0 = wordPruningBreadthFirstLookaheadSearchManager;
+			internal WordPruningBreadthFirstLookaheadSearchManager this_0;
 		}
 	}
 }

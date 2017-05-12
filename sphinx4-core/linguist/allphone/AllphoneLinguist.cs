@@ -2,16 +2,11 @@
 using edu.cmu.sphinx.linguist.acoustic.tiedstate;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Attributes;
 using java.util;
 
 namespace edu.cmu.sphinx.linguist.allphone
 {
-	[Implements(new string[]
-	{
-		"edu.cmu.sphinx.linguist.Linguist"
-	})]
-	public class AllphoneLinguist : java.lang.Object, Linguist, Configurable
+	public class AllphoneLinguist : LinguistBase
 	{		
 		private void createContextDependentSuccessors()
 		{
@@ -92,7 +87,7 @@ namespace edu.cmu.sphinx.linguist.allphone
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.acousticModel = (AcousticModel)ps.getComponent("acousticModel");
 			this.pip = LogMath.getLogMath().linearToLog((double)ps.getFloat("phoneInsertionProbability"));
@@ -107,24 +102,24 @@ namespace edu.cmu.sphinx.linguist.allphone
 			}
 		}
 		
-		public virtual SearchGraph getSearchGraph()
+		public override SearchGraph getSearchGraph()
 		{
 			return new AllphoneSearchGraph(this);
 		}
 
-		public virtual void startRecognition()
+		public override void startRecognition()
 		{
 		}
 
-		public virtual void stopRecognition()
+		public override void stopRecognition()
 		{
 		}
 
-		public virtual void allocate()
+		public override void allocate()
 		{
 		}
 
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 		}
 

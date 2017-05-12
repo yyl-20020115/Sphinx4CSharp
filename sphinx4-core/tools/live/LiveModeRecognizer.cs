@@ -171,8 +171,6 @@ namespace edu.cmu.sphinx.tools.live
 			}
 			string text = argv[0];
 			LiveModeRecognizer liveModeRecognizer;
-			IOException ex2;
-			PropertyException ex4;
 			try
 			{
 				try

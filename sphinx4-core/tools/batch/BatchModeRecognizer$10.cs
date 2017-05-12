@@ -22,8 +22,6 @@ namespace edu.cmu.sphinx.tools.batch
 			}
 			else
 			{
-				string result2;
-				IOException ex2;
 				try
 				{
 					if (this.this_0.curBatchItem == null)
@@ -42,17 +40,12 @@ namespace edu.cmu.sphinx.tools.batch
 						this.this_0.setInputStream(filename);
 						result = this.this_0.recognizer.recognize(transcript);
 					}
-					result2 = "";
+					return string.Empty;
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-					goto IL_B5;
+					commandInterpreter.putResponse(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex)).toString());
 				}
-				return result2;
-				IL_B5:
-				IOException ex3 = ex2;
-				commandInterpreter.putResponse(new StringBuilder().append("I/O error during decoding: ").append(Throwable.instancehelper_getMessage(ex3)).toString());
 			}
 			return (result == null) ? "" : result.getBestResultNoFiller();
 		}

@@ -22,7 +22,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 		{
 			base.newProperties(ps);
 			this.saver = (Saver)ps.getComponent("saver");
-			IOException ex2;
 			try
 			{
 				this.hmmPoolManager = new HMMPoolManager(this.loader);

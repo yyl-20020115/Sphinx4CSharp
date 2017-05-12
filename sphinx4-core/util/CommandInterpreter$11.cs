@@ -23,7 +23,7 @@ namespace edu.cmu.sphinx.util
 						this.this_0.putResponse(this.this_0.execute(args));
 					}
 				}
-				catch (NumberFormatException ex)
+				catch (NumberFormatException)
 				{
 					this.this_0.putResponse("Usage: repeat count command args");
 				}

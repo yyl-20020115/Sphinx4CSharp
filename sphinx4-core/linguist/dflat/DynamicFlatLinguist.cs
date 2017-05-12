@@ -11,7 +11,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.dflat
 {
-	public class DynamicFlatLinguist : java.lang.Object, Linguist, Configurable
+	public class DynamicFlatLinguist : LinguistBase
 	{		
 		internal static Grammar access_900(DynamicFlatLinguist dynamicFlatLinguist)
 		{
@@ -167,7 +167,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			this.successorCache = new HashMap();
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.logMath = LogMath.getLogMath();
@@ -188,12 +188,12 @@ namespace edu.cmu.sphinx.linguist.dflat
 			}
 		}
 
-		public virtual SearchGraph getSearchGraph()
+		public override SearchGraph getSearchGraph()
 		{
 			return this.searchGraph;
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			this.logger.info("Allocating DFLAT");
 			this.allocateAcousticModel();
@@ -208,7 +208,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			this.logger.info("Done allocating  DFLAT");
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			if (this.acousticModel != null)
 			{
@@ -217,7 +217,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			this.grammar.deallocate();
 		}
 		
-		public virtual void startRecognition()
+		public override void startRecognition()
 		{
 			if (this.grammarHasChanged())
 			{
@@ -225,7 +225,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 			}
 		}
 
-		public virtual void stopRecognition()
+		public override void stopRecognition()
 		{
 		}
 
@@ -390,7 +390,7 @@ namespace edu.cmu.sphinx.linguist.dflat
 
 		private HMMPool hmmPool;
 
-		internal SearchStateArc outOfGrammarGraph;
+		//internal SearchStateArc outOfGrammarGraph;
 
 		private GrammarNode initialGrammarState;
 		

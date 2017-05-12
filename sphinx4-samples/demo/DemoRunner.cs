@@ -1,7 +1,7 @@
 ﻿using System;
 using edu.cmu.sphinx.demo.aligner;
 using edu.cmu.sphinx.demo.dialog;
-using edu.cmu.sphinx.demo.speakerid;
+//using edu.cmu.sphinx.demo.speakerid;
 using edu.cmu.sphinx.demo.transcriber;
 using ikvm.@internal;
 using java.lang;
@@ -12,7 +12,7 @@ namespace edu.cmu.sphinx.demo
 {
 	public class DemoRunner : java.lang.Object
 	{
-		public static void main(string[] args)
+		public static void Main(string[] args)
 		{
 			if (0 == args.Length || !DemoRunner.classes.containsKey(args[0]))
 			{
@@ -54,7 +54,7 @@ namespace edu.cmu.sphinx.demo
 		{
 			DemoRunner.classes.put("aligner", ClassLiteral<AlignerDemo>.Value);
 			DemoRunner.classes.put("dialog", ClassLiteral<DialogDemo>.Value);
-			DemoRunner.classes.put("speakerid", ClassLiteral<SpeakerIdentificationDemo>.Value);
+			//DemoRunner.classes.put("speakerid", ClassLiteral<SpeakerIdentificationDemo>.Value);
 			DemoRunner.classes.put("transcriber", ClassLiteral<TranscriberDemo>.Value);
 		}
 		

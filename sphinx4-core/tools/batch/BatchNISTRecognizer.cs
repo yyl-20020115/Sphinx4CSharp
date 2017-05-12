@@ -439,7 +439,6 @@ namespace edu.cmu.sphinx.tools.batch
 					this.file = java.lang.String.instancehelper_substring(this.file, 0, num);
 				}
 				this.file = new StringBuilder().append(batchNISTRecognizer.dataDir).append('/').append(this.file).append(".raw").toString();
-				IOException ex2;
 				try
 				{
 					FileInputStream fileInputStream = new FileInputStream(this.file);

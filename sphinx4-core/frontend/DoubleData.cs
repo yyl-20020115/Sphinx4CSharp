@@ -24,7 +24,6 @@ namespace edu.cmu.sphinx.frontend
 		public new virtual DoubleData clone()
 		{
 			DoubleData result;
-			CloneNotSupportedException ex2;
 			try
 			{
 				DoubleData doubleData = (DoubleData)base.clone();

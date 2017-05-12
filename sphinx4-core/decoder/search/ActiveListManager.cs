@@ -7,7 +7,6 @@ namespace edu.cmu.sphinx.decoder.search
 	{
 		void add(Token t);
 
-		
 		Iterator getNonEmittingListIterator();
 
 		ActiveList getEmittingList();
@@ -18,6 +17,10 @@ namespace edu.cmu.sphinx.decoder.search
 
 		void setNumStateOrder(int i);
 
+	}
+
+	public abstract class ActiveListManagerBase : java.lang.Object, ActiveListManager
+	{
 		[S4Integer(new object[]
 		{
 			64,
@@ -36,7 +39,14 @@ namespace edu.cmu.sphinx.decoder.search
 		})]
 		public const string PROP_RELATIVE_WORD_BEAM_WIDTH = "relativeWordBeamWidth";
 
-		
+		public abstract void add(Token t);
+		public abstract void clearEmittingList();
+		public abstract void dump();
+		public abstract ActiveList getEmittingList();
+		public abstract Iterator getNonEmittingListIterator();
+		public abstract void newProperties(PropertySheet ps);
+		public abstract void setNumStateOrder(int i);
+
 		public static class __Fields
 		{
 			public const string PROP_ABSOLUTE_WORD_BEAM_WIDTH = "absoluteWordBeamWidth";

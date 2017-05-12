@@ -12,14 +12,17 @@ namespace edu.cmu.sphinx.linguist
 		void allocate();
 
 		void deallocate();
+	}
 
+	public abstract class LinguistBase : java.lang.Object, Linguist
+	{
 		[S4Double(new object[]
-		{
+{
 			64,
 			"Ledu/cmu/sphinx/util/props/S4Double;",
 			"defaultValue",
 			1.0
-		})]
+})]
 		public const string PROP_WORD_INSERTION_PROBABILITY = "wordInsertionProbability";
 
 		[S4Double(new object[]
@@ -57,7 +60,14 @@ namespace edu.cmu.sphinx.linguist
 			1.0
 		})]
 		public const string PROP_LANGUAGE_WEIGHT = "languageWeight";
-		
+
+		public abstract void allocate();
+		public abstract void deallocate();
+		public abstract SearchGraph getSearchGraph();
+		public abstract void newProperties(PropertySheet ps);
+		public abstract void startRecognition();
+		public abstract void stopRecognition();
+
 		public static class __Fields
 		{
 			public const string PROP_WORD_INSERTION_PROBABILITY = "wordInsertionProbability";

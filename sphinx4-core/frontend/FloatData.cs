@@ -57,7 +57,6 @@ namespace edu.cmu.sphinx.frontend
 		public new virtual FloatData clone()
 		{
 			FloatData result;
-			CloneNotSupportedException ex2;
 			try
 			{
 				FloatData floatData = (FloatData)base.clone();

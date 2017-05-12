@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.classes
 {
-	public class ClassBasedLanguageModel : java.lang.Object, LanguageModel, Configurable
+	public class ClassBasedLanguageModel : LanguageModelBase
 	{		
 		private void makeVocabulary()
 		{
@@ -39,7 +39,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.allocated = false;
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			if (this.allocated)
 			{
@@ -53,7 +53,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.classLM = (LanguageModel)ps.getComponent("classLanguageModel");
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			if (!this.allocated)
 			{
@@ -64,7 +64,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			}
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			this.allocated = false;
 			this.classLM.deallocate();
@@ -72,7 +72,7 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			this.vocabulary = null;
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			Word[] array = new Word[wordSequence.size()];
 			float num = 0f;
@@ -90,22 +90,22 @@ namespace edu.cmu.sphinx.linguist.language.classes
 			return probability + num;
 		}
 
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			return 0f;
 		}
 
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			return this.vocabulary;
 		}		
 		
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			return this.classLM.getMaxDepth();
 		}
 
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 		}
 

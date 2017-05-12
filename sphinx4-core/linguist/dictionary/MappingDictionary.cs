@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
-	public class MappingDictionary : TextDictionary, Dictionary, Configurable
+	public class MappingDictionary : TextDictionary
 	{		
 		protected internal virtual void loadMapping(InputStream inputStream)
 		{

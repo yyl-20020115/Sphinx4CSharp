@@ -22,7 +22,7 @@ namespace edu.cmu.sphinx.tools.batch
 				{
 					this.this_0.batchManager.start();
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
 					goto IL_2A;
 				}

@@ -1,4 +1,5 @@
-﻿using edu.cmu.sphinx.linguist.acoustic;
+﻿using System;
+using edu.cmu.sphinx.linguist.acoustic;
 using ikvm.@internal;
 using java.lang;
 using java.util;
@@ -61,7 +62,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 		}
 
-		internal HMM getKey()
+		internal HMM getKeyHMM()
 		{
 			return this.getHMM();
 		}	
@@ -89,7 +90,12 @@ namespace edu.cmu.sphinx.linguist.lextree
 			}
 			return (Unit[])((Unit[])this.rcSet);
 		}
-		
+
+		internal override object getKey()
+		{
+			return this.getKeyHMM();
+		}
+
 		static HMMNode()
 		{
 			HMMNode.assertionsDisabled = !ClassLiteral<HMMNode>.Value.desiredAssertionStatus();

@@ -42,7 +42,7 @@ namespace edu.cmu.sphinx.frontend.transform
 			{
 				num2 = -num2;
 			}
-			for (int i = 0; i < num >> 1; i++)
+			for (int i = 0; i < (num >> 1); i++)
 			{
 				this.weightFft[i] = new Complex(java.lang.Math.cos(num2 * (double)i), java.lang.Math.sin(num2 * (double)i));
 			}
@@ -163,7 +163,7 @@ namespace edu.cmu.sphinx.frontend.transform
 					int num5 = i + num2;
 					int num6 = i;
 					int num7 = i + (num >> 1);
-					for (int j = 0; j < num >> 1; j += num2)
+					for (int j = 0; j < (num >> 1); j += num2)
 					{
 						this.weightFftTimesFrom2.multiplyComplex(this.weightFft[j], array[num5]);
 						array2[num6].addComplex(array[num4], this.weightFftTimesFrom2);

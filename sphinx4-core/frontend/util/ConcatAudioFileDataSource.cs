@@ -63,7 +63,7 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+				ex2 = ex;
 				goto IL_65;
 			}
 			goto IL_74;
@@ -73,7 +73,6 @@ namespace edu.cmu.sphinx.frontend.util
 			IL_74:
 			if (!ConcatAudioFileDataSource.assertionsDisabled && arrayList == null)
 			{
-				
 				throw new AssertionError();
 			}
 			return arrayList;
@@ -92,7 +91,6 @@ namespace edu.cmu.sphinx.frontend.util
 			{
 				return;
 			}
-			IOException ex2;
 			try
 			{
 				this.referenceList = new ArrayList();
@@ -100,13 +98,8 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_40;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_40:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
 		
 		public ConcatAudioFileDataSource(int bytesPerRead, List listeners) : base(bytesPerRead, listeners)
@@ -125,7 +118,6 @@ namespace edu.cmu.sphinx.frontend.util
 		public virtual void setBatchFiles(List files)
 		{
 			ArrayList arrayList = new ArrayList();
-			MalformedURLException ex2;
 			try
 			{
 				Iterator iterator = files.iterator();
@@ -137,17 +129,10 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			catch (MalformedURLException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<MalformedURLException>(ex, 1);
-				goto IL_42;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			goto IL_50;
-			IL_42:
-			MalformedURLException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
-			IL_50:
 			this.setBatchUrls(arrayList);
 		}
-
 
 		public override void setAudioFile(URL audioFileURL, string streamName)
 		{
@@ -155,7 +140,6 @@ namespace edu.cmu.sphinx.frontend.util
 			throw new UnsupportedOperationException();
 		}
 
-		
 		public virtual List getReferences()
 		{
 			return this.referenceList;
@@ -208,8 +192,6 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				if (ConcatAudioFileDataSource.access_000(this.this_0) != null)
 				{
-					IOException ex2;
-					UnsupportedAudioFileException ex4;
 					try
 					{
 						try
@@ -244,31 +226,23 @@ namespace edu.cmu.sphinx.frontend.util
 						}
 						catch (IOException ex)
 						{
-							ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-							goto IL_1B1;
+							Throwable.instancehelper_printStackTrace(ex);
+
+							throw new Error(new StringBuilder().append("Cannot convert ").append(ConcatAudioFileDataSource.access_000(this.this_0)).append(" to a FileInputStream").toString());
 						}
 					}
 					catch (UnsupportedAudioFileException ex3)
 					{
-						ex4 = ByteCodeHelper.MapException<UnsupportedAudioFileException>(ex3, 1);
-						goto IL_1B5;
+						Throwable.instancehelper_printStackTrace(ex3);
 					}
 					return result;
-					IL_1B1:
-					IOException ex5 = ex2;
-					Throwable.instancehelper_printStackTrace(ex5);
-					string text2 = new StringBuilder().append("Cannot convert ").append(ConcatAudioFileDataSource.access_000(this.this_0)).append(" to a FileInputStream").toString();
-					
-					throw new Error(text2);
-					IL_1B5:
-					UnsupportedAudioFileException ex6 = ex4;
-					Throwable.instancehelper_printStackTrace(ex6);
 				}
 				return result;
 			}
 			
 			internal InputStreamEnumeration(ConcatAudioFileDataSource concatAudioFileDataSource, List list)
 			{
+				this_0 = concatAudioFileDataSource;
 				this.fileIt = new ArrayList(list).iterator();
 			}
 
@@ -281,8 +255,6 @@ namespace edu.cmu.sphinx.frontend.util
 				return ConcatAudioFileDataSource.access_000(this.this_0) != null;
 			}
 
-			
-			
 			object Enumeration.nextElement()
 			{
 				return this.nextElement();
@@ -292,7 +264,7 @@ namespace edu.cmu.sphinx.frontend.util
 			
 			internal Iterator fileIt;
 
-			internal ConcatAudioFileDataSource this_0 = concatAudioFileDataSource;
+			internal ConcatAudioFileDataSource this_0;
 		}
 	}
 }

@@ -6,7 +6,7 @@ namespace edu.cmu.sphinx.linguist.lextree
 	{
 		internal abstract Unit getBaseUnit();
 
-		//internal abstract object getKey();
+		internal abstract object getKey();
 		
 		internal UnitNode(float num) : base(num)
 		{

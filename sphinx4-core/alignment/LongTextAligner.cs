@@ -176,12 +176,10 @@ namespace edu.cmu.sphinx.alignment
 
 		private List refWords;
 
-		
 		internal static bool assertionsDisabled = !ClassLiteral<LongTextAligner>.Value.desiredAssertionStatus();
 
 		internal sealed class Alignment : java.lang.Object
-		{
-			
+		{			
 			internal static List access_000(LongTextAligner.Alignment alignment)
 			{
 				return alignment.shifts;
@@ -199,6 +197,7 @@ namespace edu.cmu.sphinx.alignment
 			
 			public Alignment(LongTextAligner longTextAligner, List list, Range range)
 			{
+				this_0 = longTextAligner;
 				this.query = list;
 				this.indices = new ArrayList();
 				TreeSet treeSet = new TreeSet();
@@ -291,7 +290,7 @@ namespace edu.cmu.sphinx.alignment
 			
 			private List alignment;
 
-			internal LongTextAligner this_0 = longTextAligner;
+			internal LongTextAligner this_0;
 		}
 	}
 }

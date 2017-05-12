@@ -6,7 +6,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.linguist.language.ngram
 {
-	public class InterpolatedLanguageModel : java.lang.Object, LanguageModel, Configurable
+	public class InterpolatedLanguageModel : LanguageModelBase
 	{		
 		public InterpolatedLanguageModel(List languageModels, float[] floats)
 		{
@@ -36,7 +36,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			this.allocated = false;
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			if (this.allocated)
 			{
@@ -65,7 +65,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 					num += array[i];
 					this.weights[i] = this.logMath.linearToLog((double)array[i]);
 				}
-				catch (NumberFormatException ex)
+				catch (NumberFormatException)
 				{
 					goto IL_D0;
 				}
@@ -88,7 +88,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			if (!this.allocated)
 			{
@@ -104,7 +104,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 		
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			this.allocated = false;
 			Iterator iterator = this.languageModels.iterator();
@@ -115,7 +115,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 		}
 		
-		public virtual float getProbability(WordSequence wordSequence)
+		public override float getProbability(WordSequence wordSequence)
 		{
 			float num = 0f;
 			for (int i = 0; i < this.numberOfLanguageModels; i++)
@@ -132,17 +132,17 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			}
 			return num;
 		}
-		public virtual float getSmear(WordSequence wordSequence)
+		public override float getSmear(WordSequence wordSequence)
 		{
 			return 1f;
 		}
 		
-		public virtual Set getVocabulary()
+		public override Set getVocabulary()
 		{
 			return this.vocabulary;
 		}
 		
-		public virtual int getMaxDepth()
+		public override int getMaxDepth()
 		{
 			int num = 0;
 			Iterator iterator = this.languageModels.iterator();
@@ -158,7 +158,7 @@ namespace edu.cmu.sphinx.linguist.language.ngram
 			return num;
 		}
 
-		public virtual void onUtteranceEnd()
+		public override void onUtteranceEnd()
 		{
 		}
 

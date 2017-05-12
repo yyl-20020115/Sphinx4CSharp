@@ -46,7 +46,7 @@ namespace edu.cmu.sphinx.util.props
 			{
 				string text = propName;
 				_ref = "->";
-				charSequence.__ref = _ref;
+				charSequence = CharSequence.Cast(_ref);
 				if (!java.lang.String.instancehelper_contains(text, charSequence) && !componentNames.contains(propName))
 				{
 					string text2 = new StringBuilder().append("No property or configurable '").append(propName).append("' in configuration '").append(cm.getConfigURL()).append("'!").toString();
@@ -56,7 +56,6 @@ namespace edu.cmu.sphinx.util.props
 			}
 			if (componentNames.contains(propName))
 			{
-				ClassNotFoundException ex2;
 				try
 				{
 					Class confClass = Class.forName(propValue, ConfigurationManagerUtils.__GetCallerID()).asSubclass(ClassLiteral<Configurable>.Value);
@@ -64,19 +63,13 @@ namespace edu.cmu.sphinx.util.props
 				}
 				catch (ClassNotFoundException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<ClassNotFoundException>(ex, 1);
-					goto IL_D7;
+					throw new RuntimeException(ex);
+
 				}
-				return;
-				IL_D7:
-				ClassNotFoundException ex3 = ex2;
-				Exception ex4 = ex3;
-				
-				throw new RuntimeException(ex4);
 			}
 			string text3 = propName;
 			_ref = "->";
-			charSequence.__ref = _ref;
+			charSequence = CharSequence.Cast(_ref);
 			if (!java.lang.String.instancehelper_contains(text3, charSequence) && ((List)map.get(propName)).size() > 1)
 			{
 				string text4 = new StringBuilder().append("Property-name '").append(propName).append("' is ambiguous with respect to configuration '").append(cm.getConfigURL()).append("'. Use 'componentName->propName' to disambiguate your request.").toString();
@@ -85,7 +78,7 @@ namespace edu.cmu.sphinx.util.props
 			}
 			string text5 = propName;
 			_ref = "->";
-			charSequence.__ref = _ref;
+			charSequence = CharSequence.Cast(_ref);
 			string componentName;
 			if (java.lang.String.instancehelper_contains(text5, charSequence))
 			{
@@ -127,7 +120,6 @@ namespace edu.cmu.sphinx.util.props
 				
 				throw new AssertionError();
 			}
-			FileNotFoundException ex2;
 			try
 			{
 				PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(cmLocation), Charset.forName("UTF-8")));
@@ -138,13 +130,8 @@ namespace edu.cmu.sphinx.util.props
 			}
 			catch (FileNotFoundException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<FileNotFoundException>(ex, 1);
-				goto IL_7A;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_7A:
-			FileNotFoundException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
 		
 		public static URL getResource(string name, PropertySheet ps)
@@ -158,32 +145,16 @@ namespace edu.cmu.sphinx.util.props
 				throw new InternalConfigurationException(instanceName, name, text);
 			}
 			URL result;
-			MalformedURLException ex2;
 			try
 			{
 				URL url = ConfigurationManagerUtils.resourceToURL(@string);
-				if (url == null)
-				{
-					string instanceName2 = ps.getInstanceName();
-					string text2 = new StringBuilder().append("Can't locate ").append(@string).toString();
-					
-					throw new InternalConfigurationException(instanceName2, name, text2);
-				}
-				result = url;
+				result = url ?? throw new InternalConfigurationException(ps.getInstanceName(), name, new StringBuilder().append("Can't locate ").append(@string).toString());
 			}
 			catch (MalformedURLException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<MalformedURLException>(ex, 1);
-				goto IL_8A;
+				throw new InternalConfigurationException(ex, ps.getInstanceName(), name, new StringBuilder().append("Bad URL ").append(@string).append(Throwable.instancehelper_getMessage(ex)).toString());
 			}
 			return result;
-			IL_8A:
-			MalformedURLException ex3 = ex2;
-			System.Exception ex4 = ex3;
-			string instanceName3 = ps.getInstanceName();
-			string text3 = new StringBuilder().append("Bad URL ").append(@string).append(Throwable.instancehelper_getMessage(ex3)).toString();
-			
-			throw new InternalConfigurationException(ex4, instanceName3, name, text3);
 		}
 		
 		public static void showConfig(ConfigurationManager cm, string name)
@@ -250,15 +221,10 @@ namespace edu.cmu.sphinx.util.props
 						continue;
 					}
 				}
-				catch (IOException ex)
+				catch (IOException)
 				{
-					goto IL_A6;
+					goto IL_15D;
 				}
-				goto IL_A2;
-				continue;
-				IL_A6:
-				goto IL_15D;
-				IL_A2:
 				try
 				{
 					string text2;
@@ -290,7 +256,7 @@ namespace edu.cmu.sphinx.util.props
 						}
 					}
 				}
-				catch (IOException ex2)
+				catch (IOException)
 				{
 					goto IL_158;
 				}

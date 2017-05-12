@@ -239,7 +239,7 @@ namespace edu.cmu.sphinx.frontend.endpoint
 
 		protected internal float frameLengthSec;
 
-		protected internal new bool _isSpeech;
+		protected internal bool _isSpeech;
 
 		protected internal long speechFrames;
 

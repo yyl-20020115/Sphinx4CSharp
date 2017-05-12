@@ -1,12 +1,10 @@
-﻿using System;
-using edu.cmu.sphinx.decoder.pruner;
+﻿using edu.cmu.sphinx.decoder.pruner;
 using edu.cmu.sphinx.decoder.scorer;
 using edu.cmu.sphinx.frontend;
 using edu.cmu.sphinx.linguist;
 using edu.cmu.sphinx.result;
 using edu.cmu.sphinx.util;
 using edu.cmu.sphinx.util.props;
-using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
@@ -212,7 +210,6 @@ namespace edu.cmu.sphinx.decoder.search
 				Token resultListPredecessor = this.getResultListPredecessor(token);
 				if (!state.isEmitting())
 				{
-					Token.__<clinit>();
 					Token token2 = new Token(resultListPredecessor, state, num2, searchStateArc.getInsertionProbability(), searchStateArc.getLanguageProbability(), this.currentCollectTime);
 					StatisticsVariable statisticsVariable = this.tokensCreated;
 					statisticsVariable.value += (double)1f;
@@ -228,7 +225,6 @@ namespace edu.cmu.sphinx.decoder.search
 					Token token2 = this.getBestToken(state);
 					if (token2 == null)
 					{
-						Token.__<clinit>();
 						Token token3 = new Token(resultListPredecessor, state, num2, searchStateArc.getInsertionProbability(), searchStateArc.getLanguageProbability(), (long)this.currentFrameNumber);
 						StatisticsVariable statisticsVariable2 = this.tokensCreated;
 						statisticsVariable2.value += (double)1f;
@@ -249,6 +245,7 @@ namespace edu.cmu.sphinx.decoder.search
 				}
 			}
 		}
+
 		private double getTotalTime()
 		{
 			return ((double)java.lang.System.currentTimeMillis() - this.startTime) / 1000.0;
@@ -297,7 +294,7 @@ namespace edu.cmu.sphinx.decoder.search
 			this.pruner = pruner;
 			this.scorer = scorer;
 			this.activeListFactory = activeListFactory;
-			this.showTokenCount = showTokenCount;
+			this._showTokenCount = showTokenCount;
 			this.growSkipInterval = growSkipInterval;
 			this.wantEntryPruning = wantEntryPruning;
 			this.logRelativeWordBeamWidth = this.logMath.linearToLog(relativeWordBeamWidth);
@@ -314,7 +311,7 @@ namespace edu.cmu.sphinx.decoder.search
 			this.pruner = (Pruner)ps.getComponent("pruner");
 			this.scorer = (AcousticScorer)ps.getComponent("scorer");
 			this.activeListFactory = (ActiveListFactory)ps.getComponent("activeListFactory");
-			this.showTokenCount = ps.getBoolean("showTokenCount").booleanValue();
+			this._showTokenCount = ps.getBoolean("showTokenCount").booleanValue();
 			double linearValue = ps.getDouble("relativeWordBeamWidth");
 			this.growSkipInterval = ps.getInt("growSkipInterval");
 			this.wantEntryPruning = ps.getBoolean("wantEntryPruning").booleanValue();
@@ -331,7 +328,7 @@ namespace edu.cmu.sphinx.decoder.search
 			this.localStart();
 			if (this.startTime == (double)0f)
 			{
-				this.startTime = (double)System.currentTimeMillis();
+				this.startTime = (double)java.lang.System.currentTimeMillis();
 			}
 		}
 		
@@ -354,7 +351,7 @@ namespace edu.cmu.sphinx.decoder.search
 					result = new Result(activeList, this.resultList, (long)this.currentFrameNumber, num != 0, this.linguist.getSearchGraph().getWordTokenFirst(), false);
 				}
 			}
-			if (this.showTokenCount)
+			if (this._showTokenCount)
 			{
 				this.showTokenCount();
 			}
@@ -407,7 +404,6 @@ namespace edu.cmu.sphinx.decoder.search
 			this.tokensCreated = StatisticsVariable.getStatisticsVariable("tokensCreated");
 			this.viterbiPruned = StatisticsVariable.getStatisticsVariable("viterbiPruned");
 			this.beamPruned = StatisticsVariable.getStatisticsVariable("beamPruned");
-			IOException ex2;
 			try
 			{
 				this.linguist.allocate();
@@ -416,24 +412,15 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_90;
+				throw new RuntimeException("Allocation of search manager resources failed", ex);
 			}
 			this.scoreTimer = TimerPool.getTimer(this, "Score");
 			this.pruneTimer = TimerPool.getTimer(this, "Prune");
-			this.growTimer = TimerPool.getTimer(this, "Grow");
-			return;
-			IL_90:
-			IOException ex3 = ex2;
-			string text = "Allocation of search manager resources failed";
-			Exception ex4 = ex3;
-			
-			throw new RuntimeException(text, ex4);
+			this.growTimer = TimerPool.getTimer(this, "Grow");			
 		}
 		
 		public override void deallocate()
 		{
-			IOException ex2;
 			try
 			{
 				this.scorer.deallocate();
@@ -442,16 +429,8 @@ namespace edu.cmu.sphinx.decoder.search
 			}
 			catch (IOException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
-				goto IL_30;
+				throw new RuntimeException("Deallocation of search manager resources failed", ex);
 			}
-			return;
-			IL_30:
-			IOException ex3 = ex2;
-			string text = "Deallocation of search manager resources failed";
-			Exception ex4 = ex3;
-			
-			throw new RuntimeException(text, ex4);
 		}
 
 		public override string toString()
@@ -586,10 +565,9 @@ namespace edu.cmu.sphinx.decoder.search
 
 		private StatisticsVariable beamPruned;
 
-		protected internal bool showTokenCount;
+		protected internal bool _showTokenCount;
 
 		private bool wantEntryPruning;
-
 		
 		protected internal Map bestTokenMap;
 

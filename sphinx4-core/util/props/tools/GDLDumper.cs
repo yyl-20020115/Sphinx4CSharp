@@ -65,7 +65,7 @@ namespace edu.cmu.sphinx.util.props.tools
 					goto IL_10B;
 				}
 			}
-			catch (PropertyException ex)
+			catch (PropertyException)
 			{
 				goto IL_110;
 			}

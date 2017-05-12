@@ -109,7 +109,7 @@ namespace edu.cmu.sphinx.tools.audio
 			this.currentIndex = this.markIndex;
 		}
 
-		internal AudioFormat format;
+		//internal AudioFormat format;
 
 		internal int currentIndex;
 

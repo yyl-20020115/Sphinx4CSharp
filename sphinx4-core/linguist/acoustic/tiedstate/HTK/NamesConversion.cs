@@ -264,7 +264,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 		
 		internal virtual void convertWordGrammar(string text)
 		{
-			IOException ex2;
 			try
 			{
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(text));
@@ -455,19 +454,12 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.HTK
 				}
 				printWriter.close();
 				bufferedReader.close();
-				goto IL_548;
+				return;
 			}
 			catch (IOException ex)
 			{
-				ex2 = ex;
-				goto IL_54A;
+				Throwable.instancehelper_printStackTrace(ex);
 			}
-			return;
-			IL_548:
-			return;
-			IL_54A:
-			IOException ex3 = ex2;
-			Throwable.instancehelper_printStackTrace(ex3);
 		}
 		
 		public static void main(string[] args)

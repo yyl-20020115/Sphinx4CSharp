@@ -1,8 +1,4 @@
-﻿using System;
-
-using IKVM.Attributes;
-using IKVM.Runtime;
-using java.io;
+﻿using java.io;
 using java.lang;
 using java.net;
 using java.util;
@@ -36,9 +32,6 @@ namespace edu.cmu.sphinx.util.props
 		
 		public virtual Map load()
 		{
-			SAXParseException ex2;
-			SAXException ex4;
-			ParserConfigurationException ex6;
 			try
 			{
 				try
@@ -53,38 +46,19 @@ namespace edu.cmu.sphinx.util.props
 					}
 					catch (SAXParseException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<SAXParseException>(ex, 1);
-						goto IL_6B;
+						throw new IOException(new StringBuilder().append("Error while parsing line ").append(ex.getLineNumber()).append(" of ").append(this.url).append(": ").append(ex.getMessage()).toString());
 					}
 				}
 				catch (SAXException ex3)
 				{
-					ex4 = ByteCodeHelper.MapException<SAXException>(ex3, 1);
-					goto IL_6E;
+					throw new IOException(new StringBuilder().append("Problem with XML: ").append(ex3).toString());
 				}
 			}
 			catch (ParserConfigurationException ex5)
 			{
-				ex6 = ByteCodeHelper.MapException<ParserConfigurationException>(ex5, 1);
-				goto IL_72;
+				throw new IOException(Throwable.instancehelper_getMessage(ex5));
 			}
 			return this.rpdMap;
-			IL_6B:
-			SAXParseException ex7 = ex2;
-			string text = new StringBuilder().append("Error while parsing line ").append(ex7.getLineNumber()).append(" of ").append(this.url).append(": ").append(ex7.getMessage()).toString();
-			string text2 = text;
-			
-			throw new IOException(text2);
-			IL_6E:
-			SAXException ex8 = ex4;
-			string text3 = new StringBuilder().append("Problem with XML: ").append(ex8).toString();
-			
-			throw new IOException(text3);
-			IL_72:
-			ParserConfigurationException ex9 = ex6;
-			string text4 = Throwable.instancehelper_getMessage(ex9);
-			
-			throw new IOException(text4);
 		}
 		
 		public SaxLoader(URL url, Map globalProperties) : this(url, globalProperties, null, false)

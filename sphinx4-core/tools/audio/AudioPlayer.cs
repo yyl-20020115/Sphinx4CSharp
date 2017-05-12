@@ -1,7 +1,5 @@
 ﻿using System;
-
 using System.Threading;
-using IKVM.Attributes;
 using ikvm.@internal;
 using IKVM.Runtime;
 using java.lang;
@@ -30,12 +28,12 @@ namespace edu.cmu.sphinx.tools.audio
 		
 		public override void run()
 		{
-			AudioData obj;
+			AudioData obj = this.audio;
 			for (;;)
 			{
 				try
 				{
-					Monitor.Enter(obj = this.audio);
+					Monitor.Enter(obj);
 					try
 					{
 						java.lang.Object.instancehelper_wait(this.audio);
@@ -66,48 +64,27 @@ namespace edu.cmu.sphinx.tools.audio
 					}
 					catch (System.Exception ex)
 					{
+						Throwable.instancehelper_printStackTrace(ex);
+
 						break;
 					}
 					continue;
 				}
 				catch (System.Exception ex3)
 				{
-					Exception ex4 = ByteCodeHelper.MapException<Exception>(ex3, 0);
-					if (ex4 == null)
-					{
-						throw;
-					}
-					ex5 = ex4;
-					goto IL_10D;
+					Throwable.instancehelper_printStackTrace(ex3);
 				}
 				break;
 			}
-			Exception ex6 = ex2;
-			Exception ex10;
 			try
 			{
-				Exception ex7 = ex6;
 				Monitor.Exit(obj);
-				throw Throwable.__<unmap>(ex7);
 			}
-			catch (Exception ex8)
+			catch (System.Exception ex8)
 			{
-				Exception ex9 = ByteCodeHelper.MapException<Exception>(ex8, 0);
-				if (ex9 == null)
-				{
-					throw;
-				}
-				ex10 = ex9;
+				Throwable.instancehelper_printStackTrace(ex8);
 			}
-			Exception ex11 = ex10;
-			goto IL_13D;
-			IL_10D:
-			ex11 = ex5;
-			IL_13D:
-			Exception ex12 = ex11;
-			Throwable.instancehelper_printStackTrace(ex12);
 		}
-
 
 		private AudioData audio;
 

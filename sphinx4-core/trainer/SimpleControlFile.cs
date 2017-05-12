@@ -7,7 +7,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.trainer
 {
-	public class SimpleControlFile : java.lang.Object, ControlFile, Configurable
+	public class SimpleControlFile : ControlFileBase
 	{
 		private List getLines(string text)
 		{
@@ -62,7 +62,7 @@ namespace edu.cmu.sphinx.trainer
 		{
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.dictionary = (TrainerDictionary)ps.getComponent("dictionary");
@@ -100,18 +100,18 @@ namespace edu.cmu.sphinx.trainer
 			}
 		}
 		
-		public virtual void startUtteranceIterator()
+		public override void startUtteranceIterator()
 		{
 			this.audioFileIterator = this.audioFileList.iterator();
 			this.transcriptFileIterator = this.transcriptFileList.iterator();
 		}
 		
-		public virtual bool hasMoreUtterances()
+		public override bool hasMoreUtterances()
 		{
 			return this.audioFileIterator.hasNext() && this.transcriptFileIterator.hasNext();
 		}
 		
-		public virtual Utterance nextUtterance()
+		public override Utterance nextUtterance()
 		{
 			this.logger.fine("processing ext utterance");
 			string text = new StringBuilder().append((string)this.audioFileIterator.next()).append(".mfc").toString();

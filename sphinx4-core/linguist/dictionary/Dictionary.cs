@@ -18,6 +18,11 @@ namespace edu.cmu.sphinx.linguist.dictionary
 
 		Word getSentenceEndWord();
 
+
+	}
+
+	public abstract class DictionaryBase : java.lang.Object, Dictionary
+	{
 		public const string SENTENCE_START_SPELLING = "<s>";
 
 		public const string SENTENCE_END_SPELLING = "</s>";
@@ -93,7 +98,15 @@ namespace edu.cmu.sphinx.linguist.dictionary
 		})]
 		public const string PROP_ADDENDA = "addenda";
 
-		
+		public abstract void allocate();
+		public abstract void deallocate();
+		public abstract Word[] getFillerWords();
+		public abstract Word getSentenceEndWord();
+		public abstract Word getSentenceStartWord();
+		public abstract Word getSilenceWord();
+		public abstract Word getWord(string str);
+		public abstract void newProperties(PropertySheet ps);
+
 		public static class __Fields
 		{
 			public const string SENTENCE_START_SPELLING = "<s>";

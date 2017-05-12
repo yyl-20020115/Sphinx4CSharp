@@ -21,12 +21,12 @@ namespace edu.cmu.sphinx.util
 						float num = Float.parseFloat(array[1]);
 						Thread.sleep(ByteCodeHelper.f2l(num * 1000f));
 					}
-					catch (NumberFormatException ex)
+					catch (NumberFormatException)
 					{
 						this.this_0.putResponse("Usage: delay time-in-seconds");
 					}
 				}
-				catch (InterruptedException ex2)
+				catch (InterruptedException)
 				{
 				}
 			}

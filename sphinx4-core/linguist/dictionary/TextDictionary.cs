@@ -10,7 +10,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.dictionary
 {
-	public class TextDictionary : java.lang.Object, Dictionary, Configurable
+	public class TextDictionary : DictionaryBase
 	{
 		public TextDictionary(URL wordDictionaryFile, URL fillerDictionaryFile, List addendaUrlList, string wordReplacement, UnitManager unitManager)
 		{
@@ -101,7 +101,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			return -1;
 		}
 		
-		public virtual Word getWord(string text)
+		public override Word getWord(string text)
 		{
 			Word word = (Word)this.wordDictionary.get(text);
 			if (word != null)
@@ -250,7 +250,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			this.g2pMaxPron = 0;
 		}
 		
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.wordDictionaryFile = ConfigurationManagerUtils.getResource("dictionaryPath", ps);
@@ -272,7 +272,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			return this.fillerDictionaryFile;
 		}
 		
-		public virtual void allocate()
+		public override void allocate()
 		{
 			if (!this.allocated)
 			{
@@ -294,7 +294,7 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 		}
 
-		public virtual void deallocate()
+		public override void deallocate()
 		{
 			if (this.allocated)
 			{
@@ -304,22 +304,22 @@ namespace edu.cmu.sphinx.linguist.dictionary
 			}
 		}
 		
-		public virtual Word getSentenceStartWord()
+		public override Word getSentenceStartWord()
 		{
 			return this.getWord("<s>");
 		}
 		
-		public virtual Word getSentenceEndWord()
+		public override Word getSentenceEndWord()
 		{
 			return this.getWord("</s>");
 		}
 		
-		public virtual Word getSilenceWord()
+		public override Word getSilenceWord()
 		{
 			return this.getWord("<sil>");
 		}
 		
-		public virtual Word[] getFillerWords()
+		public override Word[] getFillerWords()
 		{
 			Word[] array = new Word[this.fillerWords.size()];
 			int num = 0;

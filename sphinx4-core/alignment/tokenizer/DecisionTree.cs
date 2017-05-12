@@ -184,47 +184,16 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			@out.close();
 		}
 
-		
-		static DecisionTree()
-		{
-		}
-
-		
 		protected internal string dumpDotNodeColor(object obj)
 		{
 			return this.dumpDotNodeColor((DecisionTree.Node)obj);
 		}
-
-		protected internal string _0(object obj)
-		{
-			return this.dumpDotNodeColor((DecisionTree.Node)obj);
-		}
-
 		
 		protected internal string dumpDotNodeShape(object obj)
 		{
 			return this.dumpDotNodeShape((DecisionTree.Node)obj);
 		}
-
-		
-		protected internal string _1(object obj)
-		{
-			return this.dumpDotNodeShape((DecisionTree.Node)obj);
-		}
-
-		
-		protected internal object getNode(string type, StringTokenizer tokenizer, int currentNode)
-		{
-			return this.getNode(type, tokenizer, currentNode);
-		}
-
-		
-		protected internal object _2(string type, StringTokenizer tokenizer, int currentNode)
-		{
-			return this.getNode(type, tokenizer, currentNode);
-		}
-
-		
+	
 		private static Logger logger = Logger.getLogger(ClassLiteral<DecisionTree>.Value.getSimpleName());
 
 		internal const string TOTAL = "TOTAL";
@@ -386,8 +355,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			{
 				Pattern pattern = this.pattern;
 				object _ref = (string)obj;
-				CharSequence charSequence = new CharSequence();
-				charSequence.__ref = _ref;
+				CharSequence charSequence = CharSequence.Cast(_ref);
 				return (!pattern.matcher(charSequence).matches()) ? this.qfalse : this.qtrue;
 			}
 
@@ -404,7 +372,7 @@ namespace edu.cmu.sphinx.alignment.tokenizer
 			internal Pattern pattern;
 		}
 
-		internal abstract class Node : java.lang.Object
+		public abstract class Node : java.lang.Object
 		{			
 			public Node(object obj)
 			{

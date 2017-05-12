@@ -16,7 +16,6 @@ namespace edu.cmu.sphinx.tools.audio
 		{
 			if (AudioTool.filename != null && !java.lang.String.instancehelper_isEmpty(AudioTool.filename))
 			{
-				IOException ex2;
 				try
 				{
 					Utils.writeRawFile(AudioTool.audio, AudioTool.filename);

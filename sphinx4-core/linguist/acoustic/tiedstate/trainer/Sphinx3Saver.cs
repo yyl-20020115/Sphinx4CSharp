@@ -8,7 +8,7 @@ using java.util.logging;
 
 namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 {
-	public class Sphinx3Saver : java.lang.Object, Saver, Configurable
+	public class Sphinx3Saver : SaverBase
 	{
 		private void saveDensityFileBinary(Pool pool, string text, bool append)
 		{
@@ -560,7 +560,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 		{
 		}
 
-		public virtual void newProperties(PropertySheet ps)
+		public override void newProperties(PropertySheet ps)
 		{
 			this.logger = ps.getLogger();
 			this.location = ps.getString("saveLocation");
@@ -597,7 +597,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			return this.location;
 		}
 	
-		public virtual void save(string modelName, bool b)
+		public override void save(string modelName, bool b)
 		{
 			this.logger.info(new StringBuilder().append("Saving acoustic model: ").append(modelName).toString());
 			this.logger.info(new StringBuilder().append("    Path      : ").append(this.location).toString());
@@ -619,62 +619,62 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			}
 			this.saveHMMPool(this.useCDUnits, StreamFactory.getOutputStream(this.location, "mdef", true), new StringBuilder().append(this.location).append(File.separator).append("mdef").toString());
 		}
-		public virtual Map getContextIndependentUnits()
+		public override Map getContextIndependentUnits()
 		{
 			return this.contextIndependentUnits;
 		}
 		
-		public virtual Pool getMeansPool()
+		public override Pool getMeansPool()
 		{
 			return this.meansPool;
 		}
 
-		public virtual Pool getMeansTransformationMatrixPool()
+		public override Pool getMeansTransformationMatrixPool()
 		{
 			return this.meanTransformationMatrixPool;
 		}
 
-		public virtual Pool getMeansTransformationVectorPool()
+		public override Pool getMeansTransformationVectorPool()
 		{
 			return this.meanTransformationVectorPool;
 		}
 		
-		public virtual Pool getVariancePool()
+		public override Pool getVariancePool()
 		{
 			return this.variancePool;
 		}
 		
-		public virtual Pool getVarianceTransformationMatrixPool()
+		public override Pool getVarianceTransformationMatrixPool()
 		{
 			return this.varianceTransformationMatrixPool;
 		}
 
-		public virtual Pool getVarianceTransformationVectorPool()
+		public override Pool getVarianceTransformationVectorPool()
 		{
 			return this.varianceTransformationVectorPool;
 		}
 
-		public virtual Pool getSenonePool()
+		public override Pool getSenonePool()
 		{
 			return this.senonePool;
 		}
 
-		public virtual int getLeftContextSize()
+		public override int getLeftContextSize()
 		{
 			return 1;
 		}
 
-		public virtual int getRightContextSize()
+		public override int getRightContextSize()
 		{
 			return 1;
 		}
 
-		public virtual HMMManager getHMMManager()
+		public override HMMManager getHMMManager()
 		{
 			return this.hmmManager;
 		}
 		
-		public virtual void logInfo()
+		public override void logInfo()
 		{
 			this.logger.info("Sphinx3Saver");
 			this.meansPool.logInfo(this.logger);
@@ -698,7 +698,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			"defaultValue",
 			true
 		})]
-		public const string PROP_SPARSE_FORM = "sparseForm";
+		public new const string PROP_SPARSE_FORM = "sparseForm";
 
 		protected internal bool sparseForm;
 
@@ -718,7 +718,7 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 			"defaultValue",
 			0.0
 		})]
-		public const string PROP_MC_FLOOR = "MixtureComponentScoreFloor";
+		public new const string PROP_MC_FLOOR = "MixtureComponentScoreFloor";
 
 		[S4Component(new object[]
 		{
@@ -772,6 +772,8 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 
 		private Pool varianceTransformationVectorPool;
 
+		private bool binary;
+
 		private GaussianWeights mixtureWeights;
 
 		private Pool senonePool;
@@ -783,8 +785,6 @@ namespace edu.cmu.sphinx.linguist.acoustic.tiedstate.trainer
 		private HMMManager hmmManager;
 
 		protected internal LogMath logMath;
-
-		private bool binary;
 
 		private string location;
 

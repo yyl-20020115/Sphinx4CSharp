@@ -4,8 +4,9 @@ using IKVM.Runtime;
 using java.io;
 using java.lang;
 using java.util;
+#if DEF_MATH
 using org.apache.commons.math3.linear;
-
+#endif
 namespace edu.cmu.sphinx.decoder.adaptation
 {
 	public class Transform : java.lang.Object
@@ -103,6 +104,7 @@ namespace edu.cmu.sphinx.decoder.adaptation
 					array4[0] = num5;
 					array3[num2] = (float[][])ByteCodeHelper.multianewarray(typeof(float[][]).TypeHandle, array4);
 					this.Bs[i][j] = new float[num];
+#if DEF_MATH
 					for (int k = 0; k < num; k++)
 					{
 						Array2DRowRealMatrix matrix = new Array2DRowRealMatrix(array[i][j][k], false);
@@ -115,6 +117,7 @@ namespace edu.cmu.sphinx.decoder.adaptation
 						}
 						this.Bs[i][j][k] = (float)realVector.getEntry(num);
 					}
+#endif
 				}
 			}
 		}

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using edu.cmu.sphinx.util.props;
 using ikvm.@internal;
 using IKVM.Runtime;
@@ -38,7 +37,6 @@ namespace edu.cmu.sphinx.frontend.util
 		{
 			return microphone.audioStream;
 		}
-
 		
 		internal static Utterance access_402(Microphone microphone, Utterance result)
 		{
@@ -46,7 +44,6 @@ namespace edu.cmu.sphinx.frontend.util
 			return result;
 		}
 
-		
 		internal static BlockingQueue access_700(Microphone microphone)
 		{
 			return microphone.audioList;
@@ -202,7 +199,6 @@ namespace edu.cmu.sphinx.frontend.util
 			{
 				return this.audioLine;
 			}
-			LineUnavailableException ex2;
 			try
 			{
 				this.logger.info(new StringBuilder().append("Final format: ").append(this.finalFormat).toString());
@@ -220,14 +216,8 @@ namespace edu.cmu.sphinx.frontend.util
 			}
 			catch (LineUnavailableException ex)
 			{
-				ex2 = ByteCodeHelper.MapException<LineUnavailableException>(ex, 1);
-				goto IL_99;
+				this.logger.severe(new StringBuilder().append("microphone unavailable ").append(Throwable.instancehelper_getMessage(ex)).toString());
 			}
-			goto IL_C9;
-			IL_99:
-			LineUnavailableException ex3 = ex2;
-			this.logger.severe(new StringBuilder().append("microphone unavailable ").append(Throwable.instancehelper_getMessage(ex3)).toString());
-			IL_C9:
 			return this.audioLine;
 		}
 	
@@ -239,15 +229,14 @@ namespace edu.cmu.sphinx.frontend.util
 				if (!targetDataLine.isOpen())
 				{
 					this.logger.info("open");
-					LineUnavailableException ex2;
 					try
 					{
 						targetDataLine.open(this.finalFormat, this.audioBufferSize);
 					}
 					catch (LineUnavailableException ex)
 					{
-						ex2 = ByteCodeHelper.MapException<LineUnavailableException>(ex, 1);
-						goto IL_49;
+						this.logger.severe(new StringBuilder().append("Can't open microphone ").append(Throwable.instancehelper_getMessage(ex)).toString());
+						return false;
 					}
 					this.audioStream = new AudioInputStream(targetDataLine);
 					if (this.doConversion)
@@ -255,7 +244,6 @@ namespace edu.cmu.sphinx.frontend.util
 						this.audioStream = AudioSystem.getAudioInputStream(this.desiredFormat, this.audioStream);
 						if (!Microphone.assertionsDisabled && this.audioStream == null)
 						{
-							
 							throw new AssertionError();
 						}
 					}
@@ -263,10 +251,7 @@ namespace edu.cmu.sphinx.frontend.util
 					this.frameSizeInBytes = this.audioStream.getFormat().getSampleSizeInBits() / 8 * ByteCodeHelper.f2i(num * this.audioStream.getFormat().getSampleRate()) * this.desiredFormat.getChannels();
 					this.logger.info(new StringBuilder().append("Frame size: ").append(this.frameSizeInBytes).append(" bytes").toString());
 					return true;
-					IL_49:
-					LineUnavailableException ex3 = ex2;
-					this.logger.severe(new StringBuilder().append("Can't open microphone ").append(Throwable.instancehelper_getMessage(ex3)).toString());
-					return false;
+
 				}
 				return true;
 			}
@@ -377,7 +362,7 @@ namespace edu.cmu.sphinx.frontend.util
 				return false;
 			}
 			this.utteranceEndReached = false;
-			Thread.MemoryBarrier();
+			System.Threading.Thread.MemoryBarrier();
 			if (this.audioLine.isRunning())
 			{
 				this.logger.severe("Whoops: audio line is running");
@@ -390,7 +375,7 @@ namespace edu.cmu.sphinx.frontend.util
 			this.recorder = new Microphone.RecordingThread(this, "Microphone");
 			this.recorder.start();
 			this.recording = true;
-			Thread.MemoryBarrier();
+			System.Threading.Thread.MemoryBarrier();
 			return true;
 		}
 	
@@ -404,7 +389,7 @@ namespace edu.cmu.sphinx.frontend.util
 					this.recorder = null;
 				}
 				this.recording = false;
-				Thread.MemoryBarrier();
+				System.Threading.Thread.MemoryBarrier();
 			}
 		}
 	
@@ -418,29 +403,21 @@ namespace edu.cmu.sphinx.frontend.util
 			Data data = null;
 			if (!this.utteranceEndReached)
 			{
-				InterruptedException ex2;
 				try
 				{
 					data = (Data)this.audioList.take();
 				}
 				catch (InterruptedException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<InterruptedException>(ex, 1);
-					goto IL_2C;
+					throw new DataProcessingException("cannot take Data from audioList", ex);
 				}
 				if (data is DataEndSignal)
 				{
 					this.utteranceEndReached = true;
-					Thread.MemoryBarrier();
+					System.Threading.Thread.MemoryBarrier();
 					return data;
 				}
 				return data;
-				IL_2C:
-				InterruptedException ex3 = ex2;
-				string message = "cannot take Data from audioList";
-				Exception cause = ex3;
-				
-				throw new DataProcessingException(message, cause);
 			}
 			return data;
 		}
@@ -607,14 +584,11 @@ namespace edu.cmu.sphinx.frontend.util
 		private int sampleRate;
 
 		private int audioBufferSize;
-
 		
 		internal static bool assertionsDisabled = !ClassLiteral<Microphone>.Value.desiredAssertionStatus();
-
 		
 		internal sealed class RecordingThread : java.lang.Thread
 		{
-
 			private void waitForStart()
 			{
 				try
@@ -624,7 +598,7 @@ namespace edu.cmu.sphinx.frontend.util
 						java.lang.Object.instancehelper_wait(this);
 					}
 				}
-				catch (InterruptedException ex)
+				catch (InterruptedException)
 				{
 					goto IL_18;
 				}
@@ -697,6 +671,7 @@ namespace edu.cmu.sphinx.frontend.util
 	
 			public RecordingThread(Microphone microphone, string text) : base(text)
 			{
+				this_0 = microphone;
 				this.@lock = new System.Object();
 			}
 
@@ -712,7 +687,7 @@ namespace edu.cmu.sphinx.frontend.util
 			{
 				Microphone.access_100(this.this_0).stop();
 				object obj;
-				Exception ex2;
+				System.Exception ex2;
 				InterruptedException ex4;
 				try
 				{
@@ -725,30 +700,28 @@ namespace edu.cmu.sphinx.frontend.util
 						}
 						Monitor.Exit(obj);
 					}
-					catch (Exception ex)
+					catch (System.Exception ex)
 					{
-						ex2 = ByteCodeHelper.MapException<Exception>(ex, 0);
+						ex2 = ex;
 						goto IL_54;
 					}
 					goto IL_57;
 				}
 				catch (InterruptedException ex3)
 				{
-					ex4 = ByteCodeHelper.MapException<InterruptedException>(ex3, 1);
+					ex4 = ex3;
 					goto IL_59;
 				}
 				IL_54:
-				Exception ex5 = ex2;
 				InterruptedException ex8;
 				try
 				{
-					Exception ex6 = ex5;
 					Monitor.Exit(obj);
-					throw Throwable.__<unmap>(ex6);
+					throw ex2;
 				}
 				catch (InterruptedException ex7)
 				{
-					ex8 = ByteCodeHelper.MapException<InterruptedException>(ex7, 1);
+					ex8 = ex7;
 				}
 				InterruptedException ex9 = ex8;
 				goto IL_7E;
@@ -796,7 +769,7 @@ namespace edu.cmu.sphinx.frontend.util
 				}
 				catch (IOException ex)
 				{
-					ex2 = ByteCodeHelper.MapException<IOException>(ex, 1);
+					ex2 = ex;
 					goto IL_138;
 				}
 				goto IL_173;
@@ -823,7 +796,7 @@ namespace edu.cmu.sphinx.frontend.util
 
 			private object @lock;
 			
-			internal Microphone this_0 = microphone;
+			internal Microphone this_0;
 		}
 	}
 }
