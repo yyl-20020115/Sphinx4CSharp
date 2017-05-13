@@ -5,10 +5,11 @@ using edu.cmu.sphinx.util;
 using ikvm.@internal;
 using java.io;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.demo.allphone
 {
-	public class AllphoneDemo : java.lang.Object
+	public class AllphoneDemo : Object
 	{
 		public AllphoneDemo()
 		{

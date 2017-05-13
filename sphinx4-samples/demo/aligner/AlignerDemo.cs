@@ -5,10 +5,11 @@ using ikvm.@internal;
 using java.io;
 using java.net;
 using java.util;
+using java.lang;
 
-namespace edu.cmu.sphinx.demo.aligner
+namespace edu.cmu.sphinx.demo.aligner   
 {
-	public class AlignerDemo : java.lang.Object
+	public class AlignerDemo : Object
 	{
 		public AlignerDemo()
 		{

@@ -4,14 +4,14 @@ using java.util;
 
 namespace edu.cmu.sphinx.demo.dialog
 {
-	public class DialogDemo : java.lang.Object
+	public class DialogDemo : Object
 	{
 		private static double parseNumber(string[] array)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			for (int i = 1; i < array.Length; i++)
 			{
-				if (java.lang.String.instancehelper_equals(array[i], "point"))
+				if (String.instancehelper_equals(array[i], "point"))
 				{
 					stringBuilder.append(".");
 				}
@@ -20,7 +20,7 @@ namespace edu.cmu.sphinx.demo.dialog
 					stringBuilder.append(DialogDemo.DIGITS.get(array[i]));
 				}
 			}
-			return java.lang.Double.parseDouble(stringBuilder.toString());
+			return Double.parseDouble(stringBuilder.toString());
 		}
 
 		private static void recognizeDigits(LiveSpeechRecognizer liveSpeechRecognizer)
@@ -34,11 +34,11 @@ namespace edu.cmu.sphinx.demo.dialog
 			for (;;)
 			{
 				string hypothesis = liveSpeechRecognizer.getResult().getHypothesis();
-				if (java.lang.String.instancehelper_equals(hypothesis, "one zero one"))
+				if (String.instancehelper_equals(hypothesis, "one zero one"))
 				{
 					break;
 				}
-				if (java.lang.String.instancehelper_equals(hypothesis, "one oh one"))
+				if (String.instancehelper_equals(hypothesis, "one oh one"))
 				{
 					break;
 				}
@@ -61,35 +61,35 @@ namespace edu.cmu.sphinx.demo.dialog
 			for (;;)
 			{
 				string hypothesis = liveSpeechRecognizer.getResult().getHypothesis();
-				if (java.lang.String.instancehelper_endsWith(hypothesis, "back"))
+				if (String.instancehelper_endsWith(hypothesis, "back"))
 				{
 					break;
 				}
-				if (java.lang.String.instancehelper_startsWith(hypothesis, "deposit"))
+				if (String.instancehelper_startsWith(hypothesis, "deposit"))
 				{
-					double num2 = DialogDemo.parseNumber(java.lang.String.instancehelper_split(hypothesis, "\\s"));
+					double num2 = DialogDemo.parseNumber(String.instancehelper_split(hypothesis, "\\s"));
 					num += num2;
 					java.lang.System.@out.format("Deposited: $%.2f\n", new object[]
 					{
-						java.lang.Double.valueOf(num2)
+						Double.valueOf(num2)
 					});
 				}
-				else if (java.lang.String.instancehelper_startsWith(hypothesis, "withdraw"))
+				else if (String.instancehelper_startsWith(hypothesis, "withdraw"))
 				{
-					double num2 = DialogDemo.parseNumber(java.lang.String.instancehelper_split(hypothesis, "\\s"));
+					double num2 = DialogDemo.parseNumber(String.instancehelper_split(hypothesis, "\\s"));
 					num -= num2;
 					java.lang.System.@out.format("Withdrawn: $%.2f\n", new object[]
 					{
-						java.lang.Double.valueOf(num2)
+						Double.valueOf(num2)
 					});
 				}
-				else if (!java.lang.String.instancehelper_endsWith(hypothesis, "balance"))
+				else if (!String.instancehelper_endsWith(hypothesis, "balance"))
 				{
 					java.lang.System.@out.println(new StringBuilder().append("Unrecognized command: ").append(hypothesis).toString());
 				}
 				java.lang.System.@out.format("Your savings: $%.2f\n", new object[]
 				{
-					java.lang.Double.valueOf(num)
+					Double.valueOf(num)
 				});
 			}
 			liveSpeechRecognizer.stopRecognition();
@@ -106,7 +106,7 @@ namespace edu.cmu.sphinx.demo.dialog
 			for (;;)
 			{
 				string hypothesis = liveSpeechRecognizer.getResult().getHypothesis();
-				if (java.lang.String.instancehelper_equals(hypothesis, "the end"))
+				if (String.instancehelper_equals(hypothesis, "the end"))
 				{
 					break;
 				}
@@ -142,23 +142,23 @@ namespace edu.cmu.sphinx.demo.dialog
 				java.lang.System.@out.println("Example: weather forecast");
 				java.lang.System.@out.println("Example: digits\n");
 				string hypothesis = liveSpeechRecognizer.getResult().getHypothesis();
-				if (java.lang.String.instancehelper_startsWith(hypothesis, "exit"))
+				if (String.instancehelper_startsWith(hypothesis, "exit"))
 				{
 					break;
 				}
-				if (java.lang.String.instancehelper_equals(hypothesis, "digits"))
+				if (String.instancehelper_equals(hypothesis, "digits"))
 				{
 					liveSpeechRecognizer.stopRecognition();
 					DialogDemo.recognizeDigits(liveSpeechRecognizer2);
 					liveSpeechRecognizer.startRecognition(true);
 				}
-				if (java.lang.String.instancehelper_equals(hypothesis, "bank account"))
+				if (String.instancehelper_equals(hypothesis, "bank account"))
 				{
 					liveSpeechRecognizer.stopRecognition();
 					DialogDemo.recognizerBankAccount(liveSpeechRecognizer);
 					liveSpeechRecognizer.startRecognition(true);
 				}
-				if (java.lang.String.instancehelper_endsWith(hypothesis, "weather forecast"))
+				if (String.instancehelper_endsWith(hypothesis, "weather forecast"))
 				{
 					liveSpeechRecognizer.stopRecognition();
 					DialogDemo.recognizeWeather(liveSpeechRecognizer3);
