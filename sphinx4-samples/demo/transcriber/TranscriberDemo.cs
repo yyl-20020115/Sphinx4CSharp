@@ -4,10 +4,11 @@ using edu.cmu.sphinx.result;
 using ikvm.@internal;
 using java.io;
 using java.util;
+using java.lang;
 
 namespace edu.cmu.sphinx.demo.transcriber
 {
-	public class TranscriberDemo : java.lang.Object
+	public class TranscriberDemo : Object
 	{
 		public TranscriberDemo()
 		{

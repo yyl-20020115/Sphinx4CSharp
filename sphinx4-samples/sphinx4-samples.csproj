@@ -124,6 +124,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\cmudict-en-us.dict" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us.lm.bin" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\feat.params" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\mdef" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\means" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\mixture_weights" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\noisedict" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\README" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\sendump" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\transition_matrices" />
+    <None Include="resources\edu\cmu\sphinx\models\en-us\en-us\variances" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\sphinx4-core\sphinx4-core.csproj">

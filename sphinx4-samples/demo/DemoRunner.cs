@@ -9,7 +9,7 @@ using java.util;
 
 namespace edu.cmu.sphinx.demo
 {
-	public class DemoRunner : java.lang.Object
+	public class DemoRunner : Object
 	{
 		public static void Main(string[] args)
 		{
