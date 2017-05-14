@@ -112,9 +112,7 @@ namespace edu.cmu.sphinx.decoder.adaptation
 					{
 #if USE_MAPACK
 						//TODO: need to check if the math is correct
-						Matrix matrix = new Matrix(array[c][i][j]);
-
-						LuDecomposition lu = new LuDecomposition(matrix);
+						Matrix m = new Matrix(array[c][i][j]);
 
 						int rs = array2[c][i][j].Length;
 
@@ -125,7 +123,7 @@ namespace edu.cmu.sphinx.decoder.adaptation
 							rv[r,0] = array2[c][i][j][r];
 						}
 
-						Matrix solved = lu.Solve(rv);
+						Matrix solved = m.Solve(rv);
 
 						for (int k = 0; k < len; k++)
 						{
